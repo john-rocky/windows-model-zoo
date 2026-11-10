@@ -266,6 +266,12 @@ def card_block(m):
         p = line_para(l)
         if l.get("superseded_by"):
             p += f" Superseded by `{l['superseded_by']}`" + (f" ({l['superseded']})" if l.get("superseded") else "") + "."
+        ref = m["dir"] / "reference" / "ref.json"
+        k = json.loads(ref.read_text(encoding="utf-8")).get("key") if l["id"] == "qa20" and ref.exists() else None
+        if k:
+            p += (f" Right by the answer key (`suites/llm/qa20.key.jsonl`; outside the line, added after the runs): the "
+                  f"reference {k['right']} of {k['n']}; each cell's count ends its `line.verdict` (PLAN.md, How to read "
+                  f"the qa20 line).")
         out.append(f"- {p}")
     n = len(m["cells"])
     out += ["", f"## Cells", "",
