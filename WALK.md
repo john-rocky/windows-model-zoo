@@ -1,5 +1,7 @@
 # The README's walk, 2026-11-10
 
+These commands moved from the README to [`docs/reproduce.md`](docs/reproduce.md) on 2026-11-11.
+
 The README's "Walk from an empty folder" commands, run once from a fresh clone on a Mac against a PC folder that did
 not exist, `C:\src\model-zoo`, on the shared Windows laptop the cells ran on (Intel Core Ultra 9 386H with its NPU and
 GPU, RTX 5080 Laptop, 31.5 GiB of RAM). The clone held an earlier version of this tree, pushed privately at 12:29
