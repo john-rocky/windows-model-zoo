@@ -192,11 +192,15 @@ def check_dir(d, fresh_files):
             task = (c.get("llm") or {}).get("task")
             if ln.get("id") == "qa20" and task and run.get("state") == "ok":
                 rec_path = zoo.ROOT / ((c.get("source") or {}).get("record") or "")
-                if "key" not in task:
-                    fails.append(f"{where}: no llm.task.key (python3 tools/results.py --keys)")
-                elif rec_path.is_file() and task["key"] != qa20_key.score_rows(
-                        qa20_key.read_rows(rec_path), KEY, c["source"]["record"]):
-                    fails.append(f"{where}: llm.task.key is not what the answer key gives (python3 tools/results.py --keys)")
+                try:
+                    if "key" not in task:
+                        fails.append(f"{where}: no llm.task.key (python3 tools/results.py --keys)")
+                    elif rec_path.is_file() and task["key"] != qa20_key.score_rows(
+                            qa20_key.read_rows(rec_path), KEY, c["source"]["record"]):
+                        fails.append(f"{where}: llm.task.key is not what the answer key gives "
+                                     "(python3 tools/results.py --keys)")
+                except qa20_key.Stop as e:
+                    fails.append(f"{where}: {e}")
             if ln.get("id") not in lines:
                 fails.append(f"{where}: line {ln.get('id')!r} is not in the recipe")
             elif ln.get("kind") not in (lines[ln["id"]].get("kind"), "reference"):   # the line's reference cell: "reference"
@@ -216,10 +220,13 @@ def check_dir(d, fresh_files):
         if cid not in rcells:
             fails.append(f"{where}: cell is not in recipe.toml")
     ref_path = d / "reference" / "ref.json"
-    if md.get("kind") == "llm" and ref_path.exists():
+    if md.get("kind") == "llm" and "qa20" in lines and ref_path.exists():
         ref = json.loads(ref_path.read_text(encoding="utf-8"))
-        if ref.get("key") != qa20_key.score_rows(ref.get("rows") or [], KEY, f"models/{name}/reference/ref.json"):
-            fails.append("reference/ref.json: key is not what the answer key gives (python3 tools/results.py --keys)")
+        try:
+            if ref.get("key") != qa20_key.score_rows(ref.get("rows") or [], KEY, f"models/{name}/reference/ref.json"):
+                fails.append("reference/ref.json: key is not what the answer key gives (python3 tools/results.py --keys)")
+        except qa20_key.Stop as e:
+            fails.append(f"reference/ref.json: {e}")
     for cid in rcells:
         if cid not in seen:
             fails.append(f"recipe cell {cid}: no results/{cid}.json (a cell nobody ran: run.state not_run with its reason)")

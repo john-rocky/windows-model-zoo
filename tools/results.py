@@ -463,9 +463,9 @@ def keys():
     n = changed = refs = 0
     for d, c in zoo.all_cells():
         task = (c.get("llm") or {}).get("task")
-        if (c.get("line") or {}).get("id") != "qa20" or not task or (c.get("run") or {}).get("state") != "ok":
+        rec = (c.get("source") or {}).get("record")
+        if (c.get("line") or {}).get("id") != "qa20" or not task or (c.get("run") or {}).get("state") != "ok" or not rec:
             continue
-        rec = c["source"]["record"]
         old = (task.get("key"), c["line"].get("verdict"))
         task["key"] = qa20_key.score_rows(qa20_key.read_rows(zoo.ROOT / rec), key, rec)
         set_verdict(c)
@@ -475,7 +475,9 @@ def keys():
             zoo.write_json(c["_path"], c)
     for d in zoo.model_dirs():
         p = d / "reference" / "ref.json"
-        if zoo.recipe(d)["model"]["kind"] != "llm" or not p.exists():
+        recipe = zoo.recipe(d)
+        if (recipe["model"]["kind"] != "llm" or "qa20" not in {l.get("id") for l in recipe.get("line") or []}
+                or not p.exists()):
             continue
         ref = jload(p)
         k = qa20_key.score_rows(ref.get("rows") or [], key, zoo.rel(p))
@@ -554,7 +556,7 @@ def main():
                                                  if ref.get("status") == "OK" else None)})
                 if comp:
                     comp["pulled_from"] = zoo.rel(ref_path)
-                    if r["model"]["kind"] == "llm":
+                    if r["model"]["kind"] == "llm" and c.get("line") == "qa20":
                         comp["key"] = qa20_key.score_rows(comp["rows"], qa20_key.load_key(), zoo.rel(ref_path))
                     zoo.write_json((out / d.name / "ref.json") if out else (d / "reference" / "ref.json"), comp)
     print(f"results: {n} cells" + (" (dry: nothing written)" if args.dry else " written"))
