@@ -182,13 +182,10 @@ a folder that does not exist yet, with every file from a public source, and comp
 Where the files come from:
 
 - **Hub files**: each recipe's `[[fetch]]` at a pinned revision; `pc/fetch.py` checks every file against the Hub's
-  sha256. The vision forms are the vision zoo's own files, and not all of them are public: 28 of the 43 forms the
-  `task-*` cells use are on the Hub with the same sha256 (`mlboydaisuke/<repo>-OpenVINO`); the other 15 (all 11 fp16
-  forms, two fp32 files and two NPU blobs) have no public copy, and their cells cannot be run again from public
-  sources. Ten of the 23 vision models have every file public; for five (dfine_graphB_fp16, metric3d_fp16,
-  rtdetr_graphB_fp16, sam2_decoder, w2v2_head_fp16) the fp32 file the reference runs has no public copy either.
-  `pc/z5_spec.json` names each such file with the vision zoo's PC path, its sha256 and "not public". The walk's cells
-  use none of them.
+  sha256. The vision forms are the vision zoo's own files, with the sha256 of the files measured: 28 of the 43 forms
+  the `task-*` cells use are on the main branch of `mlboydaisuke/<repo>-OpenVINO`; the other 15 (all 11 fp16 forms,
+  two fp32 files and two NPU blobs) and five files the references read are on the branch `windows-model-zoo` of the
+  same repo (since 2026-11-10; `unfixed/` there = converted without the vision zoo's bias fix, as the cells ran it).
 - **The vision inputs and the host steps' files**: the input images and three parameter files from the app repo
   (`john-rocky/LiteRT-Models` at 96e0bc1f) and SAM2's prompt file from the Hub, by URL, pinned by sha256.
 - **llama.cpp b11721**: the release zips (CPU, Vulkan, CUDA 13.4 with its runtime zip) by URL, pinned by sha256

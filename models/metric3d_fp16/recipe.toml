@@ -16,23 +16,31 @@ migrated_from = "john-rocky/windows-zoo@faa4019"
 task = "depth"
 inputs = "suites/vision/images.json"
 
+[[fetch]]
+repo = "mlboydaisuke/Metric3D-v2-OpenVINO"
+revision = "984de058e2ba8da22517cfe17cb826a65f7b0c71"
+include = ["unfixed/fp16/metric3d_fp16.onnx", "unfixed/metric3d_fp16.onnx"]
+why = "the vision zoo's files that this model's task cells or reference read and the repo's main does not hold (branch windows-model-zoo; the same sha256 as the files measured)"
+
 [[form]]
 id = "z1-onnx-fp16"
 short = "fp16"
 label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
 made_by = "the vision zoo Z1"
-path = "C:\\src\\zoo\\fp16\\metric3d_fp16.onnx"
+path = "{HUB}\\mlboydaisuke__Metric3D-v2-OpenVINO\\unfixed\\fp16\\metric3d_fp16.onnx"
 sha256 = "d96f90b7ad645ef2e5332b29f4c8711c0d691bf7a3fc33073aee3149f51ac068"
-public = "none"
+from = "mlboydaisuke/Metric3D-v2-OpenVINO"
+public = "mlboydaisuke/Metric3D-v2-OpenVINO@984de058e2ba8da22517cfe17cb826a65f7b0c71:unfixed/fp16/metric3d_fp16.onnx"
 
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
 label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
 made_by = "the vision zoo Z1"
-path = "C:\\src\\zoo\\onnx\\metric3d_fp16.onnx"
+path = "{HUB}\\mlboydaisuke__Metric3D-v2-OpenVINO\\unfixed\\metric3d_fp16.onnx"
 sha256 = "ccde5da9c6c751bab40dd98285fc05706881b0667663f64f6b7850f89c6c414e"
-public = "none"
+from = "mlboydaisuke/Metric3D-v2-OpenVINO"
+public = "mlboydaisuke/Metric3D-v2-OpenVINO@984de058e2ba8da22517cfe17cb826a65f7b0c71:unfixed/metric3d_fp16.onnx"
 
 [[step]]
 name = "task-ref"

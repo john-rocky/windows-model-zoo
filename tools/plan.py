@@ -75,8 +75,16 @@ def manifest(models):
             lost = [g for g in inc if not any(fnmatch.fnmatch(x["path"], g) for x in files)]
             if lost:
                 sys.exit(f"STOP: {repo}@{sha[:10]} has no file for {lost}")
-            if any(x.get("repo") == repo and x.get("revision") == sha for x in out):
-                continue   # two models of one repo: once
+            prev = next((x for x in out if x.get("repo") == repo and x.get("revision") == sha), None)
+            if prev is not None:   # two models of one repo at one revision: one source with the files of both
+                have = {x["path"] for x in prev["files"]}
+                more = [x for x in files if x["path"] not in have]
+                prev["files"] += more
+                prev["bytes"] += sum(x["size"] for x in more)
+                prev["for"] += f",{m}"
+                total += sum(x["size"] for x in more)
+                print(f"{repo:48s} {sha[:10]} +{len(more)} files for {m}")
+                continue
             size = sum(x["size"] for x in files)
             total += size
             out.append({"repo": repo, "folder": "", "revision": sha, "for": m, "bytes": size, "files": files})

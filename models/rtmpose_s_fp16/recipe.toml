@@ -22,6 +22,12 @@ revision = "69e7e25241bb5a44a69aab595a03fbb0e5e1912c"
 include = ["npu/rtmpose_s_fp16.blob", "rtmpose_s_fp16.onnx"]
 why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
 
+[[fetch]]
+repo = "mlboydaisuke/RTMPose-s-OpenVINO"
+revision = "da0816f412e44212c4613433136c69b9dff2ccf2"
+include = ["fp16/rtmpose_s_fp16.onnx"]
+why = "the vision zoo's files that this model's task cells or reference read and the repo's main does not hold (branch windows-model-zoo; the same sha256 as the files measured)"
+
 [[form]]
 id = "z1-npu-blob"
 short = "NPU blob"
@@ -37,9 +43,10 @@ id = "z1-onnx-fp16"
 short = "fp16"
 label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
 made_by = "the vision zoo Z1"
-path = "C:\\src\\zoo\\fp16\\rtmpose_s_fp16.onnx"
+path = "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\fp16\\rtmpose_s_fp16.onnx"
 sha256 = "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880"
-public = "none"
+from = "mlboydaisuke/RTMPose-s-OpenVINO"
+public = "mlboydaisuke/RTMPose-s-OpenVINO@da0816f412e44212c4613433136c69b9dff2ccf2:fp16/rtmpose_s_fp16.onnx"
 
 [[form]]
 id = "z1-onnx-fp32"

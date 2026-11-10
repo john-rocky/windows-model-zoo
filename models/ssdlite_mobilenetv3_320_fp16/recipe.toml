@@ -21,6 +21,12 @@ revision = "89a246e64d0e795582e422e65a64be018d22b7ab"
 include = ["npu/ssdlite_mobilenetv3_320_fp16.blob", "ssdlite_mobilenetv3_320_fp16.onnx"]
 why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
 
+[[fetch]]
+repo = "mlboydaisuke/ssdlite320-mobilenetv3-openvino"
+revision = "94b34bfe57a527564905a112bc9fbb4d1791a89f"
+include = ["fp16/ssdlite_mobilenetv3_320_fp16.onnx"]
+why = "the vision zoo's files that this model's task cells or reference read and the repo's main does not hold (branch windows-model-zoo; the same sha256 as the files measured)"
+
 [[form]]
 id = "z1-npu-blob"
 short = "NPU blob"
@@ -36,9 +42,10 @@ id = "z1-onnx-fp16"
 short = "fp16"
 label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
 made_by = "the vision zoo Z1"
-path = "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx"
+path = "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx"
 sha256 = "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
-public = "none"
+from = "mlboydaisuke/ssdlite320-mobilenetv3-openvino"
+public = "mlboydaisuke/ssdlite320-mobilenetv3-openvino@94b34bfe57a527564905a112bc9fbb4d1791a89f:fp16/ssdlite_mobilenetv3_320_fp16.onnx"
 
 [[form]]
 id = "z1-onnx-fp32"

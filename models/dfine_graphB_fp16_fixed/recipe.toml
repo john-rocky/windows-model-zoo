@@ -31,14 +31,21 @@ size = 963664
 sha256 = "5575bbd1545e87e42c94abb0ecf5b7e927dfa94e30cc0754ccf2d2cd6189ee70"
 why = "a host file of the app the task line's host step reads"
 
+[[fetch]]
+repo = "mlboydaisuke/D-FINE-S-OpenVINO"
+revision = "7ac82722660ae1a512f10f6db9cd09a156eaa28b"
+include = ["fp16/dfine_graphB_fp16.onnx"]
+why = "the vision zoo's files that this model's task cells or reference read and the repo's main does not hold (branch windows-model-zoo; the same sha256 as the files measured)"
+
 [[form]]
 id = "z1-onnx-fp16"
 short = "fp16"
 label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
 made_by = "the vision zoo Z1"
-path = "C:\\src\\zoo\\fp16\\dfine_graphB_fp16_fixed.onnx"
+path = "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\fp16\\dfine_graphB_fp16.onnx"
 sha256 = "6195556a111b815bcda7d0ceb9bd47438fa135fa3bdb08a0691b5e94771b6a00"
-public = "none"
+from = "mlboydaisuke/D-FINE-S-OpenVINO"
+public = "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:fp16/dfine_graphB_fp16.onnx"
 
 [[form]]
 id = "z1-onnx-fp32"

@@ -280,19 +280,19 @@
    ],
    "forms": {
     "fp32": {
-     "path": "C:\\src\\zoo\\onnx\\dfine_graphB_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\dfine_graphB_fp16.onnx",
      "sha256": "af07e86b79413782d478dab7b1e8fe6db79e993ae17b7a622554d4ab889d2c39",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:unfixed/dfine_graphB_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\fp16\\dfine_graphB_fp16.onnx",
      "sha256": "0d025c7baf4dedfa67576d877f78635aa9a30569b8c679daae46a7a77b5fa2be",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:unfixed/fp16/dfine_graphB_fp16.onnx"
     },
     "blob": {
-     "path": "C:\\src\\zoo\\blobs\\dfine_graphB_fp16.blob",
+     "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\npu\\dfine_graphB_fp16.blob",
      "sha256": "6b7f02de088a709193a9dba8ffb81674fdb0a7374807daa08fe1f167bac50a6e",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:unfixed/npu/dfine_graphB_fp16.blob"
     }
    },
    "cells": [
@@ -303,7 +303,7 @@
    ],
    "upstream": {
     "model": "dfine_graphA_fp16",
-    "path": "C:\\src\\zoo\\onnx\\dfine_graphA_fp16.onnx",
+    "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\dfine_graphA_fp16.onnx",
     "sha256": "fdcb173a118098fd7b1d1218010a23c947722d7252f9c346af71ce7cac83f67a",
     "inputs": [
      {
@@ -315,7 +315,7 @@
       "evidence": "zoo:dfine/app/src/main/java/com/dfine/DFine.kt:158-163"
      }
     ],
-    "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    "source": "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:unfixed/dfine_graphA_fp16.onnx"
    },
    "host_files": [
     "dfine_host_params"
@@ -363,9 +363,9 @@
      "source": "mlboydaisuke/D-FINE-S-OpenVINO@adfe310e4ecc8b7aa3509507f8c78c343ed79f70:dfine_graphB_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16_fixed.onnx",
+     "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\fp16\\dfine_graphB_fp16.onnx",
      "sha256": "6195556a111b815bcda7d0ceb9bd47438fa135fa3bdb08a0691b5e94771b6a00",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28b:fp16/dfine_graphB_fp16.onnx"
     }
    },
    "cells": [
@@ -530,14 +530,14 @@
    ],
    "forms": {
     "fp32": {
-     "path": "C:\\src\\zoo\\onnx\\metric3d_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__Metric3D-v2-OpenVINO\\unfixed\\metric3d_fp16.onnx",
      "sha256": "ccde5da9c6c751bab40dd98285fc05706881b0667663f64f6b7850f89c6c414e",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/Metric3D-v2-OpenVINO@984de058e2ba8da22517cfe17cb826a65f7b0c71:unfixed/metric3d_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\metric3d_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__Metric3D-v2-OpenVINO\\unfixed\\fp16\\metric3d_fp16.onnx",
      "sha256": "d96f90b7ad645ef2e5332b29f4c8711c0d691bf7a3fc33073aee3149f51ac068",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/Metric3D-v2-OpenVINO@984de058e2ba8da22517cfe17cb826a65f7b0c71:unfixed/fp16/metric3d_fp16.onnx"
     }
    },
    "cells": [
@@ -698,9 +698,9 @@
      "source": "mlboydaisuke/PP-OCRv5-OpenVINO@1835e4bb5849bf416d9bb7d4775215663607f721:ppocr_det_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\ppocr_det_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__PP-OCRv5-OpenVINO\\fp16\\ppocr_det_fp16.onnx",
      "sha256": "ad267728a3cfc76bb0598b0b32772e59159786e4dd5dfcb496723893c4e529af",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/PP-OCRv5-OpenVINO@7b99d196d589c6ced7b197ba093e2ad71c4aea7e:fp16/ppocr_det_fp16.onnx"
     }
    },
    "cells": [
@@ -746,9 +746,9 @@
    ],
    "forms": {
     "fp32": {
-     "path": "C:\\src\\zoo\\onnx\\rtdetr_graphB_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RT-DETRv2-S-OpenVINO\\unfixed\\rtdetr_graphB_fp16.onnx",
      "sha256": "4e057bf254c87e28508b7850a6f4b5da24fcc42fbbac9125d4dcccb1470f9d51",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RT-DETRv2-S-OpenVINO@5d06be1e8c74102f113ab8961ba2b22f9332f2e2:unfixed/rtdetr_graphB_fp16.onnx"
     }
    },
    "cells": [
@@ -756,7 +756,7 @@
    ],
    "upstream": {
     "model": "rtdetr_graphA_fp16",
-    "path": "C:\\src\\zoo\\onnx\\rtdetr_graphA_fp16.onnx",
+    "path": "{HUB}\\mlboydaisuke__RT-DETRv2-S-OpenVINO\\unfixed\\rtdetr_graphA_fp16.onnx",
     "sha256": "f7c4a6cb3af2a03bdc0c2efc0b4dcff81b4463fe60955f9379f708a31471a64c",
     "inputs": [
      {
@@ -768,7 +768,7 @@
       "evidence": "zoo:rtdetr/app/src/main/java/com/rtdetr/RtDetr.kt:44,156-161"
      }
     ],
-    "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    "source": "mlboydaisuke/RT-DETRv2-S-OpenVINO@5d06be1e8c74102f113ab8961ba2b22f9332f2e2:unfixed/rtdetr_graphA_fp16.onnx"
    },
    "host_files": [
     "rtdetr_host_params"
@@ -865,9 +865,9 @@
      "source": "mlboydaisuke/RTMPose-Animal-AP10K-OpenVINO@bcf53e84aab0db52e06b7532eb5ec8e42e105698:rtm_animal_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\rtm_animal_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\fp16\\rtm_animal_fp16.onnx",
      "sha256": "1e999fa502f9d1c85f6996c6831fb1a128f9dd363bb01013b1829cca6c492cbe",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RTMPose-Animal-AP10K-OpenVINO@ab928470b99928b6fdb2457b505b0c67014eb102:fp16/rtm_animal_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\npu\\rtm_animal_fp16.blob",
@@ -908,9 +908,9 @@
      "source": "mlboydaisuke/RTMPose-Face-WFLW-OpenVINO@f53f13f152267b4422ce16e6581bf61847ae600e:rtm_face_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\rtm_face_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\fp16\\rtm_face_fp16.onnx",
      "sha256": "1717001b0ff6c30c39a355e895d30f329515c7129a8a3f14126461df315aee4c",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RTMPose-Face-WFLW-OpenVINO@944dc1a18240aa13141d1e10d54ef2a275ba79df:fp16/rtm_face_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\npu\\rtm_face_fp16.blob",
@@ -948,9 +948,9 @@
      "source": "mlboydaisuke/RTMPose-Hand-OpenVINO@f02d81bca4e44e22386a87181daf854915693168:rtmhand_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\fp16\\rtmhand_fp16.onnx",
      "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RTMPose-Hand-OpenVINO@388f44837d030571c9f10b39e1de3fa1a3d1c6e6:fp16/rtmhand_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\npu\\rtmhand_fp16.blob",
@@ -992,9 +992,9 @@
      "source": "mlboydaisuke/RTMPose-s-OpenVINO@69e7e25241bb5a44a69aab595a03fbb0e5e1912c:rtmpose_s_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\rtmpose_s_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\fp16\\rtmpose_s_fp16.onnx",
      "sha256": "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RTMPose-s-OpenVINO@da0816f412e44212c4613433136c69b9dff2ccf2:fp16/rtmpose_s_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
@@ -1037,9 +1037,9 @@
      "source": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO@f819529f18f63d3174334dade39a4bd25b2781e1:rtmw_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\rtmw_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\fp16\\rtmw_fp16.onnx",
      "sha256": "5bf580662f29eb9fe206552c31637cce5417f386f0e6ded2a68540fd5bc8af67",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO@beb9e69bd3e3e02ee97311858d448cd59bcd518a:fp16/rtmw_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\npu\\rtmw_fp16.blob",
@@ -1095,14 +1095,14 @@
    ],
    "forms": {
     "fp32": {
-     "path": "C:\\src\\zoo\\onnx\\sam2_decoder.onnx",
+     "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\sam2_decoder.onnx",
      "sha256": "456c6c524b1e4f2b17742d967e9835a2379ecce2f488fd9f2aaffef7b37bf831",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@928279ea0314f4b0cdd7a92a2ec707b5ce0ca26b:unfixed/sam2_decoder.onnx"
     },
     "blob": {
-     "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
+     "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\npu\\sam2_decoder.blob",
      "sha256": "5f2c7ac3b608fdb07f6166fb4e5a03a419d24e208008d0eb2b82317cb8c43b03",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@928279ea0314f4b0cdd7a92a2ec707b5ce0ca26b:unfixed/npu/sam2_decoder.blob"
     }
    },
    "cells": [
@@ -1298,9 +1298,9 @@
      "source": "mlboydaisuke/ssdlite320-mobilenetv3-openvino@89a246e64d0e795582e422e65a64be018d22b7ab:ssdlite_mobilenetv3_320_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
      "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/ssdlite320-mobilenetv3-openvino@94b34bfe57a527564905a112bc9fbb4d1791a89f:fp16/ssdlite_mobilenetv3_320_fp16.onnx"
     },
     "blob": {
      "path": "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\npu\\ssdlite_mobilenetv3_320_fp16.blob",
@@ -1607,14 +1607,14 @@
    ],
    "forms": {
     "fp32": {
-     "path": "C:\\src\\zoo\\onnx\\w2v2_head_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\unfixed\\w2v2_head_fp16.onnx",
      "sha256": "d314e168a377e5f8b5daebe9a7704afc61d681d6534ac3ea2ccb5db5968e1eb9",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@2b8aa1d1985b244da07266c6cbe5f1456e40979f:unfixed/w2v2_head_fp16.onnx"
     },
     "fp16": {
-     "path": "C:\\src\\zoo\\fp16\\w2v2_head_fp16.onnx",
+     "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\unfixed\\fp16\\w2v2_head_fp16.onnx",
      "sha256": "7cf70487e7f6c39e9fd974a82a77627ee6e3b156b7a77065159aee23e4a5b6d3",
-     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+     "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@2b8aa1d1985b244da07266c6cbe5f1456e40979f:unfixed/fp16/w2v2_head_fp16.onnx"
     }
    },
    "cells": [
