@@ -1,0 +1,5 @@
+[2026-11-11T05:34:30.9318266+09:00] chain start: plan C:\src\mz-z12\pc\plans\z12-k4.json mode first, 1 units, pid 31840
+[2026-11-11T05:34:37.0007821+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-11T05:34:39.2439332+09:00] rtmpose_s_fp16/task-cuda32 run 1 start
+[2026-11-11T05:34:43.9441533+09:00] rtmpose_s_fp16/task-cuda32 run 1 end: exit 0, OK, 2.66 s
+[2026-11-11T05:34:43.9600110+09:00] chain done: OK

@@ -1,0 +1,11 @@
+python 3.12.16
+executable C:\src\mz-z12\.venv-z1-ov\Scripts\python.exe
+base_executable C:\src\mz-z12\python\cpython-3.12-windows-x86_64-none\python.exe
+flatbuffers==25.12.19
+numpy==2.5.4
+onnxruntime==1.31.1
+openvino-telemetry==2025.2.0
+openvino==2026.4.1
+packaging==26.3
+pillow==13.0.0
+protobuf==7.36.2

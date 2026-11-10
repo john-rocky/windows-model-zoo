@@ -1,0 +1,77 @@
+{
+    "cell":  "rtmpose_s_fp16/task-ovnpu",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z12-f",
+    "start":  "2026-11-10T19:40:10.5537348+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  1.3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.06 core",
+                                            "powershell 24988 0.03 core",
+                                            "services 1472 0.02 core",
+                                            "svchost 1740 0.02 core",
+                                            "MsMpEng 5548 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1132 MHz, 14001 MHz, 16.15 W, 0 %, 0 MiB, 36",
+                   "availGB":  23.8
+               },
+    "command":  "C:\\src\\mz-z12\\.venv-z1-ort\\Scripts\\python.exe -u C:\\src\\mz-z12\\pc\\run_vision_task.py --model rtmpose_s_fp16 --spec C:\\src\\mz-z12\\pc\\z5_spec.json --work C:\\src\\mz-z12\\work\\rtmpose_s_fp16 --form fp32 --engine ort --ep openvino --ov-device NPU --out C:\\src\\mz-z12\\runs\\z12-f\\rtmpose_s_fp16\\task-ovnpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  30600,
+                   "elapsedSeconds":  6.019,
+                   "peakWorkingSetBytes":  330809344,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00012C48":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x0001260E":  {
+                                                                    "shared":  23,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x00013E4C":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 2280 MHz, 14001 MHz, 16.15 W, 0 %, 0 MiB, 37"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.2,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.24 core",
+                                           "WmiPrvSE 7552 0.03 core",
+                                           "MsMpEng 5548 0.03 core",
+                                           "lsass 1500 0.02 core",
+                                           "svchost 5080 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 2107 MHz, 14001 MHz, 16.31 W, 0 %, 0 MiB, 37"
+              },
+    "end":  "2026-11-10T19:40:18.5532483+09:00",
+    "tries":  1
+}

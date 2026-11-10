@@ -1,0 +1,14 @@
+Using Python 3.12.16 environment at: C:\src\mz-z12\.venv-z1-ov
+Resolved 8 packages in 89ms
+Downloading openvino (81.0MiB)
+ Downloaded openvino
+Prepared 2 packages in 3.34s
+Installed 8 packages in 1.44s
+ + flatbuffers==25.12.19
+ + numpy==2.5.4
+ + onnxruntime==1.31.1
+ + openvino==2026.4.1
+ + openvino-telemetry==2025.2.0
+ + packaging==26.3
+ + pillow==13.0.0
+ + protobuf==7.36.2

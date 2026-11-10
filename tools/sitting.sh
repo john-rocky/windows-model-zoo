@@ -1,7 +1,9 @@
 #!/bin/bash
 # One timed sitting on the PC, from the Mac (the audio zoo's tools/sitting.sh; the lane and the PC folder from zoo.toml):
 #   1. wait on the Mac (the shared feed, ~/code/standup/tools/winpc/busy_now.sh, every 10 s, no ssh) until busy.txt
-#      has been free for 60 s in a row
+#      has been free for 60 s in a row. A feed that is missing or stale at the start refuses the sitting (exit 3). A Mac
+#      without that feed: ZOO_FEED=none skips the feed (as in tools/pc.sh); the take then waits on the PC, in one ssh
+#      connection, until busy.txt has been free for 60 s (pc\lock.ps1 take)
 #   2. the lane's lock ("<lane> timing: sitting <plan> ... until HH:MM") and the lane's quiet gate (3 x 5 s under 15 % CPU,
 #      RTX empty, build tools quiet; at most 10 min, else the lock goes back and the sitting waits 10 min)
 #   3. pc/chain.ps1 -Mode timed on the plan, detached: control-warm, control-head (stops the sitting when off the known
@@ -11,7 +13,8 @@
 #
 #   tools/sitting.sh <plan name> [--resume] [--wait-hours N]
 # --resume: the chain still runs and this side's wait ended or was stopped: wait for it again, then pull.
-# Log: raw/<plan>.sitting.log. Exit 1 when the lock, the gate or the chain failed (the lock is released on every exit).
+# Log: raw/<plan>.sitting.log. Exit 1 when the lock, the gate or the chain failed (the lock is released on every exit);
+# exit 3 when the feed is missing or stale and ZOO_FEED is not none.
 set -uo pipefail
 K="$(cd "$(dirname "$0")/.." && pwd)"
 plan="$1"; shift || true
@@ -67,7 +70,8 @@ take() {
   local r n
   while true; do
     n=0
-    while ! ours_now && (( $(free_for) < 60 )); do (( n++ % 30 == 0 )) && say "waiting for busy.txt to be free 60 s (feed)"; sleep 10; done
+    if [[ "${ZOO_FEED:-}" == "none" ]]; then say "ZOO_FEED=none: no feed; the take waits on the PC until busy.txt has been free 60 s"
+    else while ! ours_now && (( $(free_for) < 60 )); do (( n++ % 30 == 0 )) && say "waiting for busy.txt to be free 60 s (feed)"; sleep 10; done; fi
     drop_dead_yield_note
     r=$("$pcsh" lock take "timing: sitting $plan until $until_hm" 2>&1 | tail -1); say "lock: $r"
     [[ "$r" == TAKEN* || "$r" == OURS* || "$r" == STALE* ]] || return 1
@@ -77,6 +81,10 @@ take() {
   done
 }
 
+if [[ "${ZOO_FEED:-}" != "none" ]] && ! feed=$(bash ~/code/standup/tools/winpc/busy_now.sh 2>&1); then
+  say "REFUSED (lock feed stale or missing): $(printf '%s\n' "$feed" | tail -n 1); a Mac without that feed: ZOO_FEED=none"
+  exit 3
+fi
 if (( resume )); then
   say "sitting $plan resume: waiting for its chain again"
 else

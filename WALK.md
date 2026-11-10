@@ -229,3 +229,66 @@ copies of the second sitting's records checked them (below).
    "TAIL OFF 6.0 %" and with `control.json` removed; on the second sitting's own records it writes the same five files
    as at 17:40. On this repository's first-pass records (`raw/walk/runs`, `raw/z5/runs` and `raw/walk-z9/runs`, each
    judged for all 133 of this zoo's own cells), the old and the new `tools/results.py` write the same 440 files.
+
+## The timed paths of step 8, 2026-11-10 and 11-11
+
+The paths that the README's "Not walked" listed before this commit: a fixed slot (`--slots`), a cell left by `--end-by`
+with the real runners, the control rows' run-time key (`Get-RunKey`) under `tools/sitting.sh`, `tools/pc.sh` with
+`ZOO_FEED=none`, and the lock given back in a window while another job waits (a plan without `--no-windows`). Run from a
+new worktree of this repository at `122b35c` on the Mac, against another PC folder that did not exist, `C:\src\mz-z12`,
+on the same laptop (on AC power, the desktop locked; MSI Center's Extreme mode on 11-10, Balanced on 11-11). Steps 0 to
+6 for `rtmpose_s_fp16` and `rtmw_fp16` ran first, untimed, on `122b35c`'s own PC scripts (no step 3: the two models have
+no engines list). The night-stop test and the sittings ran this commit's `tools/sitting.sh`, `pc/zlib.ps1`,
+`pc/steps.ps1`, `pc/chain.ps1` and `zoo.toml`, pushed after those steps (below; the change to `pc/walk_check.ps1` came
+after the sittings of 11-10). Three sittings walked the paths (`z12-e` three of them), each in a slot from the shared
+PC's order (the schedule its users keep). Records: `raw/walk-z12/` (no npz files; account names written `USER`): the
+fetch report, the steps' logs, the two references, the first pass `z12-f` and the control cell's five first passes of
+11-11 (`z12-k1` to `z12-k5`). The sittings' run records are not in this repository: this repo's `task-*` cells stay
+untimed. Times are JST.
+
+| step | ran | outcome |
+|---|---|---|
+| 0 to 6 for the two models (first pass `z12-f`) | 11-10 19:37:10 to 19:41 | the folder was not there at 19:37:12; the four cells "verdict and numbers the same", the two references "rows, task_values the same" |
+| the night stop of `pc/steps.ps1` and `pc/chain.ps1 -Mode first` (Finding 9), in a test lock folder (the environment variable `ZOO_PCUP`) with the night set to begin at 19:45 (`ZOO_NIGHT`) | 19:43:37 to 19:45:10 | with stand-in steps (a 600 s sleep, then one more step): a step still running at 19:45 was killed, its list ended `FAIL sleep600 (night 19:45-05:30)` and the next step did not start; a first-pass run was stopped and its chain ended `FAIL the night (19:45-05:30): test/sleep600 run 1 and the units after it not started`; a list and a chain started inside the night started nothing; the notes under the test's own name were removed and a note under another name was kept |
+| sitting `z12-s`: a fixed slot (`--slots`: the lock released at 20:05:00, the wait for another lock given up at 20:07:00), `--no-windows` | lock 20:01:09 to 20:16:32 | from 20:04:42 the chain held the lock idle ("slot for Z12-walk-slot at 20:05:00: unit control-warm/rtmpose_s_fp16/task-cuda32 run 1 would not end before it; holding the lock idle"), released it at 20:05:00 with no `window.txt`, saw no other lock by 20:07:00 ("no other lock came by 20:07:00; taking the lock back"), took it back, settled 180 s and gated. Control head 5.0 % off the known value (4.97 %, inside the 5 %), tail 3.2 %: PASS. The three cells' nine runs ended OK |
+| sitting `z12-e`: cells left by `--end-by 2026-11-10T20:40:00+09:00`, `--no-windows`; its push and the sitting under `ZOO_FEED=none` | lock 20:17:43 to 20:24:23 | `tools/sitting.sh` read no feed ("ZOO_FEED=none: no feed; the take waits on the PC until busy.txt has been free 60 s"), and the take came 71 s after `z12-s` gave the lock back. Control head 1.4 %, tail 2.3 %: PASS. The control's own cell, listed first among the cells (`rtmpose_s_fp16/task-cuda32`), was counted at the control rows' run time (`Get-RunKey`) and ran its three runs; counted at its `timeout_min` (20 min a run) it would have been left. Then "end_by 20:40: rtmw_fp16/task-ovgpu not started, left for a later sitting" and the same for `rtmpose_s_fp16/task-ovnpu_pre`; `control.json` lists both under `left_cells` |
+| `tools/results.py`, `tools/walk_compare.py` | 11-10 20:17 (`z12-s`), 20:29 (`z12-e`) | every cell "verdict and numbers the same", the two references "rows, task_values the same"; a left cell takes the timed values of the latest sitting that ran it (`z12-s`) |
+| `pc\walk_check.ps1` (the lists, `z12-f`, `z12-s`, `z12-e`) | 20:28:57, 20:29:31 | "12 missing, 0 failed": the two left cells' run files (Finding 10); after the change, "0 missing, 0 failed, 2 left by end_by" |
+| the control cell's five first passes `z12-k1` to `z12-k5`, for `z12-d`'s known value (Finding 12) | 11-11 05:33 to 05:35 | all OK |
+| sitting `z12-d`: the lock given back in a window while another job waits (no `--no-windows`, `--runs 17`) | lock 05:36:23 to 06:34:39 | the form the shared PC's order gave for this slot: the walk kept the shared lock for the whole sitting, and a small script outside this repository did `tools/sitting.sh`'s part against a test lock folder (`ZOO_PCUP`): it took that folder's lock, passed the gate, started `pc/chain.ps1 -Mode timed` and played a waiting job there (a note in the folder's `active\`). Control head 4.1 % off the known value. At 06:06:52, after 15 runs of the second cell: "duty: held 29 min and the next run would end past 30 min (about 2 min), others waiting (active\W12stand.txt): release for 16.5 min"; the chain released the test lock and wrote `window.txt`. The stand-in took the test lock 60 s later and gave it back after 180 s. The chain waited out the 16.5 min, took the test lock back at 06:23:23, settled 180 s, passed the gate (06:26:42) and went on with the same cell. The script was set to stop the chain 58 min after its own start, so that the shared lock went back inside the slot (60 min from its take); it did so at 06:34:25, on purpose, with 13 of the third cell's 17 runs done. The last four runs and the control tail did not run (Finding 13), so the sitting has no control verdict and is not a timing |
+| `tools/results.py` on `z12-d` alone, `tools/walk_compare.py` | 06:35 | the three cells "verdict and numbers the same", each with `speed.timed` false and the note "not a timing"; the two references "rows, task_values the same" |
+| `pc\walk_check.ps1` (`z12-k1` to `z12-k5`, `z12-d`) | 06:35:50 | "11 missing, 0 failed": `z12-d`'s `chain.done` and the files of the four runs and the tail that the script's stop left unrun |
+
+## What the timed paths found, and what changed
+
+8. **`tools/sitting.sh` without the feed.** With the shared lock feed missing or stale it waited and never took the
+   lock (the README said so). Now a missing or stale feed refuses the sitting at its start (exit 3, "REFUSED (lock feed
+   stale or missing)"), and `ZOO_FEED=none` skips the feed as in `tools/pc.sh`: the take then waits on the PC, in one
+   ssh connection, until the lock has been free 60 s. `tests/test_sitting_feed.py` runs four cases (a missing feed, a
+   stale feed, `ZOO_FEED=none`, a fresh feed) with a stand-in `tools/pc.sh` on the Mac.
+9. **No night stop.** Untimed steps and first passes waited out another job's lock and started again once it had been
+   free 60 s, at any hour, and a step that takes this zoo's own lock (`lock = true`) was barred from 20:45 to midnight
+   only. The shared PC's order runs other jobs' timings from 20:45 to 05:30, and a note left up reads as a waiting job
+   to a timed chain (`Get-OthersWaiting` counts it). Now `zoo.toml`'s `night = "20:45-05:30"` stops them (`pc/zlib.ps1`
+   `Test-Night` and `Wait-OthersGone`, `pc/steps.ps1`, `pc/chain.ps1 -Mode first`): nothing starts or starts again in
+   it, a step or run in flight is killed, the list or chain ends FAIL, and this zoo's notes are removed. Timed sittings
+   are not stopped. `night = "none"`, or no `night`, means no night.
+10. **`pc\walk_check.ps1` counted a left cell as missing.** A sitting that left cells by `--end-by` failed the check,
+    each left run file "MISSING". It now reads `left_cells` in the sitting's `control.json`, lists those cells as
+    `LEFT`, and adds "N left by end_by" to its last line.
+11. **The lock's first text without `--end-by`.** `tools/sitting.sh` writes "until" as the plan's longest case, every
+    run at its `timeout_min`: "until 02:09" for `z12-s`, a sitting of 15 minutes; the chain replaced the text 33 s
+    later. With `--end-by`, the chain counts a cell without `est_sec` at its `timeout_min` and leaves it when that does
+    not fit, so a short slot gets either the long "until" or left cells. No code changed.
+12. **A known value from first passes.** On 11-10, in Extreme mode, the median of the control cell's 22 runs inside a
+    lock (the control rows of that day's four sittings and the cell's own three timed runs in `z12-e`) was 1.5 % below
+    the median of its four first passes (`raw/z5`, `raw/walk`, the first pass before the first timed sitting above,
+    `z12-f`), and against that first-pass median two of the four sittings' first head runs would have been more than
+    5 % off. So `z12-d`'s known value was the median of its five first passes in Balanced mode times 0.985, where step
+    8 says the median; its first head run was 4.1 % off. In Balanced mode the head's 17 runs spread 33 % ((max − min) /
+    median), against 8.5 % over the 22 runs in Extreme mode. No code changed.
+13. **`--runs` also sets the control head, and a window needs runs past 30 min.** A window opens only before a run that
+    would end past 30 min of holding the lock, never before the tail, so a plan meant to give the lock back needs runs
+    past that point. `tools/plan.py timed --runs 17` gave the head 17 runs too (8.7 min), which the walk's estimate for
+    the slot had not counted, so the script's stop, 58 min after its start, came before the last four runs and the
+    tail. No code changed.

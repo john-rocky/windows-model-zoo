@@ -1,0 +1,6 @@
+[2026-11-10T19:38:02.5823813+09:00] steps fetch start: 2 steps, pid 35244
+[2026-11-10T19:38:02.6145260+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T19:38:02.6941896+09:00] python end: exit 0, 0 min
+[2026-11-10T19:38:02.6941896+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\mz-z12\pc\fetch.py --manifest C:\src\mz-z12\pc\hub_manifest.json --dest C:\src\mz-z12\hub --root C:\src\mz-z12
+[2026-11-10T19:38:28.8917762+09:00] fetch end: exit 0, 0.4 min
+[2026-11-10T19:38:28.8917762+09:00] steps fetch done: OK

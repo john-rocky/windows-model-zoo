@@ -1,0 +1,24 @@
+Using Python 3.12.16 environment at: C:\src\mz-z12\.venv-z1-ort
+Resolved 10 packages in 216ms
+Downloading pillow (6.9MiB)
+Downloading onnxruntime (14.2MiB)
+Downloading numpy (12.0MiB)
+Downloading onnxruntime-ep-openvino (72.3MiB)
+Downloading onnx (7.5MiB)
+ Downloaded pillow
+ Downloaded onnx
+ Downloaded numpy
+ Downloaded onnxruntime
+ Downloaded onnxruntime-ep-openvino
+Prepared 10 packages in 5.18s
+Installed 10 packages in 1.69s
+ + flatbuffers==25.12.19
+ + ml-dtypes==0.6.0
+ + numpy==2.5.4
+ + onnx==1.23.2
+ + onnxruntime==1.31.1
+ + onnxruntime-ep-openvino==1.8.1
+ + packaging==26.3
+ + pillow==13.0.0
+ + protobuf==7.36.2
+ + typing-extensions==4.16.0

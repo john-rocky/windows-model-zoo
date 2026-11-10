@@ -1,0 +1,11 @@
+[2026-11-10T19:39:57.9240057+09:00] chain start: plan C:\src\mz-z12\pc\plans\z12-f.json mode first, 4 units, pid 24988
+[2026-11-10T19:40:08.5347392+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T19:40:10.5913963+09:00] rtmpose_s_fp16/task-ovnpu run 1 start
+[2026-11-10T19:40:18.5851677+09:00] rtmpose_s_fp16/task-ovnpu run 1 end: exit 0, OK, 6.019 s
+[2026-11-10T19:40:20.5412506+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T19:40:26.1205505+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 3.588 s
+[2026-11-10T19:40:28.0941475+09:00] rtmpose_s_fp16/task-cuda32 run 1 start
+[2026-11-10T19:40:39.5310888+09:00] rtmpose_s_fp16/task-cuda32 run 1 end: exit 0, OK, 9.507 s
+[2026-11-10T19:40:41.4908993+09:00] rtmw_fp16/task-ovgpu run 1 start
+[2026-11-10T19:40:48.0315102+09:00] rtmw_fp16/task-ovgpu run 1 end: exit 0, OK, 4.606 s
+[2026-11-10T19:40:48.0315102+09:00] chain done: OK

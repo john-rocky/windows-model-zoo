@@ -1,0 +1,126 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-11T05:33:34.133607+09:00",
+ "argv": [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "C:\\src\\mz-z12\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\mz-z12\\work\\rtmpose_s_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\mz-z12\\runs\\z12-k1\\rtmpose_s_fp16\\task-cuda32\\run1.json"
+ ],
+ "pid": 25464,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.003671499958727509,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.003301899996586144,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.003989000048022717,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.003894599969498813,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.003800800011958927,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "rtmpose_s_fp16 form fp32",
+  "path": "C:\\src\\mz-z12\\hub\\mlboydaisuke__RTMPose-s-OpenVINO\\rtmpose_s_fp16.onnx",
+  "bytes": 22197006,
+  "sha256": "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3"
+ },
+ "inputs": {
+  "path": "C:\\src\\mz-z12\\work\\rtmpose_s_fp16\\inputs.npz",
+  "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
+  "bytes": 2950582,
+  "n": 5
+ },
+ "load_s": 1.192,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp32",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.617,
+ "outputs": {
+  "path": "C:\\src\\mz-z12\\runs\\z12-k1\\rtmpose_s_fp16\\task-cuda32\\run1.outputs.npz",
+  "bytes": 307142,
+  "sha256": "ac45676bd152ba74e80a27aa0393723f9fea45793c8d0bd3d37da1c4b73c6bd6",
+  "arrays": 10
+ },
+ "summary": {
+  "clips": 5,
+  "inputs": 5,
+  "median_ms": 3.801,
+  "min_ms": 3.302,
+  "max_ms": 3.989,
+  "value": 3.801
+ },
+ "peak_working_set_bytes": 1174560768,
+ "peak_pagefile_bytes": 2572963840,
+ "ended": "2026-11-11T05:33:38.017898+09:00",
+ "process_s": 3.894
+}

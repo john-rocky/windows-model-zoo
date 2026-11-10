@@ -12,8 +12,10 @@ A step: { name, exe ("py" = .venv-<venv>\Scripts\python.exe -I, "uv", "ps" = a .
 A step with "lock": true (the shared PC's rule for a step over 8 GB that fits no window; its slot comes from the PC's
 order) takes busy.txt once, after it has been free 60 s in a row, as "<lane> <name> (not a timing) until HH:MM" (the
 take + 30 min at the latest; the step is killed there; none taken while a note listed under lock_block_notes in
-pcup\zoo_yield.json is up, or from 20:45: the shared PC's rules of 2026-11-10), checks the free RAM 10 s later (short:
-releases and waits for the next free lock), runs, and releases.
+pcup\zoo_yield.json is up: the shared PC's rules of 2026-11-10), checks the free RAM 10 s later (short: releases and
+waits for the next free lock), runs, and releases.
+The PC's night (zoo.toml night, zlib Test-Night): no step starts or starts again in it, a step that runs is killed
+when it comes (one under the lane's lock too), the list ends there with the rest not run, and the lane's notes go.
 Logs: logs\<name>.log (one line per step), logs\<name>\<step>.txt (its output); logs\<name>.done = "OK" or
 "FAIL <steps>" and the time.
 #>
@@ -23,9 +25,10 @@ param([Parameter(Mandatory = $true)][string]$List, [string]$KeepUntil = "")
 $KeepLockAs = if ($KeepUntil) { "first pass (not a timing) until $KeepUntil" } else { "" }
 $until = $null
 function Test-LockBarred {
-    # "20:45" from 20:45 on; "the note <file>" while a lock_block_notes note (pcup\zoo_yield.json) is in active\;
-    # "" otherwise (Get-YieldNotes is in zlib.ps1, loaded below before any call)
-    if ((Get-Date).TimeOfDay -ge [TimeSpan]"20:45:00") { return "20:45" }
+    # "night" in the PC's night (zoo.toml night; this PC's: 20:45-05:30); "the note <file>" while a lock_block_notes note
+    # (pcup\zoo_yield.json) is in active\; "" otherwise (Test-Night and Get-YieldNotes are in zlib.ps1, loaded below
+    # before any call)
+    if (Test-Night) { return "night" }
     $n = @(Get-YieldNotes "lock_block_notes")
     if ($n.Count) { return "the note $($n[0])" }
     return ""
@@ -61,8 +64,14 @@ Say $log "steps $List start: $($steps.Count) steps, pid $PID"
 $note = Join-Path $Pcup "active\$Label-$List.txt"
 $since = Get-Date -Format o
 $fail = @()
+$nightStop = $false
 for ($i = 0; $i -lt $steps.Count; $i++) {
     $s = $steps[$i]
+    if (Test-Night) {
+        $fail += "$($s.name) (night $($Night.Text))"; $nightStop = $true
+        Say $log "the night ($($Night.Text)): $($s.name) and the steps after it not started"
+        break
+    }
     $next = if ($i + 1 -lt $steps.Count) { $steps[$i + 1] } else { $null }
     Write-Utf8 $note "$Label untimed steps '$List' (download / venv / export / reference; killed and run again around other lanes' locks), now $($s.name), since $since`r`nwritten $(Get-Date -Format HH:mm)"
     $a = @(@($s.args) | ForEach-Object { "$_".Replace("{ROOT}", $Root).Replace("{HOME}", $HomeDir).Replace("{FIX}", $Fix).Replace("{HUB}", $Hub) })
@@ -82,11 +91,11 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
     } elseif ($s.lock) {
         # The shared PC's rules of 2026-11-10 for this lane's untimed lock steps: one lock lasts at most 30 min from
         # its take (the text's "until" = the take + 30 min at the latest, the step is killed there), none is taken while
-        # a lock_block_notes note (pcup\zoo_yield.json) is up, and none from 20:45.
+        # a lock_block_notes note (pcup\zoo_yield.json) is up, and none in the night (zoo.toml night).
         $need = [math]::Min($tmin, 25)
         while ($true) {
             $bar = Test-LockBarred
-            if ($bar -eq "20:45") { break }
+            if ($bar -eq "night") { break }
             if ($bar) { Say $log "$($s.name): $bar is up: no lock, looking again in 5 min"; Start-Sleep -Seconds 300; continue }
             $until = (Get-Date).AddMinutes(30)
             $r = Take-BusyAfterFree "$List $($s.name) (not a timing) until $($until.ToString('HH:mm'))" $log 60 12
@@ -104,7 +113,12 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
             Release-Busy $log
             Start-Sleep -Seconds 120
         }
-        if (-not $held) { $fail += $s.name; Say $log "$($s.name): no lock (12 h, or 20:45 reached)"; continue }
+        if (-not $held -and (Test-Night)) {
+            $fail += "$($s.name) (night $($Night.Text))"; $nightStop = $true
+            Say $log "$($s.name): no lock: the night ($($Night.Text)); the steps after it not started"
+            break
+        }
+        if (-not $held) { $fail += $s.name; Say $log "$($s.name): no lock (12 h)"; continue }
     }
     if ($held) {
         Touch-Busy "$List $($s.name) (not a timing) until $($until.ToString('HH:mm'))"
@@ -114,13 +128,21 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
     $out = Join-Path $ldir "$($s.name).txt"
     $quoted = @($a | ForEach-Object { if ($_ -match '[\s"]') { '"' + ($_ -replace '"', '\"') + '"' } else { $_ } })
     $sw = [Diagnostics.Stopwatch]::StartNew()
+    $atNight = $false
     for ($try = 1; $try -le 30; $try++) {
-        if (-not $held) { Wait-OthersGone $log $s.name 60 }
+        if (-not $held -and (Wait-OthersGone $log $s.name 60) -eq "night") { $atNight = $true; break }
         Say $log "$($s.name) start$(if ($try -gt 1) { " (try $try)" }): $exe $($quoted -join ' ')"
         $proc = Start-Process -FilePath $exe -ArgumentList ($quoted -join " ") -RedirectStandardOutput $out -RedirectStandardError "$out.err" -PassThru -WindowStyle Hidden
         $null = $proc.Handle
         $t0 = Get-Date; $code = $null; $stopped = $false
         while (-not $proc.WaitForExit(2000)) {
+            if (Test-Night) {
+                & "$env:SystemRoot\System32\taskkill.exe" /PID $proc.Id /T /F 2>&1 | Out-Null
+                $proc.WaitForExit()
+                $atNight = $true
+                Say $log "$($s.name): killed at the night ($($Night.Text)) after $([int]((Get-Date) - $t0).TotalSeconds) s"
+                break
+            }
             if (-not $held -and (Test-OtherBusy)) {
                 & "$env:SystemRoot\System32\taskkill.exe" /PID $proc.Id /T /F 2>&1 | Out-Null
                 $proc.WaitForExit()
@@ -135,7 +157,13 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
                 break
             }
         }
-        if (-not $stopped) { break }
+        if ($atNight -or -not $stopped) { break }
+    }
+    if ($atNight) {
+        if ($held) { Release-Busy $log }
+        $fail += "$($s.name) (night $($Night.Text))"; $nightStop = $true
+        Say $log "$($s.name) end: the night ($($Night.Text)); the steps after it not started"
+        break
     }
     if ($stopped) { $code = "killed 30 times for other lanes' locks" }
     elseif ($null -eq $code) { $code = $proc.ExitCode }
@@ -151,6 +179,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
     }
 }
 Remove-Item $note -Force -ErrorAction SilentlyContinue
+if ($nightStop) { Remove-LaneNotes $log }
 $st = if ($fail.Count) { "FAIL $($fail -join ',')" } else { "OK" }
 Write-Utf8 $done "$st $(Get-Date -Format o)"
 Say $log "steps $List done: $st"

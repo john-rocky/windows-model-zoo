@@ -7,6 +7,8 @@ record does not say OK.
   powershell -NoProfile -ExecutionPolicy Bypass -File pc\walk_check.ps1 -Lists setup,fetch,<model>,... -Sittings walk-a
 
 A done line that says FAIL, and a unit run whose status is not OK, count as failed (the last line gives both counts).
+A cell that the chain left for a later sitting (--end-by: left_cells in runs\<sitting>\control.json) is listed as LEFT and
+counts as neither; the last line then adds "L left by end_by".
 #>
 param([string[]]$Lists = @(), [string[]]$Sittings = @())   # "a,b" from -File, or a,b (an array) from & inside PowerShell
 $ErrorActionPreference = "Stop"
@@ -15,6 +17,7 @@ $Lists = @($Lists | ForEach-Object { "$_".Split(",") } | Where-Object { $_ })
 $Sittings = @($Sittings | ForEach-Object { "$_".Split(",") } | Where-Object { $_ })
 $script:miss = 0
 $script:failed = 0
+$script:leftN = 0
 function Want([string]$What, [string]$Rel) {
     $p = Join-Path $Root $Rel
     if (-not (Test-Path -LiteralPath $p)) { "MISSING $What $Rel"; $script:miss++; return }
@@ -52,7 +55,18 @@ foreach ($s in $Sittings) {
     $pp = Join-Path $Root "pc\plans\$s.json"
     if (-not (Test-Path $pp)) { "MISSING plan pc\plans\$s.json"; $script:miss++; continue }
     $plan = Get-Content $pp -Raw -Encoding UTF8 | ConvertFrom-Json
+    $leftCells = @(); $leftBy = ""
+    $cj = Join-Path $Root "runs\$s\control.json"
+    if (Test-Path $cj) {
+        $ctlJson = Get-Content $cj -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($ctlJson.left_cells) { $leftCells = @($ctlJson.left_cells); $leftBy = "$($ctlJson.end_by)" }
+    }
     foreach ($u in @($plan.units)) {
+        if ($leftCells -contains $u.cell) {
+            "LEFT    unit $($u.cell): not started, left by end_by $leftBy (runs\$s\control.json)"
+            $script:leftN++
+            continue
+        }
         $runs = if ($u.runs) { [int]$u.runs } else { 1 }
         foreach ($k in 1..$runs) {
             $d = "runs\$s\$($u.cell -replace '/', '\')"
@@ -72,5 +86,5 @@ foreach ($s in $Sittings) {
         if ($n) { Done "after $s" "logs\after-$s.done" }
     }
 }
-"walk check: $script:miss missing, $script:failed failed"
+"walk check: $script:miss missing, $script:failed failed$(if ($script:leftN) { ", $script:leftN left by end_by" })"
 exit $(if ($script:miss -or $script:failed) { 1 } else { 0 })

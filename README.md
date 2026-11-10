@@ -31,7 +31,7 @@ those tables on your own disk only.
 
 ```
 zoo.toml                    the PC (ssh name, folder), the lane (this zoo's name on the shared PC's lock and notes),
-                            device and runtime names
+                            the PC's night (no untimed work in it), device and runtime names
 PLAN.md                     the lines and their dated changes
 models/<model>/README.md    the card: Hub front matter (license, base_model, base_model_relation, library_name,
                             pipeline_tag), text, and the generated block (its lines and where its cells are)
@@ -47,9 +47,10 @@ tools/                      the Mac side: table.py, lint.py, results.py, vision_
 pc/                         the PC side: chain.ps1, steps.ps1, lock.ps1, launch.ps1, wait_done.ps1, zlib.ps1,
                             fetch.py, engines.py, the runners and their library zoolib.py, req/ (one pinned venv each)
 tests/                      synthetic outputs and records through the vision task lines, the LLM qa20 records and the
-                            LLM runners with fake engines, then results → table → lint (Mac, no model runs):
+                            LLM runners with fake engines, then results → table → lint; tools/sitting.sh with a
+                            missing, stale or skipped lock feed (Mac, no model runs, no PC):
                             python3 tests/test_vision_tasks.py, test_records.py, test_llm_records.py,
-                            test_llm_runners.py
+                            test_llm_runners.py, test_sitting_feed.py
 LICENSES.md                 generated: each model's licence, the other repos its cells use, the input sets' terms
 ```
 
@@ -160,19 +161,26 @@ connection but `wait`, and refuses one (exit 3) during another job's timing or w
 Mac without that feed runs it with `ZOO_FEED=none`. Untimed steps and first passes run without the lock: each is
 killed when another job's lock appears and runs again from its start once the lock has been free 60 s (a suspended
 process would keep its memory). A step over 8 GB (`lock = true`) takes the lock as "(not a timing)", at most 30 min.
-Each list and chain keeps its note in `active\` while it runs.
+Each list and chain keeps its note in `active\` while it runs. In the PC's night (`[zoo] night` in `zoo.toml`,
+`"20:45-05:30"` here, when other jobs' timings run), untimed steps and first passes start nothing: a step or run in
+flight is killed, its list ends `FAIL <step> (night 20:45-05:30)` or its chain `FAIL the night (20:45-05:30): ...`, the
+rest is not run, and the lane's notes in `active\` are removed. `night = "none"` (or no `night`) means no night; timed
+sittings are not stopped by it.
 
 A timed sitting (`python3 tools/plan.py timed ...`, `tools/pc.sh push`, then `tools/sitting.sh <name>`) waits on the
 Mac until that feed shows the lock free for 60 s, takes it, passes the lane's quiet gate and starts the chain, which
-settles 180 s before its first row. `tools/sitting.sh` has no `ZOO_FEED=none` path: on a Mac without the feed it waits
-and never takes the lock. Before each run the chain waits for a quiet PC: CPU, NVIDIA memory, free RAM and, for a cell
+settles 180 s before its first row. When the feed is missing or stale at the start, `tools/sitting.sh` refuses the
+sitting (exit 3); on a Mac without the feed, `ZOO_FEED=none tools/sitting.sh <name>` skips the feed, and the take then
+waits on the PC, in one ssh connection, until the lock has been free 60 s. Before each run the chain waits for a quiet PC: CPU, NVIDIA memory, free RAM and, for a cell
 with `engines_gate` (by default the Intel GPU and RTX cells), the GPU engines' load; each run's `.meta.json` keeps
 these reads (`gate`). Control rows bracket the cells, each in its own folder (`runs\<name>\control-<row>\`): an
 uncounted warm-up, a control head that stops the sitting when its first run is off the known value by more than 5 %,
 the cells, and a control tail. `control.json` holds the verdict, and `tools/results.py` counts the sitting as a timing
 only when it is a PASS. Give the known value (`--known`) from several of the control cell's runs on the same PC and
 power mode: without it, the chain takes the median of the head's own runs, and stops the sitting when they spread more
-than 5 % ((max − min) / median) or are fewer than three. With `--end-by`, the chain starts no cell that would not end,
+than 5 % ((max − min) / median) or are fewer than three. While another job waits, a sitting gives the lock back for
+16.5 min (a window) before a run that would end past 30 min of holding it, unless the plan is `--no-windows`; `--slots`
+gives it back at fixed times. With `--end-by`, the chain starts no cell that would not end,
 with the control tail, before that time; it counts a run at the cell's `est_sec`, else at its
 `timeout_min` (no recipe here sets `est_sec`: a cell with the default 20 min and three runs needs over 65 min). The
 records come to `raw/<name>/` before the lock goes back. No cell of this repo's `task-*` lines is timed.
@@ -278,7 +286,8 @@ Then one timed sitting of three of these cells between control rows of `rtmpose_
 shared PC's order gives (the walk's second sitting held the lock for 9 min; its first stopped at the control head after
 5 min). `--known` is the median of several values of `task-cuda32` on the PC of the sitting, in the same power mode:
 `summary.value` of its `run<k>.json` files (step 5's first pass gives one; a sitting that stops at its control head
-gives four more, under `raw/<name>/control-warm/` and `raw/<name>/control-head/`). `--end-by` is when the lock has to
+gives four more, under `raw/<name>/control-warm/` and `raw/<name>/control-head/`; runs inside a lock can sit below
+first passes, `WALK.md` Finding 12). `--end-by` is when the lock has to
 be back, as an ISO time with its UTC offset (the walk's was `2026-11-10T19:17:00+09:00`). The chain counts every run at
 its cell's `timeout_min`, 30 min for the two NPU cells, so the last cell needs about 96 min left when the chain reaches
 it, or it is left unrun: the walk gave 106 min after taking the lock, and the sitting took 9.
@@ -297,20 +306,25 @@ printf '%s\n' "& '$R\pc\walk_check.ps1' -Sittings walk-t; exit \$LASTEXITCODE" |
 `R` is the PC folder set in the first block. Each cell's timed value is `speed.value` (the median of its three runs,
 `speed.timed` true) in `walk-out-t/<model>/<cell>.json`. A sitting that stops at its control head ends with `DONE FAIL
 control head off the known value by more than 5 %: no other rows` and gives the lock back; plan the next one under a
-new `--sitting` name (the chain skips every run whose records are on disk).
+new `--sitting` name (the chain skips every run whose records are on disk). A cell the chain left by `--end-by`
+(`left_cells` in the sitting's `control.json`) is listed as `LEFT` by `pc\walk_check.ps1` and does not count as missing.
 
 `WALK.md` is the log of this walk on 2026-11-10: each step's outcome and each cell's line from `tools/walk_compare.py`.
 Its later sections are a second walk (the 15 models whose cells or references read the files on the Hub branches or
-the keyword clips: 19 cells, 15 references) and the timed sitting of step 8.
+the keyword clips: 19 cells, 15 references), the timed sitting of step 8, and the sittings that walked step 8's other
+paths on 2026-11-10 and 11-11: a fixed slot (`--slots`), cells left by `--end-by`, `ZOO_FEED=none`, and the lock given
+back in a window while another job waits (in a test lock folder).
 
 ### Not walked
 
-The walk's timed sitting ran in one block (`--no-windows`). Not run from this repo yet: the control rows' run-time key
-in `pc/chain.ps1` (`Get-RunKey`) under `tools/sitting.sh` (it came after the walk's sittings and ran only in a test
-folder with a stand-in runner, `WALK.md`), the lock given back while others wait (a plan without `--no-windows`),
-fixed slots (`--slots`), a cell left by `--end-by` with the real runners (that path ran only in the same test
-folder), `pc/z6_setup.py`'s `foundry model download` (the walk found its three packages already in the Foundry Local
-cache), `tools/pc.sh` with `ZOO_FEED=none`, and the runners of the copied cells (they stay in their zoos).
+Not run from this repo yet: a window that gives the shared lock itself to another job (the walk's window gave back the
+lock of a test lock folder, `ZOO_PCUP`, and a stand-in took it there, while the walk kept the shared lock); a sitting
+with a window that ends with its control tail (the walk's was stopped on purpose near the end of its slot, before the
+tail, and is not a timing); a fixed slot in which another job takes the lock (in the walk's none came, and the chain
+took the lock back at the slot's give-up time); the night stop on real steps and on a `lock = true` step (it ran in a
+test lock folder with stand-in steps, under `ZOO_NIGHT`); `pc/z6_setup.py`'s `foundry model download` (the walk found
+its three packages already in the Foundry Local cache); and the runners of the copied cells (they stay in their zoos).
+`WALK.md` has each case.
 
 ## Licences
 

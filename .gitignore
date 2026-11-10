@@ -7,17 +7,19 @@ scratch/
 RESULTS_*.md
 TASK_PAIRS_*.md
 models/index.json
-# what tools/pc.sh pull brings back; the committed records are raw/z5/ and raw/z6/ (the task cells), raw/walk/ and
-# raw/walk-z9/ (the two walks)
+# what tools/pc.sh pull brings back; the committed records are raw/z5/ and raw/z6/ (the task cells), raw/walk/,
+# raw/walk-z9/ and raw/walk-z12/ (the walks)
 raw/*/
 !raw/z5/
 !raw/z6/
 !raw/walk/
 !raw/walk-z9/
+!raw/walk-z12/
 # the vision task cells' outputs (npz, MB to tens of MB per cell) are not in this repo
 raw/z5/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
+raw/walk-z12/**/*.npz
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
 walk-out-*/

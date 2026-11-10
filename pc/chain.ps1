@@ -12,6 +12,8 @@ The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
 -Mode first: one run per unit, no lock, active\<lane>-<sitting>.txt says what runs; a unit that fails still writes its JSON.
   While another lane holds busy.txt nothing starts; a run in flight is killed when another lane's lock appears (its
   files removed; not suspended: a suspended process keeps its RAM) and runs again once the lock has been free 60 s.
+  In the PC's night (zoo.toml night, zlib Test-Night) no run starts or starts again, a run in flight is killed (its files
+  removed), the chain ends "FAIL the night ..." with the rest not run, and the lane's notes go.
 -Mode timed: under the lane's lock that the Mac took and gated before starting this (tools/sitting.sh). Before each run,
   the bench job's per-run quiet gate (zlib Wait-RunQuiet). The control rows (PLAN section 3, memory "timed sittings
   need a control row"): the plan's control-warm unit (not counted), control-head, the cells, control-tail. The known
@@ -103,8 +105,8 @@ Say $log "adapters: $(($luids.Keys | ForEach-Object { "$_=$($luids[$_].kind)" })
 $script:CellOffGpu = $false
 # first mode: any other lane's lock stops the run (killed, not suspended: a suspended process keeps its RAM, the shared
 # PC's rule; 11-09 13:00 a timing's gate waited on 8.6 GB held by suspended processes of another lane); it runs again from its
-# start
-function Test-CellYield { return (Test-OtherBusy) }
+# start. The PC's night stops it too (Run-Unit then ends the chain).
+function Test-CellYield { return ((Test-OtherBusy) -or ($Mode -eq "first" -and (Test-Night))) }
 function Stop-EngineTree([int]$EnginePid) {
     $ErrorActionPreference = "Continue"
     & "$env:SystemRoot\System32\taskkill.exe" /PID $EnginePid /T /F 2>&1 | Out-Null
@@ -251,7 +253,10 @@ function Run-Unit($u, [int]$k) {
     for ($try = 1; $try -le 20; $try++) {
         if ($Mode -eq "first") {
             do {
-                Wait-OthersGone $log "$($u.cell) run $k" 60
+                if ((Wait-OthersGone $log "$($u.cell) run $k" 60) -eq "night") {
+                    Remove-LaneNotes $log
+                    throw "the night ($($Night.Text)): $($u.cell) run $k and the units after it not started"
+                }
                 if ($script:CellRamWant -gt 0) { [void](Wait-FreeRam $script:CellRamWant $log "$($u.cell) run $k") }
             } while (Test-CellYield)
         }
@@ -260,7 +265,7 @@ function Run-Unit($u, [int]$k) {
         if ($u.foundry) { $meta.foundryGate = $fg }
         if ($u.cleanup -and ($meta.engine.yielded -or $meta.engine.timedOut)) { $meta.cleanup = Invoke-Cleanup $u $base }
         if (-not $meta.engine.yielded) { break }
-        Say $log "$($u.cell) run $k stopped (another lane's lock or a slot); its files removed, run again after it"
+        Say $log "$($u.cell) run $k stopped (another lane's lock, a slot or the night); its files removed, run again after it"
         Remove-Item "$base.json", "$base.stdout.txt", "$base.stderr.txt" -ErrorAction SilentlyContinue
         Remove-Item (Join-Path $dir "wav") -Recurse -Force -ErrorAction SilentlyContinue
         if ($Mode -eq "timed") { Invoke-Slot "unit $($u.cell) run $k" }

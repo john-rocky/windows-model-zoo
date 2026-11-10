@@ -2,7 +2,7 @@
 # The shared-PC rules these follow (agreed by the projects that share this PC): busy.txt is the timing lock
 # (CreateNew, one owner), a lane's presence note for untimed work is active\<lane>.txt, a lane that times gates on a
 # quiet host first, releases the lock for 16.5 min after 30 min while other lanes wait (pcup\window.txt says until
-# when), and reads no WMI in loops where it can.
+# when), runs no untimed work in the PC's night (zoo.toml night), and reads no WMI in loops where it can.
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot          # the zoo folder on the PC (pc\ sits in it; zoo.toml [zoo] pc_root)
 $HomeDir = [Environment]::GetFolderPath("UserProfile")   # from the token, not the environment block
@@ -37,6 +37,23 @@ if (-not $Label) {
     }
 }
 if (-not $Label) { throw "no lane name: set [zoo] lane in zoo.toml (pushed with pc\) or ZOO_LANE" }
+# The shared PC's night, when other jobs' timings run: zoo.toml's [zoo] night = "HH:mm-HH:mm" (ZOO_NIGHT overrides it;
+# none or no key = no night). In it the lane's untimed work (pc\steps.ps1, pc\chain.ps1 -Mode first) starts and resumes
+# nothing, stops what runs and removes the lane's notes (Test-Night, Wait-OthersGone, Remove-LaneNotes); timed sittings
+# are not stopped (they run in the slots the PC's order gives).
+$NightText = $env:ZOO_NIGHT
+if (-not $NightText) {
+    $zooTomlFile = Join-Path $Root "zoo.toml"
+    if (Test-Path $zooTomlFile) {
+        $zooNightLine = Select-String -Path $zooTomlFile -Pattern '^\s*night\s*=\s*"([^"]*)"' -Encoding UTF8 | Select-Object -First 1
+        if ($zooNightLine) { $NightText = $zooNightLine.Matches[0].Groups[1].Value }
+    }
+}
+$Night = $null
+if ($NightText -and $NightText -ne "none") {
+    if ($NightText -notmatch '^\s*(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\s*$') { throw "night = `"$NightText`" (zoo.toml or ZOO_NIGHT): not HH:mm-HH:mm" }
+    $Night = [pscustomobject]@{ From = [TimeSpan]$Matches[1]; To = [TimeSpan]$Matches[2]; Text = "$($Matches[1])-$($Matches[2])" }
+}
 $BuildTools = @("cl", "link", "MSBuild", "cmake", "ninja", "nvcc", "cicc", "ptxas")
 $Smi = Join-Path $env:SystemRoot "System32\nvidia-smi.exe"
 Add-Type -AssemblyName Microsoft.VisualBasic
@@ -132,19 +149,38 @@ function Take-BusyAfterFree([string]$What, [string]$Log, [int]$FreeSec = 60, [in
     }
     return "TIMEOUT"
 }
+# Now in the shared PC's night (zoo.toml night; an overnight range such as 20:45-05:30 runs past midnight)
+function Test-Night {
+    if (-not $Night) { return $false }
+    $t = (Get-Date).TimeOfDay
+    if ($Night.From -le $Night.To) { return ($t -ge $Night.From -and $t -lt $Night.To) }
+    return ($t -ge $Night.From -or $t -lt $Night.To)
+}
+# At a night stop the lane's notes go (active\<lane>.txt of tools/pc.sh lock note and the lists' and first passes'
+# active\<lane>-*.txt): a note left up reads as "this lane waits" to the night's timings, which give their lock back for it
+function Remove-LaneNotes([string]$Log) {
+    $act = Join-Path $Pcup "active"
+    $gone = @(Get-ChildItem -LiteralPath $act -Filter "$Label*.txt" -ErrorAction SilentlyContinue | Where-Object { $_.BaseName -eq $Label -or $_.BaseName.StartsWith("$Label-") })
+    foreach ($f in $gone) { Remove-Item -LiteralPath $f.FullName -Force -ErrorAction SilentlyContinue }
+    if ($Log) { Say $Log "night $($Night.Text): the lane's notes removed: $(if ($gone.Count) { ($gone | ForEach-Object { $_.Name }) -join ', ' } else { 'none' })" }
+}
 # Untimed work waits while another lane holds the lock, and starts again only after busy.txt has been free $FreeSec in
-# a row (the next lane in the order takes within 45 s of a release)
+# a row (the next lane in the order takes within 45 s of a release). Returns "night" in the shared PC's night (now, or
+# when it comes during the wait: the caller starts nothing and stops), else "".
 function Wait-OthersGone([string]$Log, [string]$What, [int]$FreeSec = 60) {
-    if (-not (Test-OtherBusy)) { return }
+    if (Test-Night) { Say $Log "$What`: the night ($($Night.Text)): not started"; return "night" }
+    if (-not (Test-OtherBusy)) { return "" }
     Say $Log "$What`: another lane holds the lock ($((Read-Busy).Text)): waiting"
     $freeSince = $null
     while ($true) {
+        if (Test-Night) { Say $Log "$What`: the night ($($Night.Text)) came while waiting: not started"; return "night" }
         if (Test-OtherBusy) { $freeSince = $null }
         elseif (-not $freeSince) { $freeSince = Get-Date }
         elseif (((Get-Date) - $freeSince).TotalSeconds -ge $FreeSec) { break }
         Start-Sleep -Seconds 5
     }
     Say $Log "$What`: the lock has been free $FreeSec s: going on"
+    return ""
 }
 # Another lane holds the lock now (its marker is younger than 120 min)
 function Test-OtherBusy { $b = Read-Busy; return [bool]($b -and -not $b.Text.StartsWith("$Label ") -and $b.AgeMin -lt 120) }
