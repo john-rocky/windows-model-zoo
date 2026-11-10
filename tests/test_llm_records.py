@@ -139,7 +139,7 @@ def main():
                         else {"right": 20, "n": 20, "wrong": []})
             if task.get("key") != want_key:
                 bad.append(f"{m}/{cid}: llm.task.key {task.get('key')}, want {want_key}")
-            if not doc["line"]["verdict"].endswith(f"; {want_key['right']} of 20 right by the answer key"):
+            if not doc["line"]["verdict"].endswith(f"; outside the line: {want_key['right']} of 20 right by the answer key"):
                 bad.append(f"{m}/{cid}: verdict {doc['line']['verdict']!r}")
             if any(sp.get(k) is not None for k in ("value", "first_value", "ttft_ms")):
                 bad.append(f"{m}/{cid}: a first pass shows a speed: {sp}")

@@ -22,7 +22,7 @@
   "id": "qa20",
   "kind": "task",
   "pass": false,
-  "verdict": "FAIL on qa20: 13 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 17 of 20 right by the answer key",
+  "verdict": "FAIL on qa20: 13 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 17 of 20 right by the answer key",
   "reference": "raw/z6/refs/Qwen3-1.7B/ref.json",
   "detail": {
    "answers": {

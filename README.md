@@ -10,7 +10,7 @@ each of 20 short answers, normalized (trimmed and lower case; quotes, backticks 
 `!` `?` dropped; spaces collapsed), equals the first line of the same model's answer in transformers on the CPU (fp32;
 bf16 for gemma-4-E4B-it), the reference, on at least 18 of 20, and a gate prompt ends within 16 tokens. That is
 agreement with the reference, not answers a person graded right or wrong; a second count outside the line, at the end
-of each LLM `task-*` cell's verdict, gives the answers that contain the right answer of a fixed key
+of each LLM `task-*` cell's verdict, is the number of answers that contain the right answer of an answer key
 (`suites/llm/qa20.key.jsonl`). For the other 23, the model's task output
 after a copy of its sample app's post-processing (`john-rocky/LiteRT-Models`: boxes, points, masks, depth, classes and
 the like; for the audio models a keyword or the decoded sound) against the same model's fp32 file on the CPU. Each
@@ -59,11 +59,12 @@ vision task cells). No model runs on the Mac: references, exports and cells all 
 ## Reading a cell
 
 `line.verdict` gives the verdict, its numbers and the line in one string, for example
-`FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 12 of 20 right by the
-answer key` or
+`FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 12 of
+20 right by the answer key` or
 `FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)`; `no verdict on <line>: <state>`
 when the run did not end OK, and `reference of <line>` for a reference cell. `line.pass` and `line.detail` hold the same
-as values, `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
+as values (the count by the answer key, the last part of an LLM `task-*` verdict, is outside the line and is in
+`llm.task.key`), `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
 `task-*` cells in `form.from`, the vision `task-*` cells the vision zoo's file in `form.path` and `form.detail`).
 `source.by` says who ran the cell: the vision zoo (`windows-zoo (Z1)`), the LLM zoo (`windows-llm-zoo (Z2)`),
 edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), or `windows-zoo-template`, the private working repo

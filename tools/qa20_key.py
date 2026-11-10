@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """qa20 answers counted with an answer key: a second count next to the qa20 line, which compares each answer's first
-line with the reference's (PLAN.md section 1b). The line and its verdicts do not change.
+line with the reference's (PLAN.md section 1b). The line and each cell's pass / fail do not change.
 
-An answer is right by the key when it contains one of its question's forms in `suites/llm/qa20.key.jsonl` as a word or a
-number (no ASCII letter or digit right before or after it; a number by its value, so 25.0 counts for 25 and 4.0 does not
-contain 0), after both are normalized the same way (Unicode NFKC; lower case except for q19, which the key marks
-case-sensitive; every character but a letter, a digit or a decimal point between digits replaced by a space); for q11
-and q17, a right form must also come before the other answers the question offers (the key's `reject`). The answer's
-form is not judged: a sentence counts as well as one word.
+An answer is right by the key when it contains one of the answers the key accepts for its question (`accept` in
+`suites/llm/qa20.key.jsonl`) as a word or a number: no ASCII letter or digit right before or after it, and a number by
+its value (25.0 counts for 25; 4.0 does not contain 0). Both are first normalized the same way: Unicode NFKC, lower case
+(except q19, which the key marks case-sensitive), and every character other than a letter, a digit or a decimal point
+between digits replaced by a space. For q11 and q17, an accepted answer must also come before the other answers the
+question offers (the key's `reject`). The answer's form is not judged: a sentence counts as well as one word.
 
     python3 tools/qa20_key.py <record.json> ...     # run or reference records (rows with id, role, text)
     python3 tools/qa20_key.py --cells               # each LLM task cell's record (source.record) and each reference
     python3 tools/qa20_key.py --rows <record.json>  # one line per question: right or not, and the answer
 
 Each record prints "<record>: <right>/<n> right by key" and the ids not right. It stops with one line (exit 1) when a
-record is missing, a question row has no text, or a row's id is not in the key. Python 3 standard library only.
+record is missing or has no rows, a question row has no text, or a row's id is not in the key. Python 3 standard library only.
 """
 import json
 import pathlib

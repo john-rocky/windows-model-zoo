@@ -117,8 +117,8 @@ def _numbers(ln, run):
 
 def verdict_text(cell):
     """line.verdict of a cell JSON: the verdict, the numbers and the line in one string, e.g. `FAIL on qa20: 9 of 20
-    answers' first lines equal the reference's (pass mark 18); gate PASS; 12 of 20 right by the answer key` (the last
-    part is llm.task.key, tools/qa20_key.py: not part of the line). None for a cell with no line (another device's
+    answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 12 of 20 right by the answer
+    key` (the last part is llm.task.key, tools/qa20_key.py). None for a cell with no line (another device's
     record). tools/results.py writes it; tools/lint.py checks every cell against it."""
     ln = cell.get("line")
     if not ln:
@@ -137,7 +137,7 @@ def verdict_text(cell):
     nums = _numbers(ln, run)
     k = ((cell.get("llm") or {}).get("task") or {}).get("key")
     if k and "answers" in (ln.get("detail") or {}):
-        nums += f"; {k['right']} of {k['n']} right by the answer key"
+        nums += f"; outside the line: {k['right']} of {k['n']} right by the answer key"
     return f"{'PASS' if p else 'FAIL'} on {lid}" + (f": {nums}" if nums else "")
 
 
