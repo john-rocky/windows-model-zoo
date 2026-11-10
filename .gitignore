@@ -20,6 +20,9 @@ raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
+walk-out-*/
+# a timed sitting's log on the Mac (tools/sitting.sh)
+raw/*.sitting.log
 # generated from the recipes by tools/plan.py (what the PC runs; written again before each push)
 pc/plans/
 pc/steps/

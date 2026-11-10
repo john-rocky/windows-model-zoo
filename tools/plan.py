@@ -222,9 +222,15 @@ def first(a):
 def timed(a):
     cm, cr, cc = find_cell(a.control)
     ctl = unit(cm, cr, cc, False)
-    units = [dict(ctl, role="control-warm"), dict(ctl, role="control-head", runs=a.runs)]
+
+    def control(role, **more):
+        # each control row in its own run folder, runs\<sitting>\<role>\<model>\<cell>: pc/chain.ps1 skips a run whose
+        # meta is already on disk, so rows that shared the cell's folder would read the warm-up's run1 as the head's
+        # first run and as the tail; tools/results.py reads <sitting>\<model>\<cell> only, so these rows are not the cell's
+        return dict(ctl, cell=f"{role}/{ctl['cell']}", role=role, **more)
+    units = [control("control-warm"), control("control-head", runs=a.runs)]
     units += [dict(unit(*find_cell(s), False), runs=a.runs) for s in a.cells.split(",")]
-    units.append(dict(ctl, role="control-tail"))
+    units.append(control("control-tail"))
     plan = {"sitting": a.sitting, "mode": "timed", "units": units, "windows": not a.no_windows}
     if a.known:
         plan["control_known_value"] = a.known

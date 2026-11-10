@@ -29,7 +29,7 @@ The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
   end_by (the plan's ISO time): the PC's order gives the lock to another lane then (11-09: another lane at 21:07,
   other lanes' timings after it). A cell whose runs, a possible duty gap and the control tail would not end before it is not
   started, nor any cell after it; they go to control.json as left_cells (a later sitting runs them) and the tail runs.
-  A plan with windows false (tools/make_plan.py --no-windows: the PC's order gives the sitting one block to end_by)
+  A plan with windows false (tools/plan.py timed --no-windows: the PC's order gives the sitting one block to end_by)
   opens no duty window at all; a slot_now.txt request still applies.
   No duty window opens before the control tail (the tail follows the last cell; the lock goes back after it). A
   take-back whose free minute, settle, gate and tail would not end before end_by is not made (nor a second gate after
@@ -277,15 +277,19 @@ function Run-Unit($u, [int]$k) {
 $script:held = if ($Mode -eq "timed" -and (Test-OursBusy)) { (Get-Item $Busy).CreationTime } else { Get-Date }
 $script:runsSinceTake = if (((Get-Date) - $script:held).TotalMinutes -ge 1) { 1 } else { 0 }
 $script:runSec = @{}
+# the control rows run one cell, each in its own folder (unit cell "control-<row>/<model>/<cell>"): one key for their times
+function Get-RunKey([string]$Cell) { return ($Cell -replace '^control-[a-z]+/', '') }
 function Note-RunSec([string]$Cell, $Sec) {
     try {
         $s = [double]$Sec
-        if ($s -gt 0 -and (-not $script:runSec.ContainsKey($Cell) -or $s -gt $script:runSec[$Cell])) { $script:runSec[$Cell] = $s }
+        $key = Get-RunKey $Cell
+        if ($s -gt 0 -and (-not $script:runSec.ContainsKey($key) -or $s -gt $script:runSec[$key])) { $script:runSec[$key] = $s }
     } catch { }
 }
 # expected seconds of one run: this chain's own runs of the cell, else the plan's est_sec (the first pass), + 60 s
 function Get-RunEstSec($u) {
-    if ($script:runSec.ContainsKey($u.cell)) { return [double]$script:runSec[$u.cell] + 60 }
+    $key = Get-RunKey $u.cell
+    if ($script:runSec.ContainsKey($key)) { return [double]$script:runSec[$key] + 60 }
     if ($u.est_sec) { return [double]$u.est_sec + 60 }
     return 0
 }
@@ -392,7 +396,7 @@ function Invoke-Duty([string]$What, $u) {
         $why = ""
     }
     if ($why -and $p.windows -eq $false) {
-        # One block (the plan's windows false, tools/make_plan.py --no-windows): the PC's order gives this sitting the lock
+        # One block (the plan's windows false, tools/plan.py timed --no-windows): the PC's order gives this sitting the lock
         # to end_by in one piece (the night of 11-09/10), so another lane's note opens no window.
         Say $log "duty: $why, others waiting ($($others -join ', ')): no window (the plan: one block to end_by)"
         $why = ""

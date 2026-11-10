@@ -5,7 +5,7 @@ not exist, `C:\src\model-zoo`, on the shared Windows laptop the cells ran on (In
 GPU, RTX 5080 Laptop, 31.5 GiB of RAM). The clone held an earlier version of this tree, pushed privately at 12:29
 (commit `5ecaf06`, not in this repository's history). Finding 2 below was fixed in the clone before the first PC
 command; for Finding 1, step 0 ran under bash, where the old lines work, and the README was changed afterwards. How
-this commit differs from the walked version is in the next section. Times are JST. The run records, the references and
+`8baf723`, the commit that added this log, differs from the walked version is in the next section. Times are JST. The run records, the references and
 the PC's logs of the walk are in `raw/walk/` (without the six npz output files: the four vision cells' and the two
 vision references').
 
@@ -16,9 +16,9 @@ references give the same rows (`tools/walk_compare.py`, below). Seven of the nin
 the walk as in the repo; each verdict string is in its cell's JSON (`line.verdict`). `pc\walk_check.ps1`: 0 missing,
 0 failed.
 
-## This commit and the walked version
+## `8baf723` and the walked version
 
-The walk ran the code of `5ecaf06`. This commit differs from it in:
+The walk ran the code of `5ecaf06`. `8baf723` differs from it in:
 
 - the docs: the README (its first paragraph, which cells the `task-*` cells judge again, `source.by`, the Z names, the
   Foundry Local EP note, "Not walked", the walk's model names and two pull lines), PLAN.md (the note on
@@ -34,7 +34,7 @@ The walk ran the code of `5ecaf06`. This commit differs from it in:
   ship (`Get-YieldNotes` in `pc/zlib.ps1`, `yield_notes` in `pc/zoolib.py` and `pc/z6_setup.py`; no file = no note
   to yield to).
 
-The checks of the code, on 2026-11-10 at 15:53: PowerShell's tokenizer on the PC gives the walked and this commit's
+The checks of the code, on 2026-11-10 at 15:53: PowerShell's tokenizer on the PC gives the walked and `8baf723`'s
 `pc/zlib.ps1`, `pc/steps.ps1` and `pc/chain.ps1` the same tokens apart from comments, except the lookups and
 `Get-YieldNotes`; Python's parser gives the changed `.py` files the same tree apart from docstrings, except the
 lookups and `yield_notes`. The lookups ran on the PC against a test folder (`ZOO_PCUP`), in PowerShell (through
@@ -174,3 +174,58 @@ w2v2_frontend_fp16/task-ovnpu_pre: verdict and numbers the same
 w2v2_head_fp16 reference: rows, task_values the same
 w2v2_head_fp16/task-cuda16: verdict and numbers the same
 ```
+
+## The timed sitting (step 8), 2026-11-10
+
+Run from a new worktree of this repository at `8baf723` on the Mac, against another PC folder that did not exist, on
+the same laptop (MSI Center's Extreme mode, on AC power, the desktop locked). Steps 0 to 5 and step 6's pulls ran first
+for the two vision models and their four cells (the two models have no engines list and no step 3; the first pass was
+pulled and not judged); then the sitting. Its run records are not in this repository: this repo's `task-*` cells
+stay untimed. Times are JST.
+
+| step | ran | outcome |
+|---|---|---|
+| 0 to 5 and step 6's pulls for `rtmpose_s_fp16` and `rtmw_fp16` | 17:03:56 to 17:09:23, the pulls at 17:20 | OK: setup (3.1 min), fetch (0.4 min), the two references, the four cells' first pass |
+| a test folder: the chain with a stand-in runner | 17:09:54 to 17:16:44 | Findings 3 and 5 below; a control head 13 % off the known value stopped the sitting before any cell; a tail 37 % off gave "TAIL OFF 37.0 %: the rows of this sitting are not used" |
+| a test folder: `engines_gate` | 17:18:09 to 17:19:51 | the GPU engines' counter read 0 % before the load and after it, and 88 to 98 % while a test process ran rtmw on the Intel GPU with OpenVINO; the per-run gate waited ("gpu engines 95 %") and opened after the load ended |
+| 8. the first sitting | lock 17:21:41 to 17:27:02 | the control head's first run was 5.8 % off the known value, so the sitting stopped there with no cell run (Finding 6); the other two head runs were 1.6 % and 1.8 % off |
+| 8. the second sitting | lock 17:30:55 to 17:40:01 | control head 3.1 % off, tail 2.5 % off: PASS. The three cells' nine runs ended OK; every run's gate read a quiet PC, and the eight runs with `engines_gate` read 0 % |
+| `tools/results.py`, `tools/walk_compare.py` | 17:40 | the three cells: "verdict and numbers the same"; the two references: "rows, task_values the same" |
+| `pc\walk_check.ps1` | 17:40 | "walk check: 0 missing, 0 failed" for the lists, the first pass and the second sitting (the first sitting alone: "20 missing, 1 failed") |
+| a test folder: the changed `pc/chain.ps1`, two of the same plans | 17:53:55 to 18:01:00 | the same outcomes: "TAIL OFF 37.0 %: the rows of this sitting are not used"; the two NPU cells left, the tail PASS |
+
+The sittings ran `8baf723` with Finding 3's change to `tools/plan.py`. Two changes came after them: the chain's run-time
+key for the control rows (Finding 3) and `tools/results.py`'s check of `control.json` (Finding 7); the test folder and
+copies of the second sitting's records checked them (below).
+
+## What the timed sitting found, and what changed
+
+3. **The control rows shared one run folder.** `tools/plan.py timed` gave the warm-up, the head and the tail the
+   control cell's own name, so all three had one folder and one `run1.*` (`runs\<sitting>\<model>\<cell>\run1.*`).
+   `pc/chain.ps1` skips a run whose records are on disk: the head's first run and the tail read the warm-up's record,
+   and the tail passed without running. A stand-in runner with a different value per row showed it in the test folder:
+   the sitting ended OK with "PASS (tail off 1.0 %)", the warm-up's value, though the tail's own value was 37 % off;
+   only the chain log's two "run 1 on disk, skipped" lines told. Each control row now has its own folder, `runs\<sitting>\control-<row>\<model>\<cell>`, and
+   `pc/chain.ps1` keys the run times of the three rows as one cell (`Get-RunKey`), so `--end-by` still counts the
+   tail at the head's run time. Taken from `pc/chain.ps1` by PowerShell's parser on the PC and called with the control
+   rows' names, its functions give the tail the head's run time + 60 s, as before the folders were split (0 s without
+   `Get-RunKey`).
+4. **The push between the plan and the sitting.** `tools/plan.py timed` writes `pc/plans/<name>.json` on the Mac and
+   `tools/sitting.sh` runs the PC's copy. The README now has `tools/pc.sh push` between them.
+5. **`--end-by` and `est_sec`.** The chain counts each run of a cell with no `est_sec` at its `timeout_min`, and no
+   recipe here sets `est_sec`. In the test folder, with the end time 85 min after the plan, the cell with 20 min ran and
+   the two NPU cells with 30 min (about 95 min for three runs) were left, though each run takes a few seconds. The
+   README says so; no recipe changed.
+6. **One control run against ±5 %.** Within 75 s, `task-cuda32`'s three head runs spread 7.7 % and 7.5 %
+   ((max − min) / median) in the two sittings, so the first run can be more than 5 % off a known value from the middle
+   of its values. The first sitting's known value was the mean of the cell's two untimed runs in this repository
+   (`raw/z5`, `raw/walk`); the second took the median of seven runs of the cell on this PC in the same mode (those
+   two, the walk's own first pass and the first sitting's four control runs). Without `--known`, the head's own runs
+   (spread over 5 %) would have stopped both sittings.
+7. **A failed control tail still gave timed values.** `tools/results.py` took a timed sitting whose runs ended OK
+   without reading `control.json`, so a sitting whose tail was off ("the rows of this sitting are not used") gave its
+   cells timed values. Now such a sitting is not a timing (`speed.timed` false and a note in the cell), and a first
+   pass of the cell is taken before it. Checked on copies of the second sitting's records with the verdict set to
+   "TAIL OFF 6.0 %" and with `control.json` removed; on the second sitting's own records it writes the same five files
+   as at 17:40. On this repository's first-pass records (`raw/walk/runs`, `raw/z5/runs` and `raw/walk-z9/runs`, each
+   judged for all 133 of this zoo's own cells), the old and the new `tools/results.py` write the same 440 files.

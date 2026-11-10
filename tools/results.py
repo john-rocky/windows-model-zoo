@@ -5,7 +5,8 @@ cells this zoo runs itself (a recipe cell without migrated = true). Then python3
     python3 tools/results.py --runs raw/walk/runs --refs raw/walk/refs [--model <model> ...]
 
 Records: <runs>/<sitting>/<model>/<cell>/run<k>.json (the runner's) and run<k>.meta.json (pc/chain.ps1's view: mode,
-start, power mode, peak memory). A cell takes its latest timed sitting whose runs ended OK, else its latest first pass.
+start, power mode, peak memory). A cell takes its latest timed sitting whose runs ended OK and whose control rows passed
+(<sitting>/control.json, pc/chain.ps1's verdict), else its latest first pass.
 The line's reference: <refs>/<model>/ref.json (a [[step]] with `reference`, pulled from the PC) or a file of this repo
 (a cell's `reference`). A pulled reference is also kept in compact form in models/<model>/reference/ref.json, so the
 verdict reads again without raw/.
@@ -252,8 +253,14 @@ def first_from_command(cmd):
     return int(m.group(1)) if m else 0
 
 
+def control_verdict(sitting_dir):
+    """pc/chain.ps1's verdict on a timed sitting's control rows (<sitting>/control.json), None when there is none."""
+    p = sitting_dir / "control.json"
+    return jload(p).get("verdict") if p.exists() else None
+
+
 def runs_of(runs_root, model, cell):
-    """[(sitting, mode, [(run json, meta)])], newest first (by the meta's start)."""
+    """[(sitting, mode, [(run json, meta)], control verdict)], newest first (by the meta's start)."""
     out = []
     for sd in sorted(pathlib.Path(runs_root).iterdir()) if pathlib.Path(runs_root).is_dir() else []:
         d = sd / model / cell
@@ -264,15 +271,22 @@ def runs_of(runs_root, model, cell):
         for m in metas:
             k = m.name[:-len(".meta.json")]
             rs.append((d / f"{k}.json", jload(m)))
-        out.append((sd.name, rs[0][1].get("mode"), rs))
+        mode = rs[0][1].get("mode")
+        out.append((sd.name, mode, rs, control_verdict(sd) if mode == "timed" else None))
     out.sort(key=lambda s: s[2][0][1].get("start") or "", reverse=True)
     return out
+
+
+def control_passed(s):
+    # a timed sitting whose control head or tail was off the known value (or did not run) is not a timing
+    return str(s[3] or "").startswith("PASS")
 
 
 def pick(sittings):
     for want in ("timed", "first"):
         for s in sittings:
-            if s[1] == want and all(rj.exists() and jload(rj).get("status") == "OK" for rj, _ in s[2]):
+            if s[1] == want and (want != "timed" or control_passed(s)) and \
+                    all(rj.exists() and jload(rj).get("status") == "OK" for rj, _ in s[2]):
                 return s
     return sittings[0] if sittings else None
 
@@ -329,7 +343,7 @@ def build(model, recipe, cell, args, cfg):
         else:
             doc[kind] = {}
         return doc, (None, None)
-    sitting, mode, rs = s
+    sitting, mode, rs, verdict = s
     rj, meta = rs[0]
     run = jload(rj) if rj.exists() else {}
     err = (run.get("error") or "").strip().splitlines()
@@ -341,7 +355,7 @@ def build(model, recipe, cell, args, cfg):
     doc["source"].update({"record": zoo.rel(rj), "runner": run.get("runner"), "argv": run.get("argv")})
     vals = [jload(r).get("summary", {}).get("value") for r, _ in rs if r.exists() and jload(r).get("status") == "OK"]
     vals = [v for v in vals if v is not None]
-    timed = mode == "timed" and ok and len(vals) == len(rs)
+    timed = mode == "timed" and control_passed(s) and ok and len(vals) == len(rs)
     sm = run.get("summary") or {}
     doc["speed"] = {"metric": METRIC[kind], "value": statistics.median(vals) if timed else None,
                     "first_value": sm.get("value") if not timed else None, "timed": timed, "n": len(vals),
@@ -364,6 +378,9 @@ def build(model, recipe, cell, args, cfg):
                      "power_detail": pdetail, "desktop_locked": meta.get("desktopLocked")}
     if mode == "first":
         doc["note"].append({"rank": 1, "text": "first pass, untimed"})
+    elif mode == "timed" and not control_passed(s):
+        doc["note"].append({"rank": 1, "text": f"the sitting's control rows did not pass ({verdict or 'no control.json'}): "
+                                               "not a timing"})
     if not ok:
         doc["note"].append({"rank": 3, "text": "ERROR: " + (doc["run"]["error_line"] or "")[:120]})
     ref_path, ref = reference_of(recipe, cell, args.refs)
