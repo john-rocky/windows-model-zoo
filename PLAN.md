@@ -110,6 +110,16 @@ model answers some questions wrongly itself (Qwen3-0.6B gives `1` for the number
 answers those rightly counts as different. Each cell is one untimed run. A FAIL says that this package, on that runtime
 and device, did not reach the line; it is not a measure of the model or of the runtime in general.
 
+Right by key (added 2026-11-10, after the runs) is a second count that changes nothing in the line: `tools/qa20_key.py`
+counts the answers that are right by the key. An answer is right by the key when it contains one of its question's forms
+in `suites/llm/qa20.key.jsonl` as a word or a number (no ASCII letter or digit right before or after it; a number by its
+value, so 25.0 counts for 25 and 4.0 does not contain 0), after both are normalized the same way (Unicode NFKC; lower
+case except for q19, which the key marks case-sensitive; every character but a letter, a digit or a decimal point
+between digits replaced by a space); for q11 and q17, a right form must also come before the other answers the question
+offers (the key's `reject`). The answer's form is not judged: a sentence counts as well as one word. A cell's count is
+in `llm.task.key` and ends its `line.verdict`; the references' (`models/<model>/reference/ref.json`) are Qwen3-0.6B 14,
+Qwen3-1.7B 18, Qwen3-4B 19, gemma-4-E2B-it 20 and gemma-4-E4B-it 20 of 20.
+
 ## Z5. The vision zoo's 47 cells that fail its internal line, judged on task lines
 
 (Written 2026-11-10 06:41 JST, before any number of this pass.)

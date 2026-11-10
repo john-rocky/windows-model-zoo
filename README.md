@@ -9,7 +9,9 @@ written before any of them ran). What the task lines (the `task-*` cells) look a
 each of 20 short answers, normalized (trimmed and lower case; quotes, backticks or asterisks around it and a final `.`
 `!` `?` dropped; spaces collapsed), equals the first line of the same model's answer in transformers on the CPU (fp32;
 bf16 for gemma-4-E4B-it), the reference, on at least 18 of 20, and a gate prompt ends within 16 tokens. That is
-agreement with the reference, not answers a person graded right or wrong. For the other 23, the model's task output
+agreement with the reference, not answers a person graded right or wrong; a second count outside the line, at the end
+of each LLM `task-*` cell's verdict, gives the answers that contain the right answer of a fixed key
+(`suites/llm/qa20.key.jsonl`). For the other 23, the model's task output
 after a copy of its sample app's post-processing (`john-rocky/LiteRT-Models`: boxes, points, masks, depth, classes and
 the like; for the audio models a keyword or the decoded sound) against the same model's fp32 file on the CPU. Each
 `task-*` cell is one run that was not a timing: the speed values its JSON keeps from that run (`speed.timed` false) are
@@ -37,10 +39,11 @@ models/<model>/recipe.toml  how each form is made and how each cell runs; the li
 models/<model>/results/     one JSON per cell (schema/cell.schema.json)
 models/<model>/reference/   the compact record of the line's reference
 raw/z5/, raw/z6/            the run records and references the task cells name (`source.record`)
-suites/                     the input sets: vision images (pinned URLs + sha256), LLM questions, audio clip lists
+suites/                     the input sets: vision images (pinned URLs + sha256), LLM questions and their answer key,
+                            audio clip lists
 schema/                     cell.schema.json, recipe.md (the recipe's keys), lines.md (the lines per kind and task)
 tools/                      the Mac side: table.py, lint.py, results.py, vision_tasks.py, plan.py, pc.sh, sitting.sh,
-                            walk_compare.py, task_pairs_vision.py, task_pairs_llm.py, scrub.py
+                            walk_compare.py, task_pairs_vision.py, task_pairs_llm.py, scrub.py, qa20_key.py
 pc/                         the PC side: chain.ps1, steps.ps1, lock.ps1, launch.ps1, wait_done.ps1, zlib.ps1,
                             fetch.py, engines.py, the runners and their library zoolib.py, req/ (one pinned venv each)
 tests/                      synthetic outputs and records through the vision task lines, the LLM qa20 records and the
@@ -56,7 +59,8 @@ vision task cells). No model runs on the Mac: references, exports and cells all 
 ## Reading a cell
 
 `line.verdict` gives the verdict, its numbers and the line in one string, for example
-`FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS` or
+`FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 12 of 20 right by the
+answer key` or
 `FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)`; `no verdict on <line>: <state>`
 when the run did not end OK, and `reference of <line>` for a reference cell. `line.pass` and `line.detail` hold the same
 as values, `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
