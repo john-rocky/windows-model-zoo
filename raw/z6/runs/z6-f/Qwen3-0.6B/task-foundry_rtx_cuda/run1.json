@@ -1,0 +1,449 @@
+{
+ "runner": "run_llm_foundry.py",
+ "started": "2026-11-10T09:55:00.245412+09:00",
+ "argv": [
+  "--package",
+  "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-cuda-gpu-2\\v2",
+  "--id",
+  "z6-qwen3-0.6b-cuda-gpu:1",
+  "--device",
+  "gpu",
+  "--ep",
+  "CUDAExecutionProvider",
+  "--task",
+  "chat-completion",
+  "--work",
+  "C:\\src\\zoo-template\\work\\foundry",
+  "--cuda12",
+  "C:\\src\\msf\\cuda12\\dll_all",
+  "--ref",
+  "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z6-f\\Qwen3-0.6B\\task-foundry_rtx_cuda\\run1.json"
+ ],
+ "pid": 29392,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "q01",
+   "role": "question",
+   "prompt_tokens": 24,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "Paris",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.1476985999615863
+  },
+  {
+   "id": "q02",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 16,
+   "text": "7 + 5 = 12.  \n**Only the number.**",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2590533999609761
+  },
+  {
+   "id": "q03",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 10,
+   "text": "12 * 3 = 36.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.21651240001665428
+  },
+  {
+   "id": "q04",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "cat",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.1456942999502644
+  },
+  {
+   "id": "q05",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "Mars",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.164778100035619
+  },
+  {
+   "id": "q06",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "28",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.16660009999759495
+  },
+  {
+   "id": "q07",
+   "role": "question",
+   "prompt_tokens": 25,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "cold",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.17042209999635816
+  },
+  {
+   "id": "q08",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 3,
+   "text": "「ありがとう」",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.16552249999949709
+  },
+  {
+   "id": "q09",
+   "role": "question",
+   "prompt_tokens": 28,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "blue",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.15181879996089265
+  },
+  {
+   "id": "q10",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "Au",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.1677182000130415
+  },
+  {
+   "id": "q11",
+   "role": "question",
+   "prompt_tokens": 25,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 48,
+   "text": "Yes, **17 is a prime number**.\n\n### Explanation:\nA **prime number** is a number greater than 1 that has no positive divisors other than 1 and itself.\n\nSince **17** is a prime number",
+   "eos": false,
+   "stop": "length",
+   "max_new": 48,
+   "wall_s": 0.4365249000256881
+  },
+  {
+   "id": "q12",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 10,
+   "text": "The largest ocean on Earth is the Pacific Ocean.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.23684839997440577
+  },
+  {
+   "id": "q13",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 6,
+   "text": "Romeo and Juliet.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.18634279997786507
+  },
+  {
+   "id": "q14",
+   "role": "question",
+   "prompt_tokens": 29,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 19,
+   "text": "100 ÷ 4 = 25.  \n\n**Answer:** 25",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2682382999919355
+  },
+  {
+   "id": "q15",
+   "role": "question",
+   "prompt_tokens": 34,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "8",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.18273459997726604
+  },
+  {
+   "id": "q16",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 4,
+   "text": "100°C",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.1811716000083834
+  },
+  {
+   "id": "q17",
+   "role": "question",
+   "prompt_tokens": 40,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "same",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.15541539998957887
+  },
+  {
+   "id": "q18",
+   "role": "question",
+   "prompt_tokens": 28,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 12,
+   "text": "The square root of 81 is **9**.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2188365000183694
+  },
+  {
+   "id": "q19",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "HELLO",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.15275569999357685
+  },
+  {
+   "id": "q20",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "2",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.1648604999645613
+  },
+  {
+   "id": "gate",
+   "role": "gate",
+   "prompt_tokens": 23,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 5,
+   "text": "1+1=2",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 16,
+   "wall_s": 0.18992330000037327
+  }
+ ],
+ "foundry_cli": [
+  {
+   "command": "foundry --version",
+   "exit": 0,
+   "s": 0.06,
+   "tail": [
+    "0.13.0"
+   ]
+  },
+  {
+   "command": "foundry server start",
+   "exit": 0,
+   "s": 6.09,
+   "tail": [
+    "NvTensorRTRTXExecutionProvider: 0%",
+    "CUDAExecutionProvider: 0%",
+    "WebGpuExecutionProvider: 0%",
+    "● success: Server ready (http://127.0.0.1:59215)",
+    "  Public API: http://127.0.0.1:59215/v1/",
+    "  Local API (BYOM): http://127.0.0.1:59215/catalogs/local/v1/"
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-qwen3-0.6b-cuda-gpu:1",
+   "exit": 3,
+   "s": 0.63,
+   "tail": [
+    "● error: No local registration matches 'z6-qwen3-0.6b-cuda-gpu:1'.",
+    "Hint: Pass a registered local alias or exact canonical model ID."
+   ]
+  },
+  {
+   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-cuda-gpu z6-qwen3-0.6b-cuda-gpu:1 --task chat-completion --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider",
+   "exit": 0,
+   "s": 0.26,
+   "tail": [
+    "■ note: Alias: z6-qwen3-0.6b-cuda-gpu",
+    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-cuda-gpu",
+    "■ note: Task: chat-completion",
+    "■ note: Files were not copied; the original folder is retained and must remain ",
+    "available.",
+    "■ note: Next: foundry run z6-qwen3-0.6b-cuda-gpu:1"
+   ]
+  },
+  {
+   "command": "foundry model load z6-qwen3-0.6b-cuda-gpu:1",
+   "exit": 0,
+   "s": 4.67,
+   "tail": [
+    "■ Loading model (z6-qwen3-0.6b-cuda-gpu:1)",
+    "● success: Loaded 'z6-qwen3-0.6b-cuda-gpu' (GPU variant 'z6-qwen3-0.6b-cuda-gpu:1') into ",
+    "memory."
+   ]
+  },
+  {
+   "command": "foundry model unload z6-qwen3-0.6b-cuda-gpu:1",
+   "exit": 0,
+   "s": 0.78,
+   "tail": [
+    "● success: Unloaded 'z6-qwen3-0.6b-cuda-gpu:1' from memory."
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-qwen3-0.6b-cuda-gpu:1",
+   "exit": 0,
+   "s": 0.05,
+   "tail": [
+    "● success: Removed registration IDs: z6-qwen3-0.6b-cuda-gpu:1.",
+    "■ note: Model files and original folders were preserved."
+   ]
+  },
+  {
+   "command": "foundry server stop",
+   "exit": 0,
+   "s": 2.6,
+   "tail": [
+    "● success: Server stopped."
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16"
+ },
+ "genai_config_search_package": {
+  "diversity_penalty": 0.0,
+  "do_sample": true,
+  "early_stopping": true,
+  "length_penalty": 1.0,
+  "max_length": 40960,
+  "min_length": 0,
+  "no_repeat_ngram_size": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 0.6,
+  "top_k": 20,
+  "top_p": 0.95
+ },
+ "genai_config_search_used": {
+  "diversity_penalty": 0.0,
+  "do_sample": false,
+  "early_stopping": true,
+  "length_penalty": 1.0,
+  "max_length": 40960,
+  "min_length": 0,
+  "no_repeat_ngram_size": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 0.6,
+  "top_k": 20,
+  "top_p": 0.95
+ },
+ "package": {
+  "src": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-cuda-gpu-2\\v2",
+  "dir": "C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-cuda-gpu",
+  "changed": {
+   "chat_template.jinja": "the identity template",
+   "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
+   "inference_model.json": "Name z6-qwen3-0.6b-cuda-gpu:1, PromptTemplate {Content} (Foundry reads chat_template.jinja first)"
+  }
+ },
+ "foundry_version": "0.13.0",
+ "daemon_pids": [
+  20184
+ ],
+ "load_s": 4.702,
+ "url": "http://127.0.0.1:59215/catalogs/local/v1/chat/completions",
+ "warmup_s": 0.468,
+ "bos_rule": {
+  "warmup_prompt_tokens": 24,
+  "reference_ids": 24,
+  "sent": "as it is (the warm-up's prompt tokens = the reference's ids)"
+ },
+ "workload": {
+  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "prompts": 21,
+  "id": "z6-qwen3-0.6b-cuda-gpu:1",
+  "task": "chat-completion",
+  "device": "gpu",
+  "ep": "CUDAExecutionProvider",
+  "daemon_env": [],
+  "decode": "greedy (temperature 0; genai_config search do_sample false, repetition_penalty 1.0)",
+  "max_new_tokens": 48,
+  "gate_max_new_tokens": 16,
+  "chat_template": "the identity template: one user message = the reference's rendered prompt, as it is (the warm-up's prompt tokens = the reference's ids)"
+ },
+ "summary": {
+  "clips": 21,
+  "prompts": 21,
+  "new_tokens": 147,
+  "wall_s": 4.129,
+  "tok_per_s": 35.598,
+  "eos": 20,
+  "value": 35.598
+ },
+ "daemon_stop": "stopped",
+ "peak_working_set_bytes": 45338624,
+ "peak_pagefile_bytes": 532008960,
+ "ended": "2026-11-10T09:55:20.636807+09:00",
+ "process_s": 20.379
+}

@@ -1,0 +1,7 @@
+<|im_start|>user
+What is the opposite of "hot"? Answer with one word.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

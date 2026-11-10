@@ -1,0 +1,196 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:38.234818+09:00",
+ "ended": "2026-11-10T07:18:38.714949+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 1,
+  "set": "images",
+  "task": "keypoints",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+  "n": 1,
+  "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
+  "bytes": 786742,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    256,
+    256
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
+  "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136"
+ },
+ "files": [
+  {
+   "what": "rtmhand_fp16 form blob",
+   "path": "C:\\src\\zoo\\blobs\\rtmhand_fp16.blob",
+   "bytes": 28946568,
+   "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c"
+  },
+  {
+   "what": "rtmhand_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+   "bytes": 28129047,
+   "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb"
+  },
+  {
+   "what": "rtmhand_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
+   "bytes": 55523602,
+   "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136"
+  }
+ ],
+ "upstream": null,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\rtmhand_fp16\\ref.outputs.npz",
+  "bytes": 86534,
+  "sha256": "d50a6ec309d5fe006910836fc1c76c793a51e3ee2d88f3a1526360bb714d4976",
+  "arrays": 2
+ },
+ "task": "keypoints",
+ "task_line": "task-keypoints",
+ "task_values": [
+  {
+   "id": "rtmhand",
+   "shown": 21,
+   "points": [
+    [
+     113.5,
+     236.5,
+     0.533
+    ],
+    [
+     149.5,
+     204.0,
+     0.436
+    ],
+    [
+     178.5,
+     181.0,
+     0.553
+    ],
+    [
+     196.5,
+     166.5,
+     0.68
+    ],
+    [
+     194.5,
+     141.0,
+     0.655
+    ],
+    [
+     141.5,
+     124.5,
+     0.584
+    ],
+    [
+     161.0,
+     105.5,
+     0.692
+    ],
+    [
+     178.0,
+     112.5,
+     0.738
+    ],
+    [
+     187.0,
+     132.0,
+     0.649
+    ],
+    [
+     122.5,
+     113.5,
+     0.569
+    ],
+    [
+     122.5,
+     78.5,
+     0.735
+    ],
+    [
+     124.0,
+     49.5,
+     0.707
+    ],
+    [
+     123.5,
+     19.5,
+     0.801
+    ],
+    [
+     101.5,
+     119.0,
+     0.602
+    ],
+    [
+     89.5,
+     90.0,
+     0.76
+    ],
+    [
+     84.5,
+     61.5,
+     0.801
+    ],
+    [
+     79.5,
+     32.5,
+     0.749
+    ],
+    [
+     83.0,
+     135.0,
+     0.613
+    ],
+    [
+     68.5,
+     116.0,
+     0.718
+    ],
+    [
+     57.0,
+     96.0,
+     0.783
+    ],
+    [
+     44.0,
+     73.0,
+     0.802
+    ]
+   ]
+  }
+ ],
+ "pulled_from": "raw/z5/refs/rtmhand_fp16/ref.json"
+}

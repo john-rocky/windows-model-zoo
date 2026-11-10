@@ -1,0 +1,14 @@
+ENGINE_PID 2256
+{"command": "foundry --version", "exit": 0, "s": 0.06, "tail": ["0.13.0"]}
+{"command": "foundry server start", "exit": 0, "s": 5.88, "tail": ["NvTensorRTRTXExecutionProvider: 0%", "CUDAExecutionProvider: 0%", "WebGpuExecutionProvider: 0%", "● success: Server ready (http://127.0.0.1:59551)", "  Public API: http://127.0.0.1:59551/v1/", "  Local API (BYOM): http://127.0.0.1:59551/catalogs/local/v1/"]}
+{"command": "foundry model unregister z6-gemma-4-e2b-it-cuda-gpu:1", "exit": 3, "s": 1.5, "tail": ["● error: No local registration matches 'z6-gemma-4-e2b-it-cuda-gpu:1'.", "Hint: Pass a registered local alias or exact canonical model ID."]}
+{"command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e2b-it-cuda-gpu z6-gemma-4-e2b-it-cuda-gpu:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider", "exit": 0, "s": 0.22, "tail": ["■ note: Alias: z6-gemma-4-e2b-it-cuda-gpu", "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e2b-it-cuda-gpu", "■ note: Task: vision-language-chat", "■ note: Files were not copied; the original folder is retained and must remain ", "available.", "■ note: Next: foundry run z6-gemma-4-e2b-it-cuda-gpu:1"]}
+{"command": "foundry model load z6-gemma-4-e2b-it-cuda-gpu:1", "exit": 0, "s": 26.28, "tail": ["■ Loading model (z6-gemma-4-e2b-it-cuda-gpu:1)", "● success: Loaded 'z6-gemma-4-e2b-it-cuda-gpu' (GPU variant 'z6-gemma-4-e2b-it-cuda-gpu:1')", "into memory."]}
+{"n": 1, "of": 21, "id": "q01", "wall_s": 0.066, "text": "Paris"}
+{"n": 2, "of": 21, "id": "q02", "wall_s": 0.267, "text": "12"}
+{"n": 10, "of": 21, "id": "q10", "wall_s": 0.064, "text": "Au"}
+{"n": 20, "of": 21, "id": "q20", "wall_s": 0.07, "text": "8"}
+{"n": 21, "of": 21, "id": "gate", "wall_s": 0.064, "text": "2"}
+{"command": "foundry model unload z6-gemma-4-e2b-it-cuda-gpu:1", "exit": 0, "s": 0.76, "tail": ["● success: Unloaded 'z6-gemma-4-e2b-it-cuda-gpu:1' from memory."]}
+{"command": "foundry model unregister z6-gemma-4-e2b-it-cuda-gpu:1", "exit": 0, "s": 0.05, "tail": ["● success: Removed registration IDs: z6-gemma-4-e2b-it-cuda-gpu:1.", "■ note: Model files and original folders were preserved."]}
+{"command": "foundry server stop", "exit": 0, "s": 2.63, "tail": ["● success: Server stopped."]}

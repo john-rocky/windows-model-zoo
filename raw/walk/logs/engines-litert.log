@@ -1,0 +1,6 @@
+[2026-11-10T13:21:04.3313382+09:00] steps engines-litert start: 1 steps, pid 34496
+[2026-11-10T13:22:04.5255679+09:00] lock: TAKEN (engines-litert engines-litert (not a timing) until 13:51) after 60 s free
+[2026-11-10T13:22:14.5835798+09:00] engines-litert start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\engines.py --spec C:\src\model-zoo\pc\z6_spec.json --root C:\src\model-zoo --make litert
+[2026-11-10T13:37:42.1769764+09:00] lock released
+[2026-11-10T13:37:42.1861606+09:00] engines-litert end: exit 0, 15.5 min
+[2026-11-10T13:37:42.1861606+09:00] steps engines-litert done: OK

@@ -1,0 +1,163 @@
+{
+ "runner": "run_llm_foundry.py",
+ "started": "2026-11-10T09:58:30.700211+09:00",
+ "argv": [
+  "--package",
+  "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3",
+  "--id",
+  "z6-gemma-4-e2b-it-generic-gpu:1",
+  "--device",
+  "gpu",
+  "--task",
+  "vision-language-chat",
+  "--work",
+  "C:\\src\\zoo-template\\work\\foundry",
+  "--cuda12",
+  "C:\\src\\msf\\cuda12\\dll_all",
+  "--ref",
+  "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z6-f\\gemma-4-E2B-it\\task-foundry_auto_webgpu\\run1.json"
+ ],
+ "pid": 22444,
+ "status": "ERROR",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [],
+ "foundry_cli": [
+  {
+   "command": "foundry --version",
+   "exit": 0,
+   "s": 0.06,
+   "tail": [
+    "0.13.0"
+   ]
+  },
+  {
+   "command": "foundry server start",
+   "exit": 0,
+   "s": 7.99,
+   "tail": [
+    "NvTensorRTRTXExecutionProvider: 0%",
+    "CUDAExecutionProvider: 0%",
+    "WebGpuExecutionProvider: 0%",
+    "● success: Server ready (http://127.0.0.1:59493)",
+    "  Public API: http://127.0.0.1:59493/v1/",
+    "  Local API (BYOM): http://127.0.0.1:59493/catalogs/local/v1/"
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-gemma-4-e2b-it-generic-gpu:1",
+   "exit": 3,
+   "s": 0.65,
+   "tail": [
+    "● error: No local registration matches 'z6-gemma-4-e2b-it-generic-gpu:1'.",
+    "Hint: Pass a registered local alias or exact canonical model ID."
+   ]
+  },
+  {
+   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e2b-it-generic-gpu z6-gemma-4-e2b-it-generic-gpu:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false",
+   "exit": 0,
+   "s": 0.31,
+   "tail": [
+    "■ note: Alias: z6-gemma-4-e2b-it",
+    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e2b-it-generic-gpu",
+    "■ note: Task: vision-language-chat",
+    "■ note: Files were not copied; the original folder is retained and must remain ",
+    "available.",
+    "■ note: Next: foundry run z6-gemma-4-e2b-it-generic-gpu:1"
+   ]
+  },
+  {
+   "command": "foundry model load z6-gemma-4-e2b-it-generic-gpu:1",
+   "exit": 1,
+   "s": 1.52,
+   "tail": [
+    "■ Loading model (z6-gemma-4-e2b-it-generic-gpu:1)",
+    "● error: The Foundry Local runtime reported an internal error. ",
+    "genai_model_instance.cc:218 fl::GenAIModelInstance::GenAIModelInstance failed to",
+    "load model z6-gemma-4-e2b-it-generic-gpu:1: Running a model with multiple ",
+    "providers is not supported. Encountered WebGPU and CUDA",
+    "Hint: Run 'foundry report' to capture diagnostics for a bug report."
+   ]
+  },
+  {
+   "command": "foundry model unload z6-gemma-4-e2b-it-generic-gpu:1",
+   "exit": 0,
+   "s": 0.64,
+   "tail": [
+    "● success: Unloaded 'z6-gemma-4-e2b-it-generic-gpu:1' from memory."
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-gemma-4-e2b-it-generic-gpu:1",
+   "exit": 0,
+   "s": 0.05,
+   "tail": [
+    "● success: Removed registration IDs: z6-gemma-4-e2b-it-generic-gpu:1.",
+    "■ note: Model files and original folders were preserved."
+   ]
+  },
+  {
+   "command": "foundry server stop",
+   "exit": 0,
+   "s": 2.12,
+   "tail": [
+    "● success: Server stopped."
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16"
+ },
+ "genai_config_search_package": {
+  "do_sample": true,
+  "early_stopping": true,
+  "max_length": 131072,
+  "min_length": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 1,
+  "top_p": 1.0
+ },
+ "genai_config_search_used": {
+  "do_sample": false,
+  "early_stopping": true,
+  "max_length": 131072,
+  "min_length": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 1,
+  "top_p": 1.0
+ },
+ "package": {
+  "src": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3",
+  "dir": "C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e2b-it-generic-gpu",
+  "changed": {
+   "chat_template.jinja": "the identity template",
+   "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
+   "inference_model.json": "Name z6-gemma-4-e2b-it-generic-gpu:1, PromptTemplate {Content} (Foundry reads chat_template.jinja first)"
+  }
+ },
+ "foundry_version": "0.13.0",
+ "daemon_pids": [
+  27588
+ ],
+ "load_s": 1.522,
+ "error": "Traceback (most recent call last):\n  File \"C:\\src\\zoo-template\\pc\\run_llm_foundry.py\", line 195, in main\n    raise RuntimeError(f\"foundry model load exit {r['exit']}: {r['tail']}\")\nRuntimeError: foundry model load exit 1: ['■ Loading model (z6-gemma-4-e2b-it-generic-gpu:1)', '● error: The Foundry Local runtime reported an internal error. ', 'genai_model_instance.cc:218 fl::GenAIModelInstance::GenAIModelInstance failed to', 'load model z6-gemma-4-e2b-it-generic-gpu:1: Running a model with multiple ', 'providers is not supported. Encountered WebGPU and CUDA', \"Hint: Run 'foundry report' to capture diagnostics for a bug report.\"]\n",
+ "daemon_stop": "stopped",
+ "peak_working_set_bytes": 41742336,
+ "peak_pagefile_bytes": 530919424,
+ "ended": "2026-11-10T09:58:44.510884+09:00",
+ "process_s": 13.812
+}

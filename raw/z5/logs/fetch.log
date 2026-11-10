@@ -1,0 +1,17 @@
+[2026-11-10T07:16:02.0526517+09:00] steps fetch start: 2 steps, pid 25332
+[2026-11-10T07:16:02.0846483+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T07:16:02.1637949+09:00] python end: exit 0, 0 min
+[2026-11-10T07:16:02.1637949+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\zoo-template\pc\fetch.py --manifest C:\src\zoo-template\pc\hub_manifest.json --dest C:\src\zoo-template\hub --root C:\src\zoo-template
+[2026-11-10T07:16:11.3038591+09:00] fetch end: exit 1, 0.2 min
+[2026-11-10T07:16:11.3301664+09:00]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-10T07:16:11.3301664+09:00]     File "C:\src\zoo-template\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py", line 1013, in open
+[2026-11-10T07:16:11.3333302+09:00]       return io.open(self, mode, buffering, encoding, errors, newline)
+[2026-11-10T07:16:11.3333302+09:00]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-10T07:16:11.3353466+09:00]   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\src\\zoo-template\\hub\\fetch_report.json'
+[2026-11-10T07:16:11.3414011+09:00] steps fetch done: FAIL fetch
+[2026-11-10T07:17:04.6776338+09:00] steps fetch start: 2 steps, pid 15020
+[2026-11-10T07:17:04.7092401+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T07:17:04.7748603+09:00] python end: exit 0, 0 min
+[2026-11-10T07:17:04.7748603+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\zoo-template\pc\fetch.py --manifest C:\src\zoo-template\pc\hub_manifest.json --dest C:\src\zoo-template\hub --root C:\src\zoo-template
+[2026-11-10T07:17:04.9472021+09:00] fetch end: exit 0, 0 min
+[2026-11-10T07:17:04.9629599+09:00] steps fetch done: OK

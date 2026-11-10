@@ -1,0 +1,64 @@
+# Foundry Local 0.13.0 daemon log lines (PC, %USERPROFILE%\.foundry\logs\), read 2026-11-10T10:11:30+0900 by the Z6 lane:
+# where the main decoder of each generic-gpu package (Z2's catalog cells, 11-07 to 11-09) and of each Z6 cell (11-10) ran.
+# PLAN.md "Z6 changes" item 8. Format: <log file>:<line>: <line>
+foundry_local_2026-11-07.log:2011: [2026-11-07 19:41:00.982] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
+foundry_local_2026-11-07.log:2012: [2026-11-07 19:41:00.983] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-07.log:2245: [2026-11-07 23:16:38.745] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2
+foundry_local_2026-11-07.log:2246: [2026-11-07 23:16:38.745] [info] model qwen3-1.7b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:57: [2026-11-08 00:00:22.508] [info] using CUDA EP for model: qwen3-4b-generic-gpu:2
+foundry_local_2026-11-08.log:58: [2026-11-08 00:00:22.509] [info] model qwen3-4b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:233: [2026-11-08 02:42:26.828] [info] using CUDA EP for model: gemma-4-e2b-it-generic-gpu:3
+foundry_local_2026-11-08.log:234: [2026-11-08 02:42:26.829] [info] model gemma-4-e2b-it-generic-gpu:3 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:236: [2026-11-08 02:42:27.813] [error] genai_model_instance.cc:218 fl::GenAIModelInstance::GenAIModelInstance failed to load model gemma-4-e2b-it-generic-gpu:3: Running a model with multiple providers is not supported. Encountered WebGPU and CUDA
+foundry_local_2026-11-08.log:1079: [2026-11-08 05:19:09.233] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
+foundry_local_2026-11-08.log:1080: [2026-11-08 05:19:09.234] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:1255: [2026-11-08 05:20:41.176] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2
+foundry_local_2026-11-08.log:1256: [2026-11-08 05:20:41.177] [info] model qwen3-1.7b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:1431: [2026-11-08 05:47:04.314] [info] using CUDA EP for model: qwen3-4b-generic-gpu:2
+foundry_local_2026-11-08.log:1432: [2026-11-08 05:47:04.315] [info] model qwen3-4b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:1549: [2026-11-08 05:49:06.835] [info] using WebGPU EP for model: gemma-4-e2b-it-generic-gpu:3
+foundry_local_2026-11-08.log:1550: [2026-11-08 05:49:06.837] [info] model gemma-4-e2b-it-generic-gpu:3 applying explicit main decoder EP override: WebGpuExecutionProvider
+foundry_local_2026-11-08.log:2481: [2026-11-08 23:35:01.940] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
+foundry_local_2026-11-08.log:2482: [2026-11-08 23:35:01.941] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:2541: [2026-11-08 23:36:22.838] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
+foundry_local_2026-11-08.log:2542: [2026-11-08 23:36:22.839] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:2601: [2026-11-08 23:37:38.768] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
+foundry_local_2026-11-08.log:2602: [2026-11-08 23:37:38.768] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:3009: [2026-11-08 23:45:20.157] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2
+foundry_local_2026-11-08.log:3010: [2026-11-08 23:45:20.158] [info] model qwen3-1.7b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:3069: [2026-11-08 23:46:35.917] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2
+foundry_local_2026-11-08.log:3070: [2026-11-08 23:46:35.918] [info] model qwen3-1.7b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-08.log:3129: [2026-11-08 23:47:57.250] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2
+foundry_local_2026-11-08.log:3130: [2026-11-08 23:47:57.250] [info] model qwen3-1.7b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-09.log:152: [2026-11-09 00:31:24.155] [info] using CUDA EP for model: qwen3-4b-generic-gpu:2
+foundry_local_2026-11-09.log:153: [2026-11-09 00:31:24.155] [info] model qwen3-4b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-09.log:212: [2026-11-09 00:32:42.250] [info] using CUDA EP for model: qwen3-4b-generic-gpu:2
+foundry_local_2026-11-09.log:213: [2026-11-09 00:32:42.251] [info] model qwen3-4b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-09.log:272: [2026-11-09 00:33:50.966] [info] using CUDA EP for model: qwen3-4b-generic-gpu:2
+foundry_local_2026-11-09.log:273: [2026-11-09 00:33:50.966] [info] model qwen3-4b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-09.log:506: [2026-11-09 00:38:37.432] [info] using WebGPU EP for model: gemma-4-e2b-it-generic-gpu:3
+foundry_local_2026-11-09.log:507: [2026-11-09 00:38:37.435] [info] model gemma-4-e2b-it-generic-gpu:3 applying explicit main decoder EP override: WebGpuExecutionProvider
+foundry_local_2026-11-09.log:565: [2026-11-09 00:40:35.393] [info] using WebGPU EP for model: gemma-4-e2b-it-generic-gpu:3
+foundry_local_2026-11-09.log:566: [2026-11-09 00:40:35.394] [info] model gemma-4-e2b-it-generic-gpu:3 applying explicit main decoder EP override: WebGpuExecutionProvider
+foundry_local_2026-11-09.log:624: [2026-11-09 00:42:12.241] [info] using WebGPU EP for model: gemma-4-e2b-it-generic-gpu:3
+foundry_local_2026-11-09.log:625: [2026-11-09 00:42:12.242] [info] model gemma-4-e2b-it-generic-gpu:3 applying explicit main decoder EP override: WebGpuExecutionProvider
+foundry_local_2026-11-10.log:794: [2026-11-10 09:54:13.519] [info] using CUDA EP for model: z6-qwen3-0.6b-generic-gpu:1
+foundry_local_2026-11-10.log:795: [2026-11-10 09:54:13.542] [info] model z6-qwen3-0.6b-generic-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:897: [2026-11-10 09:54:44.119] [info] model z6-qwen3-0.6b-generic-cpu:1 applying explicit main decoder EP override: CPUExecutionProvider
+foundry_local_2026-11-10.log:998: [2026-11-10 09:55:07.991] [info] model z6-qwen3-0.6b-cuda-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1100: [2026-11-10 09:55:33.489] [info] using CUDA EP for model: z6-qwen3-1.7b-generic-gpu:1
+foundry_local_2026-11-10.log:1101: [2026-11-10 09:55:33.489] [info] model z6-qwen3-1.7b-generic-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1203: [2026-11-10 09:55:59.014] [info] model z6-qwen3-1.7b-generic-cpu:1 applying explicit main decoder EP override: CPUExecutionProvider
+foundry_local_2026-11-10.log:1304: [2026-11-10 09:56:26.926] [info] model z6-qwen3-1.7b-cuda-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1406: [2026-11-10 09:56:51.775] [info] using CUDA EP for model: z6-qwen3-4b-generic-gpu:1
+foundry_local_2026-11-10.log:1407: [2026-11-10 09:56:51.775] [info] model z6-qwen3-4b-generic-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1509: [2026-11-10 09:57:25.429] [info] model z6-qwen3-4b-generic-cpu:1 applying explicit main decoder EP override: CPUExecutionProvider
+foundry_local_2026-11-10.log:1610: [2026-11-10 09:58:06.179] [info] model z6-qwen3-4b-cuda-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1712: [2026-11-10 09:58:40.484] [info] using CUDA EP for model: z6-gemma-4-e2b-it-generic-gpu:1
+foundry_local_2026-11-10.log:1713: [2026-11-10 09:58:40.514] [info] model z6-gemma-4-e2b-it-generic-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:1715: [2026-11-10 09:58:41.531] [error] genai_model_instance.cc:218 fl::GenAIModelInstance::GenAIModelInstance failed to load model z6-gemma-4-e2b-it-generic-gpu:1: Running a model with multiple providers is not supported. Encountered WebGPU and CUDA
+foundry_local_2026-11-10.log:1800: [2026-11-10 09:58:56.830] [info] model z6-gemma-4-e2b-it-generic-cpu:1 applying explicit main decoder EP override: CPUExecutionProvider
+foundry_local_2026-11-10.log:1901: [2026-11-10 10:02:55.151] [info] model z6-gemma-4-e2b-it-cuda-gpu:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:2003: [2026-11-10 10:03:39.009] [info] model z6-gemma-4-e4b-it-cuda-int4-8k:1 applying explicit main decoder EP override: CUDAExecutionProvider
+foundry_local_2026-11-10.log:2105: [2026-11-10 10:10:22.788] [info] using WebGPU EP for model: z6-gemma-4-e2b-it-generic-gpu:1
+foundry_local_2026-11-10.log:2106: [2026-11-10 10:10:22.789] [info] model z6-gemma-4-e2b-it-generic-gpu:1 applying explicit main decoder EP override: WebGpuExecutionProvider

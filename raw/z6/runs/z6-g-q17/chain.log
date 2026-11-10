@@ -1,0 +1,23 @@
+[2026-11-10T09:35:11.8020321+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-g-q17.json mode first, 10 units, pid 11320
+[2026-11-10T09:35:19.0521102+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:35:21.1080550+09:00] Qwen3-1.7B/task-litert-lm_igpu_gpu run 1 start
+[2026-11-10T09:38:08.0890331+09:00] Qwen3-1.7B/task-litert-lm_igpu_gpu run 1 end: exit 0, OK, 165.059 s
+[2026-11-10T09:38:10.0549517+09:00] Qwen3-1.7B/task-litert-lm_rtx_gpu run 1 start
+[2026-11-10T09:39:51.8495297+09:00] Qwen3-1.7B/task-litert-lm_rtx_gpu run 1 end: exit 0, OK, 99.929 s
+[2026-11-10T09:39:53.8219111+09:00] Qwen3-1.7B/task-llama.cpp_rtx_cuda run 1 start
+[2026-11-10T09:39:59.9803860+09:00] Qwen3-1.7B/task-llama.cpp_rtx_cuda run 1 end: exit 0, OK, 4.173 s
+[2026-11-10T09:40:01.4133744+09:00] Qwen3-1.7B/task-llama.cpp_rtx_vulkan run 1 start
+[2026-11-10T09:40:09.5649826+09:00] Qwen3-1.7B/task-llama.cpp_rtx_vulkan run 1 end: exit 0, OK, 6.218 s
+[2026-11-10T09:40:11.5176134+09:00] Qwen3-1.7B/task-openvino-genai_igpu_gpu run 1 start
+[2026-11-10T09:40:24.3320876+09:00] Qwen3-1.7B/task-openvino-genai_igpu_gpu run 1 end: exit 0, OK, 10.875 s
+[2026-11-10T09:40:26.2997707+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-10T09:41:26.2298399+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 57.996 s
+[2026-11-10T09:41:28.1867486+09:00] Qwen3-1.7B/task-ort-genai_igpu_openvino run 1 start
+[2026-11-10T09:41:51.4462238+09:00] Qwen3-1.7B/task-ort-genai_igpu_openvino run 1 end: exit 0, OK, 21.306 s
+[2026-11-10T09:41:53.4252926+09:00] Qwen3-1.7B/task-ort-genai_igpu_webgpu run 1 start
+[2026-11-10T09:42:04.6497715+09:00] Qwen3-1.7B/task-ort-genai_igpu_webgpu run 1 end: exit 0, OK, 9.344 s
+[2026-11-10T09:42:06.6070400+09:00] Qwen3-1.7B/task-ort-genai_rtx_cuda run 1 start
+[2026-11-10T09:42:13.1176718+09:00] Qwen3-1.7B/task-ort-genai_rtx_cuda run 1 end: exit 0, OK, 4.633 s
+[2026-11-10T09:42:15.0909034+09:00] Qwen3-1.7B/task-ort-genai_rtx_webgpu run 1 start
+[2026-11-10T09:42:24.2948513+09:00] Qwen3-1.7B/task-ort-genai_rtx_webgpu run 1 end: exit 0, OK, 7.27 s
+[2026-11-10T09:42:24.2948513+09:00] chain done: OK

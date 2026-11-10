@@ -1,0 +1,26 @@
+Using Python 3.12.16 environment at: C:\src\model-zoo\.venv-genai-cuda
+Resolved 10 packages in 230ms
+Downloading nvidia-cublas (407.5MiB)
+Downloading onnxruntime-genai-cuda (8.6MiB)
+Downloading nvidia-cuda-runtime (2.7MiB)
+Downloading nvidia-cudnn-cu13 (387.4MiB)
+Downloading onnxruntime-gpu (160.3MiB)
+Downloading nvidia-cuda-nvrtc (47.0MiB)
+ Downloaded nvidia-cuda-runtime
+ Downloaded onnxruntime-genai-cuda
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded onnxruntime-gpu
+ Downloaded nvidia-cublas
+ Downloaded nvidia-cudnn-cu13
+Prepared 6 packages in 1m 35s
+Installed 10 packages in 1.46s
+ + flatbuffers==25.12.19
+ + numpy==2.5.4
+ + nvidia-cublas==13.10.0.20
+ + nvidia-cuda-nvrtc==13.5.37
+ + nvidia-cuda-runtime==13.5.37
+ + nvidia-cudnn-cu13==9.28.0.42
+ + onnxruntime-genai-cuda==0.19.0
+ + onnxruntime-gpu==1.31.1
+ + packaging==26.3
+ + protobuf==7.36.2

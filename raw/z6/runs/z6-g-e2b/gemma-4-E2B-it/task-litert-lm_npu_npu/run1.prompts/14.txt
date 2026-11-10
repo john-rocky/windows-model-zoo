@@ -1,0 +1,3 @@
+<|turn>user
+What comes next: 2, 4, 6, 8? Reply with only the number.<turn|>
+<|turn>model

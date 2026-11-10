@@ -1,0 +1,789 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dac_16khz_deconly_zs_fp16",
+ "cell": "task-ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-openvino",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "z1-onnx-fp32",
+  "label": "fp32",
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
+  "path": "C:\\src\\zoo\\onnx\\dac_16khz_deconly_zs_fp16.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-codec-aligned",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-codec-aligned: mean SI-SDR -3.813 dB against the reference's 7.729 dB (pass mark reference mean - 0.5 dB; 0 bad outputs)",
+  "reference": "raw/z5/refs/dac_16khz_deconly_zs_fp16/ref.json",
+  "detail": {
+   "si_sdr_cell_mean": -3.813,
+   "si_sdr_ref_mean": 7.729,
+   "bar": "reference mean - 0.5 dB",
+   "bad_outputs": 0,
+   "source_offset": 8,
+   "pass": false
+  },
+  "text": "SI-SDR -3.813 dB (reference 7.729 dB)"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-b/dac_16khz_deconly_zs_fp16/task-ovgpu/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "dac_16khz_deconly_zs_fp16",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16",
+   "--form",
+   "fp32",
+   "--engine",
+   "ort",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "GPU.0",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "SI-SDR -3.813 dB (reference 7.729 dB)"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-b",
+  "started": "2026-11-10T07:29:50.379413+09:00",
+  "ended": "2026-11-10T07:29:57.677552+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 29.414,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.895,
+  "warmup_s": 0.036,
+  "load_ms": 1895.0
+ },
+ "memory": {
+  "peak_ws_bytes": 852668416,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 283,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "codec",
+  "scores": {
+   "snr_vs_reference_db_min": -1.14,
+   "outputs": {
+    "o0": {
+     "cos": 0.776672,
+     "max_abs": 1.129832,
+     "nonfinite": 0,
+     "values": 1919040
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino_ep": {
+    "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+    "ov_device": "GPU.0",
+    "version": "1.8.1+95d534b.ci.79",
+    "os_driver_version": null,
+    "NPU_COMPILER_VERSION": null,
+    "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+    "DEVICE_LUID": "0e26010000000000"
+   }
+  },
+  "providers": [
+   "OpenVINOExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
+   "sha256": "e17000ca18a1c2c0108c6c903699bac61320373ed9dd432bd2bef74ed33458cf",
+   "bytes": 24610582,
+   "n": 120
+  },
+  "model_file": {
+   "what": "dac_16khz_deconly_zs_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\dac_16khz_deconly_zs_fp16.onnx",
+   "bytes": 209727641,
+   "sha256": "965d11e2e7a38094249e44926ca18cf5e3a0caff2eb093842cc35ebfae3ee2a4"
+  },
+  "per_input": [
+   {
+    "id": "yes/022cd682_nohash_0.wav",
+    "si_sdr_cell": -0.086,
+    "si_sdr_ref": 5.686
+   },
+   {
+    "id": "yes/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -4.568,
+    "si_sdr_ref": 12.358
+   },
+   {
+    "id": "yes/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": -2.78,
+    "si_sdr_ref": 7.205
+   },
+   {
+    "id": "yes/105a0eea_nohash_0.wav",
+    "si_sdr_cell": -11.251,
+    "si_sdr_ref": 7.65
+   },
+   {
+    "id": "yes/105a0eea_nohash_1.wav",
+    "si_sdr_cell": -7.51,
+    "si_sdr_ref": 8.475
+   },
+   {
+    "id": "yes/105a0eea_nohash_2.wav",
+    "si_sdr_cell": -28.954,
+    "si_sdr_ref": 6.61
+   },
+   {
+    "id": "yes/1093c8e7_nohash_0.wav",
+    "si_sdr_cell": -1.911,
+    "si_sdr_ref": 3.316
+   },
+   {
+    "id": "yes/1528225c_nohash_0.wav",
+    "si_sdr_cell": -2.187,
+    "si_sdr_ref": 8.723
+   },
+   {
+    "id": "yes/1528225c_nohash_1.wav",
+    "si_sdr_cell": -1.971,
+    "si_sdr_ref": 8.884
+   },
+   {
+    "id": "yes/1528225c_nohash_2.wav",
+    "si_sdr_cell": -2.386,
+    "si_sdr_ref": 6.415
+   },
+   {
+    "id": "no/096456f9_nohash_0.wav",
+    "si_sdr_cell": -13.772,
+    "si_sdr_ref": 7.705
+   },
+   {
+    "id": "no/096456f9_nohash_1.wav",
+    "si_sdr_cell": -6.718,
+    "si_sdr_ref": 5.832
+   },
+   {
+    "id": "no/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 0.751,
+    "si_sdr_ref": 9.333
+   },
+   {
+    "id": "no/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -1.063,
+    "si_sdr_ref": 11.922
+   },
+   {
+    "id": "no/1093c8e7_nohash_0.wav",
+    "si_sdr_cell": -9.088,
+    "si_sdr_ref": 8.113
+   },
+   {
+    "id": "no/135c6841_nohash_0.wav",
+    "si_sdr_cell": -1.755,
+    "si_sdr_ref": 12.082
+   },
+   {
+    "id": "no/135c6841_nohash_1.wav",
+    "si_sdr_cell": -8.712,
+    "si_sdr_ref": 11.824
+   },
+   {
+    "id": "no/135c6841_nohash_2.wav",
+    "si_sdr_cell": 1.723,
+    "si_sdr_ref": 11.838
+   },
+   {
+    "id": "no/135c6841_nohash_3.wav",
+    "si_sdr_cell": -1.571,
+    "si_sdr_ref": 11.41
+   },
+   {
+    "id": "no/1528225c_nohash_0.wav",
+    "si_sdr_cell": -3.855,
+    "si_sdr_ref": 13.358
+   },
+   {
+    "id": "up/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 2.839,
+    "si_sdr_ref": 6.848
+   },
+   {
+    "id": "up/0d53e045_nohash_0.wav",
+    "si_sdr_cell": -0.342,
+    "si_sdr_ref": 6.337
+   },
+   {
+    "id": "up/0d53e045_nohash_1.wav",
+    "si_sdr_cell": -2.387,
+    "si_sdr_ref": 3.25
+   },
+   {
+    "id": "up/0f250098_nohash_0.wav",
+    "si_sdr_cell": -1.928,
+    "si_sdr_ref": 6.426
+   },
+   {
+    "id": "up/0f250098_nohash_1.wav",
+    "si_sdr_cell": -2.602,
+    "si_sdr_ref": 3.674
+   },
+   {
+    "id": "up/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": -2.582,
+    "si_sdr_ref": 10.745
+   },
+   {
+    "id": "up/135c6841_nohash_0.wav",
+    "si_sdr_cell": 0.925,
+    "si_sdr_ref": 7.282
+   },
+   {
+    "id": "up/135c6841_nohash_1.wav",
+    "si_sdr_cell": -2.567,
+    "si_sdr_ref": 7.777
+   },
+   {
+    "id": "up/135c6841_nohash_2.wav",
+    "si_sdr_cell": 1.539,
+    "si_sdr_ref": 8.295
+   },
+   {
+    "id": "up/135c6841_nohash_3.wav",
+    "si_sdr_cell": 3.536,
+    "si_sdr_ref": 10.313
+   },
+   {
+    "id": "down/022cd682_nohash_0.wav",
+    "si_sdr_cell": -3.145,
+    "si_sdr_ref": 6.714
+   },
+   {
+    "id": "down/096456f9_nohash_0.wav",
+    "si_sdr_cell": -2.293,
+    "si_sdr_ref": 6.511
+   },
+   {
+    "id": "down/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 0.732,
+    "si_sdr_ref": 7.348
+   },
+   {
+    "id": "down/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -1.043,
+    "si_sdr_ref": 12.586
+   },
+   {
+    "id": "down/0f250098_nohash_0.wav",
+    "si_sdr_cell": -5.416,
+    "si_sdr_ref": 6.315
+   },
+   {
+    "id": "down/0f250098_nohash_1.wav",
+    "si_sdr_cell": -4.778,
+    "si_sdr_ref": 5.684
+   },
+   {
+    "id": "down/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": -4.056,
+    "si_sdr_ref": 10.927
+   },
+   {
+    "id": "down/1528225c_nohash_0.wav",
+    "si_sdr_cell": -4.235,
+    "si_sdr_ref": 13.187
+   },
+   {
+    "id": "down/1b4c9b89_nohash_0.wav",
+    "si_sdr_cell": -3.32,
+    "si_sdr_ref": 14.887
+   },
+   {
+    "id": "down/1b4c9b89_nohash_1.wav",
+    "si_sdr_cell": 1.731,
+    "si_sdr_ref": 15.259
+   },
+   {
+    "id": "left/022cd682_nohash_0.wav",
+    "si_sdr_cell": 1.928,
+    "si_sdr_ref": 7.88
+   },
+   {
+    "id": "left/022cd682_nohash_1.wav",
+    "si_sdr_cell": 1.961,
+    "si_sdr_ref": 7.933
+   },
+   {
+    "id": "left/0487ba9b_nohash_0.wav",
+    "si_sdr_cell": -2.31,
+    "si_sdr_ref": 2.304
+   },
+   {
+    "id": "left/096456f9_nohash_0.wav",
+    "si_sdr_cell": -5.262,
+    "si_sdr_ref": 6.515
+   },
+   {
+    "id": "left/096456f9_nohash_1.wav",
+    "si_sdr_cell": -13.771,
+    "si_sdr_ref": 6.013
+   },
+   {
+    "id": "left/0d53e045_nohash_0.wav",
+    "si_sdr_cell": -4.209,
+    "si_sdr_ref": 6.159
+   },
+   {
+    "id": "left/0d53e045_nohash_1.wav",
+    "si_sdr_cell": -5.448,
+    "si_sdr_ref": 8.244
+   },
+   {
+    "id": "left/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -1.166,
+    "si_sdr_ref": 12.065
+   },
+   {
+    "id": "left/105a0eea_nohash_0.wav",
+    "si_sdr_cell": -15.665,
+    "si_sdr_ref": 10.521
+   },
+   {
+    "id": "left/105a0eea_nohash_1.wav",
+    "si_sdr_cell": -9.532,
+    "si_sdr_ref": 9.05
+   },
+   {
+    "id": "right/096456f9_nohash_0.wav",
+    "si_sdr_cell": -3.074,
+    "si_sdr_ref": 5.999
+   },
+   {
+    "id": "right/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 2.554,
+    "si_sdr_ref": 10.354
+   },
+   {
+    "id": "right/0c40e715_nohash_1.wav",
+    "si_sdr_cell": 0.788,
+    "si_sdr_ref": 8.182
+   },
+   {
+    "id": "right/0d53e045_nohash_0.wav",
+    "si_sdr_cell": -3.846,
+    "si_sdr_ref": 8.024
+   },
+   {
+    "id": "right/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -1.848,
+    "si_sdr_ref": 12.892
+   },
+   {
+    "id": "right/0f250098_nohash_0.wav",
+    "si_sdr_cell": -5.591,
+    "si_sdr_ref": 4.482
+   },
+   {
+    "id": "right/0f250098_nohash_1.wav",
+    "si_sdr_cell": -2.477,
+    "si_sdr_ref": 6.836
+   },
+   {
+    "id": "right/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": -16.086,
+    "si_sdr_ref": 12.451
+   },
+   {
+    "id": "right/1528225c_nohash_0.wav",
+    "si_sdr_cell": -5.971,
+    "si_sdr_ref": 11.014
+   },
+   {
+    "id": "right/1b4c9b89_nohash_0.wav",
+    "si_sdr_cell": 0.585,
+    "si_sdr_ref": 14.07
+   },
+   {
+    "id": "on/022cd682_nohash_0.wav",
+    "si_sdr_cell": 1.622,
+    "si_sdr_ref": 11.325
+   },
+   {
+    "id": "on/096456f9_nohash_0.wav",
+    "si_sdr_cell": -0.42,
+    "si_sdr_ref": 8.965
+   },
+   {
+    "id": "on/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -7.779,
+    "si_sdr_ref": 12.792
+   },
+   {
+    "id": "on/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": 0.547,
+    "si_sdr_ref": 12.233
+   },
+   {
+    "id": "on/105a0eea_nohash_0.wav",
+    "si_sdr_cell": -4.863,
+    "si_sdr_ref": 13.095
+   },
+   {
+    "id": "on/105a0eea_nohash_1.wav",
+    "si_sdr_cell": -3.11,
+    "si_sdr_ref": 13.59
+   },
+   {
+    "id": "on/1093c8e7_nohash_0.wav",
+    "si_sdr_cell": -1.491,
+    "si_sdr_ref": 8.545
+   },
+   {
+    "id": "on/1b4c9b89_nohash_0.wav",
+    "si_sdr_cell": 1.757,
+    "si_sdr_ref": 14.373
+   },
+   {
+    "id": "on/1b4c9b89_nohash_1.wav",
+    "si_sdr_cell": 4.099,
+    "si_sdr_ref": 14.86
+   },
+   {
+    "id": "on/1b4c9b89_nohash_2.wav",
+    "si_sdr_cell": -2.537,
+    "si_sdr_ref": 15.183
+   },
+   {
+    "id": "off/096456f9_nohash_0.wav",
+    "si_sdr_cell": -0.518,
+    "si_sdr_ref": 8.279
+   },
+   {
+    "id": "off/096456f9_nohash_1.wav",
+    "si_sdr_cell": 0.843,
+    "si_sdr_ref": 8.261
+   },
+   {
+    "id": "off/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 0.805,
+    "si_sdr_ref": 5.927
+   },
+   {
+    "id": "off/0c40e715_nohash_1.wav",
+    "si_sdr_cell": 1.437,
+    "si_sdr_ref": 9.877
+   },
+   {
+    "id": "off/0c40e715_nohash_2.wav",
+    "si_sdr_cell": -0.274,
+    "si_sdr_ref": 3.917
+   },
+   {
+    "id": "off/0c40e715_nohash_3.wav",
+    "si_sdr_cell": -2.743,
+    "si_sdr_ref": -1.222
+   },
+   {
+    "id": "off/0d53e045_nohash_0.wav",
+    "si_sdr_cell": -0.415,
+    "si_sdr_ref": 5.949
+   },
+   {
+    "id": "off/0d53e045_nohash_1.wav",
+    "si_sdr_cell": 3.879,
+    "si_sdr_ref": 9.645
+   },
+   {
+    "id": "off/0d53e045_nohash_2.wav",
+    "si_sdr_cell": 1.956,
+    "si_sdr_ref": 8.63
+   },
+   {
+    "id": "off/0f250098_nohash_0.wav",
+    "si_sdr_cell": -2.551,
+    "si_sdr_ref": 7.657
+   },
+   {
+    "id": "stop/022cd682_nohash_0.wav",
+    "si_sdr_cell": -1.067,
+    "si_sdr_ref": 6.912
+   },
+   {
+    "id": "stop/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 0.209,
+    "si_sdr_ref": 6.407
+   },
+   {
+    "id": "stop/0c40e715_nohash_1.wav",
+    "si_sdr_cell": -4.501,
+    "si_sdr_ref": 1.412
+   },
+   {
+    "id": "stop/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -3.682,
+    "si_sdr_ref": 12.474
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_0.wav",
+    "si_sdr_cell": 0.902,
+    "si_sdr_ref": 4.746
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_1.wav",
+    "si_sdr_cell": -0.84,
+    "si_sdr_ref": 6.391
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_2.wav",
+    "si_sdr_cell": -4.815,
+    "si_sdr_ref": 7.286
+   },
+   {
+    "id": "stop/105a0eea_nohash_0.wav",
+    "si_sdr_cell": -1.887,
+    "si_sdr_ref": 11.438
+   },
+   {
+    "id": "stop/135c6841_nohash_0.wav",
+    "si_sdr_cell": -2.743,
+    "si_sdr_ref": 6.994
+   },
+   {
+    "id": "stop/135c6841_nohash_1.wav",
+    "si_sdr_cell": -0.992,
+    "si_sdr_ref": 9.452
+   },
+   {
+    "id": "go/022cd682_nohash_0.wav",
+    "si_sdr_cell": 0.377,
+    "si_sdr_ref": 9.357
+   },
+   {
+    "id": "go/022cd682_nohash_1.wav",
+    "si_sdr_cell": 1.584,
+    "si_sdr_ref": 8.727
+   },
+   {
+    "id": "go/0487ba9b_nohash_0.wav",
+    "si_sdr_cell": -3.433,
+    "si_sdr_ref": 3.415
+   },
+   {
+    "id": "go/096456f9_nohash_0.wav",
+    "si_sdr_cell": -6.468,
+    "si_sdr_ref": 5.856
+   },
+   {
+    "id": "go/096456f9_nohash_1.wav",
+    "si_sdr_cell": -7.889,
+    "si_sdr_ref": 6.874
+   },
+   {
+    "id": "go/0c40e715_nohash_0.wav",
+    "si_sdr_cell": 1.089,
+    "si_sdr_ref": 6.907
+   },
+   {
+    "id": "go/0c40e715_nohash_1.wav",
+    "si_sdr_cell": -0.083,
+    "si_sdr_ref": 8.917
+   },
+   {
+    "id": "go/0d53e045_nohash_0.wav",
+    "si_sdr_cell": -5.046,
+    "si_sdr_ref": 5.831
+   },
+   {
+    "id": "go/0d53e045_nohash_1.wav",
+    "si_sdr_cell": -10.419,
+    "si_sdr_ref": 9.727
+   },
+   {
+    "id": "go/0ea0e2f4_nohash_0.wav",
+    "si_sdr_cell": -23.059,
+    "si_sdr_ref": 13.613
+   },
+   {
+    "id": "_unknown_/bed_1528225c_nohash_2.wav.wav",
+    "si_sdr_cell": -7.144,
+    "si_sdr_ref": 12.219
+   },
+   {
+    "id": "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+    "si_sdr_cell": -2.126,
+    "si_sdr_ref": 7.938
+   },
+   {
+    "id": "_unknown_/bed_6205088b_nohash_0.wav.wav",
+    "si_sdr_cell": 0.157,
+    "si_sdr_ref": 8.239
+   },
+   {
+    "id": "_unknown_/bed_6205088b_nohash_2.wav.wav",
+    "si_sdr_cell": -4.822,
+    "si_sdr_ref": 5.923
+   },
+   {
+    "id": "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+    "si_sdr_cell": -5.794,
+    "si_sdr_ref": 6.674
+   },
+   {
+    "id": "_unknown_/bed_91223b83_nohash_0.wav.wav",
+    "si_sdr_cell": -32.714,
+    "si_sdr_ref": 9.367
+   },
+   {
+    "id": "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+    "si_sdr_cell": -11.551,
+    "si_sdr_ref": 8.699
+   },
+   {
+    "id": "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+    "si_sdr_cell": -1.963,
+    "si_sdr_ref": 8.305
+   },
+   {
+    "id": "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+    "si_sdr_cell": -0.607,
+    "si_sdr_ref": 12.832
+   },
+   {
+    "id": "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+    "si_sdr_cell": -2.736,
+    "si_sdr_ref": 13.733
+   },
+   {
+    "id": "_silence_/1035.wav",
+    "si_sdr_cell": -18.696,
+    "si_sdr_ref": -11.343
+   },
+   {
+    "id": "_silence_/104.wav",
+    "si_sdr_cell": -14.558,
+    "si_sdr_ref": -9.507
+   },
+   {
+    "id": "_silence_/1047.wav",
+    "si_sdr_cell": -0.277,
+    "si_sdr_ref": 2.762
+   },
+   {
+    "id": "_silence_/1090.wav",
+    "si_sdr_cell": -9.269,
+    "si_sdr_ref": -4.511
+   },
+   {
+    "id": "_silence_/1092.wav",
+    "si_sdr_cell": -0.203,
+    "si_sdr_ref": 2.94
+   },
+   {
+    "id": "_silence_/1099.wav",
+    "si_sdr_cell": -19.095,
+    "si_sdr_ref": -11.321
+   },
+   {
+    "id": "_silence_/111.wav",
+    "si_sdr_cell": -11.399,
+    "si_sdr_ref": -6.367
+   },
+   {
+    "id": "_silence_/1124.wav",
+    "si_sdr_cell": 1.93,
+    "si_sdr_ref": 4.327
+   },
+   {
+    "id": "_silence_/1125.wav",
+    "si_sdr_cell": -6.275,
+    "si_sdr_ref": -2.537
+   },
+   {
+    "id": "_silence_/1135.wav",
+    "si_sdr_cell": -2.431,
+    "si_sdr_ref": 4.45
+   }
+  ],
+  "z1_cell": "ovgpu",
+  "workload": {
+   "set": "kws120",
+   "task": "codec",
+   "form": "fp32",
+   "engine": "ort",
+   "ep": "openvino",
+   "ov_device": "GPU.0",
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.outputs.npz",
+   "bytes": 7705942,
+   "sha256": "9b08ec155723de5086042d9d79911ec82186b3a08e5041f54da00131fd4df2a6",
+   "arrays": 120
+  }
+ }
+}

@@ -1,0 +1,5 @@
+ENGINE_PID 16944
+{"n": 1, "of": 20, "id": "dfine", "wall_s": 0.1, "text": ""}
+{"n": 2, "of": 20, "id": "dinov2", "wall_s": 0.082, "text": ""}
+{"n": 10, "of": 20, "id": "neuralstyle", "wall_s": 0.075, "text": ""}
+{"n": 20, "of": 20, "id": "yunet", "wall_s": 0.083, "text": ""}

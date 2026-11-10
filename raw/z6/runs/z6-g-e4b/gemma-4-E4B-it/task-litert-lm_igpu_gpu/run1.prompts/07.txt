@@ -1,0 +1,3 @@
+<|turn>user
+Translate "thank you" into Japanese. Reply with only the translation.<turn|>
+<|turn>model

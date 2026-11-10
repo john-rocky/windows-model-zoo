@@ -1,0 +1,202 @@
+# w2v2_head_fp16: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "w2v2_head_fp16"
+group = "main"
+order = 44
+source = "litert-community/wav2vec2-keyword-spotting"
+source_revision = "4f30d050bc1999fbac8ec1b161232fe59d2827ed"
+source_file = "w2v2_head_fp16.tflite"
+license = "apache-2.0"
+pipeline_tag = "audio-classification"
+base_model = "superb/wav2vec2-base-superb-ks"
+notes = [
+  "this file drops 24 FULLY_CONNECTED biases (tf2onnx 1.17.0); fixed file: w2v2_head_fp16_fixed below",
+]
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "classification"
+inputs = "suites/audio/kws120.json"
+
+[[fetch]]
+repo = "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO"
+revision = "f0983dbb084f2d5fdb6dd207e7e6fda26e107289"
+include = ["w2v2_frontend_fp16.onnx"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[form]]
+id = "z1-onnx-fp16"
+short = "fp16"
+label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\fp16\\w2v2_head_fp16.onnx"
+sha256 = "7cf70487e7f6c39e9fd974a82a77627ee6e3b156b7a77065159aee23e4a5b6d3"
+public = "none"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\onnx\\w2v2_head_fp16.onnx"
+sha256 = "d314e168a377e5f8b5daebe9a7704afc61d681d6534ac3ea2ccb5db5968e1eb9"
+public = "none"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "w2v2_head_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\w2v2_head_fp16",
+  "--out",
+  "{ROOT}\\refs\\w2v2_head_fp16\\ref.json",
+]
+timeout_min = 30
+ram_gb = 2
+reference = "refs/w2v2_head_fp16/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-top1"
+kind = "task"
+rule = "keyword classification, the app's argmax of the 12 logits (john-rocky/LiteRT-Models@96e0bc1f/wav2vec2-kws/.../Wav2Vec2Kws.kt): the cell's top-1 equals the reference's on >= 95 % of the clips, a clip whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 120 clips of suites/audio/kws120.json (Speech Commands v0.01 test, 10 per label), each scaled as the app's microphone path (pcm / max(1, peak) x 0.5), through w2v2_frontend_fp16 in fp32 on the ONNX Runtime CPU EP into the head. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-cuda16"
+runtime = "onnxruntime-cuda"
+device = "rtx"
+form = "z1-onnx-fp16"
+line = "task-top1"
+venv = "z1-cuda"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "w2v2_head_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\w2v2_head_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+]
+timeout_min = 20
+ram_need_gb = 3
+z1_cell = "cuda16"

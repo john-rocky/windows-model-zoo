@@ -1,0 +1,1638 @@
+{
+ "about": "The vision task cells of the Z5 lane (migrate/z5.py spec): per model its input set and ids, the vision zoo Z1's input entries (john-rocky/windows-zoo@faa4019 inputs_spec.json), the files of its forms (their public copies (the Hub file with the same sha256, or the app repo's file by URL; a file with no public copy keeps the vision zoo's PC path)) with the sha256 Z1 recorded, the upstream graph, the downstream head, the host files. Read by pc/ref_vision_task.py and pc/run_vision_task.py. Paths: {HUB} = the zoo folder's hub\\ (pc/fetch.py), {FIX} = its fixtures\\, {ROOT} = the zoo folder; pc/vtask.py load_spec expands them.",
+ "z1": {
+  "repo": "john-rocky/windows-zoo",
+  "commit": "faa4019",
+  "pc_folder": "C:\\src\\zoo"
+ },
+ "host_files": {
+  "dfine_host_params": {
+   "path": "{FIX}\\host\\dfine_host_params.bin",
+   "sha256": "5575bbd1545e87e42c94abb0ecf5b7e927dfa94e30cc0754ccf2d2cd6189ee70",
+   "source": "john-rocky/LiteRT-Models@96e0bc1f:dfine/app/src/main/assets/host_params.bin",
+   "public": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/dfine/app/src/main/assets/host_params.bin"
+  },
+  "rtdetr_host_params": {
+   "path": "{FIX}\\host\\rtdetr_host_params.bin",
+   "sha256": "a481c1365ef73aa17eb295222bce47cfad34cc5c397a42d9e3fe0bf62d1891be",
+   "source": "john-rocky/LiteRT-Models@96e0bc1f:rtdetr/app/src/main/assets/host_params.bin",
+   "public": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/rtdetr/app/src/main/assets/host_params.bin"
+  },
+  "dac_rvq": {
+   "path": "{FIX}\\host\\dac_rvq.bin",
+   "sha256": "d3e20e3ec3d6b08e0db16ceb3744e63d5b4ceed1815c32bca0e198cb2edd68d4",
+   "source": "john-rocky/LiteRT-Models@96e0bc1f:dac/app/src/main/assets/dac_rvq.bin",
+   "public": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/dac/app/src/main/assets/dac_rvq.bin"
+  },
+  "sam2_prompt": {
+   "path": "{FIX}\\host\\sam2_prompt.bin",
+   "sha256": "c1ac798f0cc0bd5e4b0dc94efe26f2f9dfe4d1d4cec141ab0350580ce7a48588",
+   "source": "mlboydaisuke/SAM2-hiera-tiny-LiteRT@8736e24606f7edf62e34cb8ef950546e49df7eff:sam2_prompt.bin",
+   "public": "https://huggingface.co/mlboydaisuke/SAM2-hiera-tiny-LiteRT/resolve/8736e24606f7edf62e34cb8ef950546e49df7eff/sam2_prompt.bin"
+  }
+ },
+ "models": {
+  "dac_16khz_deconly_zs_fp16": {
+   "task": "codec",
+   "line": "task-codec-aligned",
+   "set": "kws120",
+   "ids": [
+    "yes/022cd682_nohash_0.wav",
+    "yes/0ea0e2f4_nohash_0.wav",
+    "yes/0fa1e7a9_nohash_0.wav",
+    "yes/105a0eea_nohash_0.wav",
+    "yes/105a0eea_nohash_1.wav",
+    "yes/105a0eea_nohash_2.wav",
+    "yes/1093c8e7_nohash_0.wav",
+    "yes/1528225c_nohash_0.wav",
+    "yes/1528225c_nohash_1.wav",
+    "yes/1528225c_nohash_2.wav",
+    "no/096456f9_nohash_0.wav",
+    "no/096456f9_nohash_1.wav",
+    "no/0c40e715_nohash_0.wav",
+    "no/0ea0e2f4_nohash_0.wav",
+    "no/1093c8e7_nohash_0.wav",
+    "no/135c6841_nohash_0.wav",
+    "no/135c6841_nohash_1.wav",
+    "no/135c6841_nohash_2.wav",
+    "no/135c6841_nohash_3.wav",
+    "no/1528225c_nohash_0.wav",
+    "up/0c40e715_nohash_0.wav",
+    "up/0d53e045_nohash_0.wav",
+    "up/0d53e045_nohash_1.wav",
+    "up/0f250098_nohash_0.wav",
+    "up/0f250098_nohash_1.wav",
+    "up/0fa1e7a9_nohash_0.wav",
+    "up/135c6841_nohash_0.wav",
+    "up/135c6841_nohash_1.wav",
+    "up/135c6841_nohash_2.wav",
+    "up/135c6841_nohash_3.wav",
+    "down/022cd682_nohash_0.wav",
+    "down/096456f9_nohash_0.wav",
+    "down/0c40e715_nohash_0.wav",
+    "down/0ea0e2f4_nohash_0.wav",
+    "down/0f250098_nohash_0.wav",
+    "down/0f250098_nohash_1.wav",
+    "down/0fa1e7a9_nohash_0.wav",
+    "down/1528225c_nohash_0.wav",
+    "down/1b4c9b89_nohash_0.wav",
+    "down/1b4c9b89_nohash_1.wav",
+    "left/022cd682_nohash_0.wav",
+    "left/022cd682_nohash_1.wav",
+    "left/0487ba9b_nohash_0.wav",
+    "left/096456f9_nohash_0.wav",
+    "left/096456f9_nohash_1.wav",
+    "left/0d53e045_nohash_0.wav",
+    "left/0d53e045_nohash_1.wav",
+    "left/0ea0e2f4_nohash_0.wav",
+    "left/105a0eea_nohash_0.wav",
+    "left/105a0eea_nohash_1.wav",
+    "right/096456f9_nohash_0.wav",
+    "right/0c40e715_nohash_0.wav",
+    "right/0c40e715_nohash_1.wav",
+    "right/0d53e045_nohash_0.wav",
+    "right/0ea0e2f4_nohash_0.wav",
+    "right/0f250098_nohash_0.wav",
+    "right/0f250098_nohash_1.wav",
+    "right/0fa1e7a9_nohash_0.wav",
+    "right/1528225c_nohash_0.wav",
+    "right/1b4c9b89_nohash_0.wav",
+    "on/022cd682_nohash_0.wav",
+    "on/096456f9_nohash_0.wav",
+    "on/0ea0e2f4_nohash_0.wav",
+    "on/0fa1e7a9_nohash_0.wav",
+    "on/105a0eea_nohash_0.wav",
+    "on/105a0eea_nohash_1.wav",
+    "on/1093c8e7_nohash_0.wav",
+    "on/1b4c9b89_nohash_0.wav",
+    "on/1b4c9b89_nohash_1.wav",
+    "on/1b4c9b89_nohash_2.wav",
+    "off/096456f9_nohash_0.wav",
+    "off/096456f9_nohash_1.wav",
+    "off/0c40e715_nohash_0.wav",
+    "off/0c40e715_nohash_1.wav",
+    "off/0c40e715_nohash_2.wav",
+    "off/0c40e715_nohash_3.wav",
+    "off/0d53e045_nohash_0.wav",
+    "off/0d53e045_nohash_1.wav",
+    "off/0d53e045_nohash_2.wav",
+    "off/0f250098_nohash_0.wav",
+    "stop/022cd682_nohash_0.wav",
+    "stop/0c40e715_nohash_0.wav",
+    "stop/0c40e715_nohash_1.wav",
+    "stop/0ea0e2f4_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_1.wav",
+    "stop/0fa1e7a9_nohash_2.wav",
+    "stop/105a0eea_nohash_0.wav",
+    "stop/135c6841_nohash_0.wav",
+    "stop/135c6841_nohash_1.wav",
+    "go/022cd682_nohash_0.wav",
+    "go/022cd682_nohash_1.wav",
+    "go/0487ba9b_nohash_0.wav",
+    "go/096456f9_nohash_0.wav",
+    "go/096456f9_nohash_1.wav",
+    "go/0c40e715_nohash_0.wav",
+    "go/0c40e715_nohash_1.wav",
+    "go/0d53e045_nohash_0.wav",
+    "go/0d53e045_nohash_1.wav",
+    "go/0ea0e2f4_nohash_0.wav",
+    "_unknown_/bed_1528225c_nohash_2.wav.wav",
+    "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_2.wav.wav",
+    "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+    "_unknown_/bed_91223b83_nohash_0.wav.wav",
+    "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+    "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+    "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+    "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+    "_silence_/1035.wav",
+    "_silence_/104.wav",
+    "_silence_/1047.wav",
+    "_silence_/1090.wav",
+    "_silence_/1092.wav",
+    "_silence_/1099.wav",
+    "_silence_/111.wav",
+    "_silence_/1124.wav",
+    "_silence_/1125.wav",
+    "_silence_/1135.wav"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "dac_zq",
+     "upstream": "dac_16khz_encoder_fp16",
+     "rvq": "dac/app/src/main/assets/dac_rvq.bin",
+     "evidence": "zoo:dac/app/src/main/java/com/dac/DacRVQ.kt:15-18,52-103; dac/app/src/main/java/com/dac/DacCodec.kt:53-58"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__DAC-16kHz-OpenVINO\\dac_16khz_deconly_zs_fp16.onnx",
+     "sha256": "965d11e2e7a38094249e44926ca18cf5e3a0caff2eb093842cc35ebfae3ee2a4",
+     "source": "mlboydaisuke/DAC-16kHz-OpenVINO@56365f4d4aed0fa9eaae847b19fc57933332f8b5:dac_16khz_deconly_zs_fp16.onnx"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ],
+   "upstream": {
+    "model": "dac_16khz_encoder_fp16",
+    "path": "{HUB}\\mlboydaisuke__DAC-16kHz-OpenVINO\\dac_16khz_encoder_fp16.onnx",
+    "sha256": "544231058e78b9228b00a6bfd3f451ea45e561acb46423d7f6c24ac229eac732",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "audio"
+     }
+    ],
+    "source": "mlboydaisuke/DAC-16kHz-OpenVINO@56365f4d4aed0fa9eaae847b19fc57933332f8b5:dac_16khz_encoder_fp16.onnx"
+   },
+   "host_files": [
+    "dac_rvq"
+   ],
+   "audio_scale": "pcm32768",
+   "store_src": "audio"
+  },
+  "dewarp": {
+   "task": "warp",
+   "line": "task-warp",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "unit",
+     "order": "BGR",
+     "evidence": "zoo:dewarp/app/src/main/java/com/dewarp/DocumentDewarper.kt:62-67"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__DewarpNet-OpenVINO\\dewarp.onnx",
+     "sha256": "4dde2be5fa86a4b4b1dd870b0ba89dc5da6e2165b90992c13a96450935eb04c2",
+     "source": "mlboydaisuke/DewarpNet-OpenVINO@ace77f6bff29c42d34b690a30b313b76e6d8299e:dewarp.onnx"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ],
+   "store_src": "image"
+  },
+  "dfine_graphB_fp16": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": "all",
+     "kind": "detr_b",
+     "upstream": "dfine_graphA_fp16",
+     "host_params": "dfine/app/src/main/assets/host_params.bin",
+     "evidence": "zoo:dfine/app/src/main/java/com/dfine/DFine.kt:83-92,117-124,164-194"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "C:\\src\\zoo\\onnx\\dfine_graphB_fp16.onnx",
+     "sha256": "af07e86b79413782d478dab7b1e8fe6db79e993ae17b7a622554d4ab889d2c39",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16.onnx",
+     "sha256": "0d025c7baf4dedfa67576d877f78635aa9a30569b8c679daae46a7a77b5fa2be",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "C:\\src\\zoo\\blobs\\dfine_graphB_fp16.blob",
+     "sha256": "6b7f02de088a709193a9dba8ffb81674fdb0a7374807daa08fe1f167bac50a6e",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovgpu",
+    "ovnpu",
+    "ovnpu_pre"
+   ],
+   "upstream": {
+    "model": "dfine_graphA_fp16",
+    "path": "C:\\src\\zoo\\onnx\\dfine_graphA_fp16.onnx",
+    "sha256": "fdcb173a118098fd7b1d1218010a23c947722d7252f9c346af71ce7cac83f67a",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "unit",
+      "order": "RGB",
+      "evidence": "zoo:dfine/app/src/main/java/com/dfine/DFine.kt:158-163"
+     }
+    ],
+    "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+   },
+   "host_files": [
+    "dfine_host_params"
+   ]
+  },
+  "dfine_graphB_fp16_fixed": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": "all",
+     "kind": "detr_b",
+     "upstream": "dfine_graphA_fp16",
+     "host_params": "dfine/app/src/main/assets/host_params.bin",
+     "evidence": "zoo:dfine/app/src/main/java/com/dfine/DFine.kt:83-92,117-124,164-194"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\dfine_graphB_fp16.onnx",
+     "sha256": "440bc1c6db016bc069027df3ce791b09d0b36727dcabfb340c31c7e158cfdb12",
+     "source": "mlboydaisuke/D-FINE-S-OpenVINO@adfe310e4ecc8b7aa3509507f8c78c343ed79f70:dfine_graphB_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16_fixed.onnx",
+     "sha256": "6195556a111b815bcda7d0ceb9bd47438fa135fa3bdb08a0691b5e94771b6a00",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovgpu"
+   ],
+   "upstream": {
+    "model": "dfine_graphA_fp16_fixed",
+    "path": "{HUB}\\mlboydaisuke__D-FINE-S-OpenVINO\\dfine_graphA_fp16.onnx",
+    "sha256": "a17ae288f3885fc9fac1947b809804ec22fcc7a2e349769157df0852c9342f3a",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "unit",
+      "order": "RGB",
+      "evidence": "zoo:dfine/app/src/main/java/com/dfine/DFine.kt:158-163"
+     }
+    ],
+    "source": "mlboydaisuke/D-FINE-S-OpenVINO@adfe310e4ecc8b7aa3509507f8c78c343ed79f70:dfine_graphA_fp16.onnx"
+   },
+   "host_files": [
+    "dfine_host_params"
+   ]
+  },
+  "dinov2_s_fp16": {
+   "task": "retrieval",
+   "line": "task-retrieval",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "imagenet",
+     "order": "RGB",
+     "evidence": "zoo:dinov2/app/src/main/java/com/dinov2/Dinov2Features.kt:31-32,51-61"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\dinov2_s_fp16.onnx",
+     "sha256": "8f36d01fe1635da9d09b4958e17a9b43c8b25438a4422e59cab1f4414d506625",
+     "source": "mlboydaisuke/DINOv2-ViT-S14-OpenVINO@8e89c4dcfc15b18b01701c240a90c52f38b6ff02:dinov2_s_fp16.onnx"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\npu\\dinov2_s_fp16.blob",
+     "sha256": "dc8b1157d21d528bc89041b7ec59287b98cacd17a1f67e878a9b70299ff52106",
+     "source": "mlboydaisuke/DINOv2-ViT-S14-OpenVINO@8e89c4dcfc15b18b01701c240a90c52f38b6ff02:npu/dinov2_s_fp16.blob"
+    }
+   },
+   "cells": [
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "dmcount": {
+   "task": "count",
+   "line": "task-count",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "imagenet",
+     "order": "RGB",
+     "evidence": "zoo:crowdcount/app/src/main/java/com/crowdcount/CrowdCounter.kt:29-30,54-63"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__DM-Count-Crowd-OpenVINO\\dmcount.onnx",
+     "sha256": "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197",
+     "source": "mlboydaisuke/DM-Count-Crowd-OpenVINO@9a1d62c34612539efea53085f65144205908656d:dmcount.onnx"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ]
+  },
+  "metric3d_fp16": {
+   "task": "depth",
+   "line": "task-depth",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_square",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:metric3d/app/src/main/java/com/metric3d/MetricDepth.kt:29-30,45-49"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "C:\\src\\zoo\\onnx\\metric3d_fp16.onnx",
+     "sha256": "ccde5da9c6c751bab40dd98285fc05706881b0667663f64f6b7850f89c6c414e",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\metric3d_fp16.onnx",
+     "sha256": "d96f90b7ad645ef2e5332b29f4c8711c0d691bf7a3fc33073aee3149f51ac068",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "cuda16"
+   ]
+  },
+  "mlsd_fp16": {
+   "task": "line-segments",
+   "line": "task-line-segments",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "mlsd4",
+     "geometry": "center_square",
+     "evidence": "zoo:mlsd/app/src/main/java/com/mlsd/MlsdDetector.kt:25,46-51"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__M-LSD-tiny-OpenVINO\\mlsd_fp16.onnx",
+     "sha256": "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537",
+     "source": "mlboydaisuke/M-LSD-tiny-OpenVINO@db488937a8c23fa5f2f6b59f5be70b5044960deb:mlsd_fp16.onnx"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__M-LSD-tiny-OpenVINO\\npu\\mlsd_fp16.blob",
+     "sha256": "6c5cbc4581ec2981b608c4d1d65570797cb5d2e5d6a324811d72d333e374cf5c",
+     "source": "mlboydaisuke/M-LSD-tiny-OpenVINO@db488937a8c23fa5f2f6b59f5be70b5044960deb:npu/mlsd_fp16.blob"
+    }
+   },
+   "cells": [
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "movinet_a0_stream": {
+   "task": "classification-stream",
+   "line": "task-top1-stream",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "unit",
+     "order": "RGB",
+     "evidence": "zoo:movinet/app/src/main/java/com/movinet/ActionRecognizer.kt:114-125"
+    },
+    {
+     "index": "1..44",
+     "kind": "zeros",
+     "evidence": "zoo:movinet/app/src/main/java/com/movinet/ActionRecognizer.kt:73-82"
+    },
+    {
+     "index": "45,46",
+     "kind": "ones",
+     "evidence": "zoo:movinet/app/src/main/java/com/movinet/ActionRecognizer.kt:43-44,72,88-89 (1/N with N = 1, and the constant one)"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__MoViNet-A0-Stream-OpenVINO\\movinet_a0_stream.onnx",
+     "sha256": "65afaf7f1f9f1ea3f200162e9b3c6b907ae27bfb246d3b6f789469ea98346928",
+     "source": "mlboydaisuke/MoViNet-A0-Stream-OpenVINO@450fb52a2a5c2684f2283718c5fa5a5c209f6e79:movinet_a0_stream.onnx"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ],
+   "stream": {
+    "frames": 8
+   }
+  },
+  "ppocr_det_fp16": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "letterbox_white",
+     "norm": "imagenet",
+     "order": "RGB",
+     "evidence": "zoo:ppocr/app/src/main/java/com/ppocr/PpocrDetector.kt:22-23,45-49"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__PP-OCRv5-OpenVINO\\ppocr_det_fp16.onnx",
+     "sha256": "6a6a9e4b650cb0cf9cdbce27febbef80da03a03cff04f228fb98daced51b0dc5",
+     "source": "mlboydaisuke/PP-OCRv5-OpenVINO@1835e4bb5849bf416d9bb7d4775215663607f721:ppocr_det_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\ppocr_det_fp16.onnx",
+     "sha256": "ad267728a3cfc76bb0598b0b32772e59159786e4dd5dfcb496723893c4e529af",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovgpu",
+    "ovnpu"
+   ]
+  },
+  "rtdetr_graphB_fp16": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": "all",
+     "kind": "detr_b",
+     "upstream": "rtdetr_graphA_fp16",
+     "host_params": "rtdetr/app/src/main/assets/host_params.bin",
+     "evidence": "zoo:rtdetr/app/src/main/java/com/rtdetr/RtDetr.kt:81-90,115-122,162-192"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "C:\\src\\zoo\\onnx\\rtdetr_graphB_fp16.onnx",
+     "sha256": "4e057bf254c87e28508b7850a6f4b5da24fcc42fbbac9125d4dcccb1470f9d51",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ],
+   "upstream": {
+    "model": "rtdetr_graphA_fp16",
+    "path": "C:\\src\\zoo\\onnx\\rtdetr_graphA_fp16.onnx",
+    "sha256": "f7c4a6cb3af2a03bdc0c2efc0b4dcff81b4463fe60955f9379f708a31471a64c",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "unit",
+      "order": "RGB",
+      "evidence": "zoo:rtdetr/app/src/main/java/com/rtdetr/RtDetr.kt:44,156-161"
+     }
+    ],
+    "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+   },
+   "host_files": [
+    "rtdetr_host_params"
+   ]
+  },
+  "rtdetr_graphB_fp16_fixed": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": "all",
+     "kind": "detr_b",
+     "upstream": "rtdetr_graphA_fp16",
+     "host_params": "rtdetr/app/src/main/assets/host_params.bin",
+     "evidence": "zoo:rtdetr/app/src/main/java/com/rtdetr/RtDetr.kt:81-90,115-122,162-192"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RT-DETRv2-S-OpenVINO\\rtdetr_graphB_fp16.onnx",
+     "sha256": "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e",
+     "source": "mlboydaisuke/RT-DETRv2-S-OpenVINO@c3e2fd2bdb2a86152e35d79c3ad9ab39c0c0ec2f:rtdetr_graphB_fp16.onnx"
+    }
+   },
+   "cells": [
+    "ovgpu"
+   ],
+   "upstream": {
+    "model": "rtdetr_graphA_fp16_fixed",
+    "path": "{HUB}\\mlboydaisuke__RT-DETRv2-S-OpenVINO\\rtdetr_graphA_fp16.onnx",
+    "sha256": "8051234addcc7bc922deab6e312ece2827b57769210c9a2faf08512f4b19926e",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "unit",
+      "order": "RGB",
+      "evidence": "zoo:rtdetr/app/src/main/java/com/rtdetr/RtDetr.kt:44,156-161"
+     }
+    ],
+    "source": "mlboydaisuke/RT-DETRv2-S-OpenVINO@c3e2fd2bdb2a86152e35d79c3ad9ab39c0c0ec2f:rtdetr_graphA_fp16.onnx"
+   },
+   "host_files": [
+    "rtdetr_host_params"
+   ]
+  },
+  "rtm_animal_fp16": {
+   "task": "keypoints",
+   "line": "task-keypoints",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "rtmanimal"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_square",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:rtmanimal/app/src/main/java/com/rtmanimal/RtmAnimalPoseEstimator.kt:25-26,43-47"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\rtm_animal_fp16.onnx",
+     "sha256": "401a657ea5aefcef95ebf321fe62906fb9d9322a484e26dd2bb0b4f49438a91f",
+     "source": "mlboydaisuke/RTMPose-Animal-AP10K-OpenVINO@bcf53e84aab0db52e06b7532eb5ec8e42e105698:rtm_animal_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\rtm_animal_fp16.onnx",
+     "sha256": "1e999fa502f9d1c85f6996c6831fb1a128f9dd363bb01013b1829cca6c492cbe",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\npu\\rtm_animal_fp16.blob",
+     "sha256": "546752d7c1ae5e48b1bb04fcb9c546dda290c08ee404975956256f429df18255",
+     "source": "mlboydaisuke/RTMPose-Animal-AP10K-OpenVINO@bcf53e84aab0db52e06b7532eb5ec8e42e105698:npu/rtm_animal_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "rtm_face_fp16": {
+   "task": "keypoints",
+   "line": "task-keypoints",
+   "set": "images",
+   "ids": [
+    "gaze",
+    "hsemotion",
+    "rtmface",
+    "tddfa"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_square",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:rtmface/app/src/main/java/com/rtmface/RtmFaceEstimator.kt:24-25,42-46"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\rtm_face_fp16.onnx",
+     "sha256": "bb05d3ccf0625eb1b0279f61ca3e57f8ea97b0ce57b738d7fac8c1a568d67428",
+     "source": "mlboydaisuke/RTMPose-Face-WFLW-OpenVINO@f53f13f152267b4422ce16e6581bf61847ae600e:rtm_face_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\rtm_face_fp16.onnx",
+     "sha256": "1717001b0ff6c30c39a355e895d30f329515c7129a8a3f14126461df315aee4c",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\npu\\rtm_face_fp16.blob",
+     "sha256": "6008d7f2982348d28dbc4b5efa6e8e0c16a4e0165f69988c45f436ff62526e6c",
+     "source": "mlboydaisuke/RTMPose-Face-WFLW-OpenVINO@f53f13f152267b4422ce16e6581bf61847ae600e:npu/rtm_face_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "rtmhand_fp16": {
+   "task": "keypoints",
+   "line": "task-keypoints",
+   "set": "images",
+   "ids": [
+    "rtmhand"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_square",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:rtmhand/app/src/main/java/com/rtmhand/RtmHandEstimator.kt:25-26,43-47"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\rtmhand_fp16.onnx",
+     "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136",
+     "source": "mlboydaisuke/RTMPose-Hand-OpenVINO@f02d81bca4e44e22386a87181daf854915693168:rtmhand_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+     "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\npu\\rtmhand_fp16.blob",
+     "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c",
+     "source": "mlboydaisuke/RTMPose-Hand-OpenVINO@f02d81bca4e44e22386a87181daf854915693168:npu/rtmhand_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "rtmpose_s_fp16": {
+   "task": "keypoints",
+   "line": "task-keypoints",
+   "set": "images",
+   "ids": [
+    "gaze",
+    "rtmface",
+    "rtmpose",
+    "saliency",
+    "tddfa"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_3x4",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:rtmpose/app/src/main/java/com/rtmpose/RtmPoseEstimator.kt:29-30,48-52"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\rtmpose_s_fp16.onnx",
+     "sha256": "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3",
+     "source": "mlboydaisuke/RTMPose-s-OpenVINO@69e7e25241bb5a44a69aab595a03fbb0e5e1912c:rtmpose_s_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\rtmpose_s_fp16.onnx",
+     "sha256": "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
+     "sha256": "e080cbbab273a719570224f9795a1b88873b0ff8246f051a7b0316d5b78239ed",
+     "source": "mlboydaisuke/RTMPose-s-OpenVINO@69e7e25241bb5a44a69aab595a03fbb0e5e1912c:npu/rtmpose_s_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "cuda32",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "rtmw_fp16": {
+   "task": "keypoints",
+   "line": "task-keypoints",
+   "set": "images",
+   "ids": [
+    "gaze",
+    "rtmface",
+    "rtmpose",
+    "saliency",
+    "tddfa"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "center_3x4",
+     "norm": "mmpose255",
+     "order": "RGB",
+     "evidence": "zoo:rtmw/app/src/main/java/com/rtmw/RtmwEstimator.kt:25-26,42-46"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\rtmw_fp16.onnx",
+     "sha256": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9",
+     "source": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO@f819529f18f63d3174334dade39a4bd25b2781e1:rtmw_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\rtmw_fp16.onnx",
+     "sha256": "5bf580662f29eb9fe206552c31637cce5417f386f0e6ded2a68540fd5bc8af67",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\npu\\rtmw_fp16.blob",
+     "sha256": "a0c5b1a6d6e47c00b8cff290f1ef43af0a1b3a7da2640d66791f339daddd42fb",
+     "source": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO@f819529f18f63d3174334dade39a4bd25b2781e1:npu/rtmw_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovgpu",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "sam2_decoder": {
+   "task": "mask",
+   "line": "task-mask",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "sam2_dec",
+     "upstream": "sam2_encoder",
+     "point": [
+      512,
+      512
+     ],
+     "prompt_bin": "hf:mlboydaisuke/SAM2-hiera-tiny-LiteRT@8736e24606f7edf62e34cb8ef950546e49df7eff/sam2_prompt.bin",
+     "evidence": "zoo:sam2/app/src/main/java/com/sam2/Sam2Segmenter.kt:59-64,86-114"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "C:\\src\\zoo\\onnx\\sam2_decoder.onnx",
+     "sha256": "456c6c524b1e4f2b17742d967e9835a2379ecce2f488fd9f2aaffef7b37bf831",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
+     "sha256": "5f2c7ac3b608fdb07f6166fb4e5a03a419d24e208008d0eb2b82317cb8c43b03",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "ovnpu_pre"
+   ],
+   "upstream": {
+    "model": "sam2_encoder",
+    "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\sam2_encoder.onnx",
+    "sha256": "2377332c91031aa842d01d7bd53c1e3b772a2310d9c2925aed2b11e74fb59b4f",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "imagenet",
+      "order": "RGB",
+      "evidence": "zoo:sam2/app/src/main/java/com/sam2/Sam2Segmenter.kt:27-28,75-83"
+     }
+    ],
+    "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@99c46885748cffa52b69d8caa11464b366686d16:sam2_encoder.onnx"
+   },
+   "host_files": [
+    "sam2_prompt"
+   ]
+  },
+  "sam2_decoder_fixed": {
+   "task": "mask",
+   "line": "task-mask",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "sam2_dec",
+     "upstream": "sam2_encoder",
+     "point": [
+      512,
+      512
+     ],
+     "prompt_bin": "hf:mlboydaisuke/SAM2-hiera-tiny-LiteRT@8736e24606f7edf62e34cb8ef950546e49df7eff/sam2_prompt.bin",
+     "evidence": "zoo:sam2/app/src/main/java/com/sam2/Sam2Segmenter.kt:59-64,86-114"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\sam2_decoder.onnx",
+     "sha256": "bef9a8b8f8adb6bb41755f6d9153742ed51d8f51b105fbbfb67ead7d59f449ea",
+     "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@99c46885748cffa52b69d8caa11464b366686d16:sam2_decoder.onnx"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\npu\\sam2_decoder.blob",
+     "sha256": "2326a9d867fb98556a44bbb442d2f201477e9ee3453b3e1345f2e5a515675797",
+     "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@99c46885748cffa52b69d8caa11464b366686d16:npu/sam2_decoder.blob"
+    }
+   },
+   "cells": [
+    "ovnpu_pre"
+   ],
+   "upstream": {
+    "model": "sam2_encoder",
+    "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\sam2_encoder.onnx",
+    "sha256": "2377332c91031aa842d01d7bd53c1e3b772a2310d9c2925aed2b11e74fb59b4f",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "image",
+      "geometry": "stretch",
+      "norm": "imagenet",
+      "order": "RGB",
+      "evidence": "zoo:sam2/app/src/main/java/com/sam2/Sam2Segmenter.kt:27-28,75-83"
+     }
+    ],
+    "source": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@99c46885748cffa52b69d8caa11464b366686d16:sam2_encoder.onnx"
+   },
+   "host_files": [
+    "sam2_prompt"
+   ]
+  },
+  "sinet": {
+   "task": "mask",
+   "line": "task-mask",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "imagenet",
+     "order": "RGB",
+     "evidence": "zoo:common/kotlin/ImageTensor.kt:46-47,68-75,89-111"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\sinet.onnx",
+     "sha256": "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434",
+     "source": "mlboydaisuke/SINet-V2-Camouflage-OpenVINO@30fd63d4c645aa528a22b67913595d800cb4285f:sinet.onnx"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
+     "sha256": "2690b24fb5baff802c0be7f4f45630c9a4e4e513108a733c2faa5fb33d4a283d",
+     "source": "mlboydaisuke/SINet-V2-Camouflage-OpenVINO@30fd63d4c645aa528a22b67913595d800cb4285f:npu/sinet.blob"
+    }
+   },
+   "cells": [
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "ssdlite_mobilenetv3_320_fp16": {
+   "task": "detection",
+   "line": "task-detection",
+   "set": "images",
+   "ids": [
+    "dfine",
+    "dinov2",
+    "gaze",
+    "hsemotion",
+    "lowlight",
+    "metric3d",
+    "migan",
+    "mlsd",
+    "nafnet",
+    "neuralstyle",
+    "nima",
+    "places365",
+    "ppocr",
+    "rtmanimal",
+    "rtmface",
+    "rtmhand",
+    "rtmpose",
+    "saliency",
+    "tddfa",
+    "yunet"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "image",
+     "geometry": "stretch",
+     "norm": "minus1to1",
+     "order": "RGB",
+     "evidence": "zoo:ssdlite/app/src/main/java/com/ssdlite/SSDLiteDetector.kt:28,142-156"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\ssdlite_mobilenetv3_320_fp16.onnx",
+     "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889",
+     "source": "mlboydaisuke/ssdlite320-mobilenetv3-openvino@89a246e64d0e795582e422e65a64be018d22b7ab:ssdlite_mobilenetv3_320_fp16.onnx"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+     "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\npu\\ssdlite_mobilenetv3_320_fp16.blob",
+     "sha256": "c31be716cb4d3830d350a68a55e3562821a81f3a4859c04589163a287894ff87",
+     "source": "mlboydaisuke/ssdlite320-mobilenetv3-openvino@89a246e64d0e795582e422e65a64be018d22b7ab:npu/ssdlite_mobilenetv3_320_fp16.blob"
+    }
+   },
+   "cells": [
+    "cuda16",
+    "ovnpu",
+    "ovnpu_pre"
+   ]
+  },
+  "w2v2_frontend_fp16": {
+   "task": "classification",
+   "line": "task-top1",
+   "set": "kws120",
+   "ids": [
+    "yes/022cd682_nohash_0.wav",
+    "yes/0ea0e2f4_nohash_0.wav",
+    "yes/0fa1e7a9_nohash_0.wav",
+    "yes/105a0eea_nohash_0.wav",
+    "yes/105a0eea_nohash_1.wav",
+    "yes/105a0eea_nohash_2.wav",
+    "yes/1093c8e7_nohash_0.wav",
+    "yes/1528225c_nohash_0.wav",
+    "yes/1528225c_nohash_1.wav",
+    "yes/1528225c_nohash_2.wav",
+    "no/096456f9_nohash_0.wav",
+    "no/096456f9_nohash_1.wav",
+    "no/0c40e715_nohash_0.wav",
+    "no/0ea0e2f4_nohash_0.wav",
+    "no/1093c8e7_nohash_0.wav",
+    "no/135c6841_nohash_0.wav",
+    "no/135c6841_nohash_1.wav",
+    "no/135c6841_nohash_2.wav",
+    "no/135c6841_nohash_3.wav",
+    "no/1528225c_nohash_0.wav",
+    "up/0c40e715_nohash_0.wav",
+    "up/0d53e045_nohash_0.wav",
+    "up/0d53e045_nohash_1.wav",
+    "up/0f250098_nohash_0.wav",
+    "up/0f250098_nohash_1.wav",
+    "up/0fa1e7a9_nohash_0.wav",
+    "up/135c6841_nohash_0.wav",
+    "up/135c6841_nohash_1.wav",
+    "up/135c6841_nohash_2.wav",
+    "up/135c6841_nohash_3.wav",
+    "down/022cd682_nohash_0.wav",
+    "down/096456f9_nohash_0.wav",
+    "down/0c40e715_nohash_0.wav",
+    "down/0ea0e2f4_nohash_0.wav",
+    "down/0f250098_nohash_0.wav",
+    "down/0f250098_nohash_1.wav",
+    "down/0fa1e7a9_nohash_0.wav",
+    "down/1528225c_nohash_0.wav",
+    "down/1b4c9b89_nohash_0.wav",
+    "down/1b4c9b89_nohash_1.wav",
+    "left/022cd682_nohash_0.wav",
+    "left/022cd682_nohash_1.wav",
+    "left/0487ba9b_nohash_0.wav",
+    "left/096456f9_nohash_0.wav",
+    "left/096456f9_nohash_1.wav",
+    "left/0d53e045_nohash_0.wav",
+    "left/0d53e045_nohash_1.wav",
+    "left/0ea0e2f4_nohash_0.wav",
+    "left/105a0eea_nohash_0.wav",
+    "left/105a0eea_nohash_1.wav",
+    "right/096456f9_nohash_0.wav",
+    "right/0c40e715_nohash_0.wav",
+    "right/0c40e715_nohash_1.wav",
+    "right/0d53e045_nohash_0.wav",
+    "right/0ea0e2f4_nohash_0.wav",
+    "right/0f250098_nohash_0.wav",
+    "right/0f250098_nohash_1.wav",
+    "right/0fa1e7a9_nohash_0.wav",
+    "right/1528225c_nohash_0.wav",
+    "right/1b4c9b89_nohash_0.wav",
+    "on/022cd682_nohash_0.wav",
+    "on/096456f9_nohash_0.wav",
+    "on/0ea0e2f4_nohash_0.wav",
+    "on/0fa1e7a9_nohash_0.wav",
+    "on/105a0eea_nohash_0.wav",
+    "on/105a0eea_nohash_1.wav",
+    "on/1093c8e7_nohash_0.wav",
+    "on/1b4c9b89_nohash_0.wav",
+    "on/1b4c9b89_nohash_1.wav",
+    "on/1b4c9b89_nohash_2.wav",
+    "off/096456f9_nohash_0.wav",
+    "off/096456f9_nohash_1.wav",
+    "off/0c40e715_nohash_0.wav",
+    "off/0c40e715_nohash_1.wav",
+    "off/0c40e715_nohash_2.wav",
+    "off/0c40e715_nohash_3.wav",
+    "off/0d53e045_nohash_0.wav",
+    "off/0d53e045_nohash_1.wav",
+    "off/0d53e045_nohash_2.wav",
+    "off/0f250098_nohash_0.wav",
+    "stop/022cd682_nohash_0.wav",
+    "stop/0c40e715_nohash_0.wav",
+    "stop/0c40e715_nohash_1.wav",
+    "stop/0ea0e2f4_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_1.wav",
+    "stop/0fa1e7a9_nohash_2.wav",
+    "stop/105a0eea_nohash_0.wav",
+    "stop/135c6841_nohash_0.wav",
+    "stop/135c6841_nohash_1.wav",
+    "go/022cd682_nohash_0.wav",
+    "go/022cd682_nohash_1.wav",
+    "go/0487ba9b_nohash_0.wav",
+    "go/096456f9_nohash_0.wav",
+    "go/096456f9_nohash_1.wav",
+    "go/0c40e715_nohash_0.wav",
+    "go/0c40e715_nohash_1.wav",
+    "go/0d53e045_nohash_0.wav",
+    "go/0d53e045_nohash_1.wav",
+    "go/0ea0e2f4_nohash_0.wav",
+    "_unknown_/bed_1528225c_nohash_2.wav.wav",
+    "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_2.wav.wav",
+    "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+    "_unknown_/bed_91223b83_nohash_0.wav.wav",
+    "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+    "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+    "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+    "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+    "_silence_/1035.wav",
+    "_silence_/104.wav",
+    "_silence_/1047.wav",
+    "_silence_/1090.wav",
+    "_silence_/1092.wav",
+    "_silence_/1099.wav",
+    "_silence_/111.wav",
+    "_silence_/1124.wav",
+    "_silence_/1125.wav",
+    "_silence_/1135.wav"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "audio"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\w2v2_frontend_fp16.onnx",
+     "sha256": "51645678a786b40dad1834d998943b95488858f5181b4cdf5f8822db6095ce63",
+     "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd207e7e6fda26e107289:w2v2_frontend_fp16.onnx"
+    },
+    "blob": {
+     "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\npu\\w2v2_frontend_fp16.blob",
+     "sha256": "394cbec179b17382b55ffc121763824a04c765e5a1235791acdd79d60e7ec5af",
+     "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd207e7e6fda26e107289:npu/w2v2_frontend_fp16.blob"
+    }
+   },
+   "cells": [
+    "ovnpu",
+    "ovnpu_pre"
+   ],
+   "then": {
+    "model": "w2v2_head_fp16_fixed",
+    "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\w2v2_head_fp16.onnx",
+    "sha256": "daadaee04b8b8f5ce8cc0038e05561cec8e5b0df27f81d55254f43823d6633d7",
+    "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd207e7e6fda26e107289:w2v2_head_fp16.onnx"
+   },
+   "audio_scale": "peak_half"
+  },
+  "w2v2_head_fp16": {
+   "task": "classification",
+   "line": "task-top1",
+   "set": "kws120",
+   "ids": [
+    "yes/022cd682_nohash_0.wav",
+    "yes/0ea0e2f4_nohash_0.wav",
+    "yes/0fa1e7a9_nohash_0.wav",
+    "yes/105a0eea_nohash_0.wav",
+    "yes/105a0eea_nohash_1.wav",
+    "yes/105a0eea_nohash_2.wav",
+    "yes/1093c8e7_nohash_0.wav",
+    "yes/1528225c_nohash_0.wav",
+    "yes/1528225c_nohash_1.wav",
+    "yes/1528225c_nohash_2.wav",
+    "no/096456f9_nohash_0.wav",
+    "no/096456f9_nohash_1.wav",
+    "no/0c40e715_nohash_0.wav",
+    "no/0ea0e2f4_nohash_0.wav",
+    "no/1093c8e7_nohash_0.wav",
+    "no/135c6841_nohash_0.wav",
+    "no/135c6841_nohash_1.wav",
+    "no/135c6841_nohash_2.wav",
+    "no/135c6841_nohash_3.wav",
+    "no/1528225c_nohash_0.wav",
+    "up/0c40e715_nohash_0.wav",
+    "up/0d53e045_nohash_0.wav",
+    "up/0d53e045_nohash_1.wav",
+    "up/0f250098_nohash_0.wav",
+    "up/0f250098_nohash_1.wav",
+    "up/0fa1e7a9_nohash_0.wav",
+    "up/135c6841_nohash_0.wav",
+    "up/135c6841_nohash_1.wav",
+    "up/135c6841_nohash_2.wav",
+    "up/135c6841_nohash_3.wav",
+    "down/022cd682_nohash_0.wav",
+    "down/096456f9_nohash_0.wav",
+    "down/0c40e715_nohash_0.wav",
+    "down/0ea0e2f4_nohash_0.wav",
+    "down/0f250098_nohash_0.wav",
+    "down/0f250098_nohash_1.wav",
+    "down/0fa1e7a9_nohash_0.wav",
+    "down/1528225c_nohash_0.wav",
+    "down/1b4c9b89_nohash_0.wav",
+    "down/1b4c9b89_nohash_1.wav",
+    "left/022cd682_nohash_0.wav",
+    "left/022cd682_nohash_1.wav",
+    "left/0487ba9b_nohash_0.wav",
+    "left/096456f9_nohash_0.wav",
+    "left/096456f9_nohash_1.wav",
+    "left/0d53e045_nohash_0.wav",
+    "left/0d53e045_nohash_1.wav",
+    "left/0ea0e2f4_nohash_0.wav",
+    "left/105a0eea_nohash_0.wav",
+    "left/105a0eea_nohash_1.wav",
+    "right/096456f9_nohash_0.wav",
+    "right/0c40e715_nohash_0.wav",
+    "right/0c40e715_nohash_1.wav",
+    "right/0d53e045_nohash_0.wav",
+    "right/0ea0e2f4_nohash_0.wav",
+    "right/0f250098_nohash_0.wav",
+    "right/0f250098_nohash_1.wav",
+    "right/0fa1e7a9_nohash_0.wav",
+    "right/1528225c_nohash_0.wav",
+    "right/1b4c9b89_nohash_0.wav",
+    "on/022cd682_nohash_0.wav",
+    "on/096456f9_nohash_0.wav",
+    "on/0ea0e2f4_nohash_0.wav",
+    "on/0fa1e7a9_nohash_0.wav",
+    "on/105a0eea_nohash_0.wav",
+    "on/105a0eea_nohash_1.wav",
+    "on/1093c8e7_nohash_0.wav",
+    "on/1b4c9b89_nohash_0.wav",
+    "on/1b4c9b89_nohash_1.wav",
+    "on/1b4c9b89_nohash_2.wav",
+    "off/096456f9_nohash_0.wav",
+    "off/096456f9_nohash_1.wav",
+    "off/0c40e715_nohash_0.wav",
+    "off/0c40e715_nohash_1.wav",
+    "off/0c40e715_nohash_2.wav",
+    "off/0c40e715_nohash_3.wav",
+    "off/0d53e045_nohash_0.wav",
+    "off/0d53e045_nohash_1.wav",
+    "off/0d53e045_nohash_2.wav",
+    "off/0f250098_nohash_0.wav",
+    "stop/022cd682_nohash_0.wav",
+    "stop/0c40e715_nohash_0.wav",
+    "stop/0c40e715_nohash_1.wav",
+    "stop/0ea0e2f4_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_0.wav",
+    "stop/0fa1e7a9_nohash_1.wav",
+    "stop/0fa1e7a9_nohash_2.wav",
+    "stop/105a0eea_nohash_0.wav",
+    "stop/135c6841_nohash_0.wav",
+    "stop/135c6841_nohash_1.wav",
+    "go/022cd682_nohash_0.wav",
+    "go/022cd682_nohash_1.wav",
+    "go/0487ba9b_nohash_0.wav",
+    "go/096456f9_nohash_0.wav",
+    "go/096456f9_nohash_1.wav",
+    "go/0c40e715_nohash_0.wav",
+    "go/0c40e715_nohash_1.wav",
+    "go/0d53e045_nohash_0.wav",
+    "go/0d53e045_nohash_1.wav",
+    "go/0ea0e2f4_nohash_0.wav",
+    "_unknown_/bed_1528225c_nohash_2.wav.wav",
+    "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_0.wav.wav",
+    "_unknown_/bed_6205088b_nohash_2.wav.wav",
+    "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+    "_unknown_/bed_91223b83_nohash_0.wav.wav",
+    "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+    "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+    "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+    "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+    "_silence_/1035.wav",
+    "_silence_/104.wav",
+    "_silence_/1047.wav",
+    "_silence_/1090.wav",
+    "_silence_/1092.wav",
+    "_silence_/1099.wav",
+    "_silence_/111.wav",
+    "_silence_/1124.wav",
+    "_silence_/1125.wav",
+    "_silence_/1135.wav"
+   ],
+   "inputs": [
+    {
+     "index": 0,
+     "kind": "upstream",
+     "upstream": "w2v2_frontend_fp16",
+     "output": 0,
+     "evidence": "zoo:wav2vec2-kws/app/src/main/java/com/w2vkws/Wav2Vec2Kws.kt:59-61"
+    }
+   ],
+   "forms": {
+    "fp32": {
+     "path": "C:\\src\\zoo\\onnx\\w2v2_head_fp16.onnx",
+     "sha256": "d314e168a377e5f8b5daebe9a7704afc61d681d6534ac3ea2ccb5db5968e1eb9",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    },
+    "fp16": {
+     "path": "C:\\src\\zoo\\fp16\\w2v2_head_fp16.onnx",
+     "sha256": "7cf70487e7f6c39e9fd974a82a77627ee6e3b156b7a77065159aee23e4a5b6d3",
+     "source": "not public: the vision zoo's own file on its PC (C:\\src\\zoo); no Hub file has this sha256 (john-rocky/windows-zoo rebuilds its ONNX files from the .tflite, with other bytes; the fp16 copies are onnxconverter-common's convert_float_to_float16 of the fp32 file)"
+    }
+   },
+   "cells": [
+    "cuda16"
+   ],
+   "upstream": {
+    "model": "w2v2_frontend_fp16",
+    "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\w2v2_frontend_fp16.onnx",
+    "sha256": "51645678a786b40dad1834d998943b95488858f5181b4cdf5f8822db6095ce63",
+    "inputs": [
+     {
+      "index": 0,
+      "kind": "audio"
+     }
+    ],
+    "source": "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd207e7e6fda26e107289:w2v2_frontend_fp16.onnx"
+   },
+   "audio_scale": "peak_half"
+  }
+ }
+}

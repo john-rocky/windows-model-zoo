@@ -1,0 +1,73 @@
+{
+    "cell":  "Qwen3-1.7B/task-litert-lm_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-c-q17",
+    "start":  "2026-11-10T09:31:45.3148622+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  8.4,
+                                "build_ms":  0,
+                                "top":  [
+                                            "litert_lm_advanced_main_windows 32272 0.82 core",
+                                            "System 4 0.22 core",
+                                            "MsMpEng 5548 0.09 core",
+                                            "powershell 28984 0.03 core",
+                                            "svchost 8284 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P2, 1515 MHz, 11001 MHz, 19.05 W, 3 %, 346 MiB, 55",
+                   "availGB":  23.9
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\cpu\\Qwen3_1.7B.litertlm --backend cpu --ref C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-c-q17\\Qwen3-1.7B\\task-litert-lm_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  21716,
+                   "elapsedSeconds":  44.505,
+                   "peakWorkingSetBytes":  36143104,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P2, 1687 MHz, 11001 MHz, 22.97 W, 3 %, 1004 MiB, 56",
+                                         "10s P2, 1507 MHz, 11001 MHz, 18.51 W, 2 %, 4 MiB, 56",
+                                         "15s P4, 1605 MHz, 9001 MHz, 17.74 W, 2 %, 349 MiB, 56",
+                                         "20s P4, 1575 MHz, 9001 MHz, 39.67 W, 15 %, 0 MiB, 57",
+                                         "25s P4, 1642 MHz, 9001 MHz, 14.96 W, 0 %, 0 MiB, 57",
+                                         "30s P4, 1545 MHz, 9001 MHz, 37.70 W, 0 %, 1004 MiB, 60",
+                                         "35s P4, 1642 MHz, 9001 MHz, 14.58 W, 0 %, 1004 MiB, 58",
+                                         "40s P4, 1875 MHz, 9001 MHz, 21.29 W, 6 %, 1004 MiB, 58"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  6.3,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.65 core",
+                                           "python 24736 0.14 core",
+                                           "MsMpEng 5548 0.08 core",
+                                           "powershell 28984 0.05 core",
+                                           "llama-server 28024 0.05 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 142 MHz, 14001 MHz, 19.54 W, 0 %, 0 MiB, 58"
+              },
+    "end":  "2026-11-10T09:32:31.8182519+09:00",
+    "tries":  1
+}

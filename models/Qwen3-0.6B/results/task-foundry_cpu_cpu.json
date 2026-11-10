@@ -1,0 +1,273 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen3-0.6B",
+ "cell": "task-foundry_cpu_cpu",
+ "kind": "llm",
+ "runtime": {
+  "id": "foundry",
+  "label": "Foundry Local 0.13.0"
+ },
+ "device": {
+  "id": "cpu",
+  "label": "CPU (Core Ultra 9 386H)"
+ },
+ "form": {
+  "id": "foundry:Foundry catalog qwen3-0.6b-generic-cpu:4 (its files in the PC's cache)",
+  "label": "MatMulNBits b128 asym acc4: int8 x105",
+  "detail": "MatMulNBits b128 asym acc4: int8 x105, int4 x92; embeddings int8 b128 asym [model.onnx]; Foundry catalog qwen3-0.6b-generic-cpu:4 (its files in the PC's cache)",
+  "path": null,
+  "from": "Foundry Local catalog qwen3-0.6b-generic-cpu:4"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on qa20: 13 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 13,
+    "n": 20,
+    "bar": 18,
+    "pass": false
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 5,
+    "max_new": 16,
+    "text": "1+1=2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": false
+  },
+  "text": "answers 13/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-f/Qwen3-0.6B/task-foundry_cpu_cpu/run1.json",
+  "runner": "run_llm_foundry.py",
+  "argv": [
+   "--package",
+   "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-generic-cpu-4\\v4",
+   "--id",
+   "z6-qwen3-0.6b-generic-cpu:1",
+   "--device",
+   "cpu",
+   "--ep",
+   "CPUExecutionProvider",
+   "--task",
+   "chat-completion",
+   "--work",
+   "C:\\src\\zoo-template\\work\\foundry",
+   "--cuda12",
+   "C:\\src\\msf\\cuda12\\dll_all",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-f\\Qwen3-0.6B\\task-foundry_cpu_cpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 13/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-f",
+  "started": "2026-11-10T09:54:36.091432+09:00",
+  "ended": "2026-11-10T09:54:55.647388+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 4.173,
+  "warmup_s": 0.146,
+  "peak_working_set_mb": 43,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 45608960,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 13,
+   "n": 20,
+   "full_text_same": 9,
+   "eos_within_max": 20,
+   "new_tokens": 134,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "token count": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "7 + 5 = 12",
+     "ref": "7 + 5 = 12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "12 * 3 = 36",
+     "ref": "12 * 3 = 36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "cat",
+     "ref": "cat",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "28",
+     "ref": "1",
+     "same": false
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "hot",
+     "same": false
+    },
+    {
+     "id": "q08",
+     "cell": "「ありがとう」を日本語に翻訳すると、",
+     "ref": "ありがとう",
+     "same": false
+    },
+    {
+     "id": "q09",
+     "cell": "blue",
+     "ref": "blue",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes, 17 is a prime number",
+     "ref": "yes, 17 is a prime number",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "the largest ocean on earth is the pacific ocean",
+     "ref": "pacific ocean",
+     "same": false
+    },
+    {
+     "id": "q13",
+     "cell": "romeo and juliet",
+     "ref": "romeo and juliet",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "100 ÷ 4 = 25",
+     "ref": "100 divided by 4 is 25",
+     "same": false
+    },
+    {
+     "id": "q15",
+     "cell": "8",
+     "ref": "the sequence is: 2, 4, 6, 8",
+     "same": false
+    },
+    {
+     "id": "q16",
+     "cell": "the temperature at which water freezes is **0°c",
+     "ref": "0°c",
+     "same": false
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "the square root of 81 is 9",
+     "ref": "the square root of 81 is 9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "2",
+     "ref": "2",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 5"
+  },
+  "versions": {
+   "python": "3.12.16"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "prompts": 21,
+   "id": "z6-qwen3-0.6b-generic-cpu:1",
+   "task": "chat-completion",
+   "device": "cpu",
+   "ep": "CPUExecutionProvider",
+   "daemon_env": [],
+   "decode": "greedy (temperature 0; genai_config search do_sample false, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "the identity template: one user message = the reference's rendered prompt, as it is (the warm-up's prompt tokens = the reference's ids)"
+  }
+ }
+}

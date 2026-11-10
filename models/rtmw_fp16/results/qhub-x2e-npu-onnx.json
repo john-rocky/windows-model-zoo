@@ -1,0 +1,59 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtmw_fp16",
+ "cell": "qhub-x2e-npu-onnx",
+ "kind": "vision",
+ "role": "other-device",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "qnn",
+  "label": "Qualcomm AI Hub, QNN ONNX as-is",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "x2e-npu",
+  "label": "Snapdragon X2 Elite CRD"
+ },
+ "form": {
+  "id": "onnx",
+  "label": "the ONNX file"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": null,
+  "ended": null,
+  "error": null,
+  "job": "jpxr3979p"
+ },
+ "line": null,
+ "speed": {
+  "metric": "ms",
+  "value": 3.041,
+  "timed": true,
+  "stat": "AI Hub estimated_inference_time",
+  "load_ms": 2297.346,
+  "warm_load_ms": 441.52
+ },
+ "regime": {
+  "qos": "n/a",
+  "power": "n/a",
+  "timer": "ai-hub",
+  "qos_basis": "another device (AI Hub's own timer)"
+ },
+ "vision": {
+  "units": {
+   "CPU": 3,
+   "NPU": 443
+  },
+  "peak_mem_bytes": 40198144,
+  "cpu_nodes": 3
+ },
+ "source": {
+  "by": "Qualcomm AI Hub (the vision zoo's records of two other devices, 2026-10-30)",
+  "record": "aihub/results_wide.json[rtmw_fp16|X2E|onnx|npu]",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:aihub/results_wide.json"
+ },
+ "note": []
+}

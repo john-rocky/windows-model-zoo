@@ -1,0 +1,288 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:19:50.698079+09:00",
+ "ended": "2026-11-10T07:20:09.324597+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "mask",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\sam2_decoder_fixed\\inputs.npz",
+  "n": 20,
+  "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
+  "bytes": 335591062,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    4194816
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "dfine",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\sam2_decoder_fixed.onnx",
+  "sha256": "bef9a8b8f8adb6bb41755f6d9153742ed51d8f51b105fbbfb67ead7d59f449ea"
+ },
+ "files": [
+  {
+   "what": "sam2_decoder_fixed form blob",
+   "path": "C:\\src\\zoo\\blobs\\sam2_decoder_fixed.blob",
+   "bytes": 21188737,
+   "sha256": "2326a9d867fb98556a44bbb442d2f201477e9ee3453b3e1345f2e5a515675797"
+  },
+  {
+   "what": "sam2_decoder_fixed form fp32",
+   "path": "C:\\src\\zoo\\onnx\\sam2_decoder_fixed.onnx",
+   "bytes": 24932648,
+   "sha256": "bef9a8b8f8adb6bb41755f6d9153742ed51d8f51b105fbbfb67ead7d59f449ea"
+  },
+  {
+   "what": "upstream sam2_encoder",
+   "path": "C:\\src\\zoo\\onnx\\sam2_encoder.onnx",
+   "bytes": 134201095,
+   "sha256": "2377332c91031aa842d01d7bd53c1e3b772a2310d9c2925aed2b11e74fb59b4f"
+  },
+  {
+   "what": "host file sam2_prompt",
+   "path": "C:\\src\\zoo\\samples\\hf_mlboydaisuke__SAM2-hiera-tiny-LiteRT_8736e24606f7edf62e34cb8ef950546e49df7eff__sam2_prompt.bin",
+   "bytes": 3072,
+   "sha256": "c1ac798f0cc0bd5e4b0dc94efe26f2f9dfe4d1d4cec141ab0350580ce7a48588"
+  }
+ ],
+ "upstream": {
+  "model": "sam2_encoder",
+  "providers": [
+   "CPUExecutionProvider"
+  ],
+  "load_s": 0.331
+ },
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\sam2_decoder_fixed\\ref.outputs.npz",
+  "bytes": 15733622,
+  "sha256": "55f09d1474695eb37d7b5de277981ba87b63cefdc1667f9f6cfcb67d156ae788",
+  "arrays": 20
+ },
+ "task": "mask",
+ "task_line": "task-mask",
+ "task_values": [
+  {
+   "id": "dfine",
+   "object_share": 0.12193
+  },
+  {
+   "id": "dinov2",
+   "object_share": 0.3454
+  },
+  {
+   "id": "gaze",
+   "object_share": 0.49187
+  },
+  {
+   "id": "hsemotion",
+   "object_share": 0.68146
+  },
+  {
+   "id": "lowlight",
+   "object_share": 0.49387
+  },
+  {
+   "id": "metric3d",
+   "object_share": 0.04741
+  },
+  {
+   "id": "migan",
+   "object_share": 0.36513
+  },
+  {
+   "id": "mlsd",
+   "object_share": 0.40393
+  },
+  {
+   "id": "nafnet",
+   "object_share": 0.32404
+  },
+  {
+   "id": "neuralstyle",
+   "object_share": 0.1244
+  },
+  {
+   "id": "nima",
+   "object_share": 0.09769
+  },
+  {
+   "id": "places365",
+   "object_share": 0.42239
+  },
+  {
+   "id": "ppocr",
+   "object_share": 0.02075
+  },
+  {
+   "id": "rtmanimal",
+   "object_share": 0.16522
+  },
+  {
+   "id": "rtmface",
+   "object_share": 0.62317
+  },
+  {
+   "id": "rtmhand",
+   "object_share": 0.22658
+  },
+  {
+   "id": "rtmpose",
+   "object_share": 0.07773
+  },
+  {
+   "id": "saliency",
+   "object_share": 0.10022
+  },
+  {
+   "id": "tddfa",
+   "object_share": 0.59114
+  },
+  {
+   "id": "yunet",
+   "object_share": 0.04535
+  }
+ ],
+ "pulled_from": "raw/z5/refs/sam2_decoder_fixed/ref.json"
+}

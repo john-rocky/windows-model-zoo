@@ -1,0 +1,1033 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "w2v2_frontend_fp16",
+ "cell": "task-ovnpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-openvino",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "z1-onnx-fp32",
+  "label": "fp32",
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
+  "path": "C:\\src\\zoo\\onnx\\w2v2_frontend_fp16.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-top1",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on task-top1: 119 of 120 top-1 classes equal the reference's (pass mark 95 %)",
+  "reference": "raw/z5/refs/w2v2_frontend_fp16/ref.json",
+  "detail": {
+   "agree": 119,
+   "counted": 120,
+   "not_counted": 0,
+   "bar": "95 %",
+   "pass": true
+  },
+  "text": "top-1 119/120"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/w2v2_frontend_fp16/task-ovnpu/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "w2v2_frontend_fp16",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\w2v2_frontend_fp16",
+   "--form",
+   "fp32",
+   "--engine",
+   "ort",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "NPU",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "top-1 119/120"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:28:56.627581+09:00",
+  "ended": "2026-11-10T07:29:05.502399+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 15.072,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.768,
+  "warmup_s": 0.022,
+  "load_ms": 1768.0
+ },
+ "memory": {
+  "peak_ws_bytes": 757428224,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 23,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 108,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "classification",
+  "scores": {
+   "outputs": {
+    "head": {
+     "cos": 0.997972,
+     "max_abs": 7.268603,
+     "nonfinite": 0,
+     "values": 1440
+    },
+    "o0": {
+     "cos": 0.989108,
+     "max_abs": 5.01193,
+     "nonfinite": 0,
+     "values": 4515840
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino_ep": {
+    "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+    "ov_device": "NPU",
+    "version": "1.8.1+95d534b.ci.79",
+    "os_driver_version": "1004841",
+    "NPU_COMPILER_VERSION": "524292",
+    "DEVICE_ARCHITECTURE": "5010",
+    "DEVICE_LUID": "4c3e010000000000"
+   }
+  },
+  "providers": [
+   "OpenVINOExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\w2v2_frontend_fp16\\inputs.npz",
+   "sha256": "5edfe962aa154e1283da24578b36a6b49572e95a155dc97fafada3fcb688dbef",
+   "bytes": 7714582,
+   "n": 120
+  },
+  "model_file": {
+   "what": "w2v2_frontend_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\w2v2_frontend_fp16.onnx",
+   "bytes": 18478369,
+   "sha256": "51645678a786b40dad1834d998943b95488858f5181b4cdf5f8822db6095ce63"
+  },
+  "per_input": [
+   {
+    "id": "yes/022cd682_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "yes/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "yes/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "yes/105a0eea_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "yes/105a0eea_nohash_1.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "yes/105a0eea_nohash_2.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "yes/1093c8e7_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "yes/1528225c_nohash_0.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99986,
+    "counted": true
+   },
+   {
+    "id": "yes/1528225c_nohash_1.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "yes/1528225c_nohash_2.wav",
+    "ref_top1": 0,
+    "cell_top1": 0,
+    "ref_gap": 0.99996,
+    "counted": true
+   },
+   {
+    "id": "no/096456f9_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 3,
+    "ref_gap": 0.32626,
+    "counted": true
+   },
+   {
+    "id": "no/096456f9_nohash_1.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "no/0c40e715_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99676,
+    "counted": true
+   },
+   {
+    "id": "no/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "no/1093c8e7_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.9996,
+    "counted": true
+   },
+   {
+    "id": "no/135c6841_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99989,
+    "counted": true
+   },
+   {
+    "id": "no/135c6841_nohash_1.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99996,
+    "counted": true
+   },
+   {
+    "id": "no/135c6841_nohash_2.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99969,
+    "counted": true
+   },
+   {
+    "id": "no/135c6841_nohash_3.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.99949,
+    "counted": true
+   },
+   {
+    "id": "no/1528225c_nohash_0.wav",
+    "ref_top1": 1,
+    "cell_top1": 1,
+    "ref_gap": 0.98901,
+    "counted": true
+   },
+   {
+    "id": "up/0c40e715_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.97939,
+    "counted": true
+   },
+   {
+    "id": "up/0d53e045_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99969,
+    "counted": true
+   },
+   {
+    "id": "up/0d53e045_nohash_1.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 0.16121,
+    "counted": true
+   },
+   {
+    "id": "up/0f250098_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99473,
+    "counted": true
+   },
+   {
+    "id": "up/0f250098_nohash_1.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99986,
+    "counted": true
+   },
+   {
+    "id": "up/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "up/135c6841_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "up/135c6841_nohash_1.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99975,
+    "counted": true
+   },
+   {
+    "id": "up/135c6841_nohash_2.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.99988,
+    "counted": true
+   },
+   {
+    "id": "up/135c6841_nohash_3.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/022cd682_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "down/096456f9_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/0c40e715_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 0.99476,
+    "counted": true
+   },
+   {
+    "id": "down/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/0f250098_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/0f250098_nohash_1.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/1528225c_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "down/1b4c9b89_nohash_0.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "down/1b4c9b89_nohash_1.wav",
+    "ref_top1": 3,
+    "cell_top1": 3,
+    "ref_gap": 0.99514,
+    "counted": true
+   },
+   {
+    "id": "left/022cd682_nohash_0.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/022cd682_nohash_1.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "left/0487ba9b_nohash_0.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/096456f9_nohash_0.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/096456f9_nohash_1.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/0d53e045_nohash_0.wav",
+    "ref_top1": 2,
+    "cell_top1": 2,
+    "ref_gap": 0.06773,
+    "counted": true
+   },
+   {
+    "id": "left/0d53e045_nohash_1.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 0.98571,
+    "counted": true
+   },
+   {
+    "id": "left/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/105a0eea_nohash_0.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "left/105a0eea_nohash_1.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 0.99996,
+    "counted": true
+   },
+   {
+    "id": "right/096456f9_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "right/0c40e715_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.90611,
+    "counted": true
+   },
+   {
+    "id": "right/0c40e715_nohash_1.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.95948,
+    "counted": true
+   },
+   {
+    "id": "right/0d53e045_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "right/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "right/0f250098_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "right/0f250098_nohash_1.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "right/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.99872,
+    "counted": true
+   },
+   {
+    "id": "right/1528225c_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "right/1b4c9b89_nohash_0.wav",
+    "ref_top1": 5,
+    "cell_top1": 5,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "on/022cd682_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99977,
+    "counted": true
+   },
+   {
+    "id": "on/096456f9_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.9968,
+    "counted": true
+   },
+   {
+    "id": "on/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "on/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "on/105a0eea_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "on/105a0eea_nohash_1.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.9999,
+    "counted": true
+   },
+   {
+    "id": "on/1093c8e7_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "on/1b4c9b89_nohash_0.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "on/1b4c9b89_nohash_1.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99996,
+    "counted": true
+   },
+   {
+    "id": "on/1b4c9b89_nohash_2.wav",
+    "ref_top1": 6,
+    "cell_top1": 6,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "off/096456f9_nohash_0.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "off/096456f9_nohash_1.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "off/0c40e715_nohash_0.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.86453,
+    "counted": true
+   },
+   {
+    "id": "off/0c40e715_nohash_1.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.99301,
+    "counted": true
+   },
+   {
+    "id": "off/0c40e715_nohash_2.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.99426,
+    "counted": true
+   },
+   {
+    "id": "off/0c40e715_nohash_3.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.95861,
+    "counted": true
+   },
+   {
+    "id": "off/0d53e045_nohash_0.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.07073,
+    "counted": true
+   },
+   {
+    "id": "off/0d53e045_nohash_1.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.99971,
+    "counted": true
+   },
+   {
+    "id": "off/0d53e045_nohash_2.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.9098,
+    "counted": true
+   },
+   {
+    "id": "off/0f250098_nohash_0.wav",
+    "ref_top1": 7,
+    "cell_top1": 7,
+    "ref_gap": 0.99848,
+    "counted": true
+   },
+   {
+    "id": "stop/022cd682_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 0.9997,
+    "counted": true
+   },
+   {
+    "id": "stop/0c40e715_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 0.74552,
+    "counted": true
+   },
+   {
+    "id": "stop/0c40e715_nohash_1.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 0.96726,
+    "counted": true
+   },
+   {
+    "id": "stop/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_1.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/0fa1e7a9_nohash_2.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/105a0eea_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/135c6841_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "stop/135c6841_nohash_1.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "go/022cd682_nohash_0.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99997,
+    "counted": true
+   },
+   {
+    "id": "go/022cd682_nohash_1.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.85111,
+    "counted": true
+   },
+   {
+    "id": "go/0487ba9b_nohash_0.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "go/096456f9_nohash_0.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99858,
+    "counted": true
+   },
+   {
+    "id": "go/096456f9_nohash_1.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99975,
+    "counted": true
+   },
+   {
+    "id": "go/0c40e715_nohash_0.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99999,
+    "counted": true
+   },
+   {
+    "id": "go/0c40e715_nohash_1.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "go/0d53e045_nohash_0.wav",
+    "ref_top1": 8,
+    "cell_top1": 8,
+    "ref_gap": 0.44136,
+    "counted": true
+   },
+   {
+    "id": "go/0d53e045_nohash_1.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99899,
+    "counted": true
+   },
+   {
+    "id": "go/0ea0e2f4_nohash_0.wav",
+    "ref_top1": 9,
+    "cell_top1": 9,
+    "ref_gap": 0.99924,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_1528225c_nohash_2.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.96554,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.99064,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_6205088b_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.75614,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_6205088b_nohash_2.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.99769,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.45492,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_91223b83_nohash_0.wav.wav",
+    "ref_top1": 4,
+    "cell_top1": 4,
+    "ref_gap": 0.14392,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.99304,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.99975,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.96408,
+    "counted": true
+   },
+   {
+    "id": "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+    "ref_top1": 10,
+    "cell_top1": 10,
+    "ref_gap": 0.785,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1035.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "_silence_/104.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99998,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1047.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99974,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1090.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1092.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99881,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1099.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "_silence_/111.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 1.0,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1124.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99992,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1125.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99981,
+    "counted": true
+   },
+   {
+    "id": "_silence_/1135.wav",
+    "ref_top1": 11,
+    "cell_top1": 11,
+    "ref_gap": 0.99995,
+    "counted": true
+   }
+  ],
+  "z1_cell": "ovnpu",
+  "workload": {
+   "set": "kws120",
+   "task": "classification",
+   "form": "fp32",
+   "engine": "ort",
+   "ep": "openvino",
+   "ov_device": "NPU",
+   "frames": null,
+   "downstream": "w2v2_head_fp16_fixed",
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.outputs.npz",
+   "bytes": 18129142,
+   "sha256": "ba2e050f82c4298b5086ace66abe2f5e893aa9a6bd56eb56ab9a360d8094937a",
+   "arrays": 240
+  }
+ }
+}

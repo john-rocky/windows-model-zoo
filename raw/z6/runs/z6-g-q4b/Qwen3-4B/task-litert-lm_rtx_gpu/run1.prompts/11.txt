@@ -1,0 +1,7 @@
+<|im_start|>user
+What is the largest ocean on Earth? Reply with only the name.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

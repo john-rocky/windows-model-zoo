@@ -1,0 +1,273 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E4B-it",
+ "cell": "task-foundry_rtx_cuda",
+ "kind": "llm",
+ "runtime": {
+  "id": "foundry",
+  "label": "Foundry Local 0.13.0"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "foundry:mlboydaisuke/gemma-4-E4B-it-Foundry-Local@9d1751f435ea791ba14be320ff14ed6b8cf1aa61 cuda-int4-8k",
+  "label": "MatMulNBits b32 sym accNone: int4 x343",
+  "detail": "MatMulNBits b32 sym accNone: int4 x343 [decoder/model.onnx]; mlboydaisuke/gemma-4-E4B-it-Foundry-Local@9d1751f435ea791ba14be320ff14ed6b8cf1aa61 cuda-int4-8k",
+  "path": null,
+  "from": "mlboydaisuke/gemma-4-E4B-it-Foundry-Local"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/gemma-4-E4B-it/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 19,
+    "n": 20,
+    "bar": 18,
+    "pass": true
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 1,
+    "max_new": 16,
+    "text": "2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": true
+  },
+  "text": "answers 19/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-f/gemma-4-E4B-it/task-foundry_rtx_cuda/run1.json",
+  "runner": "run_llm_foundry.py",
+  "argv": [
+   "--package",
+   "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
+   "--id",
+   "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "--device",
+   "gpu",
+   "--ep",
+   "CUDAExecutionProvider",
+   "--task",
+   "vision-language-chat",
+   "--work",
+   "C:\\src\\zoo-template\\work\\foundry",
+   "--cuda12",
+   "C:\\src\\msf\\cuda12\\dll_all",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 19/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-f",
+  "started": "2026-11-10T10:03:31.187308+09:00",
+  "ended": "2026-11-10T10:04:11.886926+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 26.954,
+  "warmup_s": 0.475,
+  "peak_working_set_mb": 43,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 45191168,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 19,
+   "n": 20,
+   "full_text_same": 19,
+   "eos_within_max": 20,
+   "new_tokens": 25,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "token count": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "36",
+     "ref": "36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "tac",
+     "ref": "tac",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう",
+     "ref": "ありがとう",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "green",
+     "ref": "green",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes",
+     "ref": "yes",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "pacific",
+     "ref": "pacific ocean",
+     "same": false
+    },
+    {
+     "id": "q13",
+     "cell": "william shakespeare",
+     "ref": "william shakespeare",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "10",
+     "ref": "10",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "8",
+     "ref": "8",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 1"
+  },
+  "versions": {
+   "python": "3.12.16"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "prompts": 21,
+   "id": "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "task": "vision-language-chat",
+   "device": "gpu",
+   "ep": "CUDAExecutionProvider",
+   "daemon_env": [],
+   "decode": "greedy (temperature 0; genai_config search do_sample false, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "the identity template: one user message = the reference's rendered prompt, as it is (the warm-up's prompt tokens = the reference's ids)"
+  }
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dinov2_s_fp16",
+ "cell": "ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel Graphics (iGPU)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, the EP's default precision",
+  "sha256": "8f36d01fe1635da9d09b4958e17a9b43c8b25438a4422e59cab1f4414d506625"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T06:20:15.909011+09:00",
+  "ended": "2026-11-07T06:20:21.329720+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 48.19689999567345,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 48.19689999567345,
+   "p10": 47.836500001722015,
+   "p90": 48.74710000149207,
+   "min": 47.71459999756189,
+   "max": 49.34279999724822,
+   "n": 30
+  },
+  "first_pass_value": 74.93000000249594,
+  "load_ms": 1765.8788999979151,
+  "load_ms_first_pass": 8866.838699992513,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     1024,
+     384
+    ],
+    "max_abs": 0.9101595878601074,
+    "mean_abs": 0.026250870472272442,
+    "cos": 0.9999054998121749,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -20.150327682495117,
+    "ref_max": 15.172069549560547,
+    "ref_range": 35.32239532470703,
+    "max_abs_over_range": 0.025767210278162426
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000",
+   "counter_luid": "0x00000000_0x0001260e"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 215465,
+   "graph_nodes": 888
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "9e316b72a937f13d75cced7b30d8b9b258024188b2e8adfe71abae4fdcffc3cf",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dinov2_s_fp16/ovgpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dinov2_s_fp16/ovgpu.json"
+ },
+ "note": []
+}

@@ -1,0 +1,283 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:20:23.593602+09:00",
+ "argv": [
+  "--model",
+  "rtdetr_graphB_fp16_fixed",
+  "--spec",
+  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\zoo-template\\fixtures",
+  "--suites",
+  "C:\\src\\zoo-template\\suites",
+  "--work",
+  "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed",
+  "--out",
+  "C:\\src\\zoo-template\\refs\\rtdetr_graphB_fp16_fixed\\ref.json"
+ ],
+ "pid": 29492,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.09988680004607886,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.0825436000013724,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.0841309999814257,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.08431239996571094,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.08486629999242723,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.0848565999767743,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.08424779999768361,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.08352560002822429,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.08370670001022518,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.08401180000510067,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.08659999998053536,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.08487329998752102,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.08659999998053536,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.08469540002988651,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.08402039995416999,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.0845778999500908,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.08612799999536946,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.08455179998418316,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.08438259997637942,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.08432159997755662,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "rtdetr_graphB_fp16_fixed form fp32",
+   "path": "C:\\src\\zoo\\onnx\\rtdetr_graphB_fp16_fixed.onnx",
+   "bytes": 15473995,
+   "sha256": "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e"
+  },
+  {
+   "what": "upstream rtdetr_graphA_fp16_fixed",
+   "path": "C:\\src\\zoo\\onnx\\rtdetr_graphA_fp16_fixed.onnx",
+   "bytes": 66894731,
+   "sha256": "8051234addcc7bc922deab6e312ece2827b57769210c9a2faf08512f4b19926e"
+  },
+  {
+   "what": "host file rtdetr_host_params",
+   "path": "C:\\src\\zoo\\samples\\rtdetr__app__src__main__assets__host_params.bin",
+   "bytes": 963664,
+   "sha256": "a481c1365ef73aa17eb295222bce47cfad34cc5c397a42d9e3fe0bf62d1891be"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\rtdetr_graphB_fp16_fixed.onnx",
+  "sha256": "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e"
+ },
+ "load_s": 0.099,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed\\inputs.npz",
+  "n": 20,
+  "sha256": "808035c8de3859d314fea0a4efec5d1e70df76ba7bb2e31711c3bc8fbc6b95dc",
+  "bytes": 178289302,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    8400,
+    256
+   ],
+   "serving_default_args_1": [
+    1,
+    300,
+    256
+   ],
+   "serving_default_args_2": [
+    1,
+    300,
+    4
+   ]
+  },
+  "set": "images"
+ },
+ "upstream": {
+  "model": "rtdetr_graphA_fp16_fixed",
+  "providers": [
+   "CPUExecutionProvider"
+  ],
+  "load_s": 0.396
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "detection",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.127,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\rtdetr_graphB_fp16_fixed\\ref.outputs.npz",
+  "bytes": 2025942,
+  "sha256": "b0ad4ee9f59370406bd05f3ed49667510902fead65625312d8f1a2cd422c2b8e",
+  "arrays": 40
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 84.552,
+  "min_ms": 82.544,
+  "max_ms": 99.887,
+  "value": 84.552
+ },
+ "peak_working_set_bytes": 920788992,
+ "peak_pagefile_bytes": 1771069440,
+ "ended": "2026-11-10T07:20:28.420170+09:00",
+ "process_s": 4.82
+}

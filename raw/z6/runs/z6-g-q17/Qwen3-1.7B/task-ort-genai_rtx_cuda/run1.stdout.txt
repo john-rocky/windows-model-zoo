@@ -1,0 +1,5 @@
+ENGINE_PID 20164
+{"n": 1, "of": null, "id": "q01", "wall_s": 0.016, "text": "Paris"}
+{"n": 2, "of": null, "id": "q02", "wall_s": 0.091, "text": "12"}
+{"n": 10, "of": null, "id": "q10", "wall_s": 0.017, "text": "Au"}
+{"n": 20, "of": null, "id": "q20", "wall_s": 0.016, "text": "8"}

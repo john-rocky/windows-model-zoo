@@ -1,0 +1,158 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dfine_graphB_fp16_fixed",
+ "cell": "ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel Graphics (iGPU)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, the EP's default precision",
+  "sha256": "440bc1c6db016bc069027df3ce791b09d0b36727dcabfb340c31c7e158cfdb12"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T10:50:43.255100+09:00",
+  "ended": "2026-11-07T10:50:52.847447+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_1_output: 0 NaN, 80 Inf; serving_default_output_1_output: argmax agreement 189/300",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_1_output: 0 NaN, 80 Inf",
+   "serving_default_output_1_output: argmax agreement 189/300"
+  ],
+  "reason_candidate": "NaN / Inf in a cell that computes in fp16 (overflow candidate); argmax flips where the reference margin between top-1 and top-2 is small (see flipped_ref_margin_median)"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 87.99850000286824,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 87.99850000286824,
+   "p10": 87.23710000049323,
+   "p90": 88.45129999826895,
+   "min": 86.99090000300203,
+   "max": 89.1358999942895,
+   "n": 30
+  },
+  "first_pass_value": 102.0768499999889,
+  "load_ms": 3142.2153000021353,
+  "load_ms_first_pass": 8257.095599999986,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     300,
+     4
+    ],
+    "max_abs": 0.21044674515724182,
+    "mean_abs": 0.016558290207758546,
+    "cos": 0.9983928738106584,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": 0.012610912322998047,
+    "ref_max": 0.9834898114204407,
+    "ref_range": 0.9708788990974426,
+    "max_abs_over_range": 0.21675900604378082
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     300,
+     80
+    ],
+    "max_abs": Infinity,
+    "mean_abs": Infinity,
+    "cos": 0.9999910846473381,
+    "nan": 0,
+    "inf": 80,
+    "ref_min": -26453.533203125,
+    "ref_max": 2.7241923809051514,
+    "ref_range": 26456.2578125,
+    "max_abs_over_range": Infinity,
+    "argmax": {
+     "positions": 300,
+     "counted": 300,
+     "agree": 189,
+     "rate": 0.63,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.372133731842041,
+     "ref_margin_median": 0.6490515470504761
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000",
+   "counter_luid": "0x00000000_0x0001260e"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 265917,
+   "graph_nodes": 897
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "e453eaebc2cc399294b36fbb76fecfaf259a56510f9155a86138945694af8e72",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dfine_graphB_fp16_fixed/ovgpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dfine_graphB_fp16_fixed/ovgpu.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "ovgpu FAIL: output_1_output: 0 NaN, 80 Inf; output_1_output: argmax agreement 189/300"
+  }
+ ]
+}

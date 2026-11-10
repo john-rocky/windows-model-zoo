@@ -1,0 +1,11 @@
+[2026-11-10T09:42:35.5581004+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-c-q4b.json mode first, 4 units, pid 35024
+[2026-11-10T09:42:45.6057812+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:42:47.6177304+09:00] Qwen3-4B/task-litert-lm_cpu_cpu run 1 start
+[2026-11-10T09:48:45.7477574+09:00] Qwen3-4B/task-litert-lm_cpu_cpu run 1 end: exit 0, OK, 357.005 s
+[2026-11-10T09:48:46.8624033+09:00] Qwen3-4B/task-llama.cpp_cpu_cpu run 1 start
+[2026-11-10T09:48:59.8364396+09:00] Qwen3-4B/task-llama.cpp_cpu_cpu run 1 end: exit 0, OK, 11.89 s
+[2026-11-10T09:49:00.9452474+09:00] Qwen3-4B/task-ort-genai_cpu_cpu run 1 start
+[2026-11-10T09:49:26.9921778+09:00] Qwen3-4B/task-ort-genai_cpu_cpu run 1 end: exit 0, OK, 24.065 s
+[2026-11-10T09:49:28.9796240+09:00] Qwen3-4B/task-ort-genai_cpu_openvino run 1 start
+[2026-11-10T09:49:56.0454638+09:00] Qwen3-4B/task-ort-genai_cpu_openvino run 1 end: exit 0, OK, 25.987 s
+[2026-11-10T09:49:56.0454638+09:00] chain done: OK

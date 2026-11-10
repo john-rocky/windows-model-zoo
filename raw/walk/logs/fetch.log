@@ -1,0 +1,6 @@
+[2026-11-10T13:13:54.7255404+09:00] steps fetch start: 2 steps, pid 11444
+[2026-11-10T13:13:54.8121113+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T13:13:54.9764716+09:00] python end: exit 0, 0 min
+[2026-11-10T13:13:54.9884379+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\model-zoo\pc\fetch.py --manifest C:\src\model-zoo\pc\hub_manifest.json --dest C:\src\model-zoo\hub --root C:\src\model-zoo
+[2026-11-10T13:17:44.4797207+09:00] fetch end: exit 0, 3.8 min
+[2026-11-10T13:17:44.4911870+09:00] steps fetch done: OK

@@ -1,0 +1,772 @@
+[
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "config.json",
+  "size": 726,
+  "hash": "f5c3703b78ae2a478ae15b247e9f855e0ce2107b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "generation_config.json",
+  "size": 239,
+  "hash": "20a8a9156fc8c3f25295ca067f61fdf120d517c5",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "model.safetensors",
+  "size": 1503300328,
+  "hash": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 54.7
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.3
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "tokenizer_config.json",
+  "size": 9732,
+  "hash": "417d038a63fa3de29cfde265caedae14d1a58d92",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "config.json",
+  "size": 766,
+  "hash": "e95fbd56c5438342b6a312af95934dfaf31b5130",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.8
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "59eaf61da220451abf37b09fad4a7fa56cb76854",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_model.bin",
+  "size": 428151524,
+  "hash": "28613e994a6e1aaf54a6fe8677eda35e8e86684e653dde09f3ba960b8e53e152",
+  "ok": true,
+  "tries": 1,
+  "seconds": 22.2
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_model.xml",
+  "size": 2895946,
+  "hash": "bb19bf51fb52e75ed9782c5e2b94f2c0c3f2e7be",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "759c22a415316adcc7ea3be0f434438e2d7fa08f",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.7
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "chat_template.jinja",
+  "size": 4256,
+  "hash": "b11e13ef0c59aa4b052a74de766e263c5b9332ec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "config.json",
+  "size": 1479,
+  "hash": "b77cba329f86a8c02aa8f4e5f632f416fad29846",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "generation_config.json",
+  "size": 226,
+  "hash": "2158d74a92bcfef5598f8c3cee7e0b9a61a41e61",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_config.json",
+  "size": 495,
+  "hash": "1a45398d6f6c2b07a3b49f2b3e6e2620966772cf",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.2
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_detokenizer.xml",
+  "size": 11898,
+  "hash": "e0843f5edb418f2b1e1b449258de5da13e0ad2aa",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_model.bin",
+  "size": 383383261,
+  "hash": "2e129cffb1a7239007a3df27e0f3f7bb12f65a40e5c9b1e24a250d952da47837",
+  "ok": true,
+  "tries": 1,
+  "seconds": 16.7
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_model.xml",
+  "size": 2780025,
+  "hash": "54bd751ba24eca707d06ab1d83298c705d48b626",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588840,
+  "hash": "d5eeca04c9a556df749ce59a0d3eef5916e730db32e6d0e96aa4ac566d3abeef",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.9
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_tokenizer.xml",
+  "size": 31082,
+  "hash": "208b9fa74c8800e935979f37395e6b389ecc2b64",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "tokenizer.json",
+  "size": 11422650,
+  "hash": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.4
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "tokenizer_config.json",
+  "size": 693,
+  "hash": "a8f5ccbd92421cfa8fdc5fb4746ce516b520126e",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/config.json",
+  "size": 8957,
+  "hash": "5ce6a48070938679a140360cd6e1f6f211460077",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/genai_config.json",
+  "size": 1520,
+  "hash": "b8d270f5c99efc2536bc8292be160c9df8be56ae",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/model.onnx",
+  "size": 524589133,
+  "hash": "35fe34321ea9b1eaa43dfa648dd199903d01d93f97dc2b24fe1d16079ebea957",
+  "ok": true,
+  "tries": 1,
+  "seconds": 17.8
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 3.1
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/config.json",
+  "size": 8957,
+  "hash": "5ce6a48070938679a140360cd6e1f6f211460077",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/genai_config.json",
+  "size": 1765,
+  "hash": "c6c4604bdbd0f14b762b3513f7780cd628bf8aa8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/model.onnx",
+  "size": 504660045,
+  "hash": "40d04ddc791196a0be2a8a17a88e7a9cdc3fde42ff6c6412b9170bd11208e03a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 14.8
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/config.json",
+  "size": 9033,
+  "hash": "d0a1f0936e40260ebc455b29c1f8e02364852e4e",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/genai_config.json",
+  "size": 1752,
+  "hash": "51c41d433774036fecd682183abe686f19f9441e",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/model.onnx",
+  "size": 543321042,
+  "hash": "5e9fb386cb1a14009b02b43b0e0f0043e248ad5a6d3c3521c9a516062509909a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 14.9
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "litert-community/Qwen3-0.6B",
+  "revision": "bd47201734a34f1eba8ed7d28289225b60152e9e",
+  "path": "Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+  "size": 343490560,
+  "hash": "bf1aba9ce8d963124407353c6aa4cbf72eba78db21ae133de983eac672ce83e0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 10.1
+ },
+ {
+  "repo": "unsloth/Qwen3-0.6B-GGUF",
+  "revision": "50968a4468ef4233ed78cd7c3de230dd1d61a56b",
+  "path": "Qwen3-0.6B-Q4_K_M.gguf",
+  "size": 396705472,
+  "hash": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 11.5
+ },
+ {
+  "repo": "mlboydaisuke/RTMPose-s-OpenVINO",
+  "revision": "69e7e25241bb5a44a69aab595a03fbb0e5e1912c",
+  "path": "npu/rtmpose_s_fp16.blob",
+  "size": 11858056,
+  "hash": "e080cbbab273a719570224f9795a1b88873b0ff8246f051a7b0316d5b78239ed",
+  "ok": true,
+  "tries": 1,
+  "seconds": 3.0
+ },
+ {
+  "repo": "mlboydaisuke/RTMPose-s-OpenVINO",
+  "revision": "69e7e25241bb5a44a69aab595a03fbb0e5e1912c",
+  "path": "rtmpose_s_fp16.onnx",
+  "size": 22197006,
+  "hash": "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.7
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "dfine/app/src/main/assets/test_image.jpg",
+  "size": 105150,
+  "hash": "19a4e16833ed741c94c28b018507660e518cf4729212782aa802eb99a2a58c1b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "dinov2/app/src/main/assets/sample.jpg",
+  "size": 661378,
+  "hash": "f3f87bb8ab3c26c7ecfd3ac60421d7f32b0503d1d6c5baf8bac42ed93d86351a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "gaze/app/src/main/assets/test_image.jpg",
+  "size": 33658,
+  "hash": "a27f3b23ee75eb707604162b849cc00ac8c859d9bea6332602a8076284b6cd56",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "hsemotion/app/src/main/assets/sample.jpg",
+  "size": 13147,
+  "hash": "c3fc6d94965b133c51147f3711ddec362ecace2370ea3cca2f8176cf6d2229e0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "lowlight/app/src/main/assets/test_image.jpg",
+  "size": 10143,
+  "hash": "a55046af09cefd846a451e73975f24bb11358fbbc4bb64ae196405c71b7b34c4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "metric3d/app/src/main/assets/test_image.jpg",
+  "size": 32939,
+  "hash": "becb950ea802dea4952a6a642ce723c66de7ff05f505043c14b4c8a5c960d95b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "migan/app/src/main/assets/test_image.jpg",
+  "size": 43535,
+  "hash": "20410d2de1ba558393dfb8cdeca4c84b14df8951cae66e70d7f704beec34a5d0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "mlsd/app/src/main/assets/test_image.jpg",
+  "size": 45653,
+  "hash": "6b6d51644bdcf5a0e2fd60d63460c8ae97be2fce304451d3a84d647ef6462740",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "nafnet/app/src/main/assets/test_image.jpg",
+  "size": 12325,
+  "hash": "9e34bab91511b78c64d784ddf576c55b75c0b4227c32d70c335a76bef57bc797",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "neuralstyle/app/src/main/assets/test_image.jpg",
+  "size": 27730,
+  "hash": "b2dcc75d7a64252563716782eeb70e7e22ed398d107030ccc024243e9cddecf9",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "nima/app/src/main/assets/test_image.jpg",
+  "size": 330074,
+  "hash": "66f614117503aab57855bd38504124993e4506a005ef4e605d628b39be54aab4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "places365/app/src/main/assets/test_image.jpg",
+  "size": 27037,
+  "hash": "ac0efe480843b3a514c3fda71fc32a1be124cf2ec27e9462d80af41a26047956",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "ppocr/app/src/main/assets/test_image.png",
+  "size": 21391,
+  "hash": "8959af061e84757c14a68d1202c508ac8d03d2225d1b7360b933837ed34ebe66",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "rtmanimal/app/src/main/assets/test_image.jpg",
+  "size": 89077,
+  "hash": "78fca4d6aa3b0ffed926897d7e2a138d1c72facaac4c0ee66d0c4b80bd5e4c55",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "rtmface/app/src/main/assets/test_image.jpg",
+  "size": 31643,
+  "hash": "caa5e469611251a1f8de1fb25892411cc7f79fb66977f4932fb329dd3f9f825d",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "rtmhand/app/src/main/assets/test_image.jpg",
+  "size": 13154,
+  "hash": "b4dd1f1f7e3d0b0ea543e325e24f8530e4a93b30302303e20a21c8b950e08df7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "rtmpose/app/src/main/assets/test_image.jpg",
+  "size": 29224,
+  "hash": "85d39915bbf970a954f48ec91bafc3e31df275b9a73df7e8fff9b8b97ab33d18",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "saliency/app/src/main/assets/test_image.jpg",
+  "size": 38106,
+  "hash": "883a59cc4d050911a2ed1dd9441e21e8e039b79cc49b9c09ecf5b1be4c6195f7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "tddfa/app/src/main/assets/test_image.jpg",
+  "size": 51052,
+  "hash": "f89ceb82752a42f807497e34cd2dd3ab3d901d2ef06bb0138f36ea293b95b318",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
+  "revision": null,
+  "path": "yunet/app/src/main/assets/test_image.jpg",
+  "size": 77905,
+  "hash": "368336325b207e77b3142f57a6d11da84b8e38654dbfbe17f5a50364e208a822",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO",
+  "revision": "f819529f18f63d3174334dade39a4bd25b2781e1",
+  "path": "npu/rtmw_fp16.blob",
+  "size": 68116616,
+  "hash": "a0c5b1a6d6e47c00b8cff290f1ef43af0a1b3a7da2640d66791f339daddd42fb",
+  "ok": true,
+  "tries": 1,
+  "seconds": 7.8
+ },
+ {
+  "repo": "mlboydaisuke/RTMW-m-WholeBody-OpenVINO",
+  "revision": "f819529f18f63d3174334dade39a4bd25b2781e1",
+  "path": "rtmw_fp16.onnx",
+  "size": 132050550,
+  "hash": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9",
+  "ok": true,
+  "tries": 1,
+  "seconds": 12.3
+ }
+]

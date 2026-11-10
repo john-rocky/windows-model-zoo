@@ -1,0 +1,3 @@
+<|turn>user
+Spell the word "cat" backwards. Reply with only the result.<turn|>
+<|turn>model

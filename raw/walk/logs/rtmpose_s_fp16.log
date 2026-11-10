@@ -1,0 +1,4 @@
+[2026-11-10T14:15:26.9942981+09:00] steps rtmpose_s_fp16 start: 1 steps, pid 30336
+[2026-11-10T14:15:27.0263947+09:00] task-ref start: C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -I C:\src\model-zoo\pc\ref_vision_task.py --model rtmpose_s_fp16 --spec C:\src\model-zoo\pc\z5_spec.json --fixtures C:\src\model-zoo\fixtures --suites C:\src\model-zoo\suites --work C:\src\model-zoo\work\rtmpose_s_fp16 --out C:\src\model-zoo\refs\rtmpose_s_fp16\ref.json
+[2026-11-10T14:15:29.0382897+09:00] task-ref end: exit 0, 0 min
+[2026-11-10T14:15:29.0543579+09:00] steps rtmpose_s_fp16 done: OK

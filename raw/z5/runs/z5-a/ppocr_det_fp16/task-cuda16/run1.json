@@ -1,0 +1,226 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T07:23:49.700571+09:00",
+ "argv": [
+  "--model",
+  "ppocr_det_fp16",
+  "--spec",
+  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\zoo-template\\work\\ppocr_det_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 16196,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.008316399995237589,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.008558100031223148,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.008188399951905012,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.00820660003228113,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.007587999978568405,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.008394400007091463,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.008823300013318658,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.008958499995060265,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.008747800020501018,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.0085131999803707,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.008801800024230033,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.008626599970739335,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.008817599969916046,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.008524600008968264,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.008730200002901256,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.00842299999203533,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.008664099965244532,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.008907000010367483,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.00861979997716844,
+   "nonfinite": [
+    409600
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.008836499997414649,
+   "nonfinite": [
+    409600
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "ppocr_det_fp16 form fp16",
+  "path": "C:\\src\\zoo\\fp16\\ppocr_det_fp16.onnx",
+  "bytes": 10120421,
+  "sha256": "ad267728a3cfc76bb0598b0b32772e59159786e4dd5dfcb496723893c4e529af"
+ },
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+  "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
+  "bytes": 98309782,
+  "n": 20
+ },
+ "load_s": 1.293,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "detection",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 2.56,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 32772982,
+  "sha256": "6ae59dde7acc6f28fbba5ec1fc0d99c42409b556016d5d8510b5f1b462ac07b0",
+  "arrays": 20
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 8.627,
+  "min_ms": 7.588,
+  "max_ms": 8.958,
+  "value": 8.627
+ },
+ "peak_working_set_bytes": 1477910528,
+ "peak_pagefile_bytes": 2922647552,
+ "ended": "2026-11-10T07:23:54.458878+09:00",
+ "process_s": 4.761
+}

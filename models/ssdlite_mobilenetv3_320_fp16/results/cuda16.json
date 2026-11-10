@@ -1,0 +1,397 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "ssdlite_mobilenetv3_320_fp16",
+ "cell": "cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp16",
+  "label": "fp16 copy (convert_float_to_float16, I/O kept fp32)",
+  "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T05:47:40.722964+09:00",
+  "ended": "2026-11-07T05:47:46.111381+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_4_output: argmax agreement 147/150",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_4_output: argmax agreement 147/150"
+  ],
+  "reason_candidate": "argmax flips where the reference margin between top-1 and top-2 is small (see flipped_ref_margin_median)"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 9.136049997323425,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 9.136049997323425,
+   "p10": 8.778900002653245,
+   "p90": 9.729099998367019,
+   "min": 8.596100000431761,
+   "max": 11.010399997758213,
+   "n": 30
+  },
+  "first_pass_value": 9.576949996699113,
+  "load_ms": 1173.7725999992108,
+  "load_ms_first_pass": 1677.19990000478,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     546,
+     20,
+     20
+    ],
+    "max_abs": 0.041454315185546875,
+    "mean_abs": 0.005155888834359001,
+    "cos": 0.9999955356215793,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.131280899047852,
+    "ref_max": 14.932987213134766,
+    "ref_range": 21.064268112182617,
+    "max_abs_over_range": 0.0019679921925021254,
+    "argmax": {
+     "positions": 2400,
+     "counted": 2400,
+     "agree": 2389,
+     "rate": 0.9954166666666666,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.004474639892578125,
+     "ref_margin_median": 0.6154522895812988
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     24,
+     20,
+     20
+    ],
+    "max_abs": 0.04546642303466797,
+    "mean_abs": 0.0038848605654008377,
+    "cos": 0.9999975411490003,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -13.318225860595703,
+    "ref_max": 3.9325971603393555,
+    "ref_range": 17.250823974609375,
+    "max_abs_over_range": 0.0026356087744902924
+   },
+   {
+    "name": "serving_default_output_2_output",
+    "shape": [
+     1,
+     546,
+     10,
+     10
+    ],
+    "max_abs": 0.02644205093383789,
+    "mean_abs": 0.0038471510720135636,
+    "cos": 0.9999965571583733,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.560080051422119,
+    "ref_max": 15.762990951538086,
+    "ref_range": 22.323070526123047,
+    "max_abs_over_range": 0.0011845167492928316,
+    "argmax": {
+     "positions": 600,
+     "counted": 600,
+     "agree": 600,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.5959957838058472
+    }
+   },
+   {
+    "name": "serving_default_output_3_output",
+    "shape": [
+     1,
+     24,
+     10,
+     10
+    ],
+    "max_abs": 0.009521007537841797,
+    "mean_abs": 0.0015404115434891235,
+    "cos": 0.9999975548011822,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -3.3414056301116943,
+    "ref_max": 2.755051612854004,
+    "ref_range": 6.096457481384277,
+    "max_abs_over_range": 0.001561727866866043
+   },
+   {
+    "name": "serving_default_output_4_output",
+    "shape": [
+     1,
+     546,
+     5,
+     5
+    ],
+    "max_abs": 0.02100503444671631,
+    "mean_abs": 0.0028962626457879584,
+    "cos": 0.9999972483995463,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -4.485137939453125,
+    "ref_max": 14.820100784301758,
+    "ref_range": 19.305238723754883,
+    "max_abs_over_range": 0.0010880484177007274,
+    "argmax": {
+     "positions": 150,
+     "counted": 150,
+     "agree": 147,
+     "rate": 0.98,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.003654956817626953,
+     "ref_margin_median": 0.597374439239502
+    }
+   },
+   {
+    "name": "serving_default_output_5_output",
+    "shape": [
+     1,
+     24,
+     5,
+     5
+    ],
+    "max_abs": 0.009893655776977539,
+    "mean_abs": 0.0017289080300057927,
+    "cos": 0.9999967738443476,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.3096625804901123,
+    "ref_max": 2.21162748336792,
+    "ref_range": 4.521289825439453,
+    "max_abs_over_range": 0.0021882374629712906
+   },
+   {
+    "name": "serving_default_output_6_output",
+    "shape": [
+     1,
+     546,
+     3,
+     3
+    ],
+    "max_abs": 0.0184173583984375,
+    "mean_abs": 0.0035366730782370914,
+    "cos": 0.9999945602184899,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.640242099761963,
+    "ref_max": 11.291144371032715,
+    "ref_range": 13.931386947631836,
+    "max_abs_over_range": 0.0013220046552197893,
+    "argmax": {
+     "positions": 54,
+     "counted": 54,
+     "agree": 54,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8506059050559998
+    }
+   },
+   {
+    "name": "serving_default_output_7_output",
+    "shape": [
+     1,
+     24,
+     3,
+     3
+    ],
+    "max_abs": 0.008533179759979248,
+    "mean_abs": 0.0014070531706912098,
+    "cos": 0.9999982062517447,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.150838851928711,
+    "ref_max": 1.9105496406555176,
+    "ref_range": 4.0613884925842285,
+    "max_abs_over_range": 0.0021010498689204822
+   },
+   {
+    "name": "serving_default_output_8_output",
+    "shape": [
+     1,
+     546,
+     2,
+     2
+    ],
+    "max_abs": 0.014675140380859375,
+    "mean_abs": 0.0023795488005207218,
+    "cos": 0.999996856398583,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.738464593887329,
+    "ref_max": 10.291595458984375,
+    "ref_range": 13.030059814453125,
+    "max_abs_over_range": 0.001126252725607714,
+    "argmax": {
+     "positions": 24,
+     "counted": 24,
+     "agree": 24,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.5708129405975342
+    }
+   },
+   {
+    "name": "serving_default_output_9_output",
+    "shape": [
+     1,
+     24,
+     2,
+     2
+    ],
+    "max_abs": 0.0039825439453125,
+    "mean_abs": 0.0011365607691307862,
+    "cos": 0.999999186026893,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.7775182723999023,
+    "ref_max": 2.0845110416412354,
+    "ref_range": 4.862029075622559,
+    "max_abs_over_range": 0.0008191115033187158
+   },
+   {
+    "name": "serving_default_output_10_output",
+    "shape": [
+     1,
+     546,
+     1,
+     1
+    ],
+    "max_abs": 0.014179110527038574,
+    "mean_abs": 0.003431331741985193,
+    "cos": 0.9999953541982834,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -1.8985267877578735,
+    "ref_max": 9.324764251708984,
+    "ref_range": 11.223291397094727,
+    "max_abs_over_range": 0.0012633647319100166,
+    "argmax": {
+     "positions": 6,
+     "counted": 6,
+     "agree": 6,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8400770425796509
+    }
+   },
+   {
+    "name": "serving_default_output_11_output",
+    "shape": [
+     1,
+     24,
+     1,
+     1
+    ],
+    "max_abs": 0.006567120552062988,
+    "mean_abs": 0.002179425209760666,
+    "cos": 0.9999985903245414,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.0585763454437256,
+    "ref_max": 1.3678840398788452,
+    "ref_range": 3.4264602661132812,
+    "max_abs_over_range": 0.0019165903124603386
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 256
+   },
+   "cpu_ops": {},
+   "profile_bytes": 466219,
+   "graph_nodes": 302
+  },
+  "query_model": null,
+  "fp16_convert": {
+   "path": "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+   "seconds": 0.32789850000699516,
+   "bytes": 7555195,
+   "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5",
+   "tool": "onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True)",
+   "dropped_identical_nodes": 0,
+   "renamed_duplicate_node_names": 0,
+   "topo_sorted": true,
+   "cached": true
+  },
+  "input_sha256": "866c599ce93864327f0c3a073bb2ced8d29f7f38891f9cea7435fad7aed17147",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/ssdlite_mobilenetv3_320_fp16/cuda16.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/cuda16.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "cuda16 FAIL: output_4_output: argmax agreement 147/150"
+  }
+ ]
+}

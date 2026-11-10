@@ -1,0 +1,6 @@
+ENGINE_PID 32856
+{"n": 1, "of": 21, "id": "q01", "wall_s": 1.76, "text": "Paris."}
+{"n": 2, "of": 21, "id": "q02", "wall_s": 1.629, "text": "7 + 5 = 12.  \nReply: 12."}
+{"n": 10, "of": 21, "id": "q10", "wall_s": 1.176, "text": "Au"}
+{"n": 20, "of": 21, "id": "q20", "wall_s": 1.186, "text": "20."}
+{"n": 21, "of": 21, "id": "gate", "wall_s": 1.322, "text": "1+1=2."}

@@ -1,0 +1,278 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E4B-it",
+ "cell": "task-litert-lm_cpu_cpu",
+ "kind": "llm",
+ "runtime": {
+  "id": "litert-lm",
+  "label": "LiteRT-LM v0.19.0"
+ },
+ "device": {
+  "id": "cpu",
+  "label": "CPU (Core Ultra 9 386H)"
+ },
+ "form": {
+  "id": "litert:gemma-4-E4B-it.litertlm",
+  "label": "wNa8o8 (int2/int4/int8 + int8 activations, QAT)",
+  "detail": "wNa8o8 (int2/int4/int8 + int8 activations, QAT); the bench's file gemma-4-E4B-it.litertlm (3659530240 bytes)",
+  "path": null,
+  "from": "litert-community/gemma-4-E4B-it-litert-lm"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on qa20: 20 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/gemma-4-E4B-it/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 20,
+    "n": 20,
+    "bar": 18,
+    "pass": true
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": true
+  },
+  "text": "answers 20/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-c-e4b/gemma-4-E4B-it/task-litert-lm_cpu_cpu/run1.json",
+  "runner": "run_llm_litert.py",
+  "argv": [
+   "--exe",
+   "C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe",
+   "--model",
+   "C:\\src\\zoo-template\\work\\litert\\cpu\\gemma-4-E4B-it.litertlm",
+   "--backend",
+   "cpu",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-c-e4b\\gemma-4-E4B-it\\task-litert-lm_cpu_cpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 20/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-c-e4b",
+  "started": "2026-11-10T09:21:47.110303+09:00",
+  "ended": "2026-11-10T09:22:59.084907+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": null,
+  "warmup_s": null,
+  "peak_working_set_mb": 34,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 35954688,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 20,
+   "n": 20,
+   "full_text_same": 20,
+   "eos_within_max": 20,
+   "new_tokens": 46,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "token count": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "36",
+     "ref": "36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "tac",
+     "ref": "tac",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう",
+     "ref": "ありがとう",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "green",
+     "ref": "green",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes",
+     "ref": "yes",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "william shakespeare",
+     "ref": "william shakespeare",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "10",
+     "ref": "10",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "8",
+     "ref": "8",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 2"
+  },
+  "versions": {
+   "python": "3.12.16"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "prompts": 21,
+   "backend": "cpu",
+   "adapter": null,
+   "decode": "greedy (session sampler top_k 1)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "one process per prompt": true,
+   "chat_template": "none here (session mode): the reference's rendered prompt without a leading <bos> (the session adds the start token)",
+   "command": [
+    "C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe",
+    "--backend=cpu",
+    "--model_path=C:\\src\\zoo-template\\work\\litert\\cpu\\gemma-4-E4B-it.litertlm",
+    "--async=false",
+    "--use_session=true",
+    "--sampler_top_k=1",
+    "--benchmark",
+    "--benchmark_prefill_tokens=0",
+    "--benchmark_decode_tokens=0",
+    "--max_num_tokens=2048",
+    "--input_prompt_file=<prompt>",
+    "--max_output_tokens=<48|16>"
+   ],
+   "path_prepend": null
+  }
+ }
+}

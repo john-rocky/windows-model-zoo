@@ -1,0 +1,91 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dewarp",
+ "cell": "ovnpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel AI Boost NPU"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, compiled when the session loads (as-is)",
+  "sha256": "4dde2be5fa86a4b4b1dd870b0ba89dc5da6e2165b90992c13a96450935eb04c2"
+ },
+ "run": {
+  "state": "error",
+  "mode": "first",
+  "started": "2026-11-06T14:42:57.296794+09:00",
+  "ended": "2026-11-06T14:43:02.013351+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": "Traceback (most recent call last):\n  File \"C:\\src\\zoo\\pc\\zoo_run.py\", line 433, in main\n    names, outs = run_ort(args, rec, feeds)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\src\\zoo\\pc\\zoo_run.py\", line 287, in run_ort\n    sess = ort.InferenceSession(path, sess_options=so, providers=providers) if providers else ort.InferenceSession(path, sess_options=so)\n                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\src\\zoo\\.venv-ort\\Lib\\site-packages\\onnxruntime\\capi\\onnxruntime_inference_collection.py\", line 683, in __init__\n    self._create_inference_session(providers, provider_options, disabled_optimizers)\n  File \"C:\\src\\zoo\\.venv-ort\\Lib\\site-packages\\onnxruntime\\capi\\onnxruntime_inference_collection.py\", line 789, in _create_inference_session\n    sess.initialize_session(providers, provider_options, disabled_optimizers)\nonnxruntime.capi.onnxruntime_pybind11_state.EPFail: [ONNXRuntimeError] : 11 : EP_FAIL : Exception from src\\inference\\src\\cpp\\core.cpp:120:\nException from src\\inference\\src\\dev\\plugin.cpp:54:\nException from src\\plugins\\intel_npu\\src\\plugin\\src\\plugin.cpp:560:\nException from src\\plugins\\intel_npu\\src\\compiler_adapter\\src\\compiler_impl.cpp:323:\nCompilation failed. vclAllocatedExecutableCreate4 result: 0x78000004 - [NPU_VCL] Compiler returned msg:\nCompilation failed\n\n\n\n\n",
+  "error_line": "Compilation failed"
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": null,
+  "verdict": "no verdict on z1-internal: error (Compilation failed)",
+  "status": "ERROR",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": null,
+  "timed": false,
+  "stat": "median",
+  "n": null,
+  "stats": null,
+  "first_pass_value": null,
+  "load_ms": null,
+  "load_ms_first_pass": null,
+  "compile_ms": null,
+  "gate": null,
+  "sitting": "first pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": null,
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "ov_device": "NPU",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": "1004841",
+   "NPU_COMPILER_VERSION": "524292",
+   "DEVICE_ARCHITECTURE": "5010",
+   "DEVICE_LUID": "2352010000000000",
+   "counter_luid": "0x00000000_0x00015223"
+  },
+  "placement": null,
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "89305ad9a91eeb3cd9787a4c17ebedf34eaffe550e1d8717e64f0c02e162e6f8",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dewarp/ovnpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dewarp/ovnpu.json"
+ },
+ "note": []
+}

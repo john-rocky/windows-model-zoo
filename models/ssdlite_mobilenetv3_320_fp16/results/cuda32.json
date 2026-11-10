@@ -1,0 +1,380 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "ssdlite_mobilenetv3_320_fp16",
+ "cell": "cuda32",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX",
+  "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T05:47:28.865568+09:00",
+  "ended": "2026-11-07T05:47:32.406148+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 3.67174999701092,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 3.67174999701092,
+   "p10": 3.4737999958451837,
+   "p90": 4.6252000029198825,
+   "min": 3.3588000005693175,
+   "max": 4.844399998546578,
+   "n": 30
+  },
+  "first_pass_value": 5.005150000215508,
+  "load_ms": 1149.6655000009923,
+  "load_ms_first_pass": 1297.5663999968674,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     546,
+     20,
+     20
+    ],
+    "max_abs": 0.0044959187507629395,
+    "mean_abs": 0.0006019796002538353,
+    "cos": 0.9999999305953611,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.131280899047852,
+    "ref_max": 14.932987213134766,
+    "ref_range": 21.064268112182617,
+    "max_abs_over_range": 0.00021343816584648882,
+    "argmax": {
+     "positions": 2400,
+     "counted": 2400,
+     "agree": 2399,
+     "rate": 0.9995833333333334,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.000644683837890625,
+     "ref_margin_median": 0.6154522895812988
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     24,
+     20,
+     20
+    ],
+    "max_abs": 0.012637615203857422,
+    "mean_abs": 0.0007273331218069265,
+    "cos": 0.999999915034392,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -13.318225860595703,
+    "ref_max": 3.9325971603393555,
+    "ref_range": 17.250823974609375,
+    "max_abs_over_range": 0.0007325803812303746
+   },
+   {
+    "name": "serving_default_output_2_output",
+    "shape": [
+     1,
+     546,
+     10,
+     10
+    ],
+    "max_abs": 0.0030814409255981445,
+    "mean_abs": 0.0004721759314870124,
+    "cos": 0.9999999462083305,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.560080051422119,
+    "ref_max": 15.762990951538086,
+    "ref_range": 22.323070526123047,
+    "max_abs_over_range": 0.00013803839942144882,
+    "argmax": {
+     "positions": 600,
+     "counted": 600,
+     "agree": 600,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.5959957838058472
+    }
+   },
+   {
+    "name": "serving_default_output_3_output",
+    "shape": [
+     1,
+     24,
+     10,
+     10
+    ],
+    "max_abs": 0.0015719234943389893,
+    "mean_abs": 0.0002788689142713944,
+    "cos": 0.9999999171324481,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -3.3414056301116943,
+    "ref_max": 2.755051612854004,
+    "ref_range": 6.096457481384277,
+    "max_abs_over_range": 0.00025784211554643114
+   },
+   {
+    "name": "serving_default_output_4_output",
+    "shape": [
+     1,
+     546,
+     5,
+     5
+    ],
+    "max_abs": 0.0035381317138671875,
+    "mean_abs": 0.0004249650198495486,
+    "cos": 0.9999999420889449,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -4.485137939453125,
+    "ref_max": 14.820100784301758,
+    "ref_range": 19.305238723754883,
+    "max_abs_over_range": 0.00018327313971588217,
+    "argmax": {
+     "positions": 150,
+     "counted": 150,
+     "agree": 150,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.597374439239502
+    }
+   },
+   {
+    "name": "serving_default_output_5_output",
+    "shape": [
+     1,
+     24,
+     5,
+     5
+    ],
+    "max_abs": 0.002257823944091797,
+    "mean_abs": 0.000306322886608541,
+    "cos": 0.9999998912947313,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.3096625804901123,
+    "ref_max": 2.21162748336792,
+    "ref_range": 4.521289825439453,
+    "max_abs_over_range": 0.0004993760699409143
+   },
+   {
+    "name": "serving_default_output_6_output",
+    "shape": [
+     1,
+     546,
+     3,
+     3
+    ],
+    "max_abs": 0.0030417442321777344,
+    "mean_abs": 0.0004897083947643498,
+    "cos": 0.9999999001131687,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.640242099761963,
+    "ref_max": 11.291144371032715,
+    "ref_range": 13.931386947631836,
+    "max_abs_over_range": 0.0002183375024763628,
+    "argmax": {
+     "positions": 54,
+     "counted": 54,
+     "agree": 54,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8506059050559998
+    }
+   },
+   {
+    "name": "serving_default_output_7_output",
+    "shape": [
+     1,
+     24,
+     3,
+     3
+    ],
+    "max_abs": 0.001692056655883789,
+    "mean_abs": 0.0003637000659687652,
+    "cos": 0.9999998860568938,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.150838851928711,
+    "ref_max": 1.9105496406555176,
+    "ref_range": 4.0613884925842285,
+    "max_abs_over_range": 0.0004166202418146773
+   },
+   {
+    "name": "serving_default_output_8_output",
+    "shape": [
+     1,
+     546,
+     2,
+     2
+    ],
+    "max_abs": 0.003268718719482422,
+    "mean_abs": 0.0005169809312344744,
+    "cos": 0.9999998721948524,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.738464593887329,
+    "ref_max": 10.291595458984375,
+    "ref_range": 13.030059814453125,
+    "max_abs_over_range": 0.00025085983994154143,
+    "argmax": {
+     "positions": 24,
+     "counted": 24,
+     "agree": 24,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.5708129405975342
+    }
+   },
+   {
+    "name": "serving_default_output_9_output",
+    "shape": [
+     1,
+     24,
+     2,
+     2
+    ],
+    "max_abs": 0.0010091662406921387,
+    "mean_abs": 0.0003826539808263381,
+    "cos": 0.9999999177037373,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.7775182723999023,
+    "ref_max": 2.0845110416412354,
+    "ref_range": 4.862029075622559,
+    "max_abs_over_range": 0.00020756071693440458
+   },
+   {
+    "name": "serving_default_output_10_output",
+    "shape": [
+     1,
+     546,
+     1,
+     1
+    ],
+    "max_abs": 0.002584695816040039,
+    "mean_abs": 0.0006258993775450758,
+    "cos": 0.9999998483478397,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -1.8985267877578735,
+    "ref_max": 9.324764251708984,
+    "ref_range": 11.223291397094727,
+    "max_abs_over_range": 0.00023029748801756285,
+    "argmax": {
+     "positions": 6,
+     "counted": 6,
+     "agree": 6,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8400770425796509
+    }
+   },
+   {
+    "name": "serving_default_output_11_output",
+    "shape": [
+     1,
+     24,
+     1,
+     1
+    ],
+    "max_abs": 0.0013344287872314453,
+    "mean_abs": 0.0003859447315335274,
+    "cos": 0.999999909191613,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.0585763454437256,
+    "ref_max": 1.3678840398788452,
+    "ref_range": 3.4264602661132812,
+    "max_abs_over_range": 0.0003894482012322066
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 243
+   },
+   "cpu_ops": {},
+   "profile_bytes": 446081,
+   "graph_nodes": 289
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "866c599ce93864327f0c3a073bb2ced8d29f7f38891f9cea7435fad7aed17147",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/ssdlite_mobilenetv3_320_fp16/cuda32.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/cuda32.json"
+ },
+ "note": []
+}

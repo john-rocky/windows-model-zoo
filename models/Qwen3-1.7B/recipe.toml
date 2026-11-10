@@ -1,0 +1,621 @@
+# Qwen3-1.7B: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "llm"
+title = "Qwen3-1.7B"
+order = 1001
+source = "Qwen/Qwen3-1.7B"
+source_revision = "70d244cc86cc"
+license = "apache-2.0"
+pipeline_tag = "text-generation"
+migrated_from = "john-rocky/windows-llm-zoo@a1b4ffa"
+
+[[line]]
+id = "text-check"
+kind = "text-integrity"
+rule = "edge-llm-bench's textCheck on every counted run's cold and warm text: at least 32 alphanumeric characters and 10 distinct words, a word of the task (on.device|phone|local|cloud|offline|privacy|ai), and no line repeated over half of 4 or more lines; a failing run is not counted (the answer's correctness is not judged)"
+written = "2026-10-06T19:20:09+09:00"
+written_note = "edge-llm-bench c6498ccd (methodology/fairness-rules.md section 12, the text-check-rule); adopted by windows-llm-zoo PLAN.md section 1 on 2026-11-07 14:55 JST"
+plan = "edge-llm-bench fairness-rules.md section 12; windows-llm-zoo PLAN.md section 1"
+
+[[line]]
+id = "qa20"
+kind = "task"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers fp32 on this PC's CPU"
+written = "2026-11-10T07:58:00+09:00"
+written_note = "PLAN.md section Z6 (Z6 lane), written before the reference or any cell of this line ran; the probes of 07:54-07:56 on the PC used another prompt"
+plan = "PLAN.md section Z6 and section 1b"
+
+[[cell]]
+id = "foundry_auto_webgpu"
+runtime = "foundry"
+device = "rtx"
+form = "MatMulNBits b32 asym acc4: int8 x101, int4 x96; embeddings int8 b32 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_cpu_cpu"
+runtime = "foundry"
+device = "cpu"
+form = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_rtx_cuda"
+runtime = "foundry"
+device = "rtx"
+form = "MatMulNBits b128 asym acc0: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "litert-lm_cpu_cpu"
+runtime = "litert-lm"
+device = "cpu"
+form = "INT8 (dynamic_wi8_afp32: int8 weights, FP32 act; GPU-composite export, external weights; Hub file of 2026-10-31)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "litert-lm_igpu_gpu"
+runtime = "litert-lm"
+device = "igpu"
+form = "INT4 (dynamic, block-32 weights, FP32 act; GPU-graph build)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "litert-lm_rtx_gpu"
+runtime = "litert-lm"
+device = "rtx"
+form = "INT4 (dynamic, block-32 weights, FP32 act; GPU-graph build)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+form = "int4_asym g128 r0.8"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_igpu_gpu"
+runtime = "openvino-genai"
+device = "igpu"
+form = "int4_asym g128 r0.8"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_npu_npu-sym-g128"
+runtime = "openvino-genai"
+device = "npu"
+form = "int4_sym g128 r1.0"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_npu_npu"
+runtime = "openvino-genai"
+device = "npu"
+form = "int4_asym g128 r0.8"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_rtx_gpu"
+runtime = "openvino-genai"
+device = "rtx"
+form = "int4_asym g128 r0.8"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "ort-genai_cpu_cpu"
+runtime = "ort-genai"
+device = "cpu"
+form = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_cpu_openvino"
+runtime = "ort-genai"
+device = "cpu"
+form = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_igpu_openvino"
+runtime = "ort-genai"
+device = "igpu"
+form = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_igpu_webgpu"
+runtime = "ort-genai"
+device = "igpu"
+form = "MatMulNBits b32 asym acc4: int8 x101, int4 x96; embeddings int8 b32 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_npu_openvino"
+runtime = "ort-genai"
+device = "npu"
+form = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_rtx_cuda"
+runtime = "ort-genai"
+device = "rtx"
+form = "MatMulNBits b128 asym acc0: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_rtx_webgpu"
+runtime = "ort-genai"
+device = "rtx"
+form = "MatMulNBits b32 asym acc4: int8 x101, int4 x96; embeddings int8 b32 asym [model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "litert-lm_npu_npu"
+runtime = "litert-lm"
+device = "npu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "llama.cpp_npu_openvino"
+runtime = "llama.cpp"
+device = "npu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "llama.cpp_igpu_vulkan-sycl"
+runtime = "llama.cpp"
+device = "igpu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_npu_openvino"
+runtime = "foundry"
+device = "npu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_igpu_openvino-webgpu"
+runtime = "foundry"
+device = "igpu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+# ---- Z6 (migrate/z6.py): the qa20 task cells of the Z2 cells that pass only the text-integrity line ----
+
+[[fetch]]
+repo = "Qwen/Qwen3-1.7B"
+revision = "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+include = ["*.json", "*.safetensors", "*.txt"]
+
+[[fetch]]
+repo = "OpenVINO/Qwen3-1.7B-int4-ov"
+revision = "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3"
+
+[[fetch]]
+repo = "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov"
+revision = "ee7468f8a34e0dd5e64eafcc0884c548250cecb2"
+
+[[fetch]]
+repo = "onnx-community/Qwen3-1.7B-ONNX"
+revision = "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438"
+include = ["onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/*", "onnxruntime/webgpu/webgpu-int4-kld-block-32/*", "onnxruntime/cuda/cuda-int4-kld-block-128/*"]
+
+[[fetch]]
+repo = "litert-community/Qwen3-1.7B"
+revision = "e3496c7708baf1efe5482c6069a1f94695469ebc"
+include = ["Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm", "Qwen3_1.7B.litertlm"]
+why = "the file the LiteRT-LM / llama.cpp cells ran (the cells name it by byte count; this revision's file has that count)"
+
+[[fetch]]
+repo = "unsloth/Qwen3-1.7B-GGUF"
+revision = "d7f544eead698dbd1f15126ef60b45a1e1933222"
+include = ["Qwen3-1.7B-Q4_K_M.gguf"]
+why = "the file the LiteRT-LM / llama.cpp cells ran (the cells name it by byte count; this revision's file has that count)"
+
+[[form]]
+id = "foundry:Foundry catalog qwen3-1.7b-generic-gpu:2 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym acc4: int8 x101"
+label = "MatMulNBits b32 asym acc4: int8 x101, int4 x96; embeddings int8 b32 asym [model.onnx]; Foundry catalog qwen3-1.7b-generic-gpu:2 (its files in the PC's cache)"
+from = "Foundry Local catalog qwen3-1.7b-generic-gpu:2"
+
+[[form]]
+id = "foundry:Foundry catalog qwen3-1.7b-generic-cpu:2 (its files in the PC's cache)"
+short = "MatMulNBits b128 asym acc4: int8 x101"
+label = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]; Foundry catalog qwen3-1.7b-generic-cpu:2 (its files in the PC's cache)"
+from = "Foundry Local catalog qwen3-1.7b-generic-cpu:2"
+
+[[form]]
+id = "foundry:Foundry catalog qwen3-1.7b-cuda-gpu:2 (its files in the PC's cache)"
+short = "MatMulNBits b128 asym acc0: int8 x101"
+label = "MatMulNBits b128 asym acc0: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]; Foundry catalog qwen3-1.7b-cuda-gpu:2 (its files in the PC's cache)"
+from = "Foundry Local catalog qwen3-1.7b-cuda-gpu:2"
+
+[[form]]
+id = "litert:Qwen3_1.7B.litertlm"
+short = "INT8 (dynamic_wi8_afp32: int8 weights"
+label = "INT8 (dynamic_wi8_afp32: int8 weights, FP32 act; GPU-composite export, external weights; Hub file of 2026-10-31); the bench's file Qwen3_1.7B.litertlm (1754890240 bytes)"
+from = "litert-community/Qwen3-1.7B"
+
+[[form]]
+id = "litert:Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm"
+short = "INT4 (dynamic, block-32 weights, FP32 act; GPU-graph build)"
+label = "INT4 (dynamic, block-32 weights, FP32 act; GPU-graph build); the bench's file Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm (977184032 bytes)"
+from = "litert-community/Qwen3-1.7B"
+
+[[form]]
+id = "gguf:Qwen3-1.7B-Q4_K_M.gguf"
+short = "Q4_K_M"
+label = "Q4_K_M; the bench's file Qwen3-1.7B-Q4_K_M.gguf (1107409472 bytes)"
+from = "unsloth/Qwen3-1.7B-GGUF"
+
+[[form]]
+id = "ov:OpenVINO/Qwen3-1.7B-int4-ov"
+short = "int4_asym g128 r0.8"
+label = "int4_asym g128 r0.8; OpenVINO/Qwen3-1.7B-int4-ov@6f32d81e9deebeca30bb5490a7176cf4fa8c79e3"
+from = "OpenVINO/Qwen3-1.7B-int4-ov"
+
+[[form]]
+id = "ov:mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov"
+short = "int4_sym g128 r1.0"
+label = "int4_sym g128 r1.0; mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov@ee7468f8a34e0dd5e64eafcc0884c548250cecb2"
+from = "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov"
+
+[[form]]
+id = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
+short = "MatMulNBits b128 asym acc4: int8 x101"
+label = "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]; onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
+from = "onnx-community/Qwen3-1.7B-ONNX"
+
+[[form]]
+id = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/webgpu/webgpu-int4-kld-block-32"
+short = "MatMulNBits b32 asym acc4: int8 x101"
+label = "MatMulNBits b32 asym acc4: int8 x101, int4 x96; embeddings int8 b32 asym [model.onnx]; onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/webgpu/webgpu-int4-kld-block-32"
+from = "onnx-community/Qwen3-1.7B-ONNX"
+
+[[form]]
+id = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cuda/cuda-int4-kld-block-128"
+short = "MatMulNBits b128 asym acc0: int8 x101"
+label = "MatMulNBits b128 asym acc0: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]; onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cuda/cuda-int4-kld-block-128"
+from = "onnx-community/Qwen3-1.7B-ONNX"
+
+[[step]]
+name = "z6-setup"
+venv = "genai"
+script = "pc/z6_setup.py"
+args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "Qwen3-1.7B", "--root", "{ROOT}"]
+timeout_min = 60
+
+[[step]]
+name = "reference"
+venv = "ref"
+script = "pc/ref_llm_hf.py"
+args = ["--model-dir", "{HUB}\\Qwen__Qwen3-1.7B", "--suite", "{ROOT}\\suites\\llm\\qa20.jsonl", "--out", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+reference = "refs/Qwen3-1.7B/ref.json"
+ram_gb = 10
+lock = true
+timeout_min = 30
+
+[[cell]]
+id = "task-foundry_auto_webgpu"
+runtime = "foundry"
+device = "rtx"
+line = "qa20"
+z2_cell = "foundry_auto_webgpu"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog qwen3-1.7b-generic-gpu:2 (its files in the PC's cache)"
+timeout_min = 40
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-qwen3-1.7b-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-gpu-2\\v2", "--id", "z6-qwen3-1.7b-generic-gpu:1", "--device", "gpu", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-foundry_cpu_cpu"
+runtime = "foundry"
+device = "cpu"
+line = "qa20"
+z2_cell = "foundry_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog qwen3-1.7b-generic-cpu:2 (its files in the PC's cache)"
+timeout_min = 40
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-qwen3-1.7b-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-cpu-2\\v2", "--id", "z6-qwen3-1.7b-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-foundry_rtx_cuda"
+runtime = "foundry"
+device = "rtx"
+line = "qa20"
+z2_cell = "foundry_rtx_cuda"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog qwen3-1.7b-cuda-gpu:2 (its files in the PC's cache)"
+timeout_min = 40
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-qwen3-1.7b-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-cuda-gpu-2\\v2", "--id", "z6-qwen3-1.7b-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-litert-lm_cpu_cpu"
+runtime = "litert-lm"
+device = "cpu"
+line = "qa20"
+z2_cell = "litert-lm_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:Qwen3_1.7B.litertlm"
+timeout_min = 60
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\cpu\\Qwen3_1.7B.litertlm", "--backend", "cpu", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-litert-lm_igpu_gpu"
+runtime = "litert-lm"
+device = "igpu"
+line = "qa20"
+z2_cell = "litert-lm_igpu_gpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm"
+timeout_min = 45
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\igpu\\Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm", "--backend", "gpu", "--adapter", "igpu", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-litert-lm_rtx_gpu"
+runtime = "litert-lm"
+device = "rtx"
+line = "qa20"
+z2_cell = "litert-lm_rtx_gpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm"
+timeout_min = 45
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\rtx\\Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm", "--backend", "gpu", "--adapter", "rtx", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+line = "qa20"
+z2_cell = "llama.cpp_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:Qwen3-1.7B-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\Qwen3-1.7B-Q4_K_M.gguf", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+z2_cell = "llama.cpp_rtx_cuda"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:Qwen3-1.7B-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cuda\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\Qwen3-1.7B-Q4_K_M.gguf", "--gpu", "--device-prefix", "CUDA", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+z2_cell = "llama.cpp_rtx_vulkan"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:Qwen3-1.7B-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-gpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\Qwen3-1.7B-Q4_K_M.gguf", "--gpu", "--device-prefix", "Vulkan", "--env", "GGML_VK_VISIBLE_DEVICES=0", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "openvino-genai_cpu_cpu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-int4-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_igpu_gpu"
+runtime = "openvino-genai"
+device = "igpu"
+line = "qa20"
+z2_cell = "openvino-genai_igpu_gpu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-int4-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-1.7B_gpu0", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_npu_npu-sym-g128"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+z2_cell = "openvino-genai_npu_npu-sym-g128"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\mlboydaisuke__Qwen3-1.7B-int4-sym-g128-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-1.7B_npu_sym_g128", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_cpu_cpu"
+runtime = "ort-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "ort-genai_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_cpu_openvino"
+runtime = "ort-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "ort-genai_cpu_openvino"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128", "--ep", "openvino", "--ov-device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_igpu_openvino"
+runtime = "ort-genai"
+device = "igpu"
+line = "qa20"
+z2_cell = "ort-genai_igpu_openvino"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128", "--ep", "openvino", "--ov-device", "GPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_igpu_webgpu"
+runtime = "ort-genai"
+device = "igpu"
+line = "qa20"
+z2_cell = "ort-genai_igpu_webgpu"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/webgpu/webgpu-int4-kld-block-32"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\webgpu\\webgpu-int4-kld-block-32", "--ep", "webgpu", "--ep-option", "adapterIndex=1", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_rtx_cuda"
+runtime = "ort-genai"
+device = "rtx"
+line = "qa20"
+z2_cell = "ort-genai_rtx_cuda"
+venv = "genai-cuda"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cuda/cuda-int4-kld-block-128"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-ort-genai_rtx_webgpu"
+runtime = "ort-genai"
+device = "rtx"
+line = "qa20"
+z2_cell = "ort-genai_rtx_webgpu"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/webgpu/webgpu-int4-kld-block-32"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\webgpu\\webgpu-int4-kld-block-32", "--ep", "webgpu", "--ep-option", "adapterIndex=0", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+# ---- end Z6 ----

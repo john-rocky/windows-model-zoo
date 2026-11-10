@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+.snap/
+scratch/
+# the tables that put runtimes side by side and the index: built on your disk only
+#   python3 tools/table.py --local, python3 tools/task_pairs_vision.py, python3 tools/task_pairs_llm.py
+RESULTS_*.md
+TASK_PAIRS_*.md
+models/index.json
+# what tools/pc.sh pull brings back; the committed records are raw/z5/ and raw/z6/ (the task cells) and raw/walk/
+raw/*/
+!raw/z5/
+!raw/z6/
+!raw/walk/
+# the vision task cells' outputs (npz, MB to tens of MB per cell) are not in this repo
+raw/z5/**/*.npz
+raw/walk/**/*.npz
+# a walk's cells and references written by tools/results.py --out (compared with the committed cells)
+walk-out/
+# generated from the recipes by tools/plan.py (what the PC runs; written again before each push)
+pc/plans/
+pc/steps/
+pc/hub_manifest.json

@@ -1,0 +1,7 @@
+<|im_start|>user
+What color do you get by mixing blue and yellow? Answer with one word.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

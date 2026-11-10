@@ -1,0 +1,68 @@
+{
+    "cell":  "w2v2_head_fp16/task-cuda16",
+    "device":  "rtx",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z5-a",
+    "start":  "2026-11-10T07:29:21.1402504+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  3.3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.43 core",
+                                            "svchost 11488 0.03 core",
+                                            "SearchIndexer 9480 0.03 core",
+                                            "powershell 23608 0.02 core",
+                                            "svchost 5260 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1477 MHz, 14001 MHz, 17.91 W, 0 %, 0 MiB, 50",
+                   "availGB":  24.7
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-z1-cuda\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model w2v2_head_fp16 --spec C:\\src\\zoo-template\\pc\\z5_spec.json --work C:\\src\\zoo-template\\work\\w2v2_head_fp16 --form fp16 --engine ort --ep cuda --out C:\\src\\zoo-template\\runs\\z5-a\\w2v2_head_fp16\\task-cuda16\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  34312,
+                   "elapsedSeconds":  3.61,
+                   "peakWorkingSetBytes":  1089363968,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00012C48":  {
+                                                                    "shared":  76,
+                                                                    "dedicated":  582
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.9,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.42 core",
+                                           "WmiPrvSE 7560 0.02 core",
+                                           "NVDisplay.Container 3412 0.02 core",
+                                           "svchost 11488 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 1575 MHz, 14001 MHz, 17.90 W, 0 %, 0 MiB, 50"
+              },
+    "end":  "2026-11-10T07:29:26.7136630+09:00",
+    "tries":  1
+}

@@ -1,0 +1,419 @@
+{
+ "runner": "run_llm_ovg.py",
+ "started": "2026-11-10T08:38:05.845752+09:00",
+ "argv": [
+  "--model-dir",
+  "C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov",
+  "--device",
+  "CPU",
+  "--ref",
+  "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z6-c-e2b\\gemma-4-E2B-it\\task-openvino-genai_cpu_cpu\\run1.json"
+ ],
+ "pid": 7500,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "q01",
+   "role": "question",
+   "prompt_tokens": 20,
+   "text": "Paris",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.16347040003165603,
+   "first_token_ms": 114.4520034790039,
+   "tpot_ms": {
+    "mean": 48.5786018371582,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q02",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "12",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18638969998573884,
+   "first_token_ms": 116.966796875,
+   "tpot_ms": {
+    "mean": 34.488399505615234,
+    "std": 4.471599578857422
+   }
+  },
+  {
+   "id": "q03",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "36",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.19336109998403117,
+   "first_token_ms": 123.26790618896484,
+   "tpot_ms": {
+    "mean": 34.83864974975586,
+    "std": 2.8599512577056885
+   }
+  },
+  {
+   "id": "q04",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "tac",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18155790003947914,
+   "first_token_ms": 112.10529327392578,
+   "tpot_ms": {
+    "mean": 69.0407943725586,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q05",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "Mars",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.16710359998978674,
+   "first_token_ms": 128.3227996826172,
+   "tpot_ms": {
+    "mean": 38.37660217285156,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q06",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "seven",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1698024999932386,
+   "first_token_ms": 131.18179321289062,
+   "tpot_ms": {
+    "mean": 38.17399978637695,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q07",
+   "role": "question",
+   "prompt_tokens": 21,
+   "text": "cold",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1956279999576509,
+   "first_token_ms": 122.93900299072266,
+   "tpot_ms": {
+    "mean": 72.23230743408203,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q08",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "ありがとう",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1855018999776803,
+   "first_token_ms": 117.05660247802734,
+   "tpot_ms": {
+    "mean": 68.03839874267578,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q09",
+   "role": "question",
+   "prompt_tokens": 24,
+   "text": "green",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1670917000155896,
+   "first_token_ms": 128.13890075683594,
+   "tpot_ms": {
+    "mean": 38.54290008544922,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q10",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "Au",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.19077980000292882,
+   "first_token_ms": 114.1397933959961,
+   "tpot_ms": {
+    "mean": 76.20600128173828,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q11",
+   "role": "question",
+   "prompt_tokens": 21,
+   "text": "No",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1475669999490492,
+   "first_token_ms": 109.70230102539062,
+   "tpot_ms": {
+    "mean": 37.452301025390625,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q12",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "Atlantic",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.17384600004879758,
+   "first_token_ms": 135.3531036376953,
+   "tpot_ms": {
+    "mean": 38.090999603271484,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q13",
+   "role": "question",
+   "prompt_tokens": 21,
+   "text": "shakespeare",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.17928130005020648,
+   "first_token_ms": 111.06550598144531,
+   "tpot_ms": {
+    "mean": 67.81830596923828,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q14",
+   "role": "question",
+   "prompt_tokens": 25,
+   "text": "25",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.20747490000212565,
+   "first_token_ms": 132.6195068359375,
+   "tpot_ms": {
+    "mean": 37.22079849243164,
+    "std": 6.929899215698242
+   }
+  },
+  {
+   "id": "q15",
+   "role": "question",
+   "prompt_tokens": 30,
+   "text": "10",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.250955099996645,
+   "first_token_ms": 183.07330322265625,
+   "tpot_ms": {
+    "mean": 33.68014907836914,
+    "std": 3.765451192855835
+   }
+  },
+  {
+   "id": "q16",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "0",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.19095890002790838,
+   "first_token_ms": 153.07089233398438,
+   "tpot_ms": {
+    "mean": 37.47330093383789,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q17",
+   "role": "question",
+   "prompt_tokens": 34,
+   "text": "iron",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.2583438999718055,
+   "first_token_ms": 219.27618408203125,
+   "tpot_ms": {
+    "mean": 38.456199645996094,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q18",
+   "role": "question",
+   "prompt_tokens": 24,
+   "text": "9",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.2048958000377752,
+   "first_token_ms": 159.80711364746094,
+   "tpot_ms": {
+    "mean": 44.65919876098633,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q19",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "HELLO",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.17094649997306988,
+   "first_token_ms": 130.32510375976562,
+   "tpot_ms": {
+    "mean": 40.19960021972656,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q20",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "eight",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18392430001404136,
+   "first_token_ms": 143.9123992919922,
+   "tpot_ms": {
+    "mean": 39.572898864746094,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "gate",
+   "role": "gate",
+   "prompt_tokens": 19,
+   "text": "2",
+   "prompt_form": "string without its leading <bos> (VLMPipeline adds the start token)",
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 16,
+   "wall_s": 0.15532770002027974,
+   "first_token_ms": 115.19729614257812,
+   "tpot_ms": {
+    "mean": 39.715301513671875,
+    "std": 0.0
+   }
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "openvino-genai": "2026.4.1.0",
+  "openvino": "2026.4.1",
+  "openvino-tokenizers": "2026.4.1.0",
+  "numpy": "2.5.4"
+ },
+ "load_s": 3.968,
+ "pipeline": "vlm",
+ "workload": {
+  "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+  "prompts": 21,
+  "device": "CPU",
+  "pipeline": "vlm",
+  "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+  "max_new_tokens": 48,
+  "gate_max_new_tokens": 16,
+  "chat_template": "none here: the reference's rendered prompt without its leading <bos> (VLMPipeline adds the start token), apply_chat_template False",
+  "stop_token_ids": [
+   1,
+   50,
+   106
+  ]
+ },
+ "warmup_s": 2.664,
+ "summary": {
+  "clips": 21,
+  "prompts": 21,
+  "new_tokens": 46,
+  "wall_s": 3.924,
+  "tok_per_s": 11.722,
+  "eos": 21,
+  "value": 11.722
+ },
+ "peak_working_set_bytes": 3330449408,
+ "peak_pagefile_bytes": 2622599168,
+ "ended": "2026-11-10T08:38:18.237175+09:00",
+ "process_s": 12.391
+}

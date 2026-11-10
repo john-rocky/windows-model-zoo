@@ -1,0 +1,102 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "ssdlite_mobilenetv3_320_fp16",
+ "cell": "cpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort",
+  "label": "ONNX Runtime 1.31.1 CPU EP",
+  "version": "1.31.1",
+  "ep": null
+ },
+ "device": {
+  "id": "cpu",
+  "label": "Core Ultra 9 386H CPU"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX",
+  "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T12:30:59.882729+09:00",
+  "ended": "2026-11-07T12:31:00.836773+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "reference",
+  "pass": null,
+  "verdict": "reference of z1-internal: the other cells of this line are compared with this cell's outputs",
+  "status": "PASS",
+  "reference": null,
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 3.057200003240723,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 3.057200003240723,
+   "p10": 3.028399994946085,
+   "p90": 3.1023000046843663,
+   "min": 3.0045999883441254,
+   "max": 3.2266000052914023,
+   "n": 30
+  },
+  "first_pass_value": 8.497849994455464,
+  "load_ms": 63.94279999949504,
+  "load_ms_first_pass": 136.70869999623392,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": null,
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1"
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CPUExecutionProvider": 230
+   },
+   "cpu_ops": {
+    "Conv": 98,
+    "ReorderOutput": 40,
+    "ReduceSum": 8,
+    "Mul": 24,
+    "Reshape": 27,
+    "ReorderInput": 28,
+    "Transpose": 5
+   },
+   "profile_bytes": 383193,
+   "graph_nodes": 289
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "866c599ce93864327f0c3a073bb2ced8d29f7f38891f9cea7435fad7aed17147",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/ssdlite_mobilenetv3_320_fp16/cpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/cpu.json"
+ },
+ "note": []
+}

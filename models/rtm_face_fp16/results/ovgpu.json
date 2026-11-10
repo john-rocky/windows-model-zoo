@@ -1,0 +1,160 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtm_face_fp16",
+ "cell": "ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel Graphics (iGPU)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, the EP's default precision",
+  "sha256": "bb05d3ccf0625eb1b0279f61ca3e57f8ea97b0ce57b738d7fac8c1a568d67428"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T06:28:27.836826+09:00",
+  "ended": "2026-11-07T06:28:31.249226+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 2.1979499979352113,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 2.1979499979352113,
+   "p10": 2.170699997805059,
+   "p90": 2.2268000029725954,
+   "min": 2.145300000847783,
+   "max": 2.2756999969715253,
+   "n": 30
+  },
+  "first_pass_value": 5.053799999586772,
+  "load_ms": 1047.3157000014908,
+  "load_ms_first_pass": 2725.161800000933,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     98,
+     512
+    ],
+    "max_abs": 0.0036580562591552734,
+    "mean_abs": 0.0005858467214120445,
+    "cos": 0.9999995779416768,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -1.9825390577316284,
+    "ref_max": 2.340456247329712,
+    "ref_range": 4.322995185852051,
+    "max_abs_over_range": 0.0008461855963030133,
+    "argmax": {
+     "positions": 98,
+     "counted": 98,
+     "agree": 98,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.003304898738861084
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     98,
+     512
+    ],
+    "max_abs": 0.004052639007568359,
+    "mean_abs": 0.0005133630489920295,
+    "cos": 0.9999995111619485,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.428124189376831,
+    "ref_max": 1.9971957206726074,
+    "ref_range": 4.425319671630859,
+    "max_abs_over_range": 0.0009157844649163715,
+    "argmax": {
+     "positions": 98,
+     "counted": 98,
+     "agree": 98,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.0031165480613708496
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000",
+   "counter_luid": "0x00000000_0x0001260e"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 97651,
+   "graph_nodes": 273
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "5662eb1df3509ac9f5651dc7301cfd9f425e61492332e72424119229e604005f",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtm_face_fp16/ovgpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtm_face_fp16/ovgpu.json"
+ },
+ "note": []
+}

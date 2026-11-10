@@ -1,0 +1,166 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dfine_graphB_fp16",
+ "cell": "cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp16",
+  "label": "fp16 copy (convert_float_to_float16, I/O kept fp32)",
+  "sha256": "0d025c7baf4dedfa67576d877f78635aa9a30569b8c679daae46a7a77b5fa2be"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T02:19:51.322206+09:00",
+  "ended": "2026-11-07T02:19:54.771870+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_1_output: 0 NaN, 320 Inf; serving_default_output_1_output: argmax agreement 294/300",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_1_output: 0 NaN, 320 Inf",
+   "serving_default_output_1_output: argmax agreement 294/300"
+  ],
+  "reason_candidate": "NaN / Inf in a cell that computes in fp16 (overflow candidate); the reference exceeds the fp16 range (65,504); argmax flips where the reference margin between top-1 and top-2 is small (see flipped_ref_margin_median)"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 9.189799999148818,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 9.189799999148818,
+   "p10": 8.795699999609496,
+   "p90": 10.610699999233475,
+   "min": 8.398699999816017,
+   "max": 12.641499997698702,
+   "n": 30
+  },
+  "first_pass_value": 10.192750007263385,
+  "load_ms": 1264.1559000003326,
+  "load_ms_first_pass": 1161.11319999618,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     300,
+     4
+    ],
+    "max_abs": 0.006202876567840576,
+    "mean_abs": 0.0002675156481564045,
+    "cos": 0.9999994247985774,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": 6.55055046081543e-05,
+    "ref_max": 0.9931249618530273,
+    "ref_range": 0.9930594563484192,
+    "max_abs_over_range": 0.0062462287914252235
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     300,
+     80
+    ],
+    "max_abs": Infinity,
+    "mean_abs": Infinity,
+    "cos": 0.9958411303547802,
+    "nan": 0,
+    "inf": 320,
+    "ref_min": -116960.984375,
+    "ref_max": 5.344944000244141,
+    "ref_range": 116966.328125,
+    "max_abs_over_range": Infinity,
+    "argmax": {
+     "positions": 300,
+     "counted": 300,
+     "agree": 294,
+     "rate": 0.98,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.04306584596633911,
+     "ref_margin_median": 0.5533817410469055
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 936
+   },
+   "cpu_ops": {},
+   "profile_bytes": 1627023,
+   "graph_nodes": 950
+  },
+  "query_model": null,
+  "fp16_convert": {
+   "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16.onnx",
+   "seconds": 0.47461970000586007,
+   "bytes": 9845178,
+   "sha256": "0d025c7baf4dedfa67576d877f78635aa9a30569b8c679daae46a7a77b5fa2be",
+   "tool": "onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True)",
+   "dropped_identical_nodes": 9,
+   "renamed_duplicate_node_names": 0,
+   "topo_sorted": true,
+   "cached": true
+  },
+  "input_sha256": "59a6fbb566b3bbea69a7479cebc33160a6be94fabfabe3c324883a182eda1ea3",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dfine_graphB_fp16/cuda16.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dfine_graphB_fp16/cuda16.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "cuda16 FAIL: output_1_output: 0 NaN, 320 Inf; output_1_output: argmax agreement 294/300"
+  }
+ ]
+}

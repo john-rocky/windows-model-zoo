@@ -1,0 +1,428 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "sam2_decoder",
+ "cell": "task-ovnpu_pre",
+ "kind": "vision",
+ "runtime": {
+  "id": "openvino",
+  "label": "OpenVINO 2026.4.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "z1-npu-blob",
+  "label": "NPU blob",
+  "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
+  "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
+  "from": null
+ },
+ "line": {
+  "id": "task-mask",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-mask: mIoU 0.52338 (pass mark mIoU at least 0.95)",
+  "reference": "raw/z5/refs/sam2_decoder/ref.json",
+  "detail": {
+   "miou": 0.52338,
+   "iou_background": 0.60721,
+   "iou_object": 0.43955,
+   "bar": 0.95,
+   "pass": false
+  },
+  "text": "mIoU 0.52338"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/sam2_decoder/task-ovnpu_pre/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "sam2_decoder",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\sam2_decoder",
+   "--form",
+   "blob",
+   "--engine",
+   "ovblob",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\sam2_decoder\\task-ovnpu_pre\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "mIoU 0.52338"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:28:07.656240+09:00",
+  "ended": "2026-11-10T07:28:08.594131+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 10.366,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 0.01,
+  "warmup_s": 0.025,
+  "load_ms": 10.0
+ },
+ "memory": {
+  "peak_ws_bytes": 191574016,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "mask",
+  "scores": {
+   "outputs": {
+    "o0": {
+     "cos": 0.76786,
+     "max_abs": 77.54776,
+     "nonfinite": 0,
+     "values": 3932160
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "openvino": "2026.4.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino": {
+    "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+    "DEVICE_LUID": "4c3e010000000000",
+    "NPU_DRIVER_VERSION": "1004841",
+    "NPU_COMPILER_VERSION": "524292",
+    "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
+   }
+  },
+  "providers": [
+   "OpenVINO 2026.4.1-22982-e213a147257-releases/2026/4 import_model NPU",
+   "NPU"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\sam2_decoder\\inputs.npz",
+   "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
+   "bytes": 335591062,
+   "n": 20
+  },
+  "model_file": {
+   "what": "sam2_decoder form blob",
+   "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
+   "bytes": 21188737,
+   "sha256": "5f2c7ac3b608fdb07f6166fb4e5a03a419d24e208008d0eb2b82317cb8c43b03"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "c0": [
+     53926,
+     6897,
+     3488
+    ],
+    "c1": [
+     1225,
+     3488,
+     6897
+    ]
+   },
+   {
+    "id": "dinov2",
+    "c0": [
+     13763,
+     22686,
+     29076
+    ],
+    "c1": [
+     11,
+     29076,
+     22686
+    ]
+   },
+   {
+    "id": "gaze",
+    "c0": [
+     32990,
+     73,
+     293
+    ],
+    "c1": [
+     32180,
+     293,
+     73
+    ]
+   },
+   {
+    "id": "hsemotion",
+    "c0": [
+     20561,
+     0,
+     340
+    ],
+    "c1": [
+     44635,
+     340,
+     0
+    ]
+   },
+   {
+    "id": "lowlight",
+    "c0": [
+     19610,
+     1733,
+     11418
+    ],
+    "c1": [
+     32775,
+     11418,
+     1733
+    ]
+   },
+   {
+    "id": "metric3d",
+    "c0": [
+     49476,
+     3100,
+     12932
+    ],
+    "c1": [
+     28,
+     12932,
+     3100
+    ]
+   },
+   {
+    "id": "migan",
+    "c0": [
+     27302,
+     5514,
+     7757
+    ],
+    "c1": [
+     24963,
+     7757,
+     5514
+    ]
+   },
+   {
+    "id": "mlsd",
+    "c0": [
+     24504,
+     2664,
+     12572
+    ],
+    "c1": [
+     25796,
+     12572,
+     2664
+    ]
+   },
+   {
+    "id": "nafnet",
+    "c0": [
+     15743,
+     1138,
+     25214
+    ],
+    "c1": [
+     23441,
+     25214,
+     1138
+    ]
+   },
+   {
+    "id": "neuralstyle",
+    "c0": [
+     4994,
+     14,
+     51993
+    ],
+    "c1": [
+     8535,
+     51993,
+     14
+    ]
+   },
+   {
+    "id": "nima",
+    "c0": [
+     51106,
+     7002,
+     6947
+    ],
+    "c1": [
+     481,
+     6947,
+     7002
+    ]
+   },
+   {
+    "id": "places365",
+    "c0": [
+     6140,
+     6,
+     28368
+    ],
+    "c1": [
+     31022,
+     28368,
+     6
+    ]
+   },
+   {
+    "id": "ppocr",
+    "c0": [
+     61166,
+     174,
+     2710
+    ],
+    "c1": [
+     1486,
+     2710,
+     174
+    ]
+   },
+   {
+    "id": "rtmanimal",
+    "c0": [
+     53386,
+     10868,
+     1280
+    ],
+    "c1": [
+     2,
+     1280,
+     10868
+    ]
+   },
+   {
+    "id": "rtmface",
+    "c0": [
+     23454,
+     5486,
+     771
+    ],
+    "c1": [
+     35825,
+     771,
+     5486
+    ]
+   },
+   {
+    "id": "rtmhand",
+    "c0": [
+     3150,
+     103,
+     47506
+    ],
+    "c1": [
+     14777,
+     47506,
+     103
+    ]
+   },
+   {
+    "id": "rtmpose",
+    "c0": [
+     45979,
+     5080,
+     14445
+    ],
+    "c1": [
+     32,
+     14445,
+     5080
+    ]
+   },
+   {
+    "id": "saliency",
+    "c0": [
+     20867,
+     6624,
+     38016
+    ],
+    "c1": [
+     29,
+     38016,
+     6624
+    ]
+   },
+   {
+    "id": "tddfa",
+    "c0": [
+     26078,
+     7572,
+     699
+    ],
+    "c1": [
+     31187,
+     699,
+     7572
+    ]
+   },
+   {
+    "id": "yunet",
+    "c0": [
+     54248,
+     6807,
+     4228
+    ],
+    "c1": [
+     253,
+     4228,
+     6807
+    ]
+   }
+  ],
+  "z1_cell": "ovnpu_pre",
+  "workload": {
+   "set": "images",
+   "task": "mask",
+   "form": "blob",
+   "engine": "ovblob",
+   "ep": null,
+   "ov_device": null,
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\sam2_decoder\\task-ovnpu_pre\\run1.outputs.npz",
+   "bytes": 15733622,
+   "sha256": "4c4229e109012d50df8bbd608e9ffdb2f34544507780fa639cfcc0b295beae65",
+   "arrays": 20
+  }
+ }
+}

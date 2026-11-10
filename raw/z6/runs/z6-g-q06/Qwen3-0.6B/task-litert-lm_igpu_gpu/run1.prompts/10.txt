@@ -1,0 +1,7 @@
+<|im_start|>user
+Is 17 a prime number? Answer yes or no.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

@@ -1,0 +1,126 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T07:27:37.515639+09:00",
+ "argv": [
+  "--model",
+  "rtmw_fp16",
+  "--spec",
+  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\zoo-template\\work\\rtmw_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z5-a\\rtmw_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 28980,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.0065337999840267,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.006582000001799315,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.0061372999916784465,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.005930699990130961,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.0062058999901637435,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "rtmw_fp16 form fp16",
+  "path": "C:\\src\\zoo\\fp16\\rtmw_fp16.onnx",
+  "bytes": 66605565,
+  "sha256": "5bf580662f29eb9fe206552c31637cce5417f386f0e6ded2a68540fd5bc8af67"
+ },
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\rtmw_fp16\\inputs.npz",
+  "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
+  "bytes": 2950582,
+  "n": 5
+ },
+ "load_s": 1.193,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.85,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtmw_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 2385862,
+  "sha256": "5a91e47a7f00e8f79b5ff1b4f3a76f2db4eee0b38286d063059f7610f7e0e07d",
+  "arrays": 10
+ },
+ "summary": {
+  "clips": 5,
+  "inputs": 5,
+  "median_ms": 6.206,
+  "min_ms": 5.931,
+  "max_ms": 6.582,
+  "value": 6.206
+ },
+ "peak_working_set_bytes": 1575747584,
+ "peak_pagefile_bytes": 3166568448,
+ "ended": "2026-11-10T07:27:40.047140+09:00",
+ "process_s": 2.545
+}

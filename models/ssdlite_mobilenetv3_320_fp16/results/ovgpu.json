@@ -1,0 +1,382 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "ssdlite_mobilenetv3_320_fp16",
+ "cell": "ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel Graphics (iGPU)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, the EP's default precision",
+  "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T10:49:47.412566+09:00",
+  "ended": "2026-11-07T10:49:51.092202+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 1.130899996496737,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 1.130899996496737,
+   "p10": 1.1182000016560778,
+   "p90": 1.1547000030986965,
+   "min": 1.1133000007248484,
+   "max": 1.2366000009933487,
+   "n": 30
+  },
+  "first_pass_value": 4.934899996442255,
+  "load_ms": 1853.4062000035192,
+  "load_ms_first_pass": 3080.7152000052156,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     546,
+     20,
+     20
+    ],
+    "max_abs": 0.028746604919433594,
+    "mean_abs": 0.003798459929493463,
+    "cos": 0.9999972914993002,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.131280899047852,
+    "ref_max": 14.932987213134766,
+    "ref_range": 21.064268112182617,
+    "max_abs_over_range": 0.0013647094105685002,
+    "argmax": {
+     "positions": 2400,
+     "counted": 2400,
+     "agree": 2391,
+     "rate": 0.99625,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.005816459655761719,
+     "ref_margin_median": 0.6154522895812988
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     24,
+     20,
+     20
+    ],
+    "max_abs": 0.04099702835083008,
+    "mean_abs": 0.0034585394637542777,
+    "cos": 0.9999981320833112,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -13.318225860595703,
+    "ref_max": 3.9325971603393555,
+    "ref_range": 17.250823974609375,
+    "max_abs_over_range": 0.0023765258060236168
+   },
+   {
+    "name": "serving_default_output_2_output",
+    "shape": [
+     1,
+     546,
+     10,
+     10
+    ],
+    "max_abs": 0.030181050300598145,
+    "mean_abs": 0.003509249955819981,
+    "cos": 0.9999969201926274,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.560080051422119,
+    "ref_max": 15.762990951538086,
+    "ref_range": 22.323070526123047,
+    "max_abs_over_range": 0.0013520116000744378,
+    "argmax": {
+     "positions": 600,
+     "counted": 600,
+     "agree": 596,
+     "rate": 0.9933333333333333,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.014176249504089355,
+     "ref_margin_median": 0.5959957838058472
+    }
+   },
+   {
+    "name": "serving_default_output_3_output",
+    "shape": [
+     1,
+     24,
+     10,
+     10
+    ],
+    "max_abs": 0.014323711395263672,
+    "mean_abs": 0.0015343387677179028,
+    "cos": 0.9999973270818833,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -3.3414056301116943,
+    "ref_max": 2.755051612854004,
+    "ref_range": 6.096457481384277,
+    "max_abs_over_range": 0.002349513867520863
+   },
+   {
+    "name": "serving_default_output_4_output",
+    "shape": [
+     1,
+     546,
+     5,
+     5
+    ],
+    "max_abs": 0.022925376892089844,
+    "mean_abs": 0.002937455709261185,
+    "cos": 0.9999971798302271,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -4.485137939453125,
+    "ref_max": 14.820100784301758,
+    "ref_range": 19.305238723754883,
+    "max_abs_over_range": 0.0011875210257763051,
+    "argmax": {
+     "positions": 150,
+     "counted": 150,
+     "agree": 149,
+     "rate": 0.9933333333333333,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": 0.003654956817626953,
+     "ref_margin_median": 0.597374439239502
+    }
+   },
+   {
+    "name": "serving_default_output_5_output",
+    "shape": [
+     1,
+     24,
+     5,
+     5
+    ],
+    "max_abs": 0.013385295867919922,
+    "mean_abs": 0.0017629379608357946,
+    "cos": 0.9999961019481028,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.3096625804901123,
+    "ref_max": 2.21162748336792,
+    "ref_range": 4.521289825439453,
+    "max_abs_over_range": 0.0029605038351238453
+   },
+   {
+    "name": "serving_default_output_6_output",
+    "shape": [
+     1,
+     546,
+     3,
+     3
+    ],
+    "max_abs": 0.022373199462890625,
+    "mean_abs": 0.0030962288319068784,
+    "cos": 0.9999956635638994,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.640242099761963,
+    "ref_max": 11.291144371032715,
+    "ref_range": 13.931386947631836,
+    "max_abs_over_range": 0.0016059563593338992,
+    "argmax": {
+     "positions": 54,
+     "counted": 54,
+     "agree": 54,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8506059050559998
+    }
+   },
+   {
+    "name": "serving_default_output_7_output",
+    "shape": [
+     1,
+     24,
+     3,
+     3
+    ],
+    "max_abs": 0.006259985268115997,
+    "mean_abs": 0.0013745334473680014,
+    "cos": 0.9999984378766699,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.150838851928711,
+    "ref_max": 1.9105496406555176,
+    "ref_range": 4.0613884925842285,
+    "max_abs_over_range": 0.001541341164369336
+   },
+   {
+    "name": "serving_default_output_8_output",
+    "shape": [
+     1,
+     546,
+     2,
+     2
+    ],
+    "max_abs": 0.01538705825805664,
+    "mean_abs": 0.002480540402837425,
+    "cos": 0.9999964614193338,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.738464593887329,
+    "ref_max": 10.291595458984375,
+    "ref_range": 13.030059814453125,
+    "max_abs_over_range": 0.0011808893034388913,
+    "argmax": {
+     "positions": 24,
+     "counted": 24,
+     "agree": 24,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.5708129405975342
+    }
+   },
+   {
+    "name": "serving_default_output_9_output",
+    "shape": [
+     1,
+     24,
+     2,
+     2
+    ],
+    "max_abs": 0.005247950553894043,
+    "mean_abs": 0.0012371207897861798,
+    "cos": 0.9999989450841,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.7775182723999023,
+    "ref_max": 2.0845110416412354,
+    "ref_range": 4.862029075622559,
+    "max_abs_over_range": 0.0010793745722760962
+   },
+   {
+    "name": "serving_default_output_10_output",
+    "shape": [
+     1,
+     546,
+     1,
+     1
+    ],
+    "max_abs": 0.02134561538696289,
+    "mean_abs": 0.0032879623866745784,
+    "cos": 0.9999960397918602,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -1.8985267877578735,
+    "ref_max": 9.324764251708984,
+    "ref_range": 11.223291397094727,
+    "max_abs_over_range": 0.00190190333937943,
+    "argmax": {
+     "positions": 6,
+     "counted": 6,
+     "agree": 6,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 1,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 0.8400770425796509
+    }
+   },
+   {
+    "name": "serving_default_output_11_output",
+    "shape": [
+     1,
+     24,
+     1,
+     1
+    ],
+    "max_abs": 0.005579352378845215,
+    "mean_abs": 0.0019235449532667797,
+    "cos": 0.9999973955659146,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -2.0585763454437256,
+    "ref_max": 1.3678840398788452,
+    "ref_range": 3.4264602661132812,
+    "max_abs_over_range": 0.0016283137539995502
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000",
+   "counter_luid": "0x00000000_0x0001260e"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 131523,
+   "graph_nodes": 289
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "866c599ce93864327f0c3a073bb2ced8d29f7f38891f9cea7435fad7aed17147",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/ssdlite_mobilenetv3_320_fp16/ovgpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/ovgpu.json"
+ },
+ "note": []
+}

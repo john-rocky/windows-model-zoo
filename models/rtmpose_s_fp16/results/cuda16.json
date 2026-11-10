@@ -1,0 +1,176 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtmpose_s_fp16",
+ "cell": "cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp16",
+  "label": "fp16 copy (convert_float_to_float16, I/O kept fp32)",
+  "sha256": "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T05:17:26.677082+09:00",
+  "ended": "2026-11-07T05:17:30.436657+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_0_output: argmax agreement 16/17; serving_default_output_1_output: argmax agreement 15/17",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_0_output: argmax agreement 16/17",
+   "serving_default_output_1_output: argmax agreement 15/17"
+  ],
+  "reason_candidate": "argmax flips where the reference margin between top-1 and top-2 is small (see flipped_ref_margin_median)"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 2.720450000197161,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 2.720450000197161,
+   "p10": 2.559300002758391,
+   "p90": 3.4269000025233254,
+   "min": 2.3566000018035993,
+   "max": 3.5340000031283125,
+   "n": 30
+  },
+  "first_pass_value": 3.6572499957401305,
+  "load_ms": 1256.7917999986093,
+  "load_ms_first_pass": 1043.1572999950731,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     17,
+     384
+    ],
+    "max_abs": 0.008532360196113586,
+    "mean_abs": 0.0012064366004690952,
+    "cos": 0.9999763396916774,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.8678206205368042,
+    "ref_max": 1.0466028451919556,
+    "ref_range": 1.9144234657287598,
+    "max_abs_over_range": 0.004456882371563279,
+    "argmax": {
+     "positions": 17,
+     "counted": 17,
+     "agree": 16,
+     "rate": 0.9411764705882353,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.00075531005859375,
+     "ref_margin_median": 0.003258943557739258
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     17,
+     512
+    ],
+    "max_abs": 0.008383959531784058,
+    "mean_abs": 0.0011670887815126087,
+    "cos": 0.9999782611732231,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.638265073299408,
+    "ref_max": 1.0219100713729858,
+    "ref_range": 1.660175085067749,
+    "max_abs_over_range": 0.005050045388099486,
+    "argmax": {
+     "positions": 17,
+     "counted": 17,
+     "agree": 15,
+     "rate": 0.8823529411764706,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.00032266974449157715,
+     "ref_margin_median": 0.0013405680656433105
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 172
+   },
+   "cpu_ops": {},
+   "profile_bytes": 301618,
+   "graph_nodes": 221
+  },
+  "query_model": null,
+  "fp16_convert": {
+   "path": "C:\\src\\zoo\\fp16\\rtmpose_s_fp16.onnx",
+   "seconds": 0.2182182999968063,
+   "bytes": 11359791,
+   "sha256": "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880",
+   "tool": "onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True)",
+   "dropped_identical_nodes": 0,
+   "renamed_duplicate_node_names": 0,
+   "topo_sorted": true,
+   "cached": true
+  },
+  "input_sha256": "5cab873f4fd5a6436bab7e49bae887625e5e9885940ced559fc55d75b1681a06",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtmpose_s_fp16/cuda16.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtmpose_s_fp16/cuda16.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "cuda16 FAIL: output_0_output: argmax agreement 16/17; output_1_output: argmax agreement 15/17"
+  }
+ ]
+}

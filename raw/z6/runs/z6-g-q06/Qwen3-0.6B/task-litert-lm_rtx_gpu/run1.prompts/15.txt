@@ -1,0 +1,7 @@
+<|im_start|>user
+At what temperature in Celsius does water freeze? Reply with only the number.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

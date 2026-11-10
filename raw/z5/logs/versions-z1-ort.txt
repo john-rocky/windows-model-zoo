@@ -1,0 +1,13 @@
+python 3.12.16
+executable C:\src\zoo-template\.venv-z1-ort\Scripts\python.exe
+base_executable C:\src\zoo-template\python\cpython-3.12-windows-x86_64-none\python.exe
+flatbuffers==25.12.19
+ml_dtypes==0.6.0
+numpy==2.5.4
+onnx==1.23.2
+onnxruntime-ep-openvino==1.8.1
+onnxruntime==1.31.1
+packaging==26.3
+pillow==13.0.0
+protobuf==7.36.2
+typing_extensions==4.16.0

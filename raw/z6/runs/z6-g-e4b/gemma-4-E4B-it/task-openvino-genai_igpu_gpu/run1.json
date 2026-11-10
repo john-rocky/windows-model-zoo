@@ -1,0 +1,510 @@
+{
+ "runner": "run_llm_ovg.py",
+ "started": "2026-11-10T09:12:45.845889+09:00",
+ "argv": [
+  "--model-dir",
+  "C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E4B-it-int4-ov",
+  "--device",
+  "GPU.0",
+  "--cache-dir",
+  "C:\\src\\zoo-template\\ovcache\\gemma-4-E4B-it_gpu0",
+  "--ref",
+  "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z6-g-e4b\\gemma-4-E4B-it\\task-openvino-genai_igpu_gpu\\run1.json"
+ ],
+ "pid": 30992,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "q01",
+   "role": "question",
+   "prompt_tokens": 21,
+   "text": "Paris",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1695626000291668,
+   "first_token_ms": 114.341796875,
+   "tpot_ms": {
+    "mean": 54.58549880981445,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q02",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "12",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.21593679999932647,
+   "first_token_ms": 104.0708999633789,
+   "tpot_ms": {
+    "mean": 55.58440017700195,
+    "std": 7.652701377868652
+   }
+  },
+  {
+   "id": "q03",
+   "role": "question",
+   "prompt_tokens": 24,
+   "text": "36",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.19943109998712316,
+   "first_token_ms": 89.406494140625,
+   "tpot_ms": {
+    "mean": 54.684852600097656,
+    "std": 6.315249919891357
+   }
+  },
+  {
+   "id": "q04",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "tac",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14168390003032982,
+   "first_token_ms": 79.16790771484375,
+   "tpot_ms": {
+    "mean": 61.875396728515625,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q05",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "Mars",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14302560000214726,
+   "first_token_ms": 79.1572036743164,
+   "tpot_ms": {
+    "mean": 63.113197326660156,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q06",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "7",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14255400002002716,
+   "first_token_ms": 79.72710418701172,
+   "tpot_ms": {
+    "mean": 62.17770004272461,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q07",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "Cold",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18936439999379218,
+   "first_token_ms": 125.68499755859375,
+   "tpot_ms": {
+    "mean": 63.04750061035156,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q08",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "ありがとう",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14511629997286946,
+   "first_token_ms": 79.71759796142578,
+   "tpot_ms": {
+    "mean": 64.74710083007812,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q09",
+   "role": "question",
+   "prompt_tokens": 25,
+   "text": "Green",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.24192919995402917,
+   "first_token_ms": 187.66429138183594,
+   "tpot_ms": {
+    "mean": 53.502498626708984,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q10",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "Au",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.13991700002225116,
+   "first_token_ms": 79.12260437011719,
+   "tpot_ms": {
+    "mean": 60.13410186767578,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q11",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "Yes",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.1399464999558404,
+   "first_token_ms": 85.58509826660156,
+   "tpot_ms": {
+    "mean": 53.75530242919922,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q12",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "Pacific Ocean",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18012169998837635,
+   "first_token_ms": 77.68800354003906,
+   "tpot_ms": {
+    "mean": 50.881248474121094,
+    "std": 3.0547499656677246
+   }
+  },
+  {
+   "id": "q13",
+   "role": "question",
+   "prompt_tokens": 22,
+   "text": "William Shakespeare",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.18415859999367967,
+   "first_token_ms": 79.61430358886719,
+   "tpot_ms": {
+    "mean": 51.939849853515625,
+    "std": 3.8240487575531006
+   }
+  },
+  {
+   "id": "q14",
+   "role": "question",
+   "prompt_tokens": 26,
+   "text": "25",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.23034879995975643,
+   "first_token_ms": 122.7417984008789,
+   "tpot_ms": {
+    "mean": 53.4151496887207,
+    "std": 4.806650161743164
+   }
+  },
+  {
+   "id": "q15",
+   "role": "question",
+   "prompt_tokens": 31,
+   "text": "10",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 3,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.20347980002406985,
+   "first_token_ms": 97.65480041503906,
+   "tpot_ms": {
+    "mean": 52.50175094604492,
+    "std": 2.8438515663146973
+   }
+  },
+  {
+   "id": "q16",
+   "role": "question",
+   "prompt_tokens": 24,
+   "text": "0",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14252739999210462,
+   "first_token_ms": 79.32969665527344,
+   "tpot_ms": {
+    "mean": 62.52429962158203,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q17",
+   "role": "question",
+   "prompt_tokens": 35,
+   "text": "same",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.3007221999578178,
+   "first_token_ms": 235.72560119628906,
+   "tpot_ms": {
+    "mean": 64.19529724121094,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q18",
+   "role": "question",
+   "prompt_tokens": 25,
+   "text": "9",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.155648400017526,
+   "first_token_ms": 90.21979522705078,
+   "tpot_ms": {
+    "mean": 64.69180297851562,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q19",
+   "role": "question",
+   "prompt_tokens": 24,
+   "text": "HELLO",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14918419998139143,
+   "first_token_ms": 81.16049194335938,
+   "tpot_ms": {
+    "mean": 67.4507064819336,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "q20",
+   "role": "question",
+   "prompt_tokens": 23,
+   "text": "8",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 48,
+   "wall_s": 0.14582010003505275,
+   "first_token_ms": 81.0188980102539,
+   "tpot_ms": {
+    "mean": 64.20800018310547,
+    "std": 0.0
+   }
+  },
+  {
+   "id": "gate",
+   "role": "gate",
+   "prompt_tokens": 20,
+   "text": "2",
+   "prompt_form": "the rendered string as it is (the warm-up's input count = the reference's)",
+   "tokenizer_ids_same": {
+    "add_special_tokens=True": true,
+    "add_special_tokens=False": true
+   },
+   "new_tokens": 2,
+   "eos": true,
+   "stop": "fewer than max",
+   "max_new": 16,
+   "wall_s": 0.15208439994603395,
+   "first_token_ms": 90.11209106445312,
+   "tpot_ms": {
+    "mean": 61.27680206298828,
+    "std": 0.0
+   }
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "openvino-genai": "2026.4.1.0",
+  "openvino": "2026.4.1",
+  "openvino-tokenizers": "2026.4.1.0",
+  "numpy": "2.5.4"
+ },
+ "load_s": 72.468,
+ "pipeline": "vlm",
+ "workload": {
+  "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "prompts": 21,
+  "device": "GPU.0",
+  "pipeline": "vlm",
+  "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+  "max_new_tokens": 48,
+  "gate_max_new_tokens": 16,
+  "chat_template": "none here: the reference's rendered prompt in the form the warm-up decides (vlm_form), apply_chat_template False",
+  "stop_token_ids": [
+   1,
+   50,
+   106
+  ]
+ },
+ "vlm_form": {
+  "warmup_input_tokens": 21,
+  "reference_tokens": 21,
+  "form": "the rendered string as it is (the warm-up's input count = the reference's)"
+ },
+ "warmup_s": 0.555,
+ "summary": {
+  "clips": 21,
+  "prompts": 21,
+  "new_tokens": 48,
+  "wall_s": 3.713,
+  "tok_per_s": 12.929,
+  "eos": 21,
+  "value": 12.929
+ },
+ "peak_working_set_bytes": 7873626112,
+ "peak_pagefile_bytes": 8093507584,
+ "ended": "2026-11-10T09:14:03.013260+09:00",
+ "process_s": 77.155
+}

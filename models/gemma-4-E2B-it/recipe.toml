@@ -1,0 +1,621 @@
+# gemma-4-E2B-it: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "llm"
+title = "gemma-4-E2B-it"
+order = 1003
+source = "google/gemma-4-E2B-it"
+source_revision = "4adf15748de9"
+license = "apache-2.0"
+pipeline_tag = "any-to-any"
+migrated_from = "john-rocky/windows-llm-zoo@a1b4ffa"
+
+[[line]]
+id = "text-check"
+kind = "text-integrity"
+rule = "edge-llm-bench's textCheck on every counted run's cold and warm text: at least 32 alphanumeric characters and 10 distinct words, a word of the task (on.device|phone|local|cloud|offline|privacy|ai), and no line repeated over half of 4 or more lines; a failing run is not counted (the answer's correctness is not judged)"
+written = "2026-10-06T19:20:09+09:00"
+written_note = "edge-llm-bench c6498ccd (methodology/fairness-rules.md section 12, the text-check-rule); adopted by windows-llm-zoo PLAN.md section 1 on 2026-11-07 14:55 JST"
+plan = "edge-llm-bench fairness-rules.md section 12; windows-llm-zoo PLAN.md section 1"
+
+[[line]]
+id = "qa20"
+kind = "task"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers fp32 on this PC's CPU"
+written = "2026-11-10T07:58:00+09:00"
+written_note = "PLAN.md section Z6 (Z6 lane), written before the reference or any cell of this line ran; the probes of 07:54-07:56 on the PC used another prompt"
+plan = "PLAN.md section Z6 and section 1b"
+
+[[cell]]
+id = "foundry_auto_webgpu"
+runtime = "foundry"
+device = "rtx"
+form = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_cpu_cpu"
+runtime = "foundry"
+device = "cpu"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_rtx_cuda"
+runtime = "foundry"
+device = "rtx"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "litert-lm_cpu_cpu"
+runtime = "litert-lm"
+device = "cpu"
+form = "wNa8o8 (int2/int4/int8 + int8 activations, QAT)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "litert-lm_igpu_gpu"
+runtime = "litert-lm"
+device = "igpu"
+form = "wNa8o8 (int2/int4/int8 + int8 activations, QAT)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "litert-lm_npu_npu"
+runtime = "litert-lm"
+device = "npu"
+form = "Intel PTL NPU bundle, AOT, context 4096 (recipe not stated by the repo)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "litert-lm_rtx_gpu"
+runtime = "litert-lm"
+device = "rtx"
+form = "wNa8o8 (int2/int4/int8 + int8 activations, QAT)"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+form = "Q4_K_M"
+line = "text-check"
+migrated = true
+script = "edge-llm-bench executor"
+
+[[cell]]
+id = "openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+form = "int4_asym g128 r1.0"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_igpu_gpu"
+runtime = "openvino-genai"
+device = "igpu"
+form = "int4_asym g128 r1.0"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_npu_npu"
+runtime = "openvino-genai"
+device = "npu"
+form = "int4_sym g-1 r1.0"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "openvino-genai_rtx_gpu"
+runtime = "openvino-genai"
+device = "rtx"
+form = "int4_asym g128 r1.0"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_ovgenai.py"
+
+[[cell]]
+id = "ort-genai_cpu_cpu"
+runtime = "ort-genai"
+device = "cpu"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_cpu_openvino"
+runtime = "ort-genai"
+device = "cpu"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_igpu_openvino"
+runtime = "ort-genai"
+device = "igpu"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_igpu_webgpu"
+runtime = "ort-genai"
+device = "igpu"
+form = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_npu_openvino"
+runtime = "ort-genai"
+device = "npu"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_rtx_cuda"
+runtime = "ort-genai"
+device = "rtx"
+form = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "ort-genai_rtx_webgpu"
+runtime = "ort-genai"
+device = "rtx"
+form = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/run_genai.py"
+
+[[cell]]
+id = "llama.cpp_npu_openvino"
+runtime = "llama.cpp"
+device = "npu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "llama.cpp_igpu_vulkan-sycl"
+runtime = "llama.cpp"
+device = "igpu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_npu_openvino"
+runtime = "foundry"
+device = "npu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+[[cell]]
+id = "foundry_igpu_openvino-webgpu"
+runtime = "foundry"
+device = "igpu"
+form = "none"
+line = "text-check"
+migrated = true
+script = "windows-llm-zoo:pc/-"
+
+# ---- Z6 (migrate/z6.py): the qa20 task cells of the Z2 cells that pass only the text-integrity line ----
+
+[[fetch]]
+repo = "google/gemma-4-E2B-it"
+revision = "4adf15748de9e1a0097b6274cee9c15836c41c37"
+include = ["*.json", "*.safetensors", "*.jinja"]
+
+[[fetch]]
+repo = "OpenVINO/gemma-4-E2B-it-int4-ov"
+revision = "81a7dc381261ebcea9aac4849aac35496475b389"
+
+[[fetch]]
+repo = "OpenVINO/gemma-4-E2B-it-int4-cw-ov"
+revision = "8c813bae3fe671dcccf74d5d1aff1cf4045d0de2"
+
+[[fetch]]
+repo = "litert-community/gemma-4-E2B-it-litert-lm"
+revision = "3d48132a00cf76de57d926de30f5c5c5ed9b8c0d"
+include = ["gemma-4-E2B-it.litertlm", "gemma-4-E2B-it_intel_PTL.litertlm"]
+why = "the file the LiteRT-LM / llama.cpp cells ran (the cells name it by byte count; this revision's file has that count)"
+
+[[fetch]]
+repo = "unsloth/gemma-4-E2B-it-GGUF"
+revision = "0314792d7f1f7e229411f620751375812bb9faf2"
+include = ["gemma-4-E2B-it-Q4_K_M.gguf"]
+why = "the file the LiteRT-LM / llama.cpp cells ran (the cells name it by byte count; this revision's file has that count)"
+
+[[form]]
+id = "foundry:Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym accNone: int4 x277"
+label = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files in the PC's cache)"
+from = "Foundry Local catalog gemma-4-e2b-it-generic-gpu:3"
+
+[[form]]
+id = "foundry:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym accNone: int8 x141, int4 x135"
+label = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+from = "Foundry Local catalog gemma-4-e2b-it-generic-cpu:3"
+
+[[form]]
+id = "foundry:Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym accNone: int8 x141, int4 x135"
+label = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+from = "Foundry Local catalog gemma-4-e2b-it-cuda-gpu:3"
+
+[[form]]
+id = "litert:gemma-4-E2B-it.litertlm"
+short = "wNa8o8 (int2/int4/int8 + int8 activations, QAT)"
+label = "wNa8o8 (int2/int4/int8 + int8 activations, QAT); the bench's file gemma-4-E2B-it.litertlm (2588147712 bytes)"
+from = "litert-community/gemma-4-E2B-it-litert-lm"
+
+[[form]]
+id = "litert:gemma-4-E2B-it_intel_PTL.litertlm"
+short = "Intel PTL NPU bundle, AOT"
+label = "Intel PTL NPU bundle, AOT, context 4096 (recipe not stated by the repo); the bench's file gemma-4-E2B-it_intel_PTL.litertlm (2948333568 bytes)"
+from = "litert-community/gemma-4-E2B-it-litert-lm"
+
+[[form]]
+id = "gguf:gemma-4-E2B-it-Q4_K_M.gguf"
+short = "Q4_K_M"
+label = "Q4_K_M; the bench's file gemma-4-E2B-it-Q4_K_M.gguf (3106738272 bytes)"
+from = "unsloth/gemma-4-E2B-it-GGUF"
+
+[[form]]
+id = "ov:OpenVINO/gemma-4-E2B-it-int4-ov"
+short = "int4_asym g128 r1.0"
+label = "int4_asym g128 r1.0; OpenVINO/gemma-4-E2B-it-int4-ov@81a7dc381261ebcea9aac4849aac35496475b389"
+from = "OpenVINO/gemma-4-E2B-it-int4-ov"
+
+[[form]]
+id = "ov:OpenVINO/gemma-4-E2B-it-int4-cw-ov"
+short = "int4_sym g-1 r1.0"
+label = "int4_sym g-1 r1.0; OpenVINO/gemma-4-E2B-it-int4-cw-ov@8c813bae3fe671dcccf74d5d1aff1cf4045d0de2"
+from = "OpenVINO/gemma-4-E2B-it-int4-cw-ov"
+
+[[form]]
+id = "genai:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym accNone: int8 x141, int4 x135"
+label = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+from = "Foundry Local catalog gemma-4-e2b-it-generic-cpu:3"
+
+[[form]]
+id = "genai:Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+short = "MatMulNBits b32 asym accNone: int8 x141, int4 x135"
+label = "MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+from = "Foundry Local catalog gemma-4-e2b-it-cuda-gpu:3"
+
+[[form]]
+id = "genai:Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files), WebGPU overlay adapterIndex=0"
+short = "MatMulNBits b32 asym accNone: int4 x277"
+label = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]; Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files), WebGPU overlay adapterIndex=0"
+from = "Foundry Local catalog gemma-4-e2b-it-generic-gpu:3"
+
+[[step]]
+name = "z6-setup"
+venv = "genai"
+script = "pc/z6_setup.py"
+args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "gemma-4-E2B-it", "--root", "{ROOT}"]
+timeout_min = 60
+
+[[step]]
+name = "reference"
+venv = "ref"
+script = "pc/ref_llm_hf.py"
+args = ["--model-dir", "{HUB}\\google__gemma-4-E2B-it", "--suite", "{ROOT}\\suites\\llm\\qa20.jsonl", "--out", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+reference = "refs/gemma-4-E2B-it/ref.json"
+ram_gb = 22
+lock = true
+timeout_min = 30
+
+[[cell]]
+id = "task-foundry_auto_webgpu"
+runtime = "foundry"
+device = "rtx"
+line = "qa20"
+z2_cell = "foundry_auto_webgpu"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files in the PC's cache)"
+timeout_min = 40
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3", "--id", "z6-gemma-4-e2b-it-generic-gpu:1", "--device", "gpu", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json", "--daemon-env", "CUDA_VISIBLE_DEVICES=-1"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-foundry_cpu_cpu"
+runtime = "foundry"
+device = "cpu"
+line = "qa20"
+z2_cell = "foundry_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+timeout_min = 150
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--id", "z6-gemma-4-e2b-it-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-foundry_rtx_cuda"
+runtime = "foundry"
+device = "rtx"
+line = "qa20"
+z2_cell = "foundry_rtx_cuda"
+venv = "genai"
+script = "pc/run_llm_foundry.py"
+form = "foundry:Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+timeout_min = 40
+foundry = true
+cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-cuda-gpu-3\\v3", "--id", "z6-gemma-4-e2b-it-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-litert-lm_cpu_cpu"
+runtime = "litert-lm"
+device = "cpu"
+line = "qa20"
+z2_cell = "litert-lm_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:gemma-4-E2B-it.litertlm"
+timeout_min = 60
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\cpu\\gemma-4-E2B-it.litertlm", "--backend", "cpu", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-litert-lm_igpu_gpu"
+runtime = "litert-lm"
+device = "igpu"
+line = "qa20"
+z2_cell = "litert-lm_igpu_gpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:gemma-4-E2B-it.litertlm"
+timeout_min = 45
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\igpu\\gemma-4-E2B-it.litertlm", "--backend", "gpu", "--adapter", "igpu", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-litert-lm_npu_npu"
+runtime = "litert-lm"
+device = "npu"
+line = "qa20"
+z2_cell = "litert-lm_npu_npu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:gemma-4-E2B-it_intel_PTL.litertlm"
+timeout_min = 45
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\npu\\gemma-4-E2B-it_intel_PTL.litertlm", "--backend", "npu", "--dispatch-dir", "{ROOT}\\engines\\litert", "--path-prepend", "{ROOT}\\engines\\openvino", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-litert-lm_rtx_gpu"
+runtime = "litert-lm"
+device = "rtx"
+line = "qa20"
+z2_cell = "litert-lm_rtx_gpu"
+venv = "genai"
+script = "pc/run_llm_litert.py"
+form = "litert:gemma-4-E2B-it.litertlm"
+timeout_min = 45
+cleanup = ["--cleanup", "--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe"]
+args = ["--exe", "{ROOT}\\engines\\litert\\litert_lm_advanced_main_windows.exe", "--model", "{ROOT}\\work\\litert\\rtx\\gemma-4-E2B-it.litertlm", "--backend", "gpu", "--adapter", "rtx", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+line = "qa20"
+z2_cell = "llama.cpp_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:gemma-4-E2B-it-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\gemma-4-E2B-it-Q4_K_M.gguf", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+z2_cell = "llama.cpp_rtx_cuda"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:gemma-4-E2B-it-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cuda\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\gemma-4-E2B-it-Q4_K_M.gguf", "--gpu", "--device-prefix", "CUDA", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+z2_cell = "llama.cpp_rtx_vulkan"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:gemma-4-E2B-it-Q4_K_M.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-gpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\gemma-4-E2B-it-Q4_K_M.gguf", "--gpu", "--device-prefix", "Vulkan", "--env", "GGML_VK_VISIBLE_DEVICES=0", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "openvino-genai_cpu_cpu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/gemma-4-E2B-it-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__gemma-4-E2B-it-int4-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-openvino-genai_igpu_gpu"
+runtime = "openvino-genai"
+device = "igpu"
+line = "qa20"
+z2_cell = "openvino-genai_igpu_gpu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/gemma-4-E2B-it-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__gemma-4-E2B-it-int4-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\gemma-4-E2B-it_gpu0", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-openvino-genai_npu_npu"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+z2_cell = "openvino-genai_npu_npu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/gemma-4-E2B-it-int4-cw-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__gemma-4-E2B-it-int4-cw-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\gemma-4-E2B-it_npu", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-openvino-genai_rtx_gpu"
+runtime = "openvino-genai"
+device = "rtx"
+line = "qa20"
+z2_cell = "openvino-genai_rtx_gpu"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/gemma-4-E2B-it-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__gemma-4-E2B-it-int4-ov", "--device", "GPU.1", "--cache-dir", "{ROOT}\\ovcache\\gemma-4-E2B-it_gpu1", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-ort-genai_cpu_cpu"
+runtime = "ort-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "ort-genai_cpu_cpu"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+timeout_min = 150
+args = ["--model-dir", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-ort-genai_cpu_openvino"
+runtime = "ort-genai"
+device = "cpu"
+line = "qa20"
+z2_cell = "ort-genai_cpu_openvino"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+timeout_min = 40
+args = ["--model-dir", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--ep", "openvino", "--ov-device", "CPU", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-ort-genai_igpu_openvino"
+runtime = "ort-genai"
+device = "igpu"
+line = "qa20"
+z2_cell = "ort-genai_igpu_openvino"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
+timeout_min = 40
+args = ["--model-dir", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--ep", "openvino", "--ov-device", "GPU", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-ort-genai_rtx_cuda"
+runtime = "ort-genai"
+device = "rtx"
+line = "qa20"
+z2_cell = "ort-genai_rtx_cuda"
+venv = "genai-cuda"
+script = "pc/run_llm_genai.py"
+form = "genai:Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
+timeout_min = 40
+args = ["--model-dir", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-cuda-gpu-3\\v3", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+[[cell]]
+id = "task-ort-genai_rtx_webgpu"
+runtime = "ort-genai"
+device = "rtx"
+line = "qa20"
+z2_cell = "ort-genai_rtx_webgpu"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files), WebGPU overlay adapterIndex=0"
+timeout_min = 40
+args = ["--model-dir", "{ROOT}\\overlays\\gemma-4-E2B-it_webgpu_a0", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+ram_need_gb = 10
+
+# ---- end Z6 ----

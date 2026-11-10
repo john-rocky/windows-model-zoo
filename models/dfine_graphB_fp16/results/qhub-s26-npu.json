@@ -1,0 +1,57 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dfine_graphB_fp16",
+ "cell": "qhub-s26-npu",
+ "kind": "vision",
+ "role": "other-device",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "qnn",
+  "label": "Qualcomm AI Hub, QNN precompiled (pqo)",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "s26-npu",
+  "label": "Samsung Galaxy S26 (Family)"
+ },
+ "form": {
+  "id": "pqo",
+  "label": "precompiled QNN context"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": null,
+  "ended": null,
+  "error": null,
+  "job": "jpvme067p"
+ },
+ "line": null,
+ "speed": {
+  "metric": "ms",
+  "value": 446.809,
+  "timed": true,
+  "stat": "AI Hub estimated_inference_time",
+  "load_ms": 235.791,
+  "warm_load_ms": 237.762
+ },
+ "regime": {
+  "qos": "n/a",
+  "power": "n/a",
+  "timer": "ai-hub",
+  "qos_basis": "another device (AI Hub's own timer)"
+ },
+ "vision": {
+  "units": {
+   "NPU": 860
+  },
+  "peak_mem_bytes": 166203392
+ },
+ "source": {
+  "by": "Qualcomm AI Hub (the vision zoo's records of two other devices, 2026-10-30)",
+  "record": "aihub/results_wide.json[dfine_graphB_fp16|S26|pqo|npu]",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:aihub/results_wide.json"
+ },
+ "note": []
+}

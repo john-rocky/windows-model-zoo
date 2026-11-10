@@ -1,0 +1,8 @@
+{"url": "https://github.com/ggml-org/llama.cpp/releases/download/b11721/llama-b11721-bin-win-cpu-x64.zip", "path": "C:\\src\\model-zoo\\engines_src\\llama-b11721-bin-win-cpu-x64.zip", "size": 19667242, "sha256": "19f5a91cfbd906fadfb36975a65a0c165c7db1a533d5db129dfa0a533dfdeaa1", "ok": true, "tries": 1, "seconds": 2.4}
+{"made": "llama-cpu", "files": 51}
+{"url": "https://github.com/ggml-org/llama.cpp/releases/download/b11721/llama-b11721-bin-win-vulkan-x64.zip", "path": "C:\\src\\model-zoo\\engines_src\\llama-b11721-bin-win-vulkan-x64.zip", "size": 32315391, "sha256": "b2dab62833cc07aae4a1f28752874668b6a98d304a7f8ca6c1421a0d1e1a7075", "ok": true, "tries": 1, "seconds": 2.8}
+{"made": "llama-gpu", "files": 52}
+{"url": "https://github.com/ggml-org/llama.cpp/releases/download/b11721/llama-b11721-bin-win-cuda-13.4-x64.zip", "path": "C:\\src\\model-zoo\\engines_src\\llama-b11721-bin-win-cuda-13.4-x64.zip", "size": 155120624, "sha256": "3940b9610b05677978e79e4dca6e9002deccb20442b629a51d08019312ed3532", "ok": true, "tries": 1, "seconds": 8.6}
+{"url": "https://github.com/ggml-org/llama.cpp/releases/download/b11721/cudart-llama-bin-win-cuda-13.4-x64.zip", "path": "C:\\src\\model-zoo\\engines_src\\cudart-llama-bin-win-cuda-13.4-x64.zip", "size": 423535356, "sha256": "738f8c251ac22b70c3ae6f83a10cf222725df0395246a2cf58f32bdb85fbe668", "ok": true, "tries": 1, "seconds": 27.8}
+{"made": "llama-cuda", "files": 55}
+engines llama: OK

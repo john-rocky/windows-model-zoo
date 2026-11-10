@@ -1,0 +1,13 @@
+# The references (PyTorch, CPU, fp32) and the vision export: transformers for the LLM and Whisper checkpoints, timm for
+# the image classifiers and torch.onnx.export (onnxscript for its dynamo exporter). torch on PyPI for Windows is the CPU
+# build; torch 2.14.0 and transformers 5.22.2 = the audio zoo's reference venv (windows-audio-zoo pc/req/ref.txt);
+# torchvision 0.29.0 asks for torch==2.14.0 (PyPI metadata, read 2026-11-10); timm 1.0.30 = the latest release more than
+# two weeks old on 2026-11-10 (1.0.31: 2026-11-03)
+torch==2.14.0
+torchvision==0.29.0
+transformers==5.22.2
+timm==1.0.30
+onnx==1.23.2
+onnxscript==0.7.2
+pillow==13.0.0
+numpy==2.4.6

@@ -1,0 +1,593 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:33.962844+09:00",
+ "ended": "2026-11-10T07:18:36.489466+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "detection",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+  "n": 20,
+  "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
+  "bytes": 98309782,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    640,
+    640
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "dfine",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\ppocr_det_fp16.onnx",
+  "sha256": "6a6a9e4b650cb0cf9cdbce27febbef80da03a03cff04f228fb98daced51b0dc5"
+ },
+ "files": [
+  {
+   "what": "ppocr_det_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\ppocr_det_fp16.onnx",
+   "bytes": 10120421,
+   "sha256": "ad267728a3cfc76bb0598b0b32772e59159786e4dd5dfcb496723893c4e529af"
+  },
+  {
+   "what": "ppocr_det_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\ppocr_det_fp16.onnx",
+   "bytes": 17678543,
+   "sha256": "6a6a9e4b650cb0cf9cdbce27febbef80da03a03cff04f228fb98daced51b0dc5"
+  }
+ ],
+ "upstream": null,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\ppocr_det_fp16\\ref.outputs.npz",
+  "bytes": 32772982,
+  "sha256": "6ecdf132bc288958cd7d6d6ec176707d904cf7fb3bc6b906e72337572bce39d9",
+  "arrays": 20
+ },
+ "task": "detection",
+ "task_line": "task-detection",
+ "task_values": [
+  {
+   "id": "dfine",
+   "boxes": []
+  },
+  {
+   "id": "dinov2",
+   "boxes": []
+  },
+  {
+   "id": "gaze",
+   "boxes": []
+  },
+  {
+   "id": "hsemotion",
+   "boxes": []
+  },
+  {
+   "id": "lowlight",
+   "boxes": []
+  },
+  {
+   "id": "metric3d",
+   "boxes": []
+  },
+  {
+   "id": "migan",
+   "boxes": [
+    [
+     0,
+     0.969,
+     59.0,
+     204.0,
+     259.0,
+     322.0
+    ],
+    [
+     0,
+     0.931,
+     355.0,
+     204.0,
+     591.0,
+     323.0
+    ]
+   ]
+  },
+  {
+   "id": "mlsd",
+   "boxes": [
+    [
+     0,
+     0.957,
+     84.0,
+     138.0,
+     589.0,
+     419.0
+    ],
+    [
+     0,
+     0.874,
+     462.0,
+     379.0,
+     488.0,
+     389.0
+    ],
+    [
+     0,
+     0.824,
+     276.0,
+     411.0,
+     320.0,
+     436.0
+    ],
+    [
+     0,
+     0.819,
+     180.0,
+     326.0,
+     330.0,
+     455.0
+    ],
+    [
+     0,
+     0.784,
+     474.0,
+     395.0,
+     495.0,
+     405.0
+    ],
+    [
+     0,
+     0.75,
+     100.0,
+     321.0,
+     151.0,
+     354.0
+    ],
+    [
+     0,
+     0.748,
+     450.0,
+     371.0,
+     472.0,
+     381.0
+    ],
+    [
+     0,
+     0.732,
+     478.0,
+     355.0,
+     497.0,
+     365.0
+    ],
+    [
+     0,
+     0.725,
+     246.0,
+     319.0,
+     259.0,
+     329.0
+    ],
+    [
+     0,
+     0.668,
+     129.0,
+     368.0,
+     154.0,
+     382.0
+    ],
+    [
+     0,
+     0.591,
+     267.0,
+     407.0,
+     292.0,
+     432.0
+    ],
+    [
+     0,
+     0.574,
+     262.0,
+     416.0,
+     272.0,
+     426.0
+    ],
+    [
+     0,
+     0.56,
+     198.0,
+     164.0,
+     208.0,
+     185.0
+    ]
+   ]
+  },
+  {
+   "id": "nafnet",
+   "boxes": []
+  },
+  {
+   "id": "neuralstyle",
+   "boxes": []
+  },
+  {
+   "id": "nima",
+   "boxes": []
+  },
+  {
+   "id": "places365",
+   "boxes": [
+    [
+     0,
+     0.964,
+     372.0,
+     200.0,
+     599.0,
+     371.0
+    ],
+    [
+     0,
+     0.922,
+     81.0,
+     193.0,
+     267.0,
+     306.0
+    ],
+    [
+     0,
+     0.905,
+     48.0,
+     332.0,
+     282.0,
+     483.0
+    ],
+    [
+     0,
+     0.724,
+     258.0,
+     392.0,
+     279.0,
+     401.0
+    ],
+    [
+     0,
+     0.613,
+     486.0,
+     234.0,
+     496.0,
+     251.0
+    ],
+    [
+     0,
+     0.603,
+     102.0,
+     226.0,
+     114.0,
+     237.0
+    ]
+   ]
+  },
+  {
+   "id": "ppocr",
+   "boxes": [
+    [
+     0,
+     0.991,
+     55.0,
+     216.0,
+     379.0,
+     260.0
+    ],
+    [
+     0,
+     0.99,
+     54.0,
+     393.0,
+     429.0,
+     436.0
+    ],
+    [
+     0,
+     0.99,
+     55.0,
+     303.0,
+     446.0,
+     353.0
+    ]
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "boxes": [
+    [
+     0,
+     0.985,
+     135.0,
+     13.0,
+     346.0,
+     472.0
+    ],
+    [
+     0,
+     0.978,
+     367.0,
+     7.0,
+     499.0,
+     252.0
+    ],
+    [
+     0,
+     0.937,
+     216.0,
+     116.0,
+     229.0,
+     125.0
+    ],
+    [
+     0,
+     0.903,
+     369.0,
+     272.0,
+     482.0,
+     482.0
+    ],
+    [
+     0,
+     0.893,
+     28.0,
+     356.0,
+     86.0,
+     607.0
+    ],
+    [
+     0,
+     0.861,
+     32.0,
+     100.0,
+     76.0,
+     361.0
+    ]
+   ]
+  },
+  {
+   "id": "rtmface",
+   "boxes": [
+    [
+     0,
+     0.976,
+     133.0,
+     20.0,
+     379.0,
+     367.0
+    ],
+    [
+     0,
+     0.96,
+     396.0,
+     25.0,
+     518.0,
+     507.0
+    ],
+    [
+     0,
+     0.928,
+     148.0,
+     352.0,
+     264.0,
+     492.0
+    ]
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "boxes": [
+    [
+     0,
+     0.968,
+     184.0,
+     138.0,
+     339.0,
+     287.0
+    ],
+    [
+     0,
+     0.767,
+     256.0,
+     376.0,
+     319.0,
+     415.0
+    ]
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "boxes": []
+  },
+  {
+   "id": "saliency",
+   "boxes": []
+  },
+  {
+   "id": "tddfa",
+   "boxes": [
+    [
+     0,
+     0.973,
+     214.0,
+     161.0,
+     425.0,
+     269.0
+    ]
+   ]
+  },
+  {
+   "id": "yunet",
+   "boxes": [
+    [
+     0,
+     0.843,
+     348.0,
+     285.0,
+     450.0,
+     358.0
+    ],
+    [
+     0,
+     0.838,
+     152.0,
+     276.0,
+     243.0,
+     355.0
+    ],
+    [
+     0,
+     0.631,
+     307.0,
+     311.0,
+     340.0,
+     336.0
+    ]
+   ]
+  }
+ ],
+ "pulled_from": "raw/z5/refs/ppocr_det_fp16/ref.json"
+}

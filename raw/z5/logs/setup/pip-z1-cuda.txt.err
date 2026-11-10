@@ -1,0 +1,36 @@
+Using Python 3.12.16 environment at: C:\src\zoo-template\.venv-z1-cuda
+Resolved 16 packages in 224ms
+Downloading nvidia-cuda-nvrtc (47.0MiB)
+Downloading nvidia-cufft (156.9MiB)
+Downloading nvidia-cuda-runtime (2.7MiB)
+Downloading nvidia-curand (73.7MiB)
+Downloading nvidia-nvjitlink (39.5MiB)
+Downloading nvidia-cudnn-cu13 (387.4MiB)
+Downloading nvidia-cublas (407.5MiB)
+Downloading onnxruntime-gpu (160.3MiB)
+ Downloaded nvidia-cuda-runtime
+ Downloaded nvidia-nvjitlink
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded nvidia-curand
+ Downloaded nvidia-cufft
+ Downloaded onnxruntime-gpu
+ Downloaded nvidia-cublas
+ Downloaded nvidia-cudnn-cu13
+Prepared 8 packages in 53.06s
+Installed 16 packages in 2.19s
+ + flatbuffers==25.12.19
+ + ml-dtypes==0.6.0
+ + numpy==2.5.4
+ + nvidia-cublas==13.10.0.20
+ + nvidia-cuda-nvrtc==13.5.37
+ + nvidia-cuda-runtime==13.5.37
+ + nvidia-cudnn-cu13==9.28.0.42
+ + nvidia-cufft==12.5.0.14
+ + nvidia-curand==10.4.5.25
+ + nvidia-nvjitlink==13.5.37
+ + onnx==1.23.2
+ + onnxruntime-gpu==1.31.1
+ + packaging==26.3
+ + pillow==13.0.0
+ + protobuf==7.36.2
+ + typing-extensions==4.16.0

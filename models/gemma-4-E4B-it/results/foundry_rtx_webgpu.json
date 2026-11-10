@@ -1,0 +1,44 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E4B-it",
+ "cell": "foundry_rtx_webgpu",
+ "kind": "llm",
+ "runtime": {
+  "id": "foundry",
+  "label": "Foundry Local 0.13.0",
+  "version": null,
+  "ep": "webgpu"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "none",
+  "label": "—"
+ },
+ "run": {
+  "state": "not_run",
+  "mode": null,
+  "started": null,
+  "why": "no WebGPU package: the catalog has no Gemma 4 E4B (`raw/setup/foundry_variants.json`), and mlboydaisuke/gemma-4-E4B-it-Foundry-Local holds only `cpu-int4` and `cuda-int4-8k` (HF API tree, revision 9d1751f)"
+ },
+ "line": {
+  "id": "text-check",
+  "kind": "text-integrity",
+  "pass": null,
+  "verdict": "no verdict on text-check: not_run (no WebGPU package: the catalog has no Gemma 4 E4B (`raw/setup/foundry_variants.json`), and mlboydaisuke/gemma-4-E4B-it-Foundry-Local holds only `cpu-int4` and `)"
+ },
+ "speed": null,
+ "regime": null,
+ "llm": {
+  "backend": "webgpu"
+ },
+ "source": {
+  "by": "windows-llm-zoo (Z2)",
+  "record": null,
+  "record_text": "—",
+  "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:tools/table.py NOT_RUN"
+ },
+ "note": []
+}

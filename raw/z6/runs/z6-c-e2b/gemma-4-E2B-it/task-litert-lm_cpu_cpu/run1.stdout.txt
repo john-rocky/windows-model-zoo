@@ -1,0 +1,6 @@
+ENGINE_PID 22236
+{"n": 1, "of": 21, "id": "q01", "wall_s": 0.888, "text": "Paris"}
+{"n": 2, "of": 21, "id": "q02", "wall_s": 0.596, "text": "12"}
+{"n": 10, "of": 21, "id": "q10", "wall_s": 0.549, "text": "Au"}
+{"n": 20, "of": 21, "id": "q20", "wall_s": 0.566, "text": "8"}
+{"n": 21, "of": 21, "id": "gate", "wall_s": 0.544, "text": "2"}

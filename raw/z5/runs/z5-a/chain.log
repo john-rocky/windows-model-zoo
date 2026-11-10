@@ -1,0 +1,97 @@
+[2026-11-10T07:20:47.3672359+09:00] chain start: plan C:\src\zoo-template\pc\plans\z5-a.json mode first, 47 units, pid 23608
+[2026-11-10T07:20:58.2091416+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T07:21:00.3537505+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 start
+[2026-11-10T07:21:12.0567762+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 end: exit 0, OK, 9.74 s
+[2026-11-10T07:21:14.0414867+09:00] dewarp/task-ovgpu run 1 start
+[2026-11-10T07:21:21.0798696+09:00] dewarp/task-ovgpu run 1 end: exit 0, OK, 5.097 s
+[2026-11-10T07:21:23.0407181+09:00] dfine_graphB_fp16/task-cuda16 run 1 start
+[2026-11-10T07:21:35.0624236+09:00] dfine_graphB_fp16/task-cuda16 run 1 end: exit 0, OK, 10.079 s
+[2026-11-10T07:21:37.0516937+09:00] dfine_graphB_fp16/task-ovgpu run 1 start
+[2026-11-10T07:21:45.6078358+09:00] dfine_graphB_fp16/task-ovgpu run 1 end: exit 0, OK, 6.598 s
+[2026-11-10T07:21:47.6007532+09:00] dfine_graphB_fp16/task-ovnpu run 1 start
+[2026-11-10T07:22:14.6817658+09:00] dfine_graphB_fp16/task-ovnpu run 1 end: exit 0, OK, 25.127 s
+[2026-11-10T07:22:16.6487410+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:22:25.1138422+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 6.531 s
+[2026-11-10T07:22:27.0745401+09:00] dfine_graphB_fp16_fixed/task-cuda16 run 1 start
+[2026-11-10T07:22:32.1163504+09:00] dfine_graphB_fp16_fixed/task-cuda16 run 1 end: exit 0, OK, 3.11 s
+[2026-11-10T07:22:34.0728098+09:00] dfine_graphB_fp16_fixed/task-ovgpu run 1 start
+[2026-11-10T07:22:42.5730490+09:00] dfine_graphB_fp16_fixed/task-ovgpu run 1 end: exit 0, OK, 6.558 s
+[2026-11-10T07:22:44.5162633+09:00] dinov2_s_fp16/task-ovnpu run 1 start
+[2026-11-10T07:23:02.7990644+09:00] dinov2_s_fp16/task-ovnpu run 1 end: exit 0, OK, 16.34 s
+[2026-11-10T07:23:04.7576469+09:00] dinov2_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:23:08.2828645+09:00] dinov2_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.59 s
+[2026-11-10T07:23:10.2402790+09:00] dmcount/task-ovgpu run 1 start
+[2026-11-10T07:23:16.3030583+09:00] dmcount/task-ovgpu run 1 end: exit 0, OK, 4.122 s
+[2026-11-10T07:23:18.2623885+09:00] metric3d_fp16/task-cuda16 run 1 start
+[2026-11-10T07:23:24.2882058+09:00] metric3d_fp16/task-cuda16 run 1 end: exit 0, OK, 4.088 s
+[2026-11-10T07:23:26.2439778+09:00] mlsd_fp16/task-ovnpu run 1 start
+[2026-11-10T07:23:32.8161186+09:00] mlsd_fp16/task-ovnpu run 1 end: exit 0, OK, 4.634 s
+[2026-11-10T07:23:34.7750007+09:00] mlsd_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:23:37.8184702+09:00] mlsd_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.107 s
+[2026-11-10T07:23:39.7909739+09:00] movinet_a0_stream/task-ovgpu run 1 start
+[2026-11-10T07:23:47.5195266+09:00] movinet_a0_stream/task-ovgpu run 1 end: exit 0, OK, 5.769 s
+[2026-11-10T07:23:49.4787031+09:00] ppocr_det_fp16/task-cuda16 run 1 start
+[2026-11-10T07:23:57.0496092+09:00] ppocr_det_fp16/task-cuda16 run 1 end: exit 0, OK, 5.671 s
+[2026-11-10T07:23:59.0033524+09:00] ppocr_det_fp16/task-ovgpu run 1 start
+[2026-11-10T07:24:06.6560615+09:00] ppocr_det_fp16/task-ovgpu run 1 end: exit 0, OK, 5.709 s
+[2026-11-10T07:24:08.6377417+09:00] ppocr_det_fp16/task-ovnpu run 1 start
+[2026-11-10T07:25:50.0906918+09:00] ppocr_det_fp16/task-ovnpu run 1 end: exit 0, OK, 99.495 s
+[2026-11-10T07:25:52.0583142+09:00] rtdetr_graphB_fp16/task-ovgpu run 1 start
+[2026-11-10T07:26:01.0865555+09:00] rtdetr_graphB_fp16/task-ovgpu run 1 end: exit 0, OK, 7.098 s
+[2026-11-10T07:26:03.0549843+09:00] rtdetr_graphB_fp16_fixed/task-ovgpu run 1 start
+[2026-11-10T07:26:10.8923529+09:00] rtdetr_graphB_fp16_fixed/task-ovgpu run 1 end: exit 0, OK, 5.902 s
+[2026-11-10T07:26:12.8504284+09:00] rtm_animal_fp16/task-cuda16 run 1 start
+[2026-11-10T07:26:17.9475974+09:00] rtm_animal_fp16/task-cuda16 run 1 end: exit 0, OK, 3.169 s
+[2026-11-10T07:26:19.9051205+09:00] rtm_animal_fp16/task-ovnpu run 1 start
+[2026-11-10T07:26:26.9580036+09:00] rtm_animal_fp16/task-ovnpu run 1 end: exit 0, OK, 5.12 s
+[2026-11-10T07:26:28.9451014+09:00] rtm_animal_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:26:31.4342530+09:00] rtm_animal_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.553 s
+[2026-11-10T07:26:33.3904889+09:00] rtm_face_fp16/task-cuda16 run 1 start
+[2026-11-10T07:26:38.5068410+09:00] rtm_face_fp16/task-cuda16 run 1 end: exit 0, OK, 3.183 s
+[2026-11-10T07:26:40.4623606+09:00] rtm_face_fp16/task-ovnpu run 1 start
+[2026-11-10T07:26:47.5444614+09:00] rtm_face_fp16/task-ovnpu run 1 end: exit 0, OK, 5.138 s
+[2026-11-10T07:26:49.5010475+09:00] rtm_face_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:26:51.2613580+09:00] rtm_face_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.555 s
+[2026-11-10T07:26:53.2178705+09:00] rtmhand_fp16/task-cuda16 run 1 start
+[2026-11-10T07:26:58.3347722+09:00] rtmhand_fp16/task-cuda16 run 1 end: exit 0, OK, 3.184 s
+[2026-11-10T07:27:00.2915756+09:00] rtmhand_fp16/task-ovnpu run 1 start
+[2026-11-10T07:27:06.3708634+09:00] rtmhand_fp16/task-ovnpu run 1 end: exit 0, OK, 4.109 s
+[2026-11-10T07:27:08.3301334+09:00] rtmhand_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:27:10.8160588+09:00] rtmhand_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.549 s
+[2026-11-10T07:27:12.7750339+09:00] rtmpose_s_fp16/task-cuda16 run 1 start
+[2026-11-10T07:27:17.9206701+09:00] rtmpose_s_fp16/task-cuda16 run 1 end: exit 0, OK, 3.214 s
+[2026-11-10T07:27:19.8618861+09:00] rtmpose_s_fp16/task-cuda32 run 1 start
+[2026-11-10T07:27:24.4037946+09:00] rtmpose_s_fp16/task-cuda32 run 1 end: exit 0, OK, 2.593 s
+[2026-11-10T07:27:26.3740266+09:00] rtmpose_s_fp16/task-ovnpu run 1 start
+[2026-11-10T07:27:30.8893857+09:00] rtmpose_s_fp16/task-ovnpu run 1 end: exit 0, OK, 2.574 s
+[2026-11-10T07:27:32.8403110+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:27:35.3236263+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.547 s
+[2026-11-10T07:27:37.2933690+09:00] rtmw_fp16/task-cuda16 run 1 start
+[2026-11-10T07:27:42.3150313+09:00] rtmw_fp16/task-cuda16 run 1 end: exit 0, OK, 3.097 s
+[2026-11-10T07:27:44.2672682+09:00] rtmw_fp16/task-ovgpu run 1 start
+[2026-11-10T07:27:50.8077939+09:00] rtmw_fp16/task-ovgpu run 1 end: exit 0, OK, 4.596 s
+[2026-11-10T07:27:52.7640610+09:00] rtmw_fp16/task-ovnpu run 1 start
+[2026-11-10T07:28:00.5077032+09:00] rtmw_fp16/task-ovnpu run 1 end: exit 0, OK, 5.817 s
+[2026-11-10T07:28:02.4639508+09:00] rtmw_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:28:05.4936863+09:00] rtmw_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.089 s
+[2026-11-10T07:28:07.4504042+09:00] sam2_decoder/task-ovnpu_pre run 1 start
+[2026-11-10T07:28:10.9696707+09:00] sam2_decoder/task-ovnpu_pre run 1 end: exit 0, OK, 1.587 s
+[2026-11-10T07:28:12.9286679+09:00] sam2_decoder_fixed/task-ovnpu_pre run 1 start
+[2026-11-10T07:28:16.4446913+09:00] sam2_decoder_fixed/task-ovnpu_pre run 1 end: exit 0, OK, 1.576 s
+[2026-11-10T07:28:18.4238121+09:00] sinet/task-ovnpu run 1 start
+[2026-11-10T07:28:28.4517249+09:00] sinet/task-ovnpu run 1 end: exit 0, OK, 8.092 s
+[2026-11-10T07:28:30.4176656+09:00] sinet/task-ovnpu_pre run 1 start
+[2026-11-10T07:28:33.4307535+09:00] sinet/task-ovnpu_pre run 1 end: exit 0, OK, 1.078 s
+[2026-11-10T07:28:35.3949228+09:00] ssdlite_mobilenetv3_320_fp16/task-cuda16 run 1 start
+[2026-11-10T07:28:41.4309926+09:00] ssdlite_mobilenetv3_320_fp16/task-cuda16 run 1 end: exit 0, OK, 4.089 s
+[2026-11-10T07:28:43.4060792+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu run 1 start
+[2026-11-10T07:28:49.4614844+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu run 1 end: exit 0, OK, 4.122 s
+[2026-11-10T07:28:51.4515600+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:28:54.4486448+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.067 s
+[2026-11-10T07:28:56.4209273+09:00] w2v2_frontend_fp16/task-ovnpu run 1 start
+[2026-11-10T07:29:08.7408686+09:00] w2v2_frontend_fp16/task-ovnpu run 1 end: exit 0, OK, 10.392 s
+[2026-11-10T07:29:10.6989111+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T07:29:19.2133751+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 6.582 s
+[2026-11-10T07:29:21.1718034+09:00] w2v2_head_fp16/task-cuda16 run 1 start
+[2026-11-10T07:29:26.7250348+09:00] w2v2_head_fp16/task-cuda16 run 1 end: exit 0, OK, 3.61 s
+[2026-11-10T07:29:26.7407829+09:00] chain done: OK

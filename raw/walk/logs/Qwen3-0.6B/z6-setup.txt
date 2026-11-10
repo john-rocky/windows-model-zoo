@@ -1,0 +1,12 @@
+{"engines": "litert", "files": 10, "missing": [], "not_matching": [], "rebuilt": ["LiteRtDispatch.dll", "litert_lm_advanced_main_windows.exe", "litert_lm_main.exe"]}
+{"engines": "llama-cpu", "files": 50, "missing": [], "not_matching": [], "rebuilt": []}
+{"engines": "llama-cuda", "files": 54, "missing": [], "not_matching": [], "rebuilt": []}
+{"engines": "llama-gpu", "files": 51, "missing": [], "not_matching": [], "rebuilt": []}
+{"dst": "C:\\src\\model-zoo\\work\\litert\\cpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm", "ok": true, "why": null}
+{"dst": "C:\\src\\model-zoo\\work\\litert\\igpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm", "ok": true, "why": null}
+{"dst": "C:\\src\\model-zoo\\work\\litert\\rtx\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm", "ok": true, "why": null}
+{"dst": "C:\\src\\model-zoo\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf", "ok": true, "why": null}
+{"foundry": "qwen3-0.6b-generic-gpu:2", "got": "in the Foundry cache before this step", "not_matching": [], "not_in_record": []}
+{"foundry": "qwen3-0.6b-generic-cpu:4", "got": "in the Foundry cache before this step", "not_matching": [], "not_in_record": []}
+{"foundry": "qwen3-0.6b-cuda-gpu:2", "got": "in the Foundry cache before this step", "not_matching": [], "not_in_record": []}
+z6 setup Qwen3-0.6B: 0 not matching

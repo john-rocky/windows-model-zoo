@@ -1,0 +1,1 @@
+16 distributions -> C:\src\zoo-template\logs\versions-z1-cuda.txt

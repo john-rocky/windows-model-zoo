@@ -1,0 +1,66 @@
+{
+    "cell":  "rtmpose_s_fp16/task-ovnpu_pre",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "walk-v",
+    "start":  "2026-11-10T14:17:34.6950077+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.41 core",
+                                            "svchost 8284 0.03 core",
+                                            "WmiPrvSE 7560 0.02 core",
+                                            "svchost 5480 0.02 core",
+                                            "svchost 1740 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1710 MHz, 14001 MHz, 17.54 W, 0 %, 0 MiB, 48",
+                   "availGB":  24
+               },
+    "command":  "C:\\src\\model-zoo\\.venv-z1-ov\\Scripts\\python.exe -u C:\\src\\model-zoo\\pc\\run_vision_task.py --model rtmpose_s_fp16 --spec C:\\src\\model-zoo\\pc\\z5_spec.json --work C:\\src\\model-zoo\\work\\rtmpose_s_fp16 --form blob --engine ovblob --out C:\\src\\model-zoo\\runs\\walk-v\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  12864,
+                   "elapsedSeconds":  3.129,
+                   "peakWorkingSetBytes":  59121664,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  1,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.06 core",
+                                           "MsMpEng 5548 0.03 core",
+                                           "WUDFHost 1836 0.02 core",
+                                           "svchost 5260 0.02 core",
+                                           "OneDrive 12048 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 3442 MHz, 14001 MHz, 17.67 W, 0 %, 0 MiB, 49"
+              },
+    "end":  "2026-11-10T14:17:39.8343868+09:00",
+    "tries":  1
+}

@@ -1,0 +1,8 @@
+[2026-11-10T13:18:15.4641489+09:00] steps engines start: 3 steps, pid 30808
+[2026-11-10T13:18:15.4963579+09:00] engines-cuda12 start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\engines.py --spec C:\src\model-zoo\pc\z6_spec.json --root C:\src\model-zoo --make cuda12
+[2026-11-10T13:18:57.4221318+09:00] engines-cuda12 end: exit 0, 0.7 min
+[2026-11-10T13:18:57.4380903+09:00] engines-llama start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\engines.py --spec C:\src\model-zoo\pc\z6_spec.json --root C:\src\model-zoo --make llama
+[2026-11-10T13:19:43.1241781+09:00] engines-llama end: exit 0, 0.8 min
+[2026-11-10T13:19:43.1402128+09:00] engines-litert-src start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\engines.py --spec C:\src\model-zoo\pc\z6_spec.json --root C:\src\model-zoo --make litert-src
+[2026-11-10T13:20:34.6565374+09:00] engines-litert-src end: exit 0, 0.9 min
+[2026-11-10T13:20:34.6565374+09:00] steps engines done: OK

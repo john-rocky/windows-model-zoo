@@ -1,0 +1,306 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dmcount",
+ "cell": "task-ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-openvino",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "z1-onnx-fp32",
+  "label": "fp32",
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
+  "path": "C:\\src\\zoo\\onnx\\dmcount.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-count",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-count: 10 of 20 counts agree (pass mark 95 %)",
+  "reference": "raw/z5/refs/dmcount/ref.json",
+  "detail": {
+   "agree": 10,
+   "inputs": 20,
+   "bar": "95 %",
+   "pass": false
+  },
+  "text": "counts agree 10/20"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/dmcount/task-ovgpu/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "dmcount",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\dmcount",
+   "--form",
+   "fp32",
+   "--engine",
+   "ort",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "GPU.0",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\dmcount\\task-ovgpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "counts agree 10/20"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:23:10.462428+09:00",
+  "ended": "2026-11-10T07:23:13.279280+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 14.433,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 0.984,
+  "warmup_s": 0.019,
+  "load_ms": 984.0
+ },
+ "memory": {
+  "peak_ws_bytes": 590921728,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 80,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "count",
+  "scores": {
+   "outputs": {
+    "o0": {
+     "cos": 0.003247,
+     "max_abs": 0.736394,
+     "nonfinite": 0,
+     "values": 81920
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino_ep": {
+    "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+    "ov_device": "GPU.0",
+    "version": "1.8.1+95d534b.ci.79",
+    "os_driver_version": null,
+    "NPU_COMPILER_VERSION": null,
+    "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+    "DEVICE_LUID": "0e26010000000000"
+   }
+  },
+  "providers": [
+   "OpenVINOExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\dmcount\\inputs.npz",
+   "sha256": "4ff5bc2e808eba11f263c42556e2601244549b4763a1d960fb8d275c363cc2bf",
+   "bytes": 62920342,
+   "n": 20
+  },
+  "model_file": {
+   "what": "dmcount form fp32",
+   "path": "C:\\src\\zoo\\onnx\\dmcount.onnx",
+   "bytes": 86040413,
+   "sha256": "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "cell": 0.198,
+    "ref": 1.25,
+    "agree": false
+   },
+   {
+    "id": "dinov2",
+    "cell": 3.362,
+    "ref": 1.94,
+    "agree": false
+   },
+   {
+    "id": "gaze",
+    "cell": 2.5,
+    "ref": 1.045,
+    "agree": false
+   },
+   {
+    "id": "hsemotion",
+    "cell": 0.111,
+    "ref": 0.068,
+    "agree": true
+   },
+   {
+    "id": "lowlight",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "metric3d",
+    "cell": 0.0,
+    "ref": 0.377,
+    "agree": true
+   },
+   {
+    "id": "migan",
+    "cell": 0.696,
+    "ref": 1.405,
+    "agree": false
+   },
+   {
+    "id": "mlsd",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "nafnet",
+    "cell": 0.139,
+    "ref": 0.163,
+    "agree": true
+   },
+   {
+    "id": "neuralstyle",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "nima",
+    "cell": 0.064,
+    "ref": 1.167,
+    "agree": false
+   },
+   {
+    "id": "places365",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "ppocr",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "rtmanimal",
+    "cell": 4.057,
+    "ref": 2.885,
+    "agree": false
+   },
+   {
+    "id": "rtmface",
+    "cell": 1.968,
+    "ref": 1.161,
+    "agree": false
+   },
+   {
+    "id": "rtmhand",
+    "cell": 0.0,
+    "ref": 0.0,
+    "agree": true
+   },
+   {
+    "id": "rtmpose",
+    "cell": 0.342,
+    "ref": 1.021,
+    "agree": false
+   },
+   {
+    "id": "saliency",
+    "cell": 0.168,
+    "ref": 1.017,
+    "agree": false
+   },
+   {
+    "id": "tddfa",
+    "cell": 1.155,
+    "ref": 1.237,
+    "agree": true
+   },
+   {
+    "id": "yunet",
+    "cell": 1.298,
+    "ref": 7.572,
+    "agree": false
+   }
+  ],
+  "z1_cell": "ovgpu",
+  "workload": {
+   "set": "images",
+   "task": "count",
+   "form": "fp32",
+   "engine": "ort",
+   "ep": "openvino",
+   "ov_device": "GPU.0",
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dmcount\\task-ovgpu\\run1.outputs.npz",
+   "bytes": 332662,
+   "sha256": "0c449c21fff84f45cd5022c4de2ae27882583678eae5aa1efadb9bc99bb8ab41",
+   "arrays": 20
+  }
+ }
+}

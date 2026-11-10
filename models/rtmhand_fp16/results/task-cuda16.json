@@ -1,0 +1,183 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtmhand_fp16",
+ "cell": "task-cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "z1-onnx-fp16",
+  "label": "fp16",
+  "detail": "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256",
+  "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-keypoints",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on task-keypoints: 21 of 21 points shown by either side agree (pass mark 95 %)",
+  "reference": "raw/z5/refs/rtmhand_fp16/ref.json",
+  "detail": {
+   "agree": 21,
+   "shown_either": 21,
+   "tol_px": 7.24,
+   "show_threshold": 0.2,
+   "bar": "95 %",
+   "pass": true
+  },
+  "text": "points agree 21/21 of those shown"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/rtmhand_fp16/task-cuda16/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "rtmhand_fp16",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\rtmhand_fp16",
+   "--form",
+   "fp16",
+   "--engine",
+   "ort",
+   "--ep",
+   "cuda",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-cuda16\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "points agree 21/21 of those shown"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:26:53.392624+09:00",
+  "ended": "2026-11-10T07:26:55.739676+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 3.99,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.266,
+  "warmup_s": 0.799,
+  "load_ms": 1266.0
+ },
+ "memory": {
+  "peak_ws_bytes": 1515835392,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 76,
+    "dedicated": 392
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "keypoints",
+  "scores": {
+   "dist_px_median": 0.0,
+   "dist_px_max": 0.5,
+   "outputs": {
+    "o0": {
+     "cos": 0.999998,
+     "max_abs": 0.002016,
+     "nonfinite": 0,
+     "values": 10752
+    },
+    "o1": {
+     "cos": 0.999998,
+     "max_abs": 0.001858,
+     "nonfinite": 0,
+     "values": 10752
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-gpu": "1.31.1",
+   "numpy": "2.5.4",
+   "nvidia-cudnn-cu13": "9.28.0.42",
+   "nvidia-cublas": "13.10.0.20",
+   "nvidia-cuda-runtime": "13.5.37"
+  },
+  "device_props": {},
+  "providers": [
+   "CUDAExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+   "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
+   "bytes": 786742,
+   "n": 1
+  },
+  "model_file": {
+   "what": "rtmhand_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+   "bytes": 28129047,
+   "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb"
+  },
+  "per_input": [
+   {
+    "id": "rtmhand",
+    "shown_either": 21,
+    "agree": 21
+   }
+  ],
+  "z1_cell": "cuda16",
+  "workload": {
+   "set": "images",
+   "task": "keypoints",
+   "form": "fp16",
+   "engine": "ort",
+   "ep": "cuda",
+   "ov_device": null,
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-cuda16\\run1.outputs.npz",
+   "bytes": 86534,
+   "sha256": "699de66199dd88d7cf5f8a518fa7fbcc8ba4442e37c74d5b63175e7ce79ce7a8",
+   "arrays": 2
+  }
+ }
+}

@@ -1,0 +1,46 @@
+[2026-11-10T09:53:50.3639415+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-f.json mode first, 13 units, pid 31264
+[2026-11-10T09:53:57.7425088+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:53:59.8382969+09:00] Qwen3-0.6B/task-foundry_auto_webgpu run 1 start
+[2026-11-10T09:54:33.8955867+09:00] Qwen3-0.6B/task-foundry_auto_webgpu run 1 end: exit 0, OK, 32.149 s
+[2026-11-10T09:54:35.8693543+09:00] Qwen3-0.6B/task-foundry_cpu_cpu run 1 start
+[2026-11-10T09:54:58.0650076+09:00] Qwen3-0.6B/task-foundry_cpu_cpu run 1 end: exit 0, OK, 20.262 s
+[2026-11-10T09:55:00.0232522+09:00] Qwen3-0.6B/task-foundry_rtx_cuda run 1 start
+[2026-11-10T09:55:23.5099052+09:00] Qwen3-0.6B/task-foundry_rtx_cuda run 1 end: exit 0, OK, 21.544 s
+[2026-11-10T09:55:25.4906124+09:00] Qwen3-1.7B/task-foundry_auto_webgpu run 1 start
+[2026-11-10T09:55:49.0931603+09:00] Qwen3-1.7B/task-foundry_auto_webgpu run 1 end: exit 0, OK, 21.728 s
+[2026-11-10T09:55:51.0829104+09:00] Qwen3-1.7B/task-foundry_cpu_cpu run 1 start
+[2026-11-10T09:56:16.7434663+09:00] Qwen3-1.7B/task-foundry_cpu_cpu run 1 end: exit 0, OK, 23.73 s
+[2026-11-10T09:56:18.2206601+09:00] Qwen3-1.7B/task-foundry_rtx_cuda run 1 start
+[2026-11-10T09:56:41.8250604+09:00] Qwen3-1.7B/task-foundry_rtx_cuda run 1 end: exit 0, OK, 21.721 s
+[2026-11-10T09:56:43.7722744+09:00] Qwen3-4B/task-foundry_auto_webgpu run 1 start
+[2026-11-10T09:57:15.5080695+09:00] Qwen3-4B/task-foundry_auto_webgpu run 1 end: exit 0, OK, 29.871 s
+[2026-11-10T09:57:17.4674096+09:00] Qwen3-4B/task-foundry_cpu_cpu run 1 start
+[2026-11-10T09:57:56.4293132+09:00] Qwen3-4B/task-foundry_cpu_cpu run 1 end: exit 0, OK, 37.024 s
+[2026-11-10T09:57:58.3877516+09:00] Qwen3-4B/task-foundry_rtx_cuda run 1 start
+[2026-11-10T09:58:28.4837747+09:00] Qwen3-4B/task-foundry_rtx_cuda run 1 end: exit 0, OK, 28.219 s
+[2026-11-10T09:58:30.4618612+09:00] gemma-4-E2B-it/task-foundry_auto_webgpu run 1 start
+[2026-11-10T09:58:46.9626187+09:00] gemma-4-E2B-it/task-foundry_auto_webgpu run 1 end: exit 1, ERROR, 14.505 s
+[2026-11-10T09:58:48.9199725+09:00] gemma-4-E2B-it/task-foundry_cpu_cpu run 1 start
+[2026-11-10T10:02:45.1684700+09:00] gemma-4-E2B-it/task-foundry_cpu_cpu run 1 end: exit 0, OK, 234.296 s
+[2026-11-10T10:02:46.6460890+09:00] gemma-4-E2B-it/task-foundry_rtx_cuda run 1 start
+[2026-11-10T10:03:28.9942631+09:00] gemma-4-E2B-it/task-foundry_rtx_cuda run 1 end: exit 0, OK, 40.47 s
+[2026-11-10T10:03:30.9501904+09:00] gemma-4-E4B-it/task-foundry_rtx_cuda run 1 start
+[2026-11-10T10:04:14.1068287+09:00] gemma-4-E4B-it/task-foundry_rtx_cuda run 1 end: exit 0, OK, 41.282 s
+[2026-11-10T10:04:14.1385967+09:00] chain done: OK
+[2026-11-10T10:10:00.6472926+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-f.json mode first, 13 units, pid 21840
+[2026-11-10T10:10:11.0729056+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T10:10:11.1026701+09:00] Qwen3-0.6B/task-foundry_auto_webgpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1026701+09:00] Qwen3-0.6B/task-foundry_cpu_cpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1185194+09:00] Qwen3-0.6B/task-foundry_rtx_cuda run 1 on disk, skipped
+[2026-11-10T10:10:11.1220881+09:00] Qwen3-1.7B/task-foundry_auto_webgpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1341679+09:00] Qwen3-1.7B/task-foundry_cpu_cpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1341679+09:00] Qwen3-1.7B/task-foundry_rtx_cuda run 1 on disk, skipped
+[2026-11-10T10:10:11.1500212+09:00] Qwen3-4B/task-foundry_auto_webgpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1500212+09:00] Qwen3-4B/task-foundry_cpu_cpu run 1 on disk, skipped
+[2026-11-10T10:10:11.1977225+09:00] Qwen3-4B/task-foundry_rtx_cuda run 1 on disk, skipped
+[2026-11-10T10:10:13.2834529+09:00] gemma-4-E2B-it/task-foundry_auto_webgpu run 1 start
+[2026-11-10T10:11:12.2560061+09:00] gemma-4-E2B-it/task-foundry_auto_webgpu run 1 end: exit 0, OK, 56.934 s
+[2026-11-10T10:11:12.2661153+09:00] gemma-4-E2B-it/task-foundry_cpu_cpu run 1 on disk, skipped
+[2026-11-10T10:11:12.2845577+09:00] gemma-4-E2B-it/task-foundry_rtx_cuda run 1 on disk, skipped
+[2026-11-10T10:11:12.2923288+09:00] gemma-4-E4B-it/task-foundry_rtx_cuda run 1 on disk, skipped
+[2026-11-10T10:11:12.2983873+09:00] chain done: OK

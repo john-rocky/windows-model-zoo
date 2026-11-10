@@ -1,0 +1,71 @@
+{
+ "Qwen3-0.6B-int4-sym-g128-ov": {
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "files": 12,
+  "not_matching": [],
+  "not_in_record": [],
+  "small_files_by_size_only": [
+   "chat_template.jinja",
+   "config.json",
+   "generation_config.json",
+   "openvino_config.json",
+   "openvino_detokenizer.xml",
+   "openvino_model.xml",
+   "openvino_tokenizer.xml",
+   "tokenizer_config.json"
+  ]
+ },
+ "Qwen3-1.7B-int4-sym-g128-ov": {
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "files": 12,
+  "not_matching": [],
+  "not_in_record": [],
+  "small_files_by_size_only": [
+   "chat_template.jinja",
+   "config.json",
+   "generation_config.json",
+   "openvino_config.json",
+   "openvino_detokenizer.xml",
+   "openvino_model.xml",
+   "openvino_tokenizer.xml",
+   "tokenizer_config.json"
+  ]
+ },
+ "Qwen3-4B-int4-sym-g128-ov": {
+  "revision": "6bd20756086491ed8c0cc344b1cdfd55f011f62c",
+  "files": 12,
+  "not_matching": [],
+  "not_in_record": [],
+  "small_files_by_size_only": [
+   "chat_template.jinja",
+   "config.json",
+   "generation_config.json",
+   "openvino_config.json",
+   "openvino_detokenizer.xml",
+   "openvino_model.xml",
+   "openvino_tokenizer.xml",
+   "tokenizer_config.json"
+  ]
+ },
+ "gemma-4-E4B-it-int4-sym-cw-ov": {
+  "revision": "55e2f2fcacacc3cb5de3471293184d3f62dd31a6",
+  "files": 20,
+  "not_matching": [],
+  "not_in_record": [],
+  "small_files_by_size_only": [
+   "chat_template.jinja",
+   "config.json",
+   "generation_config.json",
+   "openvino_config.json",
+   "openvino_detokenizer.xml",
+   "openvino_language_model.xml",
+   "openvino_text_embeddings_model.xml",
+   "openvino_text_embeddings_per_layer_model.xml",
+   "openvino_tokenizer.xml",
+   "openvino_vision_embeddings_model.xml",
+   "preprocessor_config.json",
+   "processor_config.json",
+   "tokenizer_config.json"
+  ]
+ }
+}

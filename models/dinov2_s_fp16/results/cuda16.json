@@ -1,0 +1,131 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dinov2_s_fp16",
+ "cell": "cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp16",
+  "label": "fp16 copy (convert_float_to_float16, I/O kept fp32)",
+  "sha256": "3d998caf4c4f3049b33f6c66a5c845f5a5b95950c5ed73a7e0a5373fc660cfb0"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T02:20:42.570693+09:00",
+  "ended": "2026-11-07T02:20:45.989230+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 8.949549999670126,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 8.949549999670126,
+   "p10": 8.532100000593346,
+   "p90": 10.900799999944866,
+   "min": 7.577000000310363,
+   "max": 11.082599998189835,
+   "n": 30
+  },
+  "first_pass_value": 10.643900008290075,
+  "load_ms": 1227.8351000022667,
+  "load_ms_first_pass": 1217.689800003427,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     1024,
+     384
+    ],
+    "max_abs": 3.0870132446289062,
+    "mean_abs": 0.1590879723058881,
+    "cos": 0.9963595494894514,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -20.150327682495117,
+    "ref_max": 15.172069549560547,
+    "ref_range": 35.32239532470703,
+    "max_abs_over_range": 0.08739535403109049
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 925
+   },
+   "cpu_ops": {},
+   "profile_bytes": 1336350,
+   "graph_nodes": 890
+  },
+  "query_model": null,
+  "fp16_convert": {
+   "path": "C:\\src\\zoo\\fp16\\dinov2_s_fp16.onnx",
+   "seconds": 1.205296800006181,
+   "bytes": 44098646,
+   "sha256": "3d998caf4c4f3049b33f6c66a5c845f5a5b95950c5ed73a7e0a5373fc660cfb0",
+   "tool": "onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True)",
+   "dropped_identical_nodes": 0,
+   "renamed_duplicate_node_names": 0,
+   "topo_sorted": true,
+   "cached": true
+  },
+  "input_sha256": "9e316b72a937f13d75cced7b30d8b9b258024188b2e8adfe71abae4fdcffc3cf",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dinov2_s_fp16/cuda16.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dinov2_s_fp16/cuda16.json"
+ },
+ "note": []
+}

@@ -1,0 +1,132 @@
+{
+ "model": "Qwen3-0.6B",
+ "started": "2026-11-10T14:16:09+0900",
+ "engines": {
+  "litert": {
+   "dir": "C:\\src\\model-zoo\\engines\\litert",
+   "files": 10,
+   "missing": [],
+   "not_matching": [],
+   "rebuilt": {
+    "litert_lm_advanced_main_windows.exe": "adc93912f767241ff850a1ea1c2088e55890506084fda820fb8704f0d693f9fa",
+    "litert_lm_main.exe": "ffd7d36933075fac76030190b71138894d17ee30fd671aec663d663ea92ba1ce",
+    "LiteRtDispatch.dll": "b052983f695a845cc2695a4fab1170aa97454f0de9b487863c1a026fdc7a5d60"
+   },
+   "not_in_record": []
+  },
+  "llama-cpu": {
+   "dir": "C:\\src\\model-zoo\\engines\\llama-cpu",
+   "files": 50,
+   "missing": [],
+   "not_matching": [],
+   "rebuilt": {},
+   "not_in_record": []
+  },
+  "llama-cuda": {
+   "dir": "C:\\src\\model-zoo\\engines\\llama-cuda",
+   "files": 54,
+   "missing": [],
+   "not_matching": [],
+   "rebuilt": {},
+   "not_in_record": []
+  },
+  "llama-gpu": {
+   "dir": "C:\\src\\model-zoo\\engines\\llama-gpu",
+   "files": 51,
+   "missing": [],
+   "not_matching": [],
+   "rebuilt": {},
+   "not_in_record": []
+  }
+ },
+ "links": [
+  {
+   "src": "C:\\src\\model-zoo\\hub\\litert-community__Qwen3-0.6B\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "dst": "C:\\src\\model-zoo\\work\\litert\\cpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "bytes": 343490560,
+   "ok": true,
+   "sha256": "bf1aba9ce8d963124407353c6aa4cbf72eba78db21ae133de983eac672ce83e0"
+  },
+  {
+   "src": "C:\\src\\model-zoo\\hub\\litert-community__Qwen3-0.6B\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "dst": "C:\\src\\model-zoo\\work\\litert\\igpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "bytes": 343490560,
+   "ok": true,
+   "sha256": "bf1aba9ce8d963124407353c6aa4cbf72eba78db21ae133de983eac672ce83e0"
+  },
+  {
+   "src": "C:\\src\\model-zoo\\hub\\litert-community__Qwen3-0.6B\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "dst": "C:\\src\\model-zoo\\work\\litert\\rtx\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+   "bytes": 343490560,
+   "ok": true,
+   "sha256": "bf1aba9ce8d963124407353c6aa4cbf72eba78db21ae133de983eac672ce83e0"
+  },
+  {
+   "src": "C:\\src\\model-zoo\\hub\\unsloth__Qwen3-0.6B-GGUF\\Qwen3-0.6B-Q4_K_M.gguf",
+   "dst": "C:\\src\\model-zoo\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+   "bytes": 396705472,
+   "ok": true,
+   "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a"
+  }
+ ],
+ "foundry": [
+  {
+   "variant": "qwen3-0.6b-generic-gpu:2",
+   "folder": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-generic-gpu-2\\v2",
+   "files": 8,
+   "got": {
+    "downloaded": false,
+    "why": "in the Foundry cache before this step"
+   },
+   "not_matching": [],
+   "not_in_record": []
+  },
+  {
+   "variant": "qwen3-0.6b-generic-cpu:4",
+   "folder": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-generic-cpu-4\\v4",
+   "files": 8,
+   "got": {
+    "downloaded": false,
+    "why": "in the Foundry cache before this step"
+   },
+   "not_matching": [],
+   "not_in_record": []
+  },
+  {
+   "variant": "qwen3-0.6b-cuda-gpu:2",
+   "folder": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-cuda-gpu-2\\v2",
+   "files": 8,
+   "got": {
+    "downloaded": false,
+    "why": "in the Foundry cache before this step"
+   },
+   "not_matching": [],
+   "not_in_record": []
+  }
+ ],
+ "overlays": [],
+ "cuda12": {
+  "dir": "C:\\src\\model-zoo\\cuda12\\dll",
+  "dlls": [
+   "cublas64_12.dll",
+   "cublasLt64_12.dll",
+   "cudart64_12.dll",
+   "cudnn64_9.dll",
+   "cudnn_adv64_9.dll",
+   "cudnn_cnn64_9.dll",
+   "cudnn_engines_precompiled64_9.dll",
+   "cudnn_engines_runtime_compiled64_9.dll",
+   "cudnn_engines_tensor_ir64_9.dll",
+   "cudnn_ext64_9.dll",
+   "cudnn_graph64_9.dll",
+   "cudnn_heuristic64_9.dll",
+   "cudnn_ops64_9.dll",
+   "nvblas64_12.dll",
+   "nvrtc-builtins64_129.dll",
+   "nvrtc64_120_0.alt.dll",
+   "nvrtc64_120_0.dll"
+  ]
+ },
+ "ended": "2026-11-10T14:16:17+0900",
+ "not_matching": 0
+}

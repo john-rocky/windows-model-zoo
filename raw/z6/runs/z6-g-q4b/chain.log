@@ -1,0 +1,21 @@
+[2026-11-10T09:42:35.5581004+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-g-q4b.json mode first, 9 units, pid 32148
+[2026-11-10T09:42:45.5734804+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:42:47.6127134+09:00] Qwen3-4B/task-litert-lm_rtx_gpu run 1 start
+[2026-11-10T09:46:15.9800896+09:00] Qwen3-4B/task-litert-lm_rtx_gpu run 1 end: exit 0, OK, 206.457 s
+[2026-11-10T09:46:17.9615437+09:00] Qwen3-4B/task-llama.cpp_rtx_cuda run 1 start
+[2026-11-10T09:46:28.7841012+09:00] Qwen3-4B/task-llama.cpp_rtx_cuda run 1 end: exit 0, OK, 9.274 s
+[2026-11-10T09:46:30.7485935+09:00] Qwen3-4B/task-openvino-genai_igpu_gpu run 1 start
+[2026-11-10T09:46:57.8436528+09:00] Qwen3-4B/task-openvino-genai_igpu_gpu run 1 end: exit 0, OK, 25.146 s
+[2026-11-10T09:46:59.3335176+09:00] Qwen3-4B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-10T09:48:13.4526962+09:00] Qwen3-4B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 72.122 s
+[2026-11-10T09:48:15.4232740+09:00] Qwen3-4B/task-openvino-genai_rtx_gpu run 1 start
+[2026-11-10T09:49:06.9510024+09:00] Qwen3-4B/task-openvino-genai_rtx_gpu run 1 end: exit 0, OK, 50.344 s
+[2026-11-10T09:49:08.9360713+09:00] Qwen3-4B/task-ort-genai_igpu_openvino run 1 start
+[2026-11-10T09:49:45.2076970+09:00] Qwen3-4B/task-ort-genai_igpu_openvino run 1 end: exit 0, OK, 35.153 s
+[2026-11-10T09:49:47.2057807+09:00] Qwen3-4B/task-ort-genai_igpu_webgpu run 1 start
+[2026-11-10T09:50:11.7377842+09:00] Qwen3-4B/task-ort-genai_igpu_webgpu run 1 end: exit 0, OK, 22.555 s
+[2026-11-10T09:50:13.6810735+09:00] Qwen3-4B/task-ort-genai_rtx_cuda run 1 start
+[2026-11-10T09:50:25.3443176+09:00] Qwen3-4B/task-ort-genai_rtx_cuda run 1 end: exit 0, OK, 9.748 s
+[2026-11-10T09:50:27.3026215+09:00] Qwen3-4B/task-ort-genai_rtx_webgpu run 1 start
+[2026-11-10T09:50:39.0730905+09:00] Qwen3-4B/task-ort-genai_rtx_webgpu run 1 end: exit 0, OK, 9.84 s
+[2026-11-10T09:50:39.0892062+09:00] chain done: OK

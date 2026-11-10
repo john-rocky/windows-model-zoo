@@ -1,0 +1,21 @@
+{"id": "q01", "role": "question", "text": "What is the capital of France? Answer with one word."}
+{"id": "q02", "role": "question", "text": "What is 7 + 5? Reply with only the number."}
+{"id": "q03", "role": "question", "text": "What is 12 * 3? Reply with only the number."}
+{"id": "q04", "role": "question", "text": "Spell the word \"cat\" backwards. Reply with only the result."}
+{"id": "q05", "role": "question", "text": "Which planet is known as the Red Planet? Answer with one word."}
+{"id": "q06", "role": "question", "text": "How many days are in a week? Reply with only the number."}
+{"id": "q07", "role": "question", "text": "What is the opposite of \"hot\"? Answer with one word."}
+{"id": "q08", "role": "question", "text": "Translate \"thank you\" into Japanese. Reply with only the translation."}
+{"id": "q09", "role": "question", "text": "What color do you get by mixing blue and yellow? Answer with one word."}
+{"id": "q10", "role": "question", "text": "What is the chemical symbol for gold? Reply with only the symbol."}
+{"id": "q11", "role": "question", "text": "Is 17 a prime number? Answer yes or no."}
+{"id": "q12", "role": "question", "text": "What is the largest ocean on Earth? Reply with only the name."}
+{"id": "q13", "role": "question", "text": "Who wrote \"Romeo and Juliet\"? Reply with only the name."}
+{"id": "q14", "role": "question", "text": "What is 100 divided by 4? Reply with only the number."}
+{"id": "q15", "role": "question", "text": "What comes next: 2, 4, 6, 8? Reply with only the number."}
+{"id": "q16", "role": "question", "text": "At what temperature in Celsius does water freeze? Reply with only the number."}
+{"id": "q17", "role": "question", "text": "Which is heavier, a kilogram of iron or a kilogram of feathers? Answer \"iron\", \"feathers\" or \"same\"."}
+{"id": "q18", "role": "question", "text": "What is the square root of 81? Reply with only the number."}
+{"id": "q19", "role": "question", "text": "Write the word \"hello\" in uppercase. Reply with only the word."}
+{"id": "q20", "role": "question", "text": "How many legs does a spider have? Reply with only the number."}
+{"id": "gate", "role": "gate", "text": "Reply with only the number: 1+1=?"}

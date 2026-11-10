@@ -1,0 +1,193 @@
+# movinet_a0_stream: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "movinet_a0_stream"
+group = "main"
+order = 18
+source = "litert-community/MoViNet-A0-Stream-LiteRT"
+source_revision = "a21743c58801227b8265f47b136cb096fe22989d"
+source_file = "movinet_a0_stream.tflite"
+license = "apache-2.0"
+pipeline_tag = "video-classification"
+notes = []
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "classification-stream"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+repo = "mlboydaisuke/MoViNet-A0-Stream-OpenVINO"
+revision = "450fb52a2a5c2684f2283718c5fa5a5c209f6e79"
+include = ["movinet_a0_stream.onnx"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__MoViNet-A0-Stream-OpenVINO\\movinet_a0_stream.onnx"
+sha256 = "65afaf7f1f9f1ea3f200162e9b3c6b907ae27bfb246d3b6f789469ea98346928"
+from = "mlboydaisuke/MoViNet-A0-Stream-OpenVINO"
+public = "mlboydaisuke/MoViNet-A0-Stream-OpenVINO@450fb52a2a5c2684f2283718c5fa5a5c209f6e79:movinet_a0_stream.onnx"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "movinet_a0_stream",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\movinet_a0_stream",
+  "--out",
+  "{ROOT}\\refs\\movinet_a0_stream\\ref.json",
+]
+timeout_min = 30
+ram_gb = 2
+reference = "refs/movinet_a0_stream/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-top1-stream"
+kind = "task"
+rule = "classification of a stream, the app's running top-1 (john-rocky/LiteRT-Models@96e0bc1f/movinet/.../ActionRecognizer.kt: the state from zero, the 28 stream buffers shifted and the 16 pooling sums added on the host, input 45 = 1 / frame number, input 46 = 1; each side's state from its own outputs): each input image as an 8-frame still clip; the top-1 of the 600 Kinetics classes after each frame equals the reference's on >= 95 % of the frames, a frame whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 20 images of suites/vision/images.json (160 frames), each stretched to 172 x 172, RGB / 255. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-ovgpu"
+runtime = "onnxruntime-openvino"
+device = "igpu"
+form = "z1-onnx-fp32"
+line = "task-top1-stream"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "movinet_a0_stream",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\movinet_a0_stream",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "GPU.0",
+]
+timeout_min = 20
+ram_need_gb = 3
+z1_cell = "ovgpu"

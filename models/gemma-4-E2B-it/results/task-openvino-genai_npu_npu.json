@@ -1,0 +1,284 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E2B-it",
+ "cell": "task-openvino-genai_npu_npu",
+ "kind": "llm",
+ "runtime": {
+  "id": "openvino-genai",
+  "label": "OpenVINO GenAI 2026.4.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "ov:OpenVINO/gemma-4-E2B-it-int4-cw-ov",
+  "label": "int4_sym g-1 r1.0",
+  "detail": "int4_sym g-1 r1.0; OpenVINO/gemma-4-E2B-it-int4-cw-ov@8c813bae3fe671dcccf74d5d1aff1cf4045d0de2",
+  "path": null,
+  "from": "OpenVINO/gemma-4-E2B-it-int4-cw-ov"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/gemma-4-E2B-it/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 19,
+    "n": 20,
+    "bar": 18,
+    "pass": true
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": true
+  },
+  "text": "answers 19/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-g-e2b/gemma-4-E2B-it/task-openvino-genai_npu_npu/run1.json",
+  "runner": "run_llm_ovg.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E2B-it-int4-cw-ov",
+   "--device",
+   "NPU",
+   "--cache-dir",
+   "C:\\src\\zoo-template\\ovcache\\gemma-4-E2B-it_npu",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-g-e2b\\gemma-4-E2B-it\\task-openvino-genai_npu_npu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 19/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-g-e2b",
+  "started": "2026-11-10T08:46:30.346466+09:00",
+  "ended": "2026-11-10T08:48:33.742542+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 110.893,
+  "warmup_s": 1.285,
+  "peak_working_set_mb": 6498,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 6813212672,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 27,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 2159,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 19,
+   "n": 20,
+   "full_text_same": 18,
+   "eos_within_max": 20,
+   "new_tokens": 46,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "token count": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "36",
+     "ref": "36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "tac",
+     "ref": "tac",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう",
+     "ref": "ありがとう",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "green",
+     "ref": "green",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes",
+     "ref": "yes",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "pacific",
+     "ref": "pacific",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "shakespeare",
+     "ref": "shakespeare",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "10",
+     "ref": "10",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "eight",
+     "ref": "8",
+     "same": false
+    }
+   ],
+   "gate_text": "EOS in 2"
+  },
+  "versions": {
+   "python": "3.12.16",
+   "openvino-genai": "2026.4.1.0",
+   "openvino": "2026.4.1",
+   "openvino-tokenizers": "2026.4.1.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "prompts": 21,
+   "device": "NPU",
+   "pipeline": "vlm",
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt in the form the warm-up decides (vlm_form), apply_chat_template False",
+   "stop_token_ids": [
+    1,
+    50,
+    106
+   ]
+  }
+ }
+}

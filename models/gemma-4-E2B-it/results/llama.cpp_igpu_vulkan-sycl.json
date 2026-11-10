@@ -1,0 +1,44 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E2B-it",
+ "cell": "llama.cpp_igpu_vulkan-sycl",
+ "kind": "llm",
+ "runtime": {
+  "id": "llama.cpp",
+  "label": "llama.cpp b11721",
+  "version": null,
+  "ep": "vulkan / sycl"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "none",
+  "label": "—"
+ },
+ "run": {
+  "state": "not_run",
+  "mode": null,
+  "started": null,
+  "why": "the bench's Windows cells run the Vulkan asset on the discrete GPU only (no `adapter=igpu` llama.cpp row, edge-llm-bench matrices/dashboard-windows-v1.cells), and the release's `llama-b11721-bin-win-sycl-x64.zip` is not pinned (a bench change)"
+ },
+ "line": {
+  "id": "text-check",
+  "kind": "text-integrity",
+  "pass": null,
+  "verdict": "no verdict on text-check: not_run (the bench's Windows cells run the Vulkan asset on the discrete GPU only (no `adapter=igpu` llama.cpp row, edge-llm-bench matrices/dashboard-windows-v1.cells), a)"
+ },
+ "speed": null,
+ "regime": null,
+ "llm": {
+  "backend": "vulkan / sycl"
+ },
+ "source": {
+  "by": "windows-llm-zoo (Z2)",
+  "record": null,
+  "record_text": "—",
+  "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:tools/table.py NOT_RUN"
+ },
+ "note": []
+}

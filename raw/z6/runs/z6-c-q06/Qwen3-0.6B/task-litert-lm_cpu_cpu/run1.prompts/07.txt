@@ -1,0 +1,7 @@
+<|im_start|>user
+Translate "thank you" into Japanese. Reply with only the translation.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

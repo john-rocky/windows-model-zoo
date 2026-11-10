@@ -1,0 +1,7 @@
+<|im_start|>user
+Which planet is known as the Red Planet? Answer with one word.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

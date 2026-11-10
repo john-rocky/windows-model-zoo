@@ -1,0 +1,3 @@
+<|turn>user
+How many legs does a spider have? Reply with only the number.<turn|>
+<|turn>model

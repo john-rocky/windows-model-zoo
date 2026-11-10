@@ -1,0 +1,67 @@
+{
+    "cell":  "gemma-4-E2B-it/task-openvino-genai_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-c-e2b",
+    "start":  "2026-11-10T08:38:04.8479216+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  11.9,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 1.23 core",
+                                            "litert_lm_advanced_main_windows 34464 0.55 core",
+                                            "svchost 5480 0.02 core",
+                                            "svchost 8284 0.02 core",
+                                            "WmiPrvSE 7560 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P2, 1492 MHz, 11001 MHz, 15.43 W, 0 %, 14 MiB, 54",
+                   "availGB":  20.9
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_ovg.py --model-dir C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov --device CPU --ref C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\zoo-template\\runs\\z6-c-e2b\\gemma-4-E2B-it\\task-openvino-genai_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  7500,
+                   "elapsedSeconds":  13.888,
+                   "peakWorkingSetBytes":  3330461696,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 4515 MHz, 14001 MHz, 18.80 W, 0 %, 14 MiB, 55",
+                                         "10s P4, 1492 MHz, 9001 MHz, 13.91 W, 0 %, 14 MiB, 55"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  6.1,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.63 core",
+                                           "litert_lm_advanced_main_windows 34116 0.2 core",
+                                           "curl 34440 0.05 core",
+                                           "powershell 24268 0.03 core",
+                                           "MsMpEng 5548 0.03 core"
+                                       ]
+                           },
+                  "nvidia":  "P2, 1492 MHz, 11001 MHz, 18.38 W, 0 %, 14 MiB, 55"
+              },
+    "end":  "2026-11-10T08:38:19.8104523+09:00",
+    "tries":  1
+}

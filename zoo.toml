@@ -1,0 +1,35 @@
+# The zoo's own settings: the PC, the device and runtime names, the table views.
+# tools/zoo.py reads this file; every tool takes its names from here.
+
+[zoo]
+name = "windows-model-zoo"
+lane = "Z7"                      # this zoo's name on the shared PC's lock and notes (pcup\busy.txt, pcup\active\<lane>.txt)
+pc_ssh = "winpc"                 # ssh host alias of the PC (PowerShell 5.1 as its default shell)
+pc_root = 'C:\src\model-zoo'     # the zoo's folder on the PC (a folder that does not exist yet): venvs, models, runs, logs
+
+[devices]                         # device id -> label of a new cell (a migrated cell keeps the label its zoo used)
+cpu = "CPU (Core Ultra 9 386H)"
+igpu = "Intel GPU"
+rtx = "RTX 5080 Laptop"
+npu = "Intel NPU"
+
+[regime.qos]                      # cell.regime.qos -> words in a table's title
+high = "High QoS"
+not-raised = "QoS not raised"
+unknown = "QoS unknown"
+
+[regime.power]                    # cell.regime.power -> words (MSI Center's User Scenario on this PC)
+balanced = "MSI Balanced"
+extreme = "MSI Extreme Performance"
+unrecorded = "MSI mode not recorded"
+
+[runtimes]                        # runtime id -> label of a new cell (the versions = the pins in pc/req/)
+onnxruntime = "ONNX Runtime 1.31.1"
+onnxruntime-openvino = "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+openvino-genai = "OpenVINO GenAI 2026.4.1"
+onnxruntime-cuda = "ONNX Runtime 1.31.1 CUDA EP"
+openvino = "OpenVINO 2026.4.1"
+foundry = "Foundry Local 0.13.0"
+litert-lm = "LiteRT-LM v0.19.0"
+"llama.cpp" = "llama.cpp b11721"
+ort-genai = "ONNX Runtime GenAI 0.19.0"

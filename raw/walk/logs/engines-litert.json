@@ -1,0 +1,76 @@
+{
+ "make": "litert",
+ "started": "2026-11-10T13:22:14+0900",
+ "downloads": [
+  {
+   "url": "https://raw.githubusercontent.com/john-rocky/edge-llm-bench/92ecca90d755d062e0930a5a11dc9e317618e359/windows/build_litert_lm.ps1",
+   "path": "C:\\src\\model-zoo\\engines_src\\build_litert_lm.ps1",
+   "size": 8978,
+   "sha256": "1ad6d130789f9dc461dbd895c86f2bfa81f1141b8566252b80bd4b9caef37c69",
+   "ok": true,
+   "tries": 1,
+   "seconds": 0.4
+  },
+  {
+   "url": "https://files.pythonhosted.org/packages/dc/aa/a987eeb80356d7b8550bd6826350cd9b4d1b84ab5d2925d53822b2e23d16/litert_lm_api-0.19.0-py3-none-win_amd64.whl",
+   "path": "C:\\src\\model-zoo\\engines_src\\litert_lm_api-0.19.0-py3-none-win_amd64.whl",
+   "size": 27503843,
+   "sha256": "95d586194883daf7f298be7b97fe1ca16fc7b1c2839d08a7e182b1da48156d63",
+   "ok": true,
+   "tries": 1,
+   "seconds": 6.1
+  }
+ ],
+ "commands": [],
+ "made": {
+  "litert": {
+   "command": [
+    "powershell",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\src\\model-zoo\\engines_src\\build_litert_lm.ps1",
+    "-Tag",
+    "v0.19.0",
+    "-Label",
+    "v0.19.0-model-zoo",
+    "-Src",
+    "C:\\src\\mz-litert-lm",
+    "-OutputBase",
+    "C:\\bzl-mz",
+    "-EngineDir",
+    "C:\\src\\model-zoo\\engines\\litert",
+    "-DxcDir",
+    "C:\\src\\model-zoo\\engines_src\\dxc",
+    "-Log",
+    "C:\\src\\model-zoo\\logs\\litert_build.log"
+   ],
+   "exit": 0,
+   "log": "C:\\src\\model-zoo\\logs\\litert_build.log",
+   "log_last": "[2026-11-10T13:37:42.1220877+09:00] staged C:\\src\\model-zoo\\engines\\litert, exe sha256 adc93912f767241ff850a1ea1c2088e55890506084fda820fb8704f0d693f9fa",
+   "commit": "83ce6067f2e2a3fb697556928f93936693ded971",
+   "record_commit": "83ce6067f2e2a3fb697556928f93936693ded971",
+   "pins": {
+    "tag": "v0.19.0",
+    "commit": "83ce6067f2e2a3fb697556928f93936693ded971",
+    "engine_version": "v0.19.0",
+    "gpu_accelerator": "static-source",
+    "built_with": "bazel --config=windows --copt=/utf-8 --host_copt=/utf-8",
+    "litert_lm_advanced_main_windows_sha256": "adc93912f767241ff850a1ea1c2088e55890506084fda820fb8704f0d693f9fa",
+    "dll_files": {
+     "dxcompiler.dll": "b86a738ece4c05dbe2d9bbb29668a2ccb28a0740773c9b027cdc61e8d07b4d75",
+     "dxil.dll": "058f2f52a680c38b223a5615b7df969def21f77e577562e5099d971dede992de",
+     "libGemmaModelConstraintProvider.dll": "49ca48d969ffcde4b56e0ef7a604d9cc5c7ad37a599f00dc81f093a687796d52",
+     "libLiteRt.dll": "dc64a8dcdf55bf409c5c9e4e37c8bd7d396c5a502de169833eb945d38632f8e4",
+     "libLiteRtWebGpuAccelerator.dll": "ae9f4ab7aa5f5453f818b0fc6297d5bff110ede0b07a32867dc5f22c4471ef4d",
+     "libwebgpu_dawn.dll": "3b16ef13395e1b1885384f21f09f5f338089cb0465c17313842152d413a1bb8d",
+     "LiteRtDispatch.dll": "b052983f695a845cc2695a4fab1170aa97454f0de9b487863c1a026fdc7a5d60",
+     "webgpu_dawn.dll": "44646604a3cbe2f854a7dd6832a53b62d5b2fa68467f3a9c04ad1e2025d3d505"
+    }
+   }
+  }
+ },
+ "ended": "2026-11-10T13:37:42+0900",
+ "failed": 0
+}

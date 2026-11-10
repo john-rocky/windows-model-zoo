@@ -1,0 +1,110 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T07:26:13.073259+09:00",
+ "argv": [
+  "--model",
+  "rtm_animal_fp16",
+  "--spec",
+  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\zoo-template\\work\\rtm_animal_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z5-a\\rtm_animal_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 28132,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.004085800028406084,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.004191400017589331,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.003638099995441735,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "rtm_animal_fp16 form fp16",
+  "path": "C:\\src\\zoo\\fp16\\rtm_animal_fp16.onnx",
+  "bytes": 27827986,
+  "sha256": "1e999fa502f9d1c85f6996c6831fb1a128f9dd363bb01013b1829cca6c492cbe"
+ },
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\rtm_animal_fp16\\inputs.npz",
+  "sha256": "2fc50bf8053c7b61eee015296744435739801786a8b4311d231b48c0b9577f31",
+  "bytes": 2360182,
+  "n": 3
+ },
+ "load_s": 1.221,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.945,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtm_animal_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 210406,
+  "sha256": "9af5d7c60777d0ca3617a60d64c6fcc01caff9684de2b2d1e8ad8a238354533a",
+  "arrays": 6
+ },
+ "summary": {
+  "clips": 3,
+  "inputs": 3,
+  "median_ms": 4.086,
+  "min_ms": 3.638,
+  "max_ms": 4.191,
+  "value": 4.086
+ },
+ "peak_working_set_bytes": 1539178496,
+ "peak_pagefile_bytes": 2894622720,
+ "ended": "2026-11-10T07:26:15.518795+09:00",
+ "process_s": 2.447
+}

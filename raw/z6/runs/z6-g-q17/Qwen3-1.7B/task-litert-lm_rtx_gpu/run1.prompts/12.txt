@@ -1,0 +1,7 @@
+<|im_start|>user
+Who wrote "Romeo and Juliet"? Reply with only the name.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

@@ -1,0 +1,136 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T14:17:57.107222+09:00",
+ "argv": [
+  "--model",
+  "rtmw_fp16",
+  "--spec",
+  "C:\\src\\model-zoo\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\model-zoo\\work\\rtmw_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "GPU.0",
+  "--out",
+  "C:\\src\\model-zoo\\runs\\walk-v\\rtmw_fp16\\task-ovgpu\\run1.json"
+ ],
+ "pid": 21052,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.004671600006986409,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.006307400006335229,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.003944199997931719,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.003962600021623075,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.003901299962308258,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "rtmw_fp16 form fp32",
+  "path": "C:\\src\\model-zoo\\hub\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\rtmw_fp16.onnx",
+  "bytes": 132050550,
+  "sha256": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9"
+ },
+ "inputs": {
+  "path": "C:\\src\\model-zoo\\work\\rtmw_fp16\\inputs.npz",
+  "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
+  "bytes": 2950582,
+  "n": 5
+ },
+ "load_s": 1.276,
+ "device": {
+  "openvino_ep": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000"
+  }
+ },
+ "session_providers": [
+  "OpenVINOExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp32",
+  "engine": "ort",
+  "ep": "openvino",
+  "ov_device": "GPU.0",
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.01,
+ "outputs": {
+  "path": "C:\\src\\model-zoo\\runs\\walk-v\\rtmw_fp16\\task-ovgpu\\run1.outputs.npz",
+  "bytes": 2385862,
+  "sha256": "b855a0bf3d5d69181e84cbfa5e9bbb666c26dc54ecec259468be7170bbc8ea6c",
+  "arrays": 10
+ },
+ "summary": {
+  "clips": 5,
+  "inputs": 5,
+  "median_ms": 3.963,
+  "min_ms": 3.901,
+  "max_ms": 6.307,
+  "value": 3.963
+ },
+ "peak_working_set_bytes": 678154240,
+ "peak_pagefile_bytes": 1149800448,
+ "ended": "2026-11-10T14:17:59.823467+09:00",
+ "process_s": 2.72
+}

@@ -1,0 +1,44 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "gemma-4-E2B-it",
+ "cell": "llama.cpp_npu_openvino",
+ "kind": "llm",
+ "runtime": {
+  "id": "llama.cpp",
+  "label": "llama.cpp b11721",
+  "version": null,
+  "ep": "openvino"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "none",
+  "label": "—"
+ },
+ "run": {
+  "state": "not_run",
+  "mode": null,
+  "started": null,
+  "why": "the bench pins only the cpu / vulkan / cuda assets of b11721 (edge-llm-bench windows/engine-pins.json); the release's `llama-b11721-bin-win-openvino-2026.4.1-x64.zip` is not pinned (a bench change)"
+ },
+ "line": {
+  "id": "text-check",
+  "kind": "text-integrity",
+  "pass": null,
+  "verdict": "no verdict on text-check: not_run (the bench pins only the cpu / vulkan / cuda assets of b11721 (edge-llm-bench windows/engine-pins.json); the release's `llama-b11721-bin-win-openvino-2026.4.1-x6)"
+ },
+ "speed": null,
+ "regime": null,
+ "llm": {
+  "backend": "openvino"
+ },
+ "source": {
+  "by": "windows-llm-zoo (Z2)",
+  "record": null,
+  "record_text": "—",
+  "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:tools/table.py NOT_RUN"
+ },
+ "note": []
+}

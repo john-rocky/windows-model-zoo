@@ -1,0 +1,7 @@
+<|im_start|>user
+What comes next: 2, 4, 6, 8? Reply with only the number.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

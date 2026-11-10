@@ -1,0 +1,82 @@
+{
+    "cell":  "Qwen3-4B/task-openvino-genai_npu_npu-sym-g128",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-g-q4b",
+    "start":  "2026-11-10T09:46:59.3095884+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  28.6,
+                                "build_ms":  0,
+                                "top":  [
+                                            "litert_lm_advanced_main_windows 26468 3.6 core",
+                                            "System 4 0.84 core",
+                                            "SearchIndexer 9480 0.02 core",
+                                            "svchost 5260 0.02 core",
+                                            "WUDFHost 9528 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1492 MHz, 14001 MHz, 19.03 W, 0 %, 0 MiB, 56",
+                   "availGB":  22.7
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_ovg.py --model-dir C:\\src\\zoo-template\\hub\\mlboydaisuke__Qwen3-4B-int4-sym-g128-ov --device NPU --cache-dir C:\\src\\zoo-template\\ovcache\\Qwen3-4B_npu_sym_g128 --ref C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-g-q4b\\Qwen3-4B\\task-openvino-genai_npu_npu-sym-g128\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  20252,
+                   "elapsedSeconds":  72.122,
+                   "peakWorkingSetBytes":  6025322496,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00013E4C":  {
+                                                                    "shared":  3168,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 2047 MHz, 14001 MHz, 19.18 W, 0 %, 0 MiB, 57",
+                                         "10s P0, 1320 MHz, 14001 MHz, 19.21 W, 0 %, 0 MiB, 57",
+                                         "15s P0, 5302 MHz, 14001 MHz, 19.17 W, 0 %, 0 MiB, 57",
+                                         "20s P0, 307 MHz, 14001 MHz, 19.24 W, 0 %, 0 MiB, 57",
+                                         "25s P0, 3645 MHz, 14001 MHz, 19.38 W, 0 %, 0 MiB, 58",
+                                         "30s P0, 367 MHz, 14001 MHz, 19.23 W, 0 %, 0 MiB, 57",
+                                         "35s P0, 2025 MHz, 14001 MHz, 19.42 W, 0 %, 0 MiB, 58",
+                                         "40s P0, 9291 MHz, 14001 MHz, 19.40 W, 0 %, 0 MiB, 58",
+                                         "45s P0, 1020 MHz, 14001 MHz, 19.44 W, 0 %, 0 MiB, 58",
+                                         "50s P0, 18180 MHz, 14001 MHz, 19.24 W, 0 %, 0 MiB, 59",
+                                         "55s P0, 2152 MHz, 14001 MHz, 19.36 W, 0 %, 0 MiB, 59",
+                                         "60s P0, 12697 MHz, 14001 MHz, 19.39 W, 0 %, 0 MiB, 60",
+                                         "65s P0, 525 MHz, 14001 MHz, 19.73 W, 0 %, 0 MiB, 60",
+                                         "70s P0, 2820 MHz, 14001 MHz, 19.64 W, 0 %, 0 MiB, 60"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  6.6,
+                               "build_ms":  0,
+                               "top":  [
+                                           "litert_lm_advanced_main_windows 35744 0.92 core",
+                                           "System 4 0.03 core",
+                                           "svchost 5480 0.03 core",
+                                           "MsMpEng 5548 0.03 core",
+                                           "powershell 32148 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 307 MHz, 14001 MHz, 19.90 W, 0 %, 0 MiB, 60"
+              },
+    "end":  "2026-11-10T09:48:13.4048607+09:00",
+    "tries":  1
+}

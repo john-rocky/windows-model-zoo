@@ -1,0 +1,46 @@
+[2026-11-10T13:13:32.9990784+09:00] steps setup start: 22 steps, pid 11244
+[2026-11-10T13:13:33.0308189+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T13:13:35.5815081+09:00] python end: exit 0, 0 min
+[2026-11-10T13:13:35.5815081+09:00] venv-genai start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-genai --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:13:35.9305363+09:00] venv-genai end: exit 0, 0 min
+[2026-11-10T13:13:35.9374015+09:00] pip-genai start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-genai\Scripts\python.exe -r C:\src\model-zoo\pc\req\genai.txt
+[2026-11-10T13:13:50.3101428+09:00] pip-genai end: exit 0, 0.2 min
+[2026-11-10T13:13:50.3136886+09:00] versions-genai start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-genai.txt
+[2026-11-10T13:13:50.7950361+09:00] versions-genai end: exit 0, 0 min
+[2026-11-10T13:13:50.7950361+09:00] venv-ref start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-ref --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:13:50.8444950+09:00] venv-ref end: exit 0, 0 min
+[2026-11-10T13:13:50.8462507+09:00] pip-ref start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-ref\Scripts\python.exe -r C:\src\model-zoo\pc\req\ref.txt
+[2026-11-10T13:15:14.0623798+09:00] pip-ref end: exit 0, 1.4 min
+[2026-11-10T13:15:14.0661499+09:00] versions-ref start: C:\src\model-zoo\.venv-ref\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-ref.txt
+[2026-11-10T13:15:14.6815273+09:00] versions-ref end: exit 0, 0 min
+[2026-11-10T13:15:14.6815273+09:00] venv-ovg start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-ovg --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:15:14.7399187+09:00] venv-ovg end: exit 0, 0 min
+[2026-11-10T13:15:14.7399187+09:00] pip-ovg start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-ovg\Scripts\python.exe -r C:\src\model-zoo\pc\req\ovg.txt
+[2026-11-10T13:15:55.3854624+09:00] pip-ovg end: exit 0, 0.7 min
+[2026-11-10T13:15:55.3854624+09:00] versions-ovg start: C:\src\model-zoo\.venv-ovg\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-ovg.txt
+[2026-11-10T13:15:55.6232340+09:00] versions-ovg end: exit 0, 0 min
+[2026-11-10T13:15:55.6389048+09:00] venv-genai-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-genai-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:15:55.6884019+09:00] venv-genai-cuda end: exit 0, 0 min
+[2026-11-10T13:15:55.6884019+09:00] pip-genai-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-genai-cuda\Scripts\python.exe -r C:\src\model-zoo\pc\req\genai-cuda.txt
+[2026-11-10T13:17:33.2237123+09:00] pip-genai-cuda end: exit 0, 1.6 min
+[2026-11-10T13:17:33.2396542+09:00] versions-genai-cuda start: C:\src\model-zoo\.venv-genai-cuda\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-genai-cuda.txt
+[2026-11-10T13:17:33.4626027+09:00] versions-genai-cuda end: exit 0, 0 min
+[2026-11-10T13:17:33.4626027+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:33.5263255+09:00] venv-z1-ort end: exit 0, 0 min
+[2026-11-10T13:17:33.5263255+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-ort.txt
+[2026-11-10T13:17:35.0433181+09:00] pip-z1-ort end: exit 0, 0 min
+[2026-11-10T13:17:35.0433181+09:00] versions-z1-ort start: C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-ort.txt
+[2026-11-10T13:17:35.2897754+09:00] versions-z1-ort end: exit 0, 0 min
+[2026-11-10T13:17:35.2897754+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:35.3438630+09:00] venv-z1-cuda end: exit 0, 0 min
+[2026-11-10T13:17:35.3458701+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-cuda\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-cuda.txt
+[2026-11-10T13:17:51.2242535+09:00] pip-z1-cuda end: exit 0, 0.3 min
+[2026-11-10T13:17:51.2242535+09:00] versions-z1-cuda start: C:\src\model-zoo\.venv-z1-cuda\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-cuda.txt
+[2026-11-10T13:17:51.4651929+09:00] versions-z1-cuda end: exit 0, 0 min
+[2026-11-10T13:17:51.4651929+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:51.5158122+09:00] venv-z1-ov end: exit 0, 0 min
+[2026-11-10T13:17:51.5193941+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-ov\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-ov.txt
+[2026-11-10T13:17:52.8405027+09:00] pip-z1-ov end: exit 0, 0 min
+[2026-11-10T13:17:52.8425090+09:00] versions-z1-ov start: C:\src\model-zoo\.venv-z1-ov\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-ov.txt
+[2026-11-10T13:17:53.0351100+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T13:17:53.0403846+09:00] steps setup done: OK

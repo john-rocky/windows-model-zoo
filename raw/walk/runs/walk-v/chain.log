@@ -1,0 +1,11 @@
+[2026-11-10T14:17:12.1203888+09:00] chain start: plan C:\src\model-zoo\pc\plans\walk-v.json mode first, 4 units, pid 34776
+[2026-11-10T14:17:23.1016406+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T14:17:25.2529957+09:00] rtmpose_s_fp16/task-ovnpu run 1 start
+[2026-11-10T14:17:32.7698413+09:00] rtmpose_s_fp16/task-ovnpu run 1 end: exit 0, OK, 6.369 s
+[2026-11-10T14:17:34.7266452+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T14:17:39.8505413+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 3.129 s
+[2026-11-10T14:17:41.8242277+09:00] rtmpose_s_fp16/task-cuda32 run 1 start
+[2026-11-10T14:17:54.8977355+09:00] rtmpose_s_fp16/task-cuda32 run 1 end: exit 0, OK, 11.138 s
+[2026-11-10T14:17:56.8854868+09:00] rtmw_fp16/task-ovgpu run 1 start
+[2026-11-10T14:18:02.9423851+09:00] rtmw_fp16/task-ovgpu run 1 end: exit 0, OK, 4.11 s
+[2026-11-10T14:18:02.9423851+09:00] chain done: OK

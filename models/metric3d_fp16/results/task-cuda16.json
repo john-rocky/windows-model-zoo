@@ -1,0 +1,268 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "metric3d_fp16",
+ "cell": "task-cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "z1-onnx-fp16",
+  "label": "fp16",
+  "detail": "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256",
+  "path": "C:\\src\\zoo\\fp16\\metric3d_fp16.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-depth",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-depth: AbsRel 0.693247 (pass mark AbsRel at most 0.02)",
+  "reference": "raw/z5/refs/metric3d_fp16/ref.json",
+  "detail": {
+   "absrel": 0.693247,
+   "pixels": 4014080,
+   "bar": 0.02,
+   "pass": false
+  },
+  "text": "AbsRel 0.693247"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/metric3d_fp16/task-cuda16/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "metric3d_fp16",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\metric3d_fp16",
+   "--form",
+   "fp16",
+   "--engine",
+   "ort",
+   "--ep",
+   "cuda",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\metric3d_fp16\\task-cuda16\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "AbsRel 0.693247"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:23:18.452406+09:00",
+  "ended": "2026-11-10T07:23:21.881060+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 28.241,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.667,
+  "warmup_s": 0.58,
+  "load_ms": 1667.0
+ },
+ "memory": {
+  "peak_ws_bytes": 1487765504,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 74,
+    "dedicated": 194
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "depth",
+  "scores": {
+   "outputs": {
+    "o0": {
+     "cos": 0.522066,
+     "max_abs": 197.125,
+     "nonfinite": 0,
+     "values": 4014080
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-gpu": "1.31.1",
+   "numpy": "2.5.4",
+   "nvidia-cudnn-cu13": "9.28.0.42",
+   "nvidia-cublas": "13.10.0.20",
+   "nvidia-cuda-runtime": "13.5.37"
+  },
+  "device_props": {},
+  "providers": [
+   "CUDAExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\metric3d_fp16\\inputs.npz",
+   "sha256": "f1bf8d81f2ab89cf2aacdea8f8e11bf1feba76d07b9952a1d7286d217a3632c3",
+   "bytes": 48174742,
+   "n": 20
+  },
+  "model_file": {
+   "what": "metric3d_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\metric3d_fp16.onnx",
+   "bytes": 79920575,
+   "sha256": "d96f90b7ad645ef2e5332b29f4c8711c0d691bf7a3fc33073aee3149f51ac068"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "absrel": 0.608548,
+    "pixels": 200704
+   },
+   {
+    "id": "dinov2",
+    "absrel": 0.630347,
+    "pixels": 200704
+   },
+   {
+    "id": "gaze",
+    "absrel": 0.712193,
+    "pixels": 200704
+   },
+   {
+    "id": "hsemotion",
+    "absrel": 0.595422,
+    "pixels": 200704
+   },
+   {
+    "id": "lowlight",
+    "absrel": 0.704739,
+    "pixels": 200704
+   },
+   {
+    "id": "metric3d",
+    "absrel": 0.551165,
+    "pixels": 200704
+   },
+   {
+    "id": "migan",
+    "absrel": 0.621679,
+    "pixels": 200704
+   },
+   {
+    "id": "mlsd",
+    "absrel": 0.659951,
+    "pixels": 200704
+   },
+   {
+    "id": "nafnet",
+    "absrel": 0.571934,
+    "pixels": 200704
+   },
+   {
+    "id": "neuralstyle",
+    "absrel": 0.854443,
+    "pixels": 200704
+   },
+   {
+    "id": "nima",
+    "absrel": 0.589999,
+    "pixels": 200704
+   },
+   {
+    "id": "places365",
+    "absrel": 0.641941,
+    "pixels": 200704
+   },
+   {
+    "id": "ppocr",
+    "absrel": 0.884872,
+    "pixels": 200704
+   },
+   {
+    "id": "rtmanimal",
+    "absrel": 0.598565,
+    "pixels": 200704
+   },
+   {
+    "id": "rtmface",
+    "absrel": 0.859821,
+    "pixels": 200704
+   },
+   {
+    "id": "rtmhand",
+    "absrel": 0.904671,
+    "pixels": 200704
+   },
+   {
+    "id": "rtmpose",
+    "absrel": 0.62073,
+    "pixels": 200704
+   },
+   {
+    "id": "saliency",
+    "absrel": 0.777688,
+    "pixels": 200704
+   },
+   {
+    "id": "tddfa",
+    "absrel": 0.921804,
+    "pixels": 200704
+   },
+   {
+    "id": "yunet",
+    "absrel": 0.554433,
+    "pixels": 200704
+   }
+  ],
+  "z1_cell": "cuda16",
+  "workload": {
+   "set": "images",
+   "task": "depth",
+   "form": "fp16",
+   "engine": "ort",
+   "ep": "cuda",
+   "ov_device": null,
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\metric3d_fp16\\task-cuda16\\run1.outputs.npz",
+   "bytes": 16061302,
+   "sha256": "78f63686b5b19934b7cb88cd40215e091c039864732864db64c83f59346f8804",
+   "arrays": 20
+  }
+ }
+}

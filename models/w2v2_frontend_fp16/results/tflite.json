@@ -1,0 +1,79 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "w2v2_frontend_fp16",
+ "cell": "tflite",
+ "kind": "vision",
+ "role": "conversion-check",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "litert",
+  "label": "ai-edge-litert 2.2.0",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "cpu",
+  "label": "Core Ultra 9 386H CPU"
+ },
+ "form": {
+  "id": "tflite",
+  "label": "litert-community/wav2vec2-keyword-spotting@4f30d050bc19/w2v2_frontend_fp16.tflite against the ONNX cell cpu"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "started": null,
+  "ended": null,
+  "error": null
+ },
+ "line": {
+  "id": "z1-tflite",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-tflite",
+  "status": "PASS",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": null,
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": null
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     49,
+     768
+    ],
+    "max_abs": 9.322166442871094e-05,
+    "mean_abs": 5.750865791425081e-06,
+    "cos": 0.9999999999287118,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -6.3536295890808105,
+    "ref_max": 6.741591453552246,
+    "ref_range": 13.095220565795898,
+    "max_abs_over_range": 7.118754812897276e-06
+   }
+  ],
+  "outputs_paired": [
+   {
+    "onnx": "serving_default_output_0_output",
+    "tflite": "serving_default_output_0_output"
+   }
+  ],
+  "inputs_paired": "by name",
+  "tflite_sha256_ok": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/w2v2_frontend_fp16/tflite.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/w2v2_frontend_fp16/tflite.json"
+ },
+ "note": []
+}

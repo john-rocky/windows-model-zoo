@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\src\zoo-template\pc\run_llm_foundry.py", line 195, in main
+    raise RuntimeError(f"foundry model load exit {r['exit']}: {r['tail']}")
+RuntimeError: foundry model load exit 1: ['■ Loading model (z6-gemma-4-e2b-it-generic-gpu:1)', '● error: The Foundry Local runtime reported an internal error. ', 'genai_model_instance.cc:218 fl::GenAIModelInstance::GenAIModelInstance failed to', 'load model z6-gemma-4-e2b-it-generic-gpu:1: Running a model with multiple ', 'providers is not supported. Encountered WebGPU and CUDA', "Hint: Run 'foundry report' to capture diagnostics for a bug report."]
+

@@ -1,0 +1,315 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dfine_graphB_fp16_fixed",
+ "cell": "task-ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-openvino",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "z1-onnx-fp32",
+  "label": "fp32",
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
+  "path": "C:\\src\\zoo\\onnx\\dfine_graphB_fp16_fixed.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-detection",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-detection: 33 boxes paired, of the reference's 91 and the cell's 38 (pass mark 95 % both ways)",
+  "reference": "raw/z5/refs/dfine_graphB_fp16_fixed/ref.json",
+  "detail": {
+   "pairs": 33,
+   "ref_boxes": 91,
+   "cell_boxes": 38,
+   "bar": "95 % both ways",
+   "pass": false
+  },
+  "text": "boxes paired 33/91 of the reference's, 33/38 of the cell's"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/dfine_graphB_fp16_fixed/task-ovgpu/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "dfine_graphB_fp16_fixed",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed",
+   "--form",
+   "fp32",
+   "--engine",
+   "ort",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "GPU.0",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "boxes paired 33/91 of the reference's, 33/38 of the cell's"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:22:34.294811+09:00",
+  "ended": "2026-11-10T07:22:39.930713+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 87.426,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 2.018,
+  "warmup_s": 0.109,
+  "load_ms": 2018.0
+ },
+ "memory": {
+  "peak_ws_bytes": 879501312,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 559,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "detection",
+  "scores": {
+   "pair_iou_mean": 0.7902,
+   "pair_iou_min": 0.502,
+   "outputs": {
+    "o0": {
+     "cos": 0.9951,
+     "max_abs": 1.438204,
+     "nonfinite": 0,
+     "values": 24000
+    },
+    "o1": {
+     "cos": 0.512373,
+     "max_abs": 105205.265625,
+     "nonfinite": 5120,
+     "values": 480000
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino_ep": {
+    "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+    "ov_device": "GPU.0",
+    "version": "1.8.1+95d534b.ci.79",
+    "os_driver_version": null,
+    "NPU_COMPILER_VERSION": null,
+    "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+    "DEVICE_LUID": "0e26010000000000"
+   }
+  },
+  "providers": [
+   "OpenVINOExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed\\inputs.npz",
+   "sha256": "06d2e04aa67822901d1f635584a3956840b99bc9ee225c530110a8368b8015a9",
+   "bytes": 178289302,
+   "n": 20
+  },
+  "model_file": {
+   "what": "dfine_graphB_fp16_fixed form fp32",
+   "path": "C:\\src\\zoo\\onnx\\dfine_graphB_fp16_fixed.onnx",
+   "bytes": 17758341,
+   "sha256": "440bc1c6db016bc069027df3ce791b09d0b36727dcabfb340c31c7e158cfdb12"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "ref": 8,
+    "cell": 4,
+    "pairs": 4
+   },
+   {
+    "id": "dinov2",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "gaze",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "hsemotion",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "lowlight",
+    "ref": 1,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "metric3d",
+    "ref": 14,
+    "cell": 3,
+    "pairs": 3
+   },
+   {
+    "id": "migan",
+    "ref": 1,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "mlsd",
+    "ref": 3,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "nafnet",
+    "ref": 0,
+    "cell": 1,
+    "pairs": 0
+   },
+   {
+    "id": "neuralstyle",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "nima",
+    "ref": 15,
+    "cell": 5,
+    "pairs": 5
+   },
+   {
+    "id": "places365",
+    "ref": 1,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "ppocr",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "rtmanimal",
+    "ref": 3,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmface",
+    "ref": 2,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmhand",
+    "ref": 2,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmpose",
+    "ref": 2,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "saliency",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "tddfa",
+    "ref": 2,
+    "cell": 2,
+    "pairs": 2
+   },
+   {
+    "id": "yunet",
+    "ref": 33,
+    "cell": 14,
+    "pairs": 10
+   }
+  ],
+  "z1_cell": "ovgpu",
+  "workload": {
+   "set": "images",
+   "task": "detection",
+   "form": "fp32",
+   "engine": "ort",
+   "ep": "openvino",
+   "ov_device": "GPU.0",
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.outputs.npz",
+   "bytes": 2025942,
+   "sha256": "a88b59f841e674cdbeecf02de33657abc42f594d39f5a9350b3a824ff66bd60d",
+   "arrays": 40
+  }
+ }
+}

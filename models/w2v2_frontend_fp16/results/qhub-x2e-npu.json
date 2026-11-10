@@ -1,0 +1,57 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "w2v2_frontend_fp16",
+ "cell": "qhub-x2e-npu",
+ "kind": "vision",
+ "role": "other-device",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "qnn",
+  "label": "Qualcomm AI Hub, QNN precompiled (pqo)",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "x2e-npu",
+  "label": "Snapdragon X2 Elite CRD"
+ },
+ "form": {
+  "id": "pqo",
+  "label": "precompiled QNN context"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": null,
+  "ended": null,
+  "error": null,
+  "job": "j5q1z01og"
+ },
+ "line": null,
+ "speed": {
+  "metric": "ms",
+  "value": 11.317,
+  "timed": true,
+  "stat": "AI Hub estimated_inference_time",
+  "load_ms": 371.875,
+  "warm_load_ms": 274.702
+ },
+ "regime": {
+  "qos": "n/a",
+  "power": "n/a",
+  "timer": "ai-hub",
+  "qos_basis": "another device (AI Hub's own timer)"
+ },
+ "vision": {
+  "units": {
+   "NPU": 133
+  },
+  "peak_mem_bytes": 32411648
+ },
+ "source": {
+  "by": "Qualcomm AI Hub (the vision zoo's records of two other devices, 2026-10-30)",
+  "record": "aihub/results_wide.json[w2v2_frontend_fp16|X2E|pqo|npu]",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:aihub/results_wide.json"
+ },
+ "note": []
+}

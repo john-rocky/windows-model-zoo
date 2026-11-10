@@ -1,0 +1,144 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtdetr_graphB_fp16_fixed",
+ "cell": "ovnpu_pre",
+ "kind": "vision",
+ "runtime": {
+  "id": "openvino",
+  "label": "OpenVINO 2026.4.1",
+  "version": "2026.4.1",
+  "ep": null
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel AI Boost NPU"
+ },
+ "form": {
+  "id": "npu-blob",
+  "label": "compile_model -> export_model blob, loaded with import_model (precompiled)",
+  "sha256": null
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T02:03:08.694102+09:00",
+  "ended": "2026-11-07T02:03:13.757745+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 86.90455000032671,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 86.90455000032671,
+   "p10": 86.23330000045826,
+   "p90": 87.63990000079502,
+   "min": 86.11070000188192,
+   "max": 88.22990000044229,
+   "n": 30
+  },
+  "first_pass_value": 86.90589999605436,
+  "load_ms": 49.419099999795435,
+  "load_ms_first_pass": 52.45000000286382,
+  "compile_ms": 26586.266199999955,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     300,
+     4
+    ],
+    "max_abs": 0.008429482579231262,
+    "mean_abs": 0.0003730890022901197,
+    "cos": 0.9999978270192728,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": 0.00913393497467041,
+    "ref_max": 0.9885387420654297,
+    "ref_range": 0.9794048070907593,
+    "max_abs_over_range": 0.00860674005089922
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     300,
+     80
+    ],
+    "max_abs": 0.19948172569274902,
+    "mean_abs": 0.009825690229733786,
+    "cos": 0.9999967515589295,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -10.228666305541992,
+    "ref_max": 2.6139187812805176,
+    "ref_range": 12.842584609985352,
+    "max_abs_over_range": 0.015532833284792862,
+    "argmax": {
+     "positions": 300,
+     "counted": 300,
+     "agree": 299,
+     "rate": 0.9966666666666667,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.026144027709960938,
+     "ref_margin_median": 1.4075769186019897
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "openvino": "2026.4.1-22982-e213a147257-releases/2026/4"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "DEVICE_LUID": "4c3e010000000000",
+   "counter_luid": "0x00000000_0x00013e4c",
+   "NPU_DRIVER_VERSION": "1004841",
+   "NPU_COMPILER_VERSION": "524292",
+   "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN",
+   "INFERENCE_PRECISION_HINT": "<Type: 'float16'>"
+  },
+  "placement": null,
+  "query_model": {
+   "ops": 955,
+   "supported": 955,
+   "unsupported_by_type": {}
+  },
+  "fp16_convert": null,
+  "input_sha256": "2c230c4e683f38935479fd0d1d598f72cfe82f95494dbadf0bbddefe46cddf69",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtdetr_graphB_fp16_fixed/ovnpu_pre.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtdetr_graphB_fp16_fixed/ovnpu_pre.json"
+ },
+ "note": []
+}

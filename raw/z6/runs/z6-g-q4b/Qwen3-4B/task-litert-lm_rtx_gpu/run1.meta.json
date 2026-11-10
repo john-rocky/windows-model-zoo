@@ -1,0 +1,105 @@
+{
+    "cell":  "Qwen3-4B/task-litert-lm_rtx_gpu",
+    "device":  "rtx",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-g-q4b",
+    "start":  "2026-11-10T09:42:47.5702127+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  1.5,
+                                "build_ms":  0,
+                                "top":  [
+                                            "powershell 35024 0.06 core",
+                                            "System 4 0.05 core",
+                                            "SearchProtocolHost 2336 0.03 core",
+                                            "SearchIndexer 9480 0.03 core",
+                                            "WorkloadsSessionHost 12616 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 10890 MHz, 14001 MHz, 17.98 W, 0 %, 0 MiB, 50",
+                   "availGB":  24.3
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\rtx\\qwen3_4b_mixed_int4.litertlm --backend gpu --adapter rtx --ref C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-g-q4b\\Qwen3-4B\\task-litert-lm_rtx_gpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  34136,
+                   "elapsedSeconds":  206.457,
+                   "peakWorkingSetBytes":  36114432,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P2, 1492 MHz, 11001 MHz, 17.58 W, 0 %, 372 MiB, 50",
+                                         "10s P2, 1545 MHz, 11001 MHz, 18.34 W, 4 %, 1051 MiB, 50",
+                                         "15s P5, 615 MHz, 810 MHz, 24.06 W, 29 %, 2440 MiB, 50",
+                                         "20s P4, 367 MHz, 9001 MHz, 20.69 W, 1 %, 5 MiB, 50",
+                                         "25s P5, 450 MHz, 810 MHz, 14.35 W, 15 %, 1876 MiB, 50",
+                                         "30s P2, 1507 MHz, 11001 MHz, 17.91 W, 2 %, 234 MiB, 51",
+                                         "35s P8, 465 MHz, 405 MHz, 9.97 W, 20 %, 2017 MiB, 51",
+                                         "40s P4, 1500 MHz, 9001 MHz, 18.34 W, 0 %, 313 MiB, 51",
+                                         "45s P8, 540 MHz, 405 MHz, 11.32 W, 20 %, 2276 MiB, 51",
+                                         "50s P2, 1567 MHz, 11001 MHz, 18.97 W, 5 %, 892 MiB, 52",
+                                         "55s P8, 607 MHz, 405 MHz, 11.86 W, 19 %, 2463 MiB, 51",
+                                         "60s P4, 1560 MHz, 9001 MHz, 14.68 W, 3 %, 1043 MiB, 52",
+                                         "65s P8, 832 MHz, 405 MHz, 16.40 W, 5 %, 3438 MiB, 52",
+                                         "70s P5, 337 MHz, 810 MHz, 14.64 W, 10 %, 1360 MiB, 52",
+                                         "75s P5, 1380 MHz, 810 MHz, 47.15 W, 100 %, 3441 MiB, 56",
+                                         "80s P4, 360 MHz, 9001 MHz, 14.46 W, 3 %, 1591 MiB, 52",
+                                         "85s P4, 300 MHz, 9001 MHz, 14.30 W, 0 %, 10 MiB, 52",
+                                         "90s P5, 457 MHz, 810 MHz, 14.58 W, 10 %, 1666 MiB, 52",
+                                         "95s P2, 937 MHz, 11001 MHz, 18.07 W, 0 %, 211 MiB, 53",
+                                         "100s P5, 435 MHz, 810 MHz, 15.42 W, 10 %, 2021 MiB, 53",
+                                         "105s P4, 1537 MHz, 9001 MHz, 14.70 W, 3 %, 380 MiB, 53",
+                                         "110s P5, 465 MHz, 810 MHz, 15.01 W, 13 %, 2116 MiB, 53",
+                                         "115s P2, 1545 MHz, 11001 MHz, 18.65 W, 2 %, 543 MiB, 53",
+                                         "120s P5, 487 MHz, 810 MHz, 15.52 W, 12 %, 2491 MiB, 53",
+                                         "125s P4, 1537 MHz, 9001 MHz, 14.61 W, 3 %, 1047 MiB, 54",
+                                         "130s P8, 337 MHz, 405 MHz, 11.87 W, 9 %, 3438 MiB, 53",
+                                         "135s P4, 382 MHz, 9001 MHz, 17.13 W, 4 %, 1170 MiB, 53",
+                                         "140s P8, 750 MHz, 405 MHz, 7.43 W, 0 %, 3441 MiB, 53",
+                                         "145s P4, 322 MHz, 9001 MHz, 17.62 W, 2 %, 1539 MiB, 54",
+                                         "150s P4, 315 MHz, 9001 MHz, 15.08 W, 0 %, 5 MiB, 53",
+                                         "155s P8, 457 MHz, 405 MHz, 13.78 W, 20 %, 1666 MiB, 53",
+                                         "160s P2, 300 MHz, 11001 MHz, 15.87 W, 4 %, 211 MiB, 54",
+                                         "165s P5, 457 MHz, 810 MHz, 15.52 W, 10 %, 2067 MiB, 53",
+                                         "171s P4, 1500 MHz, 9001 MHz, 16.82 W, 3 %, 352 MiB, 54",
+                                         "175s P5, 465 MHz, 810 MHz, 15.40 W, 10 %, 2097 MiB, 54",
+                                         "180s P2, 1545 MHz, 11001 MHz, 19.61 W, 5 %, 606 MiB, 54",
+                                         "185s P8, 600 MHz, 405 MHz, 11.34 W, 21 %, 2547 MiB, 54",
+                                         "190s P4, 600 MHz, 9001 MHz, 14.71 W, 2 %, 1106 MiB, 54",
+                                         "195s P8, 622 MHz, 405 MHz, 12.40 W, 18 %, 2570 MiB, 54",
+                                         "200s P2, 1552 MHz, 11001 MHz, 19.50 W, 5 %, 1202 MiB, 54",
+                                         "205s P8, 840 MHz, 405 MHz, 7.45 W, 0 %, 3441 MiB, 54"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  24.8,
+                               "build_ms":  0,
+                               "top":  [
+                                           "litert_lm_advanced_main_windows 32304 3.75 core",
+                                           "System 4 0.17 core",
+                                           "powershell 35024 0.03 core",
+                                           "powershell 32148 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 3660 MHz, 14001 MHz, 18.93 W, 0 %, 0 MiB, 55"
+              },
+    "end":  "2026-11-10T09:46:15.9507510+09:00",
+    "tries":  1
+}

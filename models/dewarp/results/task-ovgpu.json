@@ -1,0 +1,309 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dewarp",
+ "cell": "task-ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-openvino",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "z1-onnx-fp32",
+  "label": "fp32",
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
+  "path": "C:\\src\\zoo\\onnx\\dewarp.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-warp",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on task-warp: 7024 of 2949120 output pixels sample within 1 px of the reference (pass mark 95 %)",
+  "reference": "raw/z5/refs/dewarp/ref.json",
+  "detail": {
+   "within_1px": 7024,
+   "pixels": 2949120,
+   "share": 0.00238,
+   "bar": "95 %",
+   "pass": false
+  },
+  "text": "sampling within 1 px 0.00238"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/dewarp/task-ovgpu/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "dewarp",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\dewarp",
+   "--form",
+   "fp32",
+   "--engine",
+   "ort",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "GPU.0",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\dewarp\\task-ovgpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "sampling within 1 px 0.00238"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:21:14.232114+09:00",
+  "ended": "2026-11-10T07:21:17.889205+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 9.399,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.918,
+  "warmup_s": 0.016,
+  "load_ms": 1918.0
+ },
+ "memory": {
+  "peak_ws_bytes": 831758336,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 277,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "warp",
+  "scores": {
+   "picture_psnr_db_min": 10.38,
+   "picture_psnr_db_median": 14.12,
+   "outputs": {
+    "o0": {
+     "cos": 0.961589,
+     "max_abs": 0.672565,
+     "nonfinite": 0,
+     "values": 655360
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "numpy": "2.5.4"
+  },
+  "device_props": {
+   "openvino_ep": {
+    "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+    "ov_device": "GPU.0",
+    "version": "1.8.1+95d534b.ci.79",
+    "os_driver_version": null,
+    "NPU_COMPILER_VERSION": null,
+    "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+    "DEVICE_LUID": "0e26010000000000"
+   }
+  },
+  "providers": [
+   "OpenVINOExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\dewarp\\inputs.npz",
+   "sha256": "0c556cb99b9bac6a8e0f82f80874fd073728f48a157516210ee1c0f0cb7ef16c",
+   "bytes": 15734422,
+   "n": 20
+  },
+  "model_file": {
+   "what": "dewarp form fp32",
+   "path": "C:\\src\\zoo\\onnx\\dewarp.onnx",
+   "bytes": 189339174,
+   "sha256": "4dde2be5fa86a4b4b1dd870b0ba89dc5da6e2165b90992c13a96450935eb04c2"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "within_1px": 17,
+    "pixels": 147456,
+    "psnr_db": 12.41
+   },
+   {
+    "id": "dinov2",
+    "within_1px": 197,
+    "pixels": 147456,
+    "psnr_db": 11.38
+   },
+   {
+    "id": "gaze",
+    "within_1px": 9,
+    "pixels": 147456,
+    "psnr_db": 14.21
+   },
+   {
+    "id": "hsemotion",
+    "within_1px": 0,
+    "pixels": 147456,
+    "psnr_db": 12.55
+   },
+   {
+    "id": "lowlight",
+    "within_1px": 649,
+    "pixels": 147456,
+    "psnr_db": 19.74
+   },
+   {
+    "id": "metric3d",
+    "within_1px": 48,
+    "pixels": 147456,
+    "psnr_db": 12.3
+   },
+   {
+    "id": "migan",
+    "within_1px": 152,
+    "pixels": 147456,
+    "psnr_db": 13.23
+   },
+   {
+    "id": "mlsd",
+    "within_1px": 152,
+    "pixels": 147456,
+    "psnr_db": 11.33
+   },
+   {
+    "id": "nafnet",
+    "within_1px": 781,
+    "pixels": 147456,
+    "psnr_db": 15.28
+   },
+   {
+    "id": "neuralstyle",
+    "within_1px": 23,
+    "pixels": 147456,
+    "psnr_db": 14.03
+   },
+   {
+    "id": "nima",
+    "within_1px": 110,
+    "pixels": 147456,
+    "psnr_db": 10.77
+   },
+   {
+    "id": "places365",
+    "within_1px": 37,
+    "pixels": 147456,
+    "psnr_db": 18.69
+   },
+   {
+    "id": "ppocr",
+    "within_1px": 698,
+    "pixels": 147456,
+    "psnr_db": 14.6
+   },
+   {
+    "id": "rtmanimal",
+    "within_1px": 62,
+    "pixels": 147456,
+    "psnr_db": 10.38
+   },
+   {
+    "id": "rtmface",
+    "within_1px": 24,
+    "pixels": 147456,
+    "psnr_db": 14.65
+   },
+   {
+    "id": "rtmhand",
+    "within_1px": 603,
+    "pixels": 147456,
+    "psnr_db": 15.81
+   },
+   {
+    "id": "rtmpose",
+    "within_1px": 1108,
+    "pixels": 147456,
+    "psnr_db": 17.56
+   },
+   {
+    "id": "saliency",
+    "within_1px": 1029,
+    "pixels": 147456,
+    "psnr_db": 18.2
+   },
+   {
+    "id": "tddfa",
+    "within_1px": 844,
+    "pixels": 147456,
+    "psnr_db": 15.61
+   },
+   {
+    "id": "yunet",
+    "within_1px": 481,
+    "pixels": 147456,
+    "psnr_db": 11.1
+   }
+  ],
+  "z1_cell": "ovgpu",
+  "workload": {
+   "set": "images",
+   "task": "warp",
+   "form": "fp32",
+   "engine": "ort",
+   "ep": "openvino",
+   "ov_device": "GPU.0",
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dewarp\\task-ovgpu\\run1.outputs.npz",
+   "bytes": 2626422,
+   "sha256": "eae3f823cf02740d74a7ca3b2598d98165d4b4b9b1f2a94cfd573f70d52cb826",
+   "arrays": 20
+  }
+ }
+}

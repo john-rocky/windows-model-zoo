@@ -1,0 +1,158 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtdetr_graphB_fp16",
+ "cell": "cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp16",
+  "label": "fp16 copy (convert_float_to_float16, I/O kept fp32)",
+  "sha256": "6381f1f89a9f1a3bf0b7cd0492e280d0e86581e4f80c4b054b64a8743cedc50f"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T05:14:49.265910+09:00",
+  "ended": "2026-11-07T05:14:52.827922+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 8.091550000244752,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 8.091550000244752,
+   "p10": 7.800999999744818,
+   "p90": 9.601999998267274,
+   "min": 7.627799997862894,
+   "max": 10.007400000176858,
+   "n": 30
+  },
+  "first_pass_value": 10.663100001693238,
+  "load_ms": 1417.5753000017721,
+  "load_ms_first_pass": 454.7958000039216,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     300,
+     4
+    ],
+    "max_abs": 0.018076777458190918,
+    "mean_abs": 0.0003518610695997874,
+    "cos": 0.9999972788564766,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": 0.0033827126026153564,
+    "ref_max": 0.9876500368118286,
+    "ref_range": 0.9842673540115356,
+    "max_abs_over_range": 0.018365718810561156
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     300,
+     80
+    ],
+    "max_abs": 0.22359275817871094,
+    "mean_abs": 0.006966469645500183,
+    "cos": 0.9999982425775928,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -9.853784561157227,
+    "ref_max": 2.200314998626709,
+    "ref_range": 12.054100036621094,
+    "max_abs_over_range": 0.018549104246639934,
+    "argmax": {
+     "positions": 300,
+     "counted": 300,
+     "agree": 300,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 1.083662748336792
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 776
+   },
+   "cpu_ops": {},
+   "profile_bytes": 1416105,
+   "graph_nodes": 800
+  },
+  "query_model": null,
+  "fp16_convert": {
+   "path": "C:\\src\\zoo\\fp16\\rtdetr_graphB_fp16.onnx",
+   "seconds": 0.4155715999950189,
+   "bytes": 8727055,
+   "sha256": "6381f1f89a9f1a3bf0b7cd0492e280d0e86581e4f80c4b054b64a8743cedc50f",
+   "tool": "onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True)",
+   "dropped_identical_nodes": 13,
+   "renamed_duplicate_node_names": 0,
+   "topo_sorted": true,
+   "cached": true
+  },
+  "input_sha256": "2a0a6f7cc99221a6fa7585aa0420a2a1cfd7526f7e4c7e76e8f10a78d1e2f6be",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtdetr_graphB_fp16/cuda16.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtdetr_graphB_fp16/cuda16.json"
+ },
+ "note": []
+}

@@ -1,0 +1,7 @@
+<|im_start|>user
+Which is heavier, a kilogram of iron or a kilogram of feathers? Answer "iron", "feathers" or "same".<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

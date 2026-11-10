@@ -1,0 +1,91 @@
+{
+    "cell":  "ppocr_det_fp16/task-ovnpu",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z5-a",
+    "start":  "2026-11-10T07:24:08.5980354+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.4,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.34 core",
+                                            "conhost 29088 0.02 core",
+                                            "powershell 23608 0.02 core",
+                                            "NVDisplay.Container 3412 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 4147 MHz, 14001 MHz, 17.55 W, 0 %, 0 MiB, 48",
+                   "availGB":  24.7
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-z1-ort\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model ppocr_det_fp16 --spec C:\\src\\zoo-template\\pc\\z5_spec.json --work C:\\src\\zoo-template\\work\\ppocr_det_fp16 --form fp32 --engine ort --ep openvino --ov-device NPU --out C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-ovnpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  9852,
+                   "elapsedSeconds":  99.495,
+                   "peakWorkingSetBytes":  510042112,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00012C48":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x0001260E":  {
+                                                                    "shared":  23,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x00013E4C":  {
+                                                                    "shared":  153,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 1470 MHz, 14001 MHz, 17.64 W, 0 %, 0 MiB, 48",
+                                         "10s P0, 8640 MHz, 14001 MHz, 17.64 W, 0 %, 0 MiB, 48",
+                                         "15s P0, 1882 MHz, 14001 MHz, 17.80 W, 0 %, 0 MiB, 49",
+                                         "20s P0, 5415 MHz, 14001 MHz, 17.75 W, 0 %, 0 MiB, 49",
+                                         "25s P0, 1770 MHz, 14001 MHz, 17.71 W, 0 %, 0 MiB, 49",
+                                         "30s P0, 6045 MHz, 14001 MHz, 17.77 W, 0 %, 0 MiB, 49",
+                                         "35s P0, 1522 MHz, 14001 MHz, 17.81 W, 0 %, 0 MiB, 49",
+                                         "40s P0, 4327 MHz, 14001 MHz, 17.81 W, 0 %, 0 MiB, 50",
+                                         "45s P0, 1702 MHz, 14001 MHz, 17.76 W, 0 %, 0 MiB, 50",
+                                         "50s P0, 2932 MHz, 14001 MHz, 18.06 W, 0 %, 0 MiB, 51",
+                                         "55s P0, 997 MHz, 14001 MHz, 18.15 W, 0 %, 0 MiB, 51",
+                                         "60s P0, 2655 MHz, 14001 MHz, 18.17 W, 0 %, 0 MiB, 51",
+                                         "65s P0, 1372 MHz, 14001 MHz, 18.07 W, 0 %, 0 MiB, 51",
+                                         "71s P0, 7627 MHz, 14001 MHz, 18.24 W, 0 %, 0 MiB, 52",
+                                         "75s P0, 5857 MHz, 14001 MHz, 18.24 W, 0 %, 0 MiB, 52",
+                                         "80s P0, 712 MHz, 14001 MHz, 18.02 W, 0 %, 0 MiB, 52",
+                                         "85s P0, 4852 MHz, 14001 MHz, 18.38 W, 0 %, 0 MiB, 53",
+                                         "90s P0, 817 MHz, 14001 MHz, 18.42 W, 0 %, 0 MiB, 53",
+                                         "95s P0, 5205 MHz, 14001 MHz, 18.43 W, 0 %, 0 MiB, 52"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.4,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.37 core",
+                                           "LEDKeeper2 8936 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 3765 MHz, 14001 MHz, 18.25 W, 0 %, 0 MiB, 52"
+              },
+    "end":  "2026-11-10T07:25:50.0729254+09:00",
+    "tries":  1
+}

@@ -1,0 +1,179 @@
+# rtdetr_graphB_fp16_fixed: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "rtdetr_graphB_fp16_fixed"
+group = "fixed"
+order = 60
+source = "litert-community/RT-DETRv2-S-LiteRT"
+source_revision = "60f16dbbf37d9b17a6cba5a057f1f27cd5ac4181"
+source_file = "rtdetr_graphB_fp16.tflite"
+license = "apache-2.0"
+pipeline_tag = "object-detection"
+base_model = ["PekingU/rtdetr_v2_r18vd"]
+fixed_of = "rtdetr_graphB_fp16"
+notes = ["rtdetr_graphB_fp16 with 12 FULLY_CONNECTED biases restored"]
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "detection"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+repo = "mlboydaisuke/RT-DETRv2-S-OpenVINO"
+revision = "c3e2fd2bdb2a86152e35d79c3ad9ab39c0c0ec2f"
+include = ["rtdetr_graphA_fp16.onnx", "rtdetr_graphB_fp16.onnx"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[fetch]]
+url = "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/rtdetr/app/src/main/assets/host_params.bin"
+dest = "fixtures/host"
+path = "rtdetr_host_params.bin"
+size = 963664
+sha256 = "a481c1365ef73aa17eb295222bce47cfad34cc5c397a42d9e3fe0bf62d1891be"
+why = "a host file of the app the task line's host step reads"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__RT-DETRv2-S-OpenVINO\\rtdetr_graphB_fp16.onnx"
+sha256 = "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e"
+from = "mlboydaisuke/RT-DETRv2-S-OpenVINO"
+public = "mlboydaisuke/RT-DETRv2-S-OpenVINO@c3e2fd2bdb2a86152e35d79c3ad9ab39c0c0ec2f:rtdetr_graphB_fp16.onnx"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "rtdetr_graphB_fp16_fixed",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\rtdetr_graphB_fp16_fixed",
+  "--out",
+  "{ROOT}\\refs\\rtdetr_graphB_fp16_fixed\\ref.json",
+]
+timeout_min = 30
+ram_gb = 4
+reference = "refs/rtdetr_graphB_fp16_fixed/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-detection"
+kind = "task"
+rule = "detection, the app's boxes (john-rocky/LiteRT-Models@96e0bc1f/rtdetr/.../RtDetr.kt: per query the class of the largest of the 80 logits, score = its sigmoid, kept at >= 0.4, then per-class NMS at IoU > 0.7): a cell box pairs with a reference box of the same class at IoU >= 0.5, one to one, the cell's boxes taken in descending score; the pairs are >= 95 % of the reference's boxes and >= 95 % of the cell's boxes, summed over the inputs (a set without a reference box has no verdict). Inputs: the 20 images of suites/vision/images.json, each stretched to 640 x 640, RGB / 255, through rtdetr_graphA_fp16_fixed in fp32 on the ONNX Runtime CPU EP and the app's host step (the top 300 queries, host_params.bin) into graph B's three inputs. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "task-ovgpu"
+runtime = "onnxruntime-openvino"
+device = "igpu"
+form = "z1-onnx-fp32"
+line = "task-detection"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "rtdetr_graphB_fp16_fixed",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\rtdetr_graphB_fp16_fixed",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "GPU.0",
+]
+timeout_min = 20
+ram_need_gb = 4
+z1_cell = "ovgpu"

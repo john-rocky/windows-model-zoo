@@ -1,0 +1,293 @@
+# dfine_graphB_fp16: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "dfine_graphB_fp16"
+group = "main"
+order = 5
+source = "litert-community/D-FINE-S-LiteRT"
+source_revision = "b662bc69f7d8b8278acaf57ca0831e194a0bbed4"
+source_file = "dfine_graphB_fp16.tflite"
+license = "apache-2.0"
+pipeline_tag = "object-detection"
+base_model = ["ustc-community/dfine-small-coco"]
+notes = [
+  "this file drops 14 FULLY_CONNECTED biases (tf2onnx 1.17.0); fixed file: dfine_graphB_fp16_fixed below",
+]
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "detection"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+url = "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/dfine/app/src/main/assets/host_params.bin"
+dest = "fixtures/host"
+path = "dfine_host_params.bin"
+size = 963664
+sha256 = "5575bbd1545e87e42c94abb0ecf5b7e927dfa94e30cc0754ccf2d2cd6189ee70"
+why = "a host file of the app the task line's host step reads"
+
+[[form]]
+id = "z1-npu-blob"
+short = "NPU blob"
+label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\blobs\\dfine_graphB_fp16.blob"
+sha256 = "6b7f02de088a709193a9dba8ffb81674fdb0a7374807daa08fe1f167bac50a6e"
+public = "none"
+
+[[form]]
+id = "z1-onnx-fp16"
+short = "fp16"
+label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\fp16\\dfine_graphB_fp16.onnx"
+sha256 = "0d025c7baf4dedfa67576d877f78635aa9a30569b8c679daae46a7a77b5fa2be"
+public = "none"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\onnx\\dfine_graphB_fp16.onnx"
+sha256 = "af07e86b79413782d478dab7b1e8fe6db79e993ae17b7a622554d4ab889d2c39"
+public = "none"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\dfine_graphB_fp16",
+  "--out",
+  "{ROOT}\\refs\\dfine_graphB_fp16\\ref.json",
+]
+timeout_min = 30
+ram_gb = 4
+reference = "refs/dfine_graphB_fp16/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-detection"
+kind = "task"
+rule = "detection, the app's boxes (john-rocky/LiteRT-Models@96e0bc1f/dfine/.../DFine.kt: per query the class of the largest of the 80 logits, score = its sigmoid, kept at >= 0.4, then per-class NMS at IoU > 0.7): a cell box pairs with a reference box of the same class at IoU >= 0.5, one to one, the cell's boxes taken in descending score; the pairs are >= 95 % of the reference's boxes and >= 95 % of the cell's boxes, summed over the inputs (a set without a reference box has no verdict). Inputs: the 20 images of suites/vision/images.json, each stretched to 640 x 640, RGB / 255, through dfine_graphA_fp16 in fp32 on the ONNX Runtime CPU EP and the app's host step (the top 300 queries, host_params.bin) into graph B's three inputs. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-cuda16"
+runtime = "onnxruntime-cuda"
+device = "rtx"
+form = "z1-onnx-fp16"
+line = "task-detection"
+venv = "z1-cuda"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dfine_graphB_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+]
+timeout_min = 20
+ram_need_gb = 4
+z1_cell = "cuda16"
+
+[[cell]]
+id = "task-ovgpu"
+runtime = "onnxruntime-openvino"
+device = "igpu"
+form = "z1-onnx-fp32"
+line = "task-detection"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dfine_graphB_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "GPU.0",
+]
+timeout_min = 20
+ram_need_gb = 4
+z1_cell = "ovgpu"
+
+[[cell]]
+id = "task-ovnpu"
+runtime = "onnxruntime-openvino"
+device = "npu"
+form = "z1-onnx-fp32"
+line = "task-detection"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dfine_graphB_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "NPU",
+]
+timeout_min = 30
+ram_need_gb = 4
+z1_cell = "ovnpu"
+
+[[cell]]
+id = "task-ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "z1-npu-blob"
+line = "task-detection"
+venv = "z1-ov"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dfine_graphB_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+]
+timeout_min = 30
+ram_need_gb = 4
+z1_cell = "ovnpu_pre"

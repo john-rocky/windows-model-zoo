@@ -1,0 +1,7 @@
+<|im_start|>user
+How many legs does a spider have? Reply with only the number.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

@@ -1,0 +1,272 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:40.625413+09:00",
+ "ended": "2026-11-10T07:18:42.861924+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "mask",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\sinet\\inputs.npz",
+  "n": 20,
+  "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
+  "bytes": 29742742,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    352,
+    352
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "dfine",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\sinet.onnx",
+  "sha256": "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434"
+ },
+ "files": [
+  {
+   "what": "sinet form blob",
+   "path": "C:\\src\\zoo\\blobs\\sinet.blob",
+   "bytes": 53231745,
+   "sha256": "2690b24fb5baff802c0be7f4f45630c9a4e4e513108a733c2faa5fb33d4a283d"
+  },
+  {
+   "what": "sinet form fp32",
+   "path": "C:\\src\\zoo\\onnx\\sinet.onnx",
+   "bytes": 100287293,
+   "sha256": "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434"
+  }
+ ],
+ "upstream": null,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\sinet\\ref.outputs.npz",
+  "bytes": 9917302,
+  "sha256": "ddb7637a2b2b14f3ac1e4b63b30ab67796e79a8e721ab142fb94c07090bad9b0",
+  "arrays": 20
+ },
+ "task": "mask",
+ "task_line": "task-mask",
+ "task_values": [
+  {
+   "id": "dfine",
+   "object_share": 0.19381
+  },
+  {
+   "id": "dinov2",
+   "object_share": 0.33989
+  },
+  {
+   "id": "gaze",
+   "object_share": 0.4909
+  },
+  {
+   "id": "hsemotion",
+   "object_share": 0.54518
+  },
+  {
+   "id": "lowlight",
+   "object_share": 0.01972
+  },
+  {
+   "id": "metric3d",
+   "object_share": 0.23978
+  },
+  {
+   "id": "migan",
+   "object_share": 0.03689
+  },
+  {
+   "id": "mlsd",
+   "object_share": 0.0
+  },
+  {
+   "id": "nafnet",
+   "object_share": 0.13267
+  },
+  {
+   "id": "neuralstyle",
+   "object_share": 0.00684
+  },
+  {
+   "id": "nima",
+   "object_share": 0.02349
+  },
+  {
+   "id": "places365",
+   "object_share": 0.05858
+  },
+  {
+   "id": "ppocr",
+   "object_share": 0.00149
+  },
+  {
+   "id": "rtmanimal",
+   "object_share": 0.17356
+  },
+  {
+   "id": "rtmface",
+   "object_share": 0.21786
+  },
+  {
+   "id": "rtmhand",
+   "object_share": 0.23102
+  },
+  {
+   "id": "rtmpose",
+   "object_share": 0.07607
+  },
+  {
+   "id": "saliency",
+   "object_share": 0.09919
+  },
+  {
+   "id": "tddfa",
+   "object_share": 0.37172
+  },
+  {
+   "id": "yunet",
+   "object_share": 0.06314
+  }
+ ],
+ "pulled_from": "raw/z5/refs/sinet/ref.json"
+}

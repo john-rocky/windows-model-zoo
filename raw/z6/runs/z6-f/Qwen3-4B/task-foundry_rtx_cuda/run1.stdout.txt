@@ -1,0 +1,14 @@
+ENGINE_PID 10348
+{"command": "foundry --version", "exit": 0, "s": 0.06, "tail": ["0.13.0"]}
+{"command": "foundry server start", "exit": 0, "s": 6.01, "tail": ["NvTensorRTRTXExecutionProvider: 0%", "CUDAExecutionProvider: 0%", "WebGpuExecutionProvider: 0%", "● success: Server ready (http://127.0.0.1:59454)", "  Public API: http://127.0.0.1:59454/v1/", "  Local API (BYOM): http://127.0.0.1:59454/catalogs/local/v1/"]}
+{"command": "foundry model unregister z6-qwen3-4b-cuda-gpu:1", "exit": 3, "s": 0.64, "tail": ["● error: No local registration matches 'z6-qwen3-4b-cuda-gpu:1'.", "Hint: Pass a registered local alias or exact canonical model ID."]}
+{"command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-4b-cuda-gpu z6-qwen3-4b-cuda-gpu:1 --task chat-completion --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider", "exit": 0, "s": 0.22, "tail": ["■ note: Alias: z6-qwen3-4b-cuda-gpu", "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-4b-cuda-gpu", "■ note: Task: chat-completion", "■ note: Files were not copied; the original folder is retained and must remain ", "available.", "■ note: Next: foundry run z6-qwen3-4b-cuda-gpu:1"]}
+{"command": "foundry model load z6-qwen3-4b-cuda-gpu:1", "exit": 0, "s": 11.4, "tail": ["■ Loading model (z6-qwen3-4b-cuda-gpu:1)", "● success: Loaded 'z6-qwen3-4b-cuda-gpu' (GPU variant 'z6-qwen3-4b-cuda-gpu:1') into ", "memory."]}
+{"n": 1, "of": 21, "id": "q01", "wall_s": 0.158, "text": "Paris"}
+{"n": 2, "of": 21, "id": "q02", "wall_s": 0.174, "text": "12"}
+{"n": 10, "of": 21, "id": "q10", "wall_s": 0.195, "text": "Au"}
+{"n": 20, "of": 21, "id": "q20", "wall_s": 0.199, "text": "8"}
+{"n": 21, "of": 21, "id": "gate", "wall_s": 0.194, "text": "2"}
+{"command": "foundry model unload z6-qwen3-4b-cuda-gpu:1", "exit": 0, "s": 0.44, "tail": ["● success: Unloaded 'z6-qwen3-4b-cuda-gpu:1' from memory."]}
+{"command": "foundry model unregister z6-qwen3-4b-cuda-gpu:1", "exit": 0, "s": 0.05, "tail": ["● success: Removed registration IDs: z6-qwen3-4b-cuda-gpu:1.", "■ note: Model files and original folders were preserved."]}
+{"command": "foundry server stop", "exit": 0, "s": 2.62, "tail": ["● success: Server stopped."]}

@@ -1,0 +1,171 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtmpose_s_fp16",
+ "cell": "ovnpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel AI Boost NPU"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, compiled when the session loads (as-is)",
+  "sha256": "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-06T22:32:14.480701+09:00",
+  "ended": "2026-11-06T22:32:17.757336+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_0_output: cos 0.9367 < 0.99; serving_default_output_0_output: argmax agreement 15/17; serving_default_output_1_output: cos 0.9374 < 0.99; serving_default_output_1_output: argmax agreement 10/17",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_0_output: cos 0.9367 < 0.99",
+   "serving_default_output_0_output: argmax agreement 15/17",
+   "serving_default_output_1_output: cos 0.9374 < 0.99",
+   "serving_default_output_1_output: argmax agreement 10/17"
+  ],
+  "reason_candidate": "unknown"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 1.1734999989130301,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 1.1734999989130301,
+   "p10": 1.0967000016535167,
+   "p90": 1.2887000011687633,
+   "min": 0.9892999987641815,
+   "max": 1.3662999990629032,
+   "n": 30
+  },
+  "first_pass_value": 16.976000006252434,
+  "load_ms": 948.2366999982332,
+  "load_ms_first_pass": 2945.35170000745,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     17,
+     384
+    ],
+    "max_abs": 0.4078401196748018,
+    "mean_abs": 0.06524709582941968,
+    "cos": 0.9367230733268019,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.8678206205368042,
+    "ref_max": 1.0466028451919556,
+    "ref_range": 1.9144234657287598,
+    "max_abs_over_range": 0.21303547881427068,
+    "argmax": {
+     "positions": 17,
+     "counted": 17,
+     "agree": 15,
+     "rate": 0.8823529411764706,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.0010585486888885498,
+     "ref_margin_median": 0.003258943557739258
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     17,
+     512
+    ],
+    "max_abs": 0.3132801055908203,
+    "mean_abs": 0.06418985996149515,
+    "cos": 0.9373872787595593,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.638265073299408,
+    "ref_max": 1.0219100713729858,
+    "ref_range": 1.660175085067749,
+    "max_abs_over_range": 0.18870305211093796,
+    "argmax": {
+     "positions": 17,
+     "counted": 17,
+     "agree": 10,
+     "rate": 0.5882352941176471,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 0.0010527968406677246,
+     "ref_margin_median": 0.0013405680656433105
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "ov_device": "NPU",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": "1004841",
+   "NPU_COMPILER_VERSION": "524292",
+   "DEVICE_ARCHITECTURE": "5010",
+   "DEVICE_LUID": "4c3e010000000000",
+   "counter_luid": "0x00000000_0x00013e4c"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 197102,
+   "graph_nodes": 214
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "5cab873f4fd5a6436bab7e49bae887625e5e9885940ced559fc55d75b1681a06",
+  "ran_on_device": true,
+  "cpu_nodes": 0
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtmpose_s_fp16/ovnpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtmpose_s_fp16/ovnpu.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "ovnpu FAIL: output_0_output: cos 0.9367 < 0.99; output_0_output: argmax agreement 15/17; output_1_output: cos 0.9374 < 0.99 (+1 more)"
+  }
+ ]
+}

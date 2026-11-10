@@ -1,0 +1,118 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtdetr_graphB_fp16_fixed",
+ "cell": "cpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort",
+  "label": "ONNX Runtime 1.31.1 CPU EP",
+  "version": "1.31.1",
+  "ep": null
+ },
+ "device": {
+  "id": "cpu",
+  "label": "Core Ultra 9 386H CPU"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX",
+  "sha256": "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T12:53:26.625329+09:00",
+  "ended": "2026-11-07T12:53:31.224059+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "reference",
+  "pass": null,
+  "verdict": "reference of z1-internal: the other cells of this line are compared with this cell's outputs",
+  "status": "PASS",
+  "reference": null,
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 76.36400000046706,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 76.36400000046706,
+   "p10": 75.77969999692868,
+   "p90": 199.19790000130888,
+   "min": 75.72730000538286,
+   "max": 221.0988000006182,
+   "n": 30
+  },
+  "first_pass_value": 280.45300000007956,
+  "load_ms": 149.89870000863448,
+  "load_ms_first_pass": 144.97940000001108,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": null,
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1"
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CPUExecutionProvider": 729
+   },
+   "cpu_ops": {
+    "Reshape": 181,
+    "Gemm": 36,
+    "Transpose": 30,
+    "Sigmoid": 4,
+    "FusedGemm": 12,
+    "Add": 57,
+    "MatMul": 6,
+    "Softmax": 6,
+    "Abs": 27,
+    "GlobalMaxPool": 9,
+    "Squeeze": 9,
+    "Mul": 138,
+    "Max": 15,
+    "Div": 12,
+    "ReduceSum": 21,
+    "Sub": 69,
+    "Sqrt": 9,
+    "Reciprocal": 9,
+    "Slice": 44,
+    "Relu": 18,
+    "FusedMatMul": 9,
+    "Concat": 5,
+    "Log": 3
+   },
+   "profile_bytes": 1337510,
+   "graph_nodes": 750
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "2c230c4e683f38935479fd0d1d598f72cfe82f95494dbadf0bbddefe46cddf69",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtdetr_graphB_fp16_fixed/cpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtdetr_graphB_fp16_fixed/cpu.json"
+ },
+ "note": []
+}

@@ -1,0 +1,115 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:38.234818+09:00",
+ "argv": [
+  "--model",
+  "rtmhand_fp16",
+  "--spec",
+  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\zoo-template\\fixtures",
+  "--suites",
+  "C:\\src\\zoo-template\\suites",
+  "--work",
+  "C:\\src\\zoo-template\\work\\rtmhand_fp16",
+  "--out",
+  "C:\\src\\zoo-template\\refs\\rtmhand_fp16\\ref.json"
+ ],
+ "pid": 21416,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "rtmhand",
+   "wall_s": 0.008614599995780736,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "rtmhand_fp16 form blob",
+   "path": "C:\\src\\zoo\\blobs\\rtmhand_fp16.blob",
+   "bytes": 28946568,
+   "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c"
+  },
+  {
+   "what": "rtmhand_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\rtmhand_fp16.onnx",
+   "bytes": 28129047,
+   "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb"
+  },
+  {
+   "what": "rtmhand_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
+   "bytes": 55523602,
+   "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
+  "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136"
+ },
+ "load_s": 0.135,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+  "n": 1,
+  "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
+  "bytes": 786742,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    256,
+    256
+   ]
+  },
+  "set": "images"
+ },
+ "workload": {
+  "inputs": 1,
+  "set": "images",
+  "task": "keypoints",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.013,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\rtmhand_fp16\\ref.outputs.npz",
+  "bytes": 86534,
+  "sha256": "d50a6ec309d5fe006910836fc1c76c793a51e3ee2d88f3a1526360bb714d4976",
+  "arrays": 2
+ },
+ "summary": {
+  "clips": 1,
+  "inputs": 1,
+  "median_ms": 8.615,
+  "min_ms": 8.615,
+  "max_ms": 8.615,
+  "value": 8.615
+ },
+ "peak_working_set_bytes": 188796928,
+ "peak_pagefile_bytes": 671195136,
+ "ended": "2026-11-10T07:18:38.714949+09:00",
+ "process_s": 0.468
+}

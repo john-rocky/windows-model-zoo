@@ -1,0 +1,6 @@
+[2026-11-10T14:16:09.4548079+09:00] steps Qwen3-0.6B start: 2 steps, pid 32200
+[2026-11-10T14:16:09.4868216+09:00] z6-setup start: C:\src\model-zoo\.venv-genai\Scripts\python.exe -I C:\src\model-zoo\pc\z6_setup.py --spec C:\src\model-zoo\pc\z6_spec.json --model Qwen3-0.6B --root C:\src\model-zoo
+[2026-11-10T14:16:17.5713790+09:00] z6-setup end: exit 0, 0.1 min
+[2026-11-10T14:16:17.5873373+09:00] reference start: C:\src\model-zoo\.venv-ref\Scripts\python.exe -I C:\src\model-zoo\pc\ref_llm_hf.py --model-dir C:\src\model-zoo\hub\Qwen__Qwen3-0.6B --suite C:\src\model-zoo\suites\llm\qa20.jsonl --out C:\src\model-zoo\refs\Qwen3-0.6B\ref.json
+[2026-11-10T14:16:33.0549736+09:00] reference end: exit 0, 0.3 min
+[2026-11-10T14:16:33.0549736+09:00] steps Qwen3-0.6B done: OK

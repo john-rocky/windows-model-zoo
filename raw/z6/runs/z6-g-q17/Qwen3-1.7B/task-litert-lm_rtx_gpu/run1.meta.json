@@ -1,0 +1,84 @@
+{
+    "cell":  "Qwen3-1.7B/task-litert-lm_rtx_gpu",
+    "device":  "rtx",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-g-q17",
+    "start":  "2026-11-10T09:38:10.0312208+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.36 core",
+                                            "SearchProtocolHost 2336 0.03 core",
+                                            "SearchFilterHost 5996 0.03 core",
+                                            "svchost 8284 0.02 core",
+                                            "MsMpEng 5548 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 2752 MHz, 14001 MHz, 17.51 W, 0 %, 0 MiB, 47",
+                   "availGB":  24.5
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\rtx\\Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm --backend gpu --adapter rtx --ref C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-g-q17\\Qwen3-1.7B\\task-litert-lm_rtx_gpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  31080,
+                   "elapsedSeconds":  99.929,
+                   "peakWorkingSetBytes":  36118528,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P2, 1657 MHz, 11001 MHz, 21.46 W, 5 %, 851 MiB, 47",
+                                         "10s P2, 1590 MHz, 11001 MHz, 19.08 W, 5 %, 765 MiB, 48",
+                                         "15s P5, 1117 MHz, 810 MHz, 23.26 W, 18 %, 1537 MiB, 48",
+                                         "20s P2, 1695 MHz, 11001 MHz, 20.59 W, 6 %, 1537 MiB, 48",
+                                         "25s P4, 600 MHz, 9001 MHz, 18.77 W, 7 %, 1767 MiB, 48",
+                                         "30s P5, 525 MHz, 810 MHz, 10.96 W, 0 %, 1773 MiB, 48",
+                                         "35s P4, 847 MHz, 9001 MHz, 34.48 W, 1 %, 5 MiB, 49",
+                                         "40s P5, 1072 MHz, 810 MHz, 16.57 W, 2 %, 15 MiB, 49",
+                                         "45s P2, 1515 MHz, 11001 MHz, 17.07 W, 7 %, 174 MiB, 49",
+                                         "51s P2, 1507 MHz, 11001 MHz, 17.55 W, 0 %, 307 MiB, 49",
+                                         "55s P2, 1507 MHz, 11001 MHz, 17.80 W, 0 %, 192 MiB, 49",
+                                         "60s P2, 1545 MHz, 11001 MHz, 18.56 W, 5 %, 499 MiB, 49",
+                                         "65s P2, 1627 MHz, 11001 MHz, 20.76 W, 6 %, 771 MiB, 49",
+                                         "70s P2, 1635 MHz, 11001 MHz, 19.70 W, 6 %, 851 MiB, 50",
+                                         "75s P2, 1680 MHz, 11001 MHz, 20.66 W, 6 %, 1369 MiB, 50",
+                                         "80s P2, 1777 MHz, 11001 MHz, 19.37 W, 6 %, 1767 MiB, 50",
+                                         "85s P4, 315 MHz, 9001 MHz, 16.85 W, 4 %, 1773 MiB, 50",
+                                         "91s P4, 540 MHz, 9001 MHz, 19.62 W, 0 %, 5 MiB, 50",
+                                         "95s P2, 1432 MHz, 11001 MHz, 26.10 W, 14 %, 5 MiB, 51"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  1.7,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.2 core",
+                                           "PresentMonService 9072 0.02 core",
+                                           "NahimicService 5200 0.02 core",
+                                           "NVDisplay.Container 3412 0.02 core",
+                                           "powershell 25684 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 2362 MHz, 14001 MHz, 17.96 W, 0 %, 0 MiB, 50"
+              },
+    "end":  "2026-11-10T09:39:51.8337204+09:00",
+    "tries":  1
+}

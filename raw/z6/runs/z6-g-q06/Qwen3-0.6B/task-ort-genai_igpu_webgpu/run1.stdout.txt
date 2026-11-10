@@ -1,0 +1,5 @@
+ENGINE_PID 14012
+{"n": 1, "of": null, "id": "q01", "wall_s": 0.074, "text": "Paris."}
+{"n": 2, "of": null, "id": "q02", "wall_s": 0.162, "text": "7 + 5 = 12."}
+{"n": 10, "of": null, "id": "q10", "wall_s": 0.063, "text": "Au"}
+{"n": 20, "of": null, "id": "q20", "wall_s": 0.076, "text": "2."}

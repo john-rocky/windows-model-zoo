@@ -1,0 +1,8 @@
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE -c core.longpaths=true -c core.symlinks=true clone https://github.com/google-ai-edge/LiteRT-LM.git C:\\src\\mz-litert-lm", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE config core.longpaths true", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE config core.symlinks true", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE fetch --tags origin", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE checkout -B windows-v0.19.0 v0.19.0", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE lfs pull --include prebuilt/windows_x86_64/*", "exit": 0}
+{"command": "C:\\Program Files\\Git\\cmd\\git.EXE rev-parse HEAD", "exit": 0}
+engines litert-src: OK

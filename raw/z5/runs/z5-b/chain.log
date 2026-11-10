@@ -1,0 +1,5 @@
+[2026-11-10T07:29:38.0989849+09:00] chain start: plan C:\src\zoo-template\pc\plans\z5-b.json mode first, 1 units, pid 29052
+[2026-11-10T07:29:48.0885774+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T07:29:50.1299380+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 start
+[2026-11-10T07:30:00.8501206+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 end: exit 0, OK, 8.762 s
+[2026-11-10T07:30:00.8659898+09:00] chain done: OK

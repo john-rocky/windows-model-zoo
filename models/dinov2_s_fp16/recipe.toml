@@ -1,0 +1,228 @@
+# dinov2_s_fp16: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "dinov2_s_fp16"
+group = "main"
+order = 6
+source = "litert-community/DINOv2-ViT-S14-LiteRT"
+source_revision = "5b584fb82b9283b0d7baf35dbe8546169a205201"
+source_file = "dinov2_s_fp16.tflite"
+license = "apache-2.0"
+pipeline_tag = "image-feature-extraction"
+base_model = "facebook/dinov2-small"
+notes = []
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "retrieval"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+repo = "mlboydaisuke/DINOv2-ViT-S14-OpenVINO"
+revision = "8e89c4dcfc15b18b01701c240a90c52f38b6ff02"
+include = ["dinov2_s_fp16.onnx", "npu/dinov2_s_fp16.blob"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[form]]
+id = "z1-npu-blob"
+short = "NPU blob"
+label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\npu\\dinov2_s_fp16.blob"
+sha256 = "dc8b1157d21d528bc89041b7ec59287b98cacd17a1f67e878a9b70299ff52106"
+from = "mlboydaisuke/DINOv2-ViT-S14-OpenVINO"
+public = "mlboydaisuke/DINOv2-ViT-S14-OpenVINO@8e89c4dcfc15b18b01701c240a90c52f38b6ff02:npu/dinov2_s_fp16.blob"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\dinov2_s_fp16.onnx"
+sha256 = "8f36d01fe1635da9d09b4958e17a9b43c8b25438a4422e59cab1f4414d506625"
+from = "mlboydaisuke/DINOv2-ViT-S14-OpenVINO"
+public = "mlboydaisuke/DINOv2-ViT-S14-OpenVINO@8e89c4dcfc15b18b01701c240a90c52f38b6ff02:dinov2_s_fp16.onnx"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "dinov2_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\dinov2_s_fp16",
+  "--out",
+  "{ROOT}\\refs\\dinov2_s_fp16\\ref.json",
+]
+timeout_min = 30
+ram_gb = 2
+reference = "refs/dinov2_s_fp16/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-retrieval"
+kind = "task"
+rule = "features, through a downstream task (the model has no task head; the app's own use, john-rocky/LiteRT-Models@96e0bc1f/dinov2/.../Dinov2Features.kt, is a picture of the top 3 principal components of the tokens, whose components flip and swap with small changes of the tokens): image retrieval, each image's embedding = the mean of its 1024 patch tokens; for each input, the most cosine-similar other input under the cell's embeddings is the one under the reference's embeddings on >= 95 % of the inputs, an input whose reference first and second similarities differ by < 0.01 not counted (how many: an instrument). Inputs: the 20 images of suites/vision/images.json, each stretched to 448 x 448, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-ovnpu"
+runtime = "onnxruntime-openvino"
+device = "npu"
+form = "z1-onnx-fp32"
+line = "task-retrieval"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dinov2_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dinov2_s_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "NPU",
+]
+timeout_min = 30
+ram_need_gb = 3
+z1_cell = "ovnpu"
+
+[[cell]]
+id = "task-ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "z1-npu-blob"
+line = "task-retrieval"
+venv = "z1-ov"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "dinov2_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\dinov2_s_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+]
+timeout_min = 30
+ram_need_gb = 3
+z1_cell = "ovnpu_pre"

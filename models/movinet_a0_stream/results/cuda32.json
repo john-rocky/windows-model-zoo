@@ -1,0 +1,616 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "movinet_a0_stream",
+ "cell": "cuda32",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP",
+  "version": "1.31.1",
+  "ep": "CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop (95 W limit)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX",
+  "sha256": "65afaf7f1f9f1ea3f200162e9b3c6b907ae27bfb246d3b6f789469ea98346928"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T02:28:38.416452+09:00",
+  "ended": "2026-11-07T02:28:41.832746+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 6.329450001430814,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 6.329450001430814,
+   "p10": 6.1071999989508186,
+   "p90": 7.567699998617172,
+   "min": 5.632599997625221,
+   "max": 8.452300000499235,
+   "n": 30
+  },
+  "first_pass_value": 7.945800003653858,
+  "load_ms": 1160.0985000004584,
+  "load_ms_first_pass": 1240.4366999980994,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     600
+    ],
+    "max_abs": 0.0638742446899414,
+    "mean_abs": 0.01347124251226584,
+    "cos": 0.9999894777853872,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -9.92392635345459,
+    "ref_max": 13.192797660827637,
+    "ref_range": 23.116724014282227,
+    "max_abs_over_range": 0.0027631183661870912,
+    "argmax": {
+     "positions": 1,
+     "counted": 1,
+     "agree": 1,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 1.3813543319702148
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.17848658561706543,
+    "mean_abs": 0.0027022713505100325,
+    "cos": 0.9999912140032962,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 22.92534637451172,
+    "ref_range": 23.30034637451172,
+    "max_abs_over_range": 0.007660254605155233
+   },
+   {
+    "name": "serving_default_output_2_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.1238241195678711,
+    "mean_abs": 0.002927317226319606,
+    "cos": 0.9999918727931868,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.375,
+    "ref_max": 37.350303649902344,
+    "ref_range": 37.725303649902344,
+    "max_abs_over_range": 0.003282256405859085
+   },
+   {
+    "name": "serving_default_output_3_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.08564162254333496,
+    "mean_abs": 0.0032598130319715416,
+    "cos": 0.9999926667418048,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 15.719560623168945,
+    "ref_range": 16.094560623168945,
+    "max_abs_over_range": 0.005321153186378351
+   },
+   {
+    "name": "serving_default_output_4_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.09952473640441895,
+    "mean_abs": 0.003068075339568618,
+    "cos": 0.9999905310754911,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 23.94969940185547,
+    "ref_range": 24.32469940185547,
+    "max_abs_over_range": 0.004091509406148192
+   },
+   {
+    "name": "serving_default_output_5_output",
+    "shape": [
+     1,
+     112,
+     11,
+     11
+    ],
+    "max_abs": 0.07878303527832031,
+    "mean_abs": 0.0030648267466063263,
+    "cos": 0.999989805462903,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999403953552,
+    "ref_max": 15.441854476928711,
+    "ref_range": 15.816854476928711,
+    "max_abs_over_range": 0.004980954676749246
+   },
+   {
+    "name": "serving_default_output_6_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.08225536346435547,
+    "mean_abs": 0.0023033387125515445,
+    "cos": 0.9999926639725417,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.375,
+    "ref_max": 15.673741340637207,
+    "ref_range": 16.04874038696289,
+    "max_abs_over_range": 0.005125347004253067
+   },
+   {
+    "name": "serving_default_output_7_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.09672355651855469,
+    "mean_abs": 0.0020212473794101026,
+    "cos": 0.9999933479838364,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 24.834484100341797,
+    "ref_range": 25.209484100341797,
+    "max_abs_over_range": 0.003836792380739092
+   },
+   {
+    "name": "serving_default_output_8_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.10974991321563721,
+    "mean_abs": 0.0017468451002591446,
+    "cos": 0.999987629072236,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 27.08670425415039,
+    "ref_range": 27.46170425415039,
+    "max_abs_over_range": 0.003996471311464593
+   },
+   {
+    "name": "serving_default_output_9_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.0929112434387207,
+    "mean_abs": 0.0013857576170821261,
+    "cos": 0.9999920069774748,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 18.58547019958496,
+    "ref_range": 18.96047019958496,
+    "max_abs_over_range": 0.004900260513621361
+   },
+   {
+    "name": "serving_default_output_10_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.09597301483154297,
+    "mean_abs": 0.001507759892129274,
+    "cos": 0.9999917709691271,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 23.005008697509766,
+    "ref_range": 23.380008697509766,
+    "max_abs_over_range": 0.004104917841273736
+   },
+   {
+    "name": "serving_default_output_11_output",
+    "shape": [
+     1,
+     384,
+     6,
+     6
+    ],
+    "max_abs": 0.09073114395141602,
+    "mean_abs": 0.0021805374757343436,
+    "cos": 0.999989946454454,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 22.99108123779297,
+    "ref_range": 23.36608123779297,
+    "max_abs_over_range": 0.0038830278397160097
+   },
+   {
+    "name": "serving_default_output_12_output",
+    "shape": [
+     1,
+     24,
+     1,
+     1
+    ],
+    "max_abs": 0.011572599411010742,
+    "mean_abs": 0.0012717470526695251,
+    "cos": 0.9999993495739029,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.2603614032268524,
+    "ref_max": 7.047699451446533,
+    "ref_range": 7.308060646057129,
+    "max_abs_over_range": 0.0015835390497552088
+   },
+   {
+    "name": "serving_default_output_13_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.05018961429595947,
+    "mean_abs": 0.0015038014331366866,
+    "cos": 0.9999649908471485,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.31605327129364014,
+    "ref_max": 2.031967878341675,
+    "ref_range": 2.3480210304260254,
+    "max_abs_over_range": 0.021375283119526856
+   },
+   {
+    "name": "serving_default_output_14_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.01689004898071289,
+    "mean_abs": 0.0013143432157448841,
+    "cos": 0.999992060296856,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.26101547479629517,
+    "ref_max": 2.357592821121216,
+    "ref_range": 2.618608236312866,
+    "max_abs_over_range": 0.0064500098741364
+   },
+   {
+    "name": "serving_default_output_15_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.007764577865600586,
+    "mean_abs": 0.0011319581273710356,
+    "cos": 0.9999969235277235,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.19485044479370117,
+    "ref_max": 2.7055485248565674,
+    "ref_range": 2.9003989696502686,
+    "max_abs_over_range": 0.002677072343097971
+   },
+   {
+    "name": "serving_default_output_16_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.014245271682739258,
+    "mean_abs": 0.0011497909815617554,
+    "cos": 0.9999962422568768,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3542724549770355,
+    "ref_max": 4.132451057434082,
+    "ref_range": 4.48672342300415,
+    "max_abs_over_range": 0.003174983242715935
+   },
+   {
+    "name": "serving_default_output_17_output",
+    "shape": [
+     1,
+     112,
+     1,
+     1
+    ],
+    "max_abs": 0.022092580795288086,
+    "mean_abs": 0.0013981976995377668,
+    "cos": 0.9999897653701669,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.31754446029663086,
+    "ref_max": 2.37904953956604,
+    "ref_range": 2.696593999862671,
+    "max_abs_over_range": 0.008192772362622327
+   },
+   {
+    "name": "serving_default_output_18_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.008981585502624512,
+    "mean_abs": 0.0008591077003865908,
+    "cos": 0.9999962163077584,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3488985598087311,
+    "ref_max": 2.8446428775787354,
+    "ref_range": 3.1935415267944336,
+    "max_abs_over_range": 0.0028124217040133236
+   },
+   {
+    "name": "serving_default_output_19_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.008808672428131104,
+    "mean_abs": 0.0009372360882875712,
+    "cos": 0.9999977514895029,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.32118910551071167,
+    "ref_max": 2.5578527450561523,
+    "ref_range": 2.879041910171509,
+    "max_abs_over_range": 0.003059584647590753
+   },
+   {
+    "name": "serving_default_output_20_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.009030938148498535,
+    "mean_abs": 0.0009754330841014566,
+    "cos": 0.9999986347249662,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.36939820647239685,
+    "ref_max": 6.214078426361084,
+    "ref_range": 6.583476543426514,
+    "max_abs_over_range": 0.0013717582327403854
+   },
+   {
+    "name": "serving_default_output_21_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.009781122207641602,
+    "mean_abs": 0.0009118586667286961,
+    "cos": 0.999998808642657,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3707257807254791,
+    "ref_max": 4.812984466552734,
+    "ref_range": 5.183710098266602,
+    "max_abs_over_range": 0.0018868960690746081
+   },
+   {
+    "name": "serving_default_output_22_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.010350465774536133,
+    "mean_abs": 0.0008345184342824327,
+    "cos": 0.9999994702704904,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3699597120285034,
+    "ref_max": 4.6703996658325195,
+    "ref_range": 5.0403594970703125,
+    "max_abs_over_range": 0.0020535173692575494
+   },
+   {
+    "name": "serving_default_output_23_output",
+    "shape": [
+     1,
+     384,
+     1,
+     1
+    ],
+    "max_abs": 0.006397604942321777,
+    "mean_abs": 0.0006674646468430486,
+    "cos": 0.999999357220626,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3719167709350586,
+    "ref_max": 12.964395523071289,
+    "ref_range": 13.336312294006348,
+    "max_abs_over_range": 0.00047971319216909844
+   },
+   {
+    "name": "serving_default_output_24_output",
+    "shape": [
+     1,
+     280,
+     1,
+     1
+    ],
+    "max_abs": 0.021004676818847656,
+    "mean_abs": 0.0013945789668858715,
+    "cos": 0.999988254134489,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3596550524234772,
+    "ref_max": 3.759307861328125,
+    "ref_range": 4.11896276473999,
+    "max_abs_over_range": 0.005099506360838292
+   },
+   {
+    "name": "serving_default_output_25_output",
+    "shape": [
+     1,
+     280,
+     1,
+     1
+    ],
+    "max_abs": 0.01462697982788086,
+    "mean_abs": 0.0012981611823696378,
+    "cos": 0.9999904310097558,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3498503863811493,
+    "ref_max": 4.405106067657471,
+    "ref_range": 4.754956245422363,
+    "max_abs_over_range": 0.0030761544529378953
+   },
+   {
+    "name": "serving_default_output_26_output",
+    "shape": [
+     1,
+     344,
+     1,
+     1
+    ],
+    "max_abs": 0.01697772741317749,
+    "mean_abs": 0.0017072927053790367,
+    "cos": 0.9999963390117175,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.36188778281211853,
+    "ref_max": 16.75851821899414,
+    "ref_range": 17.120405197143555,
+    "max_abs_over_range": 0.000991666214536215
+   },
+   {
+    "name": "serving_default_output_27_output",
+    "shape": [
+     1,
+     480,
+     1,
+     1
+    ],
+    "max_abs": 0.01787853240966797,
+    "mean_abs": 0.0014951487857009246,
+    "cos": 0.9999924659501758,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.27482789754867554,
+    "ref_max": 3.524707078933716,
+    "ref_range": 3.799535036087036,
+    "max_abs_over_range": 0.004705452704044607
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "cuda_wheels": {
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cuda-nvrtc": "13.5.37",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cudnn-cu13": "9.28.0.42",
+    "nvidia-cufft": "12.5.0.14",
+    "nvidia-curand": "10.4.5.25",
+    "nvidia-nvjitlink": "13.5.37"
+   }
+  },
+  "device_props": null,
+  "placement": {
+   "nodes_by_provider": {
+    "CUDAExecutionProvider": 460
+   },
+   "cpu_ops": {},
+   "profile_bytes": 682648,
+   "graph_nodes": 534
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "6dc2a61330ab1d12e68075e65b6f78e40036670b7171711183953d314ed9d2ab",
+  "ran_on_device": false
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/movinet_a0_stream/cuda32.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/movinet_a0_stream/cuda32.json"
+ },
+ "note": []
+}

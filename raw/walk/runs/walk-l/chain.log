@@ -1,0 +1,13 @@
+[2026-11-10T14:18:15.1945535+09:00] chain start: plan C:\src\model-zoo\pc\plans\walk-l.json mode first, 5 units, pid 29124
+[2026-11-10T14:18:21.0278885+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T14:18:23.1285047+09:00] Qwen3-0.6B/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-10T14:18:35.1824254+09:00] Qwen3-0.6B/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 10.128 s
+[2026-11-10T14:18:37.1644969+09:00] Qwen3-0.6B/task-ort-genai_cpu_openvino run 1 start
+[2026-11-10T14:18:55.0790108+09:00] Qwen3-0.6B/task-ort-genai_cpu_openvino run 1 end: exit 0, OK, 15.983 s
+[2026-11-10T14:18:57.0356313+09:00] Qwen3-0.6B/task-llama.cpp_cpu_cpu run 1 start
+[2026-11-10T14:19:07.6138066+09:00] Qwen3-0.6B/task-llama.cpp_cpu_cpu run 1 end: exit 0, OK, 8.618 s
+[2026-11-10T14:19:09.5857999+09:00] Qwen3-0.6B/task-litert-lm_cpu_cpu run 1 start
+[2026-11-10T14:20:08.4820883+09:00] Qwen3-0.6B/task-litert-lm_cpu_cpu run 1 end: exit 0, OK, 56.955 s
+[2026-11-10T14:20:10.5035376+09:00] Qwen3-0.6B/task-foundry_cpu_cpu run 1 start
+[2026-11-10T14:21:00.9904607+09:00] Qwen3-0.6B/task-foundry_cpu_cpu run 1 end: exit 0, OK, 48.559 s
+[2026-11-10T14:21:00.9904607+09:00] chain done: OK

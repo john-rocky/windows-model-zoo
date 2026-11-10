@@ -1,0 +1,272 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:31.442414+09:00",
+ "ended": "2026-11-10T07:18:32.445928+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "line-segments",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\mlsd_fp16\\inputs.npz",
+  "n": 20,
+  "sha256": "a98afc3ac1c66c9f1c6b82941b9af09486ada4ec525018e8f69db7e281fcff57",
+  "bytes": 83891862,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    4,
+    512,
+    512
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "dfine",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\mlsd_fp16.onnx",
+  "sha256": "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537"
+ },
+ "files": [
+  {
+   "what": "mlsd_fp16 form blob",
+   "path": "C:\\src\\zoo\\blobs\\mlsd_fp16.blob",
+   "bytes": 2703489,
+   "sha256": "6c5cbc4581ec2981b608c4d1d65570797cb5d2e5d6a324811d72d333e374cf5c"
+  },
+  {
+   "what": "mlsd_fp16 form fp32",
+   "path": "C:\\src\\zoo\\onnx\\mlsd_fp16.onnx",
+   "bytes": 2637523,
+   "sha256": "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537"
+  }
+ ],
+ "upstream": null,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\mlsd_fp16\\ref.outputs.npz",
+  "bytes": 47190902,
+  "sha256": "bc6a1632a2866b89040f0cd367d695caa7e8333729a8da4f55731e1246110d1d",
+  "arrays": 20
+ },
+ "task": "line-segments",
+ "task_line": "task-line-segments",
+ "task_values": [
+  {
+   "id": "dfine",
+   "segments": 12
+  },
+  {
+   "id": "dinov2",
+   "segments": 4
+  },
+  {
+   "id": "gaze",
+   "segments": 8
+  },
+  {
+   "id": "hsemotion",
+   "segments": 6
+  },
+  {
+   "id": "lowlight",
+   "segments": 12
+  },
+  {
+   "id": "metric3d",
+   "segments": 21
+  },
+  {
+   "id": "migan",
+   "segments": 13
+  },
+  {
+   "id": "mlsd",
+   "segments": 99
+  },
+  {
+   "id": "nafnet",
+   "segments": 0
+  },
+  {
+   "id": "neuralstyle",
+   "segments": 9
+  },
+  {
+   "id": "nima",
+   "segments": 81
+  },
+  {
+   "id": "places365",
+   "segments": 13
+  },
+  {
+   "id": "ppocr",
+   "segments": 0
+  },
+  {
+   "id": "rtmanimal",
+   "segments": 24
+  },
+  {
+   "id": "rtmface",
+   "segments": 9
+  },
+  {
+   "id": "rtmhand",
+   "segments": 16
+  },
+  {
+   "id": "rtmpose",
+   "segments": 17
+  },
+  {
+   "id": "saliency",
+   "segments": 9
+  },
+  {
+   "id": "tddfa",
+   "segments": 38
+  },
+  {
+   "id": "yunet",
+   "segments": 112
+  }
+ ],
+ "pulled_from": "raw/z5/refs/mlsd_fp16/ref.json"
+}

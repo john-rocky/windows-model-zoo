@@ -1,0 +1,168 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtmw_fp16",
+ "cell": "ovgpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel Graphics (iGPU)"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, the EP's default precision",
+  "sha256": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-07T06:30:01.250231+09:00",
+  "ended": "2026-11-07T06:30:04.583079+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": false,
+  "verdict": "FAIL on z1-internal: serving_default_output_0_output: argmax agreement 131/133; serving_default_output_1_output: argmax agreement 131/133",
+  "status": "FAIL",
+  "reference": "cpu",
+  "fails": [
+   "serving_default_output_0_output: argmax agreement 131/133",
+   "serving_default_output_1_output: argmax agreement 131/133"
+  ],
+  "reason_candidate": "argmax flips where the reference margin between top-1 and top-2 is small (see flipped_ref_margin_median)"
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 4.178949999186443,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 4.178949999186443,
+   "p10": 4.136199997446965,
+   "p90": 4.340999999840278,
+   "min": 4.096399999980349,
+   "max": 4.445500002475455,
+   "n": 30
+  },
+  "first_pass_value": 811.5320500000962,
+  "load_ms": 1319.1264999986743,
+  "load_ms_first_pass": 7945.929199995589,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     133,
+     384
+    ],
+    "max_abs": 0.0038271844387054443,
+    "mean_abs": 0.00032190239455500677,
+    "cos": 0.999996080268594,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.6638963222503662,
+    "ref_max": 0.9855771064758301,
+    "ref_range": 1.6494734287261963,
+    "max_abs_over_range": 0.0023202461901195843,
+    "argmax": {
+     "positions": 133,
+     "counted": 133,
+     "agree": 131,
+     "rate": 0.9849624060150376,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 3.3348798751831055e-05,
+     "ref_margin_median": 0.0036887526512145996
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     133,
+     512
+    ],
+    "max_abs": 0.002887243404984474,
+    "mean_abs": 0.0003371503996975031,
+    "cos": 0.9999971771903915,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.8365509510040283,
+    "ref_max": 1.0832405090332031,
+    "ref_range": 1.9197914600372314,
+    "max_abs_over_range": 0.0015039359561108165,
+    "argmax": {
+     "positions": 133,
+     "counted": 133,
+     "agree": 131,
+     "rate": 0.9849624060150376,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": 6.273388862609863e-05,
+     "ref_margin_median": 0.0027480721473693848
+    }
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) Graphics (iGPU)",
+   "ov_device": "GPU.0",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": null,
+   "NPU_COMPILER_VERSION": null,
+   "DEVICE_ARCHITECTURE": "GPU: vendor=0x8086 arch=v30.1.0",
+   "DEVICE_LUID": "0e26010000000000",
+   "counter_luid": "0x00000000_0x0001260e"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 147855,
+   "graph_nodes": 433
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "5cab873f4fd5a6436bab7e49bae887625e5e9885940ced559fc55d75b1681a06",
+  "ran_on_device": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/rtmw_fp16/ovgpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtmw_fp16/ovgpu.json"
+ },
+ "note": [
+  {
+   "rank": 3,
+   "text": "ovgpu FAIL: output_0_output: argmax agreement 131/133; output_1_output: argmax agreement 131/133"
+  }
+ ]
+}

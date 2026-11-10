@@ -1,0 +1,7 @@
+<|im_start|>user
+What is 12 * 3? Reply with only the number.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

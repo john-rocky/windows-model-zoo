@@ -1,0 +1,18 @@
+Using Python 3.12.16 environment at: C:\src\model-zoo\.venv-ovg
+Resolved 6 packages in 244ms
+Downloading openvino-tokenizers (1.5MiB)
+Downloading openvino-genai (3.7MiB)
+Downloading openvino (81.0MiB)
+Downloading scipy (35.0MiB)
+ Downloaded openvino-tokenizers
+ Downloaded openvino-genai
+ Downloaded scipy
+ Downloaded openvino
+Prepared 5 packages in 37.86s
+Installed 6 packages in 2.26s
+ + numpy==2.5.4
+ + openvino==2026.4.1
+ + openvino-genai==2026.4.1.0
+ + openvino-telemetry==2025.2.0
+ + openvino-tokenizers==2026.4.1.0
+ + scipy==1.18.1

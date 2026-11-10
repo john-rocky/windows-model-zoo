@@ -1,0 +1,90 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "rtdetr_graphB_fp16",
+ "cell": "qhub-s26-npu",
+ "kind": "vision",
+ "role": "other-device",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "qnn",
+  "label": "Qualcomm AI Hub, QNN precompiled (pqo)",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "s26-npu",
+  "label": "Samsung Galaxy S26 (Family)"
+ },
+ "form": {
+  "id": "pqo",
+  "label": "precompiled QNN context"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": null,
+  "ended": null,
+  "error": null,
+  "job": "jgnqo0zkg"
+ },
+ "line": null,
+ "speed": {
+  "metric": "ms",
+  "value": 464.071,
+  "timed": true,
+  "stat": "AI Hub estimated_inference_time",
+  "load_ms": 256.581,
+  "warm_load_ms": 217.907,
+  "rechecks": [
+   {
+    "device": "Samsung Galaxy S26 (Family)",
+    "first_load_us": 328723,
+    "infer_us": 533274,
+    "job": "jpex8vm8g",
+    "message": "",
+    "peak_mem_bytes": 154759168,
+    "status": "SUCCESS",
+    "units": {
+     "NPU": 705
+    },
+    "warm_load_us": 260129
+   },
+   {
+    "device": "Samsung Galaxy S26 (Family)",
+    "first_load_us": 242171,
+    "infer_us": 463444,
+    "job": "jgzy87d4p",
+    "message": "",
+    "peak_mem_bytes": 166105088,
+    "status": "SUCCESS",
+    "units": {
+     "NPU": 705
+    },
+    "warm_load_us": 208134
+   }
+  ]
+ },
+ "regime": {
+  "qos": "n/a",
+  "power": "n/a",
+  "timer": "ai-hub",
+  "qos_basis": "another device (AI Hub's own timer)"
+ },
+ "vision": {
+  "units": {
+   "NPU": 705
+  },
+  "peak_mem_bytes": 132452352
+ },
+ "source": {
+  "by": "Qualcomm AI Hub (the vision zoo's records of two other devices, 2026-10-30)",
+  "record": "aihub/results_wide.json[rtdetr_graphB_fp16|S26|pqo|npu]",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:aihub/results_wide.json"
+ },
+ "note": [
+  {
+   "rank": 4,
+   "text": "S26 NPU: AI Hub ran the same asset twice more the same day: 533.27 ms and 463.44 ms (`aihub/results_recheck.json`)"
+  }
+ ]
+}

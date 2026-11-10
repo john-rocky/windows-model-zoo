@@ -1,0 +1,92 @@
+{
+ "make": "litert-src",
+ "started": "2026-11-10T13:19:43+0900",
+ "downloads": [],
+ "commands": [
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "-c",
+    "core.longpaths=true",
+    "-c",
+    "core.symlinks=true",
+    "clone",
+    "https://github.com/google-ai-edge/LiteRT-LM.git",
+    "C:\\src\\mz-litert-lm"
+   ],
+   "exit": 0,
+   "output": "Cloning into 'C:\\src\\mz-litert-lm'...\nUpdating files:  60% (1109/1840)\nUpdating files:  61% (1123/1840)\nUpdating files:  62% (1141/1840)\nUpdating files:  63% (1160/1840)\nUpdating files:  64% (1178/1840)\nUpdating files:  65% (1196/1840)\nUpdating files:  66% (1215/1840)\nUpdating files:  67% (1233/1840)\nUpdating files:  68% (1252/1840)\nUpdating files:  69% (1270/1840)\nUpdating files:  70% (1288/1840)\nUpdating files:  71% (1307/1840)\nUpdating files:  72% (1325/1840)\nUpdating files:  73% (1344/1840)\nUpdating files:  74% (1362/1840)\nUpdating files:  75% (1380/1840)\nUpdating files:  76% (1399/1840)\nUpdating files:  77% (1417/1840)\nUpdating files:  78% (1436/1840)\nUpdating files:  79% (1454/1840)\nUpdating files:  80% (1472/1840)\nUpdating files:  81% (1491/1840)\nUpdating files:  82% (1509/1840)\nUpdating files:  83% (1528/1840)\nUpdating files:  84% (1546/1840)\nUpdating files:  84% (1557/1840)\nUpdating files:  85% (1564/1840)\nUpdating files:  85% (1571/1840)\nUpdating files:  85% (1576/1840)\nUpdating files:  86% (1583/1840)\nUpdating files:  87% (1601/1840)\nUpdating files:  88% (1620/1840)\nUpdating files:  89% (1638/1840)\nUpdating files:  90% (1656/1840)\nUpdating files:  91% (1675/1840)\nUpdating files:  92% (1693/1840)\nUpdating files:  93% (1712/1840)\nUpdating files:  94% (1730/1840)\nUpdating files:  95% (1748/1840)\nUpdating files:  96% (1767/1840)\nUpdating files:  97% (1785/1840)\nUpdating files:  98% (1804/1840)\nUpdating files:  99% (1822/1840)\nUpdating files: 100% (1840/1840)\nUpdating files: 100% (1840/1840), done.\n"
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "config",
+    "core.longpaths",
+    "true"
+   ],
+   "exit": 0,
+   "output": ""
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "config",
+    "core.symlinks",
+    "true"
+   ],
+   "exit": 0,
+   "output": ""
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "fetch",
+    "--tags",
+    "origin"
+   ],
+   "exit": 0,
+   "output": ""
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "checkout",
+    "-B",
+    "windows-v0.19.0",
+    "v0.19.0"
+   ],
+   "exit": 0,
+   "output": "Switched to a new branch 'windows-v0.19.0'\n"
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "lfs",
+    "pull",
+    "--include",
+    "prebuilt/windows_x86_64/*"
+   ],
+   "exit": 0,
+   "output": ""
+  },
+  {
+   "command": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "rev-parse",
+    "HEAD"
+   ],
+   "exit": 0,
+   "output": "83ce6067f2e2a3fb697556928f93936693ded971\n"
+  }
+ ],
+ "made": {
+  "litert-src": {
+   "dir": "C:\\src\\mz-litert-lm",
+   "tag": "v0.19.0",
+   "head": "83ce6067f2e2a3fb697556928f93936693ded971",
+   "record": "83ce6067f2e2a3fb697556928f93936693ded971"
+  }
+ },
+ "ended": "2026-11-10T13:20:34+0900",
+ "failed": 0
+}

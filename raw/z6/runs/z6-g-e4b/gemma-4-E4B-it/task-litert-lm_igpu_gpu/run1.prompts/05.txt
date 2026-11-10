@@ -1,0 +1,3 @@
+<|turn>user
+How many days are in a week? Reply with only the number.<turn|>
+<|turn>model

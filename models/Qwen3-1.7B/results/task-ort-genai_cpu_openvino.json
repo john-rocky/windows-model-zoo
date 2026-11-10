@@ -1,0 +1,286 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen3-1.7B",
+ "cell": "task-ort-genai_cpu_openvino",
+ "kind": "llm",
+ "runtime": {
+  "id": "ort-genai",
+  "label": "ONNX Runtime GenAI 0.19.0"
+ },
+ "device": {
+  "id": "cpu",
+  "label": "CPU (Core Ultra 9 386H)"
+ },
+ "form": {
+  "id": "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128",
+  "label": "MatMulNBits b128 asym acc4: int8 x101",
+  "detail": "MatMulNBits b128 asym acc4: int8 x101, int4 x96; embeddings int8 b128 asym [model.onnx]; onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128",
+  "path": null,
+  "from": "onnx-community/Qwen3-1.7B-ONNX"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on qa20: 18 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/Qwen3-1.7B/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 18,
+    "n": 20,
+    "bar": 18,
+    "pass": true
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 6,
+    "max_new": 16,
+    "text": "1+1=2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": true
+  },
+  "text": "answers 18/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-c-q17/Qwen3-1.7B/task-ort-genai_cpu_openvino/run1.json",
+  "runner": "run_llm_genai.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "CPU",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-c-q17\\Qwen3-1.7B\\task-ort-genai_cpu_openvino\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 18/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-c-q17",
+  "started": "2026-11-10T09:33:16.268095+09:00",
+  "ended": "2026-11-10T09:33:30.879438+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 5.448,
+  "warmup_s": 1.281,
+  "peak_working_set_mb": 4011,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 4206108672,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 23,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013E4C": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 18,
+   "n": 20,
+   "full_text_same": 15,
+   "eos_within_max": 20,
+   "new_tokens": 52,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "36",
+     "ref": "36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "tac",
+     "ref": "tac",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう",
+     "ref": "ありがとう",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "yellow",
+     "ref": "yellow",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes",
+     "ref": "yes, 17 is a prime number",
+     "same": false
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "shakespeare",
+     "ref": "shakespeare",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "9",
+     "ref": "10",
+     "same": false
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "iron",
+     "ref": "iron",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "8",
+     "ref": "8",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 6"
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-genai": "0.19.0",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "onnxruntime-ep-webgpu": "0.5.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+   "prompts": 21,
+   "ep": "openvino",
+   "ov_device": "CPU",
+   "ep_option": [],
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt, the package tokenizer's encode",
+   "eos_token_ids": [
+    151643,
+    151645
+   ],
+   "bos_token_id": 151643
+  }
+ }
+}

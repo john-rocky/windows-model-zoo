@@ -1,0 +1,27 @@
+[2026-11-10T08:37:01.0499431+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-c-e2b.json mode first, 4 units, pid 14280
+[2026-11-10T08:37:12.1274917+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T08:37:14.2376137+09:00] gemma-4-E2B-it/task-litert-lm_cpu_cpu run 1 start
+[2026-11-10T08:37:43.7048803+09:00] gemma-4-E2B-it/task-litert-lm_cpu_cpu run 1 end: exit 0, OK, 28.355 s
+[2026-11-10T08:37:44.8216955+09:00] gemma-4-E2B-it/task-llama.cpp_cpu_cpu run 1 start
+[2026-11-10T08:38:03.7861807+09:00] gemma-4-E2B-it/task-llama.cpp_cpu_cpu run 1 end: exit 0, OK, 17.882 s
+[2026-11-10T08:38:04.8639236+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-10T08:38:19.8586019+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 13.888 s
+[2026-11-10T08:38:21.4148799+09:00] gemma-4-E2B-it/task-ort-genai_cpu_openvino run 1 start
+[2026-11-10T08:38:54.6660046+09:00] gemma-4-E2B-it/task-ort-genai_cpu_openvino run 1 end: exit 0, OK, 32.164 s
+[2026-11-10T08:38:54.6660046+09:00] chain done: OK
+[2026-11-10T08:43:18.3335749+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-c-e2b.json mode first, 4 units, pid 27788
+[2026-11-10T08:43:25.1187401+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T08:43:25.1705841+09:00] gemma-4-E2B-it/task-litert-lm_cpu_cpu run 1 on disk, skipped
+[2026-11-10T08:43:25.1705841+09:00] gemma-4-E2B-it/task-llama.cpp_cpu_cpu run 1 on disk, skipped
+[2026-11-10T08:43:26.4011012+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-10T08:43:37.9469190+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 10.419 s
+[2026-11-10T08:43:37.9573626+09:00] gemma-4-E2B-it/task-ort-genai_cpu_openvino run 1 on disk, skipped
+[2026-11-10T08:43:37.9675402+09:00] chain done: OK
+[2026-11-10T08:44:34.5876467+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-c-e2b.json mode first, 4 units, pid 5868
+[2026-11-10T08:44:37.7339786+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T08:44:37.7655751+09:00] gemma-4-E2B-it/task-litert-lm_cpu_cpu run 1 on disk, skipped
+[2026-11-10T08:44:37.7655751+09:00] gemma-4-E2B-it/task-llama.cpp_cpu_cpu run 1 on disk, skipped
+[2026-11-10T08:44:38.9864831+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-10T08:44:52.7233202+09:00] gemma-4-E2B-it/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 12.141 s
+[2026-11-10T08:44:52.7391161+09:00] gemma-4-E2B-it/task-ort-genai_cpu_openvino run 1 on disk, skipped
+[2026-11-10T08:44:52.7391161+09:00] chain done: OK

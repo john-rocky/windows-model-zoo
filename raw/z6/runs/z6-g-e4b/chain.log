@@ -1,0 +1,25 @@
+[2026-11-10T09:04:41.1802260+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-g-e4b.json mode first, 11 units, pid 28384
+[2026-11-10T09:04:51.9358792+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:04:54.0528659+09:00] gemma-4-E4B-it/task-litert-lm_igpu_gpu run 1 start
+[2026-11-10T09:09:52.0354874+09:00] gemma-4-E4B-it/task-litert-lm_igpu_gpu run 1 end: exit 0, OK, 296.007 s
+[2026-11-10T09:09:54.0225209+09:00] gemma-4-E4B-it/task-litert-lm_rtx_gpu run 1 start
+[2026-11-10T09:12:15.6953814+09:00] gemma-4-E4B-it/task-litert-lm_rtx_gpu run 1 end: exit 0, OK, 139.746 s
+[2026-11-10T09:12:17.6497735+09:00] gemma-4-E4B-it/task-llama.cpp_rtx_cuda run 1 start
+[2026-11-10T09:12:27.8143732+09:00] gemma-4-E4B-it/task-llama.cpp_rtx_cuda run 1 end: exit 0, OK, 8.224 s
+[2026-11-10T09:12:29.7780936+09:00] gemma-4-E4B-it/task-llama.cpp_rtx_vulkan run 1 start
+[2026-11-10T09:12:43.5812396+09:00] gemma-4-E4B-it/task-llama.cpp_rtx_vulkan run 1 end: exit 0, OK, 11.925 s
+[2026-11-10T09:12:45.5467487+09:00] gemma-4-E4B-it/task-openvino-genai_igpu_gpu run 1 start
+[2026-11-10T09:14:08.4014024+09:00] gemma-4-E4B-it/task-openvino-genai_igpu_gpu run 1 end: exit 0, OK, 80.904 s
+[2026-11-10T09:14:10.3684492+09:00] gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw run 1 start
+[2026-11-10T09:16:44.2836488+09:00] gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw run 1 end: exit 0, OK, 151.981 s
+[2026-11-10T09:16:46.2488577+09:00] gemma-4-E4B-it/task-openvino-genai_rtx_gpu run 1 start
+[2026-11-10T09:19:06.5651196+09:00] gemma-4-E4B-it/task-openvino-genai_rtx_gpu run 1 end: exit 0, OK, 138.413 s
+[2026-11-10T09:19:08.5186204+09:00] gemma-4-E4B-it/task-ort-genai_igpu_openvino run 1 start
+[2026-11-10T09:19:57.0968964+09:00] gemma-4-E4B-it/task-ort-genai_igpu_openvino run 1 end: exit 0, OK, 46.605 s
+[2026-11-10T09:19:59.1128596+09:00] gemma-4-E4B-it/task-ort-genai_igpu_webgpu run 1 start
+[2026-11-10T09:20:34.3184039+09:00] gemma-4-E4B-it/task-ort-genai_igpu_webgpu run 1 end: exit 0, OK, 33.234 s
+[2026-11-10T09:20:36.2605004+09:00] gemma-4-E4B-it/task-ort-genai_rtx_cuda run 1 start
+[2026-11-10T09:20:59.5711604+09:00] gemma-4-E4B-it/task-ort-genai_rtx_cuda run 1 end: exit -1073741819, OK, 21.372 s
+[2026-11-10T09:21:01.5312498+09:00] gemma-4-E4B-it/task-ort-genai_rtx_webgpu run 1 start
+[2026-11-10T09:21:22.1436408+09:00] gemma-4-E4B-it/task-ort-genai_rtx_webgpu run 1 end: exit 0, OK, 18.681 s
+[2026-11-10T09:21:22.1436408+09:00] chain done: OK

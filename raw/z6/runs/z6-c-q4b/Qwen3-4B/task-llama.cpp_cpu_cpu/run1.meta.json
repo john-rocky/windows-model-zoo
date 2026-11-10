@@ -1,0 +1,67 @@
+{
+    "cell":  "Qwen3-4B/task-llama.cpp_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-c-q4b",
+    "start":  "2026-11-10T09:48:46.8296313+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  11.8,
+                                "build_ms":  0,
+                                "top":  [
+                                            "python 20740 1.55 core",
+                                            "MsMpEng 5548 0.09 core",
+                                            "System 4 0.08 core",
+                                            "SearchIndexer 9480 0.05 core",
+                                            "svchost 8284 0.03 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 2317 MHz, 14001 MHz, 78.04 W, 72 %, 2584 MiB, 69",
+                   "availGB":  20.6
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_llamacpp.py --server C:\\src\\zoo-template\\engines\\llama-cpu\\llama-server.exe --model C:\\src\\zoo-template\\work\\gguf\\Qwen3-4B-Q4_K_M.gguf --ref C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-c-q4b\\Qwen3-4B\\task-llama.cpp_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  29392,
+                   "elapsedSeconds":  11.89,
+                   "peakWorkingSetBytes":  39944192,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P4, 2272 MHz, 9001 MHz, 72.99 W, 64 %, 2576 MiB, 75",
+                                         "10s P0, 2212 MHz, 14001 MHz, 70.04 W, 52 %, 2598 MiB, 73"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  12.4,
+                               "build_ms":  0,
+                               "top":  [
+                                           "python 20740 1.5 core",
+                                           "System 4 0.16 core",
+                                           "MsMpEng 5548 0.16 core",
+                                           "svchost 5480 0.03 core",
+                                           "powershell 32148 0.03 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 2340 MHz, 14001 MHz, 64.28 W, 59 %, 2600 MiB, 74"
+              },
+    "end":  "2026-11-10T09:48:59.8259772+09:00",
+    "tries":  1
+}

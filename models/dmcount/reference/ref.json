@@ -1,0 +1,266 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T07:18:19.187895+09:00",
+ "ended": "2026-11-10T07:18:23.554681+09:00",
+ "status": "OK",
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "count",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "form": null,
+ "inputs": {
+  "path": "C:\\src\\zoo-template\\work\\dmcount\\inputs.npz",
+  "n": 20,
+  "sha256": "4ff5bc2e808eba11f263c42556e2601244549b4763a1d960fb8d275c363cc2bf",
+  "bytes": 62920342,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    512,
+    512
+   ]
+  },
+  "set": "images"
+ },
+ "data_config": null,
+ "rows": [
+  {
+   "id": "dfine",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\zoo\\onnx\\dmcount.onnx",
+  "sha256": "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197"
+ },
+ "files": [
+  {
+   "what": "dmcount form fp32",
+   "path": "C:\\src\\zoo\\onnx\\dmcount.onnx",
+   "bytes": 86040413,
+   "sha256": "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197"
+  }
+ ],
+ "upstream": null,
+ "outputs": {
+  "path": "C:\\src\\zoo-template\\refs\\dmcount\\ref.outputs.npz",
+  "bytes": 332662,
+  "sha256": "cc668d421ceaf00409934f911873ca8816ea59f116e2fb5fed623a9b2d7dfa48",
+  "arrays": 20
+ },
+ "task": "count",
+ "task_line": "task-count",
+ "task_values": [
+  {
+   "id": "dfine",
+   "count": 1.25
+  },
+  {
+   "id": "dinov2",
+   "count": 1.94
+  },
+  {
+   "id": "gaze",
+   "count": 1.045
+  },
+  {
+   "id": "hsemotion",
+   "count": 0.068
+  },
+  {
+   "id": "lowlight",
+   "count": 0.0
+  },
+  {
+   "id": "metric3d",
+   "count": 0.377
+  },
+  {
+   "id": "migan",
+   "count": 1.405
+  },
+  {
+   "id": "mlsd",
+   "count": 0.0
+  },
+  {
+   "id": "nafnet",
+   "count": 0.163
+  },
+  {
+   "id": "neuralstyle",
+   "count": 0.0
+  },
+  {
+   "id": "nima",
+   "count": 1.167
+  },
+  {
+   "id": "places365",
+   "count": 0.0
+  },
+  {
+   "id": "ppocr",
+   "count": 0.0
+  },
+  {
+   "id": "rtmanimal",
+   "count": 2.885
+  },
+  {
+   "id": "rtmface",
+   "count": 1.161
+  },
+  {
+   "id": "rtmhand",
+   "count": 0.0
+  },
+  {
+   "id": "rtmpose",
+   "count": 1.021
+  },
+  {
+   "id": "saliency",
+   "count": 1.017
+  },
+  {
+   "id": "tddfa",
+   "count": 1.237
+  },
+  {
+   "id": "yunet",
+   "count": 7.572
+  }
+ ],
+ "pulled_from": "raw/z5/refs/dmcount/ref.json"
+}

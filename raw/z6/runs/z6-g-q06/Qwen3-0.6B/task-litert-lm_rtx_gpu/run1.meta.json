@@ -1,0 +1,71 @@
+{
+    "cell":  "Qwen3-0.6B/task-litert-lm_rtx_gpu",
+    "device":  "rtx",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-g-q06",
+    "start":  "2026-11-10T09:31:32.8777006+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.1,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.33 core",
+                                            "WUDFHost 9528 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1267 MHz, 14001 MHz, 18.98 W, 0 %, 0 MiB, 56",
+                   "availGB":  24.4
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\rtx\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm --backend gpu --adapter rtx --ref C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-g-q06\\Qwen3-0.6B\\task-litert-lm_rtx_gpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  3476,
+                   "elapsedSeconds":  53.369,
+                   "peakWorkingSetBytes":  36102144,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 1492 MHz, 14001 MHz, 21.32 W, 0 %, 170 MiB, 55",
+                                         "10s P2, 1597 MHz, 11001 MHz, 21.95 W, 6 %, 782 MiB, 56",
+                                         "15s P2, 1567 MHz, 11001 MHz, 39.82 W, 11 %, 1004 MiB, 56",
+                                         "20s P2, 1590 MHz, 11001 MHz, 18.55 W, 0 %, 15 MiB, 56",
+                                         "25s P5, 367 MHz, 810 MHz, 15.90 W, 0 %, 4 MiB, 56",
+                                         "30s P4, 1590 MHz, 9001 MHz, 22.42 W, 0 %, 15 MiB, 57",
+                                         "35s P4, 1582 MHz, 9001 MHz, 15.47 W, 15 %, 5 MiB, 58",
+                                         "40s P4, 1582 MHz, 9001 MHz, 14.60 W, 1 %, 0 MiB, 58",
+                                         "45s P4, 1545 MHz, 9001 MHz, 14.35 W, 0 %, 1004 MiB, 58",
+                                         "50s P4, 1657 MHz, 9001 MHz, 14.71 W, 5 %, 1004 MiB, 58"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  24.9,
+                               "build_ms":  0,
+                               "top":  [
+                                           "litert_lm_advanced_main_windows 26492 3.42 core",
+                                           "System 4 0.53 core",
+                                           "WmiPrvSE 7560 0.02 core",
+                                           "powershell 28984 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 360 MHz, 14001 MHz, 19.64 W, 0 %, 0 MiB, 59"
+              },
+    "end":  "2026-11-10T09:32:28.1746408+09:00",
+    "tries":  1
+}

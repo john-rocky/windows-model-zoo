@@ -1,0 +1,9 @@
+# CUDA 12 runtime + cuDNN 9 DLLs for Foundry Local's daemon (0.13.0 reads them from PATH and does not download them;
+# without them its startup fails, CPU models included). pc/engines.py --make cuda12 installs these wheels with
+# uv pip --target and copies their DLLs into one folder. The pins are the LLM zoo's (john-rocky/windows-llm-zoo
+# pc/req/cuda12.txt); the Z6 cells ran with a folder of the same kind another job had made on the PC, whose wheel
+# versions their records do not give.
+nvidia-cuda-runtime-cu12==12.9.79
+nvidia-cuda-nvrtc-cu12==12.9.86
+nvidia-cublas-cu12==12.9.2.10
+nvidia-cudnn-cu12==9.28.0.42

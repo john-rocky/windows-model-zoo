@@ -1,0 +1,357 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "ssdlite_mobilenetv3_320_fp16",
+ "cell": "task-cuda16",
+ "kind": "vision",
+ "runtime": {
+  "id": "onnxruntime-cuda",
+  "label": "ONNX Runtime 1.31.1 CUDA EP"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "z1-onnx-fp16",
+  "label": "fp16",
+  "detail": "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256",
+  "path": "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+  "from": null
+ },
+ "line": {
+  "id": "task-detection",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on task-detection: 31 boxes paired, of the reference's 31 and the cell's 31 (pass mark 95 % both ways)",
+  "reference": "raw/z5/refs/ssdlite_mobilenetv3_320_fp16/ref.json",
+  "detail": {
+   "pairs": 31,
+   "ref_boxes": 31,
+   "cell_boxes": 31,
+   "bar": "95 % both ways",
+   "pass": true
+  },
+  "text": "boxes paired 31/31 of the reference's, 31/31 of the cell's"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z5/runs/z5-a/ssdlite_mobilenetv3_320_fp16/task-cuda16/run1.json",
+  "runner": "run_vision_task.py",
+  "argv": [
+   "--model",
+   "ssdlite_mobilenetv3_320_fp16",
+   "--spec",
+   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "--work",
+   "C:\\src\\zoo-template\\work\\ssdlite_mobilenetv3_320_fp16",
+   "--form",
+   "fp16",
+   "--engine",
+   "ort",
+   "--ep",
+   "cuda",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z5-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "boxes paired 31/31 of the reference's, 31/31 of the cell's"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z5-a",
+  "started": "2026-11-10T07:28:35.583931+09:00",
+  "ended": "2026-11-10T07:28:39.026389+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "ms (median of the inputs, one run each)",
+  "value": null,
+  "first_value": 4.086,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 1.021,
+  "warmup_s": 1.793,
+  "load_ms": 1021.0
+ },
+ "memory": {
+  "peak_ws_bytes": 1521020928,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 76,
+    "dedicated": 342
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "vision": {
+  "task": "detection",
+  "scores": {
+   "pair_iou_mean": 0.9993,
+   "pair_iou_min": 0.9968,
+   "outputs": {
+    "o0": {
+     "cos": 0.999994,
+     "max_abs": 0.072963,
+     "nonfinite": 0,
+     "values": 4368000
+    },
+    "o1": {
+     "cos": 0.999996,
+     "max_abs": 0.131435,
+     "nonfinite": 0,
+     "values": 192000
+    },
+    "o10": {
+     "cos": 0.999993,
+     "max_abs": 0.040604,
+     "nonfinite": 0,
+     "values": 10920
+    },
+    "o11": {
+     "cos": 0.999996,
+     "max_abs": 0.016675,
+     "nonfinite": 0,
+     "values": 480
+    },
+    "o2": {
+     "cos": 0.999992,
+     "max_abs": 0.078025,
+     "nonfinite": 0,
+     "values": 1092000
+    },
+    "o3": {
+     "cos": 0.999995,
+     "max_abs": 0.033179,
+     "nonfinite": 0,
+     "values": 48000
+    },
+    "o4": {
+     "cos": 0.999993,
+     "max_abs": 0.071009,
+     "nonfinite": 0,
+     "values": 273000
+    },
+    "o5": {
+     "cos": 0.999996,
+     "max_abs": 0.033693,
+     "nonfinite": 0,
+     "values": 12000
+    },
+    "o6": {
+     "cos": 0.999992,
+     "max_abs": 0.055594,
+     "nonfinite": 0,
+     "values": 98280
+    },
+    "o7": {
+     "cos": 0.999997,
+     "max_abs": 0.026891,
+     "nonfinite": 0,
+     "values": 4320
+    },
+    "o8": {
+     "cos": 0.999992,
+     "max_abs": 0.052449,
+     "nonfinite": 0,
+     "values": 43680
+    },
+    "o9": {
+     "cos": 0.999998,
+     "max_abs": 0.021598,
+     "nonfinite": 0,
+     "values": 1920
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-gpu": "1.31.1",
+   "numpy": "2.5.4",
+   "nvidia-cudnn-cu13": "9.28.0.42",
+   "nvidia-cublas": "13.10.0.20",
+   "nvidia-cuda-runtime": "13.5.37"
+  },
+  "device_props": {},
+  "providers": [
+   "CUDAExecutionProvider",
+   "CPUExecutionProvider"
+  ],
+  "inputs": {
+   "path": "C:\\src\\zoo-template\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+   "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
+   "bytes": 24581782,
+   "n": 20
+  },
+  "model_file": {
+   "what": "ssdlite_mobilenetv3_320_fp16 form fp16",
+   "path": "C:\\src\\zoo\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+   "bytes": 7555195,
+   "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
+  },
+  "per_input": [
+   {
+    "id": "dfine",
+    "ref": 3,
+    "cell": 3,
+    "pairs": 3
+   },
+   {
+    "id": "dinov2",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "gaze",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "hsemotion",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "lowlight",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "metric3d",
+    "ref": 6,
+    "cell": 6,
+    "pairs": 6
+   },
+   {
+    "id": "migan",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "mlsd",
+    "ref": 2,
+    "cell": 2,
+    "pairs": 2
+   },
+   {
+    "id": "nafnet",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "neuralstyle",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "nima",
+    "ref": 4,
+    "cell": 4,
+    "pairs": 4
+   },
+   {
+    "id": "places365",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "ppocr",
+    "ref": 0,
+    "cell": 0,
+    "pairs": 0
+   },
+   {
+    "id": "rtmanimal",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmface",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmhand",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "rtmpose",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "saliency",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "tddfa",
+    "ref": 1,
+    "cell": 1,
+    "pairs": 1
+   },
+   {
+    "id": "yunet",
+    "ref": 5,
+    "cell": 5,
+    "pairs": 5
+   }
+  ],
+  "z1_cell": "cuda16",
+  "workload": {
+   "set": "images",
+   "task": "detection",
+   "form": "fp16",
+   "engine": "ort",
+   "ep": "cuda",
+   "ov_device": null,
+   "frames": null,
+   "downstream": null,
+   "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+  },
+  "outputs_file": {
+   "path": "C:\\src\\zoo-template\\runs\\z5-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
+   "bytes": 24638022,
+   "sha256": "a76671a1476804063d74ed87954cacc3ab6bf510d4e07227dc4268edefa521e4",
+   "arrays": 240
+  }
+ }
+}

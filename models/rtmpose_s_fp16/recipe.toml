@@ -1,0 +1,289 @@
+# rtmpose_s_fp16: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "rtmpose_s_fp16"
+group = "main"
+order = 33
+source = "litert-community/RTMPose-s-LiteRT"
+source_revision = "9cc07fa96de442bcc568f2cbb442e94fbfe4dac2"
+source_file = "rtmpose_s_fp16.tflite"
+license = "apache-2.0"
+pipeline_tag = "keypoint-detection"
+base_model = "open-mmlab/mmpose"
+notes = []
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "keypoints"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+repo = "mlboydaisuke/RTMPose-s-OpenVINO"
+revision = "69e7e25241bb5a44a69aab595a03fbb0e5e1912c"
+include = ["npu/rtmpose_s_fp16.blob", "rtmpose_s_fp16.onnx"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[form]]
+id = "z1-npu-blob"
+short = "NPU blob"
+label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob"
+sha256 = "e080cbbab273a719570224f9795a1b88873b0ff8246f051a7b0316d5b78239ed"
+from = "mlboydaisuke/RTMPose-s-OpenVINO"
+public = "mlboydaisuke/RTMPose-s-OpenVINO@69e7e25241bb5a44a69aab595a03fbb0e5e1912c:npu/rtmpose_s_fp16.blob"
+
+[[form]]
+id = "z1-onnx-fp16"
+short = "fp16"
+label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\fp16\\rtmpose_s_fp16.onnx"
+sha256 = "33cffc28e02abc173c0fbed9948909b04841aab844a0867873a7ba30eecc4880"
+public = "none"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\rtmpose_s_fp16.onnx"
+sha256 = "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3"
+from = "mlboydaisuke/RTMPose-s-OpenVINO"
+public = "mlboydaisuke/RTMPose-s-OpenVINO@69e7e25241bb5a44a69aab595a03fbb0e5e1912c:rtmpose_s_fp16.onnx"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\rtmpose_s_fp16",
+  "--out",
+  "{ROOT}\\refs\\rtmpose_s_fp16\\ref.json",
+]
+timeout_min = 30
+ram_gb = 2
+reference = "refs/rtmpose_s_fp16/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-keypoints"
+kind = "task"
+rule = "keypoints, the app's points (john-rocky/LiteRT-Models@96e0bc1f/rtmpose/.../RtmPoseEstimator.kt: per point the argmax of the SimCC x and y bins, x = bin / 2, y = bin / 2, score = the mean of the two maxima; shown when score > 0.3 (MainActivity.kt)): of the points either side shows, a point agrees when both show it and the two positions are within 0.02 of the model input's diagonal (6.4 px of 192 x 256); the agreeing points are >= 95 % of the points either side shows, summed over the inputs. Inputs: the images of suites/vision/images.json that show the model's subject (the app takes a crop of one person; chosen by looking at the images before any run): gaze, rtmface, rtmpose, saliency, tddfa (5 images); each centre-cropped to 3:4 and resized to 192 x 256, (x - [123.675, 116.28, 103.53]) / [58.395, 57.12, 57.375] on 0-255 RGB. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-cuda16"
+runtime = "onnxruntime-cuda"
+device = "rtx"
+form = "z1-onnx-fp16"
+line = "task-keypoints"
+venv = "z1-cuda"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\rtmpose_s_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+]
+timeout_min = 20
+ram_need_gb = 3
+z1_cell = "cuda16"
+
+[[cell]]
+id = "task-cuda32"
+runtime = "onnxruntime-cuda"
+device = "rtx"
+form = "z1-onnx-fp32"
+line = "task-keypoints"
+venv = "z1-cuda"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\rtmpose_s_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+]
+timeout_min = 20
+ram_need_gb = 3
+z1_cell = "cuda32"
+
+[[cell]]
+id = "task-ovnpu"
+runtime = "onnxruntime-openvino"
+device = "npu"
+form = "z1-onnx-fp32"
+line = "task-keypoints"
+venv = "z1-ort"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\rtmpose_s_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "NPU",
+]
+timeout_min = 30
+ram_need_gb = 3
+z1_cell = "ovnpu"
+
+[[cell]]
+id = "task-ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "z1-npu-blob"
+line = "task-keypoints"
+venv = "z1-ov"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "rtmpose_s_fp16",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\rtmpose_s_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+]
+timeout_min = 30
+ram_need_gb = 3
+z1_cell = "ovnpu_pre"

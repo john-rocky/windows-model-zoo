@@ -1,0 +1,22 @@
+[2026-11-10T07:15:40.1970626+09:00] steps setup start: 10 steps, pid 6952
+[2026-11-10T07:15:40.2289438+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T07:15:42.8292076+09:00] python end: exit 0, 0 min
+[2026-11-10T07:15:42.8352836+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\zoo-template\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T07:15:43.1745069+09:00] venv-z1-ort end: exit 0, 0 min
+[2026-11-10T07:15:43.1765138+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\zoo-template\.venv-z1-ort\Scripts\python.exe -r C:\src\zoo-template\pc\req\z1-ort.txt
+[2026-11-10T07:15:50.5465392+09:00] pip-z1-ort end: exit 0, 0.1 min
+[2026-11-10T07:15:50.5543935+09:00] versions-z1-ort start: C:\src\zoo-template\.venv-z1-ort\Scripts\python.exe -I C:\src\zoo-template\pc\venv_versions.py --out C:\src\zoo-template\logs\versions-z1-ort.txt
+[2026-11-10T07:15:51.1063385+09:00] versions-z1-ort end: exit 0, 0 min
+[2026-11-10T07:15:51.1083499+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\zoo-template\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T07:15:51.1537418+09:00] venv-z1-cuda end: exit 0, 0 min
+[2026-11-10T07:15:51.1602463+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\zoo-template\.venv-z1-cuda\Scripts\python.exe -r C:\src\zoo-template\pc\req\z1-cuda.txt
+[2026-11-10T07:16:46.8577255+09:00] pip-z1-cuda end: exit 0, 0.9 min
+[2026-11-10T07:16:46.8577255+09:00] versions-z1-cuda start: C:\src\zoo-template\.venv-z1-cuda\Scripts\python.exe -I C:\src\zoo-template\pc\venv_versions.py --out C:\src\zoo-template\logs\versions-z1-cuda.txt
+[2026-11-10T07:16:47.1413352+09:00] versions-z1-cuda end: exit 0, 0 min
+[2026-11-10T07:16:47.1570601+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\zoo-template\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T07:16:47.1889143+09:00] venv-z1-ov end: exit 0, 0 min
+[2026-11-10T07:16:47.2046928+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\zoo-template\.venv-z1-ov\Scripts\python.exe -r C:\src\zoo-template\pc\req\z1-ov.txt
+[2026-11-10T07:16:52.4007612+09:00] pip-z1-ov end: exit 0, 0.1 min
+[2026-11-10T07:16:52.4007612+09:00] versions-z1-ov start: C:\src\zoo-template\.venv-z1-ov\Scripts\python.exe -I C:\src\zoo-template\pc\venv_versions.py --out C:\src\zoo-template\logs\versions-z1-ov.txt
+[2026-11-10T07:16:52.6691680+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T07:16:52.6691680+09:00] steps setup done: OK

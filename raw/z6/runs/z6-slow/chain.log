@@ -1,0 +1,5 @@
+[2026-11-10T09:50:43.0191884+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-slow.json mode first, 1 units, pid 29980
+[2026-11-10T09:50:52.2695345+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:50:54.3731558+09:00] gemma-4-E2B-it/task-ort-genai_cpu_cpu run 1 start
+[2026-11-10T09:53:46.4807269+09:00] gemma-4-E2B-it/task-ort-genai_cpu_cpu run 1 end: exit 0, OK, 170.076 s
+[2026-11-10T09:53:46.4968564+09:00] chain done: OK

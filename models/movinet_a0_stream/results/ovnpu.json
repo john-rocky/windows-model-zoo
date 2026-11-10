@@ -1,0 +1,619 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "movinet_a0_stream",
+ "cell": "ovnpu",
+ "kind": "vision",
+ "runtime": {
+  "id": "ort-ov",
+  "label": "ONNX Runtime 1.31.1 + OpenVINO EP 1.8.1",
+  "version": "1.31.1",
+  "ep": "OpenVINO EP 1.8.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel AI Boost NPU"
+ },
+ "form": {
+  "id": "onnx-fp32",
+  "label": "fp32 ONNX, compiled when the session loads (as-is)",
+  "sha256": "65afaf7f1f9f1ea3f200162e9b3c6b907ae27bfb246d3b6f789469ea98346928"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "timed",
+  "started": "2026-11-06T19:34:08.121088+09:00",
+  "ended": "2026-11-06T19:34:12.299361+09:00",
+  "host": "WIN-79VR0TO4MR1",
+  "error": null,
+  "error_line": null
+ },
+ "line": {
+  "id": "z1-internal",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-internal",
+  "status": "PASS",
+  "reference": "cpu",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": {
+  "metric": "ms",
+  "value": 2.3240000000441796,
+  "timed": true,
+  "stat": "median",
+  "n": 30,
+  "stats": {
+   "median": 2.3240000000441796,
+   "p10": 2.2439000003942056,
+   "p90": 2.4611999997432576,
+   "min": 2.157299999453244,
+   "max": 2.6236000003336812,
+   "n": 30
+  },
+  "first_pass_value": 2.6329999964218587,
+  "load_ms": 1809.4406999998682,
+  "load_ms_first_pass": 4710.826399998041,
+  "compile_ms": null,
+  "gate": "quiet",
+  "sitting": "quiet pass"
+ },
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": "host-to-host",
+  "qos_basis": "no SetProcessInformation in windows-zoo pc/; runs started by WMI-detached chains",
+  "power_basis": "the PC's MSI User Scenario was first read on 2026-11-09 20:12"
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     600
+    ],
+    "max_abs": 0.06501483917236328,
+    "mean_abs": 0.01468880711744229,
+    "cos": 0.9999871111775372,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -9.92392635345459,
+    "ref_max": 13.192797660827637,
+    "ref_range": 23.116724014282227,
+    "max_abs_over_range": 0.002812459028891598,
+    "argmax": {
+     "positions": 1,
+     "counted": 1,
+     "agree": 1,
+     "rate": 1.0,
+     "ties_skipped": 0,
+     "classes_from": 0,
+     "flipped_ref_margin_median": null,
+     "ref_margin_median": 1.3813543319702148
+    }
+   },
+   {
+    "name": "serving_default_output_1_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.19278502464294434,
+    "mean_abs": 0.0030048763171697085,
+    "cos": 0.9999900308028847,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 22.92534637451172,
+    "ref_range": 23.30034637451172,
+    "max_abs_over_range": 0.008273912393587081
+   },
+   {
+    "name": "serving_default_output_2_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.12442755699157715,
+    "mean_abs": 0.0032642341754371322,
+    "cos": 0.9999906495728896,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.375,
+    "ref_max": 37.350303649902344,
+    "ref_range": 37.725303649902344,
+    "max_abs_over_range": 0.003298251967599451
+   },
+   {
+    "name": "serving_default_output_3_output",
+    "shape": [
+     1,
+     80,
+     22,
+     22
+    ],
+    "max_abs": 0.10410714149475098,
+    "mean_abs": 0.003594628878631905,
+    "cos": 0.9999914243492941,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 15.719560623168945,
+    "ref_range": 16.094560623168945,
+    "max_abs_over_range": 0.006468467448864892
+   },
+   {
+    "name": "serving_default_output_4_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.102813720703125,
+    "mean_abs": 0.0033609952884556264,
+    "cos": 0.9999888190601018,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 23.94969940185547,
+    "ref_range": 24.32469940185547,
+    "max_abs_over_range": 0.004226721120150099
+   },
+   {
+    "name": "serving_default_output_5_output",
+    "shape": [
+     1,
+     112,
+     11,
+     11
+    ],
+    "max_abs": 0.08545494079589844,
+    "mean_abs": 0.0033474709105098476,
+    "cos": 0.9999885190924975,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999403953552,
+    "ref_max": 15.441854476928711,
+    "ref_range": 15.816854476928711,
+    "max_abs_over_range": 0.005402777203302178
+   },
+   {
+    "name": "serving_default_output_6_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.08124780654907227,
+    "mean_abs": 0.0025406604431728753,
+    "cos": 0.9999918274874919,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.375,
+    "ref_max": 15.673741340637207,
+    "ref_range": 16.04874038696289,
+    "max_abs_over_range": 0.0050625659453668705
+   },
+   {
+    "name": "serving_default_output_7_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.11094474792480469,
+    "mean_abs": 0.0022383652374367465,
+    "cos": 0.9999920857234891,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 24.834484100341797,
+    "ref_range": 25.209484100341797,
+    "max_abs_over_range": 0.004400913064432781
+   },
+   {
+    "name": "serving_default_output_8_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.1054542064666748,
+    "mean_abs": 0.001958208479749994,
+    "cos": 0.9999856592610202,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 27.08670425415039,
+    "ref_range": 27.46170425415039,
+    "max_abs_over_range": 0.0038400459596653444
+   },
+   {
+    "name": "serving_default_output_9_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.1139531135559082,
+    "mean_abs": 0.0015874621931345231,
+    "cos": 0.9999896881729187,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 18.58547019958496,
+    "ref_range": 18.96047019958496,
+    "max_abs_over_range": 0.0060100362678981775
+   },
+   {
+    "name": "serving_default_output_10_output",
+    "shape": [
+     1,
+     184,
+     11,
+     11
+    ],
+    "max_abs": 0.095977783203125,
+    "mean_abs": 0.001719740405642343,
+    "cos": 0.9999900977802904,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 23.005008697509766,
+    "ref_range": 23.380008697509766,
+    "max_abs_over_range": 0.004105121792078192
+   },
+   {
+    "name": "serving_default_output_11_output",
+    "shape": [
+     1,
+     384,
+     6,
+     6
+    ],
+    "max_abs": 0.09331130981445312,
+    "mean_abs": 0.002493031330395731,
+    "cos": 0.9999870079376055,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3749999701976776,
+    "ref_max": 22.99108123779297,
+    "ref_range": 23.36608123779297,
+    "max_abs_over_range": 0.003993451399267102
+   },
+   {
+    "name": "serving_default_output_12_output",
+    "shape": [
+     1,
+     24,
+     1,
+     1
+    ],
+    "max_abs": 0.012884378433227539,
+    "mean_abs": 0.0019660480320453644,
+    "cos": 0.9999990162066209,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.2603614032268524,
+    "ref_max": 7.047699451446533,
+    "ref_range": 7.308060646057129,
+    "max_abs_over_range": 0.0017630366053651956
+   },
+   {
+    "name": "serving_default_output_13_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.057358503341674805,
+    "mean_abs": 0.0016781437356257812,
+    "cos": 0.999956404208739,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.31605327129364014,
+    "ref_max": 2.031967878341675,
+    "ref_range": 2.3480210304260254,
+    "max_abs_over_range": 0.02442844531561443
+   },
+   {
+    "name": "serving_default_output_14_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.016380906105041504,
+    "mean_abs": 0.001547339715580165,
+    "cos": 0.9999909326739082,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.26101547479629517,
+    "ref_max": 2.357592821121216,
+    "ref_range": 2.618608236312866,
+    "max_abs_over_range": 0.006255577248205197
+   },
+   {
+    "name": "serving_default_output_15_output",
+    "shape": [
+     1,
+     80,
+     1,
+     1
+    ],
+    "max_abs": 0.008282899856567383,
+    "mean_abs": 0.0013788147814921103,
+    "cos": 0.9999965954183012,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.19485044479370117,
+    "ref_max": 2.7055485248565674,
+    "ref_range": 2.9003989696502686,
+    "max_abs_over_range": 0.0028557794783543654
+   },
+   {
+    "name": "serving_default_output_16_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.017547607421875,
+    "mean_abs": 0.0015622436210675085,
+    "cos": 0.9999936733394956,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3542724549770355,
+    "ref_max": 4.132451057434082,
+    "ref_range": 4.48672342300415,
+    "max_abs_over_range": 0.003911007157674486
+   },
+   {
+    "name": "serving_default_output_17_output",
+    "shape": [
+     1,
+     112,
+     1,
+     1
+    ],
+    "max_abs": 0.020230531692504883,
+    "mean_abs": 0.001452936520633687,
+    "cos": 0.9999898403260158,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.31754446029663086,
+    "ref_max": 2.37904953956604,
+    "ref_range": 2.696593999862671,
+    "max_abs_over_range": 0.00750225346994585
+   },
+   {
+    "name": "serving_default_output_18_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.008628606796264648,
+    "mean_abs": 0.000993327994365245,
+    "cos": 0.9999957286148182,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3488985598087311,
+    "ref_max": 2.8446428775787354,
+    "ref_range": 3.1935415267944336,
+    "max_abs_over_range": 0.0027018927807479446
+   },
+   {
+    "name": "serving_default_output_19_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.012037396430969238,
+    "mean_abs": 0.001214771757393306,
+    "cos": 0.9999964670244722,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.32118910551071167,
+    "ref_max": 2.5578527450561523,
+    "ref_range": 2.879041910171509,
+    "max_abs_over_range": 0.004181042446253293
+   },
+   {
+    "name": "serving_default_output_20_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.010648488998413086,
+    "mean_abs": 0.0013777295383118578,
+    "cos": 0.999997788832281,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.36939820647239685,
+    "ref_max": 6.214078426361084,
+    "ref_range": 6.583476543426514,
+    "max_abs_over_range": 0.0016174568145223235
+   },
+   {
+    "name": "serving_default_output_21_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.00903463363647461,
+    "mean_abs": 0.0011066483275499195,
+    "cos": 0.9999986149794778,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3707257807254791,
+    "ref_max": 4.812984466552734,
+    "ref_range": 5.183710098266602,
+    "max_abs_over_range": 0.0017428894489095236
+   },
+   {
+    "name": "serving_default_output_22_output",
+    "shape": [
+     1,
+     184,
+     1,
+     1
+    ],
+    "max_abs": 0.013789176940917969,
+    "mean_abs": 0.001282823648501147,
+    "cos": 0.9999989239124405,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3699597120285034,
+    "ref_max": 4.6703996658325195,
+    "ref_range": 5.0403594970703125,
+    "max_abs_over_range": 0.00273575266782714
+   },
+   {
+    "name": "serving_default_output_23_output",
+    "shape": [
+     1,
+     384,
+     1,
+     1
+    ],
+    "max_abs": 0.011270523071289062,
+    "mean_abs": 0.0008671360405590652,
+    "cos": 0.9999989811326531,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3719167709350586,
+    "ref_max": 12.964395523071289,
+    "ref_range": 13.336312294006348,
+    "max_abs_over_range": 0.0008451004162788165
+   },
+   {
+    "name": "serving_default_output_24_output",
+    "shape": [
+     1,
+     280,
+     1,
+     1
+    ],
+    "max_abs": 0.020152568817138672,
+    "mean_abs": 0.001480940483244402,
+    "cos": 0.9999880609151917,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3596550524234772,
+    "ref_max": 3.759307861328125,
+    "ref_range": 4.11896276473999,
+    "max_abs_over_range": 0.004892631948424715
+   },
+   {
+    "name": "serving_default_output_25_output",
+    "shape": [
+     1,
+     280,
+     1,
+     1
+    ],
+    "max_abs": 0.01613914966583252,
+    "mean_abs": 0.0014507751895247827,
+    "cos": 0.9999878452632709,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.3498503863811493,
+    "ref_max": 4.405106067657471,
+    "ref_range": 4.754956245422363,
+    "max_abs_over_range": 0.0033941741696087773
+   },
+   {
+    "name": "serving_default_output_26_output",
+    "shape": [
+     1,
+     344,
+     1,
+     1
+    ],
+    "max_abs": 0.016846954822540283,
+    "mean_abs": 0.0018342064869885204,
+    "cos": 0.9999962868186604,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.36188778281211853,
+    "ref_max": 16.75851821899414,
+    "ref_range": 17.120405197143555,
+    "max_abs_over_range": 0.00098402780942072
+   },
+   {
+    "name": "serving_default_output_27_output",
+    "shape": [
+     1,
+     480,
+     1,
+     1
+    ],
+    "max_abs": 0.017249345779418945,
+    "mean_abs": 0.0015341727355310771,
+    "cos": 0.9999917353345584,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": -0.27482789754867554,
+    "ref_max": 3.524707078933716,
+    "ref_range": 3.799535036087036,
+    "max_abs_over_range": 0.004539857012921045
+   }
+  ],
+  "versions": {
+   "numpy": "2.5.4",
+   "onnxruntime": "1.31.1",
+   "onnxruntime_ep_openvino": null,
+   "openvino_ep_plugin": "1.8.1+95d534b.ci.79"
+  },
+  "device_props": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "ov_device": "NPU",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": "1004841",
+   "NPU_COMPILER_VERSION": "524292",
+   "DEVICE_ARCHITECTURE": "5010",
+   "DEVICE_LUID": "4c3e010000000000",
+   "counter_luid": "0x00000000_0x00013e4c"
+  },
+  "placement": {
+   "nodes_by_provider": {
+    "OpenVINOExecutionProvider": 1
+   },
+   "cpu_ops": {},
+   "profile_bytes": 187043,
+   "graph_nodes": 534
+  },
+  "query_model": null,
+  "fp16_convert": null,
+  "input_sha256": "6dc2a61330ab1d12e68075e65b6f78e40036670b7171711183953d314ed9d2ab",
+  "ran_on_device": true,
+  "cpu_nodes": 0
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/movinet_a0_stream/ovnpu.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/movinet_a0_stream/ovnpu.json"
+ },
+ "note": []
+}

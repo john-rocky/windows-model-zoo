@@ -1,0 +1,4 @@
+[2026-11-10T14:15:48.1818065+09:00] steps rtmw_fp16 start: 1 steps, pid 24996
+[2026-11-10T14:15:48.2134459+09:00] task-ref start: C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -I C:\src\model-zoo\pc\ref_vision_task.py --model rtmw_fp16 --spec C:\src\model-zoo\pc\z5_spec.json --fixtures C:\src\model-zoo\fixtures --suites C:\src\model-zoo\suites --work C:\src\model-zoo\work\rtmw_fp16 --out C:\src\model-zoo\refs\rtmw_fp16\ref.json
+[2026-11-10T14:15:49.3222711+09:00] task-ref end: exit 0, 0 min
+[2026-11-10T14:15:49.3222711+09:00] steps rtmw_fp16 done: OK

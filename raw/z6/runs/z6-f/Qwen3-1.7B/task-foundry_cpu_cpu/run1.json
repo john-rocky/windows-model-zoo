@@ -1,0 +1,448 @@
+{
+ "runner": "run_llm_foundry.py",
+ "started": "2026-11-10T09:55:51.323744+09:00",
+ "argv": [
+  "--package",
+  "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-cpu-2\\v2",
+  "--id",
+  "z6-qwen3-1.7b-generic-cpu:1",
+  "--device",
+  "cpu",
+  "--ep",
+  "CPUExecutionProvider",
+  "--task",
+  "chat-completion",
+  "--work",
+  "C:\\src\\zoo-template\\work\\foundry",
+  "--cuda12",
+  "C:\\src\\msf\\cuda12\\dll_all",
+  "--ref",
+  "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "--out",
+  "C:\\src\\zoo-template\\runs\\z6-f\\Qwen3-1.7B\\task-foundry_cpu_cpu\\run1.json"
+ ],
+ "pid": 15072,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "q01",
+   "role": "question",
+   "prompt_tokens": 24,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "Paris",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2419751000124961
+  },
+  {
+   "id": "q02",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "12",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2891448000445962
+  },
+  {
+   "id": "q03",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "36",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.3000742999720387
+  },
+  {
+   "id": "q04",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "tac",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2846801999839954
+  },
+  {
+   "id": "q05",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "mars",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2682807999663055
+  },
+  {
+   "id": "q06",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "7",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2388560000108555
+  },
+  {
+   "id": "q07",
+   "role": "question",
+   "prompt_tokens": 25,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "Cold",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2759032000321895
+  },
+  {
+   "id": "q08",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "ありがとう",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.270095499989111
+  },
+  {
+   "id": "q09",
+   "role": "question",
+   "prompt_tokens": 28,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "yellow.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.31103979999898
+  },
+  {
+   "id": "q10",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "Au",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2772722999798134
+  },
+  {
+   "id": "q11",
+   "role": "question",
+   "prompt_tokens": 25,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "Yes.",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.29393139999592677
+  },
+  {
+   "id": "q12",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "Pacific Ocean",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2855381999979727
+  },
+  {
+   "id": "q13",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "Shakespeare",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2889889999642037
+  },
+  {
+   "id": "q14",
+   "role": "question",
+   "prompt_tokens": 29,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "25",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.3179674000130035
+  },
+  {
+   "id": "q15",
+   "role": "question",
+   "prompt_tokens": 34,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "9",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.32153360004303977
+  },
+  {
+   "id": "q16",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "0",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2793614999973215
+  },
+  {
+   "id": "q17",
+   "role": "question",
+   "prompt_tokens": 40,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 3,
+   "text": "**iron**",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.4572415000293404
+  },
+  {
+   "id": "q18",
+   "role": "question",
+   "prompt_tokens": 28,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "9",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.29024849995039403
+  },
+  {
+   "id": "q19",
+   "role": "question",
+   "prompt_tokens": 27,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 2,
+   "text": "HELLO",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2932011000229977
+  },
+  {
+   "id": "q20",
+   "role": "question",
+   "prompt_tokens": 26,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 1,
+   "text": "8",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 48,
+   "wall_s": 0.2594088999903761
+  },
+  {
+   "id": "gate",
+   "role": "gate",
+   "prompt_tokens": 23,
+   "prompt_form": "one user message through the identity template, as it is (the warm-up's prompt tokens = the reference's ids)",
+   "new_tokens": 10,
+   "text": "1+1=2\n\nNumber: 2",
+   "eos": true,
+   "stop": "stop",
+   "max_new": 16,
+   "wall_s": 0.5398001000285149
+  }
+ ],
+ "foundry_cli": [
+  {
+   "command": "foundry --version",
+   "exit": 0,
+   "s": 0.06,
+   "tail": [
+    "0.13.0"
+   ]
+  },
+  {
+   "command": "foundry server start",
+   "exit": 0,
+   "s": 6.06,
+   "tail": [
+    "NvTensorRTRTXExecutionProvider: 0%",
+    "CUDAExecutionProvider: 0%",
+    "WebGpuExecutionProvider: 0%",
+    "● success: Server ready (http://127.0.0.1:59293)",
+    "  Public API: http://127.0.0.1:59293/v1/",
+    "  Local API (BYOM): http://127.0.0.1:59293/catalogs/local/v1/"
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-qwen3-1.7b-generic-cpu:1",
+   "exit": 3,
+   "s": 0.67,
+   "tail": [
+    "● error: No local registration matches 'z6-qwen3-1.7b-generic-cpu:1'.",
+    "Hint: Pass a registered local alias or exact canonical model ID."
+   ]
+  },
+  {
+   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-1.7b-generic-cpu z6-qwen3-1.7b-generic-cpu:1 --task chat-completion --device cpu --supports-tool-calling false --supports-reasoning false --execution-provider CPUExecutionProvider",
+   "exit": 0,
+   "s": 0.31,
+   "tail": [
+    "■ note: Alias: z6-qwen3-1.7b",
+    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-1.7b-generic-cpu",
+    "■ note: Task: chat-completion",
+    "■ note: Files were not copied; the original folder is retained and must remain ",
+    "available.",
+    "■ note: Next: foundry run z6-qwen3-1.7b-generic-cpu:1"
+   ]
+  },
+  {
+   "command": "foundry model load z6-qwen3-1.7b-generic-cpu:1",
+   "exit": 0,
+   "s": 5.58,
+   "tail": [
+    "■ Loading model (z6-qwen3-1.7b-generic-cpu:1)",
+    "● success: Loaded 'z6-qwen3-1.7b' (CPU variant 'z6-qwen3-1.7b-generic-cpu:1') into memory."
+   ]
+  },
+  {
+   "command": "foundry model unload z6-qwen3-1.7b-generic-cpu:1",
+   "exit": 0,
+   "s": 0.52,
+   "tail": [
+    "● success: Unloaded 'z6-qwen3-1.7b-generic-cpu:1' from memory."
+   ]
+  },
+  {
+   "command": "foundry model unregister z6-qwen3-1.7b-generic-cpu:1",
+   "exit": 0,
+   "s": 0.05,
+   "tail": [
+    "● success: Removed registration IDs: z6-qwen3-1.7b-generic-cpu:1.",
+    "■ note: Model files and original folders were preserved."
+   ]
+  },
+  {
+   "command": "foundry server stop",
+   "exit": 0,
+   "s": 2.62,
+   "tail": [
+    "● success: Server stopped."
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16"
+ },
+ "genai_config_search_package": {
+  "diversity_penalty": 0.0,
+  "do_sample": true,
+  "early_stopping": true,
+  "length_penalty": 1.0,
+  "max_length": 40960,
+  "min_length": 0,
+  "no_repeat_ngram_size": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 0.6,
+  "top_k": 20,
+  "top_p": 0.95
+ },
+ "genai_config_search_used": {
+  "diversity_penalty": 0.0,
+  "do_sample": false,
+  "early_stopping": true,
+  "length_penalty": 1.0,
+  "max_length": 40960,
+  "min_length": 0,
+  "no_repeat_ngram_size": 0,
+  "num_beams": 1,
+  "num_return_sequences": 1,
+  "past_present_share_buffer": true,
+  "repetition_penalty": 1.0,
+  "temperature": 0.6,
+  "top_k": 20,
+  "top_p": 0.95
+ },
+ "package": {
+  "src": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-cpu-2\\v2",
+  "dir": "C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-1.7b-generic-cpu",
+  "changed": {
+   "chat_template.jinja": "the identity template",
+   "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
+   "inference_model.json": "Name z6-qwen3-1.7b-generic-cpu:1, PromptTemplate {Content} (Foundry reads chat_template.jinja first)"
+  }
+ },
+ "foundry_version": "0.13.0",
+ "daemon_pids": [
+  24560
+ ],
+ "load_s": 5.609,
+ "url": "http://127.0.0.1:59293/catalogs/local/v1/chat/completions",
+ "warmup_s": 0.258,
+ "bos_rule": {
+  "warmup_prompt_tokens": 24,
+  "reference_ids": 24,
+  "sent": "as it is (the warm-up's prompt tokens = the reference's ids)"
+ },
+ "workload": {
+  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "prompts": 21,
+  "id": "z6-qwen3-1.7b-generic-cpu:1",
+  "task": "chat-completion",
+  "device": "cpu",
+  "ep": "CPUExecutionProvider",
+  "daemon_env": [],
+  "decode": "greedy (temperature 0; genai_config search do_sample false, repetition_penalty 1.0)",
+  "max_new_tokens": 48,
+  "gate_max_new_tokens": 16,
+  "chat_template": "the identity template: one user message = the reference's rendered prompt, as it is (the warm-up's prompt tokens = the reference's ids)"
+ },
+ "summary": {
+  "clips": 21,
+  "prompts": 21,
+  "new_tokens": 41,
+  "wall_s": 6.385,
+  "tok_per_s": 6.422,
+  "eos": 21,
+  "value": 6.422
+ },
+ "daemon_stop": "stopped",
+ "peak_working_set_bytes": 45256704,
+ "peak_pagefile_bytes": 531845120,
+ "ended": "2026-11-10T09:56:14.477577+09:00",
+ "process_s": 23.161
+}

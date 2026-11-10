@@ -1,0 +1,2 @@
+{"made": "cuda12", "exit": 0, "dlls": 17, "same_name_twice": []}
+engines cuda12: OK

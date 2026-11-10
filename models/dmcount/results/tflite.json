@@ -1,0 +1,80 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "dmcount",
+ "cell": "tflite",
+ "kind": "vision",
+ "role": "conversion-check",
+ "row_line": "z1-internal",
+ "runtime": {
+  "id": "litert",
+  "label": "ai-edge-litert 2.2.0",
+  "version": null,
+  "ep": null
+ },
+ "device": {
+  "id": "cpu",
+  "label": "Core Ultra 9 386H CPU"
+ },
+ "form": {
+  "id": "tflite",
+  "label": "litert-community/DM-Count-Crowd-LiteRT@5934338595e4/dmcount.tflite against the ONNX cell cpu"
+ },
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "started": null,
+  "ended": null,
+  "error": null
+ },
+ "line": {
+  "id": "z1-tflite",
+  "kind": "internal",
+  "pass": true,
+  "verdict": "PASS on z1-tflite",
+  "status": "PASS",
+  "fails": [],
+  "reason_candidate": null
+ },
+ "speed": null,
+ "regime": {
+  "qos": "not-raised",
+  "power": "unrecorded",
+  "timer": null
+ },
+ "vision": {
+  "outputs": [
+   {
+    "name": "serving_default_output_0_output",
+    "shape": [
+     1,
+     1,
+     64,
+     64
+    ],
+    "max_abs": 8.940696716308594e-07,
+    "mean_abs": 2.638728346937569e-09,
+    "cos": 0.9999999999989755,
+    "nan": 0,
+    "inf": 0,
+    "ref_min": 0.0,
+    "ref_max": 0.613030731678009,
+    "ref_range": 0.613030731678009,
+    "max_abs_over_range": 1.4584418454578628e-06
+   }
+  ],
+  "outputs_paired": [
+   {
+    "onnx": "serving_default_output_0_output",
+    "tflite": "serving_default_output_0_output"
+   }
+  ],
+  "inputs_paired": "by name",
+  "tflite_sha256_ok": true
+ },
+ "source": {
+  "by": "windows-zoo (Z1)",
+  "record": "results/dmcount/tflite.json",
+  "migrated_from": "john-rocky/windows-zoo@faa4019:results/dmcount/tflite.json"
+ },
+ "note": []
+}

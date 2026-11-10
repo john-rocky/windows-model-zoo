@@ -1,0 +1,71 @@
+{
+    "cell":  "Qwen3-4B/task-foundry_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-f",
+    "start":  "2026-11-10T09:57:17.4376483+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.7,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.33 core",
+                                            "svchost 8284 0.02 core",
+                                            "WorkloadsSessionHost 12616 0.02 core",
+                                            "SearchProtocolHost 14808 0.02 core",
+                                            "LEDKeeper2 8936 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1590 MHz, 14001 MHz, 18.24 W, 0 %, 0 MiB, 52",
+                   "availGB":  24.4
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_foundry.py --package C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-cpu-3\\v3 --id z6-qwen3-4b-generic-cpu:1 --device cpu --ep CPUExecutionProvider --task chat-completion --work C:\\src\\zoo-template\\work\\foundry --cuda12 C:\\src\\msf\\cuda12\\dll_all --ref C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-f\\Qwen3-4B\\task-foundry_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  9664,
+                   "elapsedSeconds":  37.024,
+                   "peakWorkingSetBytes":  45363200,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 652 MHz, 14001 MHz, 18.30 W, 0 %, 0 MiB, 52",
+                                         "10s P0, 1747 MHz, 14001 MHz, 18.26 W, 0 %, 0 MiB, 52",
+                                         "15s P0, 870 MHz, 14001 MHz, 18.25 W, 0 %, 0 MiB, 52",
+                                         "20s P0, 2085 MHz, 14001 MHz, 18.14 W, 0 %, 0 MiB, 52",
+                                         "25s P0, 607 MHz, 14001 MHz, 18.28 W, 0 %, 0 MiB, 53",
+                                         "30s P0, 982 MHz, 14001 MHz, 18.46 W, 0 %, 0 MiB, 53",
+                                         "35s P0, 150 MHz, 14001 MHz, 18.50 W, 0 %, 0 MiB, 53"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  0.3,
+                               "build_ms":  0,
+                               "top":  [
+                                           "WmiPrvSE 7560 0.02 core",
+                                           "svchost 5080 0.02 core",
+                                           "powershell 31264 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 5145 MHz, 14001 MHz, 18.45 W, 0 %, 0 MiB, 53"
+              },
+    "end":  "2026-11-10T09:57:56.4131705+09:00",
+    "foundryGate":  "free",
+    "tries":  1
+}

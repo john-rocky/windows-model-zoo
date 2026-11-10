@@ -1,0 +1,288 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen3-0.6B",
+ "cell": "task-ort-genai_igpu_webgpu",
+ "kind": "llm",
+ "runtime": {
+  "id": "ort-genai",
+  "label": "ONNX Runtime GenAI 0.19.0"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "genai:onnx-community/Qwen3-0.6B-ONNX@da1453100cf3ff33ef56d17983fc7a8648706db6 onnxruntime/webgpu/webgpu-int4-kld-block-32",
+  "label": "MatMulNBits b32 asym acc4: int8 x106",
+  "detail": "MatMulNBits b32 asym acc4: int8 x106, int4 x91; embeddings int8 b32 asym [model.onnx]; onnx-community/Qwen3-0.6B-ONNX@da1453100cf3ff33ef56d17983fc7a8648706db6 onnxruntime/webgpu/webgpu-int4-kld-block-32",
+  "path": null,
+  "from": "onnx-community/Qwen3-0.6B-ONNX"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on qa20: 11 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 11,
+    "n": 20,
+    "bar": 18,
+    "pass": false
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "1",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": false
+  },
+  "text": "answers 11/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-zoo-template",
+  "record": "raw/z6/runs/z6-g-q06/Qwen3-0.6B/task-ort-genai_igpu_webgpu/run1.json",
+  "runner": "run_llm_genai.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-0.6B-ONNX\\onnxruntime\\webgpu\\webgpu-int4-kld-block-32",
+   "--ep",
+   "webgpu",
+   "--ep-option",
+   "adapterIndex=1",
+   "--ref",
+   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "--out",
+   "C:\\src\\zoo-template\\runs\\z6-g-q06\\Qwen3-0.6B\\task-ort-genai_igpu_webgpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 11/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z6-g-q06",
+  "started": "2026-11-10T09:34:32.952874+09:00",
+  "ended": "2026-11-10T09:34:40.229306+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 2.945,
+  "warmup_s": 0.411,
+  "peak_working_set_mb": 1462,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 1533255680,
+  "gpu_mib": {
+   "0x00000000_0x00012C48": {
+    "shared": 9,
+    "dedicated": 13
+   },
+   "0x00000000_0x0001260E": {
+    "shared": 1190,
+    "dedicated": 0
+   },
+   "0x00000000_0x00012BB8": {
+    "shared": 0,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "extreme",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 1,
+   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "battery": "status 2, 96 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 11,
+   "n": 20,
+   "full_text_same": 4,
+   "eos_within_max": 19,
+   "new_tokens": 156,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "7 + 5 = 12",
+     "ref": "7 + 5 = 12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "12 * 3 = 36",
+     "ref": "12 * 3 = 36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "cat",
+     "ref": "cat",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mercury",
+     "ref": "mars",
+     "same": false
+    },
+    {
+     "id": "q06",
+     "cell": "1 week",
+     "ref": "1",
+     "same": false
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "hot",
+     "same": false
+    },
+    {
+     "id": "q08",
+     "cell": "「ありがとう」",
+     "ref": "ありがとう",
+     "same": false
+    },
+    {
+     "id": "q09",
+     "cell": "yellow",
+     "ref": "blue",
+     "same": false
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes, **17 is a prime number",
+     "ref": "yes, 17 is a prime number",
+     "same": false
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "romeo and juliet",
+     "ref": "romeo and juliet",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "100 ÷ 4 = 25",
+     "ref": "100 divided by 4 is 25",
+     "same": false
+    },
+    {
+     "id": "q15",
+     "cell": "2",
+     "ref": "the sequence is: 2, 4, 6, 8",
+     "same": false
+    },
+    {
+     "id": "q16",
+     "cell": "0°c",
+     "ref": "0°c",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "the square root of 81 is **9",
+     "ref": "the square root of 81 is 9",
+     "same": false
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "2",
+     "ref": "2",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 2"
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-genai": "0.19.0",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "onnxruntime-ep-webgpu": "0.5.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "prompts": 21,
+   "ep": "webgpu",
+   "ov_device": "CPU",
+   "ep_option": [
+    "adapterIndex=1"
+   ],
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt, the package tokenizer's encode",
+   "eos_token_ids": [
+    151643,
+    151645
+   ],
+   "bos_token_id": 151643
+  }
+ }
+}

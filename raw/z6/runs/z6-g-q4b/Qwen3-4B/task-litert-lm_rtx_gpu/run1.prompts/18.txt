@@ -1,0 +1,7 @@
+<|im_start|>user
+Write the word "hello" in uppercase. Reply with only the word.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

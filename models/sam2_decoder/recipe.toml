@@ -1,0 +1,206 @@
+# sam2_decoder: the cells copied from the vision zoo john-rocky/windows-zoo@faa4019 keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+
+[model]
+kind = "vision"
+title = "sam2_decoder"
+group = "main"
+order = 49
+source = "mlboydaisuke/SAM2-hiera-tiny-LiteRT"
+source_revision = "8736e24606f7edf62e34cb8ef950546e49df7eff"
+source_file = "sam2_decoder.tflite"
+license = "apache-2.0"
+pipeline_tag = "mask-generation"
+base_model = "facebook/sam2.1-hiera-tiny"
+notes = ["this file drops 6 FULLY_CONNECTED biases (tf2onnx 1.17.0); fixed file: sam2_decoder_fixed below"]
+migrated_from = "john-rocky/windows-zoo@faa4019"
+task = "mask"
+inputs = "suites/vision/images.json"
+
+[[fetch]]
+repo = "mlboydaisuke/SAM2-hiera-tiny-OpenVINO"
+revision = "99c46885748cffa52b69d8caa11464b366686d16"
+include = ["sam2_encoder.onnx"]
+why = "the vision zoo's files of this model's task cells (the same sha256 as the files measured)"
+
+[[fetch]]
+url = "https://huggingface.co/mlboydaisuke/SAM2-hiera-tiny-LiteRT/resolve/8736e24606f7edf62e34cb8ef950546e49df7eff/sam2_prompt.bin"
+dest = "fixtures/host"
+path = "sam2_prompt.bin"
+size = 3072
+sha256 = "c1ac798f0cc0bd5e4b0dc94efe26f2f9dfe4d1d4cec141ab0350580ce7a48588"
+why = "a host file of the app the task line's host step reads"
+
+[[form]]
+id = "z1-npu-blob"
+short = "NPU blob"
+label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\blobs\\sam2_decoder.blob"
+sha256 = "5f2c7ac3b608fdb07f6166fb4e5a03a419d24e208008d0eb2b82317cb8c43b03"
+public = "none"
+
+[[form]]
+id = "z1-onnx-fp32"
+short = "fp32"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+made_by = "the vision zoo Z1"
+path = "C:\\src\\zoo\\onnx\\sam2_decoder.onnx"
+sha256 = "456c6c524b1e4f2b17742d967e9835a2379ecce2f488fd9f2aaffef7b37bf831"
+public = "none"
+
+[[step]]
+name = "task-ref"
+phase = "before"
+venv = "z1-ort"
+script = "pc/ref_vision_task.py"
+args = [
+  "--model",
+  "sam2_decoder",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--fixtures",
+  "{FIX}",
+  "--suites",
+  "{ROOT}\\suites",
+  "--work",
+  "{ROOT}\\work\\sam2_decoder",
+  "--out",
+  "{ROOT}\\refs\\sam2_decoder\\ref.json",
+]
+timeout_min = 30
+ram_gb = 4
+reference = "refs/sam2_decoder/ref.json"
+
+[[line]]
+id = "z1-internal"
+kind = "internal"
+rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
+written = "2026-11-06T10:40:00+09:00"
+written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+plan = "john-rocky/windows-zoo PLAN.md section 3"
+
+[[line]]
+id = "z1-tflite"
+kind = "internal"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+written = "2026-11-06T16:30:00+09:00"
+written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
+plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
+
+[[line]]
+id = "task-mask"
+kind = "task"
+rule = "mask, the app's mask 0 of the three (john-rocky/LiteRT-Models@96e0bc1f/sam2/.../Sam2Segmenter.kt segment(): the whole-object mask) as object = logit > 0 (MainActivity.kt: mask > 0f), at 256 x 256: the mIoU of object and background against the reference's mask, from the pixels of all inputs, the mean over the classes the reference has, >= 0.95. Inputs: the 20 images of suites/vision/images.json, each stretched to 1024 x 1024, ImageNet normalization, through sam2_encoder in fp32 on the ONNX Runtime CPU EP and the app's prompt for one positive point at (512, 512) (sam2_prompt.bin) into the decoder's input. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+written = "2026-11-10T06:41:00+09:00"
+plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+
+[[cell]]
+id = "ovnpu"
+runtime = "ort-ov"
+device = "npu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "npu-blob"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "ovgpu"
+runtime = "ort-ov"
+device = "igpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda16"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp16"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cuda32"
+runtime = "ort-cuda"
+device = "rtx"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "cpu"
+runtime = "ort"
+device = "cpu"
+form = "onnx-fp32"
+line = "z1-internal"
+migrated = true
+script = "windows-zoo:pc/zoo_run.py"
+
+[[cell]]
+id = "tflite"
+runtime = "litert"
+device = "cpu"
+form = "tflite"
+line = "z1-tflite"
+migrated = true
+script = "windows-zoo:convert/check_tflite.py"
+
+[[cell]]
+id = "qhub-s26-npu"
+runtime = "qnn"
+device = "s26-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu"
+runtime = "qnn"
+device = "x2e-npu"
+form = "pqo"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "qhub-x2e-npu-onnx"
+runtime = "qnn"
+device = "x2e-npu"
+form = "onnx"
+migrated = true
+script = "qai-hub profile job"
+
+[[cell]]
+id = "task-ovnpu_pre"
+runtime = "openvino"
+device = "npu"
+form = "z1-npu-blob"
+line = "task-mask"
+venv = "z1-ov"
+script = "pc/run_vision_task.py"
+args = [
+  "--model",
+  "sam2_decoder",
+  "--spec",
+  "{ROOT}\\pc\\z5_spec.json",
+  "--work",
+  "{ROOT}\\work\\sam2_decoder",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+]
+timeout_min = 30
+ram_need_gb = 4
+z1_cell = "ovnpu_pre"

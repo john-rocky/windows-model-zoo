@@ -1,0 +1,19 @@
+ENGINE_PID 23008
+{"n": 1, "of": 160, "id": "dfine#f1", "wall_s": 0.003, "text": ""}
+{"n": 2, "of": 160, "id": "dfine#f2", "wall_s": 0.004, "text": ""}
+{"n": 10, "of": 160, "id": "dinov2#f2", "wall_s": 0.003, "text": ""}
+{"n": 20, "of": 160, "id": "gaze#f4", "wall_s": 0.003, "text": ""}
+{"n": 30, "of": 160, "id": "hsemotion#f6", "wall_s": 0.003, "text": ""}
+{"n": 40, "of": 160, "id": "lowlight#f8", "wall_s": 0.003, "text": ""}
+{"n": 50, "of": 160, "id": "migan#f2", "wall_s": 0.003, "text": ""}
+{"n": 60, "of": 160, "id": "mlsd#f4", "wall_s": 0.003, "text": ""}
+{"n": 70, "of": 160, "id": "nafnet#f6", "wall_s": 0.003, "text": ""}
+{"n": 80, "of": 160, "id": "neuralstyle#f8", "wall_s": 0.003, "text": ""}
+{"n": 90, "of": 160, "id": "places365#f2", "wall_s": 0.003, "text": ""}
+{"n": 100, "of": 160, "id": "ppocr#f4", "wall_s": 0.003, "text": ""}
+{"n": 110, "of": 160, "id": "rtmanimal#f6", "wall_s": 0.002, "text": ""}
+{"n": 120, "of": 160, "id": "rtmface#f8", "wall_s": 0.003, "text": ""}
+{"n": 130, "of": 160, "id": "rtmpose#f2", "wall_s": 0.002, "text": ""}
+{"n": 140, "of": 160, "id": "saliency#f4", "wall_s": 0.003, "text": ""}
+{"n": 150, "of": 160, "id": "tddfa#f6", "wall_s": 0.003, "text": ""}
+{"n": 160, "of": 160, "id": "yunet#f8", "wall_s": 0.002, "text": ""}

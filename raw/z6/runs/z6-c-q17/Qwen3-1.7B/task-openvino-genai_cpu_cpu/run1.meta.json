@@ -1,0 +1,66 @@
+{
+    "cell":  "Qwen3-1.7B/task-openvino-genai_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-c-q17",
+    "start":  "2026-11-10T09:32:45.0211452+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  8.2,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.85 core",
+                                            "python 18984 0.15 core",
+                                            "MsMpEng 5548 0.09 core",
+                                            "llama-server 28940 0.06 core",
+                                            "powershell 28984 0.05 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 5340 MHz, 14001 MHz, 19.66 W, 0 %, 0 MiB, 59",
+                   "availGB":  24.3
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_ovg.py --model-dir C:\\src\\zoo-template\\hub\\OpenVINO__Qwen3-1.7B-int4-ov --device CPU --ref C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\zoo-template\\runs\\z6-c-q17\\Qwen3-1.7B\\task-openvino-genai_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  23780,
+                   "elapsedSeconds":  9.277,
+                   "peakWorkingSetBytes":  2630197248,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P2, 1492 MHz, 11001 MHz, 19.14 W, 0 %, 647 MiB, 59"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  4.8,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.68 core",
+                                           "MsMpEng 5548 0.03 core",
+                                           "NVDisplay.Container 3412 0.03 core",
+                                           "powershell 25684 0.02 core",
+                                           "powershell 28984 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 360 MHz, 14001 MHz, 19.62 W, 0 %, 0 MiB, 59"
+              },
+    "end":  "2026-11-10T09:32:56.5414391+09:00",
+    "tries":  1
+}

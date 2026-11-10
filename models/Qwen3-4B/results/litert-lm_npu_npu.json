@@ -1,0 +1,44 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen3-4B",
+ "cell": "litert-lm_npu_npu",
+ "kind": "llm",
+ "runtime": {
+  "id": "litert-lm",
+  "label": "LiteRT-LM v0.19.0",
+  "version": null,
+  "ep": "npu"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "none",
+  "label": "—"
+ },
+ "run": {
+  "state": "not_run",
+  "mode": null,
+  "started": null,
+  "why": "no Intel NPU bundle in the litert-community repo (edge-llm-bench windows/README)"
+ },
+ "line": {
+  "id": "text-check",
+  "kind": "text-integrity",
+  "pass": null,
+  "verdict": "no verdict on text-check: not_run (no Intel NPU bundle in the litert-community repo (edge-llm-bench windows/README))"
+ },
+ "speed": null,
+ "regime": null,
+ "llm": {
+  "backend": "npu"
+ },
+ "source": {
+  "by": "windows-llm-zoo (Z2)",
+  "record": null,
+  "record_text": "—",
+  "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:tools/table.py NOT_RUN"
+ },
+ "note": []
+}

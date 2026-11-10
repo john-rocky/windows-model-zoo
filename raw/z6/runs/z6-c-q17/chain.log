@@ -1,0 +1,13 @@
+[2026-11-10T09:31:41.8358122+09:00] chain start: plan C:\src\zoo-template\pc\plans\z6-c-q17.json mode first, 5 units, pid 13856
+[2026-11-10T09:31:44.1375820+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T09:31:45.3565931+09:00] Qwen3-1.7B/task-litert-lm_cpu_cpu run 1 start
+[2026-11-10T09:32:31.8501392+09:00] Qwen3-1.7B/task-litert-lm_cpu_cpu run 1 end: exit 0, OK, 44.505 s
+[2026-11-10T09:32:33.2933220+09:00] Qwen3-1.7B/task-llama.cpp_cpu_cpu run 1 start
+[2026-11-10T09:32:43.4286102+09:00] Qwen3-1.7B/task-llama.cpp_cpu_cpu run 1 end: exit 0, OK, 8.787 s
+[2026-11-10T09:32:45.0527130+09:00] Qwen3-1.7B/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-10T09:32:56.5519803+09:00] Qwen3-1.7B/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 9.277 s
+[2026-11-10T09:32:58.3515759+09:00] Qwen3-1.7B/task-ort-genai_cpu_cpu run 1 start
+[2026-11-10T09:33:14.0744408+09:00] Qwen3-1.7B/task-ort-genai_cpu_cpu run 1 end: exit 0, OK, 13.783 s
+[2026-11-10T09:33:16.0394026+09:00] Qwen3-1.7B/task-ort-genai_cpu_openvino run 1 start
+[2026-11-10T09:33:33.8045934+09:00] Qwen3-1.7B/task-ort-genai_cpu_openvino run 1 end: exit 0, OK, 16.301 s
+[2026-11-10T09:33:33.8181265+09:00] chain done: OK

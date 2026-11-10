@@ -1,0 +1,71 @@
+{
+    "cell":  "gemma-4-E2B-it/task-llama.cpp_rtx_vulkan",
+    "device":  "rtx",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z6-g-e2b",
+    "start":  "2026-11-10T08:44:49.0439629+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  34.1,
+                                "build_ms":  0,
+                                "top":  [
+                                            "python 29996 3.35 core",
+                                            "System 4 1.08 core",
+                                            "python 31748 0.89 core",
+                                            "powershell 5868 0.09 core",
+                                            "NVDisplay.Container 3412 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 997 MHz, 14001 MHz, 18.12 W, 0 %, 0 MiB, 52",
+                   "availGB":  20.8
+               },
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_llamacpp.py --server C:\\src\\zoo-template\\engines\\llama-gpu\\llama-server.exe --model C:\\src\\zoo-template\\work\\gguf\\gemma-4-E2B-it-Q4_K_M.gguf --gpu --device-prefix Vulkan --env GGML_VK_VISIBLE_DEVICES=0 --ref C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\zoo-template\\runs\\z6-g-e2b\\gemma-4-E2B-it\\task-llama.cpp_rtx_vulkan\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  25380,
+                   "elapsedSeconds":  35.323,
+                   "peakWorkingSetBytes":  40353792,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 1965 MHz, 14001 MHz, 18.30 W, 0 %, 0 MiB, 52",
+                                         "10s P2, 1477 MHz, 11001 MHz, 19.08 W, 1 %, 1422 MiB, 52",
+                                         "15s P2, 1492 MHz, 11001 MHz, 17.51 W, 0 %, 1559 MiB, 51",
+                                         "20s P8, 277 MHz, 405 MHz, 5.38 W, 0 %, 1561 MiB, 50",
+                                         "25s P8, 300 MHz, 405 MHz, 10.21 W, 0 %, 1563 MiB, 50",
+                                         "30s P5, 277 MHz, 810 MHz, 12.35 W, 0 %, 1569 MiB, 49"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.1,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.14 core",
+                                           "curl 10404 0.14 core",
+                                           "WmiPrvSE 7560 0.02 core",
+                                           "LEDKeeper2 8936 0.02 core",
+                                           "powershell 24268 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 555 MHz, 14001 MHz, 18.06 W, 0 %, 0 MiB, 50"
+              },
+    "end":  "2026-11-10T08:45:26.2451349+09:00",
+    "tries":  1
+}
