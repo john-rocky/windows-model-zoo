@@ -1,7 +1,9 @@
 """Download the Hub files of a pinned manifest (tools/plan.py writes pc/hub_manifest.json) into <root>\\models\\<repo>\\<path> at the pinned revisions and
 check every file against the Hub's hash (sha256 = lfs.oid for LFS files, the git blob sha1 for small ones). A source
 with "url" (a URL template with {path}) and "dest" (a folder under --root) is a set of plain files pinned by sha256
-(the vision input set).
+(the vision input set). A source with "archive" (the URL of a .tar.gz pinned by archive_bytes and archive_sha256) and
+"dest" is a set of files taken out of that archive by path (a leading "./" of a member name is not part of its path)
+and pinned by sha256 (the keyword clips of the audio models); the archive is deleted once its files match.
 
     python fetch.py --manifest pc\\hub_manifest.json --dest <zoo folder>\\hub [--only <repo substring> ...]
 
@@ -12,10 +14,14 @@ connection can crawl while the next is fast). A file whose hash already matches 
 import argparse
 import hashlib
 import json
+import os
 import pathlib
 import subprocess
 import sys
+import tarfile
 import time
+
+CURL = "curl.exe" if os.name == "nt" else "curl"   # Windows' own curl.exe on the PC; curl for the tests on a Mac
 
 
 def blob_sha1(path):
@@ -42,6 +48,50 @@ def ok(path, f):
     return (sha256(path) == f["sha256"]) if f.get("sha256") else (blob_sha1(path) == f["blob"])
 
 
+def download(url, path, size, check):
+    """curl into path (resumed, cut and resumed when slow) until check(path); returns the number of tries."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tries = 0
+    while not check(path) and tries < 6:
+        tries += 1
+        if path.is_file() and path.stat().st_size > size:
+            path.unlink()
+        subprocess.run([CURL, "-sSL", "--fail", "-C", "-", "--speed-limit", "102400", "--speed-time", "60",
+                        "--retry", "3", "-o", str(path), url])
+    return tries
+
+
+def fetch_archive(src, root, report):
+    """The files of an "archive" source: taken out of the pinned .tar.gz when any of them is missing or differs."""
+    folder = root / src["dest"]
+    t0 = time.time()
+    tries = 0
+    if not all(ok(folder / f["path"], f) for f in src["files"]):
+        arc = root / "downloads" / src["archive"].rsplit("/", 1)[-1]
+        want = {"size": src["archive_bytes"], "sha256": src["archive_sha256"]}
+        tries = download(src["archive"], arc, want["size"], lambda p: ok(p, want))
+        if ok(arc, want):
+            names = {f["path"] for f in src["files"]}
+            with tarfile.open(arc, "r:gz") as tar:
+                for m in tar:
+                    rel = m.name[2:] if m.name.startswith("./") else m.name
+                    if m.isfile() and rel in names:
+                        out = folder / rel
+                        out.parent.mkdir(parents=True, exist_ok=True)
+                        out.write_bytes(tar.extractfile(m).read())
+    bad = 0
+    for f in src["files"]:
+        good = ok(folder / f["path"], f)
+        bad += not good
+        row = {"repo": src["archive"], "revision": None, "path": f["path"], "size": f["size"], "hash": f["sha256"],
+               "ok": good, "tries": tries, "seconds": round(time.time() - t0, 1)}
+        report.append(row)
+        print(json.dumps(row), flush=True)
+    if not bad:
+        (root / "downloads" / src["archive"].rsplit("/", 1)[-1]).unlink(missing_ok=True)
+    return bad
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
@@ -55,8 +105,11 @@ def main():
     report, bad = [], 0
     root = pathlib.Path(args.root) if args.root else dest.parent
     for src in man:
-        name = src.get("repo", src.get("url", "")) + "/" + src.get("folder", "")
+        name = src.get("repo", src.get("url", src.get("archive", ""))) + "/" + src.get("folder", "")
         if args.only and not any(o in name for o in args.only):
+            continue
+        if "archive" in src:
+            bad += fetch_archive(src, root, report)
             continue
         for f in src["files"]:
             if "url" in src:
@@ -65,14 +118,8 @@ def main():
             else:
                 path = dest / src["repo"].replace("/", "__") / f["path"]
                 url = f"https://huggingface.co/{src['repo']}/resolve/{src['revision']}/{f['path']}"
-            path.parent.mkdir(parents=True, exist_ok=True)
-            t0, tries = time.time(), 0
-            while not ok(path, f) and tries < 6:
-                tries += 1
-                if path.is_file() and path.stat().st_size > f["size"]:
-                    path.unlink()
-                subprocess.run(["curl.exe", "-sSL", "--fail", "-C", "-", "--speed-limit", "102400", "--speed-time", "60",
-                                "--retry", "3", "-o", str(path), url])
+            t0 = time.time()
+            tries = download(url, path, f["size"], lambda p, f=f: ok(p, f))
             good = ok(path, f)
             bad += not good
             row = {"repo": src.get("repo") or src["url"], "revision": src.get("revision"), "path": f["path"],

@@ -98,6 +98,14 @@ def manifest(models):
                             "files": files})
                 total += sum(x["size"] for x in files)
                 print(f"{s['url'][:48]:48s} {len(files):3d} files (the vision input set)")
+            # an input set taken out of a pinned archive (suites/audio/kws120.json: Speech Commands v0.01's test set)
+            if "clips" in s and "url" in s.get("source", {}) and not any(x.get("archive") == s["source"]["url"] for x in out):
+                files = [{"path": c["path"], "size": c["bytes"], "sha256": c["sha256"]} for c in s["clips"]]
+                out.append({"archive": s["source"]["url"], "archive_bytes": s["source"]["bytes"],
+                            "archive_sha256": s["source"]["sha256"], "dest": f"fixtures/{pathlib.Path(inp).stem}",
+                            "for": m, "bytes": s["source"]["bytes"], "files": files})
+                total += s["source"]["bytes"]
+                print(f"{s['source']['url'][:48]:48s} {len(files):3d} files (out of a {s['source']['bytes'] / 2**20:.1f} MiB archive)")
     zoo.write_json(PC / "hub_manifest.json", out)
     print(f"pc/hub_manifest.json: {len(out)} sources, {total / 2**30:.2f} GiB")
 
