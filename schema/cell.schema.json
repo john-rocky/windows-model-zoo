@@ -29,7 +29,7 @@
            "description": "null only for role other-device",
            "properties": {"id": {"type": "string"}, "kind": {"enum": ["task", "internal", "text-integrity", "reference"]},
                           "pass": {"type": ["boolean", "null"], "description": "null = no verdict (not run, error, a reference cell)"},
-                          "verdict": {"type": "string", "description": "the verdict, the numbers and the line in one string, e.g. 'FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS' (tools/zoo.py verdict_text; tools/results.py writes it, tools/lint.py checks it)"}}},
+                          "verdict": {"type": "string", "description": "the verdict, the numbers and the line in one string, e.g. 'FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 12 of 20 right by the answer key' (tools/zoo.py verdict_text; tools/results.py writes it, tools/lint.py checks it)"}}},
   "speed": {"type": ["object", "null"], "required": ["metric"],
             "properties": {"metric": {"type": "string"},
                            "value": {"type": ["number", "null"], "description": "a timed number (null for a first pass: first_value)"},

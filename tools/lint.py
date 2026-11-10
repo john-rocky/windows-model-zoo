@@ -11,6 +11,8 @@ Per directory (FAIL = something to fix in the directory, with the reason; WARN =
   results   every results/<cell>.json matches schema/cell.schema.json, is a cell of this model and kind, its cell is
             in the recipe, and every recipe cell has a result (a cell nobody ran has run.state = not_run and its reason)
   verdict   every cell's line.verdict is the string tools/zoo.py verdict_text makes from the rest of its JSON
+  key       every LLM cell on the qa20 line that ran OK, and the model's compact reference, carry the answers right by
+            the answer key that tools/qa20_key.py gives from the record (when the record is in this repo)
   line      a cell's line was written before the cell ran (line.written < run.started); a cell without a start time
             (a record collected from another lane) is a WARN
   fresh     the generated files (the card's block, LICENSES.md; RESULTS_*.md and models/index.json when they are on
@@ -26,11 +28,13 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import qa20_key  # noqa: E402
 import table  # noqa: E402
 import zoo  # noqa: E402
 
 CARD_KEYS = ("license", "base_model", "base_model_relation", "library_name", "pipeline_tag")
 SCHEMA = json.loads((zoo.ROOT / "schema" / "cell.schema.json").read_text(encoding="utf-8"))
+KEY = qa20_key.load_key()
 
 
 def _is(v, t):
@@ -185,6 +189,14 @@ def check_dir(d, fresh_files):
         else:
             if ln.get("verdict") != zoo.verdict_text(c):
                 fails.append(f"{where}: line.verdict is not what the JSON gives (python3 tools/results.py --verdicts)")
+            task = (c.get("llm") or {}).get("task")
+            if ln.get("id") == "qa20" and task and run.get("state") == "ok":
+                rec_path = zoo.ROOT / ((c.get("source") or {}).get("record") or "")
+                if "key" not in task:
+                    fails.append(f"{where}: no llm.task.key (python3 tools/results.py --keys)")
+                elif rec_path.is_file() and task["key"] != qa20_key.score_rows(
+                        qa20_key.read_rows(rec_path), KEY, c["source"]["record"]):
+                    fails.append(f"{where}: llm.task.key is not what the answer key gives (python3 tools/results.py --keys)")
             if ln.get("id") not in lines:
                 fails.append(f"{where}: line {ln.get('id')!r} is not in the recipe")
             elif ln.get("kind") not in (lines[ln["id"]].get("kind"), "reference"):   # the line's reference cell: "reference"
@@ -203,6 +215,11 @@ def check_dir(d, fresh_files):
             fails.append(f"{where}: speed without a regime (QoS, power mode)")
         if cid not in rcells:
             fails.append(f"{where}: cell is not in recipe.toml")
+    ref_path = d / "reference" / "ref.json"
+    if md.get("kind") == "llm" and ref_path.exists():
+        ref = json.loads(ref_path.read_text(encoding="utf-8"))
+        if ref.get("key") != qa20_key.score_rows(ref.get("rows") or [], KEY, f"models/{name}/reference/ref.json"):
+            fails.append("reference/ref.json: key is not what the answer key gives (python3 tools/results.py --keys)")
     for cid in rcells:
         if cid not in seen:
             fails.append(f"recipe cell {cid}: no results/{cid}.json (a cell nobody ran: run.state not_run with its reason)")

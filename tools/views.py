@@ -185,7 +185,7 @@ def llm_sort_key(c, model_order):
             c.get("sort_key") or c["cell"])
 
 
-LLM_TASK_HEADER = ["model", "runtime", "device", "form", "answers agreeing with the reference", "EOS gate", "line",
+LLM_TASK_HEADER = ["model", "runtime", "device", "form", "answers agreeing with the reference", "right by key", "EOS gate", "line",
                    "decode tok/s", "prefill tok/s", "TTFT ms", "peak memory MiB", "record"]
 
 
@@ -201,14 +201,16 @@ def llm_task_row(c):
         t = _fmt(v, nd)
         return t if timed else f"({t})"
     if st == "not_run":
-        return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—",
+        return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—", "—",
                 f"未 ({(c['run'].get('why') or 'not run').replace('|', '/')})"]
     if st != "ok":
-        return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—",
+        return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—", "—",
                 f"`{(c.get('source') or {}).get('record')}` — ERROR: {(c['run'].get('error_line') or '')[:100]}"]
     agree = f"{task.get('agree')}/{task.get('n')}" if task.get("n") else "—"
+    k = task.get("key")
+    right = f"{k['right']}/{k['n']}" if k else "—"
     gate = task.get("gate_text") or "—"
-    return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], agree, gate,
+    return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], agree, right, gate,
             "PASS" if ln.get("pass") else "FAIL", sp(s.get("value") if s.get("value") is not None else s.get("first_value"), 2), sp(s.get("prefill_tps"), 1), sp(s.get("ttft_ms"), 0),
             _fmt(s.get("peak_working_set_mb"), 0), f"`{(c.get('source') or {}).get('record')}`"]
 

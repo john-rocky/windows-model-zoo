@@ -146,6 +146,18 @@ def vision_task_tables(task_cells, task_lines, vm, cfg):
 
 # ---- llm ----
 
+def ref_keys(models, cells):
+    """one sentence: each model's reference answers right by the answer key (models/<model>/reference/ref.json key)"""
+    parts = []
+    for name in dict.fromkeys(c["model"] for c in cells):
+        p = models[name]["dir"] / "reference" / "ref.json"
+        k = json.loads(p.read_text(encoding="utf-8")).get("key") if p.exists() else None
+        if k:
+            parts.append(f"{name} {k['right']}/{k['n']}")
+    return ("Right by key (`suites/llm/qa20.key.jsonl`, `tools/qa20_key.py`; not part of the line), the references: "
+            + ", ".join(parts) + ".") if parts else ""
+
+
 def llm_tables(models, cfg):
     order = {m["dir"].name: m["recipe"]["model"].get("order", 10 ** 6) for m in models.values()}
     by_key = collections.OrderedDict()
@@ -181,6 +193,9 @@ def llm_tables(models, cfg):
         regime = key[2] or ("unknown", "unrecorded")
         out += [section_title("LLM", line, regime, cfg), "", line_para(line), ""]
         if key[0] == "task":
+            refs = ref_keys(models, cs)
+            if refs:
+                out += [refs, ""]
             out.append(md_table(views.LLM_TASK_HEADER, [views.llm_task_row(c) for c in cs]))
         else:
             out.append(md_table(views.LLM_HEADER, [views.llm_row(c) for c in cs]))

@@ -22,7 +22,7 @@
   "id": "qa20",
   "kind": "task",
   "pass": false,
-  "verdict": "FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "verdict": "FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 12 of 20 right by the answer key",
   "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
   "detail": {
    "answers": {
@@ -248,7 +248,21 @@
      "same": false
     }
    ],
-   "gate_text": "EOS in 3"
+   "gate_text": "EOS in 3",
+   "key": {
+    "right": 12,
+    "n": 20,
+    "wrong": [
+     "q04",
+     "q06",
+     "q07",
+     "q09",
+     "q12",
+     "q13",
+     "q16",
+     "q20"
+    ]
+   }
   },
   "versions": {
    "python": "3.12.16",

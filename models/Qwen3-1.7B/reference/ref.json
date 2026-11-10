@@ -1076,5 +1076,13 @@
    "max_new": 16
   }
  ],
- "pulled_from": "raw/z6/refs/Qwen3-1.7B/ref.json"
+ "pulled_from": "raw/z6/refs/Qwen3-1.7B/ref.json",
+ "key": {
+  "right": 18,
+  "n": 20,
+  "wrong": [
+   "q09",
+   "q17"
+  ]
+ }
 }

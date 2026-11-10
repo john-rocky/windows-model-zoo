@@ -15,7 +15,8 @@ Lines by kind (the line's rule is the recipe's; these are its computations):
   vision classification  top-1 vs the reference's, inputs whose reference top-1 / top-2 probabilities differ by < 0.01
                          not counted; instruments: cos and max |d| of the logits, top-5 overlap
   llm qa20               the normalized first line of each answer vs the reference's, >= 18 / 20, and the gate prompt
-                         ended on an end token within its 16 new tokens
+                         ended on an end token within its 16 new tokens; instrument: the answers right by the answer
+                         key (tools/qa20_key.py), also for the reference
   asr S150               per language: summed errors <= the reference's + 0.5 pt of the same clips, 0 empty answers
                          (tools/fleurs_score.py)
   tts T50                the write-back WER (pc/writeback.py's texts) <= the reference's write-back WER on the same
@@ -33,6 +34,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import fleurs_score as FS  # noqa: E402
+import qa20_key  # noqa: E402
 import zoo  # noqa: E402
 
 LANGS = ["en_us", "cmn_hans_cn", "ja_jp"]
@@ -126,6 +128,7 @@ def score_llm(run_json, run, ref_json, ref):
             "prompt_ids_same": same_ids, "prompt_basis": {k: v for k, v in basis.items() if v}, "rows": rows,
             "gate_text": ("EOS in " + str(gate["new_tokens"]) if gate and gate["pass"] else
                           f"no EOS in {gate['new_tokens']}" if gate else "no gate row")}
+    inst["key"] = qa20_key.score_rows(run["rows"], qa20_key.load_key(), zoo.rel(run_json))
     return inst, detail, f"answers {agree}/{n}, gate {'PASS' if gate and gate['pass'] else 'FAIL'}"
 
 
@@ -452,6 +455,37 @@ def set_verdict(doc):
     return doc
 
 
+def keys():
+    """--keys: the answers right by the answer key (tools/qa20_key.py) written again in every LLM cell on the qa20 line
+    (llm.task.key, from its run record) and in each LLM model's compact reference (key), and line.verdict with them;
+    nothing else changes"""
+    key = qa20_key.load_key()
+    n = changed = refs = 0
+    for d, c in zoo.all_cells():
+        task = (c.get("llm") or {}).get("task")
+        if (c.get("line") or {}).get("id") != "qa20" or not task or (c.get("run") or {}).get("state") != "ok":
+            continue
+        rec = c["source"]["record"]
+        old = (task.get("key"), c["line"].get("verdict"))
+        task["key"] = qa20_key.score_rows(qa20_key.read_rows(zoo.ROOT / rec), key, rec)
+        set_verdict(c)
+        n += 1
+        if (task["key"], c["line"]["verdict"]) != old:
+            changed += 1
+            zoo.write_json(c["_path"], c)
+    for d in zoo.model_dirs():
+        p = d / "reference" / "ref.json"
+        if zoo.recipe(d)["model"]["kind"] != "llm" or not p.exists():
+            continue
+        ref = jload(p)
+        k = qa20_key.score_rows(ref.get("rows") or [], key, zoo.rel(p))
+        if ref.get("key") != k:
+            ref["key"] = k
+            zoo.write_json(p, ref)
+            refs += 1
+    print(f"keys: {n} cells, {changed} written again; {refs} references written again")
+
+
 def verdicts():
     """--verdicts: line.verdict written again in every cell JSON from the rest of the JSON; nothing else changes"""
     n = changed = 0
@@ -475,9 +509,13 @@ def main():
                     "<out>/<model>/<cell>.json instead of models/ (a walk compared with the committed cells)")
     ap.add_argument("--dry", action="store_true", help="print what would be written, write nothing")
     ap.add_argument("--verdicts", action="store_true", help="only write line.verdict again in every cell JSON")
+    ap.add_argument("--keys", action="store_true", help="only write the answers right by the answer key again "
+                    "(the qa20 cells and the LLM references) and their verdicts")
     args = ap.parse_args()
     if args.verdicts:
         return verdicts()
+    if args.keys:
+        return keys()
     if not args.runs:
         ap.error("--runs is required")
     only = {tuple(x.split("/", 1)) for x in args.cells.split(",") if x}
@@ -516,9 +554,14 @@ def main():
                                                  if ref.get("status") == "OK" else None)})
                 if comp:
                     comp["pulled_from"] = zoo.rel(ref_path)
+                    if r["model"]["kind"] == "llm":
+                        comp["key"] = qa20_key.score_rows(comp["rows"], qa20_key.load_key(), zoo.rel(ref_path))
                     zoo.write_json((out / d.name / "ref.json") if out else (d / "reference" / "ref.json"), comp)
     print(f"results: {n} cells" + (" (dry: nothing written)" if args.dry else " written"))
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except qa20_key.Stop as e:
+        sys.exit(f"results: {e}")

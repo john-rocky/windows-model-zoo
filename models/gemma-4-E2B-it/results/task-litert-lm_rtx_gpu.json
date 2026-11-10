@@ -22,7 +22,7 @@
   "id": "qa20",
   "kind": "task",
   "pass": false,
-  "verdict": "FAIL on qa20: 17 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS",
+  "verdict": "FAIL on qa20: 17 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; 19 of 20 right by the answer key",
   "reference": "raw/z6/refs/gemma-4-E2B-it/ref.json",
   "detail": {
    "answers": {
@@ -245,7 +245,14 @@
      "same": true
     }
    ],
-   "gate_text": "EOS in 2"
+   "gate_text": "EOS in 2",
+   "key": {
+    "right": 19,
+    "n": 20,
+    "wrong": [
+     "q17"
+    ]
+   }
   },
   "versions": {
    "python": "3.12.16"
