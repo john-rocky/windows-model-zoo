@@ -182,12 +182,14 @@ a folder that does not exist yet, with every file from a public source, and comp
 Where the files come from:
 
 - **Hub files**: each recipe's `[[fetch]]` at a pinned revision; `pc/fetch.py` checks every file against the Hub's
-  sha256. The vision forms are the vision zoo's own files, with the sha256 of the files measured: 28 of the 43 forms
-  the `task-*` cells use are on the main branch of `mlboydaisuke/<repo>-OpenVINO`; the other 15 (all 11 fp16 forms,
-  two fp32 files and two NPU blobs) and five files the references read are on the branch `windows-model-zoo` of the
-  same repo (since 2026-11-10; `unfixed/` there = converted without the vision zoo's bias fix, as the cells ran it).
+  sha256. The vision forms are the vision zoo's own files, with the same sha256 as the files measured: 28 of the 43
+  forms the `task-*` cells use are on the main branch of `mlboydaisuke/<repo>-OpenVINO`; the other 15 (all 11 fp16
+  forms, two fp32 files and two NPU blobs) and five files the references read are on the branch `windows-model-zoo`
+  of the same repo (since 2026-11-10; each repo's card says what the branch adds).
 - **The vision inputs and the host steps' files**: the input images and three parameter files from the app repo
-  (`john-rocky/LiteRT-Models` at 96e0bc1f) and SAM2's prompt file from the Hub, by URL, pinned by sha256.
+  (`john-rocky/LiteRT-Models` at 96e0bc1f) and SAM2's prompt file from the Hub, by URL, pinned by sha256; the
+  keyword clips of the audio models out of the Speech Commands v0.01 test archive (download.tensorflow.org), pinned
+  by the archive's sha256 and each clip's.
 - **llama.cpp b11721**: the release zips (CPU, Vulkan, CUDA 13.4 with its runtime zip) by URL, pinned by sha256
   (edge-llm-bench's pins), unpacked by `pc/engines.py --make llama`.
 - **LiteRT-LM v0.19.0**: LiteRT-LM publishes no Windows build of its CLI, so `pc/engines.py` builds the tag with
@@ -258,14 +260,15 @@ tools/pc.sh lock note ""
 ```
 
 `WALK.md` is the log of this walk on 2026-11-10: each step's outcome and each cell's line from `tools/walk_compare.py`.
+Its last section is a second walk: the 15 models whose cells or references read the files on the Hub branches or
+the keyword clips (19 cells, 15 references).
 
 ### Not walked
 
 The walk runs first passes only. Not run from this repo yet: the timed sittings (`tools/sitting.sh`, the control rows,
 the lock given back while others wait, fixed slots, `--end-by`), the GPU engines' part of the quiet gate
-(`engines_gate`), the cells on a form with no public copy, `pc/z6_setup.py`'s `foundry model download` (the walk found
-its three packages already in the Foundry Local cache), `tools/pc.sh` with `ZOO_FEED=none`, and the runners of the
-copied cells (they stay in their zoos).
+(`engines_gate`), `pc/z6_setup.py`'s `foundry model download` (the walk found its three packages already in the Foundry
+Local cache), `tools/pc.sh` with `ZOO_FEED=none`, and the runners of the copied cells (they stay in their zoos).
 
 ## Licences
 

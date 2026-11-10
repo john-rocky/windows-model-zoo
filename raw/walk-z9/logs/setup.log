@@ -1,0 +1,66 @@
+[2026-11-10T17:28:36.2216121+09:00] steps setup start: 10 steps, pid 21880
+[2026-11-10T17:28:36.2533751+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:28:38.1525778+09:00] python end: exit 0, 0 min
+[2026-11-10T17:28:38.1682110+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:28:38.4622151+09:00] venv-z1-ort end: exit 0, 0 min
+[2026-11-10T17:28:38.4622151+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ort.txt
+[2026-11-10T17:28:46.4316477+09:00] pip-z1-ort end: exit 0, 0.1 min
+[2026-11-10T17:28:46.4376907+09:00] versions-z1-ort start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ort.txt
+[2026-11-10T17:28:46.9202918+09:00] versions-z1-ort end: exit 0, 0 min
+[2026-11-10T17:28:46.9354988+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:28:46.9829873+09:00] venv-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:28:46.9885035+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-cuda.txt
+[2026-11-10T17:29:41.1765797+09:00] pip-z1-cuda end: exit 0, 0.9 min
+[2026-11-10T17:29:41.1765797+09:00] versions-z1-cuda start: C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-cuda.txt
+[2026-11-10T17:29:41.4450008+09:00] versions-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:29:41.4490122+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:29:41.4966572+09:00] venv-z1-ov end: exit 0, 0 min
+[2026-11-10T17:29:41.4994145+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ov.txt
+[2026-11-10T17:29:48.2062065+09:00] pip-z1-ov end: exit 0, 0.1 min
+[2026-11-10T17:29:48.2082185+09:00] versions-z1-ov start: C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ov.txt
+[2026-11-10T17:29:48.4123679+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T17:29:48.4123679+09:00] steps setup done: OK
+[2026-11-10T17:42:38.8511740+09:00] steps setup start: 10 steps, pid 29420
+[2026-11-10T17:42:38.8830996+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:42:38.9432845+09:00] python end: exit 0, 0 min
+[2026-11-10T17:42:38.9477347+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:42:38.9870416+09:00] venv-z1-ort end: exit 0, 0 min
+[2026-11-10T17:42:38.9906504+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ort.txt
+[2026-11-10T17:42:39.0738403+09:00] pip-z1-ort end: exit 0, 0 min
+[2026-11-10T17:42:39.0738403+09:00] versions-z1-ort start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ort.txt
+[2026-11-10T17:42:39.2332141+09:00] versions-z1-ort end: exit 0, 0 min
+[2026-11-10T17:42:39.2332141+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:42:39.2773248+09:00] venv-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:42:39.2810062+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-cuda.txt
+[2026-11-10T17:42:39.3532273+09:00] pip-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:42:39.3532273+09:00] versions-z1-cuda start: C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-cuda.txt
+[2026-11-10T17:42:39.5203129+09:00] versions-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:42:39.5203129+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:42:39.5644871+09:00] venv-z1-ov end: exit 0, 0 min
+[2026-11-10T17:42:39.5664997+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ov.txt
+[2026-11-10T17:42:39.6225379+09:00] pip-z1-ov end: exit 0, 0 min
+[2026-11-10T17:42:39.6277293+09:00] versions-z1-ov start: C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ov.txt
+[2026-11-10T17:42:39.7737142+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T17:42:39.7737142+09:00] steps setup done: OK
+[2026-11-10T17:54:03.9706274+09:00] steps setup start: 10 steps, pid 25156
+[2026-11-10T17:54:04.0026578+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:54:04.1137874+09:00] python end: exit 0, 0 min
+[2026-11-10T17:54:04.1137874+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:54:04.1770868+09:00] venv-z1-ort end: exit 0, 0 min
+[2026-11-10T17:54:04.1770868+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ort.txt
+[2026-11-10T17:54:04.3430950+09:00] pip-z1-ort end: exit 0, 0 min
+[2026-11-10T17:54:04.3430950+09:00] versions-z1-ort start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ort.txt
+[2026-11-10T17:54:04.5094586+09:00] versions-z1-ort end: exit 0, 0 min
+[2026-11-10T17:54:04.5163819+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:54:04.5593822+09:00] venv-z1-ov end: exit 0, 0 min
+[2026-11-10T17:54:04.5593822+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-ov.txt
+[2026-11-10T17:54:04.6533620+09:00] pip-z1-ov end: exit 0, 0 min
+[2026-11-10T17:54:04.6533620+09:00] versions-z1-ov start: C:\src\z9-walk\.venv-z1-ov\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-ov.txt
+[2026-11-10T17:54:04.8112589+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T17:54:04.8112589+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\z9-walk\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T17:54:04.8604744+09:00] venv-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:54:04.8624852+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -r C:\src\z9-walk\pc\req\z1-cuda.txt
+[2026-11-10T17:54:05.0107116+09:00] pip-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:54:05.0107116+09:00] versions-z1-cuda start: C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe -I C:\src\z9-walk\pc\venv_versions.py --out C:\src\z9-walk\logs\versions-z1-cuda.txt
+[2026-11-10T17:54:05.1759670+09:00] versions-z1-cuda end: exit 0, 0 min
+[2026-11-10T17:54:05.1786659+09:00] steps setup done: OK

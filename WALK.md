@@ -114,3 +114,63 @@ rtmw_fp16/task-ovgpu: verdict and numbers the same
 ```
 walk check: 0 missing, 0 failed
 ```
+
+## A second walk: the files on the Hub branches and the keyword clips, 2026-11-10
+
+The README's commands, run for the 15 models whose cells or references read the files on the Hub branches
+`windows-model-zoo` or the keyword clips ("Where the files come from"), from a fresh clone and a PC folder that did
+not exist, `C:\src\z9-walk`, in three starts:
+
+| start (sitting) | models | cells | code | ran (JST) |
+|---|---|---|---|---|
+| `z9-walk-min` | dfine_graphB_fp16, rtmpose_s_fp16 | 5 | `6fcf626` | 17:28 to 17:42 |
+| `z9-walk-rest` | the other 11 that read the branch files | 10 | `6fcf626` | 17:42 to 17:53 |
+| `z9-walk-kws` | w2v2_head_fp16, w2v2_frontend_fp16, dac_16khz_deconly_zs_fp16 | 4 | `e3fc1f5` | 17:53 to 17:58 |
+
+All 19 cells give the same verdict and numbers as this repo's cells, and the 15 references give the same rows
+(below). Ten of the 19 verdicts are FAIL and nine PASS, in the walk as in the repo. `pc\walk_check.ps1`: 0 missing,
+0 failed after each start. The first cell, dfine_graphB_fp16/task-cuda16, was stopped by another job's lock and ran
+again from its start once the lock had been free 60 s (17:30:56 to 17:41:02; `raw/walk-z9/runs/z9-walk-min/chain.log`).
+Records: `raw/walk-z9/` (no npz files; `fetch_report.json` and the step outputs in `logs/setup/` and `logs/fetch/` are
+the third start's; each `ref.json` and `run1.json` names the files it read with their sha256).
+
+What it found: in the second start, w2v2_head_fp16's reference stopped on a missing WAV, because no step fetched the
+keyword clips that `suites/audio/kws120.json` names. The start was launched again without that model: its ten cells
+ran, and its check is over those ten models. `e3fc1f5` adds that fetch, and the third start ran with it.
+
+```
+dac_16khz_deconly_zs_fp16 reference: rows, task_values the same
+dac_16khz_deconly_zs_fp16/task-ovgpu: verdict and numbers the same
+dfine_graphB_fp16 reference: rows, task_values the same
+dfine_graphB_fp16/task-cuda16: verdict and numbers the same
+dfine_graphB_fp16/task-ovgpu: verdict and numbers the same
+dfine_graphB_fp16/task-ovnpu: verdict and numbers the same
+dfine_graphB_fp16/task-ovnpu_pre: verdict and numbers the same
+dfine_graphB_fp16_fixed reference: rows, task_values the same
+dfine_graphB_fp16_fixed/task-cuda16: verdict and numbers the same
+metric3d_fp16 reference: rows, task_values the same
+metric3d_fp16/task-cuda16: verdict and numbers the same
+ppocr_det_fp16 reference: rows, task_values the same
+ppocr_det_fp16/task-cuda16: verdict and numbers the same
+rtdetr_graphB_fp16 reference: rows, task_values the same
+rtdetr_graphB_fp16/task-ovgpu: verdict and numbers the same
+rtm_animal_fp16 reference: rows, task_values the same
+rtm_animal_fp16/task-cuda16: verdict and numbers the same
+rtm_face_fp16 reference: rows, task_values the same
+rtm_face_fp16/task-cuda16: verdict and numbers the same
+rtmhand_fp16 reference: rows, task_values the same
+rtmhand_fp16/task-cuda16: verdict and numbers the same
+rtmpose_s_fp16 reference: rows, task_values the same
+rtmpose_s_fp16/task-cuda16: verdict and numbers the same
+rtmw_fp16 reference: rows, task_values the same
+rtmw_fp16/task-cuda16: verdict and numbers the same
+sam2_decoder reference: rows, task_values the same
+sam2_decoder/task-ovnpu_pre: verdict and numbers the same
+ssdlite_mobilenetv3_320_fp16 reference: rows, task_values the same
+ssdlite_mobilenetv3_320_fp16/task-cuda16: verdict and numbers the same
+w2v2_frontend_fp16 reference: rows, task_values the same
+w2v2_frontend_fp16/task-ovnpu: verdict and numbers the same
+w2v2_frontend_fp16/task-ovnpu_pre: verdict and numbers the same
+w2v2_head_fp16 reference: rows, task_values the same
+w2v2_head_fp16/task-cuda16: verdict and numbers the same
+```

@@ -1,0 +1,94 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T17:52:16.727089+09:00",
+ "argv": [
+  "--model",
+  "rtmhand_fp16",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\z9-walk\\work\\rtmhand_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\z9-walk\\runs\\z9-walk-rest\\rtmhand_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 21564,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "rtmhand",
+   "wall_s": 0.004156500042881817,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "rtmhand_fp16 form fp16",
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__RTMPose-Hand-OpenVINO\\fp16\\rtmhand_fp16.onnx",
+  "bytes": 28129047,
+  "sha256": "e81003f9c042f605849329619baf5e8b2dbea3c38c34634184a539be2fc215fb"
+ },
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\rtmhand_fp16\\inputs.npz",
+  "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
+  "bytes": 786742,
+  "n": 1
+ },
+ "load_s": 1.036,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.791,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\runs\\z9-walk-rest\\rtmhand_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 86534,
+  "sha256": "699de66199dd88d7cf5f8a518fa7fbcc8ba4442e37c74d5b63175e7ce79ce7a8",
+  "arrays": 2
+ },
+ "summary": {
+  "clips": 1,
+  "inputs": 1,
+  "median_ms": 4.157,
+  "min_ms": 4.157,
+  "max_ms": 4.157,
+  "value": 4.157
+ },
+ "peak_working_set_bytes": 1515290624,
+ "peak_pagefile_bytes": 2894147584,
+ "ended": "2026-11-10T17:52:19.029512+09:00",
+ "process_s": 2.304
+}

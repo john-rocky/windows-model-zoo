@@ -1,0 +1,250 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T17:41:51.421546+09:00",
+ "argv": [
+  "--model",
+  "dfine_graphB_fp16",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\z9-walk\\work\\dfine_graphB_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+  "--out",
+  "C:\\src\\z9-walk\\runs\\z9-walk-min\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json"
+ ],
+ "pid": 29040,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.0
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.10914950002916157,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.16185729997232556,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.11228770000161603,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.09691179997753352,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.09668439999222755,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.09705509996274486,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.09626840002601966,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.09679500001948327,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.09676510002464056,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.09665179997682571,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.09640889998991042,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.09720139997079968,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.096841000020504,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.09660489996895194,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.09673029999248683,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.09693280002102256,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.09623039996949956,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.09673190000467002,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.09642780001740903,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.09623439999995753,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "openvino": "2026.4.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "dfine_graphB_fp16 form blob",
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\npu\\dfine_graphB_fp16.blob",
+  "bytes": 60088470,
+  "sha256": "6b7f02de088a709193a9dba8ffb81674fdb0a7374807daa08fe1f167bac50a6e"
+ },
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\dfine_graphB_fp16\\inputs.npz",
+  "sha256": "0fe35bcd4b2d1566c2934e6b043476f82771f813ca9ad3ae1bd467f0fb732bda",
+  "bytes": 178289302,
+  "n": 20
+ },
+ "load_s": 0.026,
+ "device": {
+  "openvino": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "DEVICE_LUID": "4c3e010000000000",
+   "NPU_DRIVER_VERSION": "1004841",
+   "NPU_COMPILER_VERSION": "524292",
+   "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
+  }
+ },
+ "session_providers": [
+  "OpenVINO 2026.4.1-22982-e213a147257-releases/2026/4 import_model NPU",
+  "NPU"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "detection",
+  "form": "blob",
+  "engine": "ovblob",
+  "ep": null,
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.175,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\runs\\z9-walk-min\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "bytes": 2025942,
+  "sha256": "8251136225c440e79ca03ea586cd75ed6252ba14ad1c5fea14f9d09c4d992a7e",
+  "arrays": 40
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 96.765,
+  "min_ms": 96.23,
+  "max_ms": 161.857,
+  "value": 96.765
+ },
+ "peak_working_set_bytes": 357031936,
+ "peak_pagefile_bytes": 674238464,
+ "ended": "2026-11-10T17:41:55.965107+09:00",
+ "process_s": 4.554
+}

@@ -1,0 +1,77 @@
+{
+    "cell":  "rtdetr_graphB_fp16/task-ovgpu",
+    "device":  "igpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z9-walk-rest",
+    "start":  "2026-11-10T17:51:53.0749179+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.6,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.34 core",
+                                            "svchost 1628 0.02 core",
+                                            "conhost 13496 0.02 core",
+                                            "SearchIndexer 9480 0.02 core",
+                                            "MsiTrueColor 13352 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 6705 MHz, 14001 MHz, 17.56 W, 0 %, 0 MiB, 48",
+                   "availGB":  23.8
+               },
+    "command":  "C:\\src\\z9-walk\\.venv-z1-ort\\Scripts\\python.exe -u C:\\src\\z9-walk\\pc\\run_vision_task.py --model rtdetr_graphB_fp16 --spec C:\\src\\z9-walk\\pc\\z5_spec.json --work C:\\src\\z9-walk\\work\\rtdetr_graphB_fp16 --form fp32 --engine ort --ep openvino --ov-device GPU.0 --out C:\\src\\z9-walk\\runs\\z9-walk-rest\\rtdetr_graphB_fp16\\task-ovgpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  6988,
+                   "elapsedSeconds":  6.43,
+                   "peakWorkingSetBytes":  923758592,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00012C48":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x0001260E":  {
+                                                                    "shared":  618,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x00013E4C":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 975 MHz, 14001 MHz, 17.67 W, 0 %, 0 MiB, 49"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  1.1,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.08 core",
+                                           "svchost 5088 0.02 core",
+                                           "WidgetBoard 4064 0.02 core",
+                                           "svchost 1628 0.02 core",
+                                           "csrss 1396 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 367 MHz, 14001 MHz, 17.83 W, 0 %, 0 MiB, 49"
+              },
+    "end":  "2026-11-10T17:52:01.4561712+09:00",
+    "tries":  1
+}

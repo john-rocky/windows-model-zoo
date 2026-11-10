@@ -1,0 +1,18 @@
+[2026-11-10T17:28:58.2251966+09:00] steps fetch start: 2 steps, pid 19508
+[2026-11-10T17:28:58.2572095+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:28:58.3209276+09:00] python end: exit 0, 0 min
+[2026-11-10T17:28:58.3209276+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\z9-walk\pc\fetch.py --manifest C:\src\z9-walk\pc\hub_manifest.json --dest C:\src\z9-walk\hub --root C:\src\z9-walk
+[2026-11-10T17:29:26.0528339+09:00] fetch end: exit 0, 0.5 min
+[2026-11-10T17:29:26.0528339+09:00] steps fetch done: OK
+[2026-11-10T17:43:00.4526920+09:00] steps fetch start: 2 steps, pid 26480
+[2026-11-10T17:43:00.4844121+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:43:00.5338748+09:00] python end: exit 0, 0 min
+[2026-11-10T17:43:00.5476601+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\z9-walk\pc\fetch.py --manifest C:\src\z9-walk\pc\hub_manifest.json --dest C:\src\z9-walk\hub --root C:\src\z9-walk
+[2026-11-10T17:45:35.0496931+09:00] fetch end: exit 0, 2.6 min
+[2026-11-10T17:45:35.0654708+09:00] steps fetch done: OK
+[2026-11-10T17:54:25.4292582+09:00] steps fetch start: 2 steps, pid 30000
+[2026-11-10T17:54:25.4611825+09:00] python start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe python install 3.12
+[2026-11-10T17:54:25.5086435+09:00] python end: exit 0, 0 min
+[2026-11-10T17:54:25.5244589+09:00] fetch start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe run --no-project --python 3.12 --python-preference only-managed python C:\src\z9-walk\pc\fetch.py --manifest C:\src\z9-walk\pc\hub_manifest.json --dest C:\src\z9-walk\hub --root C:\src\z9-walk
+[2026-11-10T17:55:03.7362145+09:00] fetch end: exit 0, 0.6 min
+[2026-11-10T17:55:03.7362145+09:00] steps fetch done: OK

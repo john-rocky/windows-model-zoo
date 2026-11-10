@@ -1,0 +1,69 @@
+{
+    "cell":  "dfine_graphB_fp16/task-ovnpu_pre",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z9-walk-min",
+    "start":  "2026-11-10T17:41:50.3093504+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  1,
+                  "overlayAc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "overlayDc":  "ded574b5-45a0-4f42-8737-46345c09c238",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.4,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.28 core",
+                                            "SearchIndexer 9480 0.02 core",
+                                            "WUDFHost 9528 0.02 core",
+                                            "WUDFHost 1836 0.02 core",
+                                            "NVDisplay.Container 3412 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 937 MHz, 14001 MHz, 17.62 W, 0 %, 0 MiB, 49",
+                   "availGB":  23.7
+               },
+    "command":  "C:\\src\\z9-walk\\.venv-z1-ov\\Scripts\\python.exe -u C:\\src\\z9-walk\\pc\\run_vision_task.py --model dfine_graphB_fp16 --spec C:\\src\\z9-walk\\pc\\z5_spec.json --work C:\\src\\z9-walk\\work\\dfine_graphB_fp16 --form blob --engine ovblob --out C:\\src\\z9-walk\\runs\\z9-walk-min\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  29040,
+                   "elapsedSeconds":  6.472,
+                   "peakWorkingSetBytes":  356651008,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00013E4C":  {
+                                                                    "shared":  249,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 1425 MHz, 14001 MHz, 17.82 W, 0 %, 0 MiB, 49"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  1.7,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.19 core",
+                                           "WUDFHost 9528 0.03 core",
+                                           "LEDKeeper2 8936 0.02 core",
+                                           "WmiPrvSE 7560 0.02 core",
+                                           "LightKeeperService 4832 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 1687 MHz, 14001 MHz, 17.66 W, 0 %, 0 MiB, 49"
+              },
+    "end":  "2026-11-10T17:41:58.7365906+09:00",
+    "tries":  1
+}

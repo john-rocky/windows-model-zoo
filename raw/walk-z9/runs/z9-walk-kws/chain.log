@@ -1,0 +1,11 @@
+[2026-11-10T17:56:56.5284786+09:00] chain start: plan C:\src\z9-walk\pc\plans\z9-walk-kws.json mode first, 4 units, pid 20944
+[2026-11-10T17:57:02.2785019+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T17:57:04.3651936+09:00] w2v2_head_fp16/task-cuda16 run 1 start
+[2026-11-10T17:57:09.9754721+09:00] w2v2_head_fp16/task-cuda16 run 1 end: exit 0, OK, 3.632 s
+[2026-11-10T17:57:11.9476646+09:00] w2v2_frontend_fp16/task-ovnpu run 1 start
+[2026-11-10T17:57:24.2844422+09:00] w2v2_frontend_fp16/task-ovnpu run 1 end: exit 0, OK, 10.388 s
+[2026-11-10T17:57:26.2406878+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T17:57:34.7893336+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 6.592 s
+[2026-11-10T17:57:36.7468533+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 start
+[2026-11-10T17:57:47.8019023+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 end: exit 0, OK, 9.118 s
+[2026-11-10T17:57:47.8178297+09:00] chain done: OK

@@ -1,0 +1,19 @@
+python 3.12.16
+executable C:\src\z9-walk\.venv-z1-cuda\Scripts\python.exe
+base_executable C:\src\z9-walk\python\cpython-3.12-windows-x86_64-none\python.exe
+flatbuffers==25.12.19
+ml_dtypes==0.6.0
+numpy==2.5.4
+nvidia-cublas==13.10.0.20
+nvidia-cuda-nvrtc==13.5.37
+nvidia-cuda-runtime==13.5.37
+nvidia-cudnn-cu13==9.28.0.42
+nvidia-cufft==12.5.0.14
+nvidia-curand==10.4.5.25
+nvidia-nvjitlink==13.5.37
+onnx==1.23.2
+onnxruntime-gpu==1.31.1
+packaging==26.3
+pillow==13.0.0
+protobuf==7.36.2
+typing_extensions==4.16.0

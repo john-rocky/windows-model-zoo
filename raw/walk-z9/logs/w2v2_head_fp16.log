@@ -1,0 +1,14 @@
+[2026-11-10T17:49:25.4358858+09:00] steps w2v2_head_fp16 start: 1 steps, pid 3200
+[2026-11-10T17:49:25.4678192+09:00] task-ref start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\ref_vision_task.py --model w2v2_head_fp16 --spec C:\src\z9-walk\pc\z5_spec.json --fixtures C:\src\z9-walk\fixtures --suites C:\src\z9-walk\suites --work C:\src\z9-walk\work\w2v2_head_fp16 --out C:\src\z9-walk\refs\w2v2_head_fp16\ref.json
+[2026-11-10T17:49:26.5930312+09:00] task-ref end: exit 1, 0 min
+[2026-11-10T17:49:26.6092771+09:00]     File "C:\src\z9-walk\pc\vtask.py", line 37, in sha256_file
+[2026-11-10T17:49:26.6092771+09:00]       with open(path, "rb") as f:
+[2026-11-10T17:49:26.6092771+09:00]            ^^^^^^^^^^^^^^^^
+[2026-11-10T17:49:26.6092771+09:00]   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\src\\z9-walk\\fixtures\\kws120\\yes\\022cd682_nohash_0.wav'
+[2026-11-10T17:49:26.6092771+09:00]   
+[2026-11-10T17:49:26.6092771+09:00] stop: task-ref failed
+[2026-11-10T17:49:26.6092771+09:00] steps w2v2_head_fp16 done: FAIL task-ref
+[2026-11-10T17:55:08.4415031+09:00] steps w2v2_head_fp16 start: 1 steps, pid 16608
+[2026-11-10T17:55:08.4729954+09:00] task-ref start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\ref_vision_task.py --model w2v2_head_fp16 --spec C:\src\z9-walk\pc\z5_spec.json --fixtures C:\src\z9-walk\fixtures --suites C:\src\z9-walk\suites --work C:\src\z9-walk\work\w2v2_head_fp16 --out C:\src\z9-walk\refs\w2v2_head_fp16\ref.json
+[2026-11-10T17:55:14.0232262+09:00] task-ref end: exit 0, 0.1 min
+[2026-11-10T17:55:14.0232262+09:00] steps w2v2_head_fp16 done: OK

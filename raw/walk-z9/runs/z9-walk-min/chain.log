@@ -1,0 +1,17 @@
+[2026-11-10T17:30:36.8498655+09:00] chain start: plan C:\src\z9-walk\pc\plans\z9-walk-min.json mode first, 5 units, pid 22876
+[2026-11-10T17:30:46.8130802+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T17:30:48.8327063+09:00] dfine_graphB_fp16/task-cuda16 run 1 start
+[2026-11-10T17:30:56.8344633+09:00] dfine_graphB_fp16/task-cuda16 run 1 stopped (another lane's lock or a slot); its files removed, run again after it
+[2026-11-10T17:30:56.8665035+09:00] dfine_graphB_fp16/task-cuda16 run 1: another lane holds the lock: waiting
+[2026-11-10T17:41:02.7448867+09:00] dfine_graphB_fp16/task-cuda16 run 1: the lock has been free 60 s: going on
+[2026-11-10T17:41:04.3845348+09:00] dfine_graphB_fp16/task-cuda16 run 1 start
+[2026-11-10T17:41:08.9255088+09:00] dfine_graphB_fp16/task-cuda16 run 1 end: exit 0, OK, 2.584 s
+[2026-11-10T17:41:10.9132823+09:00] dfine_graphB_fp16/task-ovgpu run 1 start
+[2026-11-10T17:41:19.4464084+09:00] dfine_graphB_fp16/task-ovgpu run 1 end: exit 0, OK, 6.588 s
+[2026-11-10T17:41:21.4039327+09:00] dfine_graphB_fp16/task-ovnpu run 1 start
+[2026-11-10T17:41:48.3853884+09:00] dfine_graphB_fp16/task-ovnpu run 1 end: exit 0, OK, 25.047 s
+[2026-11-10T17:41:50.3411404+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 start
+[2026-11-10T17:41:58.7523762+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 6.472 s
+[2026-11-10T17:42:00.7102901+09:00] rtmpose_s_fp16/task-cuda16 run 1 start
+[2026-11-10T17:42:05.7261933+09:00] rtmpose_s_fp16/task-cuda16 run 1 end: exit 0, OK, 3.072 s
+[2026-11-10T17:42:05.7261933+09:00] chain done: OK

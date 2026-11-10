@@ -1,0 +1,446 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T17:52:36.108552+09:00",
+ "argv": [
+  "--model",
+  "ssdlite_mobilenetv3_320_fp16",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\z9-walk\\work\\ssdlite_mobilenetv3_320_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\z9-walk\\runs\\z9-walk-rest\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 8072,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.0049650000291876495,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.00418249994982034,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.003996300045400858,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.0039043999859131873,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.0039527000044472516,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.004131999972742051,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.003939000016544014,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.003806399996392429,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.004032800032291561,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.00393970002187416,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.004114300012588501,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.004074500000569969,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.004047099966555834,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.003962399961892515,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.0040342999855056405,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.003911799984052777,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.0038331999676302075,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.00396930001443252,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.003932499967049807,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.0038880000356584787,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "ssdlite_mobilenetv3_320_fp16 form fp16",
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx",
+  "bytes": 7555195,
+  "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
+ },
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+  "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
+  "bytes": 24581782,
+  "n": 20
+ },
+ "load_s": 1.036,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "detection",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 1.546,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\runs\\z9-walk-rest\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 24638022,
+  "sha256": "a76671a1476804063d74ed87954cacc3ab6bf510d4e07227dc4268edefa521e4",
+  "arrays": 240
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 3.969,
+  "min_ms": 3.806,
+  "max_ms": 4.965,
+  "value": 3.969
+ },
+ "peak_working_set_bytes": 1505382400,
+ "peak_pagefile_bytes": 2852573184,
+ "ended": "2026-11-10T17:52:39.288011+09:00",
+ "process_s": 3.186
+}

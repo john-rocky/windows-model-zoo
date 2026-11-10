@@ -1,0 +1,953 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T17:56:15.539154+09:00",
+ "argv": [
+  "--model",
+  "dac_16khz_deconly_zs_fp16",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\z9-walk\\fixtures",
+  "--suites",
+  "C:\\src\\z9-walk\\suites",
+  "--work",
+  "C:\\src\\z9-walk\\work\\dac_16khz_deconly_zs_fp16",
+  "--out",
+  "C:\\src\\z9-walk\\refs\\dac_16khz_deconly_zs_fp16\\ref.json"
+ ],
+ "pid": 22160,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "yes/022cd682_nohash_0.wav",
+   "wall_s": 0.1698566999984905,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.18735239998204634,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.20368560001952574,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/105a0eea_nohash_0.wav",
+   "wall_s": 0.19370260002324358,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/105a0eea_nohash_1.wav",
+   "wall_s": 0.19433750002644956,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/105a0eea_nohash_2.wav",
+   "wall_s": 0.1940148000139743,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/1093c8e7_nohash_0.wav",
+   "wall_s": 0.19125179998809472,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/1528225c_nohash_0.wav",
+   "wall_s": 0.19426859996747226,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/1528225c_nohash_1.wav",
+   "wall_s": 0.21372210001572967,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yes/1528225c_nohash_2.wav",
+   "wall_s": 0.2412890000268817,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/096456f9_nohash_0.wav",
+   "wall_s": 0.2530477999825962,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/096456f9_nohash_1.wav",
+   "wall_s": 0.29884970001876354,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/0c40e715_nohash_0.wav",
+   "wall_s": 0.2961026999983005,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.34877250000135973,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/1093c8e7_nohash_0.wav",
+   "wall_s": 0.3598070000298321,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/135c6841_nohash_0.wav",
+   "wall_s": 0.2690336999949068,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/135c6841_nohash_1.wav",
+   "wall_s": 0.26105570001527667,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/135c6841_nohash_2.wav",
+   "wall_s": 0.2143453999888152,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/135c6841_nohash_3.wav",
+   "wall_s": 0.24491150001995265,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "no/1528225c_nohash_0.wav",
+   "wall_s": 0.23786349996225908,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0c40e715_nohash_0.wav",
+   "wall_s": 0.1873366999789141,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0d53e045_nohash_0.wav",
+   "wall_s": 0.1946060000336729,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0d53e045_nohash_1.wav",
+   "wall_s": 0.19367499998770654,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0f250098_nohash_0.wav",
+   "wall_s": 0.19513609999557957,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0f250098_nohash_1.wav",
+   "wall_s": 0.19404149998445064,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.19509049999760464,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/135c6841_nohash_0.wav",
+   "wall_s": 0.18602800002554432,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/135c6841_nohash_1.wav",
+   "wall_s": 0.18756970000686124,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/135c6841_nohash_2.wav",
+   "wall_s": 0.18922989995917305,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "up/135c6841_nohash_3.wav",
+   "wall_s": 0.18983189994469285,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/022cd682_nohash_0.wav",
+   "wall_s": 0.18597779999254271,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/096456f9_nohash_0.wav",
+   "wall_s": 0.19004099996527657,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/0c40e715_nohash_0.wav",
+   "wall_s": 0.19553090003319085,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.20179910003207624,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/0f250098_nohash_0.wav",
+   "wall_s": 0.19520980003289878,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/0f250098_nohash_1.wav",
+   "wall_s": 0.19443069997942075,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.1942461000289768,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/1528225c_nohash_0.wav",
+   "wall_s": 0.2054471000446938,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/1b4c9b89_nohash_0.wav",
+   "wall_s": 0.2056076000444591,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "down/1b4c9b89_nohash_1.wav",
+   "wall_s": 0.19358160003321245,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/022cd682_nohash_0.wav",
+   "wall_s": 0.20147189998533577,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/022cd682_nohash_1.wav",
+   "wall_s": 0.22195100004319102,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/0487ba9b_nohash_0.wav",
+   "wall_s": 0.2382670000079088,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/096456f9_nohash_0.wav",
+   "wall_s": 0.22333760000765324,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/096456f9_nohash_1.wav",
+   "wall_s": 0.21216280001681298,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/0d53e045_nohash_0.wav",
+   "wall_s": 0.20312810002360493,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/0d53e045_nohash_1.wav",
+   "wall_s": 0.19867020001402125,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.2236377999652177,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/105a0eea_nohash_0.wav",
+   "wall_s": 0.23140230000717565,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "left/105a0eea_nohash_1.wav",
+   "wall_s": 0.20967949996702373,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/096456f9_nohash_0.wav",
+   "wall_s": 0.18611730000702664,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0c40e715_nohash_0.wav",
+   "wall_s": 0.18707570002879947,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0c40e715_nohash_1.wav",
+   "wall_s": 0.1879348999937065,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0d53e045_nohash_0.wav",
+   "wall_s": 0.18755650002276525,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.19127539999317378,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0f250098_nohash_0.wav",
+   "wall_s": 0.1926938999677077,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0f250098_nohash_1.wav",
+   "wall_s": 0.194717500009574,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.18984760000603274,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/1528225c_nohash_0.wav",
+   "wall_s": 0.1919048000127077,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "right/1b4c9b89_nohash_0.wav",
+   "wall_s": 0.19423760002246127,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/022cd682_nohash_0.wav",
+   "wall_s": 0.1868063000147231,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/096456f9_nohash_0.wav",
+   "wall_s": 0.18544910004129633,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.18698240001685917,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.18930209998507053,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/105a0eea_nohash_0.wav",
+   "wall_s": 0.19356949999928474,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/105a0eea_nohash_1.wav",
+   "wall_s": 0.1964301000116393,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/1093c8e7_nohash_0.wav",
+   "wall_s": 0.19766710000112653,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/1b4c9b89_nohash_0.wav",
+   "wall_s": 0.1931347000063397,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/1b4c9b89_nohash_1.wav",
+   "wall_s": 0.1951192999840714,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "on/1b4c9b89_nohash_2.wav",
+   "wall_s": 0.19323099998291582,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/096456f9_nohash_0.wav",
+   "wall_s": 0.18652529997052625,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/096456f9_nohash_1.wav",
+   "wall_s": 0.1860406000050716,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0c40e715_nohash_0.wav",
+   "wall_s": 0.18766359996516258,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0c40e715_nohash_1.wav",
+   "wall_s": 0.19496220001019537,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0c40e715_nohash_2.wav",
+   "wall_s": 0.19239410001318902,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0c40e715_nohash_3.wav",
+   "wall_s": 0.19539170002099127,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0d53e045_nohash_0.wav",
+   "wall_s": 0.19502939999802038,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0d53e045_nohash_1.wav",
+   "wall_s": 0.19786030001705512,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0d53e045_nohash_2.wav",
+   "wall_s": 0.19454459997359663,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "off/0f250098_nohash_0.wav",
+   "wall_s": 0.189770299999509,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/022cd682_nohash_0.wav",
+   "wall_s": 0.19427719997474924,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0c40e715_nohash_0.wav",
+   "wall_s": 0.19291949999751523,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0c40e715_nohash_1.wav",
+   "wall_s": 0.193722500000149,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.1941581999999471,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0fa1e7a9_nohash_0.wav",
+   "wall_s": 0.19650900003034621,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0fa1e7a9_nohash_1.wav",
+   "wall_s": 0.1868541000294499,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/0fa1e7a9_nohash_2.wav",
+   "wall_s": 0.1863768000039272,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/105a0eea_nohash_0.wav",
+   "wall_s": 0.18685190001269802,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/135c6841_nohash_0.wav",
+   "wall_s": 0.18867030000546947,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "stop/135c6841_nohash_1.wav",
+   "wall_s": 0.19613350002327934,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/022cd682_nohash_0.wav",
+   "wall_s": 0.18820179998874664,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/022cd682_nohash_1.wav",
+   "wall_s": 0.19729540002299473,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0487ba9b_nohash_0.wav",
+   "wall_s": 0.19444900000235066,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/096456f9_nohash_0.wav",
+   "wall_s": 0.19390820001717657,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/096456f9_nohash_1.wav",
+   "wall_s": 0.1940887999953702,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0c40e715_nohash_0.wav",
+   "wall_s": 0.2135058999992907,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0c40e715_nohash_1.wav",
+   "wall_s": 0.19064190000062808,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0d53e045_nohash_0.wav",
+   "wall_s": 0.21014009998179972,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0d53e045_nohash_1.wav",
+   "wall_s": 0.20891729998402297,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "go/0ea0e2f4_nohash_0.wav",
+   "wall_s": 0.1979636000469327,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_1528225c_nohash_2.wav.wav",
+   "wall_s": 0.20160510001005605,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_3ff840aa_nohash_0.wav.wav",
+   "wall_s": 0.2008112000185065,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_6205088b_nohash_0.wav.wav",
+   "wall_s": 0.19622059998800978,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_6205088b_nohash_2.wav.wav",
+   "wall_s": 0.1960689999978058,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_8c7f81df_nohash_0.wav.wav",
+   "wall_s": 0.1963493999792263,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_91223b83_nohash_0.wav.wav",
+   "wall_s": 0.19937330001266673,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_bed06fac_nohash_0.wav.wav",
+   "wall_s": 0.19598060002317652,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bed_d5ca80c6_nohash_0.wav.wav",
+   "wall_s": 0.194363999995403,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bird_105a0eea_nohash_0.wav.wav",
+   "wall_s": 0.1944307999801822,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_unknown_/bird_1538beb7_nohash_0.wav.wav",
+   "wall_s": 0.19523449998814613,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1035.wav",
+   "wall_s": 0.18882390001090243,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/104.wav",
+   "wall_s": 0.19299860001774505,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1047.wav",
+   "wall_s": 0.18783109996002167,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1090.wav",
+   "wall_s": 0.18842469999799505,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1092.wav",
+   "wall_s": 0.18970670003909618,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1099.wav",
+   "wall_s": 0.19160229997942224,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/111.wav",
+   "wall_s": 0.1899439999833703,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1124.wav",
+   "wall_s": 0.1906765000312589,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1125.wav",
+   "wall_s": 0.18835090001812205,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "_silence_/1135.wav",
+   "wall_s": 0.18922420003218576,
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "dac_16khz_deconly_zs_fp16 form fp32",
+   "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__DAC-16kHz-OpenVINO\\dac_16khz_deconly_zs_fp16.onnx",
+   "bytes": 209727641,
+   "sha256": "965d11e2e7a38094249e44926ca18cf5e3a0caff2eb093842cc35ebfae3ee2a4"
+  },
+  {
+   "what": "upstream dac_16khz_encoder_fp16",
+   "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__DAC-16kHz-OpenVINO\\dac_16khz_encoder_fp16.onnx",
+   "bytes": 86354740,
+   "sha256": "544231058e78b9228b00a6bfd3f451ea45e561acb46423d7f6c24ac229eac732"
+  },
+  {
+   "what": "host file dac_rvq",
+   "path": "C:\\src\\z9-walk\\fixtures\\host\\dac_rvq.bin",
+   "bytes": 1229184,
+   "sha256": "d3e20e3ec3d6b08e0db16ceb3744e63d5b4ceed1815c32bca0e198cb2edd68d4"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__DAC-16kHz-OpenVINO\\dac_16khz_deconly_zs_fp16.onnx",
+  "sha256": "965d11e2e7a38094249e44926ca18cf5e3a0caff2eb093842cc35ebfae3ee2a4"
+ },
+ "load_s": 0.58,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
+  "n": 120,
+  "sha256": "e17000ca18a1c2c0108c6c903699bac61320373ed9dd432bd2bef74ed33458cf",
+  "bytes": 24610582,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    1024,
+    50
+   ]
+  },
+  "set": "kws120"
+ },
+ "upstream": {
+  "model": "dac_16khz_encoder_fp16",
+  "providers": [
+   "CPUExecutionProvider"
+  ],
+  "load_s": 0.193
+ },
+ "workload": {
+  "inputs": 120,
+  "set": "kws120",
+  "task": "codec",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.174,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\refs\\dac_16khz_deconly_zs_fp16\\ref.outputs.npz",
+  "bytes": 15415942,
+  "sha256": "b1af0c077e3f696228ed5193e732590c1d59f34094cc4523f28693f0c2cbdcd5",
+  "arrays": 240
+ },
+ "summary": {
+  "clips": 120,
+  "inputs": 120,
+  "median_ms": 194.338,
+  "min_ms": 169.857,
+  "max_ms": 359.807,
+  "value": 194.338
+ },
+ "peak_working_set_bytes": 623390720,
+ "peak_pagefile_bytes": 1106526208,
+ "ended": "2026-11-10T17:56:52.113136+09:00",
+ "process_s": 36.569
+}

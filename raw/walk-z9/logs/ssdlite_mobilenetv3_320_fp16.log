@@ -1,0 +1,4 @@
+[2026-11-10T17:49:03.9736999+09:00] steps ssdlite_mobilenetv3_320_fp16 start: 1 steps, pid 8912
+[2026-11-10T17:49:04.0058318+09:00] task-ref start: C:\src\z9-walk\.venv-z1-ort\Scripts\python.exe -I C:\src\z9-walk\pc\ref_vision_task.py --model ssdlite_mobilenetv3_320_fp16 --spec C:\src\z9-walk\pc\z5_spec.json --fixtures C:\src\z9-walk\fixtures --suites C:\src\z9-walk\suites --work C:\src\z9-walk\work\ssdlite_mobilenetv3_320_fp16 --out C:\src\z9-walk\refs\ssdlite_mobilenetv3_320_fp16\ref.json
+[2026-11-10T17:49:04.8131892+09:00] task-ref end: exit 0, 0 min
+[2026-11-10T17:49:04.8131892+09:00] steps ssdlite_mobilenetv3_320_fp16 done: OK

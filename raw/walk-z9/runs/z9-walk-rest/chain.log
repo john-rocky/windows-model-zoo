@@ -1,0 +1,23 @@
+[2026-11-10T17:51:16.2681843+09:00] chain start: plan C:\src\z9-walk\pc\plans\z9-walk-rest.json mode first, 10 units, pid 34820
+[2026-11-10T17:51:26.8797142+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
+[2026-11-10T17:51:28.9494108+09:00] dfine_graphB_fp16_fixed/task-cuda16 run 1 start
+[2026-11-10T17:51:35.0705642+09:00] dfine_graphB_fp16_fixed/task-cuda16 run 1 end: exit 0, OK, 4.163 s
+[2026-11-10T17:51:37.0737582+09:00] metric3d_fp16/task-cuda16 run 1 start
+[2026-11-10T17:51:43.1445888+09:00] metric3d_fp16/task-cuda16 run 1 end: exit 0, OK, 4.111 s
+[2026-11-10T17:51:45.1016765+09:00] ppocr_det_fp16/task-cuda16 run 1 start
+[2026-11-10T17:51:51.1452406+09:00] ppocr_det_fp16/task-cuda16 run 1 end: exit 0, OK, 4.11 s
+[2026-11-10T17:51:53.1024741+09:00] rtdetr_graphB_fp16/task-ovgpu run 1 start
+[2026-11-10T17:52:01.4721074+09:00] rtdetr_graphB_fp16/task-ovgpu run 1 end: exit 0, OK, 6.43 s
+[2026-11-10T17:52:03.4322444+09:00] rtm_animal_fp16/task-cuda16 run 1 start
+[2026-11-10T17:52:08.4380753+09:00] rtm_animal_fp16/task-cuda16 run 1 end: exit 0, OK, 3.075 s
+[2026-11-10T17:52:10.3804075+09:00] rtm_face_fp16/task-cuda16 run 1 start
+[2026-11-10T17:52:14.5692054+09:00] rtm_face_fp16/task-cuda16 run 1 end: exit 0, OK, 3.098 s
+[2026-11-10T17:52:16.5371561+09:00] rtmhand_fp16/task-cuda16 run 1 start
+[2026-11-10T17:52:21.5730185+09:00] rtmhand_fp16/task-cuda16 run 1 end: exit 0, OK, 3.103 s
+[2026-11-10T17:52:23.5291151+09:00] rtmw_fp16/task-cuda16 run 1 start
+[2026-11-10T17:52:28.5379909+09:00] rtmw_fp16/task-cuda16 run 1 end: exit 0, OK, 3.07 s
+[2026-11-10T17:52:30.4750343+09:00] sam2_decoder/task-ovnpu_pre run 1 start
+[2026-11-10T17:52:33.9631208+09:00] sam2_decoder/task-ovnpu_pre run 1 end: exit 0, OK, 1.552 s
+[2026-11-10T17:52:35.9177941+09:00] ssdlite_mobilenetv3_320_fp16/task-cuda16 run 1 start
+[2026-11-10T17:52:41.9454772+09:00] ssdlite_mobilenetv3_320_fp16/task-cuda16 run 1 end: exit 0, OK, 4.078 s
+[2026-11-10T17:52:41.9454772+09:00] chain done: OK

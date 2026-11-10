@@ -1,0 +1,118 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-10T17:52:10.589108+09:00",
+ "argv": [
+  "--model",
+  "rtm_face_fp16",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\z9-walk\\work\\rtm_face_fp16",
+  "--form",
+  "fp16",
+  "--engine",
+  "ort",
+  "--ep",
+  "cuda",
+  "--out",
+  "C:\\src\\z9-walk\\runs\\z9-walk-rest\\rtm_face_fp16\\task-cuda16\\run1.json"
+ ],
+ "pid": 472,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.00448780000442639,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.004099899961147457,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.003978499968070537,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.0035435999743640423,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime-gpu": "1.31.1",
+  "numpy": "2.5.4",
+  "nvidia-cudnn-cu13": "9.28.0.42",
+  "nvidia-cublas": "13.10.0.20",
+  "nvidia-cuda-runtime": "13.5.37"
+ },
+ "model": {
+  "what": "rtm_face_fp16 form fp16",
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\fp16\\rtm_face_fp16.onnx",
+  "bytes": 33924539,
+  "sha256": "1717001b0ff6c30c39a355e895d30f329515c7129a8a3f14126461df315aee4c"
+ },
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\rtm_face_fp16\\inputs.npz",
+  "sha256": "acae01f4219eeecaa9cbe2ab0e071deafb27b2e868ad6892261149db2f80aa7d",
+  "bytes": 3146902,
+  "n": 4
+ },
+ "load_s": 1.042,
+ "device": {},
+ "session_providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "fp16",
+  "engine": "ort",
+  "ep": "cuda",
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.787,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\runs\\z9-walk-rest\\rtm_face_fp16\\task-cuda16\\run1.outputs.npz",
+  "bytes": 1607638,
+  "sha256": "46b14d89170d2eb87b1b18e7ea4c5b85197fd14bfc68d0be84798bef65e9593d",
+  "arrays": 8
+ },
+ "summary": {
+  "clips": 4,
+  "inputs": 4,
+  "median_ms": 4.1,
+  "min_ms": 3.544,
+  "max_ms": 4.488,
+  "value": 4.1
+ },
+ "peak_working_set_bytes": 1520930816,
+ "peak_pagefile_bytes": 2968109056,
+ "ended": "2026-11-10T17:52:12.906192+09:00",
+ "process_s": 2.316
+}

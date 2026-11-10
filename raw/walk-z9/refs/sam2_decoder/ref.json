@@ -1,0 +1,252 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-10T17:48:40.702335+09:00",
+ "argv": [
+  "--model",
+  "sam2_decoder",
+  "--spec",
+  "C:\\src\\z9-walk\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\z9-walk\\fixtures",
+  "--suites",
+  "C:\\src\\z9-walk\\suites",
+  "--work",
+  "C:\\src\\z9-walk\\work\\sam2_decoder",
+  "--out",
+  "C:\\src\\z9-walk\\refs\\sam2_decoder\\ref.json"
+ ],
+ "pid": 22556,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.03403789998264983,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.026097399997524917,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.02616519998991862,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.027193000016268343,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.025946500012651086,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.02598160004708916,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.026155299972742796,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.025966899993363768,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.026072300039231777,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.026053300010971725,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.022260500001721084,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.022410199977457523,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.022245800006203353,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.022450299991760403,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.022662999981548637,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.022710599994752556,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.0222269999794662,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.022327099984977394,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.022264799976255745,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.022406900010537356,
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "sam2_decoder form fp32",
+   "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\sam2_decoder.onnx",
+   "bytes": 24906851,
+   "sha256": "456c6c524b1e4f2b17742d967e9835a2379ecce2f488fd9f2aaffef7b37bf831"
+  },
+  {
+   "what": "upstream sam2_encoder",
+   "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\sam2_encoder.onnx",
+   "bytes": 134201095,
+   "sha256": "2377332c91031aa842d01d7bd53c1e3b772a2310d9c2925aed2b11e74fb59b4f"
+  },
+  {
+   "what": "host file sam2_prompt",
+   "path": "C:\\src\\z9-walk\\fixtures\\host\\sam2_prompt.bin",
+   "bytes": 3072,
+   "sha256": "c1ac798f0cc0bd5e4b0dc94efe26f2f9dfe4d1d4cec141ab0350580ce7a48588"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\z9-walk\\hub\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\sam2_decoder.onnx",
+  "sha256": "456c6c524b1e4f2b17742d967e9835a2379ecce2f488fd9f2aaffef7b37bf831"
+ },
+ "load_s": 0.176,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\z9-walk\\work\\sam2_decoder\\inputs.npz",
+  "n": 20,
+  "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
+  "bytes": 335591062,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    4194816
+   ]
+  },
+  "set": "images"
+ },
+ "upstream": {
+  "model": "sam2_encoder",
+  "providers": [
+   "CPUExecutionProvider"
+  ],
+  "load_s": 0.337
+ },
+ "workload": {
+  "inputs": 20,
+  "set": "images",
+  "task": "mask",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.078,
+ "outputs": {
+  "path": "C:\\src\\z9-walk\\refs\\sam2_decoder\\ref.outputs.npz",
+  "bytes": 15733622,
+  "sha256": "041c58d8ca9ac88717d93a371d7bf2740b27f04cb2e3b36d88d74205436f6e9c",
+  "arrays": 20
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 25.947,
+  "min_ms": 22.227,
+  "max_ms": 34.038,
+  "value": 25.947
+ },
+ "peak_working_set_bytes": 2125553664,
+ "peak_pagefile_bytes": 3339313152,
+ "ended": "2026-11-10T17:48:57.980199+09:00",
+ "process_s": 17.264
+}
