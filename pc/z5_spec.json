@@ -1,5 +1,5 @@
 {
- "about": "The vision task cells of the Z5 lane (migrate/z5.py spec): per model its input set and ids, the vision zoo Z1's input entries (john-rocky/windows-zoo@faa4019 inputs_spec.json), the files of its forms (their public copies: the Hub file with the same sha256, or the app repo's file by URL) with the sha256 Z1 recorded, the upstream graph, the downstream head, the host files. Read by pc/ref_vision_task.py and pc/run_vision_task.py. Paths: {HUB} = the zoo folder's hub\\ (pc/fetch.py), {FIX} = its fixtures\\, {ROOT} = the zoo folder; pc/vtask.py load_spec expands them.",
+ "about": "The vision task cells of the Z5 lane (migrate/z5.py spec): per model its input set and ids, the vision zoo Z1's input entries (john-rocky/windows-zoo@faa4019 inputs_spec.json), the files of its forms (their public copies: the Hub file with the same sha256) with the sha256 Z1 recorded, the upstream graph, the downstream head, the host files (three by URL from the app repo, one from the Hub). Read by pc/ref_vision_task.py and pc/run_vision_task.py. Paths: {HUB} = the zoo folder's hub\\ (pc/fetch.py), {FIX} = its fixtures\\, {ROOT} = the zoo folder; pc/vtask.py load_spec expands them.",
  "z1": {
   "repo": "john-rocky/windows-zoo",
   "commit": "faa4019",
