@@ -5,8 +5,7 @@
 
 1. files: the ones this step reads (the fp32 form, the upstream graph, the downstream head, the host files), each
    checked against the sha256 the spec pins (the vision zoo Z1's records); a difference stops the step. The other
-   forms (the fp16 file, the NPU blob) are checked by the cells that run them (pc/run_vision_task.py), so a model whose
-   fp16 file has no public copy still gets its reference.
+   forms (the fp16 file, the NPU blob) are checked by the cells that run them (pc/run_vision_task.py).
 2. inputs: every input of the model's set (suites\\vision\\images.json under fixtures\\vision, or
    suites\\audio\\kws120.json under fixtures\\kws120) through the app's preprocessing, and for a graph that takes another
    graph's output, that graph in fp32 on the ONNX Runtime CPU EP and the app's host step (pc/vtask.py) ->
