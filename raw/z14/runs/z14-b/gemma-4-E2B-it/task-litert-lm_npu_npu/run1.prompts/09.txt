@@ -1,0 +1,3 @@
+<|turn>user
+What is the chemical symbol for gold? Reply with only the symbol.<turn|>
+<|turn>model

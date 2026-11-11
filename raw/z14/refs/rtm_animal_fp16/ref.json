@@ -1,0 +1,119 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-11T08:13:07.310210+09:00",
+ "argv": [
+  "--model",
+  "rtm_animal_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\mz-z14\\fixtures",
+  "--suites",
+  "C:\\src\\mz-z14\\suites",
+  "--work",
+  "C:\\src\\mz-z14\\work\\rtm_animal_fp16",
+  "--out",
+  "C:\\src\\mz-z14\\refs\\rtm_animal_fp16\\ref.json"
+ ],
+ "pid": 30000,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.007569000008516014,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.00906900002155453,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.007724100025370717,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "rtm_animal_fp16 form fp32",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\rtm_animal_fp16.onnx",
+   "bytes": 54921477,
+   "sha256": "401a657ea5aefcef95ebf321fe62906fb9d9322a484e26dd2bb0b4f49438a91f"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\rtm_animal_fp16.onnx",
+  "sha256": "401a657ea5aefcef95ebf321fe62906fb9d9322a484e26dd2bb0b4f49438a91f"
+ },
+ "load_s": 0.146,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\rtm_animal_fp16\\inputs.npz",
+  "n": 3,
+  "sha256": "2fc50bf8053c7b61eee015296744435739801786a8b4311d231b48c0b9577f31",
+  "bytes": 2360182,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    256,
+    256
+   ]
+  },
+  "set": "images"
+ },
+ "workload": {
+  "inputs": 3,
+  "set": "images",
+  "task": "keypoints",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.024,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\refs\\rtm_animal_fp16\\ref.outputs.npz",
+  "bytes": 210406,
+  "sha256": "d592324d600e2f29f651cd46902b3dac22eb4e60661c424fff88bd67d3bb2a43",
+  "arrays": 6
+ },
+ "summary": {
+  "clips": 3,
+  "inputs": 3,
+  "median_ms": 7.724,
+  "min_ms": 7.569,
+  "max_ms": 9.069,
+  "value": 7.724
+ },
+ "peak_working_set_bytes": 188182528,
+ "peak_pagefile_bytes": 670457856,
+ "ended": "2026-11-11T08:13:07.731682+09:00",
+ "process_s": 0.42
+}

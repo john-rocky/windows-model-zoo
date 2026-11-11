@@ -1,0 +1,135 @@
+{
+ "runner": "ref_vision_task.py",
+ "started": "2026-11-11T08:13:12.019310+09:00",
+ "argv": [
+  "--model",
+  "rtmw_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--fixtures",
+  "C:\\src\\mz-z14\\fixtures",
+  "--suites",
+  "C:\\src\\mz-z14\\suites",
+  "--work",
+  "C:\\src\\mz-z14\\work\\rtmw_fp16",
+  "--out",
+  "C:\\src\\mz-z14\\refs\\rtmw_fp16\\ref.json"
+ ],
+ "pid": 35208,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.08706440002424642,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.12024469999596477,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.15876329998718575,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.10351449996232986,
+   "nonfinite": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.017501199967227876,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4",
+  "pillow": "13.0.0"
+ },
+ "files": [
+  {
+   "what": "rtmw_fp16 form fp32",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\rtmw_fp16.onnx",
+   "bytes": 132050550,
+   "sha256": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9"
+  }
+ ],
+ "model": {
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMW-m-WholeBody-OpenVINO\\rtmw_fp16.onnx",
+  "sha256": "936dd1b47438dd6c79ab2ba32418e791a15dd205bf8df14e905243c80ec195b9"
+ },
+ "load_s": 0.656,
+ "session_providers": [
+  "CPUExecutionProvider"
+ ],
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\rtmw_fp16\\inputs.npz",
+  "n": 5,
+  "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
+  "bytes": 2950582,
+  "feeds": {
+   "serving_default_args_0": [
+    1,
+    3,
+    256,
+    192
+   ]
+  },
+  "set": "images"
+ },
+ "workload": {
+  "inputs": 5,
+  "set": "images",
+  "task": "keypoints",
+  "frames": null,
+  "downstream": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "timing": "one run per input, wall clock, host numpy in and out (untimed step)"
+ },
+ "warmup_s": 0.577,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\refs\\rtmw_fp16\\ref.outputs.npz",
+  "bytes": 2385862,
+  "sha256": "27af6fcb4f46e2d7c2652a876ff8ecf03fe025b944e1a7314652cd1adbcebaa7",
+  "arrays": 10
+ },
+ "summary": {
+  "clips": 5,
+  "inputs": 5,
+  "median_ms": 103.514,
+  "min_ms": 17.501,
+  "max_ms": 158.763,
+  "value": 103.514
+ },
+ "peak_working_set_bytes": 396288000,
+ "peak_pagefile_bytes": 878825472,
+ "ended": "2026-11-11T08:13:14.704587+09:00",
+ "process_s": 2.685
+}

@@ -51,7 +51,7 @@ public = "mlboydaisuke/RTMPose-Animal-AP10K-OpenVINO@ab928470b99928b6fdb2457b505
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
 made_by = "the vision zoo Z1"
 path = "{HUB}\\mlboydaisuke__RTMPose-Animal-AP10K-OpenVINO\\rtm_animal_fp16.onnx"
 sha256 = "401a657ea5aefcef95ebf321fe62906fb9d9322a484e26dd2bb0b4f49438a91f"

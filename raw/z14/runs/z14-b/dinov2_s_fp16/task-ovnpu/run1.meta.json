@@ -1,0 +1,75 @@
+{
+    "cell":  "dinov2_s_fp16/task-ovnpu",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z14-b",
+    "start":  "2026-11-11T15:21:22.1588189+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  2,
+                  "overlayAc":  "00000000-0000-0000-0000-000000000000",
+                  "overlayDc":  "00000000-0000-0000-0000-000000000000",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.31 core",
+                                            "powershell 4476 0.03 core",
+                                            "SearchIndexer 3400 0.03 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 49605 MHz, 14001 MHz, 18.52 W, 0 %, 0 MiB, 52",
+                   "availGB":  23.5
+               },
+    "command":  "C:\\src\\mz-z14\\.venv-z1-ort\\Scripts\\python.exe -u C:\\src\\mz-z14\\pc\\run_vision_task.py --model dinov2_s_fp16 --spec C:\\src\\mz-z14\\pc\\z5_spec.json --work C:\\src\\mz-z14\\work\\dinov2_s_fp16 --form fp32 --engine ort --ep openvino --ov-device NPU --out C:\\src\\mz-z14\\runs\\z14-b\\dinov2_s_fp16\\task-ovnpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  12072,
+                   "elapsedSeconds":  15.787,
+                   "peakWorkingSetBytes":  689565696,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00012799":  {
+                                                                    "shared":  0,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x00011F23":  {
+                                                                    "shared":  23,
+                                                                    "dedicated":  0
+                                                                },
+                                      "0x00000000_0x00013D59":  {
+                                                                    "shared":  113,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 8010 MHz, 14001 MHz, 18.43 W, 0 %, 0 MiB, 52",
+                                         "10s P0, 2437 MHz, 14001 MHz, 18.59 W, 0 %, 0 MiB, 52",
+                                         "15s P0, 15615 MHz, 14001 MHz, 18.52 W, 0 %, 0 MiB, 52"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  1.4,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.19 core",
+                                           "MSI.CentralServer 8400 0.02 core",
+                                           "Mystic_Light_Service 4728 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 1635 MHz, 14001 MHz, 18.48 W, 0 %, 0 MiB, 52"
+              },
+    "end":  "2026-11-11T15:21:39.8937755+09:00",
+    "tries":  1
+}

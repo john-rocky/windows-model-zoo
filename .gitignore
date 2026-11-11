@@ -12,11 +12,13 @@ models/index.json
 raw/*/
 !raw/z5/
 !raw/z6/
+!raw/z14/
 !raw/walk/
 !raw/walk-z9/
 !raw/walk-z12/
 # the vision task cells' outputs (npz, MB to tens of MB per cell) are not in this repo
 raw/z5/**/*.npz
+raw/z14/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 raw/walk-z12/**/*.npz

@@ -15,15 +15,15 @@
   "id": "z1-npu-blob",
   "label": "NPU blob",
   "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
-  "path": "C:\\src\\zoo\\blobs\\sinet.blob",
-  "from": null
+  "path": "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
+  "from": "mlboydaisuke/SINet-V2-Camouflage-OpenVINO"
  },
  "line": {
   "id": "task-mask",
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-mask: mIoU 0.96519 (pass mark mIoU at least 0.95)",
-  "reference": "raw/z5/refs/sinet/ref.json",
+  "reference": "raw/z14/refs/sinet/ref.json",
   "detail": {
    "miou": 0.96519,
    "iou_background": 0.98821,
@@ -34,22 +34,22 @@
   "text": "mIoU 0.96519"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/sinet/task-ovnpu_pre/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/sinet/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "sinet",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\sinet",
+   "C:\\src\\mz-z14\\work\\sinet",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\sinet\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -65,9 +65,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:28:30.638201+09:00",
-  "ended": "2026-11-10T07:28:31.211225+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:20:22.524978+09:00",
+  "ended": "2026-11-11T15:20:23.148324+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -76,7 +76,7 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 7.37,
+  "first_value": 7.38,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
@@ -85,18 +85,18 @@
   "load_ms": 19.0
  },
  "memory": {
-  "peak_ws_bytes": 171634688,
+  "peak_ws_bytes": 171356160,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -122,8 +122,8 @@
   "device_props": {
    "openvino": {
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
-    "DEVICE_LUID": "4c3e010000000000",
-    "NPU_DRIVER_VERSION": "1004841",
+    "DEVICE_LUID": "593d010000000000",
+    "NPU_DRIVER_VERSION": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
    }
@@ -133,14 +133,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\sinet\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\sinet\\inputs.npz",
    "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
    "bytes": 29742742,
    "n": 20
   },
   "model_file": {
    "what": "sinet form blob",
-   "path": "C:\\src\\zoo\\blobs\\sinet.blob",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
    "bytes": 53231745,
    "sha256": "2690b24fb5baff802c0be7f4f45630c9a4e4e513108a733c2faa5fb33d4a283d"
   },
@@ -419,7 +419,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\sinet\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 9917302,
    "sha256": "8f9e862704fd4192986b20af003856ced52264e6f087ca603fb30464431ecccf",
    "arrays": 20

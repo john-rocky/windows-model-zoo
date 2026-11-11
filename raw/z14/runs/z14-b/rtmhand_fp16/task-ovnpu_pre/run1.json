@@ -1,0 +1,98 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-11T15:20:09.297680+09:00",
+ "argv": [
+  "--model",
+  "rtmhand_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\mz-z14\\work\\rtmhand_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+  "--out",
+  "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu_pre\\run1.json"
+ ],
+ "pid": 11004,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "rtmhand",
+   "wall_s": 0.0020499999999401552,
+   "nonfinite": [
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "openvino": "2026.4.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "rtmhand_fp16 form blob",
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Hand-OpenVINO\\npu\\rtmhand_fp16.blob",
+  "bytes": 28946568,
+  "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c"
+ },
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\rtmhand_fp16\\inputs.npz",
+  "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
+  "bytes": 786742,
+  "n": 1
+ },
+ "load_s": 0.012,
+ "device": {
+  "openvino": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "DEVICE_LUID": "593d010000000000",
+   "NPU_DRIVER_VERSION": "1005540",
+   "NPU_COMPILER_VERSION": "524292",
+   "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
+  }
+ },
+ "session_providers": [
+  "OpenVINO 2026.4.1-22982-e213a147257-releases/2026/4 import_model NPU",
+  "NPU"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "blob",
+  "engine": "ovblob",
+  "ep": null,
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.005,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "bytes": 86534,
+  "sha256": "388122b742c6cac9a82defd5129a97135653275ba0ab2dd2c14ca5cc451d6263",
+  "arrays": 2
+ },
+ "summary": {
+  "clips": 1,
+  "inputs": 1,
+  "median_ms": 2.05,
+  "min_ms": 2.05,
+  "max_ms": 2.05,
+  "value": 2.05
+ },
+ "peak_working_set_bytes": 121667584,
+ "peak_pagefile_bytes": 601534464,
+ "ended": "2026-11-11T15:20:09.614620+09:00",
+ "process_s": 0.313
+}

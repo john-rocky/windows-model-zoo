@@ -15,15 +15,15 @@
   "id": "z1-npu-blob",
   "label": "NPU blob",
   "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
-  "path": "C:\\src\\zoo\\blobs\\mlsd_fp16.blob",
-  "from": null
+  "path": "{HUB}\\mlboydaisuke__M-LSD-tiny-OpenVINO\\npu\\mlsd_fp16.blob",
+  "from": "mlboydaisuke/M-LSD-tiny-OpenVINO"
  },
  "line": {
   "id": "task-line-segments",
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-line-segments: 9 segments paired, of the reference's 503 and the cell's 546 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/mlsd_fp16/ref.json",
+  "reference": "raw/z14/refs/mlsd_fp16/ref.json",
   "detail": {
    "pairs": 9,
    "ref_segments": 503,
@@ -35,22 +35,22 @@
   "text": "segments paired 9/503 of the reference's, 9/546 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/mlsd_fp16/task-ovnpu_pre/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/mlsd_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "mlsd_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\mlsd_fp16",
+   "C:\\src\\mz-z14\\work\\mlsd_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\mlsd_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -66,9 +66,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:23:34.981251+09:00",
-  "ended": "2026-11-10T07:23:35.551303+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:19:55.492381+09:00",
+  "ended": "2026-11-11T15:19:56.154539+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -77,27 +77,27 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 4.69,
+  "first_value": 4.661,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
   "load_s": 0.003,
-  "warmup_s": 0.01,
+  "warmup_s": 0.009,
   "load_ms": 3.0
  },
  "memory": {
-  "peak_ws_bytes": 121044992,
+  "peak_ws_bytes": 101998592,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -123,8 +123,8 @@
   "device_props": {
    "openvino": {
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
-    "DEVICE_LUID": "4c3e010000000000",
-    "NPU_DRIVER_VERSION": "1004841",
+    "DEVICE_LUID": "593d010000000000",
+    "NPU_DRIVER_VERSION": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
    }
@@ -134,14 +134,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\mlsd_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\mlsd_fp16\\inputs.npz",
    "sha256": "a98afc3ac1c66c9f1c6b82941b9af09486ada4ec525018e8f69db7e281fcff57",
    "bytes": 83891862,
    "n": 20
   },
   "model_file": {
    "what": "mlsd_fp16 form blob",
-   "path": "C:\\src\\zoo\\blobs\\mlsd_fp16.blob",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__M-LSD-tiny-OpenVINO\\npu\\mlsd_fp16.blob",
    "bytes": 2703489,
    "sha256": "6c5cbc4581ec2981b608c4d1d65570797cb5d2e5d6a324811d72d333e374cf5c"
   },
@@ -280,7 +280,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\mlsd_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 47190902,
    "sha256": "a66f2e906043cc62aa2f0e4066ed008738e256148b03f908bce799585cbc6e14",
    "arrays": 20

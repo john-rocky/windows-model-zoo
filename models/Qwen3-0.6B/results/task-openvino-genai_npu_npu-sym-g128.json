@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 12 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "reference": "raw/z14/refs/Qwen3-0.6B/ref.json",
   "detail": {
    "answers": {
     "agree": 9,
@@ -44,20 +44,20 @@
   "text": "answers 9/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-q06/Qwen3-0.6B/task-openvino-genai_npu_npu-sym-g128/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/Qwen3-0.6B/task-openvino-genai_npu_npu-sym-g128/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\mlboydaisuke__Qwen3-0.6B-int4-sym-g128-ov",
+   "C:\\src\\mz-z14\\hub\\mlboydaisuke__Qwen3-0.6B-int4-sym-g128-ov",
    "--device",
    "NPU",
    "--cache-dir",
-   "C:\\src\\zoo-template\\ovcache\\Qwen3-0.6B_npu_sym_g128",
+   "C:\\src\\mz-z14\\ovcache\\Qwen3-0.6B_npu_sym_g128",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "C:\\src\\mz-z14\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-q06\\Qwen3-0.6B\\task-openvino-genai_npu_npu-sym-g128\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\Qwen3-0.6B\\task-openvino-genai_npu_npu-sym-g128\\run1.json"
   ]
  },
  "note": [
@@ -73,9 +73,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-q06",
-  "started": "2026-11-10T09:33:11.811568+09:00",
-  "ended": "2026-11-10T09:33:29.259501+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:13:54.025792+09:00",
+  "ended": "2026-11-11T15:14:09.888317+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -88,15 +88,15 @@
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 10.459,
-  "warmup_s": 0.369,
-  "peak_working_set_mb": 1573,
+  "load_s": 9.364,
+  "warmup_s": 0.329,
+  "peak_working_set_mb": 1579,
   "ttft_ms": null
  },
  "memory": {
-  "peak_ws_bytes": 1649344512,
+  "peak_ws_bytes": 1656164352,
   "gpu_mib": {
-   "0x00000000_0x00013E4C": {
+   "0x00000000_0x00013D59": {
     "shared": 1271,
     "dedicated": 0
    }
@@ -104,13 +104,13 @@
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -272,7 +272,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "ref": "C:\\src\\mz-z14\\refs\\Qwen3-0.6B\\ref.json",
    "prompts": 21,
    "device": "NPU",
    "pipeline": "llm",

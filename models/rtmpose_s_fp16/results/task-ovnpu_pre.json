@@ -15,15 +15,15 @@
   "id": "z1-npu-blob",
   "label": "NPU blob",
   "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
-  "path": "C:\\src\\zoo\\blobs\\rtmpose_s_fp16.blob",
-  "from": null
+  "path": "{HUB}\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
+  "from": "mlboydaisuke/RTMPose-s-OpenVINO"
  },
  "line": {
   "id": "task-keypoints",
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)",
-  "reference": "raw/z5/refs/rtmpose_s_fp16/ref.json",
+  "reference": "raw/z14/refs/rtmpose_s_fp16/ref.json",
   "detail": {
    "agree": 53,
    "shown_either": 60,
@@ -35,22 +35,22 @@
   "text": "points agree 53/60 of those shown"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/rtmpose_s_fp16/task-ovnpu_pre/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/rtmpose_s_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "rtmpose_s_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\rtmpose_s_fp16",
+   "C:\\src\\mz-z14\\work\\rtmpose_s_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -66,9 +66,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:27:33.078388+09:00",
-  "ended": "2026-11-10T07:27:33.348711+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:20:13.196073+09:00",
+  "ended": "2026-11-11T15:20:13.479179+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -77,27 +77,27 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 1.216,
+  "first_value": 1.313,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 0.007,
-  "warmup_s": 0.004,
-  "load_ms": 7.0
+  "load_s": 0.006,
+  "warmup_s": 0.005,
+  "load_ms": 6.0
  },
  "memory": {
-  "peak_ws_bytes": 2666496,
+  "peak_ws_bytes": 2437120,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -131,8 +131,8 @@
   "device_props": {
    "openvino": {
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
-    "DEVICE_LUID": "4c3e010000000000",
-    "NPU_DRIVER_VERSION": "1004841",
+    "DEVICE_LUID": "593d010000000000",
+    "NPU_DRIVER_VERSION": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
    }
@@ -142,14 +142,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\rtmpose_s_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\rtmpose_s_fp16\\inputs.npz",
    "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
    "bytes": 2950582,
    "n": 5
   },
   "model_file": {
    "what": "rtmpose_s_fp16 form blob",
-   "path": "C:\\src\\zoo\\blobs\\rtmpose_s_fp16.blob",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
    "bytes": 11858056,
    "sha256": "e080cbbab273a719570224f9795a1b88873b0ff8246f051a7b0316d5b78239ed"
   },
@@ -193,7 +193,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 307142,
    "sha256": "d8d46f7592fc31e1897c50b5bf8d6d32caffb9215876d0f730800cef36f05f9c",
    "arrays": 10

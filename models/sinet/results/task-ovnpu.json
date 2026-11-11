@@ -14,16 +14,16 @@
  "form": {
   "id": "z1-onnx-fp32",
   "label": "fp32",
-  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
-  "path": "C:\\src\\zoo\\onnx\\sinet.onnx",
-  "from": null
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
+  "path": "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\sinet.onnx",
+  "from": "mlboydaisuke/SINet-V2-Camouflage-OpenVINO"
  },
  "line": {
   "id": "task-mask",
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-mask: mIoU 0.96519 (pass mark mIoU at least 0.95)",
-  "reference": "raw/z5/refs/sinet/ref.json",
+  "reference": "raw/z14/refs/sinet/ref.json",
   "detail": {
    "miou": 0.96519,
    "iou_background": 0.98821,
@@ -34,16 +34,16 @@
   "text": "mIoU 0.96519"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/sinet/task-ovnpu/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/sinet/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "sinet",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\sinet",
+   "C:\\src\\mz-z14\\work\\sinet",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\sinet\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -69,9 +69,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:28:18.627960+09:00",
-  "ended": "2026-11-10T07:28:24.781861+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:22:30.761717+09:00",
+  "ended": "2026-11-11T15:22:36.968996+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -80,26 +80,26 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 7.109,
+  "first_value": 7.659,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 4.451,
-  "warmup_s": 0.013,
-  "load_ms": 4451.0
+  "load_s": 4.652,
+  "warmup_s": 0.016,
+  "load_ms": 4652.0
  },
  "memory": {
-  "peak_ws_bytes": 537817088,
+  "peak_ws_bytes": 537358336,
   "gpu_mib": {
-   "0x00000000_0x00012C48": {
+   "0x00000000_0x00012799": {
     "shared": 0,
     "dedicated": 0
    },
-   "0x00000000_0x0001260E": {
+   "0x00000000_0x00011F23": {
     "shared": 23,
     "dedicated": 0
    },
-   "0x00000000_0x00013E4C": {
+   "0x00000000_0x00013D59": {
     "shared": 95,
     "dedicated": 0
    }
@@ -107,13 +107,13 @@
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -141,10 +141,10 @@
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
     "ov_device": "NPU",
     "version": "1.8.1+95d534b.ci.79",
-    "os_driver_version": "1004841",
+    "os_driver_version": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "DEVICE_ARCHITECTURE": "5010",
-    "DEVICE_LUID": "4c3e010000000000"
+    "DEVICE_LUID": "593d010000000000"
    }
   },
   "providers": [
@@ -152,14 +152,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\sinet\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\sinet\\inputs.npz",
    "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
    "bytes": 29742742,
    "n": 20
   },
   "model_file": {
    "what": "sinet form fp32",
-   "path": "C:\\src\\zoo\\onnx\\sinet.onnx",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\sinet.onnx",
    "bytes": 100287293,
    "sha256": "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434"
   },
@@ -438,7 +438,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\sinet\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu\\run1.outputs.npz",
    "bytes": 9917302,
    "sha256": "8f9e862704fd4192986b20af003856ced52264e6f087ca603fb30464431ecccf",
    "arrays": 20

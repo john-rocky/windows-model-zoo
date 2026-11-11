@@ -14,16 +14,16 @@
  "form": {
   "id": "z1-onnx-fp32",
   "label": "fp32",
-  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
-  "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
-  "from": null
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
+  "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\rtmhand_fp16.onnx",
+  "from": "mlboydaisuke/RTMPose-Hand-OpenVINO"
  },
  "line": {
   "id": "task-keypoints",
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-keypoints: 21 of 21 points shown by either side agree (pass mark 95 %)",
-  "reference": "raw/z5/refs/rtmhand_fp16/ref.json",
+  "reference": "raw/z14/refs/rtmhand_fp16/ref.json",
   "detail": {
    "agree": 21,
    "shown_either": 21,
@@ -35,16 +35,16 @@
   "text": "points agree 21/21 of those shown"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/rtmhand_fp16/task-ovnpu/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/rtmhand_fp16/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "rtmhand_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\rtmhand_fp16",
+   "C:\\src\\mz-z14\\work\\rtmhand_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -54,7 +54,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -70,9 +70,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:27:00.513078+09:00",
-  "ended": "2026-11-10T07:27:03.309103+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:22:06.178819+09:00",
+  "ended": "2026-11-11T15:22:08.780048+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -81,26 +81,26 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 1.811,
+  "first_value": 1.826,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 1.287,
-  "warmup_s": 0.005,
-  "load_ms": 1287.0
+  "load_s": 1.232,
+  "warmup_s": 0.006,
+  "load_ms": 1232.0
  },
  "memory": {
-  "peak_ws_bytes": 397365248,
+  "peak_ws_bytes": 398127104,
   "gpu_mib": {
-   "0x00000000_0x00012C48": {
+   "0x00000000_0x00012799": {
     "shared": 0,
     "dedicated": 0
    },
-   "0x00000000_0x0001260E": {
+   "0x00000000_0x00011F23": {
     "shared": 23,
     "dedicated": 0
    },
-   "0x00000000_0x00013E4C": {
+   "0x00000000_0x00013D59": {
     "shared": 0,
     "dedicated": 0
    }
@@ -108,13 +108,13 @@
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -150,10 +150,10 @@
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
     "ov_device": "NPU",
     "version": "1.8.1+95d534b.ci.79",
-    "os_driver_version": "1004841",
+    "os_driver_version": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "DEVICE_ARCHITECTURE": "5010",
-    "DEVICE_LUID": "4c3e010000000000"
+    "DEVICE_LUID": "593d010000000000"
    }
   },
   "providers": [
@@ -161,14 +161,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\rtmhand_fp16\\inputs.npz",
    "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
    "bytes": 786742,
    "n": 1
   },
   "model_file": {
    "what": "rtmhand_fp16 form fp32",
-   "path": "C:\\src\\zoo\\onnx\\rtmhand_fp16.onnx",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Hand-OpenVINO\\rtmhand_fp16.onnx",
    "bytes": 55523602,
    "sha256": "d67dd75c36113cc9ce085b087a1cd7a23f65f30b0687b161cd4c708f040df136"
   },
@@ -192,7 +192,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu\\run1.outputs.npz",
    "bytes": 86534,
    "sha256": "388122b742c6cac9a82defd5129a97135653275ba0ab2dd2c14ca5cc451d6263",
    "arrays": 2

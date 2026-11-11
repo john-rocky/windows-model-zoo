@@ -35,7 +35,7 @@ public = "mlboydaisuke/M-LSD-tiny-OpenVINO@db488937a8c23fa5f2f6b59f5be70b5044960
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
 made_by = "the vision zoo Z1"
 path = "{HUB}\\mlboydaisuke__M-LSD-tiny-OpenVINO\\mlsd_fp16.onnx"
 sha256 = "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537"

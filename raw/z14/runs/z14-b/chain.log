@@ -1,0 +1,83 @@
+[2026-11-11T15:10:15.4464412+09:00] chain start: plan C:\src\mz-z14\pc\plans\z14-b.json mode first, 40 units, pid 4476
+[2026-11-11T15:10:26.2055977+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-11T15:10:28.4000510+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:11:29.2526368+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 58.866 s
+[2026-11-11T15:11:31.2006371+09:00] control-knowna/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:12:16.8158438+09:00] control-knowna/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 43.707 s
+[2026-11-11T15:12:18.7526446+09:00] control-knownb/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:13:04.4815249+09:00] control-knownb/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 43.831 s
+[2026-11-11T15:13:06.3867597+09:00] control-knownc/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:13:51.8897207+09:00] control-knownc/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 43.59 s
+[2026-11-11T15:13:53.8264025+09:00] Qwen3-0.6B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:14:11.8519251+09:00] Qwen3-0.6B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 16.851 s
+[2026-11-11T15:14:13.7971341+09:00] Qwen3-4B/task-openvino-genai_npu_npu-sym-g128 run 1 start
+[2026-11-11T15:15:18.0145709+09:00] Qwen3-4B/task-openvino-genai_npu_npu-sym-g128 run 1 end: exit 0, OK, 62.321 s
+[2026-11-11T15:15:19.9521098+09:00] gemma-4-E2B-it/task-openvino-genai_npu_npu run 1 start
+[2026-11-11T15:16:51.4290107+09:00] gemma-4-E2B-it/task-openvino-genai_npu_npu run 1 end: exit 0, OK, 89.574 s
+[2026-11-11T15:16:53.3676448+09:00] gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw run 1 start
+[2026-11-11T15:18:48.3544899+09:00] gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw run 1 end: exit 0, OK, 113.088 s
+[2026-11-11T15:18:50.2979471+09:00] gemma-4-E2B-it/task-litert-lm_npu_npu run 1 start
+[2026-11-11T15:19:40.2535191+09:00] gemma-4-E2B-it/task-litert-lm_npu_npu run 1 end: exit 0, OK, 48.044 s
+[2026-11-11T15:19:42.2080683+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:19:47.8164797+09:00] dfine_graphB_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 3.642 s
+[2026-11-11T15:19:49.7777510+09:00] dinov2_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:19:53.3151878+09:00] dinov2_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.657 s
+[2026-11-11T15:19:55.2885741+09:00] mlsd_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:19:58.3110417+09:00] mlsd_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.077 s
+[2026-11-11T15:20:00.2618773+09:00] rtm_animal_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:02.7060126+09:00] rtm_animal_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.557 s
+[2026-11-11T15:20:04.6771722+09:00] rtm_face_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:07.1334386+09:00] rtm_face_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.553 s
+[2026-11-11T15:20:09.0726893+09:00] rtmhand_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:11.5462426+09:00] rtmhand_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.555 s
+[2026-11-11T15:20:12.9717101+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:15.4364222+09:00] rtmpose_s_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 0.552 s
+[2026-11-11T15:20:17.4136390+09:00] rtmw_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:20.3774025+09:00] rtmw_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.085 s
+[2026-11-11T15:20:22.3011477+09:00] sinet/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:25.2950130+09:00] sinet/task-ovnpu_pre run 1 end: exit 0, OK, 1.095 s
+[2026-11-11T15:20:27.2213839+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:30.2128513+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 1.084 s
+[2026-11-11T15:20:32.1730248+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:40.7314611+09:00] w2v2_frontend_fp16/task-ovnpu_pre run 1 end: exit 0, OK, 6.658 s
+[2026-11-11T15:20:42.6426533+09:00] sam2_decoder/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:46.1638619+09:00] sam2_decoder/task-ovnpu_pre run 1 end: exit 0, OK, 1.59 s
+[2026-11-11T15:20:48.1160911+09:00] sam2_decoder_fixed/task-ovnpu_pre run 1 start
+[2026-11-11T15:20:51.6246293+09:00] sam2_decoder_fixed/task-ovnpu_pre run 1 end: exit 0, OK, 1.595 s
+[2026-11-11T15:20:53.5538986+09:00] dfine_graphB_fp16/task-ovnpu run 1 start
+[2026-11-11T15:21:20.2540908+09:00] dfine_graphB_fp16/task-ovnpu run 1 end: exit 0, OK, 24.813 s
+[2026-11-11T15:21:22.2062683+09:00] dinov2_s_fp16/task-ovnpu run 1 start
+[2026-11-11T15:21:39.9050800+09:00] dinov2_s_fp16/task-ovnpu run 1 end: exit 0, OK, 15.787 s
+[2026-11-11T15:21:41.8626402+09:00] mlsd_fp16/task-ovnpu run 1 start
+[2026-11-11T15:21:48.0077052+09:00] mlsd_fp16/task-ovnpu run 1 end: exit 0, OK, 4.186 s
+[2026-11-11T15:21:49.9515137+09:00] rtm_animal_fp16/task-ovnpu run 1 start
+[2026-11-11T15:21:56.0111593+09:00] rtm_animal_fp16/task-ovnpu run 1 end: exit 0, OK, 4.119 s
+[2026-11-11T15:21:57.9668197+09:00] rtm_face_fp16/task-ovnpu run 1 start
+[2026-11-11T15:22:04.0180063+09:00] rtm_face_fp16/task-ovnpu run 1 end: exit 0, OK, 4.149 s
+[2026-11-11T15:22:05.9570100+09:00] rtmhand_fp16/task-ovnpu run 1 start
+[2026-11-11T15:22:12.0841900+09:00] rtmhand_fp16/task-ovnpu run 1 end: exit 0, OK, 4.193 s
+[2026-11-11T15:22:14.0356997+09:00] rtmpose_s_fp16/task-ovnpu run 1 start
+[2026-11-11T15:22:18.8870699+09:00] rtmpose_s_fp16/task-ovnpu run 1 end: exit 0, OK, 3.591 s
+[2026-11-11T15:22:20.8391949+09:00] rtmw_fp16/task-ovnpu run 1 start
+[2026-11-11T15:22:28.6045658+09:00] rtmw_fp16/task-ovnpu run 1 end: exit 0, OK, 5.858 s
+[2026-11-11T15:22:30.5345862+09:00] sinet/task-ovnpu run 1 start
+[2026-11-11T15:22:40.0597203+09:00] sinet/task-ovnpu run 1 end: exit 0, OK, 7.608 s
+[2026-11-11T15:22:42.0208135+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu run 1 start
+[2026-11-11T15:22:48.0843838+09:00] ssdlite_mobilenetv3_320_fp16/task-ovnpu run 1 end: exit 0, OK, 4.152 s
+[2026-11-11T15:22:50.0405349+09:00] w2v2_frontend_fp16/task-ovnpu run 1 start
+[2026-11-11T15:23:02.4045776+09:00] w2v2_frontend_fp16/task-ovnpu run 1 end: exit 0, OK, 10.44 s
+[2026-11-11T15:23:04.3265009+09:00] ppocr_det_fp16/task-ovnpu run 1 start
+[2026-11-11T15:24:47.5876197+09:00] ppocr_det_fp16/task-ovnpu run 1 end: exit 0, OK, 101.349 s
+[2026-11-11T15:24:49.5300826+09:00] Qwen3-1.7B/ovg-int8-sym-npu run 1 start
+[2026-11-11T15:25:14.8634232+09:00] Qwen3-1.7B/ovg-int8-sym-npu run 1 end: exit 0, OK, 23.418 s
+[2026-11-11T15:25:16.8182660+09:00] Qwen3-0.6B/ovg-int8-sym-npu run 1 start
+[2026-11-11T15:25:32.6838780+09:00] Qwen3-0.6B/ovg-int8-sym-npu run 1 end: exit 0, OK, 13.941 s
+[2026-11-11T15:25:34.6382702+09:00] z2short/Qwen3-0.6B-g128 run 1 start
+[2026-11-11T15:25:43.8423767+09:00] z2short/Qwen3-0.6B-g128 run 1 end: exit 0, OK, 8.027 s
+[2026-11-11T15:25:45.4467803+09:00] z2short/Qwen3-1.7B-g128 run 1 start
+[2026-11-11T15:26:06.8955100+09:00] z2short/Qwen3-1.7B-g128 run 1 end: exit 0, OK, 19.5 s
+[2026-11-11T15:26:08.8503495+09:00] z2short/Qwen3-4B-g128 run 1 start
+[2026-11-11T15:26:37.9223474+09:00] z2short/Qwen3-4B-g128 run 1 end: exit 0, OK, 27.134 s
+[2026-11-11T15:26:39.8710035+09:00] z2short/gemma-4-E4B-cw run 1 start
+[2026-11-11T15:27:15.3546677+09:00] z2short/gemma-4-E4B-cw run 1 end: exit 0, OK, 33.54 s
+[2026-11-11T15:27:15.3776493+09:00] chain done: OK

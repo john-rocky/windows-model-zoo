@@ -1,0 +1,65 @@
+{
+    "cell":  "mlsd_fp16/task-ovnpu_pre",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z14-b",
+    "start":  "2026-11-11T15:19:55.2475180+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  2,
+                  "overlayAc":  "00000000-0000-0000-0000-000000000000",
+                  "overlayDc":  "00000000-0000-0000-0000-000000000000",
+                  "battery":  "status 2, 96 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.5,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.3 core",
+                                            "svchost 5076 0.03 core",
+                                            "MSI.CentralServer 8400 0.02 core",
+                                            "SearchProtocolHost 8392 0.02 core",
+                                            "MsMpEng 5348 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 532 MHz, 14001 MHz, 18.67 W, 0 %, 0 MiB, 52",
+                   "availGB":  23.5
+               },
+    "command":  "C:\\src\\mz-z14\\.venv-z1-ov\\Scripts\\python.exe -u C:\\src\\mz-z14\\pc\\run_vision_task.py --model mlsd_fp16 --spec C:\\src\\mz-z14\\pc\\z5_spec.json --work C:\\src\\mz-z14\\work\\mlsd_fp16 --form blob --engine ovblob --out C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  2156,
+                   "elapsedSeconds":  1.077,
+                   "peakWorkingSetBytes":  101998592,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  0.5,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.03 core",
+                                           "Mystic_Light_Service 4728 0.02 core",
+                                           "powershell 4476 0.02 core",
+                                           "NVDisplay.Container 3056 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 4627 MHz, 14001 MHz, 18.61 W, 0 %, 0 MiB, 52"
+              },
+    "end":  "2026-11-11T15:19:58.2677462+09:00",
+    "tries":  1
+}

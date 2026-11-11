@@ -1,0 +1,236 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-11T15:21:22.424470+09:00",
+ "argv": [
+  "--model",
+  "dinov2_s_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\mz-z14\\work\\dinov2_s_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "NPU",
+  "--out",
+  "C:\\src\\mz-z14\\runs\\z14-b\\dinov2_s_fp16\\task-ovnpu\\run1.json"
+ ],
+ "pid": 12072,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.04430039999999735,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.03946980000000622,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.03661679999993339,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.03418310000006386,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.03109719999997651,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.02964750000001004,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.027944499999989603,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.02735989999996491,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.02885839999999007,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.027359799999999268,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.02749560000006568,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.02720580000004702,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.02787080000007336,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.02759779999996681,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.02684149999993224,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.02660379999997531,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.027407300000049872,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.026732499999980064,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.028948099999979604,
+   "nonfinite": [
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.027032299999973475,
+   "nonfinite": [
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "dinov2_s_fp16 form fp32",
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\dinov2_s_fp16.onnx",
+  "bytes": 87855002,
+  "sha256": "8f36d01fe1635da9d09b4958e17a9b43c8b25438a4422e59cab1f4414d506625"
+ },
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\dinov2_s_fp16\\inputs.npz",
+  "sha256": "f9b2413ab8186edcf8b27f30bfafd890250d5215994785f5997de33178bfc5b6",
+  "bytes": 48174742,
+  "n": 20
+ },
+ "load_s": 11.915,
+ "device": {
+  "openvino_ep": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "ov_device": "NPU",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": "1005540",
+   "NPU_COMPILER_VERSION": "524292",
+   "DEVICE_ARCHITECTURE": "5010",
+   "DEVICE_LUID": "593d010000000000"
+  }
+ },
+ "session_providers": [
+  "OpenVINOExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "retrieval",
+  "form": "fp32",
+  "engine": "ort",
+  "ep": "openvino",
+  "ov_device": "NPU",
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.052,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\runs\\z14-b\\dinov2_s_fp16\\task-ovnpu\\run1.outputs.npz",
+  "bytes": 31462262,
+  "sha256": "52adae4d908b156a2355491c3f8d8eebdc51ab35b318139f61bd35220fe2bb60",
+  "arrays": 20
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 27.871,
+  "min_ms": 26.604,
+  "max_ms": 44.3,
+  "value": 27.871
+ },
+ "peak_working_set_bytes": 689565696,
+ "peak_pagefile_bytes": 1140436992,
+ "ended": "2026-11-11T15:21:36.568975+09:00",
+ "process_s": 14.133
+}

@@ -15,15 +15,15 @@
   "id": "z1-npu-blob",
   "label": "NPU blob",
   "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
-  "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
-  "from": null
+  "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\npu\\sam2_decoder.blob",
+  "from": "mlboydaisuke/SAM2-hiera-tiny-OpenVINO"
  },
  "line": {
   "id": "task-mask",
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-mask: mIoU 0.52338 (pass mark mIoU at least 0.95)",
-  "reference": "raw/z5/refs/sam2_decoder/ref.json",
+  "reference": "raw/z14/refs/sam2_decoder/ref.json",
   "detail": {
    "miou": 0.52338,
    "iou_background": 0.60721,
@@ -34,22 +34,22 @@
   "text": "mIoU 0.52338"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/sam2_decoder/task-ovnpu_pre/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/sam2_decoder/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "sam2_decoder",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\sam2_decoder",
+   "C:\\src\\mz-z14\\work\\sam2_decoder",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\sam2_decoder\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\sam2_decoder\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -65,9 +65,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:28:07.656240+09:00",
-  "ended": "2026-11-10T07:28:08.594131+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:20:42.880651+09:00",
+  "ended": "2026-11-11T15:20:43.935558+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -76,27 +76,27 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 10.366,
+  "first_value": 10.464,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 0.01,
-  "warmup_s": 0.025,
-  "load_ms": 10.0
+  "load_s": 0.009,
+  "warmup_s": 0.024,
+  "load_ms": 9.0
  },
  "memory": {
-  "peak_ws_bytes": 191574016,
+  "peak_ws_bytes": 186556416,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -122,8 +122,8 @@
   "device_props": {
    "openvino": {
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
-    "DEVICE_LUID": "4c3e010000000000",
-    "NPU_DRIVER_VERSION": "1004841",
+    "DEVICE_LUID": "593d010000000000",
+    "NPU_DRIVER_VERSION": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
    }
@@ -133,14 +133,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\sam2_decoder\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\sam2_decoder\\inputs.npz",
    "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
    "bytes": 335591062,
    "n": 20
   },
   "model_file": {
    "what": "sam2_decoder form blob",
-   "path": "C:\\src\\zoo\\blobs\\sam2_decoder.blob",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\unfixed\\npu\\sam2_decoder.blob",
    "bytes": 21188737,
    "sha256": "5f2c7ac3b608fdb07f6166fb4e5a03a419d24e208008d0eb2b82317cb8c43b03"
   },
@@ -419,7 +419,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\sam2_decoder\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\sam2_decoder\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 15733622,
    "sha256": "4c4229e109012d50df8bbd608e9ffdb2f34544507780fa639cfcc0b295beae65",
    "arrays": 20

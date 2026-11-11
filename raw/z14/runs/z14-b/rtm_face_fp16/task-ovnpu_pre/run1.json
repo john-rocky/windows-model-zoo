@@ -1,0 +1,122 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-11T15:20:04.901402+09:00",
+ "argv": [
+  "--model",
+  "rtm_face_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\mz-z14\\work\\rtm_face_fp16",
+  "--form",
+  "blob",
+  "--engine",
+  "ovblob",
+  "--out",
+  "C:\\src\\mz-z14\\runs\\z14-b\\rtm_face_fp16\\task-ovnpu_pre\\run1.json"
+ ],
+ "pid": 5592,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "gaze",
+   "wall_s": 0.003441299999963121,
+   "nonfinite": [
+    26624,
+    26624
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.003797299999973802,
+   "nonfinite": [
+    47616,
+    47616
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.0037856000000147105,
+   "nonfinite": [
+    50176,
+    50176
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.003681199999959972,
+   "nonfinite": [
+    50176,
+    50176
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "openvino": "2026.4.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "rtm_face_fp16 form blob",
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Face-WFLW-OpenVINO\\npu\\rtm_face_fp16.blob",
+  "bytes": 35307656,
+  "sha256": "6008d7f2982348d28dbc4b5efa6e8e0c16a4e0165f69988c45f436ff62526e6c"
+ },
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\rtm_face_fp16\\inputs.npz",
+  "sha256": "acae01f4219eeecaa9cbe2ab0e071deafb27b2e868ad6892261149db2f80aa7d",
+  "bytes": 3146902,
+  "n": 4
+ },
+ "load_s": 0.013,
+ "device": {
+  "openvino": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "DEVICE_LUID": "593d010000000000",
+   "NPU_DRIVER_VERSION": "1005540",
+   "NPU_COMPILER_VERSION": "524292",
+   "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
+  }
+ },
+ "session_providers": [
+  "OpenVINO 2026.4.1-22982-e213a147257-releases/2026/4 import_model NPU",
+  "NPU"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "keypoints",
+  "form": "blob",
+  "engine": "ovblob",
+  "ep": null,
+  "ov_device": null,
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.007,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtm_face_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "bytes": 1607638,
+  "sha256": "546d589a6ce40bf25efa5790b5903b3f31c18056d237d6abb1ed06eb411e5097",
+  "arrays": 8
+ },
+ "summary": {
+  "clips": 4,
+  "inputs": 4,
+  "median_ms": 3.786,
+  "min_ms": 3.441,
+  "max_ms": 3.797,
+  "value": 3.786
+ },
+ "peak_working_set_bytes": 140972032,
+ "peak_pagefile_bytes": 614760448,
+ "ended": "2026-11-11T15:20:05.216857+09:00",
+ "process_s": 0.314
+}

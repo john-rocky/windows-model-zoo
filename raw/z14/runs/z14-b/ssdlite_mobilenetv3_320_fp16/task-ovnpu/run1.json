@@ -1,0 +1,456 @@
+{
+ "runner": "run_vision_task.py",
+ "started": "2026-11-11T15:22:42.220655+09:00",
+ "argv": [
+  "--model",
+  "ssdlite_mobilenetv3_320_fp16",
+  "--spec",
+  "C:\\src\\mz-z14\\pc\\z5_spec.json",
+  "--work",
+  "C:\\src\\mz-z14\\work\\ssdlite_mobilenetv3_320_fp16",
+  "--form",
+  "fp32",
+  "--engine",
+  "ort",
+  "--ep",
+  "openvino",
+  "--ov-device",
+  "NPU",
+  "--out",
+  "C:\\src\\mz-z14\\runs\\z14-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.json"
+ ],
+ "pid": 5816,
+ "status": "OK",
+ "power_throttling": {
+  "execution_speed_throttling": "off (High QoS)",
+  "set_ok": true,
+  "error": 0,
+  "s_after_zoolib_import": 0.001
+ },
+ "rows": [
+  {
+   "id": "dfine",
+   "wall_s": 0.001651499999979933,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dinov2",
+   "wall_s": 0.0015883999999459775,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "gaze",
+   "wall_s": 0.0015326000000186468,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hsemotion",
+   "wall_s": 0.00152580000008129,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lowlight",
+   "wall_s": 0.0015078000001267355,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "metric3d",
+   "wall_s": 0.0021464999999807333,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "migan",
+   "wall_s": 0.0014965999998821644,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "mlsd",
+   "wall_s": 0.0015474000001631794,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nafnet",
+   "wall_s": 0.001541099999940343,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "neuralstyle",
+   "wall_s": 0.0015472000000045227,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "nima",
+   "wall_s": 0.0014624000000367232,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "places365",
+   "wall_s": 0.0014848000000711181,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "ppocr",
+   "wall_s": 0.0027116000001115026,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmanimal",
+   "wall_s": 0.0015494000001581298,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmface",
+   "wall_s": 0.0015470000000732398,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmhand",
+   "wall_s": 0.0015472000000045227,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rtmpose",
+   "wall_s": 0.001545099999930244,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "saliency",
+   "wall_s": 0.001512299999831157,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tddfa",
+   "wall_s": 0.001537099999950442,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "yunet",
+   "wall_s": 0.001485199999933684,
+   "nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "versions": {
+  "python": "3.12.16",
+  "onnxruntime": "1.31.1",
+  "onnxruntime-ep-openvino": "1.8.1",
+  "numpy": "2.5.4"
+ },
+ "model": {
+  "what": "ssdlite_mobilenetv3_320_fp16 form fp32",
+  "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\ssdlite_mobilenetv3_320_fp16.onnx",
+  "bytes": 14257939,
+  "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
+ },
+ "inputs": {
+  "path": "C:\\src\\mz-z14\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+  "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
+  "bytes": 24581782,
+  "n": 20
+ },
+ "load_s": 1.16,
+ "device": {
+  "openvino_ep": {
+   "FULL_DEVICE_NAME": "Intel(R) AI Boost",
+   "ov_device": "NPU",
+   "version": "1.8.1+95d534b.ci.79",
+   "os_driver_version": "1005540",
+   "NPU_COMPILER_VERSION": "524292",
+   "DEVICE_ARCHITECTURE": "5010",
+   "DEVICE_LUID": "593d010000000000"
+  }
+ },
+ "session_providers": [
+  "OpenVINOExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "workload": {
+  "set": "images",
+  "task": "detection",
+  "form": "fp32",
+  "engine": "ort",
+  "ep": "openvino",
+  "ov_device": "NPU",
+  "frames": null,
+  "downstream": null,
+  "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
+ },
+ "warmup_s": 0.004,
+ "outputs": {
+  "path": "C:\\src\\mz-z14\\runs\\z14-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.outputs.npz",
+  "bytes": 24638022,
+  "sha256": "99bc3caa42a074db704d6f068684c75be71bbefadd78c05e9169fbbb3f2fc205",
+  "arrays": 240
+ },
+ "summary": {
+  "clips": 20,
+  "inputs": 20,
+  "median_ms": 1.545,
+  "min_ms": 1.462,
+  "max_ms": 2.712,
+  "value": 1.545
+ },
+ "peak_working_set_bytes": 323641344,
+ "peak_pagefile_bytes": 771780608,
+ "ended": "2026-11-11T15:22:44.798709+09:00",
+ "process_s": 2.577
+}

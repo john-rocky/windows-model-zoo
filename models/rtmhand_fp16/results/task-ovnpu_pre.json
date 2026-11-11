@@ -15,15 +15,15 @@
   "id": "z1-npu-blob",
   "label": "NPU blob",
   "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
-  "path": "C:\\src\\zoo\\blobs\\rtmhand_fp16.blob",
-  "from": null
+  "path": "{HUB}\\mlboydaisuke__RTMPose-Hand-OpenVINO\\npu\\rtmhand_fp16.blob",
+  "from": "mlboydaisuke/RTMPose-Hand-OpenVINO"
  },
  "line": {
   "id": "task-keypoints",
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-keypoints: 21 of 21 points shown by either side agree (pass mark 95 %)",
-  "reference": "raw/z5/refs/rtmhand_fp16/ref.json",
+  "reference": "raw/z14/refs/rtmhand_fp16/ref.json",
   "detail": {
    "agree": 21,
    "shown_either": 21,
@@ -35,22 +35,22 @@
   "text": "points agree 21/21 of those shown"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/rtmhand_fp16/task-ovnpu_pre/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/rtmhand_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "rtmhand_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\rtmhand_fp16",
+   "C:\\src\\mz-z14\\work\\rtmhand_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -66,9 +66,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:27:08.535902+09:00",
-  "ended": "2026-11-10T07:27:08.821414+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:20:09.297680+09:00",
+  "ended": "2026-11-11T15:20:09.614620+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -77,7 +77,7 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 1.955,
+  "first_value": 2.05,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
@@ -86,18 +86,18 @@
   "load_ms": 12.0
  },
  "memory": {
-  "peak_ws_bytes": 2662400,
+  "peak_ws_bytes": 2441216,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -131,8 +131,8 @@
   "device_props": {
    "openvino": {
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
-    "DEVICE_LUID": "4c3e010000000000",
-    "NPU_DRIVER_VERSION": "1004841",
+    "DEVICE_LUID": "593d010000000000",
+    "NPU_DRIVER_VERSION": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "NPU_COMPILER_TYPE": "CompilerType.PREFER_PLUGIN"
    }
@@ -142,14 +142,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\rtmhand_fp16\\inputs.npz",
    "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
    "bytes": 786742,
    "n": 1
   },
   "model_file": {
    "what": "rtmhand_fp16 form blob",
-   "path": "C:\\src\\zoo\\blobs\\rtmhand_fp16.blob",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-Hand-OpenVINO\\npu\\rtmhand_fp16.blob",
    "bytes": 28946568,
    "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c"
   },
@@ -173,7 +173,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtmhand_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 86534,
    "sha256": "388122b742c6cac9a82defd5129a97135653275ba0ab2dd2c14ca5cc451d6263",
    "arrays": 2

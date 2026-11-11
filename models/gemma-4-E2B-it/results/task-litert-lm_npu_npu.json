@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 18 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 20 of 20 right by the answer key",
-  "reference": "raw/z6/refs/gemma-4-E2B-it/ref.json",
+  "reference": "raw/z14/refs/gemma-4-E2B-it/ref.json",
   "detail": {
    "answers": {
     "agree": 18,
@@ -44,24 +44,24 @@
   "text": "answers 18/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-e2b/gemma-4-E2B-it/task-litert-lm_npu_npu/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/gemma-4-E2B-it/task-litert-lm_npu_npu/run1.json",
   "runner": "run_llm_litert.py",
   "argv": [
    "--exe",
-   "C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe",
+   "C:\\src\\mz-z14\\engines\\litert\\litert_lm_advanced_main_windows.exe",
    "--model",
-   "C:\\src\\zoo-template\\work\\litert\\npu\\gemma-4-E2B-it_intel_PTL.litertlm",
+   "C:\\src\\mz-z14\\work\\litert\\npu\\gemma-4-E2B-it_intel_PTL.litertlm",
    "--backend",
    "npu",
    "--dispatch-dir",
-   "C:\\src\\zoo-template\\engines\\litert",
+   "C:\\src\\mz-z14\\engines\\litert",
    "--path-prepend",
-   "C:\\src\\zoo-template\\engines\\openvino",
+   "C:\\src\\mz-z14\\engines\\openvino",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "C:\\src\\mz-z14\\refs\\gemma-4-E2B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-e2b\\gemma-4-E2B-it\\task-litert-lm_npu_npu\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\gemma-4-E2B-it\\task-litert-lm_npu_npu\\run1.json"
   ]
  },
  "note": [
@@ -77,9 +77,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-e2b",
-  "started": "2026-11-10T08:41:18.483529+09:00",
-  "ended": "2026-11-10T08:42:33.949052+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:18:50.707877+09:00",
+  "ended": "2026-11-11T15:19:38.045758+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -98,18 +98,18 @@
   "ttft_ms": null
  },
  "memory": {
-  "peak_ws_bytes": 36061184,
+  "peak_ws_bytes": 35651584,
   "gpu_mib": {}
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -258,7 +258,7 @@
    "python": "3.12.16"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "ref": "C:\\src\\mz-z14\\refs\\gemma-4-E2B-it\\ref.json",
    "prompts": 21,
    "backend": "npu",
    "adapter": null,
@@ -268,20 +268,20 @@
    "one process per prompt": true,
    "chat_template": "none here (session mode): the reference's rendered prompt without a leading <bos> (the session adds the start token)",
    "command": [
-    "C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe",
+    "C:\\src\\mz-z14\\engines\\litert\\litert_lm_advanced_main_windows.exe",
     "--backend=npu",
-    "--model_path=C:\\src\\zoo-template\\work\\litert\\npu\\gemma-4-E2B-it_intel_PTL.litertlm",
+    "--model_path=C:\\src\\mz-z14\\work\\litert\\npu\\gemma-4-E2B-it_intel_PTL.litertlm",
     "--async=false",
     "--use_session=true",
     "--sampler_top_k=1",
     "--benchmark",
     "--benchmark_prefill_tokens=0",
     "--benchmark_decode_tokens=0",
-    "--litert_dispatch_lib_dir=C:\\src\\zoo-template\\engines\\litert",
+    "--litert_dispatch_lib_dir=C:\\src\\mz-z14\\engines\\litert",
     "--input_prompt_file=<prompt>",
     "--max_output_tokens=<48|16>"
    ],
-   "path_prepend": "C:\\src\\zoo-template\\engines\\openvino"
+   "path_prepend": "C:\\src\\mz-z14\\engines\\openvino"
   }
  }
 }

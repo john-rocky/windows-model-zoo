@@ -14,16 +14,16 @@
  "form": {
   "id": "z1-onnx-fp32",
   "label": "fp32",
-  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
-  "path": "C:\\src\\zoo\\onnx\\ppocr_det_fp16.onnx",
-  "from": null
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
+  "path": "{HUB}\\mlboydaisuke__PP-OCRv5-OpenVINO\\ppocr_det_fp16.onnx",
+  "from": "mlboydaisuke/PP-OCRv5-OpenVINO"
  },
  "line": {
   "id": "task-detection",
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-detection: 0 boxes paired, of the reference's 39 and the cell's 0 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/ppocr_det_fp16/ref.json",
+  "reference": "raw/z14/refs/ppocr_det_fp16/ref.json",
   "detail": {
    "pairs": 0,
    "ref_boxes": 39,
@@ -34,16 +34,16 @@
   "text": "boxes paired 0/39 of the reference's, 0/0 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/ppocr_det_fp16/task-ovnpu/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/ppocr_det_fp16/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "ppocr_det_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\ppocr_det_fp16",
+   "C:\\src\\mz-z14\\work\\ppocr_det_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\ppocr_det_fp16\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -69,9 +69,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:24:08.851741+09:00",
-  "ended": "2026-11-10T07:25:47.068285+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:23:04.585920+09:00",
+  "ended": "2026-11-11T15:24:44.265665+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -80,26 +80,26 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 10.042,
+  "first_value": 10.589,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 96.405,
-  "warmup_s": 0.02,
-  "load_ms": 96405.0
+  "load_s": 97.873,
+  "warmup_s": 0.022,
+  "load_ms": 97873.0
  },
  "memory": {
-  "peak_ws_bytes": 510042112,
+  "peak_ws_bytes": 511553536,
   "gpu_mib": {
-   "0x00000000_0x00012C48": {
+   "0x00000000_0x00012799": {
     "shared": 0,
     "dedicated": 0
    },
-   "0x00000000_0x0001260E": {
+   "0x00000000_0x00011F23": {
     "shared": 23,
     "dedicated": 0
    },
-   "0x00000000_0x00013E4C": {
+   "0x00000000_0x00013D59": {
     "shared": 153,
     "dedicated": 0
    }
@@ -107,13 +107,13 @@
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -143,10 +143,10 @@
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
     "ov_device": "NPU",
     "version": "1.8.1+95d534b.ci.79",
-    "os_driver_version": "1004841",
+    "os_driver_version": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "DEVICE_ARCHITECTURE": "5010",
-    "DEVICE_LUID": "4c3e010000000000"
+    "DEVICE_LUID": "593d010000000000"
    }
   },
   "providers": [
@@ -154,14 +154,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\ppocr_det_fp16\\inputs.npz",
    "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
    "bytes": 98309782,
    "n": 20
   },
   "model_file": {
    "what": "ppocr_det_fp16 form fp32",
-   "path": "C:\\src\\zoo\\onnx\\ppocr_det_fp16.onnx",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__PP-OCRv5-OpenVINO\\ppocr_det_fp16.onnx",
    "bytes": 17678543,
    "sha256": "6a6a9e4b650cb0cf9cdbce27febbef80da03a03cff04f228fb98daced51b0dc5"
   },
@@ -300,7 +300,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\ppocr_det_fp16\\task-ovnpu\\run1.outputs.npz",
    "bytes": 32772982,
    "sha256": "d772dceb27aee5dd2cfad51b65fbe4d8932b88e780ac7cc97cf8867930ad95df",
    "arrays": 20

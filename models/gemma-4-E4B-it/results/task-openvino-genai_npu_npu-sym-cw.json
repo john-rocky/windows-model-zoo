@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 19 of 20 right by the answer key",
-  "reference": "raw/z6/refs/gemma-4-E4B-it/ref.json",
+  "reference": "raw/z14/refs/gemma-4-E4B-it/ref.json",
   "detail": {
    "answers": {
     "agree": 19,
@@ -44,20 +44,20 @@
   "text": "answers 19/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-e4b/gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/gemma-4-E4B-it/task-openvino-genai_npu_npu-sym-cw/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-int4-sym-cw-ov",
+   "C:\\src\\mz-z14\\hub\\mlboydaisuke__gemma-4-E4B-it-int4-sym-cw-ov",
    "--device",
    "NPU",
    "--cache-dir",
-   "C:\\src\\zoo-template\\ovcache\\gemma-4-E4B-it_npu_sym_cw",
+   "C:\\src\\mz-z14\\ovcache\\gemma-4-E4B-it_npu_sym_cw",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "C:\\src\\mz-z14\\refs\\gemma-4-E4B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-e4b\\gemma-4-E4B-it\\task-openvino-genai_npu_npu-sym-cw\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\gemma-4-E4B-it\\task-openvino-genai_npu_npu-sym-cw\\run1.json"
   ]
  },
  "note": [
@@ -73,9 +73,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-e4b",
-  "started": "2026-11-10T09:14:10.605149+09:00",
-  "ended": "2026-11-10T09:16:38.881474+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:16:53.685840+09:00",
+  "ended": "2026-11-11T15:18:44.452462+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -88,23 +88,23 @@
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 124.652,
-  "warmup_s": 2.991,
-  "peak_working_set_mb": 9862,
+  "load_s": 88.976,
+  "warmup_s": 2.185,
+  "peak_working_set_mb": 9851,
   "ttft_ms": null
  },
  "memory": {
-  "peak_ws_bytes": 10341527552,
+  "peak_ws_bytes": 10329616384,
   "gpu_mib": {
-   "0x00000000_0x00012C48": {
+   "0x00000000_0x00012799": {
     "shared": 0,
     "dedicated": 0
    },
-   "0x00000000_0x0001260E": {
+   "0x00000000_0x00011F23": {
     "shared": 27,
     "dedicated": 0
    },
-   "0x00000000_0x00013E4C": {
+   "0x00000000_0x00013D59": {
     "shared": 3636,
     "dedicated": 0
    }
@@ -112,13 +112,13 @@
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -273,7 +273,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "ref": "C:\\src\\mz-z14\\refs\\gemma-4-E4B-it\\ref.json",
    "prompts": 21,
    "device": "NPU",
    "pipeline": "vlm",

@@ -14,16 +14,16 @@
  "form": {
   "id": "z1-onnx-fp32",
   "label": "fp32",
-  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256",
-  "path": "C:\\src\\zoo\\onnx\\mlsd_fp16.onnx",
-  "from": null
+  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
+  "path": "{HUB}\\mlboydaisuke__M-LSD-tiny-OpenVINO\\mlsd_fp16.onnx",
+  "from": "mlboydaisuke/M-LSD-tiny-OpenVINO"
  },
  "line": {
   "id": "task-line-segments",
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-line-segments: 9 segments paired, of the reference's 503 and the cell's 546 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/mlsd_fp16/ref.json",
+  "reference": "raw/z14/refs/mlsd_fp16/ref.json",
   "detail": {
    "pairs": 9,
    "ref_segments": 503,
@@ -35,16 +35,16 @@
   "text": "segments paired 9/503 of the reference's, 9/546 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/mlsd_fp16/task-ovnpu/run1.json",
+  "by": "windows-model-zoo",
+  "record": "raw/z14/runs/z14-b/mlsd_fp16/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "mlsd_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\mz-z14\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\mlsd_fp16",
+   "C:\\src\\mz-z14\\work\\mlsd_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -54,7 +54,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\mlsd_fp16\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -70,9 +70,9 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
-  "started": "2026-11-10T07:23:26.456883+09:00",
-  "ended": "2026-11-10T07:23:29.447332+09:00",
+  "sitting": "z14-b",
+  "started": "2026-11-11T15:21:42.086706+09:00",
+  "ended": "2026-11-11T15:21:45.000492+09:00",
   "runs": 1,
   "tries": 1,
   "error": null,
@@ -81,40 +81,40 @@
  "speed": {
   "metric": "ms (median of the inputs, one run each)",
   "value": null,
-  "first_value": 3.997,
+  "first_value": 3.921,
   "timed": false,
   "n": 1,
   "first_token_ms": null,
-  "load_s": 1.332,
+  "load_s": 1.329,
   "warmup_s": 0.01,
-  "load_ms": 1332.0
+  "load_ms": 1329.0
  },
  "memory": {
-  "peak_ws_bytes": 344346624,
+  "peak_ws_bytes": 343752704,
   "gpu_mib": {
-   "0x00000000_0x00012C48": {
+   "0x00000000_0x00012799": {
     "shared": 0,
     "dedicated": 0
    },
-   "0x00000000_0x0001260E": {
+   "0x00000000_0x00011F23": {
     "shared": 23,
     "dedicated": 0
    },
-   "0x00000000_0x00013E4C": {
-    "shared": 80,
+   "0x00000000_0x00013D59": {
+    "shared": 0,
     "dedicated": 0
    }
   }
  },
  "regime": {
   "qos": "high",
-  "power": "extreme",
+  "power": "balanced",
   "timer": "runner",
   "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
   "power_detail": {
-   "msiUserScenarioMode": 1,
-   "overlayAc": "ded574b5-45a0-4f42-8737-46345c09c238",
-   "overlayDc": "ded574b5-45a0-4f42-8737-46345c09c238",
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
    "battery": "status 2, 96 %"
   },
   "desktop_locked": true
@@ -142,10 +142,10 @@
     "FULL_DEVICE_NAME": "Intel(R) AI Boost",
     "ov_device": "NPU",
     "version": "1.8.1+95d534b.ci.79",
-    "os_driver_version": "1004841",
+    "os_driver_version": "1005540",
     "NPU_COMPILER_VERSION": "524292",
     "DEVICE_ARCHITECTURE": "5010",
-    "DEVICE_LUID": "4c3e010000000000"
+    "DEVICE_LUID": "593d010000000000"
    }
   },
   "providers": [
@@ -153,14 +153,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\mlsd_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-z14\\work\\mlsd_fp16\\inputs.npz",
    "sha256": "a98afc3ac1c66c9f1c6b82941b9af09486ada4ec525018e8f69db7e281fcff57",
    "bytes": 83891862,
    "n": 20
   },
   "model_file": {
    "what": "mlsd_fp16 form fp32",
-   "path": "C:\\src\\zoo\\onnx\\mlsd_fp16.onnx",
+   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__M-LSD-tiny-OpenVINO\\mlsd_fp16.onnx",
    "bytes": 2637523,
    "sha256": "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537"
   },
@@ -299,7 +299,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\mlsd_fp16\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu\\run1.outputs.npz",
    "bytes": 47190902,
    "sha256": "a66f2e906043cc62aa2f0e4066ed008738e256148b03f908bce799585cbc6e14",
    "arrays": 20

@@ -45,6 +45,12 @@ vision zoo's Qualcomm AI Hub records of two other devices (Samsung Galaxy S26, S
 model's lines and a link to its `results/`. No file here puts runtimes side by side; `tools/table.py --local` writes
 those tables on your own disk only.
 
+NPU driver: the 31 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set to
+Balanced (`raw/z14/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
+(`raw/z5/`, `raw/z6/`). Their verdicts and the numbers on their lines are the same on both days. The other 76 Intel NPU
+cells are copied ones and keep their zoos' numbers: 61 name driver 32.0.100.4841 (the 46 vision cells in OpenVINO's
+form, `1004841`, under `vision.device_props`), one names no driver, and 14 are `not_run`.
+
 ## Reading a result file
 
 `line.verdict` gives the verdict, its numbers and the line in one string, for example
@@ -56,13 +62,15 @@ as values (the count by the answer key, the last part of an LLM `task-*` verdict
 `llm.task.key`), `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
 `task-*` cells in `form.from`, the vision `task-*` cells the vision zoo's file in `form.path` and `form.detail`).
 `source.by` says who ran the cell: the vision zoo (`windows-zoo (Z1)`), the LLM zoo (`windows-llm-zoo (Z2)`),
-edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), or `windows-zoo-template`, the private working repo
-this one was cut from, where the `task-*` cells ran (its PC folder, `C:\src\zoo-template`, is in their records'
-paths). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
+edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-template`, the private working repo this
+one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
+records' paths), or `windows-model-zoo`, this repo, where the 31 Intel NPU `task-*` cells ran again on 2026-11-11 (PC
+folder `C:\src\mz-z14`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
 blocks and `source.by`, Z1 is the vision zoo, Z2 the LLM zoo and Z3 the audio zoo
 ([`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo)); Z5 and Z6 are this repo's two
-passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), and Z7 is this repo's `lane` in `zoo.toml` (its name on
-the shared PC's lock and notes).
+passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), Z14 its pass of 2026-11-11 that ran the 31 Intel NPU
+`task-*` cells again (`raw/z14/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
+notes).
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's
 generic-gpu package with the main decoder on the CUDA EP, not WebGPU (`raw/z6/foundry_ep_lines.txt`; PLAN.md, "Z6

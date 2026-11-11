@@ -1,0 +1,3 @@
+<|turn>user
+Write the word "hello" in uppercase. Reply with only the word.<turn|>
+<|turn>model

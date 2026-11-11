@@ -24,7 +24,7 @@ why = "the vision zoo's files of this model's task cells (the same sha256 as the
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), in Z1's folder on the PC, checked by sha256"
+label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
 made_by = "the vision zoo Z1"
 path = "{HUB}\\mlboydaisuke__DewarpNet-OpenVINO\\dewarp.onnx"
 sha256 = "4dde2be5fa86a4b4b1dd870b0ba89dc5da6e2165b90992c13a96450935eb04c2"
