@@ -9,7 +9,7 @@
 </picture>
 </p>
 
-My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords.
+My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords. The 86 and the 47 are the 133 results, so a package or file that ran on several runtimes or devices is counted each time.
 
 If you ship a converted model on Windows, look up the exact file you use. The model files stay on Hugging Face and in the Foundry Local catalog, and each model's `recipe.toml` says where they come from. If you converted your own model and have a Mac and a Windows PC, you can [add it](docs/add-a-model.md) and run the same checks.
 
@@ -49,7 +49,7 @@ It writes `RESULTS_LLM.md` and `RESULTS_VISION.md` on your disk.
 
 "Fixed" marks a file converted again with a change to tf2onnx, which [windows-zoo](https://github.com/john-rocky/windows-zoo) describes.
 
-All 133 results ran on 2026-11-10 on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11.
+The 133 results ran on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11. Of these, 102 ran on 2026-11-10. The 31 on the Intel NPU ran again on 2026-11-11 after an update to NPU driver 32.0.100.5540, with the same verdicts as on 2026-11-10.
 
 The runtimes were ONNX Runtime 1.31.1 with its CUDA and OpenVINO execution providers, OpenVINO and OpenVINO GenAI 2026.4.1, ONNX Runtime GenAI 0.19.0, LiteRT-LM v0.19.0, llama.cpp b11721 and Foundry Local 0.13.0.
 
