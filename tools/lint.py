@@ -259,7 +259,9 @@ def main():
             print(f"  WARN ... {len(warns) - 3} more")
     top = [s for s in stale if not s.startswith("models/") or s == "models/index.json"]
     for s in top:
-        print(f"FAIL generated file {s} is stale (python3 tools/table.py)")
+        # a local file (not committed) is written only by --local; deleting it is the other way out
+        fix = "python3 tools/table.py --local, or delete it" if s in table.LOCAL else "python3 tools/table.py"
+        print(f"FAIL generated file {s} is stale ({fix})")
     print(f"lint: {len(dirs)} model directories, {len(dirs) - n_fail} PASS, {n_fail} FAIL; generated files "
           f"{'fresh' if not top else 'STALE'}; lines: "
           + "; ".join(f"{k} " + ", ".join(f"{n} {w}" for w, n in sorted(c.items())) for k, c in sorted(total.items())))

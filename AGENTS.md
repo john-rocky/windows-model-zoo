@@ -60,7 +60,7 @@ fresh`.
 7. **Set `pc_root` and `lane` in `zoo.toml` for your job, and never commit them.** `pc_root` is a folder on the PC
    that does not exist yet. `lane` is your job's name on the shared PC (the skill's section 0). Run
    `git checkout -- zoo.toml` before the commit.
-8. **Ask before you push.** Commit on your branch (the skill's section 0 makes one). Push it or open a pull request
-   only when the person who gave you the task says so.
+8. **Ask before you push.** Commit on your branch (the skill's section 0 makes it, its section 7 commits). Push it or
+   open a pull request only when the person who gave you the task says so.
 
 Maintainer: john-rocky (GitHub). Issues: https://github.com/john-rocky/windows-model-zoo/issues

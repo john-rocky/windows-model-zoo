@@ -1,0 +1,5 @@
+[2026-11-13T07:43:58.0164105+09:00] chain start: plan C:\src\zoo-qwen25-igpu\pc\plans\qwen25-igpu-1.json mode first, 1 units, pid 10688
+[2026-11-13T07:44:10.5399917+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-13T07:44:12.9640405+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_igpu_gpu run 1 start
+[2026-11-13T07:44:36.0335032+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_igpu_gpu run 1 end: exit 0, OK, 20.959 s
+[2026-11-13T07:44:36.0585055+09:00] chain done: OK

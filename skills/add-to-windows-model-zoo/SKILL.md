@@ -1,6 +1,6 @@
 ---
 name: add-to-windows-model-zoo
-description: Add a model, or one more result (a cell) of a model, to windows-model-zoo - write the recipe and the card, run the untimed steps and one first pass on the Windows PC over SSH from a Mac, judge each cell on its line, and pass tools/lint.py. Use when asked to add a converted LLM, vision or audio package to this repo, or to run a model of this repo on one more runtime, device or package. Cold start: this file and a checkout of the repo are the only inputs.
+description: Add a model, or one more result (a cell) of a model, to windows-model-zoo - write the recipe and the card, run the untimed steps and one first pass on the Windows PC over SSH from a Mac, judge each cell on its line, and pass tools/lint.py. Use when asked to add a converted LLM, vision or audio package to this repo, or to run a model of this repo on one more runtime, device or package. Cold start: this file and a checkout of the repo are the inputs; on a PC shared with other jobs, also the Mac's lock feed command and a `lane` for zoo.toml from the person who gave you the task.
 ---
 
 # Add a model or a result to windows-model-zoo
@@ -11,9 +11,10 @@ You add one model folder, or one cell to a model folder. You are done when:
 2. Each new cell has `models/<model>/results/<cell>.json` whose `run.state` is `ok` and whose `line.verdict` gives
    PASS or FAIL on the line with its numbers. A FAIL is a result too. A cell whose runner failed has `run.state`
    `error` and `run.error_line`, and its `line.verdict` reads `no verdict on <line>: error (...)`.
-3. `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`, and the lines of
-   `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or count the results
-   (section 7).
+3. Before the commit, `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`,
+   and the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
+   count the results (section 7).
+4. Those files are one commit on your branch, not pushed (section 7, step 6).
 
 Words (more in [`docs/reading-results.md`](../../docs/reading-results.md#words-used-in-the-files)): a **cell** is one
 model on one runtime, device and package, one JSON in `results/`; a **form** is the package a cell runs; a **line** is
@@ -23,12 +24,16 @@ a **list** is a set of untimed steps on the PC; the **lock** is the shared PC's 
 `<name>` below is a short name you pick for this job (letters, digits, `-`); `<model>` is the model's folder name.
 
 This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new runner or runtime, a new kind of line,
-cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU and the Intel NPU) is the one walked
-on the PC; for the other runtimes and for vision and audio models, section 2 says what to copy.
+cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU and the Intel GPU) is the
+one walked on the PC; for the other runtimes and for vision and audio models, section 2 says what to copy.
 
 ## 0. Before you start
 
-1. On the Mac, at the repo root:
+1. On the Mac, at the repo root, work on a new branch from the current `main`:
+   `git fetch origin && git switch -c <name> --no-track origin/main`. When others use the same clone, take a new
+   worktree instead: `git fetch origin && git worktree add --no-track -b <name> ../windows-model-zoo-<name> origin/main`,
+   then work there. With `--no-track` the branch has no upstream, so a plain `git push` goes nowhere.
+2. Check the checkout:
 
    ```bash
    python3 -c 'import sys, tomllib, numpy, scipy; print(sys.version.split()[0], numpy.__version__, scipy.__version__)'
@@ -38,18 +43,19 @@ on the PC; for the other runtimes and for vision and audio models, section 2 say
 
    Python 3.11 or later with numpy and scipy (the tests and the vision task cells use scipy). Every test prints `ok`,
    and lint's last line says `0 FAIL; generated files fresh`. If not, the checkout is broken before your change: stop
-   and report it.
-2. Work on the current `main`. When others use the same clone, take a new worktree:
-   `git fetch origin && git worktree add -b <name> ../windows-model-zoo-<name> origin/main`, then work there.
+   and report it. One exception: a stale `RESULTS_*.md` or `models/index.json` that you wrote with
+   `tools/table.py --local` (section 8).
 3. In `zoo.toml`, set two keys of `[zoo]` for this job (and do not commit them; `git checkout -- zoo.toml` before
    the commit): `pc_root` = a folder on the PC that does not exist yet, such as `'C:\src\zoo-<name>'` (no spaces), and
-   `lane` = this job's name on the shared PC (letters and digits; it names your lock and your notes there).
+   `lane` = this job's name on the shared PC (letters and digits; it names your lock and your notes there; not a name
+   that `tools/pc.sh status` shows for another job).
 4. Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac with the command in
    `PC_FEED_CMD` (its output is described in `tools/pc.sh`'s header; this repo has no such command). Put
    `export PC_FEED_CMD='<that command>';` at the start of every shell call that runs `tools/pc.sh` or
    `tools/sitting.sh` (when each command runs in a new shell, a variable set in one call is gone in the next). Without
    it those calls stop with `REFUSED (PC_FEED_CMD is not set ...`; on a Mac that has no lock feed, put
-   `export ZOO_FEED=none;` there instead.
+   `export ZOO_FEED=none;` there instead. If you do not know which one this Mac has, ask the person who gave you the
+   task.
 5. Check the PC (`[zoo] pc_ssh` is its ssh host; its default shell is PowerShell 5.1):
 
    ```bash
@@ -168,9 +174,12 @@ ram_need_gb = 5
   (`task-openvino-genai_cpu_cpu-int8-sym`).
 - **Another device.** The same cell with another `id` (`task-openvino-genai_npu_npu`; the Intel GPU:
   `task-openvino-genai_igpu_gpu`), `"--device", "NPU"` (or `"GPU.0"`), `"--cache-dir",
-  "{ROOT}\\ovcache\\<model>_<device>"` and `device = "npu"` (or `"igpu"`). An Intel NPU runs only some quantizations
-  (this repo's OpenVINO GenAI `task-*` cells on the NPU run symmetric int4 or int8 IRs). A GPU cell's proof of its
-  adapter is the GPU memory per adapter that `pc/chain.ps1` records in each run's `.meta.json`.
+  "{ROOT}\\ovcache\\<model>_npu"` (or `<model>_gpu0`) and `device = "npu"` (or `"igpu"`). An Intel NPU runs only some
+  quantizations (this repo's OpenVINO GenAI `task-*` cells on the NPU run symmetric int4 or int8 IRs). A GPU cell's
+  proof of its adapter is the GPU memory per adapter that `pc/chain.ps1` records in each run's `.meta.json`
+  (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the chain's `chain.log`, in
+  `raw/<name>/runs/<name>-<n>/`, names the ids). The id named for the cell's device (`intel-gpu` for the Intel GPU)
+  holds the cell's memory; when another one does, the cell ran on another device: stop and report it.
 - **Other runtimes and kinds** (not walked here): copy a `task-*` `[[cell]]` of the same runtime and device from the
   closest model, not one with `migrated = true`, and the `[[form]]`, `[[fetch]]` and `[[step]]` it names
   (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its `z1_cell` or `z2_cell` key: it marks a cell that
@@ -294,7 +303,7 @@ python3 tools/lint.py
   done item 1. Its `WARN ... no start time in the record` lines belong to cells copied from other zoos and were there
   before your change.
 
-## 7. Before the commit
+## 7. Before the commit, and the commit
 
 1. The PC's account name can be in the logs and records (paths under the user folder): replace it with `USER` and
    check, without printing it:
@@ -339,6 +348,17 @@ python3 tools/lint.py
      `docs/images/` as it is.
 5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. Run section 0's tests and lint once
    more.
+6. Commit them on your branch, naming the paths (not `git add -A`):
+
+   ```bash
+   git add models/<model> LICENSES.md raw/<name> .gitignore docs/add-a-model.md README.md docs/reading-results.md \
+     && git commit -m "<model>: <what you added>" && git status --short
+   ```
+
+   `git add raw/<name>` leaves out its `logs/` (`.gitignore`); without the `!raw/<name>/` line of step 3 it stops with
+   `The following paths are ignored by one of your .gitignore files` and nothing is committed. For a result of a model
+   already here, `raw/<name>/` has no `refs/` (section 5 leaves out `pull refs`). `git status --short` prints nothing.
+   Push or open a pull request only when the person who gave you the task says so (`AGENTS.md`, rule 8).
 
 ## 8. When something fails
 
@@ -356,15 +376,20 @@ python3 tools/lint.py
 | results.py: `<model>/<cell>: error, first, ...` | the runner failed | `run.error_line` in the cell JSON and the run's `run1.stderr.txt`; fix it, then run the cell again as in the row "is not before the run" below |
 | other cells' `results/*.json` in `git status` after results.py | results.py ran without `--model` / `--cells`, or with `--model` for a result of a model already here | `git checkout -- 'models/*/results/*.json' 'models/*/reference/*.json'` (with the quotes: your recipe, your card and your new files stay), then section 6 with `--model` (a new model) or `--cells` (a result) |
 | lint: `card: the cells block is stale (python3 tools/table.py)` or `generated file LICENSES.md is stale` | the generated files are older than the JSONs | `python3 tools/table.py`, then lint |
+| lint: `generated file RESULTS_LLM.md is stale (python3 tools/table.py --local, or delete it)` (or another `RESULTS_*.md`, or `models/index.json`) | a table that `tools/table.py --local` wrote on your disk (not committed) is older than the JSONs | `python3 tools/table.py --local`, or delete the file; then lint |
 | lint: `results/<cell>.json: line qa20 written <t> is not before the run (<started>)` | the line was written (or dated) after that run | leave `written` as it is. Run the cell again after the line's time: section 4's `first` with a sitting name not used yet (`--sitting <name>-<n>`), then from section 5 only `push`, the note, the chain's `launch` and `wait`, the pulls and `lock note ""`, with that name. Then section 6 (it takes the newest first pass) |
 | lint: `recipe: ...` | a key is missing or names something that is not there | the reason names the key; `schema/recipe.md` |
 
 ## Not walked
 
 Walked on the PC with this text, from a new worktree and an empty PC folder: a new LLM model with an OpenVINO GenAI
-cell on the CPU, then one more result of it on the Intel NPU (in the same PC folder and `raw/` folder). These rows of
-section 8 were walked: the missing lock feed, a glob with no file, a list name with no file, a fetch hash mismatch, a
-step killed by a lock and run again (a stand-in lock in a lock folder of its own), results.py without `--model`, stale
-generated files, and a line dated after a run. Not walked: `REFUSED (another lane's timing lock)`, a first-pass run
-stopped by a lock, a step or a runner that fails in another way, the PC's night stop, a `lock = true` step, a GPU cell,
-the other runtimes' cells, a vision or audio model, a result of a model that an earlier job added, and a timed sitting.
+cell on the CPU, then one more result of it on the Intel NPU (in the same PC folder and `raw/` folder). That walk also
+went through these rows of section 8: the missing lock feed, a glob with no file, a list name with no file, a fetch
+hash mismatch, a step killed by a lock and run again (a stand-in lock in a lock folder of its own), results.py without
+`--model`, stale generated files, and a line dated after a run. Then a coding agent that had not seen this file, given
+a new clone and two sentences (the task, and this Mac's `PC_FEED_CMD` command, a `lane` and a `<name>`), added one
+more result of that model on the Intel GPU from a new PC folder (its records: `raw/qwen25-igpu/`) with no help. It
+made a branch on its own and stopped before the commit, which this file did not describe then (now section 0, step 1
+and section 7, step 6). Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step
+or a runner that fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI cell on the NVIDIA
+RTX GPU, the other runtimes' cells, a vision or audio model, and a timed sitting.

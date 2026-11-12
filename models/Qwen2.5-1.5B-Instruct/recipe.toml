@@ -64,3 +64,15 @@ form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 timeout_min = 30
 args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_npu", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
 ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_igpu_gpu"
+runtime = "openvino-genai"
+device = "igpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_gpu0", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
