@@ -1,0 +1,287 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen3-0.6B",
+ "cell": "task-openvino-genai_npu_npu-int8-sym",
+ "kind": "llm",
+ "runtime": {
+  "id": "openvino-genai",
+  "label": "OpenVINO GenAI 2026.4.1"
+ },
+ "device": {
+  "id": "npu",
+  "label": "Intel NPU"
+ },
+ "form": {
+  "id": "ov:mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "label": "int8_sym per-channel",
+  "detail": "int8_sym per-channel; mlboydaisuke/Qwen3-0.6B-int8-sym-ov@7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": null,
+  "from": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": true,
+  "verdict": "PASS on qa20: 18 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 14 of 20 right by the answer key",
+  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 18,
+    "n": 20,
+    "bar": 18,
+    "pass": true
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "1",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": true
+  },
+  "text": "answers 18/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-model-zoo",
+  "record": "raw/z13/runs/z13-n/Qwen3-0.6B/task-openvino-genai_npu_npu-int8-sym/run1.json",
+  "runner": "run_llm_ovg.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\mz-z13\\hub\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov",
+   "--device",
+   "NPU",
+   "--cache-dir",
+   "C:\\src\\mz-z13\\ovcache\\Qwen3-0.6B_npu_int8_sym",
+   "--ref",
+   "C:\\src\\mz-z13\\refs\\Qwen3-0.6B\\ref.json",
+   "--out",
+   "C:\\src\\mz-z13\\runs\\z13-n\\Qwen3-0.6B\\task-openvino-genai_npu_npu-int8-sym\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 18/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "z13-n",
+  "started": "2026-11-12T09:26:53.934650+09:00",
+  "ended": "2026-11-12T09:27:06.757548+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 7.441,
+  "warmup_s": 0.319,
+  "peak_working_set_mb": 1529,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 1603362816,
+  "gpu_mib": {
+   "0x00000000_0x00013D59": {
+    "shared": 891,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "balanced",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
+   "battery": "status 2, 95 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 18,
+   "n": 20,
+   "full_text_same": 18,
+   "eos_within_max": 20,
+   "new_tokens": 128,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "7 + 5 = 12",
+     "ref": "7 + 5 = 12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "12 * 3 = 36",
+     "ref": "12 * 3 = 36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "cat",
+     "ref": "cat",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "1",
+     "ref": "1",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "hot",
+     "ref": "hot",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう",
+     "ref": "ありがとう",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "blue",
+     "ref": "blue",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes, 17 is a prime number",
+     "ref": "yes, 17 is a prime number",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "romeo and juliet",
+     "ref": "romeo and juliet",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "100 divided by 4 is 25",
+     "ref": "100 divided by 4 is 25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "the sequence is: 2, 4, 6, 8",
+     "ref": "the sequence is: 2, 4, 6, 8",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "the temperature at which water freezes is **0°c",
+     "ref": "0°c",
+     "same": false
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "the square root of 81 is 9",
+     "ref": "the square root of 81 is 9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "1",
+     "ref": "2",
+     "same": false
+    }
+   ],
+   "gate_text": "EOS in 2",
+   "key": {
+    "right": 14,
+    "n": 20,
+    "wrong": [
+     "q04",
+     "q06",
+     "q07",
+     "q09",
+     "q13",
+     "q20"
+    ]
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "openvino-genai": "2026.4.1.0",
+   "openvino": "2026.4.1",
+   "openvino-tokenizers": "2026.4.1.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\mz-z13\\refs\\Qwen3-0.6B\\ref.json",
+   "prompts": 21,
+   "device": "NPU",
+   "pipeline": "llm",
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt, add_special_tokens=False",
+   "stop_token_ids": [
+    151643,
+    151645
+   ]
+  }
+ }
+}

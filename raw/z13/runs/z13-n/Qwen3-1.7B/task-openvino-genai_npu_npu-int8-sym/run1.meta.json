@@ -1,0 +1,72 @@
+{
+    "cell":  "Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z13-n",
+    "start":  "2026-11-12T09:26:16.1793816+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  2,
+                  "overlayAc":  "00000000-0000-0000-0000-000000000000",
+                  "overlayDc":  "00000000-0000-0000-0000-000000000000",
+                  "battery":  "status 2, 95 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  1.2,
+                                "build_ms":  0,
+                                "top":  [
+                                            "MsMpEng 5348 0.03 core",
+                                            "System 4 0.03 core",
+                                            "DCv2 13300 0.03 core",
+                                            "WUDFHost 1996 0.02 core",
+                                            "WmiPrvSE 7972 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 6525 MHz, 14001 MHz, 18.05 W, 0 %, 0 MiB, 48",
+                   "availGB":  22.6
+               },
+    "command":  "C:\\src\\mz-z13\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\mz-z13\\pc\\run_llm_ovg.py --model-dir C:\\src\\mz-z13\\hub\\mlboydaisuke__Qwen3-1.7B-int8-sym-ov --device NPU --cache-dir C:\\src\\mz-z13\\ovcache\\Qwen3-1.7B_npu_int8_sym --ref C:\\src\\mz-z13\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\mz-z13\\runs\\z13-n\\Qwen3-1.7B\\task-openvino-genai_npu_npu-int8-sym\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  12384,
+                   "elapsedSeconds":  21.938,
+                   "peakWorkingSetBytes":  4945477632,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00013D59":  {
+                                                                    "shared":  2614,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 4642 MHz, 14001 MHz, 18.26 W, 0 %, 0 MiB, 50",
+                                         "10s P0, 360 MHz, 14001 MHz, 18.43 W, 0 %, 0 MiB, 51",
+                                         "15s P0, 1642 MHz, 14001 MHz, 18.43 W, 0 %, 0 MiB, 52",
+                                         "20s P0, 75 MHz, 14001 MHz, 18.57 W, 0 %, 0 MiB, 53"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.2,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.22 core",
+                                           "svchost 5076 0.05 core",
+                                           "powershell 8296 0.03 core",
+                                           "WUDFHost 6912 0.02 core",
+                                           "WmiPrvSE 7980 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 262 MHz, 14001 MHz, 18.62 W, 0 %, 0 MiB, 53"
+              },
+    "end":  "2026-11-12T09:26:40.1275403+09:00",
+    "tries":  2
+}

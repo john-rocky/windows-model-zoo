@@ -1,0 +1,68 @@
+{
+    "cell":  "Qwen3-0.6B/task-openvino-genai_npu_npu-int8-sym",
+    "device":  "npu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "z13-n",
+    "start":  "2026-11-12T09:26:53.6846756+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  2,
+                  "overlayAc":  "00000000-0000-0000-0000-000000000000",
+                  "overlayDc":  "00000000-0000-0000-0000-000000000000",
+                  "battery":  "status 2, 95 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.4,
+                                "build_ms":  0,
+                                "top":  [
+                                            "System 4 0.35 core",
+                                            "NVDisplay.Container 3056 0.02 core",
+                                            "powershell 8296 0.02 core"
+                                        ]
+                            },
+                   "nvidia":  "P0, 1185 MHz, 14001 MHz, 19.05 W, 0 %, 0 MiB, 55",
+                   "availGB":  22.5
+               },
+    "command":  "C:\\src\\mz-z13\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\mz-z13\\pc\\run_llm_ovg.py --model-dir C:\\src\\mz-z13\\hub\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov --device NPU --cache-dir C:\\src\\mz-z13\\ovcache\\Qwen3-0.6B_npu_int8_sym --ref C:\\src\\mz-z13\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\mz-z13\\runs\\z13-n\\Qwen3-0.6B\\task-openvino-genai_npu_npu-int8-sym\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  15384,
+                   "elapsedSeconds":  13.202,
+                   "peakWorkingSetBytes":  1603362816,
+                   "gpuMiBPeak":  {
+                                      "0x00000000_0x00013D59":  {
+                                                                    "shared":  891,
+                                                                    "dedicated":  0
+                                                                }
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 1747 MHz, 14001 MHz, 19.06 W, 0 %, 0 MiB, 55",
+                                         "10s P0, 382 MHz, 14001 MHz, 18.95 W, 0 %, 0 MiB, 55"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  2.3,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.17 core",
+                                           "DCv2 13300 0.12 core",
+                                           "NVDisplay.Container 3056 0.03 core",
+                                           "WUDFHost 6912 0.02 core",
+                                           "csrss 1464 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 1065 MHz, 14001 MHz, 19.00 W, 0 %, 0 MiB, 55"
+              },
+    "end":  "2026-11-12T09:27:08.8724871+09:00",
+    "tries":  1
+}

@@ -75,3 +75,4 @@ turned into the PC's step lists and plans by `tools/plan.py`. Required keys are 
 | `reference` | | the line's reference as a file of this repo (instead of a step's record) |
 | `timeout_min`, `ram_need_gb`, `est_sec`, `engines_gate` | | the chain's limits and its per-run gate |
 | `migrated` | | `true` = a copied cell: its runner is in its own zoo (`script` names it) |
+| `z1_cell`, `z2_cell` | | in a `task-*` cell that judges a copied cell again: the copied cell's id in the vision zoo (Z1) or the LLM zoo (Z2); `tools/readme_figure.py` counts only the `task-*` cells that have one |

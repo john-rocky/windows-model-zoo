@@ -39,16 +39,20 @@ The other cells were copied from the vision zoo ([`john-rocky/windows-zoo`](http
 and the LLM zoo ([`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo)) with those zoos' lines
 and numbers; the `task-*` cells, added on 2026-11-10, judge the same files and packages again on task lines
 ([`PLAN.md`](../PLAN.md), sections Z5 and Z6): the vision zoo's 47 cells that fail its internal line and the LLM zoo's 86
-cells that pass its text-integrity line. The other copied cells were not judged again. 60 of the copied JSONs are the
+cells that pass its text-integrity line. The other copied cells were not judged again. Four more `task-*` cells, added on
+2026-11-12, run two packages no earlier zoo had, the int8 OpenVINO IRs `mlboydaisuke/Qwen3-1.7B-int8-sym-ov` and
+`mlboydaisuke/Qwen3-0.6B-int8-sym-ov`, on the Intel NPU and the CPU on the qa20 line
+(`task-openvino-genai_npu_npu-int8-sym`, `task-openvino-genai_cpu_cpu-int8-sym`). 60 of the copied JSONs are the
 vision zoo's Qualcomm AI Hub records of two other devices (Samsung Galaxy S26, Snapdragon X2 Elite CRD;
 `role: other-device`): they keep those numbers and have no line. The cards list no cells: each card carries its
 model's lines and a link to its `results/`. No file here puts runtimes side by side; `tools/table.py --local` writes
 those tables on your own disk only.
 
-NPU driver: the 31 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set to
-Balanced (`raw/z14/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
-(`raw/z5/`, `raw/z6/`). Their verdicts and the numbers on their lines are the same on both days. The other 76 Intel NPU
-cells are copied ones and keep their zoos' numbers: 61 name driver 32.0.100.4841 (the 46 vision cells in OpenVINO's
+NPU driver: 31 of the 33 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set
+to Balanced (`raw/z14/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
+(`raw/z5/`, `raw/z6/`). Their verdicts and the numbers on their lines are the same on both days. The two int8 `task-*`
+cells on the Intel NPU ran on 2026-11-12 on driver 32.0.100.5540, with MSI Center set to Balanced (`raw/z13/`). The
+other 76 Intel NPU cells are copied ones and keep their zoos' numbers: 61 name driver 32.0.100.4841 (the 46 vision cells in OpenVINO's
 form, `1004841`, under `vision.device_props`), one names no driver, and 14 are `not_run`.
 
 ## Reading a result file
@@ -65,11 +69,12 @@ as values (the count by the answer key, the last part of an LLM `task-*` verdict
 edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-template`, the private working repo this
 one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
 records' paths), or `windows-model-zoo`, this repo, where the 31 Intel NPU `task-*` cells ran again on 2026-11-11 (PC
-folder `C:\src\mz-z14`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
+folder `C:\src\mz-z14`) and the four int8 `task-*` cells ran on 2026-11-12 (PC folder `C:\src\mz-z13`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
 blocks and `source.by`, Z1 is the vision zoo, Z2 the LLM zoo and Z3 the audio zoo
 ([`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo)); Z5 and Z6 are this repo's two
 passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), Z14 its pass of 2026-11-11 that ran the 31 Intel NPU
-`task-*` cells again (`raw/z14/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
+`task-*` cells again (`raw/z14/`), Z13 its pass of 2026-11-12 that ran the four int8 `task-*` cells
+(`raw/z13/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
 notes).
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's

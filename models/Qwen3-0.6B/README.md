@@ -8,7 +8,7 @@ pipeline_tag: text-generation
 
 # Qwen3-0.6B
 
-[Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) as published packages of several runtimes (LiteRT-LM, llama.cpp, ONNX Runtime GenAI, Foundry Local, OpenVINO GenAI), run on one Windows laptop on the Intel NPU, the Intel GPU, the RTX and the CPU. Its cells were copied from the LLM zoo [`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo) with that zoo's line; the cells `task-*`, added on 2026-11-10, run the same packages on the task line (below). Each cell's package and quantization is in its result JSON.
+[Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) as published packages of several runtimes (LiteRT-LM, llama.cpp, ONNX Runtime GenAI, Foundry Local, OpenVINO GenAI), run on one Windows laptop on the Intel NPU, the Intel GPU, the RTX and the CPU. Its cells were copied from the LLM zoo [`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo) with that zoo's line; the cells `task-*`, added on 2026-11-10, run the same packages on the task line (below). Two more `task-*` cells, added on 2026-11-12, run the int8 OpenVINO IR [`mlboydaisuke/Qwen3-0.6B-int8-sym-ov`](https://huggingface.co/mlboydaisuke/Qwen3-0.6B-int8-sym-ov) on the Intel NPU and the CPU on the same line. Each cell's package and quantization is in its result JSON.
 
 Licence: apache-2.0 (the base model's; each package's own repo is in its cell's JSON: `form.package` in the copied cells, `form.from` in the `task-*` cells).
 
@@ -20,5 +20,5 @@ Licence: apache-2.0 (the base model's; each package's own repo is in its cell's 
 
 ## Cells
 
-One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 44 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
+One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 46 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
 <!-- zoo:cells end -->

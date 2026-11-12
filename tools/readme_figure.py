@@ -5,7 +5,8 @@
 
 Reads models/<model>/recipe.toml and models/<model>/results/task-*.json. Writes docs/images/results-light.svg and
 docs/images/results-dark.svg. It counts results by model kind and verdict only, so the figure names no runtime,
-device or package.
+device or package. It counts the task results that judge a copied cell again (a [[cell]] with `z1_cell` or `z2_cell`:
+the two groups of the earlier repos); a task result added later, with no copied cell behind it, is not in the figure.
 """
 import json
 import pathlib
@@ -27,12 +28,16 @@ WIDTH, LEFT, BAR, GAP = 860, 0, 28, 2
 
 
 def count():
-    """Return {kind: [passed, failed]} over the task results of every model."""
+    """Return {kind: [passed, failed]} over the task results that judge a copied cell again, in every model."""
     counts = {}
     for recipe in sorted((ROOT / "models").glob("*/recipe.toml")):
         with recipe.open("rb") as f:
-            kind = tomllib.load(f)["model"]["kind"]
+            r = tomllib.load(f)
+        kind = r["model"]["kind"]
+        again = {c["id"] for c in r.get("cell") or [] if c.get("z1_cell") or c.get("z2_cell")}
         for result in sorted(recipe.parent.glob("results/task-*.json")):
+            if result.stem not in again:
+                continue
             verdict = json.loads(result.read_text(encoding="utf-8"))["line"]["pass"]
             if verdict is None:
                 raise SystemExit(f"{result}: no verdict")

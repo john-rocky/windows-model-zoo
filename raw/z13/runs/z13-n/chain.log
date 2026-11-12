@@ -1,0 +1,15 @@
+[2026-11-12T09:17:56.3015286+09:00] chain start: plan C:\src\mz-z13\pc\plans\z13-n.json mode first, 4 units, pid 8296
+[2026-11-12T09:18:06.8049643+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-12T09:18:09.0103124+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1 start
+[2026-11-12T09:18:23.1848177+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1 stopped (another lane's lock, a slot or the night); its files removed, run again after it
+[2026-11-12T09:18:23.1968181+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1: another lane holds the lock: waiting
+[2026-11-12T09:26:14.2981709+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1: the lock has been free 60 s: going on
+[2026-11-12T09:26:16.2427125+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1 start
+[2026-11-12T09:26:40.1569460+09:00] Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym run 1 end: exit 0, OK, 21.938 s
+[2026-11-12T09:26:42.1751378+09:00] Qwen3-1.7B/task-openvino-genai_cpu_cpu-int8-sym run 1 start
+[2026-11-12T09:26:51.7062927+09:00] Qwen3-1.7B/task-openvino-genai_cpu_cpu-int8-sym run 1 end: exit 0, OK, 7.567 s
+[2026-11-12T09:26:53.7196439+09:00] Qwen3-0.6B/task-openvino-genai_npu_npu-int8-sym run 1 start
+[2026-11-12T09:27:08.8934887+09:00] Qwen3-0.6B/task-openvino-genai_npu_npu-int8-sym run 1 end: exit 0, OK, 13.202 s
+[2026-11-12T09:27:10.9178124+09:00] Qwen3-0.6B/task-openvino-genai_cpu_cpu-int8-sym run 1 start
+[2026-11-12T09:27:16.9587680+09:00] Qwen3-0.6B/task-openvino-genai_cpu_cpu-int8-sym run 1 end: exit 0, OK, 4.115 s
+[2026-11-12T09:27:16.9687724+09:00] chain done: OK

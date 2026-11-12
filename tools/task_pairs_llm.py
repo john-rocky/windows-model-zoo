@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """TASK_PAIRS_LLM.md (local, not committed) from the cell JSONs: one line per copied LLM cell that passes only the
 text-integrity line (86), its text-integrity verdict next to the verdict of its qa20 task cell (task-<cell>, PLAN.md
-section Z6), or why that cell has none (an error, not run). Run after tools/results.py; the counts at the head are
-this file's. The table puts runtimes side by side, so it is written on your disk only (.gitignore).
+section Z6), or why that cell has none (an error, not run). A task cell with no copied cell of its name (a package no
+earlier zoo had, such as the int8 cells of 2026-11-12) has no line. Run after tools/results.py; the counts at the head
+are this file's. The table puts runtimes side by side, so it is written on your disk only (.gitignore).
 
     python3 tools/task_pairs_llm.py [--note <model>/<cell>=<text> ...]
 """
@@ -70,6 +71,8 @@ def main():
         for p in sorted(d.glob("task-*.json")):
             t = json.loads(p.read_text(encoding="utf-8"))
             z2 = p.name[len("task-"):-len(".json")]
+            if not (d / f"{z2}.json").exists():
+                continue   # a task cell with no copied cell of its name (a package no earlier zoo had): no pair
             c = json.loads((d / f"{z2}.json").read_text(encoding="utf-8"))
             ti = "PASS" if (c.get("line") or {}).get("pass") else "FAIL" if (c.get("line") or {}).get("pass") is False else "—"
             v, why = verdict(t)

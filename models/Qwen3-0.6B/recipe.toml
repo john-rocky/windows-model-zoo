@@ -1,4 +1,4 @@
-# Qwen3-0.6B: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md)
+# Qwen3-0.6B: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md); the two task-*-int8-sym cells (2026-11-12) run the int8 IR mlboydaisuke/Qwen3-0.6B-int8-sym-ov on that line
 
 [model]
 kind = "llm"
@@ -276,6 +276,10 @@ repo = "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov"
 revision = "b509ae2d387daf72f0326aedeec30c1159158aec"
 
 [[fetch]]
+repo = "mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
+revision = "7682ba9783c3053adaca905fe2ac977ea8993e99"
+
+[[fetch]]
 repo = "onnx-community/Qwen3-0.6B-ONNX"
 revision = "da1453100cf3ff33ef56d17983fc7a8648706db6"
 include = ["onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/*", "onnxruntime/webgpu/webgpu-int4-kld-block-32/*", "onnxruntime/cuda/cuda-int4-kld-block-128/*"]
@@ -333,6 +337,12 @@ id = "ov:mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov"
 short = "int4_sym g128 r1.0"
 label = "int4_sym g128 r1.0; mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov@b509ae2d387daf72f0326aedeec30c1159158aec"
 from = "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov"
+
+[[form]]
+id = "ov:mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
+short = "int8_sym per-channel"
+label = "int8_sym per-channel; mlboydaisuke/Qwen3-0.6B-int8-sym-ov@7682ba9783c3053adaca905fe2ac977ea8993e99"
+from = "mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
 
 [[form]]
 id = "genai:onnx-community/Qwen3-0.6B-ONNX@da1453100cf3ff33ef56d17983fc7a8648706db6 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
@@ -532,6 +542,32 @@ script = "pc/run_llm_ovg.py"
 form = "ov:mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov"
 timeout_min = 30
 args = ["--model-dir", "{HUB}\\mlboydaisuke__Qwen3-0.6B-int4-sym-g128-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-0.6B_npu_sym_g128", "--ref", "{ROOT}\\refs\\Qwen3-0.6B\\ref.json"]
+ram_need_gb = 5
+
+# Z13 (2026-11-12): the int8 IR mlboydaisuke/Qwen3-0.6B-int8-sym-ov on the Intel NPU and the CPU, on the qa20 line; a
+# package no earlier zoo had, so these two cells have no z2_cell and judge no copied cell
+[[cell]]
+id = "task-openvino-genai_npu_npu-int8-sym"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-0.6B_npu_int8_sym", "--ref", "{ROOT}\\refs\\Qwen3-0.6B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu-int8-sym"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:mlboydaisuke/Qwen3-0.6B-int8-sym-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-0.6B\\ref.json"]
 ram_need_gb = 5
 
 [[cell]]

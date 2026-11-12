@@ -49,7 +49,7 @@ Build Tools with the C++ workload, Git for Windows with LFS, Python 3.13 for all
 `JAVA_HOME`, LongPathsEnabled, and an elevated shell or Developer Mode for symlinks; its source and Bazel output go to
 the short paths `pc/z6_spec.json` names (`C:\src\mz-litert-lm`, `C:\bzl-mz`). When the build dies with "Server
 terminated abruptly", read edge-llm-bench's `windows/README.md` (Microsoft Defender). Free disk: the walk's Hub
-files (4.6 GiB), the venvs, the engines and the build. On the Mac: `ssh <pc_ssh>` reaches the PC (its default shell is
+files (5.2 GiB), the venvs, the engines and the build. On the Mac: `ssh <pc_ssh>` reaches the PC (its default shell is
 PowerShell) and python3.
 
 Set `[zoo] pc_ssh` and `pc_root` (a folder that does not exist yet) in `zoo.toml`. Each `launch` prints
