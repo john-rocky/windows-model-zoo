@@ -1,0 +1,33 @@
+# windows-model-zoo
+
+> Test results showing whether converted LLM, vision and audio models still do their job on one Windows laptop. Each result runs one package once, untimed, on the Intel NPU, Intel GPU, NVIDIA RTX GPU or CPU, and passes when its output agrees with the original model run on the CPU (fp32; bf16 for Gemma 4 E4B). A result covers only that package on that runtime and device, so it doesn't rate a model or a runtime overall.
+
+```bash
+git clone https://github.com/john-rocky/windows-model-zoo
+cd windows-model-zoo
+python3 tools/table.py --local    # RESULTS_LLM.md, RESULTS_VISION.md and models/index.json on your disk; Python 3.11 or later
+```
+
+## Start here
+
+- [README](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/README.md): what is covered, how a result is judged, limits.
+- [AGENTS.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/AGENTS.md): for coding agents. Task → file, and the rules.
+- [skills/add-to-windows-model-zoo/SKILL.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/skills/add-to-windows-model-zoo/SKILL.md): a skill for coding agents that adds a model, or one more result of a model, from a Mac that drives the Windows PC over SSH.
+- [docs/reading-results.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/docs/reading-results.md): the words and the fields of a result file.
+
+## Data and schemas
+
+- [models/](https://github.com/john-rocky/windows-model-zoo/tree/main/models): one folder per model, with the card, `recipe.toml`, `results/` and `reference/`. The results are the `task-*.json` files in `results/`; the other JSONs there are records copied from the earlier repos.
+- [schema/](https://github.com/john-rocky/windows-model-zoo/tree/main/schema): `cell.schema.json`, `recipe.md` (the recipe's keys) and `lines.md` (the lines per kind and task).
+- [PLAN.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/PLAN.md): the task lines (the pass / fail rules the results are judged on) and their dated changes.
+- [LICENSES.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/LICENSES.md): each model's licence and the input sets' terms.
+
+## Run it yourself
+
+- [docs/add-a-model.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/docs/add-a-model.md): add a model (the skill's steps, for a person).
+- [docs/reproduce.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/docs/reproduce.md): rebuild results from an empty PC folder, and run a timed sitting.
+- [docs/shared-pc.md](https://raw.githubusercontent.com/john-rocky/windows-model-zoo/main/docs/shared-pc.md): the lock and the night when other jobs share the PC.
+
+## Related
+
+- [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo): the earlier repos, two of whose groups of results were judged again here.
