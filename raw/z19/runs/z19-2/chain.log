@@ -1,0 +1,5 @@
+[2026-11-12T18:45:15.3726280+09:00] chain start: plan C:\src\zoo-z19\pc\plans\z19-2.json mode first, 1 units, pid 14672
+[2026-11-12T18:45:26.6215132+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-12T18:45:28.8148670+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu run 1 start
+[2026-11-12T18:46:03.9965935+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu run 1 end: exit 0, OK, 33.14 s
+[2026-11-12T18:46:04.0125932+09:00] chain done: OK

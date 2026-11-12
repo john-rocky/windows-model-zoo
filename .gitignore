@@ -7,13 +7,14 @@ scratch/
 RESULTS_*.md
 TASK_PAIRS_*.md
 models/index.json
-# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/ and raw/z13/ (the task cells), raw/walk/,
-# raw/walk-z9/ and raw/walk-z12/ (the walks)
+# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/ and raw/z19/ (the task
+# cells), raw/walk/, raw/walk-z9/ and raw/walk-z12/ (the walks)
 raw/*/
 !raw/z5/
 !raw/z6/
 !raw/z14/
 !raw/z13/
+!raw/z19/
 !raw/walk/
 !raw/walk-z9/
 !raw/walk-z12/
@@ -24,8 +25,9 @@ raw/z13/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 raw/walk-z12/**/*.npz
-# the PC step logs of the Z13 pass name the PC account's folder: they stay on your disk
+# the PC step logs of the Z13 and Z19 passes name the PC account's folder: they stay on your disk
 raw/z13/logs/
+raw/z19/logs/
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
 walk-out-*/

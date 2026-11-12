@@ -1,0 +1,66 @@
+# Qwen2.5-1.5B-Instruct: OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov on OpenVINO GenAI, judged on the qa20 line
+
+[model]
+kind = "llm"
+title = "Qwen2.5-1.5B-Instruct"
+order = 3000
+source = "Qwen/Qwen2.5-1.5B-Instruct"
+source_revision = "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+license = "apache-2.0"
+pipeline_tag = "text-generation"
+inputs = "suites/llm/qa20.jsonl"
+
+[[fetch]]
+repo = "Qwen/Qwen2.5-1.5B-Instruct"
+revision = "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+include = ["*.json", "*.safetensors", "*.txt"]
+
+[[fetch]]
+repo = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+revision = "4d14c299e35d8b74e3471f9e92bd1377fae50736"
+
+[[form]]
+id = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+short = "int4_sym g128 r1.0"
+label = "int4_sym g128 r1.0; OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov@4d14c299e35d8b74e3471f9e92bd1377fae50736"
+from = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+
+[[step]]
+name = "reference"
+venv = "ref"
+script = "pc/ref_llm_hf.py"
+args = ["--model-dir", "{HUB}\\Qwen__Qwen2.5-1.5B-Instruct", "--suite", "{ROOT}\\suites\\llm\\qa20.jsonl", "--out", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+reference = "refs/Qwen2.5-1.5B-Instruct/ref.json"
+ram_gb = 7.2
+timeout_min = 30
+
+[[line]]
+id = "qa20"
+kind = "task"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers fp32 on this PC's CPU"
+written = "2026-11-12T18:31:52+09:00"
+plan = "PLAN.md section 1b"
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_npu_npu"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_npu", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5

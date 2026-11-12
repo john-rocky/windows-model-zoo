@@ -16,7 +16,7 @@ The result files, recipes and tools use short names for a few ideas.
 
 ## What the results cover
 
-28 models (5 LLMs, and 23 models of the vision zoo,
+29 models (6 LLMs, and 23 models of the vision zoo,
 [`john-rocky/windows-zoo`](https://github.com/john-rocky/windows-zoo): 20 image or video models and 3 audio models) run
 on one Windows laptop's runtimes and devices (Intel NPU, Intel GPU, NVIDIA RTX, CPU): the LLMs as published packages,
 the other 23 as the vision zoo's converted files. One JSON per cell (a model on one runtime, device and package); each
@@ -42,16 +42,20 @@ and numbers; the `task-*` cells, added on 2026-11-10, judge the same files and p
 cells that pass its text-integrity line. The other copied cells were not judged again. Four more `task-*` cells, added on
 2026-11-12, run two packages no earlier zoo had, the int8 OpenVINO IRs `mlboydaisuke/Qwen3-1.7B-int8-sym-ov` and
 `mlboydaisuke/Qwen3-0.6B-int8-sym-ov`, on the Intel NPU and the CPU on the qa20 line
-(`task-openvino-genai_npu_npu-int8-sym`, `task-openvino-genai_cpu_cpu-int8-sym`). 60 of the copied JSONs are the
+(`task-openvino-genai_npu_npu-int8-sym`, `task-openvino-genai_cpu_cpu-int8-sym`). Two more, added on 2026-11-12 with
+`skills/add-to-windows-model-zoo/SKILL.md`, run OpenVINO's int4 IR `OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov` of a model no
+earlier zoo had, Qwen2.5-1.5B-Instruct, on the CPU and the Intel NPU on the qa20 line (`models/Qwen2.5-1.5B-Instruct/`,
+`task-openvino-genai_cpu_cpu`, `task-openvino-genai_npu_npu`). 60 of the copied JSONs are the
 vision zoo's Qualcomm AI Hub records of two other devices (Samsung Galaxy S26, Snapdragon X2 Elite CRD;
 `role: other-device`): they keep those numbers and have no line. The cards list no cells: each card carries its
 model's lines and a link to its `results/`. No file here puts runtimes side by side; `tools/table.py --local` writes
 those tables on your own disk only.
 
-NPU driver: 31 of the 33 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set
+NPU driver: 31 of the 34 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set
 to Balanced (`raw/z14/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
 (`raw/z5/`, `raw/z6/`). Their verdicts and the numbers on their lines are the same on both days. The two int8 `task-*`
-cells on the Intel NPU ran on 2026-11-12 on driver 32.0.100.5540, with MSI Center set to Balanced (`raw/z13/`). The
+cells on the Intel NPU ran on 2026-11-12 on driver 32.0.100.5540, with MSI Center set to Balanced (`raw/z13/`), and so
+did the Qwen2.5-1.5B-Instruct cell on the Intel NPU (`raw/z19/`). The
 other 76 Intel NPU cells are copied ones and keep their zoos' numbers: 61 name driver 32.0.100.4841 (the 46 vision cells in OpenVINO's
 form, `1004841`, under `vision.device_props`), one names no driver, and 14 are `not_run`.
 
@@ -69,12 +73,13 @@ as values (the count by the answer key, the last part of an LLM `task-*` verdict
 edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-template`, the private working repo this
 one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
 records' paths), or `windows-model-zoo`, this repo, where the 31 Intel NPU `task-*` cells ran again on 2026-11-11 (PC
-folder `C:\src\mz-z14`) and the four int8 `task-*` cells ran on 2026-11-12 (PC folder `C:\src\mz-z13`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
+folder `C:\src\mz-z14`), the four int8 `task-*` cells ran on 2026-11-12 (PC folder `C:\src\mz-z13`) and the two
+Qwen2.5-1.5B-Instruct cells ran on 2026-11-12 (PC folder `C:\src\zoo-z19`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
 blocks and `source.by`, Z1 is the vision zoo, Z2 the LLM zoo and Z3 the audio zoo
 ([`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo)); Z5 and Z6 are this repo's two
 passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), Z14 its pass of 2026-11-11 that ran the 31 Intel NPU
 `task-*` cells again (`raw/z14/`), Z13 its pass of 2026-11-12 that ran the four int8 `task-*` cells
-(`raw/z13/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
+(`raw/z13/`), Z19 its pass of 2026-11-12 that added Qwen2.5-1.5B-Instruct and its two cells (`raw/z19/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
 notes).
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's

@@ -1,0 +1,212 @@
+[
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "config.json",
+  "size": 660,
+  "hash": "f81ead14ab072d65a07817f83a3ee0e5a1890d10",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.1
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "generation_config.json",
+  "size": 242,
+  "hash": "dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "merges.txt",
+  "size": 1671839,
+  "hash": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "model.safetensors",
+  "size": 3087467144,
+  "hash": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "ok": true,
+  "tries": 0,
+  "seconds": 4.8
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "tokenizer.json",
+  "size": 7031645,
+  "hash": "443909a61d429dff23010e5bddd28ff530edda00",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "tokenizer_config.json",
+  "size": 7305,
+  "hash": "07bfe0640cb5a0037f9322287fbfc682806cf672",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "added_tokens.json",
+  "size": 605,
+  "hash": "482ced4679301bf287ebb310bdd1790eb4514232",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "config.json",
+  "size": 772,
+  "hash": "19b0e46db16fb7843e7a495029a9b64f165dbe63",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "generation_config.json",
+  "size": 242,
+  "hash": "5df76225f4dd4775813b505f9071b6713d8a1e2e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189639,
+  "hash": "3ca47601554a3b871c1e45e8f31aa6e17d726365c075fb430d1a2089484ae8d6",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_detokenizer.xml",
+  "size": 9594,
+  "hash": "f0bad5b134aff533559768e0add58eeb736bff29",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_model.bin",
+  "size": 909864660,
+  "hash": "c06a0c7346e6cad8dea0cdf3f0e11f4f5d3dbc49fa79366b867d17cba7a1c73d",
+  "ok": true,
+  "tries": 0,
+  "seconds": 2.3
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_model.xml",
+  "size": 2435810,
+  "hash": "f437f0fad6a47bcb7c924d5e078331598e4d1b25",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588628,
+  "hash": "03c324c45a915c87e03c095b739c567371e5e5e131bf13b2052ac9e659b582cc",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "openvino_tokenizer.xml",
+  "size": 25114,
+  "hash": "7c098bc06fadecd3da4954bedd7d1758ffb220cb",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "tokenizer.json",
+  "size": 11421896,
+  "hash": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "tokenizer_config.json",
+  "size": 7336,
+  "hash": "895a05f7a8830a0814ae0aeea48c55032f435cd7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov",
+  "revision": "4d14c299e35d8b74e3471f9e92bd1377fae50736",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ }
+]

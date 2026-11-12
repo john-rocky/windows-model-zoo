@@ -2,6 +2,9 @@
 
 The words used here are explained in [reading-results.md](reading-results.md#words-used-in-the-files).
 
+A coding agent can follow [`skills/add-to-windows-model-zoo/SKILL.md`](../skills/add-to-windows-model-zoo/SKILL.md):
+these steps as a procedure, with the commands, the output to expect and what to do when a step fails.
+
 ## Where things are
 
 ```
@@ -14,7 +17,7 @@ models/<model>/recipe.toml  how each form is made and how each cell runs; the li
 models/<model>/results/     one JSON per cell (schema/cell.schema.json)
 models/<model>/reference/   the compact record of the line's reference
 raw/z5/, raw/z6/, raw/z14/, the run records and references the task cells name (`source.record`)
-raw/z13/
+raw/z13/, raw/z19/
 suites/                     the input sets: vision images (pinned URLs + sha256), LLM questions and their answer key,
                             audio clip lists
 schema/                     cell.schema.json, recipe.md (the recipe's keys), lines.md (the lines per kind and task)
@@ -28,6 +31,7 @@ tests/                      synthetic outputs and records through the vision tas
                             python3 tests/test_vision_tasks.py, test_records.py, test_llm_records.py,
                             test_llm_runners.py, test_sitting_feed.py
 docs/                       how to read a result, add a model and run everything again; images/ is the README's figure
+skills/                     add-to-windows-model-zoo/SKILL.md: this page as a coding agent's procedure
 LICENSES.md                 generated: each model's licence, the other repos its cells use, the input sets' terms
 ```
 
@@ -64,7 +68,7 @@ vision task cells). No model runs on the Mac: references, exports and cells all 
    pass, the pull.
 6. **Results, cards, lint:**
    ```bash
-   python3 tools/results.py --runs raw/<runs> --refs raw/<refs>   # one JSON per cell, the line judged
+   python3 tools/results.py --runs raw/<runs> --refs raw/<refs> --model <model>   # one JSON per cell, the line judged
    python3 tools/table.py                                         # the cards' blocks, LICENSES.md
    python3 tools/lint.py                                          # PASS / FAIL per model folder, with the reasons
    ```
@@ -75,5 +79,7 @@ as `<owner>__<repo>\<path>`), `{FIX}` its `fixtures\`, `{HOME}` the user folder,
 ## Add a result to a model
 
 Add a `[[cell]]` (and its `[[form]]`, `[[fetch]]` and steps when new) to the model's recipe, then steps 4 to 6 above
-with that cell alone in `--cells`. To judge the cells of one walk without touching `models/`, write them elsewhere:
+with that cell alone in `--cells` (in step 6, `--cells <model>/<cell>` in place of `--model <model>`: `--model` writes
+every cell of the model again, and a cell whose record is not under `--runs` becomes `not_run`). To judge the cells of
+one walk without touching `models/`, write them elsewhere:
 `python3 tools/results.py --runs ... --refs ... --out <folder> --cells <model>/<cell>,...`.

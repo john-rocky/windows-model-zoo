@@ -12,6 +12,8 @@
 #   pc.sh pushfix <S150 dir> [<S220 dir>]   the clip sets -> <PC folder>\fixtures (S220 under fixtures\s220)
 #   pc.sh pull <rel path> <K dest>    <PC folder>\<rel path> -> K/<K dest>/<its last part> (one tar, one connection;
 #                                     without the cache\ and wav\ folders)
+#   pc.sh put <repo path> <PC rel dest>   K/<repo path> -> <PC folder>\<PC rel dest>\<its last part> (one tar, one
+#                                     connection; a committed reference for a new cell of a model: put raw/z6/refs/<model> refs)
 #   pc.sh py <pc\script.py> [args]   that script with the folder's .venv-ovg python (-I), in the foreground;
 #                                     ZOO_VENV=<name> picks .venv-<name>
 #   pc.sh lock take|gate|release|status|slot|note ["what"] [open s]   pc\lock.ps1 (the waits run on the PC)
@@ -47,7 +49,7 @@ case "${1:-}" in
 "now $(Get-Date -Format o)"
 $p = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'pcup'
 if (Test-Path "$p\busy.txt") { "busy: $((Get-Content "$p\busy.txt" -Raw).Trim()) (written $([int]((Get-Date) - (Get-Item "$p\busy.txt").LastWriteTime).TotalMinutes) min ago)" } else { "busy: none" }
-Get-ChildItem "$p\active\*.txt", "$p\yield\*.txt" -ErrorAction SilentlyContinue | ForEach-Object { "$($_.Directory.Name)\$($_.Name): $(((Get-Content $_.FullName -Raw).Trim()) -replace '\s+', ' ')" }
+Get-ChildItem "$p\active\*.txt", "$p\yield\*.txt" -ErrorAction SilentlyContinue | ForEach-Object { "$($_.Directory.Name)\$($_.Name): $((@(Get-Content $_.FullName -Raw -ErrorAction SilentlyContinue) -join ' ').Trim() -replace '\s+', ' ')" }
 "free C: $([math]::Round((Get-PSDrive C).Free / 1GB, 1)) GB"
 EOF
     ;;
@@ -102,6 +104,12 @@ EOF
     # not the runtimes' compile caches ({RUN}\cache: GPU / NPU blobs) nor the TTS waves (the write-back reads them on the PC)
     ssh "$HOST" "tar -cf - --exclude cache --exclude wav -C $RF/$(dirname "$2") $(basename "$2")" | tar -xf - -C "$K/$3"
     ;;
+  put)
+    [[ -e "$K/$2" ]] || { echo "put: no such path in this repo: $2" >&2; exit 2; }
+    COPYFILE_DISABLE=1 tar -cf - -C "$K/$(dirname "$2")" "$(basename "$2")" \
+      | ssh "$HOST" "New-Item -ItemType Directory -Force $RF/$3 | Out-Null; tar -xf - -C $RF/$3"
+    echo "put $2 -> $R\\${3//\//\\}\\$(basename "$2")"
+    ;;
   lock)
     what="${3-timing}"   # an empty "what" stays empty (lock note "" removes the note)
     ps_run <<EOF
@@ -119,5 +127,5 @@ EOF
 & '$R\\pc\\wait_done.ps1' -Done '$2' -Log '$3' -MaxHours ${4:-12}
 EOF
     ;;
-  *) sed -n 2,22p "$0"; exit 2 ;;
+  *) sed -n 2,21p "$0"; exit 2 ;;
 esac
