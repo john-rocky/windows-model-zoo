@@ -1,10 +1,14 @@
 #!/bin/bash
 # Mac-side calls to the PC (ssh <zoo.toml pc_ssh>; its default shell is PowerShell), one SSH connection per call.
 # From the audio zoo's tools/pc.sh (windows-audio-zoo), with the lane, the ssh host and the PC folder read from zoo.toml.
-# Before every connection it reads the shared lock feed on the Mac (~/code/standup/tools/winpc/busy_now.sh, no ssh):
+# Before every connection it reads the PC's lock feed on the Mac, with the command in PC_FEED_CMD (no ssh):
 # another lane's "timing:" lock, or a feed older than 3 min, refuses the call (exit 3). ZOO_FORCE=1 skips the read
 # (tools/sitting.sh inside the lane's own lock; `wait` never reads it: it is the one long connection of a running job).
-# A Mac without that feed (another shared-PC set-up): ZOO_FEED=none skips the read.
+# A Mac without a lock feed (another shared-PC set-up): ZOO_FEED=none skips the read.
+# PC_FEED_CMD=<command>: prints the PC's lock state, a line `<ISO time> <HH:MM:SS> BUSY <holder, or none when free>
+# [<lock text>]` (the last BUSY line counts; other lines are not read), and exits non-zero when that state is stale or
+# missing. This repo has no such command; without it (and without ZOO_FEED=none) every call but `wait` is refused, and
+# tools/sitting.sh, which runs the same command, stops at its start.
 #
 #   pc.sh status                      busy.txt, the active\ and yield\ notes, free disk
 #   pc.sh ps                          run the PowerShell read from stdin (-EncodedCommand)
@@ -28,7 +32,8 @@ R="${ZOO_PC_ROOT:-$(conf pc_root)}"   # the PC folder (README walk: another empt
 RF="${R//\\//}"                        # the same with forward slashes (ssh tar)
 
 if [[ -z "${ZOO_FORCE:-}" && "${ZOO_FEED:-}" != "none" && "${1:-}" != "wait" ]]; then
-  feed=$(bash ~/code/standup/tools/winpc/busy_now.sh 2>&1) || { echo "REFUSED (lock feed stale or missing): $feed" >&2; exit 3; }
+  [[ -n "${PC_FEED_CMD:-}" ]] || { echo "REFUSED (PC_FEED_CMD is not set: the command that prints the PC lock feed, this file's header; a Mac without a lock feed: ZOO_FEED=none)" >&2; exit 3; }
+  feed=$(bash -c "$PC_FEED_CMD" 2>&1) || { echo "REFUSED (lock feed stale or missing): $feed" >&2; exit 3; }
   busy=$(printf '%s\n' "$feed" | awk '$3=="BUSY"' | tail -n 1)
   if [[ "$busy" == *"timing:"* && "$busy" != *" BUSY $LANE "* ]]; then
     echo "REFUSED (another lane's timing lock): ${busy}" >&2

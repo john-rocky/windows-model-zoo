@@ -1,9 +1,9 @@
 #!/bin/bash
 # One timed sitting on the PC, from the Mac (the audio zoo's tools/sitting.sh; the lane and the PC folder from zoo.toml):
-#   1. wait on the Mac (the shared feed, ~/code/standup/tools/winpc/busy_now.sh, every 10 s, no ssh) until busy.txt
-#      has been free for 60 s in a row. A feed that is missing or stale at the start refuses the sitting (exit 3). A Mac
-#      without that feed: ZOO_FEED=none skips the feed (as in tools/pc.sh); the take then waits on the PC, in one ssh
-#      connection, until busy.txt has been free for 60 s (pc\lock.ps1 take)
+#   1. wait on the Mac (the lock feed: the command in PC_FEED_CMD, as in tools/pc.sh's header; every 10 s, no ssh) until
+#      busy.txt has been free for 60 s in a row. PC_FEED_CMD not set, or a feed that is missing or stale at the start,
+#      refuses the sitting (exit 3). A Mac without a lock feed: ZOO_FEED=none skips the feed (as in tools/pc.sh); the
+#      take then waits on the PC, in one ssh connection, until busy.txt has been free for 60 s (pc\lock.ps1 take)
 #   2. the lane's lock ("<lane> timing: sitting <plan> ... until HH:MM") and the lane's quiet gate (3 x 5 s under 15 % CPU,
 #      RTX empty, build tools quiet; at most 10 min, else the lock goes back and the sitting waits 10 min)
 #   3. pc/chain.ps1 -Mode timed on the plan, detached: control-warm, control-head (stops the sitting when off the known
@@ -14,7 +14,7 @@
 #   tools/sitting.sh <plan name> [--resume] [--wait-hours N]
 # --resume: the chain still runs and this side's wait ended or was stopped: wait for it again, then pull.
 # Log: raw/<plan>.sitting.log. Exit 1 when the lock, the gate or the chain failed (the lock is released on every exit);
-# exit 3 when the feed is missing or stale and ZOO_FEED is not none.
+# exit 3 when PC_FEED_CMD is not set or the feed is missing or stale, and ZOO_FEED is not none.
 set -uo pipefail
 K="$(cd "$(dirname "$0")/.." && pwd)"
 plan="$1"; shift || true
@@ -41,7 +41,7 @@ if p.get('end_by'):   # the chain starts no cell that would end past it (its tai
 print(t.strftime('%H:%M'))")
 
 free_for() {  # seconds busy.txt has been free in the feed, 0 when held (or the feed is stale)
-  local f; f=$(bash ~/code/standup/tools/winpc/busy_now.sh 2>/dev/null) || { echo 0; return; }
+  local f; f=$(bash -c "$PC_FEED_CMD" 2>/dev/null) || { echo 0; return; }
   printf '%s\n' "$f" | awk '$3=="BUSY"' | tail -n 1 | python3 -c "
 import sys, datetime as d
 l = sys.stdin.read().split()
@@ -50,7 +50,7 @@ else: print(int((d.datetime.now(d.timezone.utc) - d.datetime.strptime(l[0], '%Y-
 }
 
 ours_now() {  # the feed's lock is the lane's own (a first-pass block of its slot may run right before the sitting)
-  bash ~/code/standup/tools/winpc/busy_now.sh 2>/dev/null | awk '$3=="BUSY"' | tail -n 1 | grep -q " BUSY $LANE "
+  bash -c "$PC_FEED_CMD" 2>/dev/null | awk '$3=="BUSY"' | tail -n 1 | grep -q " BUSY $LANE "
 }
 
 drop_dead_yield_note() {  # the lane's yield\<lane>.txt with no wrapper running reads as "this lane waits" to others
@@ -81,8 +81,12 @@ take() {
   done
 }
 
-if [[ "${ZOO_FEED:-}" != "none" ]] && ! feed=$(bash ~/code/standup/tools/winpc/busy_now.sh 2>&1); then
-  say "REFUSED (lock feed stale or missing): $(printf '%s\n' "$feed" | tail -n 1); a Mac without that feed: ZOO_FEED=none"
+if [[ "${ZOO_FEED:-}" != "none" && -z "${PC_FEED_CMD:-}" ]]; then
+  say "REFUSED (PC_FEED_CMD is not set: the command that prints the PC lock feed, tools/pc.sh's header); a Mac without a lock feed: ZOO_FEED=none"
+  exit 3
+fi
+if [[ "${ZOO_FEED:-}" != "none" ]] && ! feed=$(bash -c "$PC_FEED_CMD" 2>&1); then
+  say "REFUSED (lock feed stale or missing): $(printf '%s\n' "$feed" | tail -n 1); a Mac without a lock feed: ZOO_FEED=none"
   exit 3
 fi
 if (( resume )); then

@@ -1,7 +1,8 @@
-"""tools/sitting.sh and the shared lock feed (Mac, no PC). In a scratch copy with a stand-in tools/pc.sh (it records each
+"""tools/sitting.sh and the PC's lock feed (Mac, no PC). In a scratch copy with a stand-in tools/pc.sh (it records each
 call and answers like the PC: TAKEN, PASS, STARTED, a DONE line, the lane's lock in status, RELEASED) and a stand-in
-feed reader (HOME/code/standup/tools/winpc/busy_now.sh, the shared PC's format: exit 0 when the last line is under
-3 min old, else 2):
+feed command in PC_FEED_CMD (a script in the scratch folder, the output tools/pc.sh's header describes: exit 0 when the
+last line is under 3 min old, else 2):
+  PC_FEED_CMD not set     -> exit 3, "REFUSED (PC_FEED_CMD is not set", no call to tools/pc.sh
   missing feed            -> exit 3, "REFUSED (lock feed stale or missing)", no call to tools/pc.sh
   stale feed              -> exit 3, the same
   ZOO_FEED=none (no feed) -> the sitting runs: lock take (ZOO_FEED=none passed on), gate, launch, wait, pull, release
@@ -38,8 +39,8 @@ case "$1 ${2:-}" in
 esac
 """
 
-BUSY_NOW = r"""#!/bin/bash
-# stand-in of the shared PC's feed reader (the form of its output, and its exit codes)
+FEED_SH = r"""#!/bin/bash
+# stand-in feed command (the form of its output, and its exit codes)
 LOG=${BUSY_FEED_LOG:-$HOME/.winpc/busy_feed.log}
 [ -f "$LOG" ] || { echo "no feed log at $LOG"; exit 2; }
 awk '$3=="BUSY"||$3=="WINDOW"||$3=="ACTIVE"{a[$3]=$0} END{for(k in a) print a[k]}' "$LOG" | sort -k3,3
@@ -56,7 +57,7 @@ def stamp(t):
     return t.strftime("%Y-%m-%dT%H:%M:%S%z")
 
 
-def run_case(name, env_more, feed_lines, want_rc, want_calls, want_log, not_log):
+def run_case(name, env_more, feed_lines, want_rc, want_calls, want_log, not_log, feed_cmd=True):
     with tempfile.TemporaryDirectory() as td:
         k = pathlib.Path(td) / "zoo"
         (k / "tools").mkdir(parents=True)
@@ -68,14 +69,17 @@ def run_case(name, env_more, feed_lines, want_rc, want_calls, want_log, not_log)
         unit = {"cell": "m/c", "timeout_min": 1, "runs": 1}
         (k / "pc" / "plans" / "t.json").write_text(json.dumps({"sitting": "t", "mode": "timed", "units": [unit]}))
         home = pathlib.Path(td) / "home"
-        (home / "code/standup/tools/winpc").mkdir(parents=True)
-        (home / "code/standup/tools/winpc/busy_now.sh").write_text(BUSY_NOW)
+        home.mkdir()
+        feed_sh = pathlib.Path(td) / "feed.sh"
+        feed_sh.write_text(FEED_SH)
         feed = pathlib.Path(td) / "busy_feed.log"
         if feed_lines is not None:
             feed.write_text("".join(x + "\n" for x in feed_lines))
         env = dict(os.environ, HOME=str(home), BUSY_FEED_LOG=str(feed))
-        env.pop("ZOO_FEED", None)
-        env.pop("ZOO_FORCE", None)
+        for x in ("ZOO_FEED", "ZOO_FORCE", "PC_FEED_CMD"):
+            env.pop(x, None)
+        if feed_cmd:
+            env["PC_FEED_CMD"] = f"bash '{feed_sh}'"
         env.update(env_more)
         r = subprocess.run(["bash", str(k / "tools" / "sitting.sh"), "t"], env=env, capture_output=True, text=True,
                            timeout=120)
@@ -108,10 +112,11 @@ def main():
     stale = [f"{stamp(now - dt.timedelta(minutes=40))} 00:00:00 BUSY none"]
     run = ["ps", "lock take", "lock gate", "launch", "wait", "lock status", "pull", "lock release"]
     cases = [
+        ("PC_FEED_CMD not set: refused", {}, free, 3, [], ["REFUSED (PC_FEED_CMD is not set"], [], False),
         ("missing feed: refused", {}, None, 3, [], ["REFUSED (lock feed stale or missing): no feed log"], []),
         ("stale feed: refused", {}, stale, 3, [], ["REFUSED (lock feed stale or missing): STALE"], []),
         ("ZOO_FEED=none without a feed: the sitting runs", {"ZOO_FEED": "none"}, None, 0, run,
-         ["ZOO_FEED=none: no feed", "lock: TAKEN", "gate: PASS", "sitting t end: DONE OK"], ["REFUSED"]),
+         ["ZOO_FEED=none: no feed", "lock: TAKEN", "gate: PASS", "sitting t end: DONE OK"], ["REFUSED"], False),
         ("fresh feed, the lock free: the sitting runs", {}, free, 0, run,
          ["lock: TAKEN", "gate: PASS", "sitting t end: DONE OK"], ["REFUSED", "ZOO_FEED=none"]),
     ]

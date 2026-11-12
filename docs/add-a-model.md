@@ -26,8 +26,8 @@ tools/                      the Mac side: table.py, lint.py, results.py, vision_
 pc/                         the PC side: chain.ps1, steps.ps1, lock.ps1, launch.ps1, wait_done.ps1, zlib.ps1,
                             fetch.py, engines.py, the runners and their library zoolib.py, req/ (one pinned venv each)
 tests/                      synthetic outputs and records through the vision task lines, the LLM qa20 records and the
-                            LLM runners with fake engines, then results → table → lint; tools/sitting.sh with a
-                            missing, stale or skipped lock feed (Mac, no model runs, no PC):
+                            LLM runners with fake engines, then results → table → lint; tools/sitting.sh with no
+                            feed command, a missing, stale or skipped lock feed (Mac, no model runs, no PC):
                             python3 tests/test_vision_tasks.py, test_records.py, test_llm_records.py,
                             test_llm_runners.py, test_sitting_feed.py
 docs/                       how to read a result, add a model and run everything again; images/ is the README's figure

@@ -44,10 +44,12 @@ on the PC; for the other runtimes and for vision and audio models, section 2 say
 3. In `zoo.toml`, set two keys of `[zoo]` for this job (and do not commit them; `git checkout -- zoo.toml` before
    the commit): `pc_root` = a folder on the PC that does not exist yet, such as `'C:\src\zoo-<name>'` (no spaces), and
    `lane` = this job's name on the shared PC (letters and digits; it names your lock and your notes there).
-4. Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac
-   (`~/code/standup/tools/winpc/busy_now.sh`). On a Mac without that file those calls stop with `REFUSED (lock feed
-   stale or missing)`: put `export ZOO_FEED=none;` at the start of every shell call that runs `tools/pc.sh` (when each
-   command runs in a new shell, a variable set in one call is gone in the next).
+4. Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac with the command in
+   `PC_FEED_CMD` (its output is described in `tools/pc.sh`'s header; this repo has no such command). Put
+   `export PC_FEED_CMD='<that command>';` at the start of every shell call that runs `tools/pc.sh` or
+   `tools/sitting.sh` (when each command runs in a new shell, a variable set in one call is gone in the next). Without
+   it those calls stop with `REFUSED (PC_FEED_CMD is not set ...`; on a Mac that has no lock feed, put
+   `export ZOO_FEED=none;` there instead.
 5. Check the PC (`[zoo] pc_ssh` is its ssh host; its default shell is PowerShell 5.1):
 
    ```bash
@@ -343,6 +345,7 @@ python3 tools/lint.py
 | what you see | what it means | what to do |
 |---|---|---|
 | `REFUSED (another lane's timing lock): ...` (exit 3) | another job times on the PC; no connection is opened | wait (minutes), then the same command |
+| `REFUSED (PC_FEED_CMD is not set: ...` (exit 3) | the call's shell has no `PC_FEED_CMD` | `export PC_FEED_CMD='<the feed command>';` at the start of the call (section 0); a Mac without a lock feed: `export ZOO_FEED=none;` |
 | `REFUSED (lock feed stale or missing): ...` (exit 3) | the Mac's lock feed is old or missing | a Mac without the feed: `export ZOO_FEED=none;` at the start of the call (section 0); else wait for the feed |
 | `STOP: <repo>@<sha10> has no file for ['<glob>']` (plan.py manifest) | an `include` glob matches no file of that revision | fix the glob from the repo's tree (section 2) |
 | `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, the model's folder name) |

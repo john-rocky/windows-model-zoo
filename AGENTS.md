@@ -45,11 +45,13 @@ fresh`.
 4. **Tables that put runtimes side by side stay on your disk.** `tools/table.py --local`,
    `tools/task_pairs_vision.py` and `tools/task_pairs_llm.py` write them, and `.gitignore` keeps them out. Do not
    paste them into the README, a card, a commit, a pull request or an issue.
-5. **The PC is shared.** Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac
-   (`~/code/standup/tools/winpc/busy_now.sh`). It refuses the call (exit 3) while another job times on the PC: wait,
-   then run the same command. It also refuses (exit 3, `REFUSED (lock feed stale or missing)`) when the feed is stale
-   or that file is missing. Only on a Mac that does not have the file, put `export ZOO_FEED=none;` at the start of each
-   shell call that runs `tools/pc.sh` (the skill's section 0). The PC kills an untimed step when another job takes the
+5. **The PC is shared.** Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac with the
+   command in `PC_FEED_CMD` (its output is described in `tools/pc.sh`'s header; this repo has no such command). It
+   refuses the call (exit 3) while another job times on the PC: wait, then run the same command. It also refuses
+   (exit 3) when `PC_FEED_CMD` is not set (`REFUSED (PC_FEED_CMD is not set ...`) or the feed is stale or missing
+   (`REFUSED (lock feed stale or missing)`). Put `export PC_FEED_CMD='<that command>';` at the start of each shell
+   call that runs `tools/pc.sh` or `tools/sitting.sh`; only on a Mac that has no lock feed, put
+   `export ZOO_FEED=none;` there instead (the skill's section 0). The PC kills an untimed step when another job takes the
    lock and runs it again once the lock has been free 60 s: do not kill, suspend or start it again yourself. In the
    PC's night (`[zoo] night` in `zoo.toml`) nothing untimed starts and what runs is killed: launch the same list or
    plan after the night.
