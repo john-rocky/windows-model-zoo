@@ -27,7 +27,8 @@ a **list** is a set of untimed steps on the PC; the **lock** is the shared PC's 
 This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new runner or runtime, a new kind of line,
 cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU and the Intel GPU) is the
 one walked on the PC. For the other runtimes and for vision and audio models, section 2 says what to copy; of those,
-only llama.cpp cells of Qwen2.5-1.5B-Instruct, a model already here, have been walked ("Not walked").
+only llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of Qwen2.5-0.5B-Instruct,
+a new model ("Not walked").
 
 ## 0. Before you start
 
@@ -182,23 +183,27 @@ ram_need_gb = 5
   `.meta.json` (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the chain's `chain.log`, in
   `raw/<name>/runs/<name>-<n>/`, names the ids). The id named for the cell's device (`intel-gpu` for the Intel GPU)
   holds the cell's memory; when another one does, the cell ran on another device: stop and report it.
-- **Other runtimes and kinds** (of these, only llama.cpp cells of Qwen2.5-1.5B-Instruct were walked): copy a `task-*`
-  `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and the `[[form]]`,
-  `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its `z1_cell` or
-  `z2_cell` key: it marks a cell that judges a copied cell again. A vision or audio model needs its task's line and
-  reference step: see `PLAN.md` and a model of the same task.
+- **Other runtimes and kinds** (of these, only llama.cpp cells were walked, of a model already here and of a new one):
+  copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
+  the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its
+  `z1_cell` or `z2_cell` key: it marks a cell that judges a copied cell again. The recipe of a new LLM whose cells all
+  run on runtimes other than OpenVINO GenAI keeps the template's `[model]`, first `[[fetch]]` (the original model),
+  `reference` step and `[[line]]`. The copied `[[fetch]]`, `[[form]]` and `[[cell]]` take the place of the template's
+  (`models/Qwen2.5-0.5B-Instruct/recipe.toml` has llama.cpp cells only). A vision or audio model needs its task's line
+  and reference step: see `PLAN.md` and a model of the same task.
 - **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell that
   runs a WebGPU overlay, also need the model's `z6-setup` step (before its reference step) and its entry under `models`
   in `pc/z6_spec.json` (engines, links, Foundry packages, overlays; the header of `pc/z6_setup.py` says what each
-  holds). The shortest example is `models/Qwen2.5-1.5B-Instruct/recipe.toml` with its entry: `engines` names the
+  holds). The shortest example is `models/Qwen2.5-0.5B-Instruct/recipe.toml` with its entry: `engines` names the
   engine folders of the cells' `--server` paths, and a link goes from `{HUB}\<owner>__<repo>\<file>` to the cells'
   `--model` path, with `bytes` = the file's size in the Hub tree you printed (`z6-setup` fails on another size).
   `models/Qwen3-0.6B/recipe.toml` and its entry have every kind. Write the file back in its own format
   (`json.dumps(d, indent=1, ensure_ascii=False)` and a newline, as `write_json` in `tools/zoo.py` does):
   `git diff pc/z6_spec.json` then shows only your entry's lines. `z6-setup` checks the model's whole entry, not only
-  what your cells use: every LLM here but Qwen2.5-1.5B-Instruct has `litert` in its entry, so one more llama.cpp cell
-  of those models also needs the `engines-litert` list (section 5), and four of them Foundry Local's packages
-  (section 0, step 5). No run of this skill has done that.
+  what your cells use. The entries of Qwen2.5-1.5B-Instruct and Qwen2.5-0.5B-Instruct name only the three llama.cpp
+  engines. The other five LLMs here (Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it and gemma-4-E4B-it) also have
+  `litert` in their entries, so one more llama.cpp cell of one of them also needs the `engines-litert` list (section 5)
+  and, for the first four, Foundry Local's packages (section 0, step 5). No run of this skill has done that.
 - **A llama.cpp GPU cell's proof of its device** is the server's log (`run1.server.txt`, beside `run1.json`):
   `devices` in `run1.json` names `CUDA0 (NVIDIA ...)` or `Vulkan0 (NVIDIA ...)`. When the log names no device of that
   kind on the NVIDIA GPU, the runner ends the cell with an error (`run.error_line` starts `RuntimeError: no CUDA device
@@ -286,7 +291,7 @@ tools/pc.sh lock note ""
 - **The engines** (a model with a `z6-setup` step, section 4): launch the `engines` list after `setup` has ended (its
   steps run in the `genai` venv that `setup` makes), and wait for it before the model's list, whose `z6-setup` step
   checks every engine file. For llama.cpp, its step `engines-llama` downloads the b11721 release zips (the CPU, Vulkan
-  and CUDA builds and the CUDA runtime, about 630 MB) and unpacks them (1.6 min on a new PC folder).
+  and CUDA builds and the CUDA runtime, about 630 MB) and unpacks them (0.8 to 1.6 min on a new PC folder).
   `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step over 8 GB under your own lock: before you launch it,
   ask the person who gave you the task when it may run (section 2, "Memory"). It goes after the `engines` list and
   before the model's list; its two lines are in `docs/reproduce.md`, step 3. No run of this skill has launched it; the
@@ -365,8 +370,8 @@ python3 tools/lint.py
    `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `z6-setup`
    step, `pc/z6_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
    `KeyError`). `raw/*/` is ignored: add `!raw/<name>/` and `raw/<name>/logs/` (the step logs stay on your disk) to
-   `.gitignore`, next to the lines of the other folders, and add `raw/<name>/` to the list in `docs/add-a-model.md`
-   ("Where things are").
+   `.gitignore`, next to the lines of the other folders, name your folder in the comment above each of the two groups,
+   and add `raw/<name>/` to the list in `docs/add-a-model.md` ("Where things are").
 4. `README.md` and `docs/reading-results.md` count and list the results (the `task-*` files). Change each place your
    cells change.
    - In `README.md`: the number of results in four places (`grep -n -E '[0-9]+ (test )?results' README.md`); the
@@ -390,6 +395,7 @@ python3 tools/lint.py
      && git commit -m "<model>: <what you added>" && git status --short
    ```
 
+   The message is that one line: add no trailer lines, such as `Co-Authored-By` (this repo's commits have none).
    `git add raw/<name>` leaves out its `logs/` (`.gitignore`); without the `!raw/<name>/` line of step 3 it stops with
    `The following paths are ignored by one of your .gitignore files` and nothing is committed. For a result of a model
    already here, `raw/<name>/` has no `refs/` (section 5 leaves out `pull refs`). `git status --short` prints nothing.
@@ -433,7 +439,13 @@ that model (the CPU, and the NVIDIA RTX GPU with CUDA and with Vulkan; its recor
 section 2's paragraph on the other runtimes, from a new PC folder, with no help, and ended with a commit on its branch.
 On its own, it launched the `engines` list, put `pc/z6_spec.json` in the commit, and read the GPU cells' device from the
 server's log when `engine.gpuMiBPeak` came back empty, none of which this file said to do then (now sections 2, 5 and
-7). Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that
-fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI cell on the NVIDIA RTX GPU, the
-LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of a new model or of the other LLMs here, a
-vision or audio model, and a timed sitting.
+7). A third such agent, given two sentences of the same kind, added a new model, Qwen2.5-0.5B-Instruct, with its
+reference and three llama.cpp results on the same devices and backends (its records: `raw/qwen25-05b/`), from a new PC
+folder, with no help, and ended with a commit on its branch. On its own, it built the recipe from
+Qwen2.5-1.5B-Instruct's, without the OpenVINO GenAI package's `[[fetch]]`, `[[form]]` and cells, which this file did
+not say then (now section 2). Its first commit command had a `Co-Authored-By` line, which this file did not rule out
+then (now section 7, step 6): a commit-msg hook on this Mac, not a file of this repo, refused that commit, and the
+agent committed again with the one line. Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped
+by a lock, a step or a runner that fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI
+cell on the NVIDIA RTX GPU, the LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of the five
+LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.

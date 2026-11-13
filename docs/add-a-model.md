@@ -17,7 +17,7 @@ models/<model>/recipe.toml  how each form is made and how each cell runs; the li
 models/<model>/results/     one JSON per cell (schema/cell.schema.json)
 models/<model>/reference/   the compact record of the line's reference
 raw/z5/, raw/z6/, raw/z14/, the run records and references the task cells name (`source.record`)
-raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/
+raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/
 suites/                     the input sets: vision images (pinned URLs + sha256), LLM questions and their answer key,
                             audio clip lists
 schema/                     cell.schema.json, recipe.md (the recipe's keys), lines.md (the lines per kind and task)

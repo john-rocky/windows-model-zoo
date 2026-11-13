@@ -1224,6 +1224,24 @@
    "foundry": [],
    "overlays": [],
    "foundry_cells": 0
+  },
+  "Qwen2.5-0.5B-Instruct": {
+   "engines": [
+    "llama-cpu",
+    "llama-cuda",
+    "llama-gpu"
+   ],
+   "links": [
+    {
+     "src": "{HUB}\\Qwen__Qwen2.5-0.5B-Instruct-GGUF\\qwen2.5-0.5b-instruct-q4_k_m.gguf",
+     "dst": "{ROOT}\\work\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf",
+     "bytes": 491400032,
+     "source": "Qwen/Qwen2.5-0.5B-Instruct-GGUF@9217f5db79a29953eb74d5343926648285ec7e67:qwen2.5-0.5b-instruct-q4_k_m.gguf (the Hub file; sha256 74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db)"
+    }
+   ],
+   "foundry": [],
+   "overlays": [],
+   "foundry_cells": 0
   }
  }
 }

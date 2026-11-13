@@ -1,0 +1,9 @@
+[2026-11-13T09:55:11.3057038+09:00] chain start: plan C:\src\zoo-qwen25-05b\pc\plans\qwen25-05b-1.json mode first, 3 units, pid 19768
+[2026-11-13T09:55:21.8677247+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-13T09:55:24.1326247+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_cpu_cpu run 1 start
+[2026-11-13T09:55:32.8895079+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_cpu_cpu run 1 end: exit 0, OK, 6.685 s
+[2026-11-13T09:55:34.8963052+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_rtx_cuda run 1 start
+[2026-11-13T09:55:46.5721932+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_rtx_cuda run 1 end: exit 0, OK, 9.769 s
+[2026-11-13T09:55:48.5896162+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_rtx_vulkan run 1 start
+[2026-11-13T09:56:04.0264045+09:00] Qwen2.5-0.5B-Instruct/task-llama.cpp_rtx_vulkan run 1 end: exit 0, OK, 13.536 s
+[2026-11-13T09:56:04.0394100+09:00] chain done: OK

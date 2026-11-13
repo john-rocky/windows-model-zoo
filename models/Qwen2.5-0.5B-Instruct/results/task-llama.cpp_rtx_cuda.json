@@ -1,0 +1,272 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Qwen2.5-0.5B-Instruct",
+ "cell": "task-llama.cpp_rtx_cuda",
+ "kind": "llm",
+ "runtime": {
+  "id": "llama.cpp",
+  "label": "llama.cpp b11721"
+ },
+ "device": {
+  "id": "rtx",
+  "label": "RTX 5080 Laptop"
+ },
+ "form": {
+  "id": "gguf:qwen2.5-0.5b-instruct-q4_k_m.gguf",
+  "label": "Q4_K_M",
+  "detail": "Q4_K_M; Qwen/Qwen2.5-0.5B-Instruct-GGUF@9217f5db79a29953eb74d5343926648285ec7e67 qwen2.5-0.5b-instruct-q4_k_m.gguf (491400032 bytes)",
+  "path": null,
+  "from": "Qwen/Qwen2.5-0.5B-Instruct-GGUF"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on qa20: 15 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 16 of 20 right by the answer key",
+  "reference": "raw/qwen25-05b/refs/Qwen2.5-0.5B-Instruct/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 15,
+    "n": 20,
+    "bar": 18,
+    "pass": false
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": false
+  },
+  "text": "answers 15/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-model-zoo",
+  "record": "raw/qwen25-05b/runs/qwen25-05b-1/Qwen2.5-0.5B-Instruct/task-llama.cpp_rtx_cuda/run1.json",
+  "runner": "run_llm_llamacpp.py",
+  "argv": [
+   "--server",
+   "C:\\src\\zoo-qwen25-05b\\engines\\llama-cuda\\llama-server.exe",
+   "--model",
+   "C:\\src\\zoo-qwen25-05b\\work\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf",
+   "--gpu",
+   "--device-prefix",
+   "CUDA",
+   "--ref",
+   "C:\\src\\zoo-qwen25-05b\\refs\\Qwen2.5-0.5B-Instruct\\ref.json",
+   "--out",
+   "C:\\src\\zoo-qwen25-05b\\runs\\qwen25-05b-1\\Qwen2.5-0.5B-Instruct\\task-llama.cpp_rtx_cuda\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 15/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "qwen25-05b-1",
+  "started": "2026-11-13T09:55:35.149076+09:00",
+  "ended": "2026-11-13T09:55:44.192486+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 7.218,
+  "warmup_s": 0.113,
+  "peak_working_set_mb": 38,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 40058880,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "balanced",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
+   "battery": "status 2, 95 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 15,
+   "n": 20,
+   "full_text_same": 14,
+   "eos_within_max": 20,
+   "new_tokens": 77,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "36",
+     "ref": "36",
+     "same": true
+    },
+    {
+     "id": "q04",
+     "cell": "tca",
+     "ref": "taclt",
+     "same": false
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう (arigatou)",
+     "ref": "ありがとう (arigatou)",
+     "same": true
+    },
+    {
+     "id": "q09",
+     "cell": "blue and yellow create a vibrant, complementary color known as \"violet",
+     "ref": "purple",
+     "same": false
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes",
+     "ref": "yes",
+     "same": true
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "william shakespeare",
+     "ref": "shakespeare",
+     "same": false
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "10",
+     "ref": "10",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "iron is heavier than feathers",
+     "ref": "feathers are heavier than iron",
+     "same": false
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hollo",
+     "ref": "hello",
+     "same": false
+    },
+    {
+     "id": "q20",
+     "cell": "8",
+     "ref": "8",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 2",
+   "key": {
+    "right": 16,
+    "n": 20,
+    "wrong": [
+     "q04",
+     "q09",
+     "q17",
+     "q19"
+    ]
+   }
+  },
+  "versions": {
+   "python": "3.12.16"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-qwen25-05b\\refs\\Qwen2.5-0.5B-Instruct\\ref.json",
+   "prompts": 21,
+   "gpu": true,
+   "decode": "greedy (temperature 0, top_k 1, repeat_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: /tokenize of the reference's rendered prompt (add_special false, parse_special true), the ids to /completion"
+  }
+ }
+}

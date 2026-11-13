@@ -1,0 +1,82 @@
+[
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "config.json",
+  "size": 659,
+  "hash": "0dbb161213629a23f0fc00ef286e6b1e366d180f",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "generation_config.json",
+  "size": 242,
+  "hash": "dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "merges.txt",
+  "size": 1671839,
+  "hash": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "model.safetensors",
+  "size": 988097824,
+  "hash": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "ok": true,
+  "tries": 1,
+  "seconds": 25.3
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "tokenizer.json",
+  "size": 7031645,
+  "hash": "443909a61d429dff23010e5bddd28ff530edda00",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "tokenizer_config.json",
+  "size": 7305,
+  "hash": "07bfe0640cb5a0037f9322287fbfc682806cf672",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+  "revision": "9217f5db79a29953eb74d5343926648285ec7e67",
+  "path": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+  "size": 491400032,
+  "hash": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+  "ok": true,
+  "tries": 1,
+  "seconds": 14.6
+ }
+]

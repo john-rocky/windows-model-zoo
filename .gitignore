@@ -7,7 +7,7 @@ scratch/
 RESULTS_*.md
 TASK_PAIRS_*.md
 models/index.json
-# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/, raw/z19/, raw/qwen25-igpu/ and raw/qwen25-llamacpp/ (the task
+# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/ and raw/qwen25-05b/ (the task
 # cells), raw/walk/, raw/walk-z9/ and raw/walk-z12/ (the walks)
 raw/*/
 !raw/z5/
@@ -17,6 +17,7 @@ raw/*/
 !raw/z19/
 !raw/qwen25-igpu/
 !raw/qwen25-llamacpp/
+!raw/qwen25-05b/
 !raw/walk/
 !raw/walk-z9/
 !raw/walk-z12/
@@ -27,11 +28,12 @@ raw/z13/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 raw/walk-z12/**/*.npz
-# the PC step logs of the Z13, Z19, qwen25-igpu and qwen25-llamacpp passes name the PC account's folder: they stay on your disk
+# the PC step logs of the Z13, Z19, qwen25-igpu, qwen25-llamacpp and qwen25-05b passes name the PC account's folder: they stay on your disk
 raw/z13/logs/
 raw/z19/logs/
 raw/qwen25-igpu/logs/
 raw/qwen25-llamacpp/logs/
+raw/qwen25-05b/logs/
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
 walk-out-*/

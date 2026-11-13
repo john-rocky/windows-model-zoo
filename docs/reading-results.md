@@ -16,7 +16,7 @@ The result files, recipes and tools use short names for a few ideas.
 
 ## What the results cover
 
-29 models (6 LLMs, and 23 models of the vision zoo,
+30 models (7 LLMs, and 23 models of the vision zoo,
 [`john-rocky/windows-zoo`](https://github.com/john-rocky/windows-zoo): 20 image or video models and 3 audio models) run
 on one Windows laptop's runtimes and devices (Intel NPU, Intel GPU, NVIDIA RTX, CPU): the LLMs as published packages,
 the other 23 as the vision zoo's converted files. One JSON per cell (a model on one runtime, device and package); each
@@ -47,7 +47,7 @@ cells that pass its text-integrity line. The other copied cells were not judged 
 earlier zoo had, Qwen2.5-1.5B-Instruct, on the CPU, the Intel NPU and the Intel GPU on the qa20 line (`models/Qwen2.5-1.5B-Instruct/`,
 `task-openvino-genai_cpu_cpu`, `task-openvino-genai_npu_npu`, `task-openvino-genai_igpu_gpu`). Three more, added on 2026-11-13,
 run the Q4_K_M file of `Qwen/Qwen2.5-1.5B-Instruct-GGUF` through llama.cpp b11721 on the CPU and on the NVIDIA RTX GPU with CUDA and
-with Vulkan, on the same line (`task-llama.cpp_cpu_cpu`, `task-llama.cpp_rtx_cuda`, `task-llama.cpp_rtx_vulkan`). 60 of the copied JSONs are the
+with Vulkan, on the same line (`task-llama.cpp_cpu_cpu`, `task-llama.cpp_rtx_cuda`, `task-llama.cpp_rtx_vulkan`). Three more, added on 2026-11-13, are the cells of another model no earlier zoo had, Qwen2.5-0.5B-Instruct (`models/Qwen2.5-0.5B-Instruct/`). They run the Q4_K_M file of `Qwen/Qwen2.5-0.5B-Instruct-GGUF` through llama.cpp b11721 on the CPU and on the NVIDIA RTX GPU with CUDA and with Vulkan, on the same line and with the same three cell ids. 60 of the copied JSONs are the
 vision zoo's Qualcomm AI Hub records of two other devices (Samsung Galaxy S26, Snapdragon X2 Elite CRD;
 `role: other-device`): they keep those numbers and have no line. The cards list no cells: each card carries its
 model's lines and a link to its `results/`. No file here puts runtimes side by side; `tools/table.py --local` writes
@@ -76,12 +76,12 @@ edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-te
 one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
 records' paths), or `windows-model-zoo`, this repo, where the 31 Intel NPU `task-*` cells ran again on 2026-11-11 (PC
 folder `C:\src\mz-z14`), the four int8 `task-*` cells ran on 2026-11-12 (PC folder `C:\src\mz-z13`), the two
-Qwen2.5-1.5B-Instruct cells ran on 2026-11-12 (PC folder `C:\src\zoo-z19`), the Intel GPU one on 2026-11-13 (PC folder `C:\src\zoo-qwen25-igpu`) and the three llama.cpp ones on 2026-11-13 (PC folder `C:\src\zoo-qwen25-llamacpp`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
+Qwen2.5-1.5B-Instruct cells ran on 2026-11-12 (PC folder `C:\src\zoo-z19`), the Intel GPU one on 2026-11-13 (PC folder `C:\src\zoo-qwen25-igpu`), the three llama.cpp ones on 2026-11-13 (PC folder `C:\src\zoo-qwen25-llamacpp`) and the three Qwen2.5-0.5B-Instruct cells on 2026-11-13 (PC folder `C:\src\zoo-qwen25-05b`). A copied cell names its zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated
 blocks, `source.by` and the paths in `source.record`, Z1 is the vision zoo, Z2 the LLM zoo and Z3 the audio zoo
 ([`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo)); Z5 and Z6 are this repo's two
 passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), Z14 its pass of 2026-11-11 that ran the 31 Intel NPU
 `task-*` cells again (`raw/z14/`), Z13 its pass of 2026-11-12 that ran the four int8 `task-*` cells
-(`raw/z13/`), Z19 its pass of 2026-11-12 that added Qwen2.5-1.5B-Instruct and its two cells (`raw/z19/`), qwen25-igpu its pass of 2026-11-13 that added the Intel GPU cell (`raw/qwen25-igpu/`), qwen25-llamacpp its pass of 2026-11-13 that added the three llama.cpp cells (`raw/qwen25-llamacpp/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
+(`raw/z13/`), Z19 its pass of 2026-11-12 that added Qwen2.5-1.5B-Instruct and its two cells (`raw/z19/`), qwen25-igpu its pass of 2026-11-13 that added the Intel GPU cell (`raw/qwen25-igpu/`), qwen25-llamacpp its pass of 2026-11-13 that added the three llama.cpp cells (`raw/qwen25-llamacpp/`), qwen25-05b its pass of 2026-11-13 that added Qwen2.5-0.5B-Instruct and its three llama.cpp cells (`raw/qwen25-05b/`), and Z7 is this repo's `lane` in `zoo.toml` (its name on the shared PC's lock and
 notes).
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's

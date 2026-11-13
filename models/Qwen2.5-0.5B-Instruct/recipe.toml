@@ -1,0 +1,86 @@
+# Qwen2.5-0.5B-Instruct: the Q4_K_M file of Qwen/Qwen2.5-0.5B-Instruct-GGUF on llama.cpp, judged on the qa20 line
+
+[model]
+kind = "llm"
+title = "Qwen2.5-0.5B-Instruct"
+order = 3001
+source = "Qwen/Qwen2.5-0.5B-Instruct"
+source_revision = "7ae557604adf67be50417f59c2c2f167def9a775"
+license = "apache-2.0"
+pipeline_tag = "text-generation"
+inputs = "suites/llm/qa20.jsonl"
+
+[[fetch]]
+repo = "Qwen/Qwen2.5-0.5B-Instruct"
+revision = "7ae557604adf67be50417f59c2c2f167def9a775"
+include = ["*.json", "*.safetensors", "*.txt"]
+
+[[fetch]]
+repo = "Qwen/Qwen2.5-0.5B-Instruct-GGUF"
+revision = "9217f5db79a29953eb74d5343926648285ec7e67"
+include = ["qwen2.5-0.5b-instruct-q4_k_m.gguf"]
+
+[[form]]
+id = "gguf:qwen2.5-0.5b-instruct-q4_k_m.gguf"
+short = "Q4_K_M"
+label = "Q4_K_M; Qwen/Qwen2.5-0.5B-Instruct-GGUF@9217f5db79a29953eb74d5343926648285ec7e67 qwen2.5-0.5b-instruct-q4_k_m.gguf (491400032 bytes)"
+from = "Qwen/Qwen2.5-0.5B-Instruct-GGUF"
+
+[[step]]
+name = "z6-setup"
+venv = "genai"
+script = "pc/z6_setup.py"
+args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "Qwen2.5-0.5B-Instruct", "--root", "{ROOT}"]
+timeout_min = 60
+
+[[step]]
+name = "reference"
+venv = "ref"
+script = "pc/ref_llm_hf.py"
+args = ["--model-dir", "{HUB}\\Qwen__Qwen2.5-0.5B-Instruct", "--suite", "{ROOT}\\suites\\llm\\qa20.jsonl", "--out", "{ROOT}\\refs\\Qwen2.5-0.5B-Instruct\\ref.json"]
+reference = "refs/Qwen2.5-0.5B-Instruct/ref.json"
+ram_gb = 3
+timeout_min = 30
+
+[[line]]
+id = "qa20"
+kind = "task"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers fp32 on this PC's CPU"
+written = "2026-11-13T09:50:05+09:00"
+plan = "PLAN.md section 1b"
+
+[[cell]]
+id = "task-llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-0.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf", "--ref", "{ROOT}\\refs\\Qwen2.5-0.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-0.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cuda\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf", "--gpu", "--device-prefix", "CUDA", "--ref", "{ROOT}\\refs\\Qwen2.5-0.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-0.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-gpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf", "--gpu", "--device-prefix", "Vulkan", "--env", "GGML_VK_VISIBLE_DEVICES=0", "--ref", "{ROOT}\\refs\\Qwen2.5-0.5B-Instruct\\ref.json"]
+ram_need_gb = 5
