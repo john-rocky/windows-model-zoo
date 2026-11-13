@@ -33,6 +33,18 @@ function Test-LockBarred {
     if ($n.Count) { return "the note $($n[0])" }
     return ""
 }
+function Read-Tail([string]$File, [int]$Count) {
+    # the last $Count lines of a step's output file, as UTF-8 when its bytes are UTF-8 (Python with PYTHONUTF8, uv),
+    # else in the PC's ANSI code page as Get-Content reads it (Get-Content alone garbled uv's UTF-8 quote of a Windows
+    # message on a Japanese Windows); a file that another process still holds open (a child that outlived the step) is
+    # read by Get-Content as before
+    if (-not (Test-Path -LiteralPath $File)) { return }
+    try { $bytes = [IO.File]::ReadAllBytes($File) } catch { Get-Content -LiteralPath $File -Tail $Count -ErrorAction SilentlyContinue; return }
+    try { $text = (New-Object Text.UTF8Encoding($false, $true)).GetString($bytes) } catch { $text = [Text.Encoding]::Default.GetString($bytes) }
+    $text = $text.TrimStart([char]0xFEFF).TrimEnd("`r", "`n")
+    if (-not $text) { return }
+    $text -split "`r`n|`r|`n" | Select-Object -Last $Count
+}
 . "$PSScriptRoot\zlib.ps1"
 $ErrorActionPreference = "Continue"
 $listFile = Join-Path $Root "pc\steps\$List.json"
@@ -174,7 +186,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
     Say $log "$($s.name) end: exit $code, $([math]::Round($sw.Elapsed.TotalMinutes, 1)) min"
     if ("$code" -ne "0") {
         $fail += $s.name
-        Get-Content "$out.err" -Tail 5 -ErrorAction SilentlyContinue | ForEach-Object { Say $log "  $_" }
+        Read-Tail "$out.err" 5 | ForEach-Object { Say $log "  $_" }
         if ($s.stop_on_fail) { Say $log "stop: $($s.name) failed"; break }
     }
 }

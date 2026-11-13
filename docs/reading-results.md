@@ -66,8 +66,10 @@ form, `1004841`, under `vision.device_props`), one names no driver, and 14 are `
 `line.verdict` gives the verdict, its numbers and the line in one string, for example
 `FAIL on qa20: 9 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 12 of
 20 right by the answer key` or
-`FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)`; `no verdict on <line>: <state>`
-when the run did not end OK, and `reference of <line>` for a reference cell. `line.pass` and `line.detail` hold the same
+`FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)`; `no verdict on <line>: <state>`,
+with the reason in brackets when the record gives one, when the run did not end OK or when it did (`ok`) but the line
+could not be judged, for example an LLM cell whose record does not show that the runtime got the reference's prompts;
+and `reference of <line>` for a reference cell. `line.pass` and `line.detail` hold the same
 as values (the count by the answer key, the last part of an LLM `task-*` verdict, is outside the line and is in
 `llm.task.key`), `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
 `task-*` cells in `form.from`, the vision `task-*` cells the vision zoo's file in `form.path` and `form.detail`).

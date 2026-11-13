@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""The qa20 record path (Mac, no model runs): synthetic PC records for the Z6 lane's LLM task cells (the 86
-task-<Z2 cell> cells of migrate/z6.py) through the repo's own pipeline. Copies the repo's files (tracked and new) to a
-scratch folder, writes a reference per model (the rows pc/ref_llm_hf.py writes) and one first-pass run per cell in the
-row shape of its runner (ids: pc/run_llm_ovg.py LLMPipeline, run_llm_genai.py, run_llm_llamacpp.py; token counts:
+"""The qa20 record path (Mac, no model runs): synthetic PC records for the qa20 cells that five LLM models' recipes
+run here (the task-<Z2 cell> cells and the Qwen3 int8 ones; the count is printed at the end) through the repo's own
+pipeline. Copies the repo's files (tracked and new) to a scratch folder, writes a reference per model (the rows
+pc/ref_llm_hf.py writes) and one first-pass run per cell in the row shape of its runner (ids: pc/run_llm_ovg.py
+LLMPipeline, run_llm_genai.py, run_llm_llamacpp.py; token counts:
 run_llm_ovg.py VLMPipeline, run_llm_litert.py, run_llm_foundry.py; for run_llm_litert.py also each prompt's log with
 its prefill turns), seven broken on purpose (17 of 20 answers, a gate without an end token, an error record, a prompt
 count one over the reference's in every other row, no run at all, a second prefill turn in every log of one LiteRT-LM

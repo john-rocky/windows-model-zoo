@@ -42,9 +42,11 @@ Where the files come from:
   cache when the package is not there; every file checked against the record (size and sha256).
 - **CUDA 12 for Foundry Local's daemon**: the NVIDIA wheels of `pc/req/cuda12.txt` (`pc/engines.py --make cuda12`).
 
-Needs on the PC: Windows 11, [uv](https://docs.astral.sh/uv/) (on the PATH or in winget's `Links` folder; it installs
-Python 3.12 and the venvs), Windows' own `curl.exe`, Foundry Local 0.13.0 (winget), OpenSSH server, the NVIDIA, Intel
-GPU and Intel NPU drivers. For the LiteRT-LM build, what the build script's header lists: Visual Studio 2022 or its
+Needs on the PC: Windows 11 with Smart App Control not on (while it is on, Windows blocks the `python.exe` that uv puts
+in each venv, a launcher that is not signed, so no step that runs in a venv starts), [uv](https://docs.astral.sh/uv/)
+(on the PATH or in winget's `Links` folder; it installs Python 3.12 and the venvs), Windows' own `curl.exe`, Foundry
+Local 0.13.0 (winget), OpenSSH server, the NVIDIA, Intel GPU and
+Intel NPU drivers. For the LiteRT-LM build, what the build script's header lists: Visual Studio 2022 or its
 Build Tools with the C++ workload, Git for Windows with LFS, Python 3.13 for all users, Bazelisk, a JDK with
 `JAVA_HOME`, LongPathsEnabled, and an elevated shell or Developer Mode for symlinks; its source and Bazel output go to
 the short paths `pc/z6_spec.json` names (`C:\src\mz-litert-lm`, `C:\bzl-mz`). When the build dies with "Server

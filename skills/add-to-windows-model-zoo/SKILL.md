@@ -68,10 +68,14 @@ Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's pr
    ```bash
    tools/pc.sh status
    printf '%s\n' "Test-Path '<pc_root>'" | tools/pc.sh ps
+   printf '%s\n' "(Get-MpComputerStatus).SmartAppControlState" | tools/pc.sh ps
    ```
 
-   `status` prints the lock, the other jobs' notes and the free disk; the second prints `False`. The PC needs uv (on
-   the PATH or in winget's `Links` folder), Windows' own `curl.exe` and the driver of each device your cells use; the
+   `status` prints the lock, the other jobs' notes and the free disk; the second prints `False`; the third prints
+   Smart App Control's state. When it prints `On`, stop and ask the person who gave you the task, and do not change
+   it yourself: while it is `On`, Windows blocks the `python.exe` that uv puts in each venv (a launcher that is not
+   signed), so no step that runs in a venv starts (section 8). The PC needs uv (on the PATH or in winget's `Links`
+   folder), Windows' own `curl.exe`, the driver of each device your cells use and Smart App Control not `On`; the
    Foundry Local and LiteRT-LM cells need more (`docs/reproduce.md`, "Needs on the PC"). Sections 1 to 4 need no
    PC: when `tools/pc.sh` is refused (section 8), do them first and check the PC again before section 5.
 
@@ -502,6 +506,7 @@ python3 tools/lint.py
 | `<step>: killed for another lane's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |
 | `<model>/<cell> run 1 stopped (another lane's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run | nothing (the cell's `run.tries` counts the starts) |
 | `DONE FAIL <step>` (a list) | a step failed | its output: `tools/pc.sh pull logs raw/<name>`, then `raw/<name>/logs/<list>/<step>.txt` and `.txt.err` |
+| `DONE FAIL pip-<venv>,versions-<venv>,...` for `setup.done` (every `pip-*` and `versions-*` step) and, in the log lines above it, `Failed to query Python interpreter at` a venv's `python.exe` with a cause ending `(os error 4551)` | Smart App Control (or another application control policy of Windows) blocks the `python.exe` that uv puts in each venv, a launcher that is not signed; the `fetch` list, which runs uv's Python without a venv, can still end `DONE OK` | nothing in the zoo gets around it: stop and ask the person who gave you the task, and do not change the policy yourself (section 0, step 5). Once it is not `On`, launch the `setup` list again |
 | results.py: `<model>/<cell>: error, first, ...` | the runner failed | `run.error_line` in the cell JSON and the run's `run1.stderr.txt`; fix it, then run the cell again as in the row "is not before the run" below |
 | other cells' `results/*.json` in `git status` after results.py | results.py ran without `--model` / `--cells`, or with `--model` for a result of a model already here | `git checkout -- 'models/*/results/*.json' 'models/*/reference/*.json'` (with the quotes: your recipe, your card and your new files stay), then section 6 with `--model` (a new model) or `--cells` (a result) |
 | lint: `card: the cells block is stale (python3 tools/table.py)` or `generated file LICENSES.md is stale` | the generated files are older than the JSONs | `python3 tools/table.py`, then lint |
@@ -560,8 +565,14 @@ recipe and card, which this file did not rule out then (now section 0, step 2). 
 between two groups (now section 7, step 4). It named its folder in only one of the two `.gitignore` comments that
 section 7 asks for, and it left its reference's count out of `PLAN.md`, which this file did not ask for then (now
 section 7, steps 3 and 4).
+A seventh such agent, given two sentences of the same kind, set out to add four ONNX Runtime GenAI results of
+Phi-4-mini-instruct on the OpenVINO and WebGPU execution providers. It wrote the four cells from the Qwen3 models'
+cells and stopped at the `setup` list: Smart App Control was on, and Windows blocked the `python.exe` of each venv.
+It asked whether to get around that and did not try, which this file did not cover then (now section 0, step 5, and
+section 8). Its cells are not in this repo.
 Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
-in another way, the PC's night stop, a lock step that gives its lock back or is killed at its lock's end, the LiteRT-LM
+in another way, the `setup` list launched again after Smart App Control is turned off, the PC's night stop, a lock
+step that gives its lock back or is killed at its lock's end, the LiteRT-LM
 build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM cells that pass section 6's prompt check,
 Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep follow_config` or run on the OpenVINO and WebGPU
 execution providers, llama.cpp cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed
