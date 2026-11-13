@@ -9,8 +9,9 @@ You add one model folder, or one cell to a model folder. You are done when:
 
 1. `python3 tools/lint.py` exits 0; its last line starts `lint: <n> model directories, <n> PASS, 0 FAIL; generated files fresh`.
 2. Each new cell has `models/<model>/results/<cell>.json` whose `run.state` is `ok` and whose `line.verdict` gives
-   PASS or FAIL on the line with its numbers. A FAIL is a result too. A cell whose runner failed has `run.state`
-   `error` and `run.error_line`, and its `line.verdict` reads `no verdict on <line>: error (...)`.
+   PASS or FAIL on the line with its numbers. A FAIL is a result too, when the cell passes section 6's prompt check.
+   A cell whose runner failed has `run.state` `error` and `run.error_line`, and its `line.verdict` reads
+   `no verdict on <line>: error (...)`.
 3. Before the commit, `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`,
    the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
    count the results (section 7), and, for cells that need the model's `z6-setup` step (section 2), the model's entry
@@ -27,8 +28,9 @@ a **list** is a set of untimed steps on the PC; the **lock** is the shared PC's 
 This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new runner or runtime, a new kind of line,
 cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU, the Intel GPU and the
 NVIDIA RTX GPU) is the one walked on the PC. For the other runtimes and for vision and audio models, section 2 says
-what to copy; of those, only llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of
-Qwen2.5-0.5B-Instruct, a new model ("Not walked").
+what to copy; of those, llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of
+Qwen2.5-0.5B-Instruct, a new model. LiteRT-LM cells of Qwen2.5-1.5B-Instruct have been walked too, but they did not
+pass section 6's prompt check and are not in this repo ("Not walked").
 
 ## 0. Before you start
 
@@ -195,33 +197,48 @@ ram_need_gb = 5
   `105 warnings generated.` and one or two such as `86 warnings and 143 errors generated.`; they are not a failure (the
   run's line in `chain.log` says `exit 0, OK`), and the other models' `task-openvino-genai_rtx_gpu` runs have them too
   (`raw/z6/runs/z6-g-*/`).
-- **Other runtimes and kinds** (of these, only llama.cpp cells were walked, of a model already here and of a new one):
+- **Other runtimes and kinds** (of these, llama.cpp cells were walked, of a model already here and of a new one;
+  LiteRT-LM cells of a model already here were walked too, but did not pass section 6's prompt check and are not in
+  this repo: "Not walked"):
   copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
-  the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its
-  `z1_cell` or `z2_cell` key: it marks a cell that judges a copied cell again. The recipe of a new LLM whose cells all
-  run on runtimes other than OpenVINO GenAI keeps the template's `[model]`, first `[[fetch]]` (the original model),
-  `reference` step and `[[line]]`. The copied `[[fetch]]`, `[[form]]` and `[[cell]]` take the place of the template's
-  (`models/Qwen2.5-0.5B-Instruct/recipe.toml` has llama.cpp cells only). A vision or audio model needs its task's line
-  and reference step: see `PLAN.md` and a model of the same task.
+  the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`; LiteRT-LM's
+  id is `litert-lm`; `litert`, without `-lm`, is the id of cells copied from another zoo, all with `migrated = true`).
+  Leave out its `z1_cell` or `z2_cell` key: it marks a cell that judges a copied cell again. The recipe of a new LLM
+  whose cells all run on runtimes other than OpenVINO GenAI keeps the template's `[model]`, first `[[fetch]]` (the
+  original model), `reference` step and `[[line]]`. The copied `[[fetch]]`, `[[form]]` and `[[cell]]` take the place
+  of the template's (`models/Qwen2.5-0.5B-Instruct/recipe.toml` has llama.cpp cells only). A vision or audio model
+  needs its task's line and reference step: see `PLAN.md` and a model of the same task.
 - **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell that
   runs a WebGPU overlay, also need the model's `z6-setup` step (before its reference step) and its entry under `models`
   in `pc/z6_spec.json` (engines, links, Foundry packages, overlays; the header of `pc/z6_setup.py` says what each
   holds). The shortest example is `models/Qwen2.5-0.5B-Instruct/recipe.toml` with its entry: `engines` names the
   engine folders of the cells' `--server` paths, and a link goes from `{HUB}\<owner>__<repo>\<file>` to the cells'
   `--model` path, with `bytes` = the file's size in the Hub tree you printed (`z6-setup` fails on another size).
+  For LiteRT-LM cells, `engines` names `litert`, the folder of the cells' `--exe` path, and each cell has a link of its
+  own, to `{ROOT}\work\litert\<device>\<file>`: LiteRT-LM writes its caches beside the model (`pc/z6_setup.py`).
+  A LiteRT-LM cell counts only when it passes section 6's prompt check, which is known after the run: the 15
+  LiteRT-LM `task-*` cells here pass it, and the file a run of this skill tried did not ("Not walked").
   `models/Qwen3-0.6B/recipe.toml` and its entry have every kind. Write the file back in its own format
   (`json.dumps(d, indent=1, ensure_ascii=False)` and a newline, as `write_json` in `tools/zoo.py` does):
   `git diff pc/z6_spec.json` then shows only your entry's lines. `z6-setup` checks the model's whole entry, not only
   what your cells use. The entries of Qwen2.5-1.5B-Instruct and Qwen2.5-0.5B-Instruct name only the three llama.cpp
   engines. The other five LLMs here (Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it and gemma-4-E4B-it) also have
-  `litert` in their entries, so one more llama.cpp cell of one of them also needs the `engines-litert` list (section 5)
-  and, for the first four, Foundry Local's packages (section 0, step 5). No run of this skill has done that.
+  `litert` in their entries, so one more cell of one of them that needs `z6-setup` also needs the `engines-litert`
+  list (section 5) and, for the first four, Foundry Local's packages (section 0, step 5). No run of this skill has
+  done that.
 - **A llama.cpp GPU cell's proof of its device** is the server's log (`run1.server.txt`, beside `run1.json`):
   `devices` in `run1.json` names `CUDA0 (NVIDIA ...)` or `Vulkan0 (NVIDIA ...)`. When the log names no device of that
   kind on the NVIDIA GPU, the runner ends the cell with an error (`run.error_line` starts `RuntimeError: no CUDA device
   on the NVIDIA GPU in the server log`, or `no Vulkan device`): stop and report it. Its `engine.gpuMiBPeak` stays `{}`:
   `pc/chain.ps1` reads the GPU memory of the runner's process, and the server, which holds that memory, runs as a
   child of it.
+- **A LiteRT-LM GPU cell's proof of its device** is `adapters_seen` in `run1.json`: the adapters named on the
+  `Selected adapter:` line of each prompt's log (`run1.prompts/<n>.stderr.txt`, beside `run1.json`). An Intel GPU
+  cell's list names only an Intel adapter, an RTX cell's only an NVIDIA one, and a CPU cell's list is empty. The
+  runner checks each prompt's line against the cell's `--adapter` (`igpu` or `rtx`): keep it in the args. When a
+  prompt's line is missing or names another adapter, the runner ends the cell with an error (`run.error_line` starts
+  `RuntimeError: prompt <id>: the run's adapter line is`): stop and report it. Its `engine.gpuMiBPeak` stays `{}`, as
+  a llama.cpp cell's does: the runner starts LiteRT-LM's executable once per prompt, as a child process.
 
 ## 3. The card
 
@@ -292,7 +309,8 @@ tools/pc.sh lock note ""
 - `R` is a shell variable. When each command runs in a new shell, write `R='<pc_root>';` at the start of every call
   that uses `$R`. With `$R` empty, `wait` finds no done file and prints nothing until its hours are over.
 - Whenever you stop before the last line, run `tools/pc.sh lock note ""` first: a note under 2 hours old counts as a
-  job that waits for the PC, and this repo's timed sittings give their lock back for it.
+  job that waits for the PC, and this repo's timed sittings give their lock back for it. When you go on, run the
+  first `lock note` line again before your next launch.
 - `push` ends with `pushed pc/, suites/, zoo.toml -> <pc_root>: <n> .ps1 files parse on the PC with the Mac's sha;
   zlib loaded, lane <lane>, others waiting <k>`. Push again after every `tools/plan.py` call.
 - Each `launch` prints `STARTED <pid> (...)`. Each `wait` prints the logs from their start (a list launched again
@@ -305,11 +323,17 @@ tools/pc.sh lock note ""
   out): launch the `engines` list after `setup` has ended (its steps run in the `genai` venv that `setup` makes), and
   wait for it before the model's list, whose `z6-setup` step checks every engine file. For llama.cpp, its step
   `engines-llama` downloads the b11721 release zips (the CPU, Vulkan and CUDA builds and the CUDA runtime, about
-  630 MB) and unpacks them (0.8 to 1.6 min on a new PC folder).
+  630 MB) and unpacks them (0.6 to 1.6 min on a new PC folder).
   `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step over 8 GB under your own lock: before you launch it,
   ask the person who gave you the task when it may run (section 2, "Memory"). It goes after the `engines` list and
-  before the model's list; its two lines are in `docs/reproduce.md`, step 3. No run of this skill has launched it; the
-  walk of `docs/reproduce.md` has (`WALK.md`, step 3).
+  before the model's list; its two lines are in `docs/reproduce.md`, step 3. The step waits until the lock has been
+  free 60 s and then takes it. Its lock ends 30 min after that wait began at the latest: a build still running then
+  is killed (`engines-litert end: exit timeout`) and the list ends `FAIL engines-litert`: stop and report it. If
+  under 25 min are left when the step takes the lock, or under 16 GB of RAM are free 10 s later, it gives the lock
+  back and starts the wait again. The build's source and Bazel output go to `C:\src\mz-litert-lm` and `C:\bzl-mz`
+  (`pc/z6_spec.json`), outside your PC folder; the `engines` list clones the source. With neither on the PC before
+  the `engines` list, the step took 15.5 min in the walk of `docs/reproduce.md` (`WALK.md`, step 3) and 22.8 min in
+  a run of this skill on 2026-11-13.
 - Untimed work runs without the lock. When another job's lock appears, the step or run in flight is killed and runs
   again from its start once the lock has been free 60 s (section 8). Do not kill, suspend or start it again yourself;
   keep the `wait` running, or start the same `wait` again if its connection ended.
@@ -345,6 +369,22 @@ python3 tools/lint.py
 
 - Run one of the two `results.py` lines. Each prints `<model>/<cell>: ok, first, <verdict>` per cell and
   `results: <n> cells written`.
+- For each new LLM cell whose `run.state` is `ok`, run the prompt check (the second line for a LiteRT-LM cell only):
+
+  ```bash
+  python3 -c 'import json, sys; print(json.load(open(sys.argv[1]))["llm"]["task"]["prompt_ids_same"])' models/<model>/results/<cell>.json
+  grep -L 'Prefill Turns (Total 1 turns)' raw/<name>/runs/<name>-<n>/<model>/<cell>/run1.prompts/*.stderr.txt
+  ```
+
+  The first prints how many of the 21 prompts the runtime got with the reference's token ids (for LiteRT-LM, Foundry
+  Local and OpenVINO GenAI's VLMPipeline, with the reference's number of tokens): 21 in every LLM `task-*` cell here.
+  For a LiteRT-LM cell, that count covers only the first prefill turn, so the second prints each prompt's log that
+  has no `Total 1 turns` line: none for the LiteRT-LM `task-*` cells here. Under 21, or when the `grep` prints a
+  file, the runtime did not get the prompt as the line's rule says, so the cell's PASS or FAIL is not a result: stop
+  before section 7 and report it. Such a cell does not go into a commit. When a `.litertlm` file's metadata holds
+  turn templates (LiteRT-LM's `prompt_templates`), LiteRT-LM v0.19.0's Session puts them around every prompt, and
+  `pc/run_llm_litert.py` has no way to turn that off (its header's "a Session takes the text as it is" holds for the
+  files of the cells here; "Not walked").
 - `results.py` writes again every own cell of the models it is given, and of every model when it is given none. A
   cell with no record under `--runs` becomes `not_run`. So `--model` is for a new model only, and a result takes
   `--cells`. `<folder>` is the folder of section 5.
@@ -466,6 +506,17 @@ OpenVINO's int8 IR, on the CPU, the Intel NPU, the Intel GPU and the NVIDIA RTX 
 the RTX GPU's `--device` and cache folder from the other models' recipes, gave the second package's NPU and GPU cells
 cache folders of their own and found the RTX GPU's adapter id, `nvidia`, in the chain's records, none of which this
 file gave then (now section 2), and it left out the `engines` list, which this file then said to run (now section 5).
+A fifth such agent, given two sentences of the same kind, ran three LiteRT-LM cells of Qwen2.5-1.5B-Instruct (the q8
+`.litertlm` file of `litert-community/Qwen2.5-1.5B-Instruct` on the CPU, the Intel GPU and the NVIDIA RTX GPU) from a
+new PC folder and ended with a commit on its branch. It stopped once, before the `engines-litert` list, and asked when
+the build may run, as section 5 says. Told that it may run now, it launched the list, which took the lock and built
+LiteRT-LM, and went on with no more help. On its own, it wrote its lock note again before that launch and read the GPU
+cells' device from the prompts' `Selected adapter:` lines, neither of which this file said then (now sections 5 and
+2). Its cells are not in this repo: the `.litertlm` file's metadata holds a start token and turn templates, and
+LiteRT-LM's Session added them to every prompt (`llm.task.prompt_ids_same` 0 of 21 in each cell). The agent committed
+the cells' verdicts, which this file did not rule out then (now section 6).
 Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
-in another way, the PC's night stop, a `lock = true` step, the LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells,
-llama.cpp cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
+in another way, the PC's night stop, a reference step with `lock = true`, a lock step that gives its lock back or is
+killed at its lock's end, the LiteRT-LM build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM
+cells that pass section 6's prompt check, the Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of the five
+LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
