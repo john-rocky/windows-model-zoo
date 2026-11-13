@@ -1,0 +1,74 @@
+# Phi-4-mini-instruct: the int4 folders of microsoft/Phi-4-mini-instruct-onnx on ONNX Runtime GenAI (the CPU, and the NVIDIA RTX GPU with CUDA), judged on the qa20 line
+
+[model]
+kind = "llm"
+title = "Phi-4-mini-instruct"
+order = 3002
+source = "microsoft/Phi-4-mini-instruct"
+source_revision = "cfbefacb99257ffa30c83adab238a50856ac3083"
+license = "mit"
+pipeline_tag = "text-generation"
+inputs = "suites/llm/qa20.jsonl"
+
+[[fetch]]
+repo = "microsoft/Phi-4-mini-instruct"
+revision = "cfbefacb99257ffa30c83adab238a50856ac3083"
+include = ["*.json", "*.safetensors", "*.txt"]
+
+[[fetch]]
+repo = "microsoft/Phi-4-mini-instruct-onnx"
+revision = "fc04c8f93df696602fd9f300a30d1bf2e3081347"
+include = ["cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/*", "gpu/gpu-int4-rtn-block-32/*"]
+
+[[form]]
+id = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4"
+short = "int4 RTN, block 32, accuracy level 4"
+label = "int4 RTN, block 32, accuracy level 4 (CPU and mobile folder); microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4"
+from = "microsoft/Phi-4-mini-instruct-onnx"
+
+[[form]]
+id = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 gpu/gpu-int4-rtn-block-32"
+short = "int4 RTN, block 32"
+label = "int4 RTN, block 32 (GPU folder); microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 gpu/gpu-int4-rtn-block-32"
+from = "microsoft/Phi-4-mini-instruct-onnx"
+
+[[step]]
+name = "reference"
+venv = "ref"
+script = "pc/ref_llm_hf.py"
+args = ["--model-dir", "{HUB}\\microsoft__Phi-4-mini-instruct", "--suite", "{ROOT}\\suites\\llm\\qa20.jsonl", "--out", "{ROOT}\\refs\\Phi-4-mini-instruct\\ref.json"]
+reference = "refs/Phi-4-mini-instruct/ref.json"
+ram_gb = 17
+lock = true
+timeout_min = 30
+
+[[line]]
+id = "qa20"
+kind = "task"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers fp32 on this PC's CPU"
+written = "2026-11-13T18:08:12+09:00"
+plan = "PLAN.md section 1b"
+
+[[cell]]
+id = "task-ort-genai_cpu_cpu"
+runtime = "ort-genai"
+device = "cpu"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_genai.py"
+form = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\microsoft__Phi-4-mini-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32-acc-level-4", "--ep", "cpu", "--ref", "{ROOT}\\refs\\Phi-4-mini-instruct\\ref.json"]
+ram_need_gb = 8
+
+[[cell]]
+id = "task-ort-genai_rtx_cuda"
+runtime = "ort-genai"
+device = "rtx"
+line = "qa20"
+venv = "genai-cuda"
+script = "pc/run_llm_genai.py"
+form = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 gpu/gpu-int4-rtn-block-32"
+timeout_min = 40
+args = ["--model-dir", "{HUB}\\microsoft__Phi-4-mini-instruct-onnx\\gpu\\gpu-int4-rtn-block-32", "--ep", "cuda", "--ref", "{ROOT}\\refs\\Phi-4-mini-instruct\\ref.json"]
+ram_need_gb = 8

@@ -1,0 +1,278 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Phi-4-mini-instruct",
+ "cell": "task-ort-genai_cpu_cpu",
+ "kind": "llm",
+ "runtime": {
+  "id": "ort-genai",
+  "label": "ONNX Runtime GenAI 0.19.0"
+ },
+ "device": {
+  "id": "cpu",
+  "label": "CPU (Core Ultra 9 386H)"
+ },
+ "form": {
+  "id": "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+  "label": "int4 RTN, block 32, accuracy level 4",
+  "detail": "int4 RTN, block 32, accuracy level 4 (CPU and mobile folder); microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+  "path": null,
+  "from": "microsoft/Phi-4-mini-instruct-onnx"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on qa20: 17 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 19 of 20 right by the answer key",
+  "reference": "raw/phi4-mini/refs/Phi-4-mini-instruct/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 17,
+    "n": 20,
+    "bar": 18,
+    "pass": false
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": "2",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": false
+  },
+  "text": "answers 17/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-model-zoo",
+  "record": "raw/phi4-mini/runs/phi4-mini-1/Phi-4-mini-instruct/task-ort-genai_cpu_cpu/run1.json",
+  "runner": "run_llm_genai.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\zoo-phi4-mini\\hub\\microsoft__Phi-4-mini-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32-acc-level-4",
+   "--ep",
+   "cpu",
+   "--ref",
+   "C:\\src\\zoo-phi4-mini\\refs\\Phi-4-mini-instruct\\ref.json",
+   "--out",
+   "C:\\src\\zoo-phi4-mini\\runs\\phi4-mini-1\\Phi-4-mini-instruct\\task-ort-genai_cpu_cpu\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 17/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "phi4-mini-1",
+  "started": "2026-11-13T19:13:18.272308+09:00",
+  "ended": "2026-11-13T19:13:38.345002+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 7.324,
+  "warmup_s": 0.278,
+  "peak_working_set_mb": 3966,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 4158185472,
+  "gpu_mib": {}
+ },
+ "regime": {
+  "qos": "high",
+  "power": "balanced",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
+   "battery": "status 2, 95 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 17,
+   "n": 20,
+   "full_text_same": 17,
+   "eos_within_max": 20,
+   "new_tokens": 87,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "paris",
+     "ref": "paris",
+     "same": true
+    },
+    {
+     "id": "q02",
+     "cell": "12",
+     "ref": "12",
+     "same": true
+    },
+    {
+     "id": "q03",
+     "cell": "12",
+     "ref": "24",
+     "same": false
+    },
+    {
+     "id": "q04",
+     "cell": "tac",
+     "ref": "tac",
+     "same": true
+    },
+    {
+     "id": "q05",
+     "cell": "mars",
+     "ref": "mars",
+     "same": true
+    },
+    {
+     "id": "q06",
+     "cell": "7",
+     "ref": "7",
+     "same": true
+    },
+    {
+     "id": "q07",
+     "cell": "cold",
+     "ref": "cold",
+     "same": true
+    },
+    {
+     "id": "q08",
+     "cell": "ありがとう (arigatou)",
+     "ref": "ありがとう",
+     "same": false
+    },
+    {
+     "id": "q09",
+     "cell": "green",
+     "ref": "green",
+     "same": true
+    },
+    {
+     "id": "q10",
+     "cell": "au",
+     "ref": "au",
+     "same": true
+    },
+    {
+     "id": "q11",
+     "cell": "yes, 17 is a prime number. it has exactly two distinct positive divisors: 1 and itself (17). no prime numbers exist between 16 and 18",
+     "ref": "yes, 17 is a prime number. a prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. since 17 can only be divided evenly by 1 and 17,",
+     "same": false
+    },
+    {
+     "id": "q12",
+     "cell": "pacific ocean",
+     "ref": "pacific ocean",
+     "same": true
+    },
+    {
+     "id": "q13",
+     "cell": "william shakespeare",
+     "ref": "william shakespeare",
+     "same": true
+    },
+    {
+     "id": "q14",
+     "cell": "25",
+     "ref": "25",
+     "same": true
+    },
+    {
+     "id": "q15",
+     "cell": "10",
+     "ref": "10",
+     "same": true
+    },
+    {
+     "id": "q16",
+     "cell": "0",
+     "ref": "0",
+     "same": true
+    },
+    {
+     "id": "q17",
+     "cell": "same",
+     "ref": "same",
+     "same": true
+    },
+    {
+     "id": "q18",
+     "cell": "9",
+     "ref": "9",
+     "same": true
+    },
+    {
+     "id": "q19",
+     "cell": "hello",
+     "ref": "hello",
+     "same": true
+    },
+    {
+     "id": "q20",
+     "cell": "8",
+     "ref": "8",
+     "same": true
+    }
+   ],
+   "gate_text": "EOS in 2",
+   "key": {
+    "right": 19,
+    "n": 20,
+    "wrong": [
+     "q03"
+    ]
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-genai": "0.19.0",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "onnxruntime-ep-webgpu": "0.5.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-phi4-mini\\refs\\Phi-4-mini-instruct\\ref.json",
+   "prompts": 21,
+   "ep": "cpu",
+   "ov_device": "CPU",
+   "ep_option": [],
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt, the package tokenizer's encode",
+   "eos_token_ids": [
+    199999,
+    200020
+   ],
+   "bos_token_id": 199999
+  }
+ }
+}

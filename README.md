@@ -1,6 +1,6 @@
 # Windows model zoo
 
-151 test results showing whether converted LLM, vision and audio models still do their job on one Windows laptop. Each result runs one package once, untimed, on the Intel NPU, Intel GPU, NVIDIA RTX GPU or CPU. A pass means its output agrees with the original model in fp32, not that a person marked it right. A result covers only that package on that runtime and device, so it doesn't rate a model or a runtime overall.
+153 test results showing whether converted LLM, vision and audio models still do their job on one Windows laptop. Each result runs one package once, untimed, on the Intel NPU, Intel GPU, NVIDIA RTX GPU or CPU. A pass means its output agrees with the original model in fp32, not that a person marked it right. A result covers only that package on that runtime and device, so it doesn't rate a model or a runtime overall.
 
 <p align="center">
 <picture>
@@ -9,13 +9,13 @@
 </picture>
 </p>
 
-My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords. The 86 and the 47 are 133 of the results, so a package or file that ran on several runtimes or devices is counted each time. The other 18 run packages that neither earlier repo had: 4 run two of my own, Qwen3-1.7B and Qwen3-0.6B with int8 weights for the Intel NPU, on the NPU and the CPU; 4 run OpenVINO's int4 package of Qwen2.5-1.5B-Instruct on the CPU, the NPU, the Intel GPU and the NVIDIA RTX GPU; 4 run OpenVINO's int8 package of the same model on the same four devices; 3 run the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF through llama.cpp on the CPU and the NVIDIA RTX GPU (CUDA and Vulkan); and 3 run the Q4_K_M file of Qwen/Qwen2.5-0.5B-Instruct-GGUF the same way.
+My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords. The 86 and the 47 are 133 of the results, so a package or file that ran on several runtimes or devices is counted each time. The other 20 run packages that neither earlier repo had: 4 run two of my own, Qwen3-1.7B and Qwen3-0.6B with int8 weights for the Intel NPU, on the NPU and the CPU; 4 run OpenVINO's int4 package of Qwen2.5-1.5B-Instruct on the CPU, the NPU, the Intel GPU and the NVIDIA RTX GPU; 4 run OpenVINO's int8 package of the same model on the same four devices; 3 run the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF through llama.cpp on the CPU and the NVIDIA RTX GPU (CUDA and Vulkan); 3 run the Q4_K_M file of Qwen/Qwen2.5-0.5B-Instruct-GGUF the same way; and 2 run the int4 folders of microsoft/Phi-4-mini-instruct-onnx through ONNX Runtime GenAI, the CPU one on the CPU and the GPU one on the NVIDIA RTX GPU with CUDA.
 
 If you ship a converted model on Windows, look up the exact file you use. The model files stay on Hugging Face and in the Foundry Local catalog, and each model's `recipe.toml` says where they come from. If you converted your own model and have a Mac and a Windows PC, you can [add it](docs/add-a-model.md) and run the same checks.
 
 ## Look up a result
 
-Each model has a folder in [`models/`](models/). The 151 results are the `task-*.json` files in its `results/` folder, one per runtime, device and package. For example, [`models/rtmpose_s_fp16/results/task-ovnpu.json`](models/rtmpose_s_fp16/results/task-ovnpu.json) is RTMPose-s through ONNX Runtime and OpenVINO on the Intel NPU, and its `line.verdict` field reads:
+Each model has a folder in [`models/`](models/). The 153 results are the `task-*.json` files in its `results/` folder, one per runtime, device and package. For example, [`models/rtmpose_s_fp16/results/task-ovnpu.json`](models/rtmpose_s_fp16/results/task-ovnpu.json) is RTMPose-s through ONNX Runtime and OpenVINO on the Intel NPU, and its `line.verdict` field reads:
 
 ```text
 FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)
@@ -37,7 +37,7 @@ It writes `RESULTS_LLM.md` and `RESULTS_VISION.md` on your disk.
 
 | Job | Models |
 |---|---|
-| Text generation | [Qwen3 0.6B](models/Qwen3-0.6B/), [1.7B](models/Qwen3-1.7B/), [4B](models/Qwen3-4B/), [Gemma 4 E2B](models/gemma-4-E2B-it/), [E4B](models/gemma-4-E4B-it/), [Qwen2.5 1.5B Instruct](models/Qwen2.5-1.5B-Instruct/), [0.5B](models/Qwen2.5-0.5B-Instruct/) |
+| Text generation | [Qwen3 0.6B](models/Qwen3-0.6B/), [1.7B](models/Qwen3-1.7B/), [4B](models/Qwen3-4B/), [Gemma 4 E2B](models/gemma-4-E2B-it/), [E4B](models/gemma-4-E4B-it/), [Qwen2.5 1.5B Instruct](models/Qwen2.5-1.5B-Instruct/), [0.5B](models/Qwen2.5-0.5B-Instruct/), [Phi-4-mini-instruct](models/Phi-4-mini-instruct/) |
 | Object detection | [D-FINE-S](models/dfine_graphB_fp16/) ([fixed](models/dfine_graphB_fp16_fixed/)), [RT-DETRv2-S](models/rtdetr_graphB_fp16/) ([fixed](models/rtdetr_graphB_fp16_fixed/)), [SSDLite MobileNetV3](models/ssdlite_mobilenetv3_320_fp16/) |
 | Text and line-segment detection | [PP-OCRv5](models/ppocr_det_fp16/), [M-LSD-tiny](models/mlsd_fp16/) |
 | Pose and keypoints | [RTMPose-s](models/rtmpose_s_fp16/), [RTMW-m whole body](models/rtmw_fp16/), [RTMPose hand](models/rtmhand_fp16/), [face](models/rtm_face_fp16/), [animal](models/rtm_animal_fp16/) |
@@ -49,7 +49,7 @@ It writes `RESULTS_LLM.md` and `RESULTS_VISION.md` on your disk.
 
 "Fixed" marks a file converted again with a change to tf2onnx, which [windows-zoo](https://github.com/john-rocky/windows-zoo) describes.
 
-The 151 results ran on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11. Of these, 102 ran on 2026-11-10. Another 31, all on the Intel NPU, ran again on 2026-11-11 after an update to NPU driver 32.0.100.5540, with the same verdicts as on 2026-11-10. The 4 Qwen3 int8 results and 2 Qwen2.5-1.5B-Instruct results ran on 2026-11-12, and 12 more on 2026-11-13: 9 of Qwen2.5-1.5B-Instruct (3 through llama.cpp and 6 through OpenVINO GenAI: OpenVINO's int4 package on the Intel GPU and the NVIDIA RTX GPU, and OpenVINO's int8 package on the CPU, the Intel NPU, the Intel GPU and the NVIDIA RTX GPU) and 3 of Qwen2.5-0.5B-Instruct through llama.cpp.
+The 153 results ran on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11. Of these, 102 ran on 2026-11-10. Another 31, all on the Intel NPU, ran again on 2026-11-11 after an update to NPU driver 32.0.100.5540, with the same verdicts as on 2026-11-10. The 4 Qwen3 int8 results and 2 Qwen2.5-1.5B-Instruct results ran on 2026-11-12, and 14 more on 2026-11-13: 9 of Qwen2.5-1.5B-Instruct (3 through llama.cpp and 6 through OpenVINO GenAI: OpenVINO's int4 package on the Intel GPU and the NVIDIA RTX GPU, and OpenVINO's int8 package on the CPU, the Intel NPU, the Intel GPU and the NVIDIA RTX GPU), 3 of Qwen2.5-0.5B-Instruct through llama.cpp and 2 of Phi-4-mini-instruct through ONNX Runtime GenAI (the CPU and the NVIDIA RTX GPU).
 
 The runtimes were ONNX Runtime 1.31.1 with its CUDA and OpenVINO execution providers, OpenVINO and OpenVINO GenAI 2026.4.1, ONNX Runtime GenAI 0.19.0, LiteRT-LM v0.19.0, llama.cpp b11721 and Foundry Local 0.13.0.
 
@@ -67,7 +67,7 @@ The tools run on a Mac and drive a Windows PC over SSH. [docs/reproduce.md](docs
 
 ## Limits
 
-- All 151 results come from one laptop.
+- All 153 results come from one laptop.
 - Speed values in the `task-*` files come from single untimed runs. Don't use them as timings.
 - The LLM check counts agreement, and the original model can be wrong. In fp32, Qwen3-0.6B answers 1 to "How many days are in a week?" [PLAN.md](PLAN.md#how-to-read-the-qa20-line) says what the check counts.
 - A FAIL doesn't say what caused it.

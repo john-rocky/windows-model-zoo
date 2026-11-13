@@ -7,7 +7,7 @@ scratch/
 RESULTS_*.md
 TASK_PAIRS_*.md
 models/index.json
-# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/ and raw/qwen25-ov-int8/ (the task
+# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/, raw/qwen25-ov-int8/ and raw/phi4-mini/ (the task
 # cells), raw/walk/, raw/walk-z9/ and raw/walk-z12/ (the walks)
 raw/*/
 !raw/z5/
@@ -19,6 +19,7 @@ raw/*/
 !raw/qwen25-llamacpp/
 !raw/qwen25-05b/
 !raw/qwen25-ov-int8/
+!raw/phi4-mini/
 !raw/walk/
 !raw/walk-z9/
 !raw/walk-z12/
@@ -29,13 +30,14 @@ raw/z13/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 raw/walk-z12/**/*.npz
-# the PC step logs of the Z13, Z19, qwen25-igpu, qwen25-llamacpp, qwen25-05b and qwen25-ov-int8 passes name the PC account's folder: they stay on your disk
+# the PC step logs of the Z13, Z19, qwen25-igpu, qwen25-llamacpp, qwen25-05b, qwen25-ov-int8 and phi4-mini passes name the PC account's folder: they stay on your disk
 raw/z13/logs/
 raw/z19/logs/
 raw/qwen25-igpu/logs/
 raw/qwen25-llamacpp/logs/
 raw/qwen25-05b/logs/
 raw/qwen25-ov-int8/logs/
+raw/phi4-mini/logs/
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
 walk-out-*/

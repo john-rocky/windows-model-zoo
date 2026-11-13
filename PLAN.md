@@ -119,7 +119,7 @@ a digit or a decimal point between digits replaced by a space. For q11 and q17, 
 the other answers the question offers (the key's `reject`). The answer's form is not judged: a sentence counts as well
 as one word. A cell's count is in `llm.task.key` and at the end of its `line.verdict`; the references' counts (`key` in
 `models/<model>/reference/ref.json`) are Qwen3-0.6B 14, Qwen3-1.7B 18, Qwen3-4B 19, gemma-4-E2B-it 20, gemma-4-E4B-it
-20, Qwen2.5-1.5B-Instruct 19 and Qwen2.5-0.5B-Instruct 17, of 20.
+20, Qwen2.5-1.5B-Instruct 19, Qwen2.5-0.5B-Instruct 17 and Phi-4-mini-instruct 19, of 20.
 
 ## Z5. The vision zoo's 47 cells that fail its internal line, judged on task lines
 

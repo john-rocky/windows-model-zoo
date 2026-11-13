@@ -14,8 +14,8 @@ You add one model folder, or one cell to a model folder. You are done when:
    `no verdict on <line>: error (...)`.
 3. Before the commit, `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`,
    the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
-   count the results (section 7), and, for cells that need the model's `z6-setup` step (section 2), the model's entry
-   in `pc/z6_spec.json`.
+   count the results (section 7), for a new LLM the line of `PLAN.md` with its reference's count (section 7), and,
+   for cells that need the model's `z6-setup` step (section 2), the model's entry in `pc/z6_spec.json`.
 4. Those files are one commit on your branch, not pushed (section 7, step 6).
 
 Words (more in [`docs/reading-results.md`](../../docs/reading-results.md#words-used-in-the-files)): a **cell** is one
@@ -29,8 +29,10 @@ This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new ru
 cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU, the Intel GPU and the
 NVIDIA RTX GPU) is the one walked on the PC. For the other runtimes and for vision and audio models, section 2 says
 what to copy; of those, llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of
-Qwen2.5-0.5B-Instruct, a new model. LiteRT-LM cells of Qwen2.5-1.5B-Instruct have been walked too, but they did not
-pass section 6's prompt check and are not in this repo ("Not walked").
+Qwen2.5-0.5B-Instruct, a new model. ONNX Runtime GenAI cells on the CPU and on the NVIDIA RTX GPU with CUDA have been
+walked with a new model, Phi-4-mini-instruct, whose reference step runs under the lock. LiteRT-LM cells of
+Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's prompt check and are not in this repo
+("Not walked").
 
 ## 0. Before you start
 
@@ -38,7 +40,7 @@ pass section 6's prompt check and are not in this repo ("Not walked").
    `git fetch origin && git switch -c <name> --no-track origin/main`. When others use the same clone, take a new
    worktree instead: `git fetch origin && git worktree add --no-track -b <name> ../windows-model-zoo-<name> origin/main`,
    then work there. With `--no-track` the branch has no upstream, so a plain `git push` goes nowhere.
-2. Check the checkout:
+2. Before you change anything, check the checkout:
 
    ```bash
    python3 -c 'import sys, tomllib, numpy, scipy; print(sys.version.split()[0], numpy.__version__, scipy.__version__)'
@@ -170,9 +172,9 @@ ram_need_gb = 5
   `"*.jinja"` when the template is a file, as in `models/gemma-4-E2B-it/recipe.toml`).
 - **Memory.** `ram_gb` of the reference is an estimate of its peak, at least the original's safetensors bytes × 2 for
   bf16 or fp16 files (× 1 for fp32) plus 1 GB (the Qwen3 recipes give more: 6, 10 and 18 for 1.5, 4.1 and 8.0 GB of
-  bf16 files). Over 8 GB, add `lock = true`: the step then runs under your own lock, at most 30 min. Its slot comes from
-  the shared PC's order, which is not in this repo: before you launch the model's list, stop and ask the person who
-  gave you the task when it may run.
+  bf16 files). Over 8 GB, add `lock = true`: the step then runs under your own lock, at most 30 min (section 5, "A step
+  with `lock = true`"). Its slot comes from the shared PC's order, which is not in this repo: before you launch the
+  model's list, stop and ask the person who gave you the task when it may run.
 - **Cell ids** start with `task-` (the README and `tools/qa20_key.py` count the `task-*.json` files): `task-<runtime>_<device>_<backend>`,
   as in the other models (`task-openvino-genai_npu_npu`, `task-ort-genai_igpu_openvino`, `task-llama.cpp_rtx_cuda`).
   A second package on a runtime and device the model already has takes a suffix that names it
@@ -198,8 +200,8 @@ ram_need_gb = 5
   run's line in `chain.log` says `exit 0, OK`), and the other models' `task-openvino-genai_rtx_gpu` runs have them too
   (`raw/z6/runs/z6-g-*/`).
 - **Other runtimes and kinds** (of these, llama.cpp cells were walked, of a model already here and of a new one;
-  LiteRT-LM cells of a model already here were walked too, but did not pass section 6's prompt check and are not in
-  this repo: "Not walked"):
+  ONNX Runtime GenAI cells on the CPU and with CUDA were walked, of a new one; LiteRT-LM cells of a model already here
+  were walked too, but they did not pass section 6's prompt check and are not in this repo: "Not walked"):
   copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
   the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`; LiteRT-LM's
   id is `litert-lm`; `litert`, without `-lm`, is the id of cells copied from another zoo, all with `migrated = true`).
@@ -239,6 +241,18 @@ ram_need_gb = 5
   prompt's line is missing or names another adapter, the runner ends the cell with an error (`run.error_line` starts
   `RuntimeError: prompt <id>: the run's adapter line is`): stop and report it. Its `engine.gpuMiBPeak` stays `{}`, as
   a llama.cpp cell's does: the runner starts LiteRT-LM's executable once per prompt, as a child process.
+- **An ONNX Runtime GenAI cell's execution provider** is its `--ep` (`pc/run_llm_genai.py`). `--ep follow_config`
+  keeps the providers that the package folder's `genai_config.json` names (`provider_options` under
+  `model.decoder.session_options`), and an empty list there runs on the CPU. The other models' CUDA cells pass
+  `--ep follow_config` because their folders name `cuda`. Before you copy a cell, read that file in your folder
+  (`curl -sL https://huggingface.co/<owner>/<repo>/resolve/<sha>/<folder>/genai_config.json`). When it names your
+  cell's provider, keep `--ep follow_config`: `--ep cuda` replaces the folder's list and drops the options it gives.
+  When it names no provider, a CUDA cell passes `--ep cuda` and a CPU cell `--ep cpu`, as in
+  `models/Phi-4-mini-instruct/recipe.toml`. The cell's proof of its device is `device_type` in `run1.json` (`CUDA` or
+  `CPU`, as ONNX Runtime GenAI reports it) and, for a GPU cell, `engine.gpuMiBPeak` in `run1.meta.json`, read as in
+  "Another device" above: the runner's own process holds the GPU memory, so a CUDA cell's memory is under the adapter
+  id that the `adapters:` line of the chain's `chain.log` names `nvidia`. When either names another device, stop and
+  report it.
 
 ## 3. The card
 
@@ -318,20 +332,28 @@ tools/pc.sh lock note ""
   or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
 - `lock note` prints `NOTE written <time>` (`lock note ""` prints `NOTE removed <time>`). No `'` in the note's text
   (it breaks the PowerShell quoting). The lists and the chain write their own notes too, in `%USERPROFILE%\pcup\active\`.
+- **A step with `lock = true`** (a reference step over 8 GB, section 2, "Memory"; the LiteRT-LM build, below): before
+  you launch its list, stop and ask the person who gave you the task when it may run, with `tools/pc.sh lock note ""`
+  first (above). When they say it may run, write the note again and launch the list. The step waits until the lock
+  has been free 60 s, then takes it (`lock: TAKEN (<list> <step> (not a timing) until <HH:MM>) after 60 s free` in the
+  list's log). Its lock ends 30 min after that wait began at the latest, so the step itself has under 29 min: a step
+  still running then is killed (`<step> end: exit timeout`) and the list ends `FAIL <step>`: stop and report it. If
+  under 25 min are left when the step takes the lock, or less RAM than its `ram_gb` is free 10 s later, it gives the
+  lock back (`lock given back` in the list's log) and starts the wait again by itself: keep the `wait` running. When
+  the step ends, it gives the lock back (`lock released`). Phi-4-mini-instruct's reference step (`ram_gb` 17) held the
+  lock for 1.6 min.
 - **The engines** (for cells that need the model's `z6-setup` step, section 2; `steps` prints
   `pc/steps/engines.json` for every model with that step, also when your cells do not need it: then leave the list
   out): launch the `engines` list after `setup` has ended (its steps run in the `genai` venv that `setup` makes), and
   wait for it before the model's list, whose `z6-setup` step checks every engine file. For llama.cpp, its step
   `engines-llama` downloads the b11721 release zips (the CPU, Vulkan and CUDA builds and the CUDA runtime, about
   630 MB) and unpacks them (0.6 to 1.6 min on a new PC folder).
-  `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step over 8 GB under your own lock: before you launch it,
-  ask the person who gave you the task when it may run (section 2, "Memory"). It goes after the `engines` list and
-  before the model's list; its two lines are in `docs/reproduce.md`, step 3. The step waits until the lock has been
-  free 60 s and then takes it. Its lock ends 30 min after that wait began at the latest: a build still running then
-  is killed (`engines-litert end: exit timeout`) and the list ends `FAIL engines-litert`: stop and report it. If
-  under 25 min are left when the step takes the lock, or under 16 GB of RAM are free 10 s later, it gives the lock
-  back and starts the wait again. The build's source and Bazel output go to `C:\src\mz-litert-lm` and `C:\bzl-mz`
-  (`pc/z6_spec.json`), outside your PC folder; the `engines` list clones the source. With neither on the PC before
+  `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step with `lock = true` and `ram_gb` 16: ask before you
+  launch it, as the item above says. It goes after the `engines` list and before the model's list; its two lines are
+  in `docs/reproduce.md`, step 3. A build still running at its lock's end is killed
+  (`engines-litert end: exit timeout`) and the list ends `FAIL engines-litert`: stop and report it. The build's
+  source and Bazel output go to `C:\src\mz-litert-lm` and `C:\bzl-mz` (`pc/z6_spec.json`), outside your PC folder;
+  the `engines` list clones the source. With neither on the PC before
   the `engines` list, the step took 15.5 min in the walk of `docs/reproduce.md` (`WALK.md`, step 3) and 22.8 min in
   a run of this skill on 2026-11-13.
 - Untimed work runs without the lock. When another job's lock appears, the step or run in flight is killed and runs
@@ -356,7 +378,9 @@ tools/pc.sh lock note ""
 
   The two sha256 are the same (the PC prints upper case). When your cell needs a step of the model's list other than
   the reference (the LLM engines' `z6-setup`), run the model's list before the `put`: its reference step writes
-  `refs\<model>\ref.json` again, and the `put` then sets the committed record back.
+  `refs\<model>\ref.json` again, and the `put` then sets the committed record back. When that reference step has
+  `lock = true` (Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it, gemma-4-E4B-it and Phi-4-mini-instruct), ask before you launch
+  the list, as "A step with `lock = true`" says.
 
 ## 6. Judge the cells, write the cards, lint
 
@@ -424,8 +448,9 @@ python3 tools/lint.py
    `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `z6-setup`
    step, `pc/z6_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
    `KeyError`). `raw/*/` is ignored: add `!raw/<name>/` and `raw/<name>/logs/` (the step logs stay on your disk) to
-   `.gitignore`, next to the lines of the other folders, name your folder in the comment above each of the two groups,
-   and add `raw/<name>/` to the list in `docs/add-a-model.md` ("Where things are").
+   `.gitignore`, next to the lines of the other folders, name your folder in the comment above each of the two groups
+   (the one that starts `# what tools/pc.sh pull brings back` and the one that starts `# the PC step logs of`), and
+   add `raw/<name>/` to the list in `docs/add-a-model.md` ("Where things are").
 4. `README.md` and `docs/reading-results.md` count and list the results (the `task-*` files). Change each place your
    cells change.
    - In `README.md`: the number of results in four places (`grep -n -E '[0-9]+ (test )?results' README.md`); the
@@ -439,10 +464,15 @@ python3 tools/lint.py
      folder of your cells and what `raw/<name>/` holds.
    - The README's figure counts only cells that judge a copied cell again: `python3 tools/readme_figure.py` leaves
      `docs/images/` as it is.
+   - In `PLAN.md`, for a new LLM: its reference's count (`key.right` in `models/<model>/reference/ref.json`) in the
+     sentence of "How to read the qa20 line" that lists the references' counts.
+   - Several of these sentences list groups of results, with a `,` or `;` between the groups and `and` before the last
+     one. When your group goes at the end, move that `and` to before your group and leave a `,` or `;` where it stood.
+     Then read each changed sentence whole.
 5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. Run section 0's tests and lint once
    more.
-6. Commit them on your branch, naming the paths (not `git add -A`); for cells that need the model's `z6-setup` step,
-   add `pc/z6_spec.json` to the `git add` line:
+6. Commit them on your branch, naming the paths (not `git add -A`); for a new LLM, add `PLAN.md`, and for cells that
+   need the model's `z6-setup` step, `pc/z6_spec.json`, to the `git add` line:
 
    ```bash
    git add models/<model> LICENSES.md raw/<name> .gitignore docs/add-a-model.md README.md docs/reading-results.md \
@@ -515,8 +545,23 @@ cells' device from the prompts' `Selected adapter:` lines, neither of which this
 2). Its cells are not in this repo: the `.litertlm` file's metadata holds a start token and turn templates, and
 LiteRT-LM's Session added them to every prompt (`llm.task.prompt_ids_same` 0 of 21 in each cell). The agent committed
 the cells' verdicts, which this file did not rule out then (now section 6).
+A sixth such agent, given two sentences of the same kind, added a new model, Phi-4-mini-instruct, with its reference
+under its own lock and two ONNX Runtime GenAI results (the CPU int4 folder of `microsoft/Phi-4-mini-instruct-onnx` on
+the CPU, and its GPU int4 folder on the NVIDIA RTX GPU with CUDA; its records: `raw/phi4-mini/`) from a new PC folder,
+and ended with a commit on its branch. It stopped once, after `setup` and `fetch`, and asked when the reference step
+may run, as section 2 says. Told that it may run now, it launched the model's list, whose step took the lock, ran the
+reference in 1.4 min and gave the lock back, and went on with no more help. On its own, it read the two folders'
+`genai_config.json` files, which name no execution provider, and gave its cells `--ep cpu` and `--ep cuda` instead of
+the other models' `--ep follow_config`. It also read the CUDA cell's device from `engine.gpuMiBPeak`. This file said
+neither for an ONNX Runtime GenAI cell then (now section 2). It ran section 0's tests and lint only after writing its
+recipe and card, which this file did not rule out then (now section 0, step 2). Three of the sentences it changed in
+`README.md` and `docs/reading-results.md` had a broken list, two with a second `and` and one with a comma missing
+between two groups (now section 7, step 4). It named its folder in only one of the two `.gitignore` comments that
+section 7 asks for, and it left its reference's count out of `PLAN.md`, which this file did not ask for then (now
+section 7, steps 3 and 4).
 Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
-in another way, the PC's night stop, a reference step with `lock = true`, a lock step that gives its lock back or is
-killed at its lock's end, the LiteRT-LM build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM
-cells that pass section 6's prompt check, the Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of the five
-LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
+in another way, the PC's night stop, a lock step that gives its lock back or is killed at its lock's end, the LiteRT-LM
+build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM cells that pass section 6's prompt check,
+Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep follow_config` or run on the OpenVINO and WebGPU
+execution providers, llama.cpp cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed
+sitting.
