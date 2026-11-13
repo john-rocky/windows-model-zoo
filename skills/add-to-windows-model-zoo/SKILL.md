@@ -404,11 +404,12 @@ python3 tools/lint.py
   Local and OpenVINO GenAI's VLMPipeline, with the reference's number of tokens): 21 in every LLM `task-*` cell here.
   For a LiteRT-LM cell, that count covers only the first prefill turn, so the second prints each prompt's log that
   has no `Total 1 turns` line: none for the LiteRT-LM `task-*` cells here. Under 21, or when the `grep` prints a
-  file, the runtime did not get the prompt as the line's rule says, so the cell's PASS or FAIL is not a result: stop
-  before section 7 and report it. Such a cell does not go into a commit. When a `.litertlm` file's metadata holds
-  turn templates (LiteRT-LM's `prompt_templates`), LiteRT-LM v0.19.0's Session puts them around every prompt, and
-  `pc/run_llm_litert.py` has no way to turn that off (its header's "a Session takes the text as it is" holds for the
-  files of the cells here; "Not walked").
+  file, the runtime did not get the prompt as the line's rule says. `results.py` gives such a cell no verdict: its
+  `line.verdict` reads `no verdict on qa20: ok (...)`, where `ok` is the run's state and the brackets give the reason.
+  `lint.py` fails such a cell when its JSON has a verdict. Stop before section 7 and report it. Such a cell does not go
+  into a commit. When a `.litertlm` file's metadata holds turn templates (LiteRT-LM's `prompt_templates`), LiteRT-LM
+  v0.19.0's Session puts them around every prompt, and `pc/run_llm_litert.py` has no way to turn that off (its header's
+  "a Session takes the text as it is" holds for the files of the cells here; "Not walked").
 - `results.py` writes again every own cell of the models it is given, and of every model when it is given none. A
   cell with no record under `--runs` becomes `not_run`. So `--model` is for a new model only, and a result takes
   `--cells`. `<folder>` is the folder of section 5.

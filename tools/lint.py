@@ -13,6 +13,11 @@ Per directory (FAIL = something to fix in the directory, with the reason; WARN =
   verdict   every cell's line.verdict is the string tools/zoo.py verdict_text makes from the rest of its JSON
   key       every LLM cell on the qa20 line that ran OK, and the model's compact reference, carry the answers right by
             the answer key that tools/qa20_key.py gives from the record (when the record is in this repo)
+  prompt    every LLM cell with a verdict on the qa20 line has its record in this repo, and the record and the model's
+            compact reference (reference/ref.json) show that the runtime got every prompt with the reference's token
+            ids (or, for a runner without ids, the reference's token count) and, for LiteRT-LM, in one prefill turn
+            (each prompt's log); tools/results.py gives no verdict otherwise (tools/zoo.py prompt_numbers,
+            prompt_why). The cell's llm.task.prompt_ids_same is the number the record gives
   line      a cell's line was written before the cell ran (line.written < run.started); a cell without a start time
             (a record collected from another lane) is a WARN
   fresh     the generated files (the card's block, LICENSES.md; RESULTS_*.md and models/index.json when they are on
@@ -86,6 +91,27 @@ def front_matter(text):
             out[k.group(1)] = k.group(2)
     out["_exception"] = bool(re.search(r"#\s*base-model-exception:\s*\S", m.group(1)))
     return out
+
+
+def prompt_check(d, c):
+    """None when an LLM cell with a verdict on qa20 passes the prompt check, else what fails"""
+    rec = (c.get("source") or {}).get("record")
+    rec_path = zoo.ROOT / (rec or "")
+    ref_path = d / "reference" / "ref.json"
+    if not rec or not rec_path.is_file():
+        return f"a verdict, but its record {rec!r} is not in this repo (the prompt check reads it)"
+    if not ref_path.is_file():
+        return "a verdict, but no reference/ref.json (the prompt check reads it)"
+    ref = json.loads(ref_path.read_text(encoding="utf-8"))
+    nums = zoo.prompt_numbers(rec_path, json.loads(rec_path.read_text(encoding="utf-8-sig")), ref)
+    why = zoo.prompt_why(nums, ref)
+    if why:
+        return f"a verdict, but {why} (python3 tools/results.py gives such a cell no verdict)"
+    same = ((c.get("llm") or {}).get("task") or {}).get("prompt_ids_same")
+    if same != nums["prompt_ids_same"]:
+        return (f"llm.task.prompt_ids_same {same} is not what the record gives ({nums['prompt_ids_same']}) "
+                f"(python3 tools/results.py --runs ... --refs ... --cells {d.name}/{c.get('cell')})")
+    return None
 
 
 def check_dir(d, fresh_files):
@@ -201,6 +227,11 @@ def check_dir(d, fresh_files):
                                      "(python3 tools/results.py --keys)")
                 except qa20_key.Stop as e:
                     fails.append(f"{where}: {e}")
+            if (c.get("kind") == "llm" and ln.get("id") == "qa20" and run.get("state") == "ok"
+                    and ln.get("pass") is not None):
+                why = prompt_check(d, c)
+                if why:
+                    fails.append(f"{where}: {why}")
             if ln.get("id") not in lines:
                 fails.append(f"{where}: line {ln.get('id')!r} is not in the recipe")
             elif ln.get("kind") not in (lines[ln["id"]].get("kind"), "reference"):   # the line's reference cell: "reference"

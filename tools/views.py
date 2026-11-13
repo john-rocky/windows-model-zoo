@@ -211,7 +211,7 @@ def llm_task_row(c):
     right = f"{k['right']}/{k['n']}" if k else "—"
     gate = task.get("gate_text") or "—"
     return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], agree, right, gate,
-            "PASS" if ln.get("pass") else "FAIL", sp(s.get("value") if s.get("value") is not None else s.get("first_value"), 2), sp(s.get("prefill_tps"), 1), sp(s.get("ttft_ms"), 0),
+            {True: "PASS", False: "FAIL"}.get(ln.get("pass"), "no verdict"), sp(s.get("value") if s.get("value") is not None else s.get("first_value"), 2), sp(s.get("prefill_tps"), 1), sp(s.get("ttft_ms"), 0),
             _fmt(s.get("peak_working_set_mb"), 0), f"`{(c.get('source') or {}).get('record')}`"]
 
 

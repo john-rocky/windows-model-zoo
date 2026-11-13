@@ -16,7 +16,10 @@ Lines by kind (the line's rule is the recipe's; these are its computations):
                          not counted; instruments: cos and max |d| of the logits, top-5 overlap
   llm qa20               the normalized first line of each answer vs the reference's, >= 18 / 20, and the gate prompt
                          ended on an end token within its 16 new tokens; instrument: the answers right by the answer
-                         key (tools/qa20_key.py), also for the reference
+                         key (tools/qa20_key.py), also for the reference. No verdict when the record does not show
+                         that the runtime got every prompt with the reference's token ids (or, for a runner without
+                         ids, the reference's token count) and, for LiteRT-LM, in one prefill turn (each prompt's
+                         log): tools/zoo.py prompt_numbers, prompt_why
   asr S150               per language: summed errors <= the reference's + 0.5 pt of the same clips, 0 empty answers
                          (tools/fleurs_score.py)
   tts T50                the write-back WER (pc/writeback.py's texts) <= the reference's write-back WER on the same
@@ -94,22 +97,13 @@ def norm_answer(t):
 
 def score_llm(run_json, run, ref_json, ref):
     rrows = {r["id"]: r for r in ref["rows"]}
-    agree = full = eos = toks = same_ids = n = 0
-    basis = {"ids": 0, "token count": 0}
+    agree = full = eos = toks = n = 0
     rows = []
     gate = None
     for r in run["rows"]:
         b = rrows.get(r["id"])
         if b is None:
             continue
-        # the prompt as the runtime saw it: its ids when the runner has them, else its token count (LiteRT-LM, Foundry
-        # Local, OpenVINO GenAI's VLMPipeline) against the number of the reference's ids
-        if r.get("prompt_ids") is not None:
-            same_ids += int(r["prompt_ids"] == b.get("prompt_ids"))
-            basis["ids"] += 1
-        elif r.get("prompt_tokens") is not None:
-            same_ids += int(r["prompt_tokens"] == len(b.get("prompt_ids") or []))
-            basis["token count"] += 1
         if r.get("role") == "gate":
             gate = {"eos": bool(r.get("eos")), "new_tokens": r.get("new_tokens"), "max_new": r.get("max_new"),
                     "text": r.get("text"), "ref_eos": bool(b.get("eos")), "pass": bool(r.get("eos"))}
@@ -124,11 +118,17 @@ def score_llm(run_json, run, ref_json, ref):
     ok = n == 20 and agree >= 18 and bool(gate and gate["pass"])
     detail = {"answers": {"agree": agree, "n": n, "bar": 18, "pass": n == 20 and agree >= 18},
               "gate": gate or {"pass": False, "why": "no gate row"}, "pass": bool(ok)}
-    inst = {"agree": agree, "n": n, "full_text_same": full, "eos_within_max": eos, "new_tokens": toks,
-            "prompt_ids_same": same_ids, "prompt_basis": {k: v for k, v in basis.items() if v}, "rows": rows,
-            "gate_text": ("EOS in " + str(gate["new_tokens"]) if gate and gate["pass"] else
-                          f"no EOS in {gate['new_tokens']}" if gate else "no gate row")}
+    # the prompt as the runtime saw it (tools/zoo.py prompt_numbers): its ids when the runner has them, else its token
+    # count (LiteRT-LM, Foundry Local, OpenVINO GenAI's VLMPipeline) against the number of the reference's ids, and
+    # for LiteRT-LM the prefill turns in each prompt's log
+    prompt = zoo.prompt_numbers(run_json, run, ref)
+    inst = {"agree": agree, "n": n, "full_text_same": full, "eos_within_max": eos, "new_tokens": toks, **prompt,
+            "rows": rows, "gate_text": ("EOS in " + str(gate["new_tokens"]) if gate and gate["pass"] else
+                                        f"no EOS in {gate['new_tokens']}" if gate else "no gate row")}
     inst["key"] = qa20_key.score_rows(run["rows"], qa20_key.load_key(), zoo.rel(run_json))
+    why = zoo.prompt_why(prompt, ref)
+    if why:   # the record does not show the line's rule held (the reference's rendered string as it is): no verdict
+        return inst, None, why
     return inst, detail, f"answers {agree}/{n}, gate {'PASS' if gate and gate['pass'] else 'FAIL'}"
 
 

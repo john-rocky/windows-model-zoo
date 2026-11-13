@@ -152,6 +152,83 @@ def rel(path):
     return str(p)
 
 
+# ---- the prompt check of an LLM cell: by the qa20 line's rule, the runtime gets the string the reference step
+# rendered, as it is (no template of the runtime, no special token added); tools/results.py gives no verdict when the
+# run record does not show that, and tools/lint.py fails a verdict whose record does not show it ----
+
+# runners whose token count covers only the first prefill turn, with a log per prompt that counts the turns:
+# pc/run_llm_litert.py writes each prompt's stderr next to its record (<record stem>.prompts/<nn>.stderr.txt)
+PREFILL_LOG_RUNNERS = ("run_llm_litert.py",)
+PREFILL_TURNS = re.compile(r"Prefill Turns \(Total (\d+) turns\)")
+
+
+def prefill_turns(record_path, n):
+    """{N: how many logs}, N from a prompt log's "Prefill Turns (Total N turns)" line (the largest N when a log has
+    several); "no count": the logs without that line; "no log": n minus the number of logs, when there are fewer"""
+    logs = sorted(pathlib.Path(record_path).with_suffix(".prompts").glob("*.stderr.txt"))
+    out = {}
+    for f in logs:
+        ks = PREFILL_TURNS.findall(f.read_text(encoding="utf-8", errors="replace"))
+        k = str(max(int(x) for x in ks)) if ks else "no count"
+        out[k] = out.get(k, 0) + 1
+    if len(logs) < n:
+        out["no log"] = n - len(logs)
+    return dict(sorted(out.items()))
+
+
+def prompt_numbers(record_path, run, ref):
+    """The numbers of the prompt check, from a run record (its path and JSON) and the reference's JSON:
+    prompt_ids_same, the number of rows whose prompt token ids equal the reference's (for a runner without ids,
+    LiteRT-LM, Foundry Local and OpenVINO GenAI's VLMPipeline: whose prompt token count equals the number of the
+    reference's ids); prompt_basis, how many rows had ids and how many a token count; and for a runner in
+    PREFILL_LOG_RUNNERS, prefill_turns"""
+    rrows = {r["id"]: r for r in ref.get("rows") or []}
+    same = 0
+    basis = {"ids": 0, "token count": 0}
+    for r in run.get("rows") or []:
+        b = rrows.get(r["id"])
+        if b is None:
+            continue
+        if r.get("prompt_ids") is not None:
+            same += int(r["prompt_ids"] == b.get("prompt_ids"))
+            basis["ids"] += 1
+        elif r.get("prompt_tokens") is not None:
+            same += int(r["prompt_tokens"] == len(b.get("prompt_ids") or []))
+            basis["token count"] += 1
+    out = {"prompt_ids_same": same, "prompt_basis": {k: v for k, v in basis.items() if v}}
+    if run.get("runner") in PREFILL_LOG_RUNNERS:
+        out["prefill_turns"] = prefill_turns(record_path, len(rrows))
+    return out
+
+
+def prompt_why(nums, ref):
+    """None when the numbers of prompt_numbers show that the runtime got every prompt with the reference's token ids
+    (or token count) and, where the logs count the turns, in one prefill turn; else the reasons, in words"""
+    n = len({r["id"] for r in ref.get("rows") or []})
+    basis = nums.get("prompt_basis") or {}
+    out = []
+    if not basis:
+        out.append("the record gives neither the prompts' token ids nor their token count")
+    elif nums.get("prompt_ids_same") != n:
+        what = " or ".join({"ids": "token ids", "token count": "token count"}[k] for k in basis)
+        out.append(f"the runtime got the reference's {what} for {nums.get('prompt_ids_same')} of {n} prompts")
+    t = nums.get("prefill_turns")
+    if t is not None and t != {"1": n}:
+        more = sum(v for k, v in t.items() if k.isdigit() and int(k) > 1)
+        logs = sum(v for k, v in t.items() if k != "no log")
+        if more:
+            out.append(f"the runtime's logs show a second prefill turn for {more} of {n} prompts")
+        if t.get("0"):
+            out.append(f"the runtime's logs show no prefill turn for {t['0']} of {n} prompts")
+        if t.get("no log"):
+            out.append(f"the runtime's logs are missing for {t['no log']} of {n} prompts")
+        if t.get("no count"):
+            out.append(f"the runtime's logs give no prefill turn count for {t['no count']} of {n} prompts")
+        if logs > n:
+            out.append(f"{logs} runtime logs for {n} prompts")
+    return "; ".join(out) or None
+
+
 # ---- a small TOML writer (the recipes hold strings, numbers, booleans, lists of those, tables and arrays of tables) ----
 
 def _toml_value(v):
