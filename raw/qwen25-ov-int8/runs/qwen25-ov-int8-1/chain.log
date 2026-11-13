@@ -1,0 +1,13 @@
+[2026-11-13T12:16:08.7586628+09:00] chain start: plan C:\src\zoo-qwen25-ov-int8\pc\plans\qwen25-ov-int8-1.json mode first, 5 units, pid 5884
+[2026-11-13T12:16:20.1871867+09:00] adapters: 0x00000000_0x00012799=nvidia, 0x00000000_0x00011F23=intel-gpu, 0x00000000_0x00013D59=npu?, 0x00000000_0x00012767=?
+[2026-11-13T12:16:22.4434545+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_rtx_gpu run 1 start
+[2026-11-13T12:17:02.7497678+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_rtx_gpu run 1 end: exit 0, OK, 38.319 s
+[2026-11-13T12:17:04.7624640+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_cpu_cpu-int8 run 1 start
+[2026-11-13T12:17:13.2808219+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_cpu_cpu-int8 run 1 end: exit 0, OK, 6.546 s
+[2026-11-13T12:17:15.2849399+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu-int8 run 1 start
+[2026-11-13T12:18:00.8408854+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu-int8 run 1 end: exit 0, OK, 43.581 s
+[2026-11-13T12:18:02.8613849+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_igpu_gpu-int8 run 1 start
+[2026-11-13T12:18:15.6281853+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_igpu_gpu-int8 run 1 end: exit 0, OK, 10.796 s
+[2026-11-13T12:18:17.6377765+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_rtx_gpu-int8 run 1 start
+[2026-11-13T12:18:49.2644874+09:00] Qwen2.5-1.5B-Instruct/task-openvino-genai_rtx_gpu-int8 run 1 end: exit 0, OK, 29.707 s
+[2026-11-13T12:18:49.2767634+09:00] chain done: OK

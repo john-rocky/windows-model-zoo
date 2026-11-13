@@ -1,4 +1,4 @@
-# Qwen2.5-1.5B-Instruct: OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov on OpenVINO GenAI and the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF on llama.cpp, judged on the qa20 line
+# Qwen2.5-1.5B-Instruct: OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov and -int8-ov on OpenVINO GenAI and the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF on llama.cpp, judged on the qa20 line
 
 [model]
 kind = "llm"
@@ -20,6 +20,10 @@ repo = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 revision = "4d14c299e35d8b74e3471f9e92bd1377fae50736"
 
 [[fetch]]
+repo = "OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+revision = "dfa45b7f439562fc610c0069de99298d1f7bc172"
+
+[[fetch]]
 repo = "Qwen/Qwen2.5-1.5B-Instruct-GGUF"
 revision = "91cad51170dc346986eccefdc2dd33a9da36ead9"
 include = ["qwen2.5-1.5b-instruct-q4_k_m.gguf"]
@@ -29,6 +33,12 @@ id = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 short = "int4_sym g128 r1.0"
 label = "int4_sym g128 r1.0; OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov@4d14c299e35d8b74e3471f9e92bd1377fae50736"
 from = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+
+[[form]]
+id = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+short = "int8_asym"
+label = "int8_asym; OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov@dfa45b7f439562fc610c0069de99298d1f7bc172"
+from = "OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
 
 [[form]]
 id = "gguf:qwen2.5-1.5b-instruct-q4_k_m.gguf"
@@ -93,6 +103,66 @@ script = "pc/run_llm_ovg.py"
 form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 timeout_min = 30
 args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_gpu0", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_rtx_gpu"
+runtime = "openvino-genai"
+device = "rtx"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "GPU.1", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_gpu1", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu-int8"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int8-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_npu_npu-int8"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int8-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct-int8_npu", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_igpu_gpu-int8"
+runtime = "openvino-genai"
+device = "igpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int8-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct-int8_gpu0", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_rtx_gpu-int8"
+runtime = "openvino-genai"
+device = "rtx"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int8-ov", "--device", "GPU.1", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct-int8_gpu1", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
 ram_need_gb = 5
 
 [[cell]]

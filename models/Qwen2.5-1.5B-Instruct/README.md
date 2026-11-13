@@ -8,7 +8,7 @@ pipeline_tag: text-generation
 
 # Qwen2.5-1.5B-Instruct
 
-[Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) run on one Windows laptop as OpenVINO's int4 IR [OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov](https://huggingface.co/OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov) on the CPU, the Intel NPU and the Intel GPU, and as the Q4_K_M file of [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF) through llama.cpp on the CPU and the NVIDIA RTX GPU. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
+[Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) run on one Windows laptop as OpenVINO's int4 IR [OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov](https://huggingface.co/OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov) on the CPU, the Intel NPU, the Intel GPU and the NVIDIA RTX GPU, as OpenVINO's int8 IR [OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov](https://huggingface.co/OpenVINO/Qwen2.5-1.5B-Instruct-int8-ov) on the same four devices, and as the Q4_K_M file of [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF) through llama.cpp on the CPU and the NVIDIA RTX GPU. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
 
 <!-- zoo:cells begin -->
 ## Lines
@@ -17,5 +17,5 @@ pipeline_tag: text-generation
 
 ## Cells
 
-One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 6 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
+One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 11 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
 <!-- zoo:cells end -->

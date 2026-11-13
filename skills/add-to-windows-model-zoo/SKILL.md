@@ -25,10 +25,10 @@ a **list** is a set of untimed steps on the PC; the **lock** is the shared PC's 
 `<name>` below is a short name you pick for this job (letters, digits, `-`); `<model>` is the model's folder name.
 
 This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new runner or runtime, a new kind of line,
-cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU and the Intel GPU) is the
-one walked on the PC. For the other runtimes and for vision and audio models, section 2 says what to copy; of those,
-only llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of Qwen2.5-0.5B-Instruct,
-a new model ("Not walked").
+cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU, the Intel GPU and the
+NVIDIA RTX GPU) is the one walked on the PC. For the other runtimes and for vision and audio models, section 2 says
+what to copy; of those, only llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of
+Qwen2.5-0.5B-Instruct, a new model ("Not walked").
 
 ## 0. Before you start
 
@@ -174,15 +174,27 @@ ram_need_gb = 5
 - **Cell ids** start with `task-` (the README and `tools/qa20_key.py` count the `task-*.json` files): `task-<runtime>_<device>_<backend>`,
   as in the other models (`task-openvino-genai_npu_npu`, `task-ort-genai_igpu_openvino`, `task-llama.cpp_rtx_cuda`).
   A second package on a runtime and device the model already has takes a suffix that names it
-  (`task-openvino-genai_cpu_cpu-int8-sym`).
+  (`task-openvino-genai_cpu_cpu-int8-sym`). Its NPU and GPU cells take a `--cache-dir` folder that no cell of another
+  package uses, with the suffix in its name (`"{ROOT}\\ovcache\\Qwen3-1.7B_npu_int8_sym"` in
+  `models/Qwen3-1.7B/recipe.toml`, `"{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct-int8_gpu1"` in
+  `models/Qwen2.5-1.5B-Instruct/recipe.toml`).
 - **Another device.** The same cell with another `id` (`task-openvino-genai_npu_npu`; the Intel GPU:
-  `task-openvino-genai_igpu_gpu`), `"--device", "NPU"` (or `"GPU.0"`), `"--cache-dir",
-  "{ROOT}\\ovcache\\<model>_npu"` (or `<model>_gpu0`) and `device = "npu"` (or `"igpu"`). An Intel NPU runs only some
-  quantizations (this repo's OpenVINO GenAI `task-*` cells on the NPU run symmetric int4 or int8 IRs). An OpenVINO
-  GenAI GPU cell's proof of its adapter is the GPU memory per adapter that `pc/chain.ps1` records in each run's
-  `.meta.json` (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the chain's `chain.log`, in
-  `raw/<name>/runs/<name>-<n>/`, names the ids). The id named for the cell's device (`intel-gpu` for the Intel GPU)
-  holds the cell's memory; when another one does, the cell ran on another device: stop and report it.
+  `task-openvino-genai_igpu_gpu`; the NVIDIA RTX GPU: `task-openvino-genai_rtx_gpu`), `"--device", "NPU"` (or
+  `"GPU.0"`, or `"GPU.1"`: on the PC these results ran on, OpenVINO's `GPU.0` is the Intel GPU and `GPU.1` the NVIDIA
+  RTX GPU), `"--cache-dir", "{ROOT}\\ovcache\\<model>_npu"` (or `<model>_gpu0`, or `<model>_gpu1`) and
+  `device = "npu"` (or `"igpu"`, or `"rtx"`); `models/Qwen2.5-1.5B-Instruct/recipe.toml` has such cells on all four
+  devices. An Intel NPU runs only some quantizations (this repo's OpenVINO GenAI `task-*` cells on the NPU run
+  symmetric int4 or int8 IRs, except Qwen2.5-1.5B-Instruct's `task-openvino-genai_npu_npu-int8`, which runs an
+  asymmetric int8 IR). An OpenVINO GenAI GPU cell's proof of its adapter is the GPU memory per adapter that
+  `pc/chain.ps1` records in each run's `.meta.json` (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the
+  chain's `chain.log`, in `raw/<name>/runs/<name>-<n>/`, names the ids). The id named for the cell's device
+  (`intel-gpu` for the Intel GPU, `nvidia` for the NVIDIA RTX GPU) holds the cell's memory: all of it for an Intel GPU
+  cell (`nvidia` reads 0), nearly all of it for an RTX cell (this repo's six OpenVINO GenAI RTX records also show 21 to
+  23 MiB of shared memory under `intel-gpu`). When another id holds most of the memory, the cell ran on another
+  device: stop and report it. On the NVIDIA RTX GPU, the run's `run1.stderr.txt` holds a hundred or more lines such as
+  `105 warnings generated.` and one or two such as `86 warnings and 143 errors generated.`; they are not a failure (the
+  run's line in `chain.log` says `exit 0, OK`), and the other models' `task-openvino-genai_rtx_gpu` runs have them too
+  (`raw/z6/runs/z6-g-*/`).
 - **Other runtimes and kinds** (of these, only llama.cpp cells were walked, of a model already here and of a new one):
   copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
   the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its
@@ -264,8 +276,8 @@ tools/pc.sh lock note "adding <model> to the model zoo (untimed; killed and run 
 tools/pc.sh launch 'pc\steps.ps1' '-List setup'
 tools/pc.sh launch 'pc\steps.ps1' '-List fetch'
 tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3
-tools/pc.sh launch 'pc\steps.ps1' '-List engines'                  # only when steps printed pc/steps/engines.json
-tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2      # only when steps printed pc/steps/engines.json
+tools/pc.sh launch 'pc\steps.ps1' '-List engines'                # only for cells that need z6-setup (section 2)
+tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2  # only for cells that need z6-setup (section 2)
 tools/pc.sh launch 'pc\steps.ps1' '-List <model>'
 tools/pc.sh wait "$R\logs\<model>.done" "$R\logs\<model>.log" 2
 tools/pc.sh launch 'pc\chain.ps1' "-Plan $R\pc\plans\<name>-1.json -Mode first"
@@ -288,10 +300,12 @@ tools/pc.sh lock note ""
   or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
 - `lock note` prints `NOTE written <time>` (`lock note ""` prints `NOTE removed <time>`). No `'` in the note's text
   (it breaks the PowerShell quoting). The lists and the chain write their own notes too, in `%USERPROFILE%\pcup\active\`.
-- **The engines** (a model with a `z6-setup` step, section 4): launch the `engines` list after `setup` has ended (its
-  steps run in the `genai` venv that `setup` makes), and wait for it before the model's list, whose `z6-setup` step
-  checks every engine file. For llama.cpp, its step `engines-llama` downloads the b11721 release zips (the CPU, Vulkan
-  and CUDA builds and the CUDA runtime, about 630 MB) and unpacks them (0.8 to 1.6 min on a new PC folder).
+- **The engines** (for cells that need the model's `z6-setup` step, section 2; `steps` prints
+  `pc/steps/engines.json` for every model with that step, also when your cells do not need it: then leave the list
+  out): launch the `engines` list after `setup` has ended (its steps run in the `genai` venv that `setup` makes), and
+  wait for it before the model's list, whose `z6-setup` step checks every engine file. For llama.cpp, its step
+  `engines-llama` downloads the b11721 release zips (the CPU, Vulkan and CUDA builds and the CUDA runtime, about
+  630 MB) and unpacks them (0.8 to 1.6 min on a new PC folder).
   `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step over 8 GB under your own lock: before you launch it,
   ask the person who gave you the task when it may run (section 2, "Memory"). It goes after the `engines` list and
   before the model's list; its two lines are in `docs/reproduce.md`, step 3. No run of this skill has launched it; the
@@ -305,10 +319,10 @@ tools/pc.sh lock note ""
   `models/<model>/reference/ref.json`: `raw/<folder>/refs/<model>/ref.json`). Instead of the model's list
   (`-List <model>`, its reference step), put that record where the cell reads it (a cell that needs the model's
   `z6-setup` step: run the model's list first, as the end of this item says). Launch `setup` and `fetch` and wait for
-  them, then `engines` when `steps` printed `pc/steps/engines.json`, as above: on a PC folder that already has
-  everything they take seconds (`setup` and `fetch` add only what it lacks; `engines` unpacks the llama.cpp zips it
-  has again). Leave out `tools/pc.sh pull refs raw/<name>`: the record is already in `raw/<folder>/`. Put it and
-  compare the two sha256:
+  them, then `engines` when your cells need the model's `z6-setup` step (an OpenVINO GenAI cell does not), as above:
+  on a PC folder that already has everything they take seconds (`setup` and `fetch` add only what it lacks; `engines`
+  unpacks the llama.cpp zips it has again). Leave out `tools/pc.sh pull refs raw/<name>`: the record is already in
+  `raw/<folder>/`. Put it and compare the two sha256:
 
   ```bash
   tools/pc.sh put raw/<folder>/refs/<model> refs
@@ -445,7 +459,13 @@ folder, with no help, and ended with a commit on its branch. On its own, it buil
 Qwen2.5-1.5B-Instruct's, without the OpenVINO GenAI package's `[[fetch]]`, `[[form]]` and cells, which this file did
 not say then (now section 2). Its first commit command had a `Co-Authored-By` line, which this file did not rule out
 then (now section 7, step 6): a commit-msg hook on this Mac, not a file of this repo, refused that commit, and the
-agent committed again with the one line. Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped
-by a lock, a step or a runner that fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI
-cell on the NVIDIA RTX GPU, the LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of the five
-LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
+agent committed again with the one line. A fourth such agent, given two sentences of the same kind, added five
+OpenVINO GenAI results of Qwen2.5-1.5B-Instruct (OpenVINO's int4 IR on the NVIDIA RTX GPU, and a second package,
+OpenVINO's int8 IR, on the CPU, the Intel NPU, the Intel GPU and the NVIDIA RTX GPU; its records:
+`raw/qwen25-ov-int8/`) from a new PC folder, with no help, and ended with a commit on its branch. On its own, it took
+the RTX GPU's `--device` and cache folder from the other models' recipes, gave the second package's NPU and GPU cells
+cache folders of their own and found the RTX GPU's adapter id, `nvidia`, in the chain's records, none of which this
+file gave then (now section 2), and it left out the `engines` list, which this file then said to run (now section 5).
+Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
+in another way, the PC's night stop, a `lock = true` step, the LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells,
+llama.cpp cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
