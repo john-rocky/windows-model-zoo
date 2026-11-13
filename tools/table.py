@@ -269,8 +269,8 @@ def card_block(m):
         ref = m["dir"] / "reference" / "ref.json"
         k = json.loads(ref.read_text(encoding="utf-8")).get("key") if l["id"] == "qa20" and ref.exists() else None
         if k:
-            p += (f" Answers right by the answer key (`suites/llm/qa20.key.jsonl`; a count outside the line, added after "
-                  f"the runs): the reference {k['right']} of {k['n']}; each `task-*` cell's count ends its `line.verdict` "
+            p += (f" Answers right by the answer key (`suites/llm/qa20.key.jsonl`; a count outside the line, added on "
+                  f"2026-11-10): the reference {k['right']} of {k['n']}; each `task-*` cell's count ends its `line.verdict` "
                   f"(PLAN.md, How to read the qa20 line).")
         out.append(f"- {p}")
     n = len(m["cells"])
