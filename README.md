@@ -1,6 +1,6 @@
 # Windows model zoo
 
-140 test results showing whether converted LLM, vision and audio models still do their job on one Windows laptop. Each result runs one package once, untimed, on the Intel NPU, Intel GPU, NVIDIA RTX GPU or CPU. A pass means its output agrees with the original model in fp32, not that a person marked it right. A result covers only that package on that runtime and device, so it doesn't rate a model or a runtime overall.
+143 test results showing whether converted LLM, vision and audio models still do their job on one Windows laptop. Each result runs one package once, untimed, on the Intel NPU, Intel GPU, NVIDIA RTX GPU or CPU. A pass means its output agrees with the original model in fp32, not that a person marked it right. A result covers only that package on that runtime and device, so it doesn't rate a model or a runtime overall.
 
 <p align="center">
 <picture>
@@ -9,13 +9,13 @@
 </picture>
 </p>
 
-My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords. The 86 and the 47 are 133 of the results, so a package or file that ran on several runtimes or devices is counted each time. The other 7 run packages that neither earlier repo had: 4 run two of my own, Qwen3-1.7B and Qwen3-0.6B with int8 weights for the Intel NPU, on the NPU and the CPU, and 3 run OpenVINO's int4 package of Qwen2.5-1.5B-Instruct on the CPU, the NPU and the Intel GPU.
+My earlier repos, [windows-zoo](https://github.com/john-rocky/windows-zoo) and [windows-llm-zoo](https://github.com/john-rocky/windows-llm-zoo), used quick checks, so I judged two of their groups again on the model's actual job. Of 86 LLM packages whose text passed a text-quality check, 28 differed from the original model on more than 2 of 20 short questions. Of 47 vision and audio files that failed a comparison of raw output numbers, 19 still matched the original on boxes, points, masks or keywords. The 86 and the 47 are 133 of the results, so a package or file that ran on several runtimes or devices is counted each time. The other 10 run packages that neither earlier repo had: 4 run two of my own, Qwen3-1.7B and Qwen3-0.6B with int8 weights for the Intel NPU, on the NPU and the CPU; 3 run OpenVINO's int4 package of Qwen2.5-1.5B-Instruct on the CPU, the NPU and the Intel GPU; and 3 run the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF through llama.cpp on the CPU and the NVIDIA RTX GPU (CUDA and Vulkan).
 
 If you ship a converted model on Windows, look up the exact file you use. The model files stay on Hugging Face and in the Foundry Local catalog, and each model's `recipe.toml` says where they come from. If you converted your own model and have a Mac and a Windows PC, you can [add it](docs/add-a-model.md) and run the same checks.
 
 ## Look up a result
 
-Each model has a folder in [`models/`](models/). The 140 results are the `task-*.json` files in its `results/` folder, one per runtime, device and package. For example, [`models/rtmpose_s_fp16/results/task-ovnpu.json`](models/rtmpose_s_fp16/results/task-ovnpu.json) is RTMPose-s through ONNX Runtime and OpenVINO on the Intel NPU, and its `line.verdict` field reads:
+Each model has a folder in [`models/`](models/). The 143 results are the `task-*.json` files in its `results/` folder, one per runtime, device and package. For example, [`models/rtmpose_s_fp16/results/task-ovnpu.json`](models/rtmpose_s_fp16/results/task-ovnpu.json) is RTMPose-s through ONNX Runtime and OpenVINO on the Intel NPU, and its `line.verdict` field reads:
 
 ```text
 FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)
@@ -49,7 +49,7 @@ It writes `RESULTS_LLM.md` and `RESULTS_VISION.md` on your disk.
 
 "Fixed" marks a file converted again with a change to tf2onnx, which [windows-zoo](https://github.com/john-rocky/windows-zoo) describes.
 
-The 140 results ran on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11. Of these, 102 ran on 2026-11-10. Another 31, all on the Intel NPU, ran again on 2026-11-11 after an update to NPU driver 32.0.100.5540, with the same verdicts as on 2026-11-10. The 4 int8 results and 2 Qwen2.5-1.5B-Instruct results ran on 2026-11-12, and the third Qwen2.5-1.5B-Instruct result, on the Intel GPU, on 2026-11-13.
+The 143 results ran on an MSI Stealth 16 AI+ laptop with an Intel Core Ultra 9 386H, an NVIDIA RTX 5080 Laptop GPU, 31.5 GiB of RAM and Windows 11. Of these, 102 ran on 2026-11-10. Another 31, all on the Intel NPU, ran again on 2026-11-11 after an update to NPU driver 32.0.100.5540, with the same verdicts as on 2026-11-10. The 4 int8 results and 2 Qwen2.5-1.5B-Instruct results ran on 2026-11-12, and 4 more Qwen2.5-1.5B-Instruct results, 1 on the Intel GPU and 3 through llama.cpp, on 2026-11-13.
 
 The runtimes were ONNX Runtime 1.31.1 with its CUDA and OpenVINO execution providers, OpenVINO and OpenVINO GenAI 2026.4.1, ONNX Runtime GenAI 0.19.0, LiteRT-LM v0.19.0, llama.cpp b11721 and Foundry Local 0.13.0.
 
@@ -67,7 +67,7 @@ The tools run on a Mac and drive a Windows PC over SSH. [docs/reproduce.md](docs
 
 ## Limits
 
-- All 140 results come from one laptop.
+- All 143 results come from one laptop.
 - Speed values in the `task-*` files come from single untimed runs. Don't use them as timings.
 - The LLM check counts agreement, and the original model can be wrong. In fp32, Qwen3-0.6B answers 1 to "How many days are in a week?" [PLAN.md](PLAN.md#how-to-read-the-qa20-line) says what the check counts.
 - A FAIL doesn't say what caused it.

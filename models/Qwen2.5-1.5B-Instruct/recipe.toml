@@ -1,4 +1,4 @@
-# Qwen2.5-1.5B-Instruct: OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov on OpenVINO GenAI, judged on the qa20 line
+# Qwen2.5-1.5B-Instruct: OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov on OpenVINO GenAI and the Q4_K_M file of Qwen/Qwen2.5-1.5B-Instruct-GGUF on llama.cpp, judged on the qa20 line
 
 [model]
 kind = "llm"
@@ -19,11 +19,29 @@ include = ["*.json", "*.safetensors", "*.txt"]
 repo = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 revision = "4d14c299e35d8b74e3471f9e92bd1377fae50736"
 
+[[fetch]]
+repo = "Qwen/Qwen2.5-1.5B-Instruct-GGUF"
+revision = "91cad51170dc346986eccefdc2dd33a9da36ead9"
+include = ["qwen2.5-1.5b-instruct-q4_k_m.gguf"]
+
 [[form]]
 id = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 short = "int4_sym g128 r1.0"
 label = "int4_sym g128 r1.0; OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov@4d14c299e35d8b74e3471f9e92bd1377fae50736"
 from = "OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
+
+[[form]]
+id = "gguf:qwen2.5-1.5b-instruct-q4_k_m.gguf"
+short = "Q4_K_M"
+label = "Q4_K_M; Qwen/Qwen2.5-1.5B-Instruct-GGUF@91cad51170dc346986eccefdc2dd33a9da36ead9 qwen2.5-1.5b-instruct-q4_k_m.gguf (1117320736 bytes)"
+from = "Qwen/Qwen2.5-1.5B-Instruct-GGUF"
+
+[[step]]
+name = "z6-setup"
+venv = "genai"
+script = "pc/z6_setup.py"
+args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "Qwen2.5-1.5B-Instruct", "--root", "{ROOT}"]
+timeout_min = 60
 
 [[step]]
 name = "reference"
@@ -75,4 +93,40 @@ script = "pc/run_llm_ovg.py"
 form = "ov:OpenVINO/Qwen2.5-1.5B-Instruct-int4-ov"
 timeout_min = 30
 args = ["--model-dir", "{HUB}\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov", "--device", "GPU.0", "--cache-dir", "{ROOT}\\ovcache\\Qwen2.5-1.5B-Instruct_gpu0", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_cpu_cpu"
+runtime = "llama.cpp"
+device = "cpu"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-1.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-1.5b-instruct-q4_k_m.gguf", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_cuda"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-1.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-cuda\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-1.5b-instruct-q4_k_m.gguf", "--gpu", "--device-prefix", "CUDA", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-llama.cpp_rtx_vulkan"
+runtime = "llama.cpp"
+device = "rtx"
+line = "qa20"
+venv = "genai"
+script = "pc/run_llm_llamacpp.py"
+form = "gguf:qwen2.5-1.5b-instruct-q4_k_m.gguf"
+timeout_min = 40
+args = ["--server", "{ROOT}\\engines\\llama-gpu\\llama-server.exe", "--model", "{ROOT}\\work\\gguf\\qwen2.5-1.5b-instruct-q4_k_m.gguf", "--gpu", "--device-prefix", "Vulkan", "--env", "GGML_VK_VISIBLE_DEVICES=0", "--ref", "{ROOT}\\refs\\Qwen2.5-1.5B-Instruct\\ref.json"]
 ram_need_gb = 5

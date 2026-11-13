@@ -12,8 +12,9 @@ You add one model folder, or one cell to a model folder. You are done when:
    PASS or FAIL on the line with its numbers. A FAIL is a result too. A cell whose runner failed has `run.state`
    `error` and `run.error_line`, and its `line.verdict` reads `no verdict on <line>: error (...)`.
 3. Before the commit, `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`,
-   and the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
-   count the results (section 7).
+   the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
+   count the results (section 7), and, for cells that need the model's `z6-setup` step (section 2), the model's entry
+   in `pc/z6_spec.json`.
 4. Those files are one commit on your branch, not pushed (section 7, step 6).
 
 Words (more in [`docs/reading-results.md`](../../docs/reading-results.md#words-used-in-the-files)): a **cell** is one
@@ -25,7 +26,8 @@ a **list** is a set of untimed steps on the PC; the **lock** is the shared PC's 
 
 This skill does not cover: timed sittings (`docs/reproduce.md` step 8), a new runner or runtime, a new kind of line,
 cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, the Intel NPU and the Intel GPU) is the
-one walked on the PC; for the other runtimes and for vision and audio models, section 2 says what to copy.
+one walked on the PC. For the other runtimes and for vision and audio models, section 2 says what to copy; of those,
+only llama.cpp cells of Qwen2.5-1.5B-Instruct, a model already here, have been walked ("Not walked").
 
 ## 0. Before you start
 
@@ -71,12 +73,12 @@ one walked on the PC; for the other runtimes and for vision and audio models, se
 ## 1. A model or a result
 
 - **A model**: a new folder `models/<model>/` with a recipe (section 2) and a card (section 3), then sections 4 to 7.
-- **A result** of a model already here: one more `[[cell]]` in `models/<model>/recipe.toml` (and its `[[form]]` and
-  `[[fetch]]` when they are new), then sections 4 to 7 with that cell alone in `--cells`. When its device is not in the
-  card's paragraph yet (section 3), add it there. It is judged on the model's line against the model's reference
-  record, which `pulled_from` in `models/<model>/reference/ref.json` names (`raw/<folder>/refs/<model>/ref.json`):
-  section 5 puts that record on the PC instead of running the reference again. This path is walked for an LLM model
-  only. A vision or audio model's committed reference has no outputs file (`.gitignore`), so `results.py` cannot judge
+- **A result** of a model already here: one more `[[cell]]` in `models/<model>/recipe.toml` (and its `[[form]]`,
+  `[[fetch]]` and `z6-setup` `[[step]]` when they are new, section 2), then sections 4 to 7 with that cell alone in
+  `--cells`. When its device or package is not in the card's paragraph yet (section 3), add it there. It is judged on
+  the model's line against the model's reference record, which `pulled_from` in `models/<model>/reference/ref.json`
+  names (`raw/<folder>/refs/<model>/ref.json`): section 5 puts that record on the PC instead of running the reference
+  again. This path is walked for an LLM model only. A vision or audio model's committed reference has no outputs file (`.gitignore`), so `results.py` cannot judge
   a new cell against it: stop and report it.
 
 ## 2. The recipe
@@ -166,8 +168,8 @@ ram_need_gb = 5
 - **Memory.** `ram_gb` of the reference is an estimate of its peak, at least the original's safetensors bytes × 2 for
   bf16 or fp16 files (× 1 for fp32) plus 1 GB (the Qwen3 recipes give more: 6, 10 and 18 for 1.5, 4.1 and 8.0 GB of
   bf16 files). Over 8 GB, add `lock = true`: the step then runs under your own lock, at most 30 min. Its slot comes from
-  the shared PC's order, which is not in this repo: before you launch the model's list, stop and ask your user when it
-  may run.
+  the shared PC's order, which is not in this repo: before you launch the model's list, stop and ask the person who
+  gave you the task when it may run.
 - **Cell ids** start with `task-` (the README and `tools/qa20_key.py` count the `task-*.json` files): `task-<runtime>_<device>_<backend>`,
   as in the other models (`task-openvino-genai_npu_npu`, `task-ort-genai_igpu_openvino`, `task-llama.cpp_rtx_cuda`).
   A second package on a runtime and device the model already has takes a suffix that names it
@@ -175,18 +177,34 @@ ram_need_gb = 5
 - **Another device.** The same cell with another `id` (`task-openvino-genai_npu_npu`; the Intel GPU:
   `task-openvino-genai_igpu_gpu`), `"--device", "NPU"` (or `"GPU.0"`), `"--cache-dir",
   "{ROOT}\\ovcache\\<model>_npu"` (or `<model>_gpu0`) and `device = "npu"` (or `"igpu"`). An Intel NPU runs only some
-  quantizations (this repo's OpenVINO GenAI `task-*` cells on the NPU run symmetric int4 or int8 IRs). A GPU cell's
-  proof of its adapter is the GPU memory per adapter that `pc/chain.ps1` records in each run's `.meta.json`
-  (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the chain's `chain.log`, in
+  quantizations (this repo's OpenVINO GenAI `task-*` cells on the NPU run symmetric int4 or int8 IRs). An OpenVINO
+  GenAI GPU cell's proof of its adapter is the GPU memory per adapter that `pc/chain.ps1` records in each run's
+  `.meta.json` (`engine.gpuMiBPeak`, by adapter id; the `adapters:` line of the chain's `chain.log`, in
   `raw/<name>/runs/<name>-<n>/`, names the ids). The id named for the cell's device (`intel-gpu` for the Intel GPU)
   holds the cell's memory; when another one does, the cell ran on another device: stop and report it.
-- **Other runtimes and kinds** (not walked here): copy a `task-*` `[[cell]]` of the same runtime and device from the
-  closest model, not one with `migrated = true`, and the `[[form]]`, `[[fetch]]` and `[[step]]` it names
-  (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its `z1_cell` or `z2_cell` key: it marks a cell that
-  judges a copied cell again. The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell
-  that runs a WebGPU overlay, also need the model's `z6-setup` step and its entry in `pc/z6_spec.json` (engines,
-  links, Foundry packages, overlays): see `models/Qwen3-0.6B/recipe.toml` and the header of `pc/z6_setup.py`. A vision
-  or audio model needs its task's line and reference step: see `PLAN.md` and a model of the same task.
+- **Other runtimes and kinds** (of these, only llama.cpp cells of Qwen2.5-1.5B-Instruct were walked): copy a `task-*`
+  `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and the `[[form]]`,
+  `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`). Leave out its `z1_cell` or
+  `z2_cell` key: it marks a cell that judges a copied cell again. A vision or audio model needs its task's line and
+  reference step: see `PLAN.md` and a model of the same task.
+- **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell that
+  runs a WebGPU overlay, also need the model's `z6-setup` step (before its reference step) and its entry under `models`
+  in `pc/z6_spec.json` (engines, links, Foundry packages, overlays; the header of `pc/z6_setup.py` says what each
+  holds). The shortest example is `models/Qwen2.5-1.5B-Instruct/recipe.toml` with its entry: `engines` names the
+  engine folders of the cells' `--server` paths, and a link goes from `{HUB}\<owner>__<repo>\<file>` to the cells'
+  `--model` path, with `bytes` = the file's size in the Hub tree you printed (`z6-setup` fails on another size).
+  `models/Qwen3-0.6B/recipe.toml` and its entry have every kind. Write the file back in its own format
+  (`json.dumps(d, indent=1, ensure_ascii=False)` and a newline, as `write_json` in `tools/zoo.py` does):
+  `git diff pc/z6_spec.json` then shows only your entry's lines. `z6-setup` checks the model's whole entry, not only
+  what your cells use: every LLM here but Qwen2.5-1.5B-Instruct has `litert` in its entry, so one more llama.cpp cell
+  of those models also needs the `engines-litert` list (section 5), and four of them Foundry Local's packages
+  (section 0, step 5). No run of this skill has done that.
+- **A llama.cpp GPU cell's proof of its device** is the server's log (`run1.server.txt`, beside `run1.json`):
+  `devices` in `run1.json` names `CUDA0 (NVIDIA ...)` or `Vulkan0 (NVIDIA ...)`. When the log names no device of that
+  kind on the NVIDIA GPU, the runner ends the cell with an error (`run.error_line` starts `RuntimeError: no CUDA device
+  on the NVIDIA GPU in the server log`, or `no Vulkan device`): stop and report it. Its `engine.gpuMiBPeak` stays `{}`:
+  `pc/chain.ps1` reads the GPU memory of the runner's process, and the server, which holds that memory, runs as a
+  child of it.
 
 ## 3. The card
 
@@ -224,8 +242,9 @@ python3 tools/plan.py first --sitting <name>-1 --cells <model>/<cell>,<model>/<c
 
 - `manifest` reads the Hub API: one line per repo (`<repo> <sha10> <GiB> GiB <n> files`) and
   `pc/hub_manifest.json: <k> sources, <x> GiB`.
-- `steps` prints `pc/steps/setup.json: <n> steps`, `pc/steps/fetch.json: 2 steps` and `pc/steps/<model>.json: <n> steps`
-  (and engines lists when the model has a `z6-setup` step).
+- `steps` prints `pc/steps/setup.json: <n> steps`, `pc/steps/fetch.json: 2 steps` and `pc/steps/<model>.json: <n> steps`,
+  and for a model with a `z6-setup` step also `pc/steps/engines.json: <n> steps` (and
+  `pc/steps/engines-litert.json: <n> steps` when the model's entry in `pc/z6_spec.json` names `litert`).
 - `first` prints `pc/plans/<name>-1.json: <n> units (first pass)`. A later pass takes a new sitting name
   (`<name>-2`, ...): the chain skips every run whose record is already on the PC.
 - For a result of a model already here, `manifest <model>` and `steps <model>` take every `[[fetch]]` of the model
@@ -240,6 +259,8 @@ tools/pc.sh lock note "adding <model> to the model zoo (untimed; killed and run 
 tools/pc.sh launch 'pc\steps.ps1' '-List setup'
 tools/pc.sh launch 'pc\steps.ps1' '-List fetch'
 tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3
+tools/pc.sh launch 'pc\steps.ps1' '-List engines'                  # only when steps printed pc/steps/engines.json
+tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2      # only when steps printed pc/steps/engines.json
 tools/pc.sh launch 'pc\steps.ps1' '-List <model>'
 tools/pc.sh wait "$R\logs\<model>.done" "$R\logs\<model>.log" 2
 tools/pc.sh launch 'pc\chain.ps1' "-Plan $R\pc\plans\<name>-1.json -Mode first"
@@ -262,6 +283,14 @@ tools/pc.sh lock note ""
   or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
 - `lock note` prints `NOTE written <time>` (`lock note ""` prints `NOTE removed <time>`). No `'` in the note's text
   (it breaks the PowerShell quoting). The lists and the chain write their own notes too, in `%USERPROFILE%\pcup\active\`.
+- **The engines** (a model with a `z6-setup` step, section 4): launch the `engines` list after `setup` has ended (its
+  steps run in the `genai` venv that `setup` makes), and wait for it before the model's list, whose `z6-setup` step
+  checks every engine file. For llama.cpp, its step `engines-llama` downloads the b11721 release zips (the CPU, Vulkan
+  and CUDA builds and the CUDA runtime, about 630 MB) and unpacks them (1.6 min on a new PC folder).
+  `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step over 8 GB under your own lock: before you launch it,
+  ask the person who gave you the task when it may run (section 2, "Memory"). It goes after the `engines` list and
+  before the model's list; its two lines are in `docs/reproduce.md`, step 3. No run of this skill has launched it; the
+  walk of `docs/reproduce.md` has (`WALK.md`, step 3).
 - Untimed work runs without the lock. When another job's lock appears, the step or run in flight is killed and runs
   again from its start once the lock has been free 60 s (section 8). Do not kill, suspend or start it again yourself;
   keep the `wait` running, or start the same `wait` again if its connection ended.
@@ -269,9 +298,12 @@ tools/pc.sh lock note ""
   `FAIL <step> (night <night>)`, the chain `FAIL the night (<night>): ...`. Launch the same list or plan after the night.
 - **A result** of a model already here is judged against the model's reference record (`pulled_from` in
   `models/<model>/reference/ref.json`: `raw/<folder>/refs/<model>/ref.json`). Instead of the model's list
-  (`-List <model>`, its reference step), put that record where the cell reads it. Launch `setup` and `fetch` and wait
-  for them first, as above: they add only what the PC folder lacks (seconds when it has it all). Leave out
-  `tools/pc.sh pull refs raw/<name>`: the record is already in `raw/<folder>/`. Put it and compare the two sha256:
+  (`-List <model>`, its reference step), put that record where the cell reads it (a cell that needs the model's
+  `z6-setup` step: run the model's list first, as the end of this item says). Launch `setup` and `fetch` and wait for
+  them, then `engines` when `steps` printed `pc/steps/engines.json`, as above: on a PC folder that already has
+  everything they take seconds (`setup` and `fetch` add only what it lacks; `engines` unpacks the llama.cpp zips it
+  has again). Leave out `tools/pc.sh pull refs raw/<name>`: the record is already in `raw/<folder>/`. Put it and
+  compare the two sha256:
 
   ```bash
   tools/pc.sh put raw/<folder>/refs/<model> refs
@@ -329,10 +361,12 @@ python3 tools/lint.py
            p.write_bytes(u.encode("utf-8")); print("cut", p)' raw/<name>
    ```
 
-3. What goes in: `models/<model>/` (recipe, card, `results/`, `reference/`), `LICENSES.md`, and from `raw/<name>/` the
-   `runs/` and `fetch_report.json`, and for a new model its `refs/`. `raw/*/` is ignored: add `!raw/<name>/` and
-   `raw/<name>/logs/` (the step logs stay on your disk) to `.gitignore`, next to the lines of the other folders, and
-   add `raw/<name>/` to the list in `docs/add-a-model.md` ("Where things are").
+3. What goes in: `models/<model>/` (recipe, card, `results/`, `reference/`), `LICENSES.md`, from `raw/<name>/` the
+   `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `z6-setup`
+   step, `pc/z6_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
+   `KeyError`). `raw/*/` is ignored: add `!raw/<name>/` and `raw/<name>/logs/` (the step logs stay on your disk) to
+   `.gitignore`, next to the lines of the other folders, and add `raw/<name>/` to the list in `docs/add-a-model.md`
+   ("Where things are").
 4. `README.md` and `docs/reading-results.md` count and list the results (the `task-*` files). Change each place your
    cells change.
    - In `README.md`: the number of results in four places (`grep -n -E '[0-9]+ (test )?results' README.md`); the
@@ -348,7 +382,8 @@ python3 tools/lint.py
      `docs/images/` as it is.
 5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. Run section 0's tests and lint once
    more.
-6. Commit them on your branch, naming the paths (not `git add -A`):
+6. Commit them on your branch, naming the paths (not `git add -A`); for cells that need the model's `z6-setup` step,
+   add `pc/z6_spec.json` to the `git add` line:
 
    ```bash
    git add models/<model> LICENSES.md raw/<name> .gitignore docs/add-a-model.md README.md docs/reading-results.md \
@@ -358,6 +393,8 @@ python3 tools/lint.py
    `git add raw/<name>` leaves out its `logs/` (`.gitignore`); without the `!raw/<name>/` line of step 3 it stops with
    `The following paths are ignored by one of your .gitignore files` and nothing is committed. For a result of a model
    already here, `raw/<name>/` has no `refs/` (section 5 leaves out `pull refs`). `git status --short` prints nothing.
+   When it prints ` M pc/z6_spec.json`, the entry stayed out of the commit: put it in with
+   `git add pc/z6_spec.json && git commit --amend --no-edit && git status --short`.
    Push or open a pull request only when the person who gave you the task says so (`AGENTS.md`, rule 8).
 
 ## 8. When something fails
@@ -368,7 +405,8 @@ python3 tools/lint.py
 | `REFUSED (PC_FEED_CMD is not set: ...` (exit 3) | the call's shell has no `PC_FEED_CMD` | `export PC_FEED_CMD='<the feed command>';` at the start of the call (section 0); a Mac without a lock feed: `export ZOO_FEED=none;` |
 | `REFUSED (lock feed stale or missing): ...` (exit 3) | the Mac's lock feed is old or missing | a Mac without the feed: `export ZOO_FEED=none;` at the start of the call (section 0); else wait for the feed |
 | `STOP: <repo>@<sha10> has no file for ['<glob>']` (plan.py manifest) | an `include` glob matches no file of that revision | fix the glob from the repo's tree (section 2) |
-| `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, the model's folder name) |
+| `KeyError: '<model>'` at the end of a traceback (plan.py steps) | the recipe has a `z6-setup` step and `pc/z6_spec.json` has no entry for that model | add the entry (section 2, "The `z6-setup` step"), then `steps` again |
+| `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, `engines`, the model's folder name) |
 | `DONE FAIL fetch`; in the pulled `raw/<name>/logs/fetch/fetch.txt`, a row with `"ok": false` and the last line `fetch done: <n> files, <k> not matching` | a file's bytes are not the manifest's hash after 6 tries | `python3 tools/plan.py manifest <model>`, `tools/pc.sh push`, then launch the `fetch` list and wait for it again (the files that match are only hashed); a URL `[[fetch]]`: check its `size` and `sha256` |
 | `<step>: killed for another lane's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |
 | `<model>/<cell> run 1 stopped (another lane's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run | nothing (the cell's `run.tries` counts the starts) |
@@ -390,6 +428,12 @@ hash mismatch, a step killed by a lock and run again (a stand-in lock in a lock 
 a new clone and two sentences (the task, and this Mac's `PC_FEED_CMD` command, a `lane` and a `<name>`), added one
 more result of that model on the Intel GPU from a new PC folder (its records: `raw/qwen25-igpu/`) with no help. It
 made a branch on its own and stopped before the commit, which this file did not describe then (now section 0, step 1
-and section 7, step 6). Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step
-or a runner that fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI cell on the NVIDIA
-RTX GPU, the other runtimes' cells, a vision or audio model, and a timed sitting.
+and section 7, step 6). A second such agent, given two sentences of the same kind, added three llama.cpp results of
+that model (the CPU, and the NVIDIA RTX GPU with CUDA and with Vulkan; its records: `raw/qwen25-llamacpp/`) through
+section 2's paragraph on the other runtimes, from a new PC folder, with no help, and ended with a commit on its branch.
+On its own, it launched the `engines` list, put `pc/z6_spec.json` in the commit, and read the GPU cells' device from the
+server's log when `engine.gpuMiBPeak` came back empty, none of which this file said to do then (now sections 2, 5 and
+7). Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that
+fails in another way, the PC's night stop, a `lock = true` step, an OpenVINO GenAI cell on the NVIDIA RTX GPU, the
+LiteRT-LM, Foundry Local and ONNX Runtime GenAI cells, llama.cpp cells of a new model or of the other LLMs here, a
+vision or audio model, and a timed sitting.
