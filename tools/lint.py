@@ -19,7 +19,7 @@ Per directory (FAIL = something to fix in the directory, with the reason; WARN =
             (each prompt's log); tools/results.py gives no verdict otherwise (tools/zoo.py prompt_numbers,
             prompt_why). The cell's llm.task.prompt_ids_same is the number the record gives
   line      a cell's line was written before the cell ran (line.written < run.started); a cell without a start time
-            (a record collected from another lane) is a WARN
+            (a record collected from another pass) is a WARN
   fresh     the generated files (the card's block, LICENSES.md; RESULTS_*.md and models/index.json when they are on
             your disk: they are not committed) equal what tools/table.py makes from the JSONs now
 Then one line per directory: PASS or FAIL, and the cells' verdicts per line kind (pass / fail / no verdict).

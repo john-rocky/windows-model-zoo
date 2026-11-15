@@ -24,7 +24,7 @@ Lines by kind (the line's rule is the recipe's; these are its computations):
                          (tools/fleurs_score.py)
   tts T50                the write-back WER (pc/writeback.py's texts) <= the reference's write-back WER on the same
                          sentences + 1.0 pt, 0 silent waves
-  vision task cells      (a cell whose script is pc/run_vision_task.py: the Z5 lane's) the model's own line, by
+  vision task cells      (a cell whose script is pc/run_vision_task.py: the Z5 pass's) the model's own line, by
                          tools/vision_tasks.py on the runner's and the reference's outputs (<stem>.outputs.npz); the
                          cell's inputs must be the reference's (the same inputs.npz sha256)
 """
@@ -215,7 +215,7 @@ def outputs_npz(record_path):
 
 
 def score_vision_task(model, task, run_json, run, ref_json, ref, line=None):
-    """A vision task cell (the Z5 lane): tools/vision_tasks.py on the two outputs files."""
+    """A vision task cell (the Z5 pass): tools/vision_tasks.py on the two outputs files."""
     import numpy as np
     import vision_tasks as VT
     oa, ob = outputs_npz(run_json), outputs_npz(ref_json)

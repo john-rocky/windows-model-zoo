@@ -154,7 +154,7 @@ def steps(models):
                                             "python", "{ROOT}\\pc\\fetch.py", "--manifest", "{ROOT}\\pc\\hub_manifest.json",
                                             "--dest", "{HUB}", "--root", "{ROOT}"], timeout=240)]}
     # the LLM task cells' engines (pc/engines.py, from the public sources pc/z6_spec.json names): "engines" without the
-    # lock, "engines-litert" = the LiteRT-LM build, a step over 8 GB that runs under the lane's own lock (its slot
+    # lock, "engines-litert" = the LiteRT-LM build, a step over 8 GB that runs under this zoo's own lock (its slot
     # comes from the shared PC's order: launch it then), and the OpenVINO runtime that build fetched
     llm = [m for m, r in models if any(x.get("script") == "pc/z6_setup.py" for x in r.get("step") or [])]
     if llm:
@@ -236,7 +236,7 @@ def timed(a):
         plan["control_known_value"] = a.known
     if a.end_by:
         plan["end_by"] = a.end_by
-    if a.slots:   # fixed slots for other lanes' timings: [{who, release_at, give_up_at}] (pc/chain.ps1)
+    if a.slots:   # fixed slots for other jobs' timings: [{who, release_at, give_up_at}] (pc/chain.ps1)
         plan["slots"] = json.loads(pathlib.Path(a.slots).read_text(encoding="utf-8"))
     zoo.write_json(PC / "plans" / f"{a.sitting}.json", plan)
     print(f"pc/plans/{a.sitting}.json: {len(units)} units (timed, control {a.control})")

@@ -1,4 +1,4 @@
-# Foundry Local 0.13.0 daemon log lines (PC, %USERPROFILE%\.foundry\logs\), read 2026-11-10T10:11:30+0900 by the Z6 lane:
+# Foundry Local 0.13.0 daemon log lines (PC, %USERPROFILE%\.foundry\logs\), read 2026-11-10T10:11:30+0900 in the Z6 pass:
 # where the main decoder of each generic-gpu package (Z2's catalog cells, 11-07 to 11-09) and of each Z6 cell (11-10) ran.
 # PLAN.md "Z6 changes" item 8. Format: <log file>:<line>: <line>
 foundry_local_2026-11-07.log:2011: [2026-11-07 19:41:00.982] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2

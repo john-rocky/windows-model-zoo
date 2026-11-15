@@ -5,7 +5,7 @@ regime): every number in one table comes from one line kind and one regime (QoS 
 speeds of different regimes side by side.
 
 vision  wide: one row per model, one column per cell (the Z1 vision zoo's table); the vision task cells (the Z5
-        lane's, script pc/run_vision_task.py: each model on its own task line) long: one row per cell
+        pass, script pc/run_vision_task.py: each model on its own task line) long: one row per cell
 llm     long: one row per cell (the Z2 LLM zoo's table); task-line rows get their own columns
 asr/tts long: one row per cell (the Z3 audio zoo's table), one table per clip set
 """
@@ -270,11 +270,11 @@ def audio_mem_text(c):
 
 
 def audio_row(c):
-    """The Z3 table's row (windows-audio-zoo tools/table.py row_this() and its rows of other lanes' cells)."""
+    """The Z3 table's row (windows-audio-zoo tools/table.py row_this() and its rows of other passes' cells)."""
     a = c.get("audio") or {}
     note = "; ".join(n["text"] for n in c.get("note") or [])
     rec = f"`{(c.get('source') or {}).get('record')}`" if (c.get("source") or {}).get("record") else "—"
-    if a.get("texts"):   # a cell collected from another lane's table: its words as they were (with their quotes)
+    if a.get("texts"):   # a cell collected from another pass's table: its words as they were (with their quotes)
         t = a["texts"]
         return [a.get("model_label"), c["runtime"]["label"], c["form"]["label"], c["device"]["label"], a.get("set_shown", ""),
                 t.get("accuracy", ""), t.get("line", ""), t.get("rtf", ""), t.get("first_token_ms", ""),

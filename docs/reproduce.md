@@ -37,7 +37,7 @@ Where the files come from:
   shader compiler DLLs of the PyPI wheel `litert-lm-api` 0.19.0. The tag's prebuilt DLLs and the wheel's two DLLs have
   the record's sha256s; the three files the build compiles (`litert_lm_advanced_main_windows.exe`,
   `litert_lm_main.exe`, `LiteRtDispatch.dll`) get other bytes on every build, so `pc/z6_setup.py` records them and
-  does not compare them. The build is a step over 8 GB: it runs under the lane's lock (`pc\steps\engines-litert.json`).
+  does not compare them. The build is a step over 8 GB: it runs under this zoo's lock (`pc\steps\engines-litert.json`).
 - **Foundry Local 0.13.0 packages**: the Foundry catalog, `foundry model download <variant>` into the user's Foundry
   cache when the package is not there; every file checked against the record (size and sha256).
 - **CUDA 12 for Foundry Local's daemon**: the NVIDIA wheels of `pc/req/cuda12.txt` (`pc/engines.py --make cuda12`).
@@ -65,7 +65,7 @@ python3 tools/plan.py manifest rtmpose_s_fp16 rtmw_fp16 Qwen3-0.6B
 python3 tools/plan.py steps rtmpose_s_fp16 rtmw_fp16 Qwen3-0.6B
 python3 tools/plan.py first --sitting walk-v --cells rtmpose_s_fp16/task-ovnpu,rtmpose_s_fp16/task-ovnpu_pre,rtmpose_s_fp16/task-cuda32,rtmw_fp16/task-ovgpu
 python3 tools/plan.py first --sitting walk-l --cells Qwen3-0.6B/task-openvino-genai_cpu_cpu,Qwen3-0.6B/task-ort-genai_cpu_openvino,Qwen3-0.6B/task-llama.cpp_cpu_cpu,Qwen3-0.6B/task-litert-lm_cpu_cpu,Qwen3-0.6B/task-foundry_cpu_cpu
-# 1. the scripts and the suites into the empty folder, and the lane's note in %USERPROFILE%\pcup\active\
+# 1. the scripts and the suites into the empty folder, and this zoo's note in %USERPROFILE%\pcup\active\
 tools/pc.sh push
 tools/pc.sh lock note "walk of the model zoo README (untimed; killed and run again around the locks of other jobs) since $(date +%H:%M)"
 # 2. uv's Python 3.12 and the venvs; the Hub files and the vision inputs; the engines that need no lock
@@ -74,7 +74,7 @@ tools/pc.sh launch 'pc\steps.ps1' '-List fetch'
 tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3
 tools/pc.sh launch 'pc\steps.ps1' '-List engines'
 tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2
-# 3. the LiteRT-LM build, under the lane's own lock (a step over 8 GB: in the slot the shared PC's order gives)
+# 3. the LiteRT-LM build, under this zoo's own lock (a step over 8 GB: in the slot the shared PC's order gives)
 tools/pc.sh launch 'pc\steps.ps1' '-List engines-litert'
 tools/pc.sh wait "$R\logs\engines-litert.done" "$R\logs\engines-litert.log" 2
 # 4. each model's steps: the references (and the LLM setup: engines checked, files linked, Foundry packages)

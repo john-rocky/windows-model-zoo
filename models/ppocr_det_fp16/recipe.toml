@@ -92,7 +92,7 @@ id = "task-detection"
 kind = "task"
 rule = "text detection, the app's boxes (john-rocky/LiteRT-Models@96e0bc1f/ppocr/.../PpocrDetector.kt: probability > 0.3, 4-connected regions, width and height >= 6, mean probability >= 0.5, the box padded by 0.35 x min(w, h) clamped to 2..24 px, in the 640 x 640 input): a cell box pairs with a reference box at IoU >= 0.5 (one class), one to one, the cell's boxes taken in descending mean probability; the pairs are >= 95 % of the reference's boxes and >= 95 % of the cell's boxes, summed over the inputs (a set without a reference box has no verdict). Inputs: the 20 images of suites/vision/images.json, each letterboxed on white to 640 x 640, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

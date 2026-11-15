@@ -75,7 +75,7 @@ id = "task-count"
 kind = "task"
 rule = "count, the app's number (john-rocky/LiteRT-Models@96e0bc1f/crowdcount/.../CrowdCounter.kt: the sum of the 64 x 64 density map, shown rounded by MainActivity.kt): |cell count - reference count| <= max(0.5, 2 % of the reference count) on >= 95 % of the inputs. Inputs: the 20 images of suites/vision/images.json, each stretched to 512 x 512, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

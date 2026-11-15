@@ -16,11 +16,11 @@ process would keep its memory). A step over 8 GB (`lock = true`) takes the lock 
 Each list and chain keeps its note in `active\` while it runs. In the PC's night (`[zoo] night` in `zoo.toml`,
 `"20:45-05:30"` here, when other jobs' timings run), untimed steps and first passes start nothing: a step or run in
 flight is killed, its list ends `FAIL <step> (night 20:45-05:30)` or its chain `FAIL the night (20:45-05:30): ...`, the
-rest is not run, and the lane's notes in `active\` are removed. `night = "none"` (or no `night`) means no night; timed
+rest is not run, and this zoo's notes in `active\` are removed. `night = "none"` (or no `night`) means no night; timed
 sittings are not stopped by it.
 
 A timed sitting (`python3 tools/plan.py timed ...`, `tools/pc.sh push`, then `tools/sitting.sh <name>`) waits on the
-Mac until that feed shows the lock free for 60 s, takes it, passes the lane's quiet gate and starts the chain, which
+Mac until that feed shows the lock free for 60 s, takes it, passes this zoo's quiet gate and starts the chain, which
 settles 180 s before its first row. When `PC_FEED_CMD` is not set or the feed is missing or stale at the start,
 `tools/sitting.sh` refuses the sitting (exit 3); on a Mac without a lock feed, `ZOO_FEED=none tools/sitting.sh <name>` skips the feed, and the take then
 waits on the PC, in one ssh connection, until the lock has been free 60 s. Before each run the chain waits for a quiet PC: CPU, NVIDIA memory, free RAM and, for a cell

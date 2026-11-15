@@ -51,7 +51,7 @@ turned into the PC's step lists and plans by `tools/plan.py`. Required keys are 
 | `phase` | | `before` (default: the model's step list, before its cells) or `after` (after the cell named by `cell`) |
 | `cell` | | an after-step's cell |
 | `reference` | | the record this step writes, relative to the PC folder (`refs/<model>/ref.json`): the line's reference |
-| `timeout_min`, `ram_gb` | | the step's limit and memory; `lock = true` for a step over 8 GB (it runs under the lane's lock) |
+| `timeout_min`, `ram_gb` | | the step's limit and memory; `lock = true` for a step over 8 GB (it runs under this zoo's lock) |
 
 ## `[[line]]` — what the cells are judged on
 

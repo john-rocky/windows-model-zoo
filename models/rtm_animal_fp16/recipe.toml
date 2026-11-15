@@ -102,7 +102,7 @@ id = "task-keypoints"
 kind = "task"
 rule = "keypoints, the app's points (john-rocky/LiteRT-Models@96e0bc1f/rtmanimal/.../RtmAnimalPoseEstimator.kt: per point the argmax of the SimCC x and y bins, x = bin / 2, y = bin / 2, score = the mean of the two maxima; shown when score > 0.3 (MainActivity.kt)): of the points either side shows, a point agrees when both show it and the two positions are within 0.02 of the model input's diagonal (7.24 px of 256 x 256); the agreeing points are >= 95 % of the points either side shows, summed over the inputs. Inputs: the images of suites/vision/images.json that show the model's subject (the app takes a crop of one animal; chosen by looking at the images before any run): dfine, dinov2, rtmanimal (3 images); each centre-square cropped to 256 x 256, (x - [123.675, 116.28, 103.53]) / [58.395, 57.12, 57.375] on 0-255 RGB. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

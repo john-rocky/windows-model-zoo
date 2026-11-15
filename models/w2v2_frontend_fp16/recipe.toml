@@ -86,7 +86,7 @@ id = "task-top1"
 kind = "task"
 rule = "keyword classification through the downstream head (the frontend's job is the head's input): the cell's features through w2v2_head_fp16_fixed (the head with the app's weights; the base head's file drops biases) in fp32 on the ONNX Runtime CPU EP, the argmax of the 12 logits; its top-1 equals the reference pipeline's on >= 95 % of the clips, a clip whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 120 clips of suites/audio/kws120.json (Speech Commands v0.01 test, 10 per label), each scaled as the app's microphone path (pcm / max(1, peak) x 0.5). Reference: the frontend's fp32 ONNX file (the one Z1 measured) and the same head, both on the ONNX Runtime 1.31.1 CPU EP."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

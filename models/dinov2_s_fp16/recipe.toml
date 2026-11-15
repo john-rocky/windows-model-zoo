@@ -86,7 +86,7 @@ id = "task-retrieval"
 kind = "task"
 rule = "features, through a downstream task (the model has no task head; the app's own use, john-rocky/LiteRT-Models@96e0bc1f/dinov2/.../Dinov2Features.kt, is a picture of the top 3 principal components of the tokens, whose components flip and swap with small changes of the tokens): image retrieval, each image's embedding = the mean of its 1024 patch tokens; for each input, the most cosine-similar other input under the cell's embeddings is the one under the reference's embeddings on >= 95 % of the inputs, an input whose reference first and second similarities differ by < 0.01 not counted (how many: an instrument). Inputs: the 20 images of suites/vision/images.json, each stretched to 448 x 448, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

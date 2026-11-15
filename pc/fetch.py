@@ -127,7 +127,7 @@ def main():
                    "seconds": round(time.time() - t0, 1)}
             report.append(row)
             print(json.dumps(row), flush=True)
-    dest.mkdir(parents=True, exist_ok=True)   # a manifest of URL sources only (the Z5 lane: the images) makes no hub folder
+    dest.mkdir(parents=True, exist_ok=True)   # a manifest of URL sources only (the Z5 pass: the images) makes no hub folder
     (dest / "fetch_report.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     print(f"fetch done: {len(report)} files, {bad} not matching", flush=True)
     return 1 if bad else 0

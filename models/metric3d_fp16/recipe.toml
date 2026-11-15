@@ -86,7 +86,7 @@ id = "task-depth"
 kind = "task"
 rule = "depth, the app's metric depth in metres (john-rocky/LiteRT-Models@96e0bc1f/metric3d/.../MetricDepth.kt, 448 x 448; no scale alignment: the output is metric): AbsRel = the mean of |d - d_ref| / d_ref over the pixels of all inputs where d_ref > 0, <= 0.02; a non-finite cell value counts as an infinite error. Inputs: the 20 images of suites/vision/images.json, each centre-square cropped to 448 x 448, (x - [123.675, 116.28, 103.53]) / [58.395, 57.12, 57.375] on 0-255 RGB. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 lane, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

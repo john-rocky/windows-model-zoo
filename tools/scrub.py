@@ -2,7 +2,7 @@
 """Replace account names with USER in the text files under the given paths, in place, before they are committed (the
 bench's Windows records write C:\\Users\\USER the same way). The names are given on the command line, so this file
 carries none of them. A JSON file that parsed before must still parse after. Bytes in, bytes out: line endings (the
-PC's CRLF records) and a BOM are kept as they are (the Z6 lane, 2026-11-10: read_text / write_text had turned the CRLF
+PC's CRLF records) and a BOM are kept as they are (the Z6 pass, 2026-11-10: read_text / write_text had turned the CRLF
 of two Z5 logs and the scrubbed run records into LF). A file is read when its suffix is a text one or it is UTF-8
 without a NUL byte (the suffix list alone had left two Z5 `.err` logs with the PC account name unchecked).
 
