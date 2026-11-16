@@ -90,7 +90,7 @@ id = "z1-internal"
 kind = "internal"
 rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
 written = "2026-11-06T10:40:00+09:00"
-written_note = "10:4x JST, before any run (windows-zoo ROUND1.md line 10); first run 12:53"
+written_note = "10:4x JST, before any run; first run 12:53"
 plan = "john-rocky/windows-zoo PLAN.md section 3"
 
 [[line]]

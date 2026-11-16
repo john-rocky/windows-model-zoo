@@ -15,8 +15,8 @@ The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
   In the PC's night (zoo.toml night, zlib Test-Night) no run starts or starts again, a run in flight is killed (its files
   removed), the chain ends "FAIL the night ..." with the rest not run, and the lane's notes go.
 -Mode timed: under the lane's lock that the Mac took and gated before starting this (tools/sitting.sh). Before each run,
-  the bench job's per-run quiet gate (zlib Wait-RunQuiet). The control rows (PLAN section 3, memory "timed sittings
-  need a control row"): the plan's control-warm unit (not counted), control-head, the cells, control-tail. The known
+  the bench job's per-run quiet gate (zlib Wait-RunQuiet). The control rows (PLAN section 3):
+  the plan's control-warm unit (not counted), control-head, the cells, control-tail. The known
   value (the runner's summary.value: RTF, ms or tok/s) is the plan's control_known_value, or (first sitting) the median of the head's runs when they agree within 5 %;
   a head off the known value by more than 5 % stops the sitting before any cell; the tail's verdict goes to
   runs\<sitting>\control.json. Duty: before a run, while another lane waits and the lock has been held 30 min or the
@@ -25,7 +25,7 @@ The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
   run is expected. The sitting also settles 180 s inside the lock before control-warm (the shared PC's rule).
   Slots (no window.txt): the plan's slots [{ who, release_at, give_up_at }] (a fixed slot: a run that would end past
   release_at - 60 s does not start; the lock is held idle to release_at), and runs\slot_now.txt ("<who> <give up min>",
-  written from the Mac at the user's word: a run in flight gets 8 min to end, then is stopped and run again after the
+  written from the Mac: a run in flight gets 8 min to end, then is stopped and run again after the
   slot). At a slot the lock is released, the other lane's lock waited for (until give_up) and for its return (free
   60 s), then taken back, settled 180 s and gated.
   end_by (the plan's ISO time): the PC's order gives the lock to another lane then (11-09: another lane at 21:07,

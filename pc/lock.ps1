@@ -8,7 +8,7 @@ The lane's timing lock from the Mac, one SSH call per action (the wait loops run
                                             pcup\window.txt says "<lane> open until <now + s>" (a gap the lane comes back from)
   lock.ps1 -Action status                   prints the marker, the active\ and yield\ notes
   lock.ps1 -Action slot -What "<who> <give up min>"   runs\slot_now.txt for the running timed chain (pc\chain.ps1):
-                                            a slot for another lane at the user's word, no window.txt
+                                            a slot for another lane, no window.txt
   lock.ps1 -Action note -What "<text>"      pcup\active\<lane>.txt = "<text>" + "written HH:MM" (the lane waits for a window);
                                             -What "" removes it
 take removes the lane's window.txt once the lock is ours; release without -OpenSec removes it too (the PC is free, no window).
