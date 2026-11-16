@@ -7,8 +7,8 @@ scratch/
 RESULTS_*.md
 TASK_PAIRS_*.md
 models/index.json
-# what tools/pc.sh pull brings back; the committed records are raw/z5/, raw/z6/, raw/z14/, raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/, raw/qwen25-ov-int8/, raw/phi4-mini/, raw/qwen3-ov-npu/ and raw/phi4-mini-ep/ (the task
-# cells), raw/walk/, raw/walk-z9/ and raw/walk-z12/ (the walks)
+# what tools/pc.sh pull brings back; the committed records are the folders named below (the task cells' folders,
+# then the walks': raw/walk*/)
 raw/*/
 !raw/z5/
 !raw/z6/
@@ -32,7 +32,7 @@ raw/z13/**/*.npz
 raw/walk/**/*.npz
 raw/walk-z9/**/*.npz
 raw/walk-z12/**/*.npz
-# the PC step logs of the Z13, Z19, qwen25-igpu, qwen25-llamacpp, qwen25-05b, qwen25-ov-int8, phi4-mini, qwen3-ov-npu and phi4-mini-ep passes name the PC account's folder: they stay on your disk
+# the PC step logs of the passes below name the PC account's folder: they stay on your disk
 raw/z13/logs/
 raw/z19/logs/
 raw/qwen25-igpu/logs/

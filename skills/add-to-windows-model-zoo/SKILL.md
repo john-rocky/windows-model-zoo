@@ -30,7 +30,8 @@ cells copied from another zoo. The LLM path below (OpenVINO GenAI on the CPU, th
 NVIDIA RTX GPU) is the one walked on the PC. For the other runtimes and for vision and audio models, section 2 says
 what to copy; of those, llama.cpp cells have been walked, of Qwen2.5-1.5B-Instruct, a model already here, and of
 Qwen2.5-0.5B-Instruct, a new model. ONNX Runtime GenAI cells on the CPU and on the NVIDIA RTX GPU with CUDA have been
-walked with a new model, Phi-4-mini-instruct, whose reference step runs under the lock. LiteRT-LM cells of
+walked with a new model, Phi-4-mini-instruct, whose reference step runs under the lock. Four more of its cells, on the
+OpenVINO and WebGPU execution providers, have been walked as results of a model already here. LiteRT-LM cells of
 Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's prompt check and are not in this repo
 ("Not walked").
 
@@ -178,7 +179,9 @@ ram_need_gb = 5
   bf16 or fp16 files (× 1 for fp32) plus 1 GB (the Qwen3 recipes give more: 6, 10 and 18 for 1.5, 4.1 and 8.0 GB of
   bf16 files). Over 8 GB, add `lock = true`: the step then runs under your own lock, at most 30 min (section 5, "A step
   with `lock = true`"). Its slot comes from the shared PC's order, which is not in this repo: before you launch the
-  model's list, stop and ask the person who gave you the task when it may run.
+  model's list, stop and ask the person who gave you the task when it may run. A cell's `ram_need_gb` is the free RAM
+  the chain waits for before it runs the cell (2 GB more on a first pass), not a limit on the run: copy it from a
+  cell here that runs a package of about the same size on the same runtime.
 - **Cell ids** start with `task-` (the README and `tools/qa20_key.py` count the `task-*.json` files): `task-<runtime>_<device>_<backend>`,
   as in the other models (`task-openvino-genai_npu_npu`, `task-ort-genai_igpu_openvino`, `task-llama.cpp_rtx_cuda`).
   A second package on a runtime and device the model already has takes a suffix that names it
@@ -204,8 +207,9 @@ ram_need_gb = 5
   run's line in `chain.log` says `exit 0, OK`), and the other models' `task-openvino-genai_rtx_gpu` runs have them too
   (`raw/z6/runs/z6-g-*/`).
 - **Other runtimes and kinds** (of these, llama.cpp cells were walked, of a model already here and of a new one;
-  ONNX Runtime GenAI cells on the CPU and with CUDA were walked, of a new one; LiteRT-LM cells of a model already here
-  were walked too, but they did not pass section 6's prompt check and are not in this repo: "Not walked"):
+  ONNX Runtime GenAI cells were walked, on the CPU and with CUDA of a new model, and on the OpenVINO and WebGPU
+  execution providers of a model already here; LiteRT-LM cells of a model already here were walked too, but they did
+  not pass section 6's prompt check and are not in this repo: "Not walked"):
   copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
   the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`; LiteRT-LM's
   id is `litert-lm`; `litert`, without `-lm`, is the id of cells copied from another zoo, all with `migrated = true`).
@@ -214,10 +218,17 @@ ram_need_gb = 5
   original model), `reference` step and `[[line]]`. The copied `[[fetch]]`, `[[form]]` and `[[cell]]` take the place
   of the template's (`models/Qwen2.5-0.5B-Instruct/recipe.toml` has llama.cpp cells only). A vision or audio model
   needs its task's line and reference step: see `PLAN.md` and a model of the same task.
-- **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell that
-  runs a WebGPU overlay, also need the model's `z6-setup` step (before its reference step) and its entry under `models`
-  in `pc/z6_spec.json` (engines, links, Foundry packages, overlays; the header of `pc/z6_setup.py` says what each
-  holds). The shortest example is `models/Qwen2.5-0.5B-Instruct/recipe.toml` with its entry: `engines` names the
+- **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell
+  whose folder comes from `z6-setup` (a WebGPU overlay or a Foundry Local catalog package), also need the model's
+  `z6-setup` step (before its reference step) and its entry under `models` in `pc/z6_spec.json` (engines, links,
+  Foundry packages, overlays; the header of `pc/z6_setup.py` says what each holds). A WebGPU overlay is a copy of a
+  package folder that `z6-setup` makes under `{ROOT}\overlays\`, with a `genai_config.json` that names the WebGPU
+  adapter; its cell runs that folder with `--ep follow_config` (the WebGPU cells of the two gemma models).
+  gemma-4-E2B-it's other ONNX Runtime GenAI cells run Foundry Local catalog packages, which `z6-setup` downloads to
+  `{HOME}\.foundry\cache\`. An ONNX Runtime GenAI cell whose folder is under `{HUB}` needs no `z6-setup` step; a new
+  cell on the OpenVINO or the WebGPU execution provider is such a cell ("An ONNX Runtime GenAI cell's execution
+  provider", below). The shortest example of the step is in `models/Qwen2.5-0.5B-Instruct/recipe.toml`, with its
+  entry: `engines` names the
   engine folders of the cells' `--server` paths, and a link goes from `{HUB}\<owner>__<repo>\<file>` to the cells'
   `--model` path, with `bytes` = the file's size in the Hub tree you printed (`z6-setup` fails on another size).
   For LiteRT-LM cells, `engines` names `litert`, the folder of the cells' `--exe` path, and each cell has a link of its
@@ -252,11 +263,28 @@ ram_need_gb = 5
   (`curl -sL https://huggingface.co/<owner>/<repo>/resolve/<sha>/<folder>/genai_config.json`). When it names your
   cell's provider, keep `--ep follow_config`: `--ep cuda` replaces the folder's list and drops the options it gives.
   When it names no provider, a CUDA cell passes `--ep cuda` and a CPU cell `--ep cpu`, as in
-  `models/Phi-4-mini-instruct/recipe.toml`. The cell's proof of its device is `device_type` in `run1.json` (`CUDA` or
-  `CPU`, as ONNX Runtime GenAI reports it) and, for a GPU cell, `engine.gpuMiBPeak` in `run1.meta.json`, read as in
-  "Another device" above: the runner's own process holds the GPU memory, so a CUDA cell's memory is under the adapter
-  id that the `adapters:` line of the chain's `chain.log` names `nvidia`. When either names another device, stop and
-  report it.
+  `models/Phi-4-mini-instruct/recipe.toml`. A new cell on the OpenVINO or the WebGPU execution provider passes
+  `--ep openvino` or `--ep webgpu` on the package's own folder, whatever that file names, because `--ov-device` and
+  `--ep-option` apply only to the provider that `--ep` names (of the cells on these two providers here, only the gemma
+  models' WebGPU overlay cells keep `--ep follow_config`). It runs in the `genai` venv, as a cell on the CPU does. On
+  the OpenVINO provider it runs the package's CPU folder with `"--ov-device", "CPU"` or, for the Intel GPU,
+  `"--ov-device", "GPU"`. On the WebGPU provider it runs the package's WebGPU folder, or its GPU folder when the
+  package has none (Phi-4-mini-instruct's), with `"--ep-option", "adapterIndex=<n>"`: on the PC these results ran on,
+  adapter 0 is the NVIDIA RTX GPU and adapter 1 the Intel GPU. `models/Qwen3-0.6B/recipe.toml` and
+  `models/Phi-4-mini-instruct/recipe.toml` have all four cells (`task-ort-genai_cpu_openvino`,
+  `task-ort-genai_igpu_openvino`, `task-ort-genai_igpu_webgpu`, `task-ort-genai_rtx_webgpu`). The cell's proof of its
+  provider is `device_type` in `run1.json` (`CUDA`, `CPU`, `OpenVINO` or `WebGPU`, as ONNX Runtime GenAI reports it);
+  `OpenVINO` and `WebGPU` name the provider, not the device. A GPU cell's proof of its device is `engine.gpuMiBPeak` in
+  `run1.meta.json`, read as in "Another device" above: the runner's own process holds the GPU memory, so the cell's
+  memory is under the adapter id that the `adapters:` line of the chain's `chain.log` names for its device (`nvidia`
+  for a CUDA cell and for a cell on the NVIDIA RTX GPU with the WebGPU provider; `intel-gpu`, as shared memory, for a
+  cell on the Intel GPU with the OpenVINO or the WebGPU provider). That is where you check the adapter index of a cell
+  on the WebGPU provider after the first pass. `workload.ov_device` in `run1.json` is no proof: it repeats the cell's
+  `--ov-device`, and reads `CPU`, the option's default, for a cell on the WebGPU provider. A few MiB under another id
+  are not a run on that device: here, every run of a cell on the CPU with the OpenVINO provider shows 23 MiB of shared
+  memory under `intel-gpu`, and every run of a cell on the Intel GPU with the WebGPU provider 22 MiB under `nvidia`.
+  When `device_type` is not your cell's provider, when another id holds most of a GPU cell's memory, or when a cell on
+  the CPU shows more than those few MiB under an id, stop and report it.
 
 ## 3. The card
 
@@ -334,6 +362,33 @@ tools/pc.sh lock note ""
 - Each `launch` prints `STARTED <pid> (...)`. Each `wait` prints the logs from their start (a list launched again
   appends to its log, so an earlier try's lines come first) and ends with one `DONE OK <time> (<done file>)` per list
   or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
+- **When your shell ends a call after some minutes.** A `wait` is one connection that stays open until the PC is
+  done: 12 min for `setup` and `fetch` on a new PC folder in one run of this skill, and longer for the LiteRT-LM
+  build. It only reads files on the PC, so nothing there depends on it. Start it in the background with its output in
+  a file under `raw/<name>/logs/` (git ignores that folder), then look at the file in later calls:
+
+  ```bash
+  R='<pc_root>'; W="raw/<name>/logs/mac-wait.txt"; mkdir -p "${W%/*}"
+  nohup tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3 > "$W" 2>&1 &
+  echo $! > "$W.pid"
+  ```
+
+  ```bash
+  W="raw/<name>/logs/mac-wait.txt"
+  for i in $(seq 5); do kill -0 "$(cat "$W.pid")" 2>/dev/null || break; sleep 20; done
+  tail -n 5 "$W"; kill -0 "$(cat "$W.pid")" 2>/dev/null && echo "WAITING: the wait still runs" || echo "ENDED: read the lines above"
+  ```
+
+  The first block prints nothing. The second looks for up to 100 s (5 × 20 s; take a count that fits one call of your
+  shell), prints the file's last lines and ends with `WAITING: the wait still runs` or `ENDED: read the lines above`.
+  While it says `WAITING`, run it again: the last lines can stay the same for minutes while one step runs (7 min during
+  a `pip` step of the run named above). When it still says `WAITING` after the hours you gave the `wait`, stop and
+  report it. After `ENDED`, the lines above it are the `DONE` lines. When they are `WAIT-TIMEOUT <time>` instead, or
+  neither (the connection ended), run the first block again: a new `wait` prints the logs from their start and returns
+  at once when the done files are there. A `wait` whose connection ended leaves its reader on the PC, which ends by
+  itself when the done files are there. Do not pipe a `wait` into `tail` or `grep`: the pipe shows nothing until the
+  `wait` ends. Do not end your work while a list or a chain runs: the PC does not call you back, and the done file is
+  the only signal.
 - `lock note` prints `NOTE written <time>` (`lock note ""` prints `NOTE removed <time>`). No `'` in the note's text
   (it breaks the PowerShell quoting). The lists and the chain write their own notes too, in `%USERPROFILE%\pcup\active\`.
 - **A step with `lock = true`** (a reference step over 8 GB, section 2, "Memory"; the LiteRT-LM build, below): before
@@ -369,7 +424,8 @@ tools/pc.sh lock note ""
   `models/<model>/reference/ref.json`: `raw/<folder>/refs/<model>/ref.json`). Instead of the model's list
   (`-List <model>`, its reference step), put that record where the cell reads it (a cell that needs the model's
   `z6-setup` step: run the model's list first, as the end of this item says). Launch `setup` and `fetch` and wait for
-  them, then `engines` when your cells need the model's `z6-setup` step (an OpenVINO GenAI cell does not), as above:
+  them, then `engines` when your cells need the model's `z6-setup` step (an OpenVINO GenAI cell does not, nor does an
+  ONNX Runtime GenAI cell whose folder is under `{HUB}`), as above:
   on a PC folder that already has everything they take seconds (`setup` and `fetch` add only what it lacks; `engines`
   unpacks the llama.cpp zips it has again). Leave out `tools/pc.sh pull refs raw/<name>`: the record is already in
   `raw/<folder>/`. Put it and compare the two sha256:
@@ -414,6 +470,18 @@ python3 tools/lint.py
   into a commit. When a `.litertlm` file's metadata holds turn templates (LiteRT-LM's `prompt_templates`), LiteRT-LM
   v0.19.0's Session puts them around every prompt, and `pc/run_llm_litert.py` has no way to turn that off (its header's
   "a Session takes the text as it is" holds for the files of the cells here; "Not walked").
+- A cell that passes the prompt check can still give no usable answer, and its FAIL is a result (done item 2).
+  Phi-4-mini-instruct's cell on the Intel GPU with the OpenVINO execution provider got all 21 prompts, gave an end
+  token alone for 12 of the 20 questions and ran to the 48-token limit, mostly with one repeated word, on the other
+  8: its `line.verdict` starts `FAIL on qa20: 0 of 20`. Before you describe such a cell in your report, print all of
+  its rows and read them, not the first few:
+
+  ```bash
+  python3 -c 'import json, sys; [print(r["id"], r["new_tokens"], r["stop"], repr(r["text"][:60])) for r in json.load(open(sys.argv[1]))["rows"]]' raw/<name>/runs/<name>-<n>/<model>/<cell>/run1.json
+  ```
+
+  To see whether a second run gives the same rows, run the cell once more (the steps are in section 8's row "is not
+  before the run") and print the new run's rows the same way: that cell gave the same 21 rows in its second run.
 - `results.py` writes again every own cell of the models it is given, and of every model when it is given none. A
   cell with no record under `--runs` becomes `not_run`. So `--model` is for a new model only, and a result takes
   `--cells`. `<folder>` is the folder of section 5.
@@ -434,8 +502,8 @@ python3 tools/lint.py
    ```
 
    Run the two lines in one shell call. The first `scrub.py` prints `scrubbed <file> (<hits>)` per file and
-   `<n> file(s) changed`; the check prints nothing, and the last line is `exit 0`. Never write the name in a file or a
-   commit message.
+   `<n> file(s) changed`; the check prints nothing, and the last line is `exit 0`. Never write the name in a file, a
+   commit message or a command: to check again later, run the same two lines, which read the name into `u`.
 2. On a shared PC the logs quote the other jobs' lock texts (`another lane holds the lock (<text>)`, `killed for
    another lane's lock (<text>)`). Cut them before the commit:
 
@@ -452,10 +520,9 @@ python3 tools/lint.py
 3. What goes in: `models/<model>/` (recipe, card, `results/`, `reference/`), `LICENSES.md`, from `raw/<name>/` the
    `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `z6-setup`
    step, `pc/z6_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
-   `KeyError`). `raw/*/` is ignored: add `!raw/<name>/` and `raw/<name>/logs/` (the step logs stay on your disk) to
-   `.gitignore`, next to the lines of the other folders, name your folder in the comment above each of the two groups
-   (the one that starts `# what tools/pc.sh pull brings back` and the one that starts `# the PC step logs of`), and
-   add `raw/<name>/` to the list in `docs/add-a-model.md` ("Where things are").
+   `KeyError`). `raw/*/` is ignored: add two lines to `.gitignore`, `!raw/<name>/` above the `!raw/walk/` line and
+   `raw/<name>/logs/` (the step logs stay on your disk) below the last `raw/.../logs/` line, and add `raw/<name>/` to
+   the list in `docs/add-a-model.md` ("Where things are").
 4. `README.md` and `docs/reading-results.md` count and list the results (the `task-*` files). Change each place your
    cells change.
    - In `README.md`: the number of results in four places (`grep -n -E '[0-9]+ (test )?results' README.md`); the
@@ -465,15 +532,17 @@ python3 tools/lint.py
    - In `docs/reading-results.md`: for a new model, the counts of models and LLMs at the start of "What the results
      cover"; the paragraph on the `task-*` cells added after 2026-11-10; for an NPU cell, the count of `task-*` cells
      on the Intel NPU and a sentence with its driver and MSI Center mode (`npu` and `power.msiUserScenarioMode` in
-     `raw/<name>/runs/<name>-<n>/env.*.json`: 2 is Balanced, 1 is Extreme); and under `source.by`, the day and the PC
-     folder of your cells and what `raw/<name>/` holds.
+     `raw/<name>/runs/<name>-<n>/env.*.json`: 2 is Balanced, 1 is Extreme); and one more row at the end of the table
+     of this repo's passes, under "Reading a result file" (`<name>`, the day your cells ran, what you added, your PC
+     folder and `raw/<name>/`).
    - The README's figure counts only cells that judge a copied cell again: `python3 tools/readme_figure.py` leaves
      `docs/images/` as it is.
    - In `PLAN.md`, for a new LLM: its reference's count (`key.right` in `models/<model>/reference/ref.json`) in the
      sentence of "How to read the qa20 line" that lists the references' counts.
-   - Several of these sentences list groups of results, with a `,` or `;` between the groups and `and` before the last
-     one. When your group goes at the end, move that `and` to before your group and leave a `,` or `;` where it stood.
-     Then read each changed sentence whole.
+   - The README's `The other <n> run packages` sentence lists groups of results, with a `;` between the groups and
+     `and` before the last one; the card's paragraph and the first comment line of the recipe list the devices the
+     same way. When your group goes at the end, move that `and` to before your group and leave a `,` or `;` where it
+     stood. Then read each changed sentence whole.
 5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. Run section 0's tests and lint once
    more.
 6. Commit them on your branch, naming the paths (not `git add -A`); for a new LLM, add `PLAN.md`, and for cells that
@@ -563,17 +632,34 @@ neither for an ONNX Runtime GenAI cell then (now section 2). It ran section 0's 
 recipe and card, which this file did not rule out then (now section 0, step 2). Three of the sentences it changed in
 `README.md` and `docs/reading-results.md` had a broken list, two with a second `and` and one with a comma missing
 between two groups (now section 7, step 4). It named its folder in only one of the two `.gitignore` comments that
-section 7 asks for, and it left its reference's count out of `PLAN.md`, which this file did not ask for then (now
-section 7, steps 3 and 4).
+listed the folders then (they list none now), and it left its reference's count out of `PLAN.md`, which this file
+did not ask for then (now section 7, step 4).
 A seventh such agent, given two sentences of the same kind, set out to add four ONNX Runtime GenAI results of
 Phi-4-mini-instruct on the OpenVINO and WebGPU execution providers. It wrote the four cells from the Qwen3 models'
 cells and stopped at the `setup` list: Smart App Control was on, and Windows blocked the `python.exe` of each venv.
 It asked whether to get around that and did not try, which this file did not cover then (now section 0, step 5, and
 section 8). Its cells are not in this repo.
+An eighth such agent, given two sentences of the same kind, added those four results (the CPU int4 folder with OpenVINO
+on the CPU and on the Intel GPU, and the GPU int4 folder with WebGPU on the Intel GPU and on the NVIDIA RTX GPU; its
+records: `raw/phi4-mini-ep/`) from a new PC folder, with Smart App Control off, and ended with a commit on its branch.
+Its `wait` for `setup` and `fetch`, 12 min, outlasted one call of its shell and went on in the background; the program
+that ran the agent ended that `wait`, and the agent's run, before the `wait` printed its result. The agent was started
+again with two sentences: that its `wait` had been stopped before it printed its result and its run paused since, and
+to go on with the task. It had no other help. As section 2 says, it took the four cells' arguments from another model's
+cells (Qwen3-0.6B's). On its own, it read `pc/z6_setup.py` and `pc/z6_spec.json` to see that the cells need no
+`z6-setup` step and, started again, kept a `wait` in the background with its output in a file and looked at the file in
+a loop. This file did not say then what a WebGPU overlay is, or how to keep a `wait` past one call of a shell (now
+sections 2 and 5). It read each cell's device from `workload.ov_device` and `engine.gpuMiBPeak`; the first only repeats
+the cell's argument (now section 2). One sentence it changed in `docs/reading-results.md` lost the comma between two
+groups, as one of the sixth agent's had; the two lists of passes there are now a table (section 7, step 4). Its report
+said that the cell on the Intel GPU with the OpenVINO execution provider gave no text for any prompt, from the first
+four of its 21 rows; 9 rows have text (now section 6). That cell was then run once more, outside the agent's run, and
+gave the same rows. Section 5's background `wait` was also run outside the agent's run, to each of its ends: the `DONE`
+lines, `WAIT-TIMEOUT`, and a connection that ended.
 Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
 in another way, the `setup` list launched again after Smart App Control is turned off, the PC's night stop, a lock
 step that gives its lock back or is killed at its lock's end, the LiteRT-LM
 build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM cells that pass section 6's prompt check,
-Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep follow_config` or run on the OpenVINO and WebGPU
-execution providers, llama.cpp cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed
-sitting.
+Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep follow_config` or whose folder comes from `z6-setup` (a
+WebGPU overlay or a Foundry Local catalog package), llama.cpp cells of the five LLMs whose entries have `litert`, a
+vision or audio model, and a timed sitting.

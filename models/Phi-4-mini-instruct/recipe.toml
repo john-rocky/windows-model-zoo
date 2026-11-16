@@ -1,4 +1,4 @@
-# Phi-4-mini-instruct: the int4 folders of microsoft/Phi-4-mini-instruct-onnx on ONNX Runtime GenAI (the CPU; the NVIDIA RTX GPU with CUDA; the OpenVINO execution provider on the CPU and the Intel GPU; WebGPU on the Intel GPU and the NVIDIA RTX GPU), judged on the qa20 line
+# Phi-4-mini-instruct: the int4 folders of microsoft/Phi-4-mini-instruct-onnx on ONNX Runtime GenAI (the CPU; the NVIDIA RTX GPU with CUDA; the OpenVINO execution provider on the CPU and the Intel GPU; and the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU), judged on the qa20 line
 
 [model]
 kind = "llm"
