@@ -1,0 +1,2072 @@
+[
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "config.json",
+  "size": 726,
+  "hash": "f5c3703b78ae2a478ae15b247e9f855e0ce2107b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "generation_config.json",
+  "size": 239,
+  "hash": "20a8a9156fc8c3f25295ca067f61fdf120d517c5",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "model.safetensors",
+  "size": 1503300328,
+  "hash": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 5.0
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.1
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "tokenizer_config.json",
+  "size": 9732,
+  "hash": "417d038a63fa3de29cfde265caedae14d1a58d92",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "config.json",
+  "size": 766,
+  "hash": "e95fbd56c5438342b6a312af95934dfaf31b5130",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "59eaf61da220451abf37b09fad4a7fa56cb76854",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_model.bin",
+  "size": 428151524,
+  "hash": "28613e994a6e1aaf54a6fe8677eda35e8e86684e653dde09f3ba960b8e53e152",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_model.xml",
+  "size": 2895946,
+  "hash": "bb19bf51fb52e75ed9782c5e2b94f2c0c3f2e7be",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "759c22a415316adcc7ea3be0f434438e2d7fa08f",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int4-ov",
+  "revision": "f864c6106efb6c7f7b4ef274a78a98e37210dddd",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "chat_template.jinja",
+  "size": 4256,
+  "hash": "b11e13ef0c59aa4b052a74de766e263c5b9332ec",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "config.json",
+  "size": 1479,
+  "hash": "b77cba329f86a8c02aa8f4e5f632f416fad29846",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "generation_config.json",
+  "size": 226,
+  "hash": "2158d74a92bcfef5598f8c3cee7e0b9a61a41e61",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_config.json",
+  "size": 495,
+  "hash": "1a45398d6f6c2b07a3b49f2b3e6e2620966772cf",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_detokenizer.xml",
+  "size": 11898,
+  "hash": "e0843f5edb418f2b1e1b449258de5da13e0ad2aa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_model.bin",
+  "size": 383383261,
+  "hash": "2e129cffb1a7239007a3df27e0f3f7bb12f65a40e5c9b1e24a250d952da47837",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_model.xml",
+  "size": 2780025,
+  "hash": "54bd751ba24eca707d06ab1d83298c705d48b626",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.1
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588840,
+  "hash": "d5eeca04c9a556df749ce59a0d3eef5916e730db32e6d0e96aa4ac566d3abeef",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "openvino_tokenizer.xml",
+  "size": 31082,
+  "hash": "208b9fa74c8800e935979f37395e6b389ecc2b64",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "tokenizer.json",
+  "size": 11422650,
+  "hash": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.1
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int4-sym-g128-ov",
+  "revision": "b509ae2d387daf72f0326aedeec30c1159158aec",
+  "path": "tokenizer_config.json",
+  "size": 693,
+  "hash": "a8f5ccbd92421cfa8fdc5fb4746ce516b520126e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "chat_template.jinja",
+  "size": 4256,
+  "hash": "b11e13ef0c59aa4b052a74de766e263c5b9332ec",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "config.json",
+  "size": 1479,
+  "hash": "b77cba329f86a8c02aa8f4e5f632f416fad29846",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "generation_config.json",
+  "size": 226,
+  "hash": "2158d74a92bcfef5598f8c3cee7e0b9a61a41e61",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_config.json",
+  "size": 497,
+  "hash": "40e4cb564e43f7ed62ab12badff7c1bd9eccbcea",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_detokenizer.xml",
+  "size": 11898,
+  "hash": "e0843f5edb418f2b1e1b449258de5da13e0ad2aa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_model.bin",
+  "size": 597239053,
+  "hash": "ae894c16c32a34699520c59acc12938c3ae39d9ff8f41b5e6ecb6f38182e7320",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.5
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_model.xml",
+  "size": 2587319,
+  "hash": "fc4068d387181634e9301d4f592f0fe1679cdf26",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588840,
+  "hash": "d5eeca04c9a556df749ce59a0d3eef5916e730db32e6d0e96aa4ac566d3abeef",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "openvino_tokenizer.xml",
+  "size": 31082,
+  "hash": "208b9fa74c8800e935979f37395e6b389ecc2b64",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/2026-11-11/env.json",
+  "size": 1406,
+  "hash": "6b71e93b5b29854e7907c011338f74330cfad8b7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/2026-11-11/npu_timed_run1.json",
+  "size": 18254,
+  "hash": "39770825b72780b1cba556377fec6bf001df9b09",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/2026-11-11/npu_timed_run2.json",
+  "size": 18259,
+  "hash": "83ef6f99503a15ec7b68120472f2d9d8dbd1c298",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/2026-11-11/npu_timed_run3.json",
+  "size": 18265,
+  "hash": "a1326740c99cf4102de9808360c2b9416fe82e17",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/cell_npu.json",
+  "size": 5578,
+  "hash": "1dc45352041a76f932273d438a73f9ab79a6af73",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/export.json",
+  "size": 2615,
+  "hash": "664b80b37d28b2db39e903d5749f8a90aabbfe53",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/npu_timed_run1.json",
+  "size": 18285,
+  "hash": "9950b95c2106d6d69dee3b0c3cc2866d031702ba",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/npu_timed_run2.json",
+  "size": 18268,
+  "hash": "1b0431322af33b4f6f646f14b5da92e2934ef3a0",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "records/npu_timed_run3.json",
+  "size": 18285,
+  "hash": "9b935247ce23368a80fb5379ee38eada09f8ceeb",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "tokenizer.json",
+  "size": 11422650,
+  "hash": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-0.6B-int8-sym-ov",
+  "revision": "7682ba9783c3053adaca905fe2ac977ea8993e99",
+  "path": "tokenizer_config.json",
+  "size": 693,
+  "hash": "a8f5ccbd92421cfa8fdc5fb4746ce516b520126e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/config.json",
+  "size": 8957,
+  "hash": "5ce6a48070938679a140360cd6e1f6f211460077",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/genai_config.json",
+  "size": 1520,
+  "hash": "b8d270f5c99efc2536bc8292be160c9df8be56ae",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/model.onnx",
+  "size": 524589133,
+  "hash": "35fe34321ea9b1eaa43dfa648dd199903d01d93f97dc2b24fe1d16079ebea957",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/config.json",
+  "size": 8957,
+  "hash": "5ce6a48070938679a140360cd6e1f6f211460077",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/genai_config.json",
+  "size": 1765,
+  "hash": "c6c4604bdbd0f14b762b3513f7780cd628bf8aa8",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/model.onnx",
+  "size": 504660045,
+  "hash": "40d04ddc791196a0be2a8a17a88e7a9cdc3fde42ff6c6412b9170bd11208e03a",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.2
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/config.json",
+  "size": 9033,
+  "hash": "d0a1f0936e40260ebc455b29c1f8e02364852e4e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/genai_config.json",
+  "size": 1752,
+  "hash": "51c41d433774036fecd682183abe686f19f9441e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/model.onnx",
+  "size": 543321042,
+  "hash": "5e9fb386cb1a14009b02b43b0e0f0043e248ad5a6d3c3521c9a516062509909a",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-0.6B-ONNX",
+  "revision": "da1453100cf3ff33ef56d17983fc7a8648706db6",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "litert-community/Qwen3-0.6B",
+  "revision": "bd47201734a34f1eba8ed7d28289225b60152e9e",
+  "path": "Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm",
+  "size": 343490560,
+  "hash": "bf1aba9ce8d963124407353c6aa4cbf72eba78db21ae133de983eac672ce83e0",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.8
+ },
+ {
+  "repo": "unsloth/Qwen3-0.6B-GGUF",
+  "revision": "50968a4468ef4233ed78cd7c3de230dd1d61a56b",
+  "path": "Qwen3-0.6B-Q4_K_M.gguf",
+  "size": 396705472,
+  "hash": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "config.json",
+  "size": 766,
+  "hash": "e95fbd56c5438342b6a312af95934dfaf31b5130",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "59eaf61da220451abf37b09fad4a7fa56cb76854",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_model.bin",
+  "size": 597735060,
+  "hash": "182f4fc0409ce3296c6509d5a2926830df2f71c45de337eaa9a53778e9f48a64",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_model.xml",
+  "size": 2749656,
+  "hash": "4ea5a2a069f956c33b06f1f439d72ed06dc8c92a",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "759c22a415316adcc7ea3be0f434438e2d7fa08f",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-int8-ov",
+  "revision": "ac8e917fb8350f528ada41b02c60ea3a2853955f",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "config.json",
+  "size": 765,
+  "hash": "f39a2d74f188c682e1d7a54f982dcac68b4fe4b2",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "074a2bdd382fc7155f00bfbde3c3e3745cbfdf48",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_model.bin",
+  "size": 1192100234,
+  "hash": "1bd2d8dde1df8a58784d2f8e94681e049263bb22087fbab18811410e870bf0ee",
+  "ok": true,
+  "tries": 0,
+  "seconds": 2.8
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_model.xml",
+  "size": 2549262,
+  "hash": "cb0962e29f17f05afc6fcd5238fd68961ea2af20",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "69df1f3314593e0423e3f52df8b29a345b7b9633",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-0.6B-fp16-ov",
+  "revision": "36e37311b8e5763bfedb7da3e35925c67417c33e",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "config.json",
+  "size": 726,
+  "hash": "044a86ecf7cb32238f3fae4184e55d354787edec",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "generation_config.json",
+  "size": 239,
+  "hash": "20a8a9156fc8c3f25295ca067f61fdf120d517c5",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "model-00001-of-00002.safetensors",
+  "size": 3441185608,
+  "hash": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+  "ok": true,
+  "tries": 0,
+  "seconds": 9.7
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "model-00002-of-00002.safetensors",
+  "size": 622329984,
+  "hash": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9",
+  "ok": true,
+  "tries": 0,
+  "seconds": 1.8
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "model.safetensors.index.json",
+  "size": 25605,
+  "hash": "986d7db875b47d21f68530f6baac038f1b297b39",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "tokenizer_config.json",
+  "size": 9732,
+  "hash": "417d038a63fa3de29cfde265caedae14d1a58d92",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "config.json",
+  "size": 766,
+  "hash": "9f2628a2f749ee1b9e954990260eb0eedf4b4f8b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "59eaf61da220451abf37b09fad4a7fa56cb76854",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_model.bin",
+  "size": 1181738708,
+  "hash": "2f15d719cab2e475444ff84d77d432ecf757e0ec5b93dc1b48710802f96ef34f",
+  "ok": true,
+  "tries": 0,
+  "seconds": 3.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_model.xml",
+  "size": 2881902,
+  "hash": "4659f6d553ed21d04ff2d9047f984c6d8f5509c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "759c22a415316adcc7ea3be0f434438e2d7fa08f",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int4-ov",
+  "revision": "6f32d81e9deebeca30bb5490a7176cf4fa8c79e3",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "chat_template.jinja",
+  "size": 4256,
+  "hash": "b11e13ef0c59aa4b052a74de766e263c5b9332ec",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "config.json",
+  "size": 1479,
+  "hash": "1ce928b9ede1b2af91b4c6003032470d9c39db42",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "generation_config.json",
+  "size": 226,
+  "hash": "2158d74a92bcfef5598f8c3cee7e0b9a61a41e61",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_config.json",
+  "size": 495,
+  "hash": "b7884fc3b05f242c7e039b7ad3dc921dff121972",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_detokenizer.xml",
+  "size": 11898,
+  "hash": "e0843f5edb418f2b1e1b449258de5da13e0ad2aa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_model.bin",
+  "size": 1038780109,
+  "hash": "6e8c4106c4f42251f29057fe26550ab61cd6604956373a846b37ff34fa4d1dbf",
+  "ok": true,
+  "tries": 0,
+  "seconds": 3.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_model.xml",
+  "size": 2781586,
+  "hash": "0736de918ba088db42c243486b1f4c783ac73a96",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588840,
+  "hash": "d5eeca04c9a556df749ce59a0d3eef5916e730db32e6d0e96aa4ac566d3abeef",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "openvino_tokenizer.xml",
+  "size": 31082,
+  "hash": "208b9fa74c8800e935979f37395e6b389ecc2b64",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "tokenizer.json",
+  "size": 11422650,
+  "hash": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov",
+  "revision": "ee7468f8a34e0dd5e64eafcc0884c548250cecb2",
+  "path": "tokenizer_config.json",
+  "size": 693,
+  "hash": "a8f5ccbd92421cfa8fdc5fb4746ce516b520126e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "chat_template.jinja",
+  "size": 4256,
+  "hash": "b11e13ef0c59aa4b052a74de766e263c5b9332ec",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "config.json",
+  "size": 1479,
+  "hash": "1ce928b9ede1b2af91b4c6003032470d9c39db42",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "generation_config.json",
+  "size": 226,
+  "hash": "2158d74a92bcfef5598f8c3cee7e0b9a61a41e61",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_config.json",
+  "size": 497,
+  "hash": "a6e89e79a150e12278f685e32305759b319b8f4e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_detokenizer.xml",
+  "size": 11898,
+  "hash": "e0843f5edb418f2b1e1b449258de5da13e0ad2aa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_model.bin",
+  "size": 1722397965,
+  "hash": "8f717448ed8a59445bbec1a068bcb73833b0d898d3d542224ecf6d76314921b3",
+  "ok": true,
+  "tries": 0,
+  "seconds": 5.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_model.xml",
+  "size": 2587714,
+  "hash": "dd723c96924982bc3db2ba1f311b5b41bbd37a92",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588840,
+  "hash": "d5eeca04c9a556df749ce59a0d3eef5916e730db32e6d0e96aa4ac566d3abeef",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "openvino_tokenizer.xml",
+  "size": 31082,
+  "hash": "208b9fa74c8800e935979f37395e6b389ecc2b64",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/2026-11-11/env.json",
+  "size": 1406,
+  "hash": "6b71e93b5b29854e7907c011338f74330cfad8b7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/2026-11-11/npu_timed_run1.json",
+  "size": 18095,
+  "hash": "043e810b0aabbaf84abe4a8b28747b9d14712108",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/2026-11-11/npu_timed_run2.json",
+  "size": 18092,
+  "hash": "8fd880ebadce64844938f0c75110a23619efa9d6",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/2026-11-11/npu_timed_run3.json",
+  "size": 18078,
+  "hash": "45011767ff9c75f8259ee3f86212750f560c4cfa",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/cell_npu.json",
+  "size": 5363,
+  "hash": "ae4ff7971fc3af0ace2a130f77ca83f1bf50566f",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/export.json",
+  "size": 2617,
+  "hash": "76fdc20bc9d8ceef1c462bebf77a5c6b16613b50",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/npu_timed_run1.json",
+  "size": 18118,
+  "hash": "e6669bf947c7ea111f07df5c6d711ab027274213",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/npu_timed_run2.json",
+  "size": 18117,
+  "hash": "d782a7577c79bfdb25d8d3ebba38a4c778e3f489",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "records/npu_timed_run3.json",
+  "size": 18120,
+  "hash": "1b8db59e9f31440a261a6789704c1811e74f8777",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "tokenizer.json",
+  "size": 11422650,
+  "hash": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov",
+  "revision": "94f6e8f25924d523738dc2e6543d1f7196cd4fba",
+  "path": "tokenizer_config.json",
+  "size": 693,
+  "hash": "a8f5ccbd92421cfa8fdc5fb4746ce516b520126e",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/config.json",
+  "size": 8697,
+  "hash": "a78f2f2d598ca55c0edfd7cef64698b392c8c6c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/genai_config.json",
+  "size": 1520,
+  "hash": "e551fa928570f785db8f8dbf68ad969e51e0913b",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/model.onnx",
+  "size": 1408943689,
+  "hash": "9fddc5a0a7f9c51132c376db8fe44774b17a8e42d721c4d289ade16af87da0bd",
+  "ok": true,
+  "tries": 0,
+  "seconds": 4.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/config.json",
+  "size": 8697,
+  "hash": "a78f2f2d598ca55c0edfd7cef64698b392c8c6c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/genai_config.json",
+  "size": 1765,
+  "hash": "3fef1e774664284309105876918a609fff4322c7",
+  "ok": true,
+  "tries": 0,
+  "seconds": 0.0
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/model.onnx",
+  "size": 1371328073,
+  "hash": "94ee37f1fabe304cd3046803830724f9be8b520dd0400bcd421185c644041096",
+  "ok": true,
+  "tries": 1,
+  "seconds": 10.1
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.9
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/cuda/cuda-int4-kld-block-128/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/chat_template.jinja",
+  "size": 4168,
+  "hash": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/config.json",
+  "size": 8707,
+  "hash": "ce329a9f6964b3f64dc28c886cd872bf00f2666a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/genai_config.json",
+  "size": 1752,
+  "hash": "8800f18062765ec065fea5d21da78355990dd74a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/model.onnx",
+  "size": 1478657378,
+  "hash": "46d813105b1ae677c28f2e83a79de0d2db1b84ec6a5e344a6fcfa8ce3eba90bf",
+  "ok": true,
+  "tries": 1,
+  "seconds": 70.6
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer.json",
+  "size": 11422648,
+  "hash": "979d160e081df25a1bf7f4e2e8f4c441b5dfdc9a8e84aec9f32e80445e1b59b8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.6
+ },
+ {
+  "repo": "onnx-community/Qwen3-1.7B-ONNX",
+  "revision": "cc6a06a21d614e9b8e92a6adfab1074d4e7d2438",
+  "path": "onnxruntime/webgpu/webgpu-int4-kld-block-32/tokenizer_config.json",
+  "size": 663,
+  "hash": "eeb7009b684350496c7020a205e8ee025d9ee159",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "litert-community/Qwen3-1.7B",
+  "revision": "e3496c7708baf1efe5482c6069a1f94695469ebc",
+  "path": "Qwen3-1.7B_dynamic_wi4b32_afp32.litertlm",
+  "size": 977184032,
+  "hash": "2a72330b504a6596d53a2c00923c57173b10f1b83e6a541213ffec08d1fc5de8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 26.6
+ },
+ {
+  "repo": "litert-community/Qwen3-1.7B",
+  "revision": "e3496c7708baf1efe5482c6069a1f94695469ebc",
+  "path": "Qwen3_1.7B.litertlm",
+  "size": 1754890240,
+  "hash": "e40599625f3e446d6522674586a40566d6a3a117af608f6e9ea46ac86d326461",
+  "ok": true,
+  "tries": 1,
+  "seconds": 58.8
+ },
+ {
+  "repo": "unsloth/Qwen3-1.7B-GGUF",
+  "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+  "path": "Qwen3-1.7B-Q4_K_M.gguf",
+  "size": 1107409472,
+  "hash": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+  "ok": true,
+  "tries": 1,
+  "seconds": 30.1
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "config.json",
+  "size": 766,
+  "hash": "9f2628a2f749ee1b9e954990260eb0eedf4b4f8b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.2
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.1
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "59eaf61da220451abf37b09fad4a7fa56cb76854",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_model.bin",
+  "size": 1723123348,
+  "hash": "0f58a72b2e92e55806e71c87a9fac035d91ff246cebb9c13eb4d771d08cc9504",
+  "ok": true,
+  "tries": 1,
+  "seconds": 55.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_model.xml",
+  "size": 2750151,
+  "hash": "313c9095563d4ff85bc9036aaa29c8d7bb8afa85",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.7
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "759c22a415316adcc7ea3be0f434438e2d7fa08f",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.8
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-int8-ov",
+  "revision": "551bacb49b6e218f270b695c6ad48aada172e65f",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "added_tokens.json",
+  "size": 707,
+  "hash": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "config.json",
+  "size": 765,
+  "hash": "71664bd5f630cdae5fd3523c187a36423047f606",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "generation_config.json",
+  "size": 214,
+  "hash": "e4f1d3193e99a3e5d7047edf56e93a6e933fa31b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "merges.txt",
+  "size": 1671853,
+  "hash": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_detokenizer.bin",
+  "size": 2189717,
+  "hash": "d73093f72c80ebcaffb76a192727170ecd3c6a06c4df52df0e76b3f70ad9d7f7",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.3
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_detokenizer.xml",
+  "size": 11369,
+  "hash": "074a2bdd382fc7155f00bfbde3c3e3745cbfdf48",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_model.bin",
+  "size": 3441150346,
+  "hash": "605fe403798c724a7de80a7e0e4369d07ac927470d3db64676dcbb83ac9f6319",
+  "ok": true,
+  "tries": 1,
+  "seconds": 169.9
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_model.xml",
+  "size": 2549544,
+  "hash": "a249f26987ae1544920a6cae74e9382aca89f890",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.9
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_tokenizer.bin",
+  "size": 5588868,
+  "hash": "1e31f7285e95a4d08f1e5516c5099f96e169253100b4919db936990fa1923395",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.7
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "openvino_tokenizer.xml",
+  "size": 27295,
+  "hash": "69df1f3314593e0423e3f52df8b29a345b7b9633",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "special_tokens_map.json",
+  "size": 613,
+  "hash": "ac23c0aaa2434523c494330aeb79c58395378103",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "tokenizer.json",
+  "size": 11422654,
+  "hash": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.0
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "tokenizer_config.json",
+  "size": 9706,
+  "hash": "7345216a0785dc7086e8c245b2a9d3896ce2b756",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Qwen3-1.7B-fp16-ov",
+  "revision": "4040dedc9515167d1689346577534968c07570f9",
+  "path": "vocab.json",
+  "size": 2776833,
+  "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.8
+ }
+]

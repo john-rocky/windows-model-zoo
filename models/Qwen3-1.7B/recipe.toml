@@ -1,4 +1,4 @@
-# Qwen3-1.7B: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md); the two task-*-int8-sym cells (2026-11-12) run the int8 IR mlboydaisuke/Qwen3-1.7B-int8-sym-ov on that line
+# Qwen3-1.7B: the cells copied from the LLM zoo john-rocky/windows-llm-zoo@a1b4ffa keep its numbers and its line; the cells task-* (2026-11-10) judge the same files on this model's task line (PLAN.md); the two task-*-int8-sym cells (2026-11-12) run the int8 IR mlboydaisuke/Qwen3-1.7B-int8-sym-ov on that line; the four task-*-int8 and task-*-fp16 cells (2026-11-16) run OpenVINO's int8 and fp16 IRs, OpenVINO/Qwen3-1.7B-int8-ov and OpenVINO/Qwen3-1.7B-fp16-ov, on that line
 
 [model]
 kind = "llm"
@@ -296,6 +296,14 @@ revision = "d7f544eead698dbd1f15126ef60b45a1e1933222"
 include = ["Qwen3-1.7B-Q4_K_M.gguf"]
 why = "the file the LiteRT-LM / llama.cpp cells ran (the cells name it by byte count; this revision's file has that count)"
 
+[[fetch]]
+repo = "OpenVINO/Qwen3-1.7B-int8-ov"
+revision = "551bacb49b6e218f270b695c6ad48aada172e65f"
+
+[[fetch]]
+repo = "OpenVINO/Qwen3-1.7B-fp16-ov"
+revision = "4040dedc9515167d1689346577534968c07570f9"
+
 [[form]]
 id = "foundry:Foundry catalog qwen3-1.7b-generic-gpu:2 (its files in the PC's cache)"
 short = "MatMulNBits b32 asym acc4: int8 x101"
@@ -349,6 +357,18 @@ id = "ov:mlboydaisuke/Qwen3-1.7B-int8-sym-ov"
 short = "int8_sym per-channel"
 label = "int8_sym per-channel; mlboydaisuke/Qwen3-1.7B-int8-sym-ov@94f6e8f25924d523738dc2e6543d1f7196cd4fba"
 from = "mlboydaisuke/Qwen3-1.7B-int8-sym-ov"
+
+[[form]]
+id = "ov:OpenVINO/Qwen3-1.7B-int8-ov"
+short = "int8_asym"
+label = "int8_asym; OpenVINO/Qwen3-1.7B-int8-ov@551bacb49b6e218f270b695c6ad48aada172e65f"
+from = "OpenVINO/Qwen3-1.7B-int8-ov"
+
+[[form]]
+id = "ov:OpenVINO/Qwen3-1.7B-fp16-ov"
+short = "fp16"
+label = "fp16; OpenVINO/Qwen3-1.7B-fp16-ov@4040dedc9515167d1689346577534968c07570f9"
+from = "OpenVINO/Qwen3-1.7B-fp16-ov"
 
 [[form]]
 id = "genai:onnx-community/Qwen3-1.7B-ONNX@cc6a06a21d614e9b8e92a6adfab1074d4e7d2438 onnxruntime/cpu_and_mobile/cpu-int4-kld-block-128"
@@ -575,6 +595,57 @@ form = "ov:mlboydaisuke/Qwen3-1.7B-int8-sym-ov"
 timeout_min = 30
 args = ["--model-dir", "{HUB}\\mlboydaisuke__Qwen3-1.7B-int8-sym-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
 ram_need_gb = 5
+
+# 2026-11-16: OpenVINO's int8 IR (INT8_ASYM) and fp16 IR of this model, OpenVINO/Qwen3-1.7B-int8-ov and
+# OpenVINO/Qwen3-1.7B-fp16-ov, on the Intel NPU and the CPU, on the qa20 line; packages no earlier zoo had, so these
+# four cells have no z2_cell and judge no copied cell
+[[cell]]
+id = "task-openvino-genai_npu_npu-int8"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-int8-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-1.7B_npu_int8", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_npu_npu-fp16"
+runtime = "openvino-genai"
+device = "npu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-fp16-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-fp16-ov", "--device", "NPU", "--cache-dir", "{ROOT}\\ovcache\\Qwen3-1.7B_npu_fp16", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 8
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu-int8"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-int8-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-int8-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 5
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu-fp16"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Qwen3-1.7B-fp16-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Qwen3-1.7B-fp16-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Qwen3-1.7B\\ref.json"]
+ram_need_gb = 8
 
 [[cell]]
 id = "task-ort-genai_cpu_cpu"

@@ -1,0 +1,5 @@
+ENGINE_PID 17872
+{"n": 1, "of": null, "id": "q01", "wall_s": 0.551, "text": ""}
+{"n": 2, "of": null, "id": "q02", "wall_s": 0.558, "text": ""}
+{"n": 10, "of": null, "id": "q10", "wall_s": 1.18, "text": "金\n"}
+{"n": 20, "of": null, "id": "q20", "wall_s": 0.548, "text": ""}
