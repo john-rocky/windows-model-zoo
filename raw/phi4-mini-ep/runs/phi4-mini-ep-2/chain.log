@@ -1,0 +1,5 @@
+[2026-11-16T14:18:00.8267212+09:00] chain start: plan C:\src\zoo-phi4-mini-ep\pc\plans\phi4-mini-ep-2.json mode first, 1 units, pid 13704
+[2026-11-16T14:18:10.2870256+09:00] adapters: 0x00000000_0x00012CB8=nvidia, 0x00000000_0x00013F16=npu?, 0x00000000_0x00012875=intel-gpu, 0x00000000_0x00012C86=?
+[2026-11-16T14:18:11.6628041+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_openvino run 1 start
+[2026-11-16T14:18:45.3262517+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_openvino run 1 end: exit 0, OK, 32.514 s
+[2026-11-16T14:18:45.3442517+09:00] chain done: OK

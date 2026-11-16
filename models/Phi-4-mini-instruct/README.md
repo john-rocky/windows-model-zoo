@@ -8,7 +8,7 @@ pipeline_tag: text-generation
 
 # Phi-4-mini-instruct
 
-[microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) as two int4 folders of [microsoft/Phi-4-mini-instruct-onnx](https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx) (the CPU and mobile folder on the CPU, and the GPU folder on the NVIDIA RTX GPU with CUDA), run through ONNX Runtime GenAI on one Windows laptop. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
+[microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) as two int4 folders of [microsoft/Phi-4-mini-instruct-onnx](https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx) (the CPU and mobile folder on the CPU, and on the CPU and the Intel GPU with the OpenVINO execution provider; the GPU folder on the NVIDIA RTX GPU with CUDA, and on the Intel GPU and the NVIDIA RTX GPU with the WebGPU execution provider), run through ONNX Runtime GenAI on one Windows laptop. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
 
 <!-- zoo:cells begin -->
 ## Lines
@@ -17,5 +17,5 @@ pipeline_tag: text-generation
 
 ## Cells
 
-One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 2 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
+One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 6 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
 <!-- zoo:cells end -->

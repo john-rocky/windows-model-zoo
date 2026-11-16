@@ -1,0 +1,312 @@
+{
+ "schema": "zoo-cell/1",
+ "model": "Phi-4-mini-instruct",
+ "cell": "task-ort-genai_igpu_openvino",
+ "kind": "llm",
+ "runtime": {
+  "id": "ort-genai",
+  "label": "ONNX Runtime GenAI 0.19.0"
+ },
+ "device": {
+  "id": "igpu",
+  "label": "Intel GPU"
+ },
+ "form": {
+  "id": "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+  "label": "int4 RTN, block 32, accuracy level 4",
+  "detail": "int4 RTN, block 32, accuracy level 4 (CPU and mobile folder); microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+  "path": null,
+  "from": "microsoft/Phi-4-mini-instruct-onnx"
+ },
+ "line": {
+  "id": "qa20",
+  "kind": "task",
+  "pass": false,
+  "verdict": "FAIL on qa20: 0 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 0 of 20 right by the answer key",
+  "reference": "raw/phi4-mini/refs/Phi-4-mini-instruct/ref.json",
+  "detail": {
+   "answers": {
+    "agree": 0,
+    "n": 20,
+    "bar": 18,
+    "pass": false
+   },
+   "gate": {
+    "eos": true,
+    "new_tokens": 2,
+    "max_new": 16,
+    "text": ":",
+    "ref_eos": true,
+    "pass": true
+   },
+   "pass": false
+  },
+  "text": "answers 0/20, gate PASS"
+ },
+ "source": {
+  "by": "windows-model-zoo",
+  "record": "raw/phi4-mini-ep/runs/phi4-mini-ep-2/Phi-4-mini-instruct/task-ort-genai_igpu_openvino/run1.json",
+  "runner": "run_llm_genai.py",
+  "argv": [
+   "--model-dir",
+   "C:\\src\\zoo-phi4-mini-ep\\hub\\microsoft__Phi-4-mini-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32-acc-level-4",
+   "--ep",
+   "openvino",
+   "--ov-device",
+   "GPU",
+   "--ref",
+   "C:\\src\\zoo-phi4-mini-ep\\refs\\Phi-4-mini-instruct\\ref.json",
+   "--out",
+   "C:\\src\\zoo-phi4-mini-ep\\runs\\phi4-mini-ep-2\\Phi-4-mini-instruct\\task-ort-genai_igpu_openvino\\run1.json"
+  ]
+ },
+ "note": [
+  {
+   "rank": 1,
+   "text": "first pass, untimed"
+  },
+  {
+   "rank": 0,
+   "text": "answers 0/20, gate PASS"
+  }
+ ],
+ "run": {
+  "state": "ok",
+  "mode": "first",
+  "sitting": "phi4-mini-ep-2",
+  "started": "2026-11-16T14:18:11.940597+09:00",
+  "ended": "2026-11-16T14:18:43.371645+09:00",
+  "runs": 1,
+  "tries": 1,
+  "error": null,
+  "error_line": null
+ },
+ "speed": {
+  "metric": "tok/s (new tokens / generate wall, all prompts)",
+  "value": null,
+  "first_value": null,
+  "timed": false,
+  "n": 1,
+  "first_token_ms": null,
+  "load_s": 7.179,
+  "warmup_s": 0.285,
+  "peak_working_set_mb": 4623,
+  "ttft_ms": null
+ },
+ "memory": {
+  "peak_ws_bytes": 4847435776,
+  "gpu_mib": {
+   "0x00000000_0x00012CB8": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x00013F16": {
+    "shared": 0,
+    "dedicated": 0
+   },
+   "0x00000000_0x00012875": {
+    "shared": 3556,
+    "dedicated": 0
+   }
+  }
+ },
+ "regime": {
+  "qos": "high",
+  "power": "balanced",
+  "timer": "runner",
+  "qos_basis": "pc/zoolib.py high_qos() first in the runner (run JSON: off (High QoS), set_ok True)",
+  "power_detail": {
+   "msiUserScenarioMode": 2,
+   "overlayAc": "00000000-0000-0000-0000-000000000000",
+   "overlayDc": "00000000-0000-0000-0000-000000000000",
+   "battery": "status 2, 94 %"
+  },
+  "desktop_locked": true
+ },
+ "llm": {
+  "task": {
+   "agree": 0,
+   "n": 20,
+   "full_text_same": 0,
+   "eos_within_max": 12,
+   "new_tokens": 396,
+   "prompt_ids_same": 21,
+   "prompt_basis": {
+    "ids": 21
+   },
+   "rows": [
+    {
+     "id": "q01",
+     "cell": "",
+     "ref": "paris",
+     "same": false
+    },
+    {
+     "id": "q02",
+     "cell": "",
+     "ref": "12",
+     "same": false
+    },
+    {
+     "id": "q03",
+     "cell": "",
+     "ref": "24",
+     "same": false
+    },
+    {
+     "id": "q04",
+     "cell": "",
+     "ref": "tac",
+     "same": false
+    },
+    {
+     "id": "q05",
+     "cell": "",
+     "ref": "mars",
+     "same": false
+    },
+    {
+     "id": "q06",
+     "cell": "",
+     "ref": "7",
+     "same": false
+    },
+    {
+     "id": "q07",
+     "cell": "",
+     "ref": "cold",
+     "same": false
+    },
+    {
+     "id": "q08",
+     "cell": ". the target is not and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "ありがとう",
+     "same": false
+    },
+    {
+     "id": "q09",
+     "cell": "",
+     "ref": "green",
+     "same": false
+    },
+    {
+     "id": "q10",
+     "cell": "",
+     "ref": "au",
+     "same": false
+    },
+    {
+     "id": "q11",
+     "cell": "and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "yes, 17 is a prime number. a prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. since 17 can only be divided evenly by 1 and 17,",
+     "same": false
+    },
+    {
+     "id": "q12",
+     "cell": "",
+     "ref": "pacific ocean",
+     "same": false
+    },
+    {
+     "id": "q13",
+     "cell": "and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "william shakespeare",
+     "same": false
+    },
+    {
+     "id": "q14",
+     "cell": "and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "25",
+     "same": false
+    },
+    {
+     "id": "q15",
+     "cell": "",
+     "ref": "10",
+     "same": false
+    },
+    {
+     "id": "q16",
+     "cell": ". reply and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "0",
+     "same": false
+    },
+    {
+     "id": "q17",
+     "cell": ". bell and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+     "ref": "same",
+     "same": false
+    },
+    {
+     "id": "q18",
+     "cell": "only number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number number",
+     "ref": "9",
+     "same": false
+    },
+    {
+     "id": "q19",
+     "cell": "",
+     "ref": "hello",
+     "same": false
+    },
+    {
+     "id": "q20",
+     "cell": "",
+     "ref": "8",
+     "same": false
+    }
+   ],
+   "gate_text": "EOS in 2",
+   "key": {
+    "right": 0,
+    "n": 20,
+    "wrong": [
+     "q01",
+     "q02",
+     "q03",
+     "q04",
+     "q05",
+     "q06",
+     "q07",
+     "q08",
+     "q09",
+     "q10",
+     "q11",
+     "q12",
+     "q13",
+     "q14",
+     "q15",
+     "q16",
+     "q17",
+     "q18",
+     "q19",
+     "q20"
+    ]
+   }
+  },
+  "versions": {
+   "python": "3.12.16",
+   "onnxruntime-genai": "0.19.0",
+   "onnxruntime": "1.31.1",
+   "onnxruntime-ep-openvino": "1.8.1",
+   "onnxruntime-ep-webgpu": "0.5.0",
+   "numpy": "2.5.4"
+  },
+  "workload": {
+   "ref": "C:\\src\\zoo-phi4-mini-ep\\refs\\Phi-4-mini-instruct\\ref.json",
+   "prompts": 21,
+   "ep": "openvino",
+   "ov_device": "GPU",
+   "ep_option": [],
+   "decode": "greedy (do_sample False, num_beams 1, repetition_penalty 1.0)",
+   "max_new_tokens": 48,
+   "gate_max_new_tokens": 16,
+   "chat_template": "none here: the reference's rendered prompt, the package tokenizer's encode",
+   "eos_token_ids": [
+    199999,
+    200020
+   ],
+   "bos_token_id": 199999
+  }
+ }
+}

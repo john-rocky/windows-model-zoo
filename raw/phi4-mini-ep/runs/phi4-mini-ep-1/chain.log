@@ -1,0 +1,11 @@
+[2026-11-16T13:34:00.8644126+09:00] chain start: plan C:\src\zoo-phi4-mini-ep\pc\plans\phi4-mini-ep-1.json mode first, 4 units, pid 22504
+[2026-11-16T13:34:10.4373436+09:00] adapters: 0x00000000_0x00012CB8=nvidia, 0x00000000_0x00013F16=npu?, 0x00000000_0x00012875=intel-gpu, 0x00000000_0x00012C86=?
+[2026-11-16T13:34:11.8223991+09:00] Phi-4-mini-instruct/task-ort-genai_cpu_openvino run 1 start
+[2026-11-16T13:34:41.5619993+09:00] Phi-4-mini-instruct/task-ort-genai_cpu_openvino run 1 end: exit 0, OK, 28.567 s
+[2026-11-16T13:34:42.7102790+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_openvino run 1 start
+[2026-11-16T13:35:19.1508857+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_openvino run 1 end: exit 0, OK, 35.348 s
+[2026-11-16T13:35:20.2977794+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_webgpu run 1 start
+[2026-11-16T13:35:39.5025373+09:00] Phi-4-mini-instruct/task-ort-genai_igpu_webgpu run 1 end: exit 0, OK, 18.093 s
+[2026-11-16T13:35:40.6300147+09:00] Phi-4-mini-instruct/task-ort-genai_rtx_webgpu run 1 start
+[2026-11-16T13:35:50.1388641+09:00] Phi-4-mini-instruct/task-ort-genai_rtx_webgpu run 1 end: exit 0, OK, 8.414 s
+[2026-11-16T13:35:50.1498683+09:00] chain done: OK
