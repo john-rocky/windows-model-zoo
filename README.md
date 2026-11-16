@@ -33,6 +33,8 @@ python3 tools/table.py --local
 
 It writes `RESULTS_LLM.md` and `RESULTS_VISION.md` on your disk.
 
+[examples/ask-downloads](examples/ask-downloads/) shows two of the Qwen3-1.7B results in a small Windows app. It asks Qwen3-1.7B and two of its packages for the Intel NPU the same question, side by side, and shows each package's result next to its answer.
+
 ## What's covered
 
 | Job | Models |
