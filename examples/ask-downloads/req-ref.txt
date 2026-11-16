@@ -1,0 +1,5 @@
+# The original model's card: transformers on the CPU in fp32 (the pins of windows-model-zoo pc/req/ref.txt; torch on
+# PyPI for Windows is the CPU build)
+torch==2.14.0
+transformers==5.22.2
+numpy==2.4.6

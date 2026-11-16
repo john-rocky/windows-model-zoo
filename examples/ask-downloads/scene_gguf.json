@@ -1,0 +1,20 @@
+{
+ "window_title": "Ask the downloads · windows-model-zoo example",
+ "title": "Qwen3-1.7B",
+ "subtitle": "the same question to the original model and to two downloads",
+ "questions": "{ZOO}/suites/llm/qa20.jsonl",
+ "cards": [
+  {"role": "Original model", "name": "Qwen/Qwen3-1.7B", "engine": "Transformers · CPU · fp32 (full precision)",
+   "worker": {"kind": "hf", "python": "{ROOT}/venv-ref/Scripts/python.exe", "model_dir": "{ROOT}/hub/Qwen__Qwen3-1.7B"}},
+  {"role": "Download", "name": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov", "engine": "OpenVINO GenAI · Intel NPU · int4",
+   "zoo_cell": "{ZOO}/models/Qwen3-1.7B/results/task-openvino-genai_npu_npu-sym-g128.json",
+   "worker": {"kind": "ovg", "python": "{ROOT}/venv-ovg/Scripts/python.exe",
+              "model_dir": "{ROOT}/hub/mlboydaisuke__Qwen3-1.7B-int4-sym-g128-ov", "device": "NPU",
+              "cache_dir": "{ROOT}/ovcache/int4-npu"}},
+  {"role": "Download", "name": "unsloth/Qwen3-1.7B-GGUF (Q4_K_M)", "engine": "llama.cpp b11721 · CPU · 4-bit",
+   "zoo_cell": "{ZOO}/models/Qwen3-1.7B/results/task-llama.cpp_cpu_cpu.json",
+   "worker": {"kind": "llama", "python": "{ROOT}/venv-ovg/Scripts/python.exe",
+              "server": "{ROOT}/engines/llama-cpu/llama-server.exe",
+              "model": "{ROOT}/hub/unsloth__Qwen3-1.7B-GGUF/Qwen3-1.7B-Q4_K_M.gguf"}}
+ ]
+}

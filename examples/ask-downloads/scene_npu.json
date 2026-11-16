@@ -1,0 +1,20 @@
+{
+ "window_title": "Ask the downloads · windows-model-zoo example",
+ "title": "Qwen3-1.7B",
+ "subtitle": "the same question to the original model and to two downloads for the Intel NPU",
+ "questions": "{ZOO}/suites/llm/qa20.jsonl",
+ "cards": [
+  {"role": "Original model", "name": "Qwen/Qwen3-1.7B", "engine": "Transformers · CPU · fp32 (full precision)",
+   "worker": {"kind": "hf", "python": "{ROOT}/venv-ref/Scripts/python.exe", "model_dir": "{ROOT}/hub/Qwen__Qwen3-1.7B"}},
+  {"role": "Download", "name": "mlboydaisuke/Qwen3-1.7B-int4-sym-g128-ov", "engine": "OpenVINO GenAI · Intel NPU · int4",
+   "zoo_cell": "{ZOO}/models/Qwen3-1.7B/results/task-openvino-genai_npu_npu-sym-g128.json",
+   "worker": {"kind": "ovg", "python": "{ROOT}/venv-ovg/Scripts/python.exe",
+              "model_dir": "{ROOT}/hub/mlboydaisuke__Qwen3-1.7B-int4-sym-g128-ov", "device": "NPU",
+              "cache_dir": "{ROOT}/ovcache/int4-npu"}},
+  {"role": "Download", "name": "mlboydaisuke/Qwen3-1.7B-int8-sym-ov", "engine": "OpenVINO GenAI · Intel NPU · int8",
+   "zoo_cell": "{ZOO}/models/Qwen3-1.7B/results/task-openvino-genai_npu_npu-int8-sym.json",
+   "worker": {"kind": "ovg", "python": "{ROOT}/venv-ovg/Scripts/python.exe",
+              "model_dir": "{ROOT}/hub/mlboydaisuke__Qwen3-1.7B-int8-sym-ov", "device": "NPU",
+              "cache_dir": "{ROOT}/ovcache/int8-npu"}}
+ ]
+}

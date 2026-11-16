@@ -1,0 +1,6 @@
+# OpenVINO GenAI 2026.4.1 for the download cards (the pins of windows-model-zoo pc/req/ovg.txt); its Python also runs the
+# llama.cpp card's worker and the window (Tk)
+openvino-genai==2026.4.1.0
+openvino==2026.4.1
+openvino-tokenizers==2026.4.1.0
+numpy==2.5.4
