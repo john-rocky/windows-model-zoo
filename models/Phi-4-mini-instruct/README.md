@@ -10,6 +10,8 @@ pipeline_tag: text-generation
 
 [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) run on one Windows laptop as two int4 folders of [microsoft/Phi-4-mini-instruct-onnx](https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx) through ONNX Runtime GenAI (the CPU and mobile folder on the CPU, and the same folder with the OpenVINO execution provider on the CPU and the Intel GPU; and the GPU folder on the NVIDIA RTX GPU with CUDA, and the same folder with the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU), and as OpenVINO's int4 IR [OpenVINO/Phi-4-mini-instruct-int4-ov](https://huggingface.co/OpenVINO/Phi-4-mini-instruct-int4-ov) through OpenVINO GenAI on the CPU. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
 
+With the OpenVINO execution provider on the Intel GPU, the answers of the CPU and mobile folder are empty or repeating, and that cell is a FAIL with 0 of 20. In its run record, 12 of the 20 answers are an end token alone, and the other 8 run to the 48-token limit: 7 repeat one word and 1 repeats a full stop.
+
 <!-- zoo:cells begin -->
 ## Lines
 
