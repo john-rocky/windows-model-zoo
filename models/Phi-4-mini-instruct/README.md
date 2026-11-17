@@ -8,7 +8,7 @@ pipeline_tag: text-generation
 
 # Phi-4-mini-instruct
 
-[microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) as two int4 folders of [microsoft/Phi-4-mini-instruct-onnx](https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx) (the CPU and mobile folder on the CPU, and the same folder with the OpenVINO execution provider on the CPU and the Intel GPU; and the GPU folder on the NVIDIA RTX GPU with CUDA, and the same folder with the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU), run through ONNX Runtime GenAI on one Windows laptop. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
+[microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) run on one Windows laptop as two int4 folders of [microsoft/Phi-4-mini-instruct-onnx](https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx) through ONNX Runtime GenAI (the CPU and mobile folder on the CPU, and the same folder with the OpenVINO execution provider on the CPU and the Intel GPU; and the GPU folder on the NVIDIA RTX GPU with CUDA, and the same folder with the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU), and as OpenVINO's int4 IR [OpenVINO/Phi-4-mini-instruct-int4-ov](https://huggingface.co/OpenVINO/Phi-4-mini-instruct-int4-ov) through OpenVINO GenAI on the CPU. Each cell is judged on the qa20 line: 20 short questions answered with greedy decoding, compared with the same model in fp32 (Transformers, CPU), and one prompt that has to end within 16 tokens.
 
 <!-- zoo:cells begin -->
 ## Lines
@@ -17,5 +17,5 @@ pipeline_tag: text-generation
 
 ## Cells
 
-One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 6 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
+One JSON per cell (this model on one runtime, device and package) in [`results/`](results/): 7 files. Each one's `line.verdict` gives its verdict, its numbers and its line in one string; how the cell ran is in `recipe.toml` and in the run record the JSON names (`source.record`).
 <!-- zoo:cells end -->

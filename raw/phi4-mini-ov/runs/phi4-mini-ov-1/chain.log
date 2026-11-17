@@ -1,0 +1,5 @@
+[2026-11-18T05:42:23.0638320+09:00] chain start: plan C:\src\zoo-phi4-mini-ov\pc\plans\phi4-mini-ov-1.json mode first, 1 units, pid 20132
+[2026-11-18T05:42:33.5450437+09:00] adapters: 0x00000000_0x00012CB8=nvidia, 0x00000000_0x00013F16=npu?, 0x00000000_0x00012875=intel-gpu, 0x00000000_0x00012C86=?
+[2026-11-18T05:42:34.9735666+09:00] Phi-4-mini-instruct/task-openvino-genai_cpu_cpu run 1 start
+[2026-11-18T05:42:52.6497800+09:00] Phi-4-mini-instruct/task-openvino-genai_cpu_cpu run 1 end: exit 0, OK, 15.709 s
+[2026-11-18T05:42:52.6842177+09:00] chain done: OK

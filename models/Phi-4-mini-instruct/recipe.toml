@@ -1,4 +1,4 @@
-# Phi-4-mini-instruct: the int4 folders of microsoft/Phi-4-mini-instruct-onnx on ONNX Runtime GenAI (the CPU; the NVIDIA RTX GPU with CUDA; the OpenVINO execution provider on the CPU and the Intel GPU; and the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU), judged on the qa20 line
+# Phi-4-mini-instruct: the int4 folders of microsoft/Phi-4-mini-instruct-onnx on ONNX Runtime GenAI (the CPU; the NVIDIA RTX GPU with CUDA; the OpenVINO execution provider on the CPU and the Intel GPU; and the WebGPU execution provider on the Intel GPU and the NVIDIA RTX GPU) and OpenVINO/Phi-4-mini-instruct-int4-ov on OpenVINO GenAI (the CPU), judged on the qa20 line
 
 [model]
 kind = "llm"
@@ -20,6 +20,10 @@ repo = "microsoft/Phi-4-mini-instruct-onnx"
 revision = "fc04c8f93df696602fd9f300a30d1bf2e3081347"
 include = ["cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/*", "gpu/gpu-int4-rtn-block-32/*"]
 
+[[fetch]]
+repo = "OpenVINO/Phi-4-mini-instruct-int4-ov"
+revision = "e5813af02e8560a9186c41f932f21cbb584a0907"
+
 [[form]]
 id = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4"
 short = "int4 RTN, block 32, accuracy level 4"
@@ -31,6 +35,12 @@ id = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e
 short = "int4 RTN, block 32"
 label = "int4 RTN, block 32 (GPU folder); microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 gpu/gpu-int4-rtn-block-32"
 from = "microsoft/Phi-4-mini-instruct-onnx"
+
+[[form]]
+id = "ov:OpenVINO/Phi-4-mini-instruct-int4-ov"
+short = "int4_asym g64 r1.0 + AWQ, scale estimation"
+label = "int4_asym g64 r1.0 + AWQ, scale estimation; OpenVINO/Phi-4-mini-instruct-int4-ov@e5813af02e8560a9186c41f932f21cbb584a0907"
+from = "OpenVINO/Phi-4-mini-instruct-int4-ov"
 
 [[step]]
 name = "reference"
@@ -119,4 +129,16 @@ script = "pc/run_llm_genai.py"
 form = "genai:microsoft/Phi-4-mini-instruct-onnx@fc04c8f93df696602fd9f300a30d1bf2e3081347 gpu/gpu-int4-rtn-block-32"
 timeout_min = 40
 args = ["--model-dir", "{HUB}\\microsoft__Phi-4-mini-instruct-onnx\\gpu\\gpu-int4-rtn-block-32", "--ep", "webgpu", "--ep-option", "adapterIndex=0", "--ref", "{ROOT}\\refs\\Phi-4-mini-instruct\\ref.json"]
+ram_need_gb = 8
+
+[[cell]]
+id = "task-openvino-genai_cpu_cpu"
+runtime = "openvino-genai"
+device = "cpu"
+line = "qa20"
+venv = "ovg"
+script = "pc/run_llm_ovg.py"
+form = "ov:OpenVINO/Phi-4-mini-instruct-int4-ov"
+timeout_min = 30
+args = ["--model-dir", "{HUB}\\OpenVINO__Phi-4-mini-instruct-int4-ov", "--device", "CPU", "--ref", "{ROOT}\\refs\\Phi-4-mini-instruct\\ref.json"]
 ram_need_gb = 8

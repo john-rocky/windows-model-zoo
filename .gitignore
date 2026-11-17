@@ -22,6 +22,7 @@ raw/*/
 !raw/phi4-mini/
 !raw/qwen3-ov-npu/
 !raw/phi4-mini-ep/
+!raw/phi4-mini-ov/
 !raw/walk/
 !raw/walk-z9/
 !raw/walk-z12/
@@ -42,6 +43,7 @@ raw/qwen25-ov-int8/logs/
 raw/phi4-mini/logs/
 raw/qwen3-ov-npu/logs/
 raw/phi4-mini-ep/logs/
+raw/phi4-mini-ov/logs/
 # a walk's cells and references written by tools/results.py --out (compared with the committed cells)
 walk-out/
 walk-out-*/

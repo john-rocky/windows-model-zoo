@@ -1,0 +1,522 @@
+[
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "added_tokens.json",
+  "size": 249,
+  "hash": "af52cde61cc39aca58f7b7f04116b317116e75dd",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "config.json",
+  "size": 2504,
+  "hash": "679e70defca5b399ae9e8ad53ff1176c9d7c6f93",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "generation_config.json",
+  "size": 168,
+  "hash": "43b32d0bc199571e0818489fa01c1002d7a40452",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "merges.txt",
+  "size": 2418348,
+  "hash": "dcecc4524288b351bbd0da8028e74e9b5bcdb9b5",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "model-00001-of-00002.safetensors",
+  "size": 4903637712,
+  "hash": "bc703090b63eda16f639fa4de7ac54635c23105ab1da2f6ec4d3403151d38ee6",
+  "ok": true,
+  "tries": 1,
+  "seconds": 139.4
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "model-00002-of-00002.safetensors",
+  "size": 2768428504,
+  "hash": "7ff79b9d2d31076bac2663393451f6530f4fc8ca49b09002116c92c373dba983",
+  "ok": true,
+  "tries": 1,
+  "seconds": 58.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "model.safetensors.index.json",
+  "size": 16273,
+  "hash": "d87cc3650f8e8dec46fc6871826ef30b941d0c94",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "special_tokens_map.json",
+  "size": 587,
+  "hash": "156262f7d61a27706bdcad9d117c579e88e2fa27",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "tokenizer.json",
+  "size": 15524095,
+  "hash": "382cc235b56c725945e149cc25f191da667c836655efd0857b004320e90e91ea",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.9
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "tokenizer_config.json",
+  "size": 2932,
+  "hash": "f5958080514e266176052f86c80aa53f91ce4ba0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "path": "vocab.json",
+  "size": 3910310,
+  "hash": "ea953a43348cdb3776cb7fd9ea02e3784febde34",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/added_tokens.json",
+  "size": 249,
+  "hash": "d4f2aceb0f20b71dd1f4bcc7e052e4412946bf281840b8f83d39f259571af486",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/config.json",
+  "size": 2504,
+  "hash": "ac65d86061d3d0d704ee2511fd0eb8713ef19eb6eedba17c3080a4165d5b933b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/configuration_phi3.py",
+  "size": 10875,
+  "hash": "01446e12bf573a1e96c8aa9c7af73a05e2096dec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/genai_config.json",
+  "size": 1520,
+  "hash": "0fcfa1e663f2bc867f8dc62fae65dd0924f0a4d68b43d1234df742dd19171470",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/merges.txt",
+  "size": 2418348,
+  "hash": "dcecc4524288b351bbd0da8028e74e9b5bcdb9b5",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/model.onnx",
+  "size": 52118230,
+  "hash": "701aa5d185b6a782bc27104a990dd5b634fa507840b7c42f7ee6f1fb812d0b83",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/model.onnx.data",
+  "size": 4856573952,
+  "hash": "cb0267fa60befa1a4ade8c98b6d32a3d67f51abbd307c7f793f132e8d9092131",
+  "ok": true,
+  "tries": 1,
+  "seconds": 106.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/special_tokens_map.json",
+  "size": 587,
+  "hash": "aff38493227d813e29fcf8406e8e90062f1f031aa47d589325e9c31d89ac7cc3",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/tokenizer.json",
+  "size": 15524095,
+  "hash": "382cc235b56c725945e149cc25f191da667c836655efd0857b004320e90e91ea",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.6
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/tokenizer_config.json",
+  "size": 2960,
+  "hash": "c565326a315fbe62cda093a59d298828c8f3f823122661325f41f3ba577a7dec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/vocab.json",
+  "size": 3910310,
+  "hash": "6cb65a857824fa6615bb1782d95d882617a8bbce1da0317118586b36f39e98bd",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.4
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/added_tokens.json",
+  "size": 249,
+  "hash": "d4f2aceb0f20b71dd1f4bcc7e052e4412946bf281840b8f83d39f259571af486",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/config.json",
+  "size": 2504,
+  "hash": "ac65d86061d3d0d704ee2511fd0eb8713ef19eb6eedba17c3080a4165d5b933b",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/configuration_phi3.py",
+  "size": 10875,
+  "hash": "01446e12bf573a1e96c8aa9c7af73a05e2096dec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/genai_config.json",
+  "size": 1568,
+  "hash": "3cdbd2ff0b2cda7829b262cda331a72b99daaa758d55bb056bb4d098d22b1140",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/merges.txt",
+  "size": 2418348,
+  "hash": "dcecc4524288b351bbd0da8028e74e9b5bcdb9b5",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/model.onnx",
+  "size": 286690,
+  "hash": "f8ff300b85719f79f1c220c88575626c62cc772a228244a6b96031d1a8d25250",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.9
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/model.onnx.data",
+  "size": 3413194752,
+  "hash": "b32f38f9211040b01c1483759cef7a6cce28df9f83b6b8bb91a474575d559d0f",
+  "ok": true,
+  "tries": 1,
+  "seconds": 72.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/special_tokens_map.json",
+  "size": 587,
+  "hash": "aff38493227d813e29fcf8406e8e90062f1f031aa47d589325e9c31d89ac7cc3",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.6
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/tokenizer.json",
+  "size": 15524095,
+  "hash": "382cc235b56c725945e149cc25f191da667c836655efd0857b004320e90e91ea",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/tokenizer_config.json",
+  "size": 2960,
+  "hash": "c565326a315fbe62cda093a59d298828c8f3f823122661325f41f3ba577a7dec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.7
+ },
+ {
+  "repo": "microsoft/Phi-4-mini-instruct-onnx",
+  "revision": "fc04c8f93df696602fd9f300a30d1bf2e3081347",
+  "path": "gpu/gpu-int4-rtn-block-32/vocab.json",
+  "size": 3910310,
+  "hash": "6cb65a857824fa6615bb1782d95d882617a8bbce1da0317118586b36f39e98bd",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.2
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "added_tokens.json",
+  "size": 249,
+  "hash": "af52cde61cc39aca58f7b7f04116b317116e75dd",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.2
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "chat_template.jinja",
+  "size": 2436,
+  "hash": "13771f20f9901ec3c77ef437e8ed5dcdec35685e",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "chat_template_original.jinja",
+  "size": 424,
+  "hash": "74fa864939eac651b818797a88d0b4f0b034e112",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "config.json",
+  "size": 2543,
+  "hash": "ef4cb245eba5ac45d7a48cb3b0a3f03f71ba5dbe",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "configuration_phi3.py",
+  "size": 10875,
+  "hash": "01446e12bf573a1e96c8aa9c7af73a05e2096dec",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "generation_config.json",
+  "size": 169,
+  "hash": "95e268799b8dc55e3173437f204fe51a94ec67f2",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "merges.txt",
+  "size": 2418348,
+  "hash": "dcecc4524288b351bbd0da8028e74e9b5bcdb9b5",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.5
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "modeling_phi3.py",
+  "size": 54268,
+  "hash": "71597d1417913e232b80dcafc0eb5e290dcff43e",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_config.json",
+  "size": 616,
+  "hash": "ab934f268644bde44613e26b4fdb0577f6b07bfb",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_detokenizer.bin",
+  "size": 2998349,
+  "hash": "58ec20da66d1d780b298f3cdcf252ccc0e228636fc7bee219163af81f1837e0a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.8
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_detokenizer.xml",
+  "size": 6957,
+  "hash": "abb12692b6077622fca74e1121ec46703524b8e0",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_model.bin",
+  "size": 2353486508,
+  "hash": "4e9a980e5e49e7a44e976177b80a948026010341ce4a8de8ba7ae72fef5dda15",
+  "ok": true,
+  "tries": 1,
+  "seconds": 53.9
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_model.xml",
+  "size": 2893854,
+  "hash": "440f16c0000d01f8e1b86b61864aae701976fde8",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_tokenizer.bin",
+  "size": 7602768,
+  "hash": "818537d6633196e2f45e51017a6320010ca3c06120460c14028a6c325f92f477",
+  "ok": true,
+  "tries": 1,
+  "seconds": 1.9
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "openvino_tokenizer.xml",
+  "size": 21429,
+  "hash": "368e9d67e26184922051a0c3d34e78a42ccc60ef",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "special_tokens_map.json",
+  "size": 587,
+  "hash": "156262f7d61a27706bdcad9d117c579e88e2fa27",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "tokenizer.json",
+  "size": 15524095,
+  "hash": "382cc235b56c725945e149cc25f191da667c836655efd0857b004320e90e91ea",
+  "ok": true,
+  "tries": 1,
+  "seconds": 2.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "tokenizer_config.json",
+  "size": 2962,
+  "hash": "15ddb38cd9b619529337787b733b87f25fff5e0a",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.3
+ },
+ {
+  "repo": "OpenVINO/Phi-4-mini-instruct-int4-ov",
+  "revision": "e5813af02e8560a9186c41f932f21cbb584a0907",
+  "path": "vocab.json",
+  "size": 3910310,
+  "hash": "ea953a43348cdb3776cb7fd9ea02e3784febde34",
+  "ok": true,
+  "tries": 1,
+  "seconds": 0.4
+ }
+]

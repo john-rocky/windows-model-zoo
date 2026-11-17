@@ -1,0 +1,67 @@
+{
+    "cell":  "Phi-4-mini-instruct/task-openvino-genai_cpu_cpu",
+    "device":  "cpu",
+    "role":  null,
+    "run":  1,
+    "mode":  "first",
+    "sitting":  "phi4-mini-ov-1",
+    "start":  "2026-11-18T05:42:34.9148797+09:00",
+    "osBuild":  "26200.9711",
+    "desktopLocked":  true,
+    "power":  {
+                  "msiUserScenarioMode":  2,
+                  "overlayAc":  "00000000-0000-0000-0000-000000000000",
+                  "overlayDc":  "00000000-0000-0000-0000-000000000000",
+                  "battery":  "status 2, 94 %"
+              },
+    "gate":  null,
+    "before":  {
+                   "load":  {
+                                "cpu":  2.3,
+                                "build_ms":  0,
+                                "top":  [
+                                            "SearchProtocolHost 22984 0.09 core",
+                                            "System 4 0.08 core",
+                                            "MsMpEng 5564 0.05 core",
+                                            "SearchIndexer 10332 0.03 core",
+                                            "powershell 20132 0.03 core"
+                                        ]
+                            },
+                   "nvidia":  "P4, 1485 MHz, 9001 MHz, 12.89 W, 0 %, 0 MiB, 47",
+                   "availGB":  20.9
+               },
+    "command":  "C:\\src\\zoo-phi4-mini-ov\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\zoo-phi4-mini-ov\\pc\\run_llm_ovg.py --model-dir C:\\src\\zoo-phi4-mini-ov\\hub\\OpenVINO__Phi-4-mini-instruct-int4-ov --device CPU --ref C:\\src\\zoo-phi4-mini-ov\\refs\\Phi-4-mini-instruct\\ref.json --out C:\\src\\zoo-phi4-mini-ov\\runs\\phi4-mini-ov-1\\Phi-4-mini-instruct\\task-openvino-genai_cpu_cpu\\run1.json",
+    "engine":  {
+                   "exitCode":  0,
+                   "timedOut":  false,
+                   "yielded":  false,
+                   "suspendedSeconds":  0,
+                   "suspensions":  0,
+                   "enginePid":  14416,
+                   "elapsedSeconds":  15.709,
+                   "peakWorkingSetBytes":  5153210368,
+                   "gpuMiBPeak":  {
+
+                                  },
+                   "nvidiaSamples":  [
+                                         "5s P0, 870 MHz, 14001 MHz, 18.06 W, 0 %, 0 MiB, 49",
+                                         "10s P4, 1485 MHz, 9001 MHz, 13.28 W, 0 %, 0 MiB, 50",
+                                         "15s P4, 1485 MHz, 9001 MHz, 13.38 W, 0 %, 0 MiB, 51"
+                                     ]
+               },
+    "after":  {
+                  "load":  {
+                               "cpu":  4.3,
+                               "build_ms":  0,
+                               "top":  [
+                                           "System 4 0.64 core",
+                                           "WmiPrvSE 7720 0.02 core",
+                                           "MsMpEng 5564 0.02 core",
+                                           "powershell 20132 0.02 core"
+                                       ]
+                           },
+                  "nvidia":  "P0, 225 MHz, 14001 MHz, 18.59 W, 0 %, 0 MiB, 52"
+              },
+    "end":  "2026-11-18T05:42:52.6095415+09:00",
+    "tries":  1
+}
