@@ -27,7 +27,7 @@ The walk ran the code of `5ecaf06`. `8baf723` differs from it in:
   gemma-4-E4B-it's reference and section 3, change 9), one sentence of gemma-4-E4B-it's card, the vision images' row
   of `LICENSES.md` (and its text in `tools/table.py`), this file and `raw/walk/`;
 - the mode of `tools/pc.sh` and `tools/sitting.sh` (100755, Finding 2);
-- names of other jobs on the shared PC, their decision numbers and private paths, taken out of: comments and
+- names of other jobs on the shared PC, their private tracking numbers and private paths, taken out of: comments and
   docstrings in 10 code files, the description in `suites/audio/S150.json`, a header line of
   `raw/z6/foundry_ep_lines.txt`, and the descriptive strings `source.by` (60 copied cells) and `regime.qos_basis`
   (31 copied cells);

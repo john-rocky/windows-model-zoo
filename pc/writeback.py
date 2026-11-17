@@ -1,4 +1,4 @@
-"""The TTS write-back (PLAN section 1): every <run dir>/wav/<id>.wav (24 kHz) resampled to 16 kHz (scipy resample_poly
+"""The TTS write-back (the audio zoo's PLAN.md, section 1): every <run dir>/wav/<id>.wav (24 kHz) resampled to 16 kHz (scipy resample_poly
 2/3) and transcribed by one fixed ASR = OpenVINO GenAI's ASRPipeline with whisper-large-v3-turbo-fp16-ov on the CPU,
 language <|en|>, greedy, no timestamps. Not timed. Writes <run>.writeback.json next to each run JSON (id -> text).
 

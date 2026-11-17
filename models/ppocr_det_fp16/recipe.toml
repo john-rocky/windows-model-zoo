@@ -82,7 +82,7 @@ plan = "john-rocky/windows-zoo PLAN.md section 3"
 [[line]]
 id = "z1-tflite"
 kind = "internal"
-rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the PLAN section 3 line"
+rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the line of the vision zoo's PLAN.md, section 3"
 written = "2026-11-06T16:30:00+09:00"
 written_note = "16:3x JST, PLAN.md Changes (after the first pass, before the quiet pass)"
 plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"

@@ -14,9 +14,9 @@
 #   pc.sh ps                          run the PowerShell read from stdin (-EncodedCommand)
 #   pc.sh push                        pc/, suites/ and zoo.toml -> the PC folder (ZOO_PC_ROOT, default zoo.toml pc_root)
 #   pc.sh pushfix <S150 dir> [<S220 dir>]   the clip sets -> <PC folder>\fixtures (S220 under fixtures\s220)
-#   pc.sh pull <rel path> <K dest>    <PC folder>\<rel path> -> K/<K dest>/<its last part> (one tar, one connection;
+#   pc.sh pull <rel path> <dest>      <PC folder>\<rel path> -> this repo's <dest>/<its last part> (one tar, one connection;
 #                                     without the cache\ and wav\ folders)
-#   pc.sh put <repo path> <PC rel dest>   K/<repo path> -> <PC folder>\<PC rel dest>\<its last part> (one tar, one
+#   pc.sh put <repo path> <PC rel dest>   this repo's <repo path> -> <PC folder>\<PC rel dest>\<its last part> (one tar, one
 #                                     connection; a committed reference for a new cell of a model: put raw/z6/refs/<model> refs)
 #   pc.sh py <pc\script.py> [args]   that script with the folder's .venv-ovg python (-I), in the foreground;
 #                                     ZOO_VENV=<name> picks .venv-<name>

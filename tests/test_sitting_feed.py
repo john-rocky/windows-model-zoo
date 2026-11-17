@@ -41,7 +41,7 @@ esac
 
 FEED_SH = r"""#!/bin/bash
 # stand-in feed command (the form of its output, and its exit codes)
-LOG=${BUSY_FEED_LOG:-$HOME/.winpc/busy_feed.log}
+LOG=$BUSY_FEED_LOG
 [ -f "$LOG" ] || { echo "no feed log at $LOG"; exit 2; }
 awk '$3=="BUSY"||$3=="WINDOW"||$3=="ACTIVE"{a[$3]=$0} END{for(k in a) print a[k]}' "$LOG" | sort -k3,3
 last=$(tail -1 "$LOG"); ts=${last%% *}

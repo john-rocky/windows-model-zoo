@@ -251,7 +251,7 @@ line = "text-check"
 migrated = true
 script = "windows-llm-zoo:pc/-"
 
-# ---- PLAN.md section 3: the qa20 task cells of the LLM zoo's cells that pass only the text-integrity line (written by a copy tool that is not in this repo) ----
+# ---- PLAN.md section 3: the qa20 task cells of the LLM zoo's cells that pass only the text-integrity line; a copy tool that is not in this repo wrote these task cells into this recipe ----
 
 [[fetch]]
 repo = "google/gemma-4-E2B-it"

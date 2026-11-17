@@ -1,4 +1,4 @@
-"""The PyTorch references (PLAN section 1): transformers fp32 on the PC's CPU, one clip at a time, greedy; one JSON in the
+"""The PyTorch references (the audio zoo's PLAN.md, section 1): transformers fp32 on the PC's CPU, one clip at a time, greedy; one JSON in the
 runners' form (rows with text). Not a timed cell: it runs under the shared PC's yield wrapper.
 
     python ref_hf.py --family whisper --model-dir <openai/whisper-large-v3-turbo folder> --set S150 --fixtures <dir> --out ref.json

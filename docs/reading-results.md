@@ -81,8 +81,8 @@ zoo's file in `source.migrated_from`. In the ids and paths of the recipes and th
 venv ids, the fields `z1_cell` and `z2_cell`, sitting names and folders), `z1` is the vision zoo and `z2` the LLM
 zoo; `z5` and `z6` are this repo's two passes of 2026-11-10 that ran the `task-*` cells (PLAN.md sections 2 and 3).
 The audio zoo named in `schema/lines.md` is
-[`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo). This repo's name on the shared
-PC's lock and notes is the `job` key of `zoo.toml`. This repo's later passes, one row each:
+[`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo).
+This repo's later passes, one row each:
 
 | pass | day | what it ran or added | PC folder | records |
 |---|---|---|---|---|

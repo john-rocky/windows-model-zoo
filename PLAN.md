@@ -10,8 +10,8 @@ This repo was cut on 2026-11-10 from a private working repo where the cells ran,
 Japanese. This file is its English text for the parts that concern these 28 models: the forms of section 1 (written
 2026-11-10 00:11 JST), section 2 and section 3. Sections 2 and 3 are the two passes of 2026-11-10 that judged the cells
 copied from the vision zoo ([`john-rocky/windows-zoo`](https://github.com/john-rocky/windows-zoo)) and the LLM zoo
-([`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo)) again on task lines; the recipes' rules
-and the cells cite these two sections. The times are those of the original text (JST). File names are this repo's:
+([`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo)) again on task lines; the recipes' lines
+and the cards cite these two sections. The times are those of the original text (JST). File names are this repo's:
 that repo's two result tables are the local `TASK_PAIRS_VISION.md` and `TASK_PAIRS_LLM.md` here
 (`tools/task_pairs_vision.py`, `tools/task_pairs_llm.py`), and the copy tools stayed in that repo.
 
@@ -232,6 +232,12 @@ Common to the 23 models:
    this section by its number. Why: plain names in place of working labels. The lines are the same: the inputs, the
    values compared, the thresholds and the reference do not change; no cell runs again and every verdict stays as it
    is. The earlier words are in the recipes at commit
+   [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
+3. 2026-11-17 19:09 JST, words only (after the runs; it changes no rule): the rule of the copied line `z1-tflite` (the
+   TFLite comparison) in the 23 vision recipes names the vision zoo's PLAN.md as the file whose section 3 it cites.
+   Why: this file has a section 3 of its own, so a section number with no file name reads as this file's. The line is
+   the same: the files compared (the ONNX file and the .tflite it was converted from), the inputs and the thresholds
+   do not change; no cell runs again and every verdict stays as it is. The earlier words are in the recipes at commit
    [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
 
 ## 3. The LLM zoo's 86 cells that pass its text-integrity line, judged on the qa20 line
