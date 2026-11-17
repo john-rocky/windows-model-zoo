@@ -122,7 +122,7 @@ def vision_task_row(c, task):
     head = [c["model"], task or "—", f"`{c['cell']}`", c["runtime"]["label"], c["device"]["label"],
             (c.get("form") or {}).get("label") or "—"]
     if st == "not_run":
-        return head + ["未", "not run (" + ((c.get("run") or {}).get("why") or "").replace("|", "/") + ")", "—", "—"]
+        return head + ["n/a", "not run (" + ((c.get("run") or {}).get("why") or "").replace("|", "/") + ")", "—", "—"]
     if st != "ok":
         err = ((c.get("run") or {}).get("error_line") or "").replace("|", "/")[:120]
         return head + ["E", "ERROR: " + err, "—", f"`{rec}`" if rec else "—"]
@@ -155,7 +155,7 @@ def llm_row(c):
     llm = c.get("llm") or {}
     if st == "not_run":
         return [c["model"], c["runtime"]["label"], c["device"]["label"], llm.get("backend") or "—", "—",
-                f"未 ({c['run'].get('why')})", "—", "—", "—", "—", "—", "—"]
+                f"n/a ({c['run'].get('why')})", "—", "—", "—", "—", "—", "—"]
     if st == "ok" and s.get("value") is not None and s.get("counted", True):
         dec = _fmt(s.get("value"), 2)
         spread = f" (±{_fmt(s.get('spread_pct'), 1)} %, n {s.get('n')})"
@@ -164,7 +164,7 @@ def llm_row(c):
         dec, spread, check = "out", " (spread > 5 %)", "—"
     else:
         why = (c["run"].get("why") or st or "").replace("|", "/")
-        dec, spread, check = "未", f" ({why})", ("FAIL" if (c.get("line") or {}).get("pass") is False else "—")
+        dec, spread, check = "n/a", f" ({why})", ("FAIL" if (c.get("line") or {}).get("pass") is False else "—")
     mem = s.get("peak_working_set_mb")
     return [c["model"], c["runtime"]["label"], c["device"]["label"], llm.get("backend") or "—", llm.get("package_text") or "—",
             f"{dec}{spread}", _fmt(s.get("prefill_tps")), _fmt(s.get("ttft_ms"), 0), _fmt(mem, 0) if mem else "—", check,
@@ -202,7 +202,7 @@ def llm_task_row(c):
         return t if timed else f"({t})"
     if st == "not_run":
         return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—", "—",
-                f"未 ({(c['run'].get('why') or 'not run').replace('|', '/')})"]
+                f"n/a ({(c['run'].get('why') or 'not run').replace('|', '/')})"]
     if st != "ok":
         return [c["model"], c["runtime"]["label"], c["device"]["label"], c["form"]["label"], "—", "—", "—", "—", "—", "—", "—", "—",
                 f"`{(c.get('source') or {}).get('record')}` — ERROR: {(c['run'].get('error_line') or '')[:100]}"]
