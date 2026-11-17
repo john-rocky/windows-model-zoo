@@ -140,7 +140,9 @@ Not run from this repo yet: a window that gives the shared lock itself to anothe
 lock of a test lock folder, `ZOO_PCUP`, and a stand-in took it there, while the walk kept the shared lock); a sitting
 with a window that ends with its control tail (the walk's was stopped on purpose near the end of its slot, before the
 tail, and is not a timing); a fixed slot in which another job takes the lock (in the walk's none came, and the chain
-took the lock back at the slot's give-up time); the night stop on real steps and on a `lock = true` step (it ran in a
-test lock folder with stand-in steps, under `ZOO_NIGHT`); `pc/z6_setup.py`'s `foundry model download` (the walk found
+took the lock back at the slot's give-up time); the night stop on a `lock = true` step (the night stop ran in a test
+lock folder with stand-in steps, under `ZOO_NIGHT`, and on 2026-11-17 on real steps, with the skill's text from a new
+PC folder: `skills/add-to-windows-model-zoo/SKILL.md`, "Not walked"); `pc/z6_setup.py`'s `foundry model download`
+(the walk found
 its three packages already in the Foundry Local cache); and the runners of the copied cells (they stay in their zoos).
 `WALK.md` has each case.

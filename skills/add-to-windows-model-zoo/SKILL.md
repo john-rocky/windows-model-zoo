@@ -85,7 +85,9 @@ Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's pr
 - **A model**: a new folder `models/<model>/` with a recipe (section 2) and a card (section 3), then sections 4 to 7.
 - **A result** of a model already here: one more `[[cell]]` in `models/<model>/recipe.toml` (and its `[[form]]`,
   `[[fetch]]` and `z6-setup` `[[step]]` when they are new, section 2), then sections 4 to 7 with that cell alone in
-  `--cells`. When its device or package is not in the card's paragraph yet (section 3), add it there. It is judged on
+  `--cells`. When its device or package is not in the card's paragraph yet (section 3), add it there, and leave the
+  card's front matter as it is, also when your package's library is not its `library_name`
+  (`models/Qwen2.5-1.5B-Instruct/README.md` keeps `openvino` with its llama.cpp cells). It is judged on
   the model's line against the model's reference record, which `pulled_from` in `models/<model>/reference/ref.json`
   names (`raw/<folder>/refs/<model>/ref.json`): section 5 puts that record on the PC instead of running the reference
   again. This path is walked for an LLM model only. A vision or audio model's committed reference has no outputs file (`.gitignore`), so `results.py` cannot judge
@@ -181,7 +183,8 @@ ram_need_gb = 5
   with `lock = true`"). Its slot comes from the shared PC's order, which is not in this repo: before you launch the
   model's list, stop and ask the person who gave you the task when it may run. A cell's `ram_need_gb` is the free RAM
   the chain waits for before it runs the cell (2 GB more on a first pass), not a limit on the run: copy it from a
-  cell here that runs a package of about the same size on the same runtime.
+  cell here that runs a package of about the same size on the same runtime (the committed `raw/*/fetch_report.json`
+  files give each fetched file's `size`, in bytes; for a package that none of them names, the second `curl` above).
 - **Cell ids** start with `task-` (the README and `tools/qa20_key.py` count the `task-*.json` files): `task-<runtime>_<device>_<backend>`,
   as in the other models (`task-openvino-genai_npu_npu`, `task-ort-genai_igpu_openvino`, `task-llama.cpp_rtx_cuda`).
   A second package on a runtime and device the model already has takes a suffix that names it
@@ -359,26 +362,29 @@ tools/pc.sh lock note ""
   first `lock note` line again before your next launch.
 - `push` ends with `pushed pc/, suites/, zoo.toml -> <pc_root>: <n> .ps1 files parse on the PC with the Mac's sha;
   zlib loaded, job <job>, others waiting <k>`. Push again after every `tools/plan.py` call.
-- Each `launch` prints `STARTED <pid> (...)`. Each `wait` prints the logs from their start (a list launched again
-  appends to its log, so an earlier try's lines come first) and ends with one `DONE OK <time> (<done file>)` per list
-  or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
+- Each `launch` prints `STARTED <pid> (...)`. Each `wait` prints the logs from their start (a list or a chain launched
+  again appends to its log, so an earlier try's lines come first) and ends with one `DONE OK <time> (<done file>)`
+  per list or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
 - **When your shell ends a call after some minutes.** A `wait` is one connection that stays open until the PC is
   done: 12 min for `setup` and `fetch` on a new PC folder in one run of this skill, and longer for the LiteRT-LM
   build. It only reads files on the PC, so nothing there depends on it. Start it in the background with its output in
   a file under `raw/<name>/logs/` (git ignores that folder), then look at the file in later calls:
 
   ```bash
-  R='<pc_root>'; W="raw/<name>/logs/mac-wait.txt"; mkdir -p "${W%/*}"
+  R='<pc_root>'; W="raw/<name>/logs/mac-wait-setup-fetch.txt"; mkdir -p "${W%/*}"
   nohup tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3 > "$W" 2>&1 &
   echo $! > "$W.pid"
   ```
 
   ```bash
-  W="raw/<name>/logs/mac-wait.txt"
+  W="raw/<name>/logs/mac-wait-setup-fetch.txt"
   for i in $(seq 5); do kill -0 "$(cat "$W.pid")" 2>/dev/null || break; sleep 20; done
   tail -n 5 "$W"; kill -0 "$(cat "$W.pid")" 2>/dev/null && echo "WAITING: the wait still runs" || echo "ENDED: read the lines above"
   ```
 
+  Both blocks name the same file, and each background `wait` takes a file of its own, named for what it waits for
+  (`mac-wait-setup-fetch.txt` here, `mac-wait-chain.txt` for the chain's `wait`): `>` empties the file it names, and
+  an earlier `wait`'s lines with it.
   The first block prints nothing. The second looks for up to 100 s (5 × 20 s; take a count that fits one call of your
   shell), prints the file's last lines and ends with `WAITING: the wait still runs` or `ENDED: read the lines above`.
   While it says `WAITING`, run it again: the last lines can stay the same for minutes while one step runs (7 min during
@@ -398,8 +404,15 @@ tools/pc.sh lock note ""
   list's log). Its lock ends 30 min after that wait began at the latest, so the step itself has under 29 min: a step
   still running then is killed (`<step> end: exit timeout`) and the list ends `FAIL <step>`: stop and report it. If
   under 25 min are left when the step takes the lock, or less RAM than its `ram_gb` is free 10 s later, it gives the
-  lock back (`lock given back` in the list's log) and starts the wait again by itself: keep the `wait` running. When
-  the step ends, it gives the lock back (`lock released`). Phi-4-mini-instruct's reference step (`ram_gb` 17) held the
+  lock back (`lock given back` in the list's log, with a `lock released` line right after it, which is not the step's
+  end) and starts the wait again by itself (with too little RAM free, it took the lock again 3 min later in one walk):
+  keep the `wait` running. When
+  the step ends, it gives the lock back (`lock released`). When the line `<step>: <n> GB free under its <ram_gb> GB:
+  lock given back, trying at the next free lock` comes back again and again, check the step's `ram_gb` against the
+  PC's RAM (section 2, "Memory"): while another job holds the RAM, waiting is right, but a `ram_gb` above what the PC
+  can free at all never fits, and the step tries again every 3 min, with no limit, until the night: stop and report
+  it instead of waiting (the PC of these results has 31.5 GiB of RAM; in one walk the line read 21.3 and 21.6 GB free
+  while no other job had a lock or a note up). Phi-4-mini-instruct's reference step (`ram_gb` 17) held the
   lock for 1.6 min.
 - **The engines** (for cells that need the model's `z6-setup` step, section 2; `steps` prints
   `pc/steps/engines.json` for every model with that step, also when your cells do not need it: then leave the list
@@ -419,7 +432,12 @@ tools/pc.sh lock note ""
   again from its start once the lock has been free 60 s (section 8). Do not kill, suspend or start it again yourself;
   keep the `wait` running, or start the same `wait` again if its connection ended.
 - In the PC's night (`[zoo] night` in `zoo.toml`) nothing starts and what runs is killed: the list ends
-  `FAIL <step> (night <night>)`, the chain `FAIL the night (<night>): ...`. Launch the same list or plan after the night.
+  `FAIL <step> (night <night>)`, the chain `FAIL the night (<night>): ...`, and a background `wait` ends by itself
+  with that `DONE FAIL` line. A `launch` in the night still prints `STARTED <pid> (... ended within 20 s, exit 0: read
+  its done file)`, and its done file holds the same `FAIL`. The night also removes your job's notes, your `lock note`
+  among them (`night <night>: the job's notes removed: ...` in the log). After the night, run the first `lock note`
+  line again, then launch the same list or plan: a list starts from its first step (`fetch` only hashes the files it
+  had finished), and a chain appends to its `chain.log`.
 - **A result** of a model already here is judged against the model's reference record (`pulled_from` in
   `models/<model>/reference/ref.json`: `raw/<folder>/refs/<model>/ref.json`). Instead of the model's list
   (`-List <model>`, its reference step), put that record where the cell reads it (a cell that needs the model's
@@ -526,8 +544,9 @@ python3 tools/lint.py
 4. `README.md` and `docs/reading-results.md` count and list the results (the `task-*` files). Change each place your
    cells change.
    - In `README.md`: the number of results in four places (`grep -n -E '[0-9]+ (test )?results' README.md`); the
-     sentence that starts `The other <n> run packages`, with its count and what your cells run; the last sentence of
-     the paragraph that starts `The <n> results ran on`, with the day your cells ran; and for a new model, its link in
+     sentence that starts `The other <n> run packages`, with its count and what your cells run; in the
+     paragraph that starts `The <n> results ran on`, your cells in its last sentence when they ran on that
+     sentence's day, or else one more sentence after it with their day; and for a new model, its link in
      its job's row of "What's covered".
    - In `docs/reading-results.md`: for a new model, the counts of models and LLMs at the start of "What the results
      cover"; the paragraph on the `task-*` cells added after 2026-11-10; for an NPU cell, the count of `task-*` cells
@@ -543,7 +562,10 @@ python3 tools/lint.py
      `and` before the last one; the card's paragraph and the first comment line of the recipe list the devices the
      same way. When your group goes at the end, move that `and` to before your group and leave a `,` or `;` where it
      stood. Then read each changed sentence whole.
-5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. Run section 0's tests and lint once
+5. `git checkout -- zoo.toml`, then `git status`: only the files of done item 3. After this step `zoo.toml` names the
+   committed `job` and PC folder again, which another job on the shared PC may use: run no `tools/pc.sh` command but
+   `status` and `ps` (a `lock note ""` would remove that job's note, and a `push` would write into its folder). To go
+   back to the PC, do section 0's step 3 again first. Run section 0's tests and lint once
    more.
 6. Commit them on your branch, naming the paths (not `git add -A`); for a new LLM, add `PLAN.md`, and for cells that
    need the model's `z6-setup` step, `pc/z6_spec.json`, to the `git add` line:
@@ -573,10 +595,11 @@ python3 tools/lint.py
 | `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, `engines`, the model's folder name) |
 | `DONE FAIL fetch`; in the pulled `raw/<name>/logs/fetch/fetch.txt`, a row with `"ok": false` and the last line `fetch done: <n> files, <k> not matching` | a file's bytes are not the manifest's hash after 6 tries | `python3 tools/plan.py manifest <model>`, `tools/pc.sh push`, then launch the `fetch` list and wait for it again (the files that match are only hashed); a URL `[[fetch]]`: check its `size` and `sha256` |
 | `<step>: killed for another job's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |
-| `<model>/<cell> run 1 stopped (another job's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run | nothing (the cell's `run.tries` counts the starts) |
+| `<model>/<cell> run 1 stopped (another job's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run; the next lines are `... run 1: another job holds the lock (...): waiting`, then `... run 1: the lock has been free 60 s: going on` and `... run 1 start` | nothing (the cell's `run.tries` counts the starts) |
+| `DONE FAIL <step> (night <night>)` (a list), `DONE FAIL the night (<night>): ...` (a chain) | the PC's night: a step in flight at the night's start was killed (`<step>: killed at the night (<night>) after <s> s`), and a list or a chain launched in the night starts nothing (`... not started` in its log) | after the night, the first `lock note` line again (the night removed the note), then launch the same list or plan and wait for it (section 5) |
 | `DONE FAIL <step>` (a list) | a step failed | its output: `tools/pc.sh pull logs raw/<name>`, then `raw/<name>/logs/<list>/<step>.txt` and `.txt.err` |
 | `DONE FAIL pip-<venv>,versions-<venv>,...` for `setup.done` (every `pip-*` and `versions-*` step) and, in the log lines above it, `Failed to query Python interpreter at` a venv's `python.exe` with a cause ending `(os error 4551)` | Smart App Control (or another application control policy of Windows) blocks the `python.exe` that uv puts in each venv, a launcher that is not signed; the `fetch` list, which runs uv's Python without a venv, can still end `DONE OK` | nothing in the zoo gets around it: stop and ask the person who gave you the task, and do not change the policy yourself (section 0, step 5). Once it is not `On`, launch the `setup` list again |
-| results.py: `<model>/<cell>: error, first, ...` | the runner failed | `run.error_line` in the cell JSON and the run's `run1.stderr.txt`; fix it, then run the cell again as in the row "is not before the run" below |
+| results.py: `<model>/<cell>: error, first, ...` | the runner failed; in `chain.log` the run's line ends `exit <n>, ERROR, <s> s` (`exit 1` in one walk), and the chain still ends `chain done: OK` and its `wait` `DONE OK` | `run.error_line` in the cell JSON (the whole line; the verdict's brackets cut it short) and the run's `run1.stderr.txt`; fix it, then run the cell again as in the row "is not before the run" below |
 | other cells' `results/*.json` in `git status` after results.py | results.py ran without `--model` / `--cells`, or with `--model` for a result of a model already here | `git checkout -- 'models/*/results/*.json' 'models/*/reference/*.json'` (with the quotes: your recipe, your card and your new files stay), then section 6 with `--model` (a new model) or `--cells` (a result) |
 | lint: `card: the cells block is stale (python3 tools/table.py)` or `generated file LICENSES.md is stale` | the generated files are older than the JSONs | `python3 tools/table.py`, then lint |
 | lint: `generated file RESULTS_LLM.md is stale (python3 tools/table.py --local, or delete it)` (or another `RESULTS_*.md`, or `models/index.json`) | a table that `tools/table.py --local` wrote on your disk (not committed) is older than the JSONs | `python3 tools/table.py --local`, or delete the file; then lint |
@@ -656,10 +679,59 @@ said that the cell on the Intel GPU with the OpenVINO execution provider gave no
 four of its 21 rows; 9 rows have text (now section 6). That cell was then run once more, outside the agent's run, and
 gave the same rows. Section 5's background `wait` was also run outside the agent's run, to each of its ends: the `DONE`
 lines, `WAIT-TIMEOUT`, and a connection that ended.
-Not walked: `REFUSED (another job's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
-in another way, the `setup` list launched again after Smart App Control is turned off, the PC's night stop, a lock
-step that gives its lock back or is killed at its lock's end, the LiteRT-LM
-build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM cells that pass section 6's prompt check,
-Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep follow_config` or whose folder comes from `z6-setup` (a
-WebGPU overlay or a Foundry Local catalog package), llama.cpp cells of the five LLMs whose entries have `litert`, a
-vision or audio model, and a timed sitting.
+A ninth such agent was given more than two sentences: the task, values of the same kind, the shared PC's rules on its
+lock and night, and this Mac's rules for an agent's runs (not a file of this repo), which say among other things to
+wait for a long command with one background command and a watcher that prints only its end lines. It added one more
+result of Phi-4-mini-instruct (OpenVINO's int4 IR
+`OpenVINO/Phi-4-mini-instruct-int4-ov` through OpenVINO GenAI on the CPU; its records: `raw/phi4-mini-ov/`) from a new
+PC folder, with no help, and ended with a commit on its branch. It ran section 5's first block as written, and its
+`wait` for `setup` and `fetch` went on in the background to its two `DONE OK` lines (`setup` took 3.9 min and `fetch`
+7.7 min). It did not run the second block: it looked at the file with the background command and the watcher of the
+program that ran it, as those rules say. On its own, it gave the chain's `wait` a file of its own, because `>` would
+have emptied the first one (now section 5). It found this file short in four more places. After section 7's step 5,
+`zoo.toml` names the committed `job` and PC folder again, which another job on the shared PC may use, and this file
+did not say which `tools/pc.sh` commands to leave out then; the agent ran only `status` and `ps` (now section 7, step
+5). Its cell ran on a day that the README's paragraph on the days did not have yet, and it added a sentence after the
+paragraph's last one (now section 7, step 4). Its package's library is not the card's `library_name`, and it left the
+card's front matter as it was, as Qwen2.5-1.5B-Instruct's card does (now section 1). For its cell's `ram_need_gb` it
+read the sizes of three other packages from the Hub, because this file did not say where to find them (now
+section 2).
+Five of the 13 items of the list that stood here were then walked on the PC with this text, three of them in part, on
+2026-11-17 and 2026-11-18, from a new PC folder, with Phi-4-mini-instruct's recipe and reference record as committed.
+`REFUSED (another job's timing lock)`: while another job timed on the shared PC, `tools/pc.sh status` printed
+`REFUSED (another job's timing lock): <the feed's line>` and ended with exit 3, and a stand-in `ssh`, first on the
+`PATH`, counted no call.
+A first-pass run stopped by a lock: the walk took the shared PC's lock itself, under a text of its own, 3 s after the
+run's start, as a stand-in for another job's lock. The chain's log read `<model>/<cell> run 1 stopped (another job's
+lock, a slot or the night); its files removed, run again after it` and `... run 1: another job holds the lock
+(<text>): waiting`, and after the walk gave the lock back, `... run 1: the lock has been free 60 s: going on`, `...
+run 1 start`, `... run 1 end: exit 0, OK, 17.594 s` and `chain done: OK`. The cell's `run.tries` was 2, and the
+command of section 7, step 2 cut the lock's text from a copy of that log (now section 8).
+A runner that fails in another way: a stand-in, a copy of a cell (not committed) whose `--model-dir` names a folder
+that is not there. The chain's log read `... run 1 end: exit 1, ERROR, 1.607 s` and `chain done: OK`, the `wait` ended
+`DONE OK`, and `results.py` printed `<model>/<cell>: error, first, no verdict on qa20: error (FileNotFoundError: ...`,
+with the whole line in the cell's `run.error_line` (now section 8).
+The PC's night stop, in the PC's real night and on real steps: at 20:45 the `setup` and `fetch` lists, launched at
+20:38, each had its running step killed (`pip-genai-cuda: killed at the night (20:45-05:30) after 127 s`, `fetch:
+killed at the night (20:45-05:30) after 386 s`) and ended `FAIL pip-genai-cuda (night 20:45-05:30)` and `FAIL fetch
+(night 20:45-05:30)`. Each list's log has a line `night 20:45-05:30: the job's notes removed: ...`, and the background
+`wait` ended by itself with the two `DONE FAIL` lines. A list launched at 20:46 printed `STARTED <pid> (steps.ps1
+ended within 20 s, exit 0: read its done file)` and ended `FAIL python (night 20:45-05:30)`. A chain launched then
+wrote `... run 1: the night (20:45-05:30): not started` and ended `FAIL the night (20:45-05:30): <model>/<cell> run 1
+and the units after it not started`. Above that last line, the chain's log had its `chain error:` line with
+PowerShell's error record under it: six more lines of text, one of them in the PC's display language (now one line,
+`pc/chain.ps1`, run on the PC under a stand-in night, `ZOO_NIGHT`). After the night, at 05:31, the lock note was
+written again and the same two lists were launched again. Both ended `DONE OK`, and `fetch` only hashed the 5 files it
+had finished before the kill (now sections 5 and 8).
+A lock step that gives its lock back: a stand-in, the reference step's `ram_gb` set to 40 in a recipe that was not
+committed (the PC has 31.5 GiB of RAM), with the shared PC's lock taken by this repo's own code. The list's log read
+`lock: TAKEN (Phi-4-mini-instruct reference (not a timing) until 07:17) after 60 s free`, 10 s later `reference: 21.3
+GB free under its 40 GB: lock given back, trying at the next free lock` and `lock released`, and 3 min later the three
+lines once more, with `until 07:20` and `21.6 GB free`. The step did not start, and the walk then stopped the list
+itself (now section 5).
+Not walked: a step that fails in another way, the `setup` list launched again after Smart App Control is turned off,
+the PC's night stop of a `lock = true` step, a lock step that gives its lock back because under 25 min are left or
+that is killed at its lock's end, the LiteRT-LM build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC,
+LiteRT-LM cells that pass section 6's prompt check, Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep
+follow_config` or whose folder comes from `z6-setup` (a WebGPU overlay or a Foundry Local catalog package), llama.cpp
+cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.
