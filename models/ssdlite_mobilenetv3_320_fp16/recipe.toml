@@ -30,8 +30,8 @@ why = "the vision zoo's files that this model's task cells or reference read and
 [[form]]
 id = "z1-npu-blob"
 short = "NPU blob"
-label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the vision zoo's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\npu\\ssdlite_mobilenetv3_320_fp16.blob"
 sha256 = "c31be716cb4d3830d350a68a55e3562821a81f3a4859c04589163a287894ff87"
 from = "mlboydaisuke/ssdlite320-mobilenetv3-openvino"
@@ -40,8 +40,8 @@ public = "mlboydaisuke/ssdlite320-mobilenetv3-openvino@89a246e64d0e795582e422e65
 [[form]]
 id = "z1-onnx-fp16"
 short = "fp16"
-label = "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the vision zoo's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with the vision zoo's node fixes), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\fp16\\ssdlite_mobilenetv3_320_fp16.onnx"
 sha256 = "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
 from = "mlboydaisuke/ssdlite320-mobilenetv3-openvino"
@@ -50,8 +50,8 @@ public = "mlboydaisuke/ssdlite320-mobilenetv3-openvino@94b34bfe57a527564905a112b
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\ssdlite_mobilenetv3_320_fp16.onnx"
 sha256 = "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
 from = "mlboydaisuke/ssdlite320-mobilenetv3-openvino"
@@ -99,9 +99,9 @@ plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
 [[line]]
 id = "task-detection"
 kind = "task"
-rule = "detection, the app's boxes (john-rocky/LiteRT-Models@96e0bc1f/ssdlite/.../SSDLiteDetector.kt: per anchor the softmax over the 91 classes, the best of classes 1..90, kept at >= 0.4, the box from BoxCoder (10, 10, 5, 5) on the default boxes of the six levels, clipped to the 320 x 320 input, per-class NMS at IoU > 0.55, the first 100): a cell box pairs with a reference box of the same class at IoU >= 0.5, one to one, the cell's boxes taken in descending score; the pairs are >= 95 % of the reference's boxes and >= 95 % of the cell's boxes, summed over the inputs (a set without a reference box has no verdict). Inputs: the 20 images of suites/vision/images.json, each stretched to 320 x 320, RGB / 127.5 - 1. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+rule = "detection, the app's boxes (john-rocky/LiteRT-Models@96e0bc1f/ssdlite/.../SSDLiteDetector.kt: per anchor the softmax over the 91 classes, the best of classes 1..90, kept at >= 0.4, the box from BoxCoder (10, 10, 5, 5) on the default boxes of the six levels, clipped to the 320 x 320 input, per-class NMS at IoU > 0.55, the first 100): a cell box pairs with a reference box of the same class at IoU >= 0.5, one to one, the cell's boxes taken in descending score; the pairs are >= 95 % of the reference's boxes and >= 95 % of the cell's boxes, summed over the inputs (a set without a reference box has no verdict). Inputs: the 20 images of suites/vision/images.json, each stretched to 320 x 320, RGB / 127.5 - 1. Reference: the same fp32 ONNX file (the one the vision zoo measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (the vision zoo's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section 2 (written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

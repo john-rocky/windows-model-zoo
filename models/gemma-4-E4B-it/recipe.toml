@@ -21,10 +21,10 @@ plan = "edge-llm-bench fairness-rules.md section 12; windows-llm-zoo PLAN.md sec
 [[line]]
 id = "qa20"
 kind = "task"
-rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section Z6 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate prompt (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers bf16 on this PC's CPU (fp32 is 32.0 GB and does not fit in the PC's 31.5 GB of RAM)"
+rule = "the 20 questions of suites/llm/qa20.jsonl, each one user turn in the model's chat template rendered by the reference step (apply_chat_template, add_generation_prompt=True, enable_thinking=False) and passed as it is, with no template of the runtime and no special token added (PLAN.md section 3 gives the form per runtime: the rendered string's token ids, a leading <bos> dropped where the runtime adds the start token itself, Foundry Local through a local registration of the same package files whose chat template returns the message content as it is), plain greedy (repetition penalty 1.0), at most 48 new tokens: the first line of the answer, normalized (trimmed, lower case, quotes, backticks and asterisks around it and a final . ! ? dropped, spaces collapsed), equals the reference's on at least 18 of 20; and the gate (Reply with only the number: 1+1=?) ends on an end token within 16 new tokens; reference = transformers bf16 on this PC's CPU (fp32 is 32.0 GB and does not fit in the PC's 31.5 GB of RAM)"
 written = "2026-11-10T07:58:00+09:00"
-written_note = "PLAN.md section Z6 (Z6 lane), written before the reference or any cell of this line ran; the probes of 07:54-07:56 on the PC used another prompt"
-plan = "PLAN.md section Z6 and section 1b"
+written_note = "PLAN.md section 3, written before the reference or any cell of this line ran; the probes of 07:54-07:56 on the PC used another prompt"
+plan = "PLAN.md section 3 and section 1b"
 
 [[cell]]
 id = "foundry_cpu_cpu"
@@ -269,7 +269,7 @@ line = "text-check"
 migrated = true
 script = "windows-llm-zoo:pc/-"
 
-# ---- Z6 (migrate/z6.py): the qa20 task cells of the Z2 cells that pass only the text-integrity line ----
+# ---- PLAN.md section 3: the qa20 task cells of the LLM zoo's cells that pass only the text-integrity line (written by a copy tool that is not in this repo) ----
 
 [[fetch]]
 repo = "google/gemma-4-E4B-it"
@@ -572,4 +572,4 @@ timeout_min = 40
 args = ["--model-dir", "{ROOT}\\overlays\\gemma-4-E4B-it_webgpu_a0", "--ep", "follow_config", "--ref", "{ROOT}\\refs\\gemma-4-E4B-it\\ref.json"]
 ram_need_gb = 10
 
-# ---- end Z6 ----
+# ---- end of PLAN.md section 3's cells ----

@@ -94,7 +94,7 @@
   "ran_on_device": false
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/ssdlite_mobilenetv3_320_fp16/cpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/cpu.json"
  },

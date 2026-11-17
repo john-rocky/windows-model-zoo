@@ -14,7 +14,7 @@
  "form": {
   "id": "z1-onnx-fp32",
   "label": "fp32",
-  "detail": "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
+  "detail": "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
   "path": "{HUB}\\mlboydaisuke__DINOv2-ViT-S14-OpenVINO\\dinov2_s_fp16.onnx",
   "from": "mlboydaisuke/DINOv2-ViT-S14-OpenVINO"
  },

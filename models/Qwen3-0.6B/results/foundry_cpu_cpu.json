@@ -804,7 +804,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/Qwen3-0.6B/foundry_cpu_cpu.json",
   "record_text": "`results/Qwen3-0.6B/foundry_cpu_cpu.json`, `raw/walk-timed-b/Qwen3-0.6B/foundry_cpu_cpu/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/Qwen3-0.6B/foundry_cpu_cpu.json"

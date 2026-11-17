@@ -31,14 +31,14 @@
   "started": "2026-11-07T19:44:34.6181058+09:00",
   "last_run": "2026-11-07T19:44:34.6181058+09:00",
   "error": "the engine process ended with exit code None after 12397 s and wrote no runner JSON (see the run's stderr file)",
-  "why": "did not finish: stopped at the cell's limit after 30 running min (207 min on the clock, 177 of them paused while other lanes timed)",
+  "why": "did not finish: stopped at the cell's limit after 30 running min (207 min on the clock, 177 of them paused while other jobs timed)",
   "state_text": "timeout"
  },
  "line": {
   "id": "text-check",
   "kind": "text-integrity",
   "pass": null,
-  "verdict": "no verdict on text-check: timeout (did not finish: stopped at the cell's limit after 30 running min (207 min on the clock, 177 of them paused while other lanes timed))",
+  "verdict": "no verdict on text-check: timeout (did not finish: stopped at the cell's limit after 30 running min (207 min on the clock, 177 of them paused while other jobs timed))",
   "text": null
  },
  "speed": {
@@ -331,7 +331,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/Qwen3-0.6B/openvino-genai_npu_npu.json",
   "record_text": "`results/Qwen3-0.6B/openvino-genai_npu_npu.json`, `raw/walk-first/Qwen3-0.6B/openvino-genai_npu_npu/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/Qwen3-0.6B/openvino-genai_npu_npu.json"

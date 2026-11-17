@@ -71,7 +71,7 @@
   "tflite_sha256_ok": true
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/dac_16khz_deconly_zs_fp16/tflite.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/dac_16khz_deconly_zs_fp16/tflite.json"
  },

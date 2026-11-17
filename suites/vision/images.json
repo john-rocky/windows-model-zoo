@@ -1,5 +1,5 @@
 {
- "about": "The vision input set: the sample images of the Android apps of john-rocky/LiteRT-Models at commit 96e0bc1f7965bedc17b36ab1ea5403e79e513cf1 (the inputs of the vision zoo Z1, its pc/make_inputs.py SAMPLE_FILES: 23 files, of which 3 pairs are the same bytes = 20 images). Each image once; `also` = the other app folders with the same bytes.",
+ "about": "The vision input set: the sample images of the Android apps of john-rocky/LiteRT-Models at commit 96e0bc1f7965bedc17b36ab1ea5403e79e513cf1 (the inputs of the vision zoo, its pc/make_inputs.py SAMPLE_FILES: 23 files, of which 3 pairs are the same bytes = 20 images). Each image once; `also` = the other app folders with the same bytes.",
  "url": "https://raw.githubusercontent.com/john-rocky/LiteRT-Models/96e0bc1f7965bedc17b36ab1ea5403e79e513cf1/{path}",
  "commit": "96e0bc1f7965bedc17b36ab1ea5403e79e513cf1",
  "images": [

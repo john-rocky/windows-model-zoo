@@ -11,7 +11,7 @@ The result files, recipes and tools use short names for a few ideas.
 | `qa20` | the LLM check: 20 short questions |
 | gate | the extra LLM prompt that must end within 16 tokens |
 | sitting | one timed measuring session on the PC |
-| lane | this repo's name on the shared PC's lock and notes |
+| job | one piece of work on the shared PC; `job` in `zoo.toml` is this repo's name on the PC's lock and notes |
 | walk | one run of [reproduce.md](reproduce.md) from an empty folder |
 
 ## What the results cover
@@ -24,7 +24,7 @@ cell of this laptop is judged on a line, a pass / fail rule in its model's recip
 written before any of them ran). What the task lines (the `task-*` cells) look at: for an LLM, whether the first line of
 each of 20 short answers, normalized (trimmed and lower case; quotes, backticks or asterisks around it and a final `.`
 `!` `?` dropped; spaces collapsed), equals the first line of the same model's answer in transformers on the CPU (fp32;
-bf16 for gemma-4-E4B-it), the reference, on at least 18 of 20, and a gate prompt ends within 16 tokens. That is
+bf16 for gemma-4-E4B-it), the reference, on at least 18 of 20, and the gate ends within 16 tokens. That is
 agreement with the reference, not answers a person graded right or wrong; a second count outside the line, at the end
 of each LLM `task-*` cell's verdict, is the number of answers that contain the right answer of an answer key
 (`suites/llm/qa20.key.jsonl`). For the other 23, the model's task output
@@ -38,7 +38,7 @@ it).
 The other cells were copied from the vision zoo ([`john-rocky/windows-zoo`](https://github.com/john-rocky/windows-zoo))
 and the LLM zoo ([`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo)) with those zoos' lines
 and numbers; the `task-*` cells, added on 2026-11-10, judge the same files and packages again on task lines
-([`PLAN.md`](../PLAN.md), sections Z5 and Z6): the vision zoo's 47 cells that fail its internal line and the LLM zoo's 86
+([`PLAN.md`](../PLAN.md), sections 2 and 3): the vision zoo's 47 cells that fail its internal line and the LLM zoo's 86
 cells that pass its text-integrity line. The other copied cells were not judged again. Four more `task-*` cells, added on
 2026-11-12, run two packages no earlier zoo had, the int8 OpenVINO IRs `mlboydaisuke/Qwen3-1.7B-int8-sym-ov` and
 `mlboydaisuke/Qwen3-0.6B-int8-sym-ov`, on the Intel NPU and the CPU on the qa20 line
@@ -73,21 +73,22 @@ and `reference of <line>` for a reference cell. `line.pass` and `line.detail` ho
 as values (the count by the answer key, the last part of an LLM `task-*` verdict, is outside the line and is in
 `llm.task.key`), `run` how the cell ran, `form` the file or package (the copied LLM cells name it in `form.package`, the LLM
 `task-*` cells in `form.from`, the vision `task-*` cells the vision zoo's file in `form.path` and `form.detail`).
-`source.by` says who ran the cell: the vision zoo (`windows-zoo (Z1)`), the LLM zoo (`windows-llm-zoo (Z2)`),
+`source.by` says who ran the cell: the vision zoo (`windows-zoo`), the LLM zoo (`windows-llm-zoo`),
 edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-template`, the private working repo this
 one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
 records' paths), or `windows-model-zoo`, this repo, in one of the passes of the table below. A copied cell names its
-zoo's file in `source.migrated_from`. In the recipes' rules, the cards' generated blocks, `source.by` and the paths in
-`source.record`, Z1 is the vision zoo, Z2 the LLM zoo and Z3 the audio zoo
-([`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo)); Z5 and Z6 are this repo's two
-passes of 2026-11-10 that ran the `task-*` cells (PLAN.md), and Z7 is this repo's name on the shared PC's lock and
-notes (set in `zoo.toml`). This repo's later passes, one row each:
+zoo's file in `source.migrated_from`. In the ids and paths of the recipes and the records (such as line, form and
+venv ids, the fields `z1_cell` and `z2_cell`, sitting names and folders), `z1` is the vision zoo and `z2` the LLM
+zoo; `z5` and `z6` are this repo's two passes of 2026-11-10 that ran the `task-*` cells (PLAN.md sections 2 and 3).
+The audio zoo named in `schema/lines.md` is
+[`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo). This repo's name on the shared
+PC's lock and notes is the `job` key of `zoo.toml`. This repo's later passes, one row each:
 
 | pass | day | what it ran or added | PC folder | records |
 |---|---|---|---|---|
-| Z14 | 2026-11-11 | the 31 Intel NPU `task-*` cells again | `C:\src\mz-z14` | `raw/z14/` |
-| Z13 | 2026-11-12 | the four Qwen3 int8-sym `task-*` cells | `C:\src\mz-z13` | `raw/z13/` |
-| Z19 | 2026-11-12 | Qwen2.5-1.5B-Instruct and its two cells | `C:\src\zoo-z19` | `raw/z19/` |
+| npu-rerun | 2026-11-11 | the 31 Intel NPU `task-*` cells again | `C:\src\mz-z14` | `raw/z14/` |
+| qwen3-int8-sym | 2026-11-12 | the four Qwen3 int8-sym `task-*` cells | `C:\src\mz-z13` | `raw/z13/` |
+| qwen25-15b | 2026-11-12 | Qwen2.5-1.5B-Instruct and its two cells | `C:\src\zoo-z19` | `raw/z19/` |
 | qwen25-igpu | 2026-11-13 | the int4 Intel GPU cell of Qwen2.5-1.5B-Instruct | `C:\src\zoo-qwen25-igpu` | `raw/qwen25-igpu/` |
 | qwen25-llamacpp | 2026-11-13 | the three llama.cpp cells of Qwen2.5-1.5B-Instruct | `C:\src\zoo-qwen25-llamacpp` | `raw/qwen25-llamacpp/` |
 | qwen25-05b | 2026-11-13 | Qwen2.5-0.5B-Instruct and its three llama.cpp cells | `C:\src\zoo-qwen25-05b` | `raw/qwen25-05b/` |
@@ -97,8 +98,8 @@ notes (set in `zoo.toml`). This repo's later passes, one row each:
 | phi4-mini-ep | 2026-11-16 | four more ONNX Runtime GenAI cells of Phi-4-mini-instruct, on the OpenVINO and WebGPU execution providers | `C:\src\zoo-phi4-mini-ep` | `raw/phi4-mini-ep/` |
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's
-generic-gpu package with the main decoder on the CUDA EP, not WebGPU (`raw/z6/foundry_ep_lines.txt`; PLAN.md, "Z6
-changes" item 8): `webgpu` in their names and in the copied cells' `runtime.ep` is the package's, not the EP that ran.
+generic-gpu package with the main decoder on the CUDA EP, not WebGPU (`raw/z6/foundry_ep_lines.txt`; PLAN.md, section 3,
+change 8): `webgpu` in their names and in the copied cells' `runtime.ep` is the package's, not the EP that ran.
 
 ## Pass/fail rules
 
@@ -106,7 +107,7 @@ A cell is judged on a line written before it runs. Its kind, in each cell's `lin
 
 | kind | what it compares | here |
 |---|---|---|
-| `task` | the model's job against the same model in fp32 on the CPU (the reference), on a fixed input set | the `task-*` cells: PLAN.md sections 1a, 1b, Z5, Z6 |
+| `task` | the model's job against the same model in fp32 on the CPU (the reference), on a fixed input set | the `task-*` cells: PLAN.md sections 1a, 1b, 2, 3 |
 | `internal` | outputs against the reference's outputs (cosine, max \|d\|) | the vision zoo's line, on its copied cells |
 | `text-integrity` | the text is well formed (length, words, no loop), not its correctness | the LLM zoo's line (edge-llm-bench's textCheck), on its copied cells |
 | `reference` | none: the cell is the reference of its line | the vision zoo's CPU cells |

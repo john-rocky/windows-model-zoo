@@ -116,7 +116,7 @@
   "ran_on_device": true
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/sinet/ovgpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/sinet/ovgpu.json"
  },

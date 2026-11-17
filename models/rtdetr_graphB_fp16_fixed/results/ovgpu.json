@@ -144,7 +144,7 @@
   "ran_on_device": true
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/rtdetr_graphB_fp16_fixed/ovgpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtdetr_graphB_fp16_fixed/ovgpu.json"
  },

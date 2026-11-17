@@ -584,7 +584,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/Qwen3-4B/openvino-genai_npu_npu-sym-g128.json",
   "record_text": "`results/Qwen3-4B/openvino-genai_npu_npu-sym-g128.json`, `raw/walk-timed-b/Qwen3-4B/openvino-genai_npu_npu-sym-g128/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/Qwen3-4B/openvino-genai_npu_npu-sym-g128.json"

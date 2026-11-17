@@ -8,7 +8,7 @@ these steps as a procedure, with the commands, the output to expect and what to 
 ## Where things are
 
 ```
-zoo.toml                    the PC (ssh name, folder), the lane (this zoo's name on the shared PC's lock and notes),
+zoo.toml                    the PC (ssh name, folder), the job (this zoo's name on the shared PC's lock and notes),
                             the PC's night (no untimed work in it), device and runtime names
 PLAN.md                     the lines and their dated changes
 models/<model>/README.md    the card: Hub front matter (license, base_model, base_model_relation, library_name,

@@ -691,7 +691,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/gemma-4-E4B-it/foundry_rtx_cuda.json",
   "record_text": "`results/gemma-4-E4B-it/foundry_rtx_cuda.json`, `raw/walk-timed-b/gemma-4-E4B-it/foundry_rtx_cuda/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/gemma-4-E4B-it/foundry_rtx_cuda.json"

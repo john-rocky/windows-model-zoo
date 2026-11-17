@@ -3,8 +3,8 @@
 The words used here are explained in [reading-results.md](reading-results.md#words-used-in-the-files).
 
 The PC tools run on a PC that other jobs share. The shared files on the PC are in `%USERPROFILE%\pcup\`: `busy.txt`
-(the lock, one holder at a time), `active\<lane>*.txt` (what a job runs, since when) and `yield\<lane>.txt` (the job
-waits for the lock). Set `[zoo] lane` in `zoo.toml` to the zoo's own name there.
+(the lock, one holder at a time), `active\<job>*.txt` (what a job runs, since when) and `yield\<job>.txt` (the job
+waits for the lock). Set `[zoo] job` in `zoo.toml` to the zoo's own name there.
 
 `tools/pc.sh` reads the PC's lock feed on the Mac before every connection but `wait`, with the command named in
 `PC_FEED_CMD` (no ssh; its output is described in `tools/pc.sh`'s header; this repo has no such command), and refuses

@@ -3,15 +3,17 @@
 A line is a pass / fail rule written before the cells it judges run. Its time is in each recipe's `[[line]].written`,
 and `tools/lint.py` checks it against the start of every cell it judges. A rule is not edited after a run: a change is
 added under its section with its time, its reason and the value it replaced.
+A change to a rule's words alone is added the same way: its time, its reason, that the line is the same, and the
+commit that holds the earlier words, which the entry does not quote.
 
 This repo was cut on 2026-11-10 from a private working repo where the cells ran, and where this plan was written in
 Japanese. This file is its English text for the parts that concern these 28 models: the forms of section 1 (written
-2026-11-10 00:11 JST), section Z5 and section Z6. Z5 and Z6 are the two passes of 2026-11-10 that judged the cells
+2026-11-10 00:11 JST), section 2 and section 3. Sections 2 and 3 are the two passes of 2026-11-10 that judged the cells
 copied from the vision zoo ([`john-rocky/windows-zoo`](https://github.com/john-rocky/windows-zoo)) and the LLM zoo
 ([`john-rocky/windows-llm-zoo`](https://github.com/john-rocky/windows-llm-zoo)) again on task lines; the recipes' rules
-and the cells cite these section names. The times are those of the original text (JST). File names are this repo's:
-`Z5_RESULTS.md` and `Z6_RESULTS.md` there are the local `TASK_PAIRS_VISION.md` and `TASK_PAIRS_LLM.md` here
-(`tools/task_pairs_vision.py`, `tools/task_pairs_llm.py`), and the copy tools (`migrate/` there) stayed in that repo.
+and the cells cite these two sections. The times are those of the original text (JST). File names are this repo's:
+that repo's two result tables are the local `TASK_PAIRS_VISION.md` and `TASK_PAIRS_LLM.md` here
+(`tools/task_pairs_vision.py`, `tools/task_pairs_llm.py`), and the copy tools stayed in that repo.
 
 ## 1. Lines
 
@@ -23,7 +25,7 @@ original model in fp32 on the CPU (bf16 where fp32 does not fit, and said so).
 
 ### 1a. Vision
 
-Each model gets its task value (section Z5 sets them for the 23 vision models here); the forms per task type:
+Each model gets its task value (section 2 sets them for the 23 vision models here); the forms per task type:
 
 | task type | the value compared (the cell's output and the reference's through the same post-processing) | line (over the whole input set) |
 |---|---|---|
@@ -52,7 +54,7 @@ the end token. [How to read the qa20 line](#how-to-read-the-qa20-line) below say
 - The comparison: the first line of the answer, normalized (leading and trailing spaces dropped, lower case, `"` `'`
   `` ` `` `*` around it and a final `.` `!` `?` dropped, spaces collapsed to one), agrees when it is the same string as
   the reference's answer normalized the same way.
-- **The line**: agreement on ≥ 18 of 20, and the gate prompt "Reply with only the number: 1+1=?" (wrapped the same
+- **The line**: agreement on ≥ 18 of 20, and the gate "Reply with only the number: 1+1=?" (wrapped the same
   way) ends on the end token (the model's end of turn) within 16 new tokens.
 - Instruments: the number of questions whose full answer equals the reference's, the number that ended on the end
   token within 48 tokens, the number of generated tokens.
@@ -89,17 +91,29 @@ the end token. [How to read the qa20 line](#how-to-read-the-qa20-line) below say
   set holds each image once: `suites/vision/images.json`, with `also` = the same bytes under another app's path.
   Before: 23 images.
 
+(2026-11-17 17:18 JST, after the runs; it changes no rule)
+
+- Section 1b, words only (the line is the same): the `qa20` rule of eight recipes (Phi-4-mini-instruct,
+  Qwen2.5-0.5B-Instruct, Qwen2.5-1.5B-Instruct, Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it, gemma-4-E4B-it),
+  the bullet "The line" of section 1b above, the sentence of section 3 that restates the line and three sentences of
+  the LLM part of `schema/lines.md` now call the extra prompt "the gate", the word `docs/reading-results.md` defines.
+  The eight rules, and the `plan` and `written_note` fields of five of these recipes, cite section 3 by its number.
+  Why: plain names in place of working labels. The 20 questions, the extra prompt's text, the two thresholds (18 of
+  20; 16 new tokens), the prompt form and the decoding are the same; no cell runs again and every verdict stays as it
+  is. The earlier words are in the recipes, this file and `schema/lines.md` at commit
+  [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
+
 ## How to read the qa20 line
 
 (Written 2026-11-10 when this repo was cut, after the runs. It explains section 1b and changes nothing in it.)
 
 Twenty short questions, each asking for one word, name or number, go to the cell's package on its runtime and device.
 Each is wrapped in the model's own chat template as transformers renders it (`enable_thinking=False`) and passed as that
-string or as its token ids, with no template of the runtime and no special token added (section Z6 gives the form per
+string or as its token ids, with no template of the runtime and no special token added (section 3 gives the form per
 runtime). Decoding is greedy on both sides (repetition penalty 1.0), at most 48 new tokens. The first line of each
 answer, normalized (trimmed, lower case, quotes, backticks or asterisks around it and a final `.` `!` `?` removed, spaces
 collapsed), is compared with the first line of the same model's answer in transformers on the same PC's CPU, in fp32
-(gemma-4-E4B-it in bf16: its fp32 weights alone would take 29.8 of the PC's 31.5 GiB, "Z6 changes" item 9): the
+(gemma-4-E4B-it in bf16: its fp32 weights alone would take 29.8 of the PC's 31.5 GiB, section 3, change 9): the
 reference. A cell passes when at least 18 of the 20 agree
 and one more prompt, `Reply with only the number: 1+1=?`, ends on the end token within 16 new tokens (only the ending is
 checked, not the answer).
@@ -121,7 +135,7 @@ as one word. A cell's count is in `llm.task.key` and at the end of its `line.ver
 `models/<model>/reference/ref.json`) are Qwen3-0.6B 14, Qwen3-1.7B 18, Qwen3-4B 19, gemma-4-E2B-it 20, gemma-4-E4B-it
 20, Qwen2.5-1.5B-Instruct 19, Qwen2.5-0.5B-Instruct 17 and Phi-4-mini-instruct 19, of 20.
 
-## Z5. The vision zoo's 47 cells that fail its internal line, judged on task lines
+## 2. The vision zoo's 47 cells that fail its internal line, judged on task lines
 
 (Written 2026-11-10 06:41 JST, before any number of this pass.)
 
@@ -184,7 +198,7 @@ Common to the 23 models:
 
 ### Scoring details
 
-(2026-11-10 07:12 JST, before any run of Z5: where the rules above leave a choice, `tools/vision_tasks.py` makes it.)
+(2026-11-10 07:12 JST, before any run of this pass: where the rules above leave a choice, `tools/vision_tasks.py` makes it.)
 
 - Box pairs: the cell's boxes in descending score, each with the not yet paired reference box of the same class with
   the largest IoU (≥ 0.5). Coordinates as the app has them (DETR = 0 to 1 of the input, SSDLite = 320 px, PP-OCR =
@@ -201,7 +215,7 @@ Common to the 23 models:
 - The arithmetic is float64 (the app's is float32): only values exactly at a threshold can come out differently from
   the app, and the same for the reference and the cell.
 
-### Z5 changes
+### Changes to section 2
 
 1. 2026-11-10 07:24:02 DAC (`dac_16khz_deconly_zs_fp16`): the line changed from `task-codec` to `task-codec-aligned`.
    Why: the decoder's 15,992 output samples correspond to the input from its 8th sample on (16,000 − 15,992; on all
@@ -212,10 +226,17 @@ Common to the 23 models:
    cell's result was read. The 07:21 run of the cell `task-ovgpu` came after the old line and before the new one: it is
    not used for the verdict and runs again after the new line (sitting z5-b). The old line stays in the recipe
    (`superseded_by`).
+2. 2026-11-17 17:18 JST, words only (after the runs; it changes no rule): the 24 task rules of the 23 vision models (the two of
+   `dac_16khz_deconly_zs_fp16` included) name the vision zoo in plain words in the sentence that describes the
+   reference. The forms' `label` and `made_by` fields do the same, and the lines' `plan` and `superseded` fields cite
+   this section by its number. Why: plain names in place of working labels. The lines are the same: the inputs, the
+   values compared, the thresholds and the reference do not change; no cell runs again and every verdict stays as it
+   is. The earlier words are in the recipes at commit
+   [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
 
-## Z6. The LLM zoo's 86 cells that pass its text-integrity line, judged on the qa20 line
+## 3. The LLM zoo's 86 cells that pass its text-integrity line, judged on the qa20 line
 
-(Written 2026-11-10 07:58 JST. No number of Z6 yet; neither a reference nor a cell had run on the PC.)
+(Written 2026-11-10 07:58 JST. No number of this pass yet; neither a reference nor a cell had run on the PC.)
 
 The cells: 5 models, 86 cells = the copied cells of the LLM zoo with `line.kind = text-integrity` and
 `line.pass = true`: Qwen3-0.6B 18, Qwen3-1.7B 18, Qwen3-4B 16, gemma-4-E2B-it 19, gemma-4-E4B-it 15; by runtime Foundry
@@ -227,8 +248,8 @@ The line = section 1b (the LLM form of `schema/lines.md`) as it is: the 20 quest
 cell's runner passes the string the reference step rendered with transformers'
 `apply_chat_template(add_generation_prompt=True, enable_thinking=False)` as it is (no template of the runtime, no
 special token added); greedy (`do_sample` False, `num_beams` 1, repetition penalty 1.0); at most 48 new tokens (16 for
-the gate prompt); the first line of the answer normalized and equal to the reference's = agreement; **agreement on
-≥ 18 of 20, and the gate prompt "Reply with only the number: 1+1=?" ends on the end of turn within 16 tokens**.
+the gate); the first line of the answer normalized and equal to the reference's = agreement; **agreement on
+≥ 18 of 20, and the gate "Reply with only the number: 1+1=?" ends on the end of turn within 16 tokens**.
 
 The reference = the same model in transformers on the PC's CPU (`pc/ref_llm_hf.py`, venv `ref` = transformers 5.22.2,
 torch 2.14.0). fp32: Qwen3-0.6B (weights 1.5 GB in bf16 → 3.0 GB in fp32), Qwen3-1.7B (8.1 GB), Qwen3-4B (16.1 GB),
@@ -295,7 +316,7 @@ cannot be made from the LLM zoo's pins either, that cell is left out with its re
 cell that does not run (a compile, load or run failure) has that error as its result (`run.state = error`, no
 verdict). On the PC: first passes only (untimed).
 
-### Z6 changes
+### Changes to section 3
 
 (Written 2026-11-10 08:29 JST, before any reference or cell had run on the PC. The line's text `qa20` does not change:
 these are details of how the string goes in, decided when the runners were written.)
@@ -345,14 +366,14 @@ these are details of how the string goes in, decided when the runners were writt
    decoder on CUDA when CUDA is visible ("using CUDA EP for model", "applying explicit main decoder EP override:
    CUDAExecutionProvider" in the PC's daemon log `foundry_local_2026-11-10.log`). The LLM zoo's Qwen3 generic-gpu
    cells (catalog models) had the same two lines and ran on CUDA (`foundry_local_2026-11-07.log` to `-09.log`,
-   including the copied numbers' sitting walk-timed-b) = Z6's three Qwen3 `task-foundry_auto_webgpu` cells have the
+   including the copied numbers' sitting walk-timed-b) = this pass's three Qwen3 `task-foundry_auto_webgpu` cells have the
    LLM zoo cells' form, and their decoder runs on CUDA, unlike the webgpu in the cell's name (the log lines:
    `raw/z6/foundry_ep_lines.txt`). In gemma-4-E2B-it's package the decoder's other sessions are on WebGPU, and with
    the decoder alone on CUDA the load stops with "Running a model with multiple providers is not supported.
-   Encountered WebGPU and CUDA" (Z6 at 09:58 and the LLM zoo on 11-08 02:42). The copied cell's numbers (sitting
+   Encountered WebGPU and CUDA" (this pass at 09:58 and the LLM zoo on 11-08 02:42). The copied cell's numbers (sitting
    walk-timed-b, the three runs of 11-09 00:38 to 00:42) were run with the daemon started with
    `CUDA_VISIBLE_DEVICES=-1` (the LLM zoo's fix 1: the unit's `daemon_env` in its `pc/plans/walk-timed-b.json`; the log
-   reads "using WebGPU EP for model", "override: WebGpuExecutionProvider") = Z6's Foundry cells start the daemon with
+   reads "using WebGPU EP for model", "override: WebGpuExecutionProvider") = this pass's Foundry cells start the daemon with
    the `daemon_env` of the LLM zoo plan's unit of the copied cell's `speed.sitting` when it has one (the copy tool wrote
    it into the recipe as `--daemon-env`; of the 16 Foundry units of walk-timed-b and walk-timed-b-rerun, this one cell
    only). The 09:58 run stays an error and is not used for the verdict; the PC's run is deleted and runs again after

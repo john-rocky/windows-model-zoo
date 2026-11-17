@@ -122,7 +122,7 @@
   "ran_on_device": false
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/dewarp/cuda16.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/dewarp/cuda16.json"
  },

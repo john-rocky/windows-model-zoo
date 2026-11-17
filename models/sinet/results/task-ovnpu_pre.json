@@ -14,7 +14,7 @@
  "form": {
   "id": "z1-npu-blob",
   "label": "NPU blob",
-  "detail": "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
+  "detail": "the vision zoo's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
   "path": "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
   "from": "mlboydaisuke/SINet-V2-Camouflage-OpenVINO"
  },

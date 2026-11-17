@@ -24,8 +24,8 @@ why = "the vision zoo's files of this model's task cells (the same sha256 as the
 [[form]]
 id = "z1-npu-blob"
 short = "NPU blob"
-label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the vision zoo's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob"
 sha256 = "2690b24fb5baff802c0be7f4f45630c9a4e4e513108a733c2faa5fb33d4a283d"
 from = "mlboydaisuke/SINet-V2-Camouflage-OpenVINO"
@@ -34,8 +34,8 @@ public = "mlboydaisuke/SINet-V2-Camouflage-OpenVINO@30fd63d4c645aa528a22b6791359
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\sinet.onnx"
 sha256 = "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434"
 from = "mlboydaisuke/SINet-V2-Camouflage-OpenVINO"
@@ -83,9 +83,9 @@ plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
 [[line]]
 id = "task-mask"
 kind = "task"
-rule = "mask, the app's camouflage map (john-rocky/LiteRT-Models@96e0bc1f/sinet/.../CamouflageDetector.kt: the sigmoid map it overlays) as object = map > 0.5 (schema/lines.md: matting, alpha > 0.5), at the output's 352 x 352: the mIoU of object and background against the reference's mask, from the pixels of all inputs, the mean over the classes the reference has, >= 0.95. Inputs: the 20 images of suites/vision/images.json, each stretched to 352 x 352, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+rule = "mask, the app's camouflage map (john-rocky/LiteRT-Models@96e0bc1f/sinet/.../CamouflageDetector.kt: the sigmoid map it overlays) as object = map > 0.5 (schema/lines.md: matting, alpha > 0.5), at the output's 352 x 352: the mIoU of object and background against the reference's mask, from the pixels of all inputs, the mean over the classes the reference has, >= 0.95. Inputs: the 20 images of suites/vision/images.json, each stretched to 352 x 352, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (the vision zoo's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section 2 (written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

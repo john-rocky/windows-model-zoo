@@ -1,6 +1,6 @@
-# Foundry Local 0.13.0 daemon log lines (PC, %USERPROFILE%\.foundry\logs\), read 2026-11-10T10:11:30+0900 in the Z6 pass:
-# where the main decoder of each generic-gpu package (Z2's catalog cells, 11-07 to 11-09) and of each Z6 cell (11-10) ran.
-# PLAN.md "Z6 changes" item 8. Format: <log file>:<line>: <line>
+# Foundry Local 0.13.0 daemon log lines (PC, %USERPROFILE%\.foundry\logs\), read 2026-11-10T10:11:30+0900 in the pass of PLAN.md section 3:
+# where the main decoder of each generic-gpu package (the LLM zoo's catalog cells, 11-07 to 11-09) and of each cell of that pass (11-10) ran.
+# PLAN.md section 3, change 8. Format: <log file>:<line>: <line>
 foundry_local_2026-11-07.log:2011: [2026-11-07 19:41:00.982] [info] using CUDA EP for model: qwen3-0.6b-generic-gpu:2
 foundry_local_2026-11-07.log:2012: [2026-11-07 19:41:00.983] [info] model qwen3-0.6b-generic-gpu:2 applying explicit main decoder EP override: CUDAExecutionProvider
 foundry_local_2026-11-07.log:2245: [2026-11-07 23:16:38.745] [info] using CUDA EP for model: qwen3-1.7b-generic-gpu:2

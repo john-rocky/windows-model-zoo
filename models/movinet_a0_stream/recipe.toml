@@ -24,8 +24,8 @@ why = "the vision zoo's files of this model's task cells (the same sha256 as the
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__MoViNet-A0-Stream-OpenVINO\\movinet_a0_stream.onnx"
 sha256 = "65afaf7f1f9f1ea3f200162e9b3c6b907ae27bfb246d3b6f789469ea98346928"
 from = "mlboydaisuke/MoViNet-A0-Stream-OpenVINO"
@@ -73,9 +73,9 @@ plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
 [[line]]
 id = "task-top1-stream"
 kind = "task"
-rule = "classification of a stream, the app's running top-1 (john-rocky/LiteRT-Models@96e0bc1f/movinet/.../ActionRecognizer.kt: the state from zero, the 28 stream buffers shifted and the 16 pooling sums added on the host, input 45 = 1 / frame number, input 46 = 1; each side's state from its own outputs): each input image as an 8-frame still clip; the top-1 of the 600 Kinetics classes after each frame equals the reference's on >= 95 % of the frames, a frame whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 20 images of suites/vision/images.json (160 frames), each stretched to 172 x 172, RGB / 255. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+rule = "classification of a stream, the app's running top-1 (john-rocky/LiteRT-Models@96e0bc1f/movinet/.../ActionRecognizer.kt: the state from zero, the 28 stream buffers shifted and the 16 pooling sums added on the host, input 45 = 1 / frame number, input 46 = 1; each side's state from its own outputs): each input image as an 8-frame still clip; the top-1 of the 600 Kinetics classes after each frame equals the reference's on >= 95 % of the frames, a frame whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 20 images of suites/vision/images.json (160 frames), each stretched to 172 x 172, RGB / 255. Reference: the same fp32 ONNX file (the one the vision zoo measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (the vision zoo's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section 2 (written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

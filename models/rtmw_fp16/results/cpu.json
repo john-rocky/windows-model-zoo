@@ -104,7 +104,7 @@
   "ran_on_device": false
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/rtmw_fp16/cpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtmw_fp16/cpu.json"
  },

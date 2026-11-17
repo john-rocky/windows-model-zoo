@@ -1,6 +1,6 @@
 ---
 name: add-to-windows-model-zoo
-description: Add a model, or one more result (a cell) of a model, to windows-model-zoo - write the recipe and the card, run the untimed steps and one first pass on the Windows PC over SSH from a Mac, judge each cell on its line, and pass tools/lint.py. Use when asked to add a converted LLM, vision or audio package to this repo, or to run a model of this repo on one more runtime, device or package. Cold start: this file and a checkout of the repo are the inputs; on a PC shared with other jobs, also the Mac's lock feed command and a `lane` for zoo.toml from the person who gave you the task.
+description: Add a model, or one more result (a cell) of a model, to windows-model-zoo - write the recipe and the card, run the untimed steps and one first pass on the Windows PC over SSH from a Mac, judge each cell on its line, and pass tools/lint.py. Use when asked to add a converted LLM, vision or audio package to this repo, or to run a model of this repo on one more runtime, device or package. Cold start: this file and a checkout of the repo are the inputs; on a PC shared with other jobs, also the Mac's lock feed command and a `job` for zoo.toml from the person who gave you the task.
 ---
 
 # Add a model or a result to windows-model-zoo
@@ -55,7 +55,7 @@ Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's pr
    `tools/table.py --local` (section 8).
 3. In `zoo.toml`, set two keys of `[zoo]` for this job (and do not commit them; `git checkout -- zoo.toml` before
    the commit): `pc_root` = a folder on the PC that does not exist yet, such as `'C:\src\zoo-<name>'` (no spaces), and
-   `lane` = this job's name on the shared PC (letters and digits; it names your lock and your notes there; not a name
+   `job` = this job's name on the shared PC (letters and digits; it names your lock and your notes there; not a name
    that `tools/pc.sh status` shows for another job).
 4. Before each connection except `wait`'s, `tools/pc.sh` reads a lock feed on the Mac with the command in
    `PC_FEED_CMD` (its output is described in `tools/pc.sh`'s header; this repo has no such command). Put
@@ -590,7 +590,7 @@ cell on the CPU, then one more result of it on the Intel NPU (in the same PC fol
 went through these rows of section 8: the missing lock feed, a glob with no file, a list name with no file, a fetch
 hash mismatch, a step killed by a lock and run again (a stand-in lock in a lock folder of its own), results.py without
 `--model`, stale generated files, and a line dated after a run. Then a coding agent that had not seen this file, given
-a new clone and two sentences (the task, and this Mac's `PC_FEED_CMD` command, a `lane` and a `<name>`), added one
+a new clone and two sentences (the task, and this Mac's `PC_FEED_CMD` command, a `job` and a `<name>`), added one
 more result of that model on the Intel GPU from a new PC folder (its records: `raw/qwen25-igpu/`) with no help. It
 made a branch on its own and stopped before the commit, which this file did not describe then (now section 0, step 1
 and section 7, step 6). A second such agent, given two sentences of the same kind, added three llama.cpp results of

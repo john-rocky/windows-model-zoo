@@ -735,7 +735,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/Qwen3-4B/ort-genai_rtx_webgpu.json",
   "record_text": "`results/Qwen3-4B/ort-genai_rtx_webgpu.json`, `raw/walk-timed-b/Qwen3-4B/ort-genai_rtx_webgpu/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/Qwen3-4B/ort-genai_rtx_webgpu.json"

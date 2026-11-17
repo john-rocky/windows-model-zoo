@@ -378,7 +378,7 @@
   "cpu_nodes": 0
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/ssdlite_mobilenetv3_320_fp16/ovnpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/ovnpu.json"
  },

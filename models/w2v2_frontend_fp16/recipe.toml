@@ -25,8 +25,8 @@ why = "the vision zoo's files of this model's task cells (the same sha256 as the
 [[form]]
 id = "z1-npu-blob"
 short = "NPU blob"
-label = "Z1's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the vision zoo's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\npu\\w2v2_frontend_fp16.blob"
 sha256 = "394cbec179b17382b55ffc121763824a04c765e5a1235791acdd79d60e7ec5af"
 from = "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO"
@@ -35,8 +35,8 @@ public = "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd2
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\w2v2_frontend_fp16.onnx"
 sha256 = "51645678a786b40dad1834d998943b95488858f5181b4cdf5f8822db6095ce63"
 from = "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO"
@@ -84,9 +84,9 @@ plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
 [[line]]
 id = "task-top1"
 kind = "task"
-rule = "keyword classification through the downstream head (the frontend's job is the head's input): the cell's features through w2v2_head_fp16_fixed (the head with the app's weights; the base head's file drops biases) in fp32 on the ONNX Runtime CPU EP, the argmax of the 12 logits; its top-1 equals the reference pipeline's on >= 95 % of the clips, a clip whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 120 clips of suites/audio/kws120.json (Speech Commands v0.01 test, 10 per label), each scaled as the app's microphone path (pcm / max(1, peak) x 0.5). Reference: the frontend's fp32 ONNX file (the one Z1 measured) and the same head, both on the ONNX Runtime 1.31.1 CPU EP."
+rule = "keyword classification through the downstream head (the frontend's job is the head's input): the cell's features through w2v2_head_fp16_fixed (the head with the app's weights; the base head's file drops biases) in fp32 on the ONNX Runtime CPU EP, the argmax of the 12 logits; its top-1 equals the reference pipeline's on >= 95 % of the clips, a clip whose reference top-1 and top-2 probabilities differ by < 0.01 not counted. Inputs: the 120 clips of suites/audio/kws120.json (Speech Commands v0.01 test, 10 per label), each scaled as the app's microphone path (pcm / max(1, peak) x 0.5). Reference: the frontend's fp32 ONNX file (the one the vision zoo measured) and the same head, both on the ONNX Runtime 1.31.1 CPU EP."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section 2 (written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

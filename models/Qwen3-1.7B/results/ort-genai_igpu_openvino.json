@@ -729,7 +729,7 @@
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/Qwen3-1.7B/ort-genai_igpu_openvino.json",
   "record_text": "`results/Qwen3-1.7B/ort-genai_igpu_openvino.json`, `raw/walk-timed/Qwen3-1.7B/ort-genai_igpu_openvino/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/Qwen3-1.7B/ort-genai_igpu_openvino.json"

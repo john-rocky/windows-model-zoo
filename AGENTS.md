@@ -57,8 +57,8 @@ fresh`.
    plan after the night.
 6. **No PC account name and no other job's lock text in a commit.** Before the commit, run `tools/scrub.py` on your
    records and your model's folder, and cut the lock texts from the logs (the skill's section 7).
-7. **Set `pc_root` and `lane` in `zoo.toml` for your job, and never commit them.** `pc_root` is a folder on the PC
-   that does not exist yet. `lane` is your job's name on the shared PC (the skill's section 0). Run
+7. **Set `pc_root` and `job` in `zoo.toml` for your job, and never commit them.** `pc_root` is a folder on the PC
+   that does not exist yet. `job` is your job's name on the shared PC (the skill's section 0). Run
    `git checkout -- zoo.toml` before the commit.
 8. **Ask before you push.** Commit on your branch (the skill's section 0 makes it, its section 7 commits), with no
    trailer lines such as `Co-Authored-By` in the message. Push it or open a pull request only when the person who gave

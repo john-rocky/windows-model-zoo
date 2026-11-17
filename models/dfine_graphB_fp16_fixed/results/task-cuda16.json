@@ -14,7 +14,7 @@
  "form": {
   "id": "z1-onnx-fp16",
   "label": "fp16",
-  "detail": "Z1's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with Z1's node fixes), checked by sha256",
+  "detail": "the vision zoo's fp16 copy of it (onnxruntime.transformers.float16.convert_float_to_float16(keep_io_types=True) with the vision zoo's node fixes), checked by sha256",
   "path": "C:\\src\\zoo\\fp16\\dfine_graphB_fp16_fixed.onnx",
   "from": null
  },

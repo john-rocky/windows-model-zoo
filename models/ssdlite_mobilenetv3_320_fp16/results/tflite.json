@@ -374,7 +374,7 @@
   "tflite_sha256_ok": true
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/ssdlite_mobilenetv3_320_fp16/tflite.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/ssdlite_mobilenetv3_320_fp16/tflite.json"
  },

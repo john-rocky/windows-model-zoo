@@ -156,7 +156,7 @@
   "cpu_nodes": 0
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/rtmhand_fp16/ovnpu.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/rtmhand_fp16/ovnpu.json"
  },

@@ -64,7 +64,7 @@
  },
  "llm": {
   "backend": "cpu",
-  "backend_detail": "Foundry Local catalog variant gemma-4-e2b-it-generic-cpu:3; in the first pass another lane's timing lock stopped it again and again at up to 15 running minutes (not finished): here it is suspended under a lock, limit 60 running minutes; timed without a finished first pass: in the first pass it loaded in 19 to 21 s each of the six times it reached the generation, and another lane's lock stopped every try before the end",
+  "backend_detail": "Foundry Local catalog variant gemma-4-e2b-it-generic-cpu:3; in the first pass another job's timing lock stopped it again and again at up to 15 running minutes (not finished): here it is suspended under a lock, limit 60 running minutes; timed without a finished first pass: in the first pass it loaded in 19 to 21 s each of the six times it reached the generation, and another job's lock stopped every try before the end",
   "package_text": "Foundry Local catalog `gemma-4-e2b-it-generic-cpu:3` · MatMulNBits b32 asym accNone: int8 x141, int4 x135 [decoder/model.onnx] (the graph (pc/onnx_quant.py))",
   "workload": {
    "task": "short-chat",
@@ -421,13 +421,13 @@
     ],
     "counts": true,
     "unit_args": null,
-    "unit_note": "Foundry Local catalog variant gemma-4-e2b-it-generic-cpu:3; in the first pass another lane's timing lock stopped it again and again at up to 15 running minutes (not finished): here it is suspended under a lock, limit 60 running minutes; timed without a finished first pass: in the first pass it loaded in 19 to 21 s each of the six times it reached the generation, and another lane's lock stopped every try before the end",
+    "unit_note": "Foundry Local catalog variant gemma-4-e2b-it-generic-cpu:3; in the first pass another job's timing lock stopped it again and again at up to 15 running minutes (not finished): here it is suspended under a lock, limit 60 running minutes; timed without a finished first pass: in the first pass it loaded in 19 to 21 s each of the six times it reached the generation, and another job's lock stopped every try before the end",
     "unit_model_id": "gemma-4-e2b-it-generic-cpu:3"
    }
   ]
  },
  "source": {
-  "by": "windows-llm-zoo (Z2)",
+  "by": "windows-llm-zoo",
   "record": "results/gemma-4-E2B-it/foundry_cpu_cpu.json",
   "record_text": "`results/gemma-4-E2B-it/foundry_cpu_cpu.json`, `raw/walk-timed-b/gemma-4-E2B-it/foundry_cpu_cpu/`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/gemma-4-E2B-it/foundry_cpu_cpu.json"

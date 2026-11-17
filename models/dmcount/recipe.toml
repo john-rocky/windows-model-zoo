@@ -24,8 +24,8 @@ why = "the vision zoo's files of this model's task cells (the same sha256 as the
 [[form]]
 id = "z1-onnx-fp32"
 short = "fp32"
-label = "the fp32 ONNX file the vision zoo Z1 measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
-made_by = "the vision zoo Z1"
+label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
+made_by = "the vision zoo"
 path = "{HUB}\\mlboydaisuke__DM-Count-Crowd-OpenVINO\\dmcount.onnx"
 sha256 = "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197"
 from = "mlboydaisuke/DM-Count-Crowd-OpenVINO"
@@ -73,9 +73,9 @@ plan = "john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x"
 [[line]]
 id = "task-count"
 kind = "task"
-rule = "count, the app's number (john-rocky/LiteRT-Models@96e0bc1f/crowdcount/.../CrowdCounter.kt: the sum of the 64 x 64 density map, shown rounded by MainActivity.kt): |cell count - reference count| <= max(0.5, 2 % of the reference count) on >= 95 % of the inputs. Inputs: the 20 images of suites/vision/images.json, each stretched to 512 x 512, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo Z1 measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (Z1's cpu cell)."
+rule = "count, the app's number (john-rocky/LiteRT-Models@96e0bc1f/crowdcount/.../CrowdCounter.kt: the sum of the 64 x 64 density map, shown rounded by MainActivity.kt): |cell count - reference count| <= max(0.5, 2 % of the reference count) on >= 95 % of the inputs. Inputs: the 20 images of suites/vision/images.json, each stretched to 512 x 512, ImageNet normalization. Reference: the same fp32 ONNX file (the one the vision zoo measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (the vision zoo's cpu cell)."
 written = "2026-11-10T06:41:00+09:00"
-plan = "PLAN.md section Z5 (the Z5 pass, written 06:41 JST before any run of its cells)"
+plan = "PLAN.md section 2 (written 06:41 JST before any run of its cells)"
 
 [[cell]]
 id = "ovnpu"

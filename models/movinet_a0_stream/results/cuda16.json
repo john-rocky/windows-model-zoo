@@ -618,7 +618,7 @@
   "ran_on_device": false
  },
  "source": {
-  "by": "windows-zoo (Z1)",
+  "by": "windows-zoo",
   "record": "results/movinet_a0_stream/cuda16.json",
   "migrated_from": "john-rocky/windows-zoo@faa4019:results/movinet_a0_stream/cuda16.json"
  },
