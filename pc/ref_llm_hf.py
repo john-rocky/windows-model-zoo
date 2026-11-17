@@ -8,7 +8,7 @@ tokenizer.apply_chat_template([{"role": "user", "content": text}], tokenize=Fals
 enable_thinking=False). The rendered string goes into the record: a cell's runner passes it as it is (no template of its
 own runtime), tokenized with add_special_tokens=False. Decode = plain greedy: do_sample False, num_beams 1,
 repetition_penalty 1.0 (a checkpoint's generation_config.json may set a penalty for sampling; both sides drop it),
-max_new_tokens 48 (the gate prompt 16); the end tokens = the generation config's eos_token_id. A row: the rendered
+max_new_tokens 48 (the gate 16); the end tokens = the generation config's eos_token_id. A row: the rendered
 prompt, its ids, the new ids, the text (skip_special_tokens) and whether the last new token is an end token.
 """
 import argparse

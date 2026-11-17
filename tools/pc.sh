@@ -1,9 +1,9 @@
 #!/bin/bash
 # Mac-side calls to the PC (ssh <zoo.toml pc_ssh>; its default shell is PowerShell), one SSH connection per call.
-# From the audio zoo's tools/pc.sh (windows-audio-zoo), with the lane, the ssh host and the PC folder read from zoo.toml.
+# From the audio zoo's tools/pc.sh (windows-audio-zoo), with the job's name, the ssh host and the PC folder read from zoo.toml.
 # Before every connection it reads the PC's lock feed on the Mac, with the command in PC_FEED_CMD (no ssh):
-# another lane's "timing:" lock, or a feed older than 3 min, refuses the call (exit 3). ZOO_FORCE=1 skips the read
-# (tools/sitting.sh inside the lane's own lock; `wait` never reads it: it is the one long connection of a running job).
+# another job's "timing:" lock, or a feed older than 3 min, refuses the call (exit 3). ZOO_FORCE=1 skips the read
+# (tools/sitting.sh inside the job's own lock; `wait` never reads it: it is the one long connection of a running job).
 # A Mac without a lock feed (another shared-PC set-up): ZOO_FEED=none skips the read.
 # PC_FEED_CMD=<command>: prints the PC's lock state, a line `<ISO time> <HH:MM:SS> BUSY <holder, or none when free>
 # [<lock text>]` (the last BUSY line counts; other lines are not read), and exits non-zero when that state is stale or
@@ -26,7 +26,7 @@
 set -euo pipefail
 K="$(cd "$(dirname "$0")/.." && pwd)"
 conf() { python3 -c "import tomllib,sys; print(tomllib.load(open(sys.argv[1],'rb'))['zoo'][sys.argv[2]])" "$K/zoo.toml" "$1"; }
-LANE="$(conf lane)"
+JOB="$(conf job)"
 HOST="$(conf pc_ssh)"
 R="${ZOO_PC_ROOT:-$(conf pc_root)}"   # the PC folder (README walk: another empty folder)
 RF="${R//\\//}"                        # the same with forward slashes (ssh tar)
@@ -35,8 +35,8 @@ if [[ -z "${ZOO_FORCE:-}" && "${ZOO_FEED:-}" != "none" && "${1:-}" != "wait" ]];
   [[ -n "${PC_FEED_CMD:-}" ]] || { echo "REFUSED (PC_FEED_CMD is not set: the command that prints the PC lock feed, this file's header; a Mac without a lock feed: ZOO_FEED=none)" >&2; exit 3; }
   feed=$(bash -c "$PC_FEED_CMD" 2>&1) || { echo "REFUSED (lock feed stale or missing): $feed" >&2; exit 3; }
   busy=$(printf '%s\n' "$feed" | awk '$3=="BUSY"' | tail -n 1)
-  if [[ "$busy" == *"timing:"* && "$busy" != *" BUSY $LANE "* ]]; then
-    echo "REFUSED (another lane's timing lock): ${busy}" >&2
+  if [[ "$busy" == *"timing:"* && "$busy" != *" BUSY $JOB "* ]]; then
+    echo "REFUSED (another job's timing lock): ${busy}" >&2
     exit 3
   fi
 fi
@@ -78,7 +78,7 @@ Get-ChildItem '$R\\pc\\*.ps1' | ForEach-Object {
     \$n = if (\$e) { \$e.Count } else { 0 }
     'ps1 ' + \$_.Name + ' ' + \$n + ' ' + (Get-FileHash \$_.FullName -Algorithm SHA256).Hash.Substring(0, 16)
 }
-try { . '$R\\pc\\zlib.ps1'; \$o = @(Get-OthersWaiting); 'zlib loaded, lane ' + \$Label + ', others waiting ' + \$o.Count }
+try { . '$R\\pc\\zlib.ps1'; \$o = @(Get-OthersWaiting); 'zlib loaded, job ' + \$Label + ', others waiting ' + \$o.Count }
 catch { 'zlib FAILED ' + \$_.Exception.Message }
 EOF
 )

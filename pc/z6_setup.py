@@ -102,7 +102,7 @@ def daemon_pids():
 
 def yield_notes(kind):
     """the notes in pcup\\active that match the patterns listed under <kind> in pcup\\zoo_yield.json (a file of the
-    shared PC that this repo does not ship: the other lanes' notes this zoo yields to). No file = none; a file that does
+    shared PC that this repo does not ship: the other jobs' notes this zoo yields to). No file = none; a file that does
     not parse stops the step. ZOO_PCUP names another pcup folder (as in pc\\zlib.ps1)."""
     pcup = pathlib.Path(os.environ.get("ZOO_PCUP") or (pathlib.Path(HOME) / "pcup"))
     f = pcup / "zoo_yield.json"
@@ -114,12 +114,12 @@ def yield_notes(kind):
 
 
 def foundry_download(variant, c12):
-    """`foundry model download` into the user's Foundry cache. The daemon is one per Windows user and another lane
-    may share it: no download while that lane's note is up (foundry_notes in pcup\\zoo_yield.json) or a daemon this
+    """`foundry model download` into the user's Foundry cache. The daemon is one per Windows user and another job
+    may share it: no download while that job's note is up (foundry_notes in pcup\\zoo_yield.json) or a daemon this
     step did not start runs; the daemon it starts is stopped after"""
     notes = yield_notes("foundry_notes")
     if notes:
-        return {"downloaded": False, "why": f"another lane's Foundry note is up ({notes[0]})"}
+        return {"downloaded": False, "why": f"another job's Foundry note is up ({notes[0]})"}
     if daemon_pids():
         return {"downloaded": False, "why": "a Foundry daemon this step did not start runs"}
     exe = shutil.which("foundry") or "foundry"

@@ -1,27 +1,27 @@
 <#
 Untimed steps of one list (pc\steps\<name>.json, from the Mac), one after another; Windows PowerShell 5.1. Started
-detached (pc\launch.ps1, without yield_run): a step stops for another lane's lock by being killed, not suspended (the
-shared PC's rule: a suspended process keeps its RAM; 11-09 13:00, three suspended processes of one lane held 8.6 GB under
-another lane's timing), and runs again from its start once busy.txt has been free 60 s in a row. A step with "lock": true is not
-stopped: it runs under the lane's own lock.
+detached (pc\launch.ps1, without yield_run): a step stops for another job's lock by being killed, not suspended (the
+shared PC's rule: a suspended process keeps its RAM; 11-09 13:00, three suspended processes of one job held 8.6 GB under
+another job's timing), and runs again from its start once busy.txt has been free 60 s in a row. A step with "lock": true is not
+stopped: it runs under the job's own lock.
 
   powershell -NoProfile -ExecutionPolicy Bypass -File pc\steps.ps1 -List <name>
 
 A step: { name, exe ("py" = .venv-<venv>\Scripts\python.exe -I, "uv", "ps" = a .ps1 here, or a path), venv, args
 (with {ROOT} {HOME} {FIX} {HUB}), timeout_min, ram_gb, lock, stop_on_fail }.
 A step with "lock": true (the shared PC's rule for a step over 8 GB that fits no window; its slot comes from the PC's
-order) takes busy.txt once, after it has been free 60 s in a row, as "<lane> <name> (not a timing) until HH:MM" (the
+order) takes busy.txt once, after it has been free 60 s in a row, as "<job> <name> (not a timing) until HH:MM" (the
 take + 30 min at the latest; the step is killed there; none taken while a note listed under lock_block_notes in
 pcup\zoo_yield.json is up: the shared PC's rules of 2026-11-10), checks the free RAM 10 s later (short: releases and
 waits for the next free lock), runs, and releases.
 The PC's night (zoo.toml night, zlib Test-Night): no step starts or starts again in it, a step that runs is killed
-when it comes (one under the lane's lock too), the list ends there with the rest not run, and the lane's notes go.
+when it comes (one under the job's lock too), the list ends there with the rest not run, and the job's notes go.
 Logs: logs\<name>.log (one line per step), logs\<name>\<step>.txt (its output); logs\<name>.done = "OK" or
 "FAIL <steps>" and the time.
 #>
 param([Parameter(Mandatory = $true)][string]$List, [string]$KeepUntil = "")
-# -KeepUntil HH:mm: a list that ends holding the lane's lock leaves it held as "first pass (not a timing) until HH:mm" (no free
-# gap before the first passes of the lane's slot in the PC's order); the Mac releases it
+# -KeepUntil HH:mm: a list that ends holding the job's lock leaves it held as "first pass (not a timing) until HH:mm" (no free
+# gap before the first passes of the job's slot in the PC's order); the Mac releases it
 $KeepLockAs = if ($KeepUntil) { "first pass (not a timing) until $KeepUntil" } else { "" }
 $until = $null
 function Test-LockBarred {
@@ -68,7 +68,7 @@ $env:UV_LINK_MODE = "copy"
 $env:UV_PYTHON_INSTALL_DIR = Join-Path $Root "python"   # the zoo's own interpreter: a per-app GPU preference names only its exe
 $env:UV_CACHE_DIR = Join-Path $Root "uvcache"
 # a download that yield_run suspends dies of uv's 30 s read timeout on the resume (11-09 12:11: nvidia-cudnn-cu13 in
-# pip-ort-cuda after another lane's 17-minute lock): a longer timeout and more retries
+# pip-ort-cuda after another job's 17-minute lock): a longer timeout and more retries
 $env:UV_HTTP_TIMEOUT = "600"; $env:UV_HTTP_RETRIES = "8"
 $env:HF_HUB_DISABLE_TELEMETRY = "1"; $env:ORT_DISABLE_TELEMETRY = "1"; $env:PYTHONUTF8 = "1"
 Say $log "steps $List start: $($steps.Count) steps, pid $PID"
@@ -85,7 +85,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
         break
     }
     $next = if ($i + 1 -lt $steps.Count) { $steps[$i + 1] } else { $null }
-    Write-Utf8 $note "$Label untimed steps '$List' (download / venv / export / reference; killed and run again around other lanes' locks), now $($s.name), since $since`r`nwritten $(Get-Date -Format HH:mm)"
+    Write-Utf8 $note "$Label untimed steps '$List' (download / venv / export / reference; killed and run again around other jobs' locks), now $($s.name), since $since`r`nwritten $(Get-Date -Format HH:mm)"
     $a = @(@($s.args) | ForEach-Object { "$_".Replace("{ROOT}", $Root).Replace("{HOME}", $HomeDir).Replace("{FIX}", $Fix).Replace("{HUB}", $Hub) })
     $exe = switch ($s.exe) {
         "py" { Join-Path $Root ".venv-$($s.venv)\Scripts\python.exe" }
@@ -101,7 +101,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
         $held = $true   # kept from the list's previous lock step: the lock's text is rewritten, never a free gap
         if (-not $until) { $until = (Get-Date).AddMinutes([math]::Min($tmin, 30)) }
     } elseif ($s.lock) {
-        # The shared PC's rules of 2026-11-10 for this lane's untimed lock steps: one lock lasts at most 30 min from
+        # The shared PC's rules of 2026-11-10 for this job's untimed lock steps: one lock lasts at most 30 min from
         # its take (the text's "until" = the take + 30 min at the latest, the step is killed there), none is taken while
         # a lock_block_notes note (pcup\zoo_yield.json) is up, and none in the night (zoo.toml night).
         $need = [math]::Min($tmin, 25)
@@ -159,7 +159,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
                 & "$env:SystemRoot\System32\taskkill.exe" /PID $proc.Id /T /F 2>&1 | Out-Null
                 $proc.WaitForExit()
                 $stopped = $true
-                Say $log "$($s.name): killed for another lane's lock ($((Read-Busy).Text)) after $([int]((Get-Date) - $t0).TotalSeconds) s; runs again when it is gone"
+                Say $log "$($s.name): killed for another job's lock ($((Read-Busy).Text)) after $([int]((Get-Date) - $t0).TotalSeconds) s; runs again when it is gone"
                 break
             }
             if (((Get-Date) - $t0).TotalMinutes -ge $tmin -or ($held -and (Get-Date) -ge $until)) {
@@ -177,7 +177,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
         Say $log "$($s.name) end: the night ($($Night.Text)); the steps after it not started"
         break
     }
-    if ($stopped) { $code = "killed 30 times for other lanes' locks" }
+    if ($stopped) { $code = "killed 30 times for other jobs' locks" }
     elseif ($null -eq $code) { $code = $proc.ExitCode }
     if ($held -and -not ($next -and $next.lock)) {
         if ($KeepLockAs -and -not $next) { Touch-Busy $KeepLockAs; Say $log "lock kept as: $KeepLockAs" }
@@ -191,7 +191,7 @@ for ($i = 0; $i -lt $steps.Count; $i++) {
     }
 }
 Remove-Item $note -Force -ErrorAction SilentlyContinue
-if ($nightStop) { Remove-LaneNotes $log }
+if ($nightStop) { Remove-JobNotes $log }
 $st = if ($fail.Count) { "FAIL $($fail -join ',')" } else { "OK" }
 Write-Utf8 $done "$st $(Get-Date -Format o)"
 Say $log "steps $List done: $st"

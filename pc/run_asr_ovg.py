@@ -4,7 +4,7 @@ clip set after one untimed warm-up clip; one JSON.
     python run_asr_ovg.py --model-dir <IR folder> --family whisper|qwen3asr --device CPU|GPU.0|GPU.1|NPU
         --set S150 --fixtures <dir> --out run.json [--first N] [--cache-dir <dir>] [--max-new 440]
 
-Whisper: language fixed per clip (<|en|> / <|zh|> / <|ja|>), task transcribe, no timestamps (PLAN section 2).
+Whisper: language fixed per clip (<|en|> / <|zh|> / <|ja|>), task transcribe, no timestamps (the audio zoo's PLAN.md, section 2).
 Qwen3-ASR: no language (the pipeline's own prompt); the text is the part
 after <asr_text>, the language tag is kept in the row. Greedy (the pipeline's default, num_beams 1).
 Timing per clip: pipe.generate(samples) wall clock; first token = perf_metrics.get_ttft().

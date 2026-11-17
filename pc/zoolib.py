@@ -43,7 +43,7 @@ def now():
 
 def yield_notes(kind):
     """The notes in pcup\\active that match the patterns listed under <kind> in pcup\\zoo_yield.json (a file of the
-    shared PC that this repo does not ship: the other lanes' notes this zoo yields to; foundry_notes = a lane that shares
+    shared PC that this repo does not ship: the other jobs' notes this zoo yields to; foundry_notes = a job that shares
     the user's one Foundry Local daemon). No file = none; a file that does not parse stops the caller. ZOO_PCUP names
     another pcup folder (as in pc\\zlib.ps1)."""
     home = os.environ.get("USERPROFILE") or os.path.expanduser("~")

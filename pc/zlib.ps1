@@ -1,7 +1,7 @@
 # Shared helpers of the zoo scripts on the PC (dot-source: . "$PSScriptRoot\zlib.ps1"). Windows PowerShell 5.1.
 # The shared-PC rules these follow (agreed by the projects that share this PC): busy.txt is the timing lock
-# (CreateNew, one owner), a lane's presence note for untimed work is active\<lane>.txt, a lane that times gates on a
-# quiet host first, releases the lock for 16.5 min after 30 min while other lanes wait (pcup\window.txt says until
+# (CreateNew, one owner), a job's presence note for untimed work is active\<job>.txt, a job that times gates on a
+# quiet host first, releases the lock for 16.5 min after 30 min while other jobs wait (pcup\window.txt says until
 # when), runs no untimed work in the PC's night (zoo.toml night), and reads no WMI in loops where it can.
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot          # the zoo folder on the PC (pc\ sits in it; zoo.toml [zoo] pc_root)
@@ -9,7 +9,7 @@ $HomeDir = [Environment]::GetFolderPath("UserProfile")   # from the token, not t
 $Pcup = Join-Path $HomeDir "pcup"
 if ($env:ZOO_PCUP) { $Pcup = $env:ZOO_PCUP }        # another folder for a dry run of the lock logic
 
-# The notes of other lanes this zoo yields to, by kind (foundry_notes: a lane that shares the user's one Foundry Local
+# The notes of other jobs this zoo yields to, by kind (foundry_notes: a job that shares the user's one Foundry Local
 # daemon; lock_block_notes: no lock step while one is up): the names in $Pcup\active that match the patterns listed
 # under that kind in $Pcup\zoo_yield.json, a file of the shared PC that this repo does not ship. No file = none; a file
 # that does not parse stops the caller.
@@ -27,19 +27,19 @@ function Get-YieldNotes([string]$Kind) {
 $Busy = Join-Path $Pcup "busy.txt"
 # a PC without the shared-PC folder (README walk elsewhere): the lock file and the presence notes start empty
 foreach ($d in @($Pcup, (Join-Path $Pcup "active"))) { if (-not (Test-Path $d)) { New-Item -ItemType Directory -Force $d | Out-Null } }
-# the lane's name on the shared PC (its lock text, its notes): ZOO_LANE, else zoo.toml's [zoo] lane = "..."
-$Label = $env:ZOO_LANE
+# the job's name on the shared PC (its lock text, its notes): ZOO_JOB, else zoo.toml's [zoo] job = "..."
+$Label = $env:ZOO_JOB
 if (-not $Label) {
     $zooTomlPath = Join-Path $Root "zoo.toml"
     if (Test-Path $zooTomlPath) {
-        $zooLaneLine = Select-String -Path $zooTomlPath -Pattern '^\s*lane\s*=\s*"([^"]+)"' -Encoding UTF8 | Select-Object -First 1
-        if ($zooLaneLine) { $Label = $zooLaneLine.Matches[0].Groups[1].Value }
+        $zooJobLine = Select-String -Path $zooTomlPath -Pattern '^\s*job\s*=\s*"([^"]+)"' -Encoding UTF8 | Select-Object -First 1
+        if ($zooJobLine) { $Label = $zooJobLine.Matches[0].Groups[1].Value }
     }
 }
-if (-not $Label) { throw "no lane name: set [zoo] lane in zoo.toml (pushed with pc\) or ZOO_LANE" }
+if (-not $Label) { throw "no job name: set [zoo] job in zoo.toml (pushed with pc\) or ZOO_JOB" }
 # The shared PC's night, when other jobs' timings run: zoo.toml's [zoo] night = "HH:mm-HH:mm" (ZOO_NIGHT overrides it;
-# none or no key = no night). In it the lane's untimed work (pc\steps.ps1, pc\chain.ps1 -Mode first) starts and resumes
-# nothing, stops what runs and removes the lane's notes (Test-Night, Wait-OthersGone, Remove-LaneNotes); timed sittings
+# none or no key = no night). In it the job's untimed work (pc\steps.ps1, pc\chain.ps1 -Mode first) starts and resumes
+# nothing, stops what runs and removes the job's notes (Test-Night, Wait-OthersGone, Remove-JobNotes); timed sittings
 # are not stopped (they run in the slots the PC's order gives).
 $NightText = $env:ZOO_NIGHT
 if (-not $NightText) {
@@ -80,9 +80,9 @@ function Read-Busy {
 }
 function Test-OursBusy { $b = Read-Busy; return [bool]($b -and $b.Text.StartsWith("$Label ")) }
 
-# One try: TAKEN (created), OURS (rewritten), STALE (another lane's marker 120 min or older, taken over), or the other
-# lane's text (busy).
-# The marker's text (the shared PC's form): the lane first, then "timing: <what> until HH:MM" or
+# One try: TAKEN (created), OURS (rewritten), STALE (another job's marker 120 min or older, taken over), or the other
+# job's text (busy).
+# The marker's text (the shared PC's form): the job's name first, then "timing: <what> until HH:MM" or
 # "<what> (not a timing) until HH:MM", then the time it was written
 function Try-TakeBusy([string]$What) {
     $line = "$Label $What $(Get-Date -Format o)"
@@ -99,9 +99,9 @@ function Try-TakeBusy([string]$What) {
         return "TAKEN"
     } catch { return "BUSY (lost the race)" }
 }
-# Wait (5 s reads, the lock's gaps between other lanes' units can be a second) until the lock is ours. Another lane's
-# marker must stay absent for $SettleSec before we take it: a lane that runs units back to back drops it for ~1 s, and
-# a lane that gave it back reads its own files in that minute (60 s, the shared PC's form of 2026-11-09).
+# Wait (5 s reads, the lock's gaps between other jobs' units can be a second) until the lock is ours. Another job's
+# marker must stay absent for $SettleSec before we take it: a job that runs units back to back drops it for ~1 s, and
+# a job that gave it back reads its own files in that minute (60 s, the shared PC's form of 2026-11-09).
 function Take-Busy([string]$What, [string]$Log, [int]$SettleSec = 60, [int]$MaxHours = 12) {
     $deadline = (Get-Date).AddHours($MaxHours)
     $last = ""
@@ -113,7 +113,7 @@ function Take-Busy([string]$What, [string]$Log, [int]$SettleSec = 60, [int]$MaxH
             continue
         }
         if (-not $b -and $last) {
-            # it was another lane's a moment ago: it must stay free for $SettleSec
+            # it was another job's a moment ago: it must stay free for $SettleSec
             $free = $true
             for ($i = 0; $i -lt $SettleSec; $i += 5) { Start-Sleep -Seconds 5; $c = Read-Busy; if ($c -and -not $c.Text.StartsWith("$Label ")) { $free = $false; break } }
             if (-not $free) { continue }
@@ -126,7 +126,7 @@ function Take-Busy([string]$What, [string]$Log, [int]$SettleSec = 60, [int]$MaxH
 }
 # The lock for a block that is not a timing (a step over 8 GB): taken only after busy.txt has been free $FreeSec in a
 # row, whatever this call saw before (11-09 12:57: a step that yield_run had held suspended took it 9 s after another
-# lane gave it back, ahead of the next lane's timing; the next lane takes within 45 s of a release)
+# job gave it back, ahead of the next job's timing; the next job takes within 45 s of a release)
 function Take-BusyAfterFree([string]$What, [string]$Log, [int]$FreeSec = 60, [int]$MaxHours = 12) {
     $deadline = (Get-Date).AddHours($MaxHours)
     $freeSince = $null; $last = ""
@@ -156,21 +156,21 @@ function Test-Night {
     if ($Night.From -le $Night.To) { return ($t -ge $Night.From -and $t -lt $Night.To) }
     return ($t -ge $Night.From -or $t -lt $Night.To)
 }
-# At a night stop the lane's notes go (active\<lane>.txt of tools/pc.sh lock note and the lists' and first passes'
-# active\<lane>-*.txt): a note left up reads as "this lane waits" to the night's timings, which give their lock back for it
-function Remove-LaneNotes([string]$Log) {
+# At a night stop the job's notes go (active\<job>.txt of tools/pc.sh lock note and the lists' and first passes'
+# active\<job>-*.txt): a note left up reads as "this job waits" to the night's timings, which give their lock back for it
+function Remove-JobNotes([string]$Log) {
     $act = Join-Path $Pcup "active"
     $gone = @(Get-ChildItem -LiteralPath $act -Filter "$Label*.txt" -ErrorAction SilentlyContinue | Where-Object { $_.BaseName -eq $Label -or $_.BaseName.StartsWith("$Label-") })
     foreach ($f in $gone) { Remove-Item -LiteralPath $f.FullName -Force -ErrorAction SilentlyContinue }
-    if ($Log) { Say $Log "night $($Night.Text): the lane's notes removed: $(if ($gone.Count) { ($gone | ForEach-Object { $_.Name }) -join ', ' } else { 'none' })" }
+    if ($Log) { Say $Log "night $($Night.Text): the job's notes removed: $(if ($gone.Count) { ($gone | ForEach-Object { $_.Name }) -join ', ' } else { 'none' })" }
 }
-# Untimed work waits while another lane holds the lock, and starts again only after busy.txt has been free $FreeSec in
-# a row (the next lane in the order takes within 45 s of a release). Returns "night" in the shared PC's night (now, or
+# Untimed work waits while another job holds the lock, and starts again only after busy.txt has been free $FreeSec in
+# a row (the next job in the order takes within 45 s of a release). Returns "night" in the shared PC's night (now, or
 # when it comes during the wait: the caller starts nothing and stops), else "".
 function Wait-OthersGone([string]$Log, [string]$What, [int]$FreeSec = 60) {
     if (Test-Night) { Say $Log "$What`: the night ($($Night.Text)): not started"; return "night" }
     if (-not (Test-OtherBusy)) { return "" }
-    Say $Log "$What`: another lane holds the lock ($((Read-Busy).Text)): waiting"
+    Say $Log "$What`: another job holds the lock ($((Read-Busy).Text)): waiting"
     $freeSince = $null
     while ($true) {
         if (Test-Night) { Say $Log "$What`: the night ($($Night.Text)) came while waiting: not started"; return "night" }
@@ -182,17 +182,17 @@ function Wait-OthersGone([string]$Log, [string]$What, [int]$FreeSec = 60) {
     Say $Log "$What`: the lock has been free $FreeSec s: going on"
     return ""
 }
-# Another lane holds the lock now (its marker is younger than 120 min)
+# Another job holds the lock now (its marker is younger than 120 min)
 function Test-OtherBusy { $b = Read-Busy; return [bool]($b -and -not $b.Text.StartsWith("$Label ") -and $b.AgeMin -lt 120) }
-# A lock its lane marks "not a timing" (a short check on the RTX): first-pass work that stays off the GPU goes on under it
+# A lock its job marks "not a timing" (a short check on the RTX): first-pass work that stays off the GPU goes on under it
 function Test-OtherTiming { $b = Read-Busy; return [bool]($b -and -not $b.Text.StartsWith("$Label ") -and $b.AgeMin -lt 120 -and $b.Text -notmatch "not a timing") }
 function Touch-Busy([string]$What) { if (Test-OursBusy) { Write-Utf8 $Busy "$Label $What $(Get-Date -Format o)" } }
 function Release-Busy([string]$Log) {
     if (Test-OursBusy) { Remove-Item $Busy -Force; if ($Log) { Say $Log "lock released" } }
 }
-# The window of a gap: while the lock is off for a duty gap (or a gate retry), pcup\window.txt says "<lane> open until
-# <ISO time>"; a pausable lane starts a step over 8 GB only when it fits in the window's rest (2026-11-08:
-# a 16.5 GB export started 3.5 min before a gap's end was suspended at the retake and its RAM shut that lane's gate).
+# The window of a gap: while the lock is off for a duty gap (or a gate retry), pcup\window.txt says "<job> open until
+# <ISO time>"; a pausable job starts a step over 8 GB only when it fits in the window's rest (2026-11-08:
+# a 16.5 GB export started 3.5 min before a gap's end was suspended at the retake and its RAM shut that job's gate).
 $Window = Join-Path $Pcup "window.txt"
 function Open-Window([int]$Seconds, [string]$Log) {
     $until = (Get-Date).AddSeconds($Seconds).ToString("o")
@@ -202,8 +202,8 @@ function Open-Window([int]$Seconds, [string]$Log) {
 function Close-Window {
     try { if ((Test-Path $Window) -and ([IO.File]::ReadAllText($Window)).StartsWith("$Label ")) { Remove-Item $Window -Force } } catch { }
 }
-# Sit out a window with the lock read every 5 s: a lane that gives the lock back shortly before the window ends still
-# gets its $FreeSec (60 s) before this lane takes it again (Take-Busy settles only after a marker it saw itself).
+# Sit out a window with the lock read every 5 s: a job that gives the lock back shortly before the window ends still
+# gets its $FreeSec (60 s) before this job takes it again (Take-Busy settles only after a marker it saw itself).
 function Wait-Window([int]$Seconds, [int]$FreeSec = 60) {
     $end = (Get-Date).AddSeconds($Seconds)
     $seenAt = $null
@@ -214,9 +214,9 @@ function Wait-Window([int]$Seconds, [int]$FreeSec = 60) {
         if ($rest -gt 0) { Start-Sleep -Seconds ([int][math]::Ceiling($rest)) }
     }
 }
-# Other lanes waiting on this PC: yield\*.txt (a job under the yield wrapper; counts for as long as it exists) or an
-# active\*.txt note other than ours written in the last 120 min (the shared PC's rule: a waiting lane's PC-side watcher
-# rewrites its note every 50-60 min, a note not rewritten is gone after 2 hours; a lane that forgot its note at its
+# Other jobs waiting on this PC: yield\*.txt (a job under the yield wrapper; counts for as long as it exists) or an
+# active\*.txt note other than ours written in the last 120 min (the shared PC's rule: a waiting job's PC-side watcher
+# rewrites its note every 50-60 min, a note not rewritten is gone after 2 hours; a job that forgot its note at its
 # return would otherwise get a window every 30 min for nobody).
 function Get-OthersWaiting {
     $noteSince = (Get-Date).AddMinutes(-120)
@@ -266,7 +266,7 @@ function Get-OsBuild {
     try { $cv = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'; return "$($cv.CurrentBuild).$($cv.UBR)" } catch { return "" }
 }
 # The power mode a run ran under (every timing records it): MSI Center's User Scenario Mode (on this PC 2 =
-# Balanced, 1 = Extreme Performance, as the lanes that switched it on 11-09 read them) and the Windows power overlay on
+# Balanced, 1 = Extreme Performance, as the jobs that switched it on 11-09 read them) and the Windows power overlay on
 # AC and on battery (00000000-0000-0000-0000-000000000000 = the default; MSI's Extreme set ded574b5-... = best
 # performance), and whether the PC runs on AC (Win32_Battery status 2).
 function Get-PowerMode {
@@ -298,7 +298,7 @@ function Get-HostEnv {
     return $e
 }
 # Suspend / resume a process tree (the shared PC's yield_run.ps1 does the same): a first-pass NPU engine is CPU-bound
-# while it compiles and holds no GPU memory, so it waits out another lane's lock suspended instead of being killed
+# while it compiles and holds no GPU memory, so it waits out another job's lock suspended instead of being killed
 Add-Type -Namespace ZooPc -Name Native -MemberDefinition @"
 [DllImport("ntdll.dll")] public static extern int NtSuspendProcess(IntPtr handle);
 [DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr handle);
@@ -331,7 +331,7 @@ function Resume-Tree($H) {
     return $n
 }
 function Get-AvailGB { [math]::Round((New-Object Microsoft.VisualBasic.Devices.ComputerInfo).AvailablePhysicalMemory / 1GB, 1) }
-# The shared PC's RAM rule (11-07 23:10: when a lock falls, every lane's suspended job comes back at once): a step
+# The shared PC's RAM rule (11-07 23:10: when a lock falls, every job's suspended processes come back at once): a step
 # over 8 GB looks at free RAM before it starts and before it resumes from a suspend, and waits while it is short.
 function Wait-FreeRam([double]$WantGB, [string]$Log, [string]$What, [int]$MaxHours = 6) {
     if ((Get-AvailGB) -ge $WantGB) { return $true }
@@ -350,9 +350,9 @@ function Get-GpuEnginePercent {
     } catch { return $null }
 }
 
-# The lane's gate after taking the lock: three 5 s windows in a row with CPU under 15 %, no RTX memory in use and the
+# The job's gate after taking the lock: three 5 s windows in a row with CPU under 15 %, no RTX memory in use and the
 # build tools under 200 ms; at most $MaxMin minutes. Returns PASS or TIMEOUT and the readings.
-function Pass-LaneGate([string]$Log, [int]$MaxMin = 10) {
+function Pass-JobGate([string]$Log, [int]$MaxMin = 10) {
     $deadline = (Get-Date).AddMinutes($MaxMin)
     $ok = 0
     $seen = @()
@@ -384,7 +384,7 @@ function Get-RamHolders([int]$Top = 3) {
 # memory under 800 MiB, and for an Intel GPU run the GPU engines under 10 %; at most 30 min. Also available RAM of at
 # least $RamNeedGB (the plan's per-cell need: the package's bytes x 1.2 + 2 GB, so the run does not page).
 # RAM short for $RamMaxMin minutes in a row returns quietGate "ram-short" (the chain stops the sitting): waiting longer
-# under our own lock frees nothing when the holder is another lane's process that waits for that lock (2026-11-08).
+# under our own lock frees nothing when the holder is another job's process that waits for that lock (2026-11-08).
 function Wait-RunQuiet([string]$Log, [switch]$Engines, [int]$MaxMin = 30, [double]$RamNeedGB = 8, [int]$RamMaxMin = 10) {
     $deadline = (Get-Date).AddMinutes($MaxMin)
     $last = ""

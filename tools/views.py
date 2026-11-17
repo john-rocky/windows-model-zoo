@@ -4,10 +4,10 @@ A view renders the rows of one table. tools/table.py splits a kind's cells into 
 regime): every number in one table comes from one line kind and one regime (QoS x power mode), so no column puts
 speeds of different regimes side by side.
 
-vision  wide: one row per model, one column per cell (the Z1 vision zoo's table); the vision task cells (the Z5
-        pass, script pc/run_vision_task.py: each model on its own task line) long: one row per cell
-llm     long: one row per cell (the Z2 LLM zoo's table); task-line rows get their own columns
-asr/tts long: one row per cell (the Z3 audio zoo's table), one table per clip set
+vision  wide: one row per model, one column per cell (the vision zoo's table); the vision task cells (PLAN.md
+        section 2, script pc/run_vision_task.py: each model on its own task line) long: one row per cell
+llm     long: one row per cell (the LLM zoo's table); task-line rows get their own columns
+asr/tts long: one row per cell (the audio zoo's table), one table per clip set
 """
 
 # ---------------------------------------------------------------------------------------------------------- vision
@@ -75,7 +75,7 @@ def vision_row(model, recipe, cells, group):
         v = ((c or {}).get("speed") or {}).get("load_ms") if c and (c.get("run") or {}).get("state") != "error" else None
         loads.append(f"{v / 1000:.2f}" if v is not None else "-")
     par = " ".join(f"{code}:{_line_code(by.get(cid))}" for code, cid in VISION_LINE_CELLS)
-    # the note: the model's own notes, then the cells' fragments in the Z1 order (rank, then column order);
+    # the note: the model's own notes, then the cells' fragments in the vision zoo's order (rank, then column order);
     # cells with the same error line share one fragment
     order = {cid: i for i, cid in enumerate(VISION_NOTE_ORDER)}
     frags = [(0, -1, n) for n in (recipe.get("model") or {}).get("notes") or []]
@@ -149,7 +149,7 @@ def _fmt(x, nd=1):
 
 
 def llm_row(c):
-    """The Z2 table's row (windows-llm-zoo tools/table.py row())."""
+    """The row of the LLM zoo's table (windows-llm-zoo tools/table.py row())."""
     s = c.get("speed") or {}
     st = (c.get("run") or {}).get("state")
     llm = c.get("llm") or {}
@@ -224,7 +224,7 @@ AUDIO_HEADER = ["model", "runtime", "form", "device", "clips", "WER / CER (%)", 
 
 
 def audio_acc_text(c):
-    """The Z3 table's accuracy words (windows-audio-zoo tools/table.py acc_text())."""
+    """The accuracy words of the audio zoo's table (windows-audio-zoo tools/table.py acc_text())."""
     a = (c.get("audio") or {}).get("scores") or {}
     st = (c.get("audio") or {}).get("set")
     if st == "S150":
@@ -270,7 +270,7 @@ def audio_mem_text(c):
 
 
 def audio_row(c):
-    """The Z3 table's row (windows-audio-zoo tools/table.py row_this() and its rows of other passes' cells)."""
+    """The row of the audio zoo's table (windows-audio-zoo tools/table.py row_this() and its rows of other passes' cells)."""
     a = c.get("audio") or {}
     note = "; ".join(n["text"] for n in c.get("note") or [])
     rec = f"`{(c.get('source') or {}).get('record')}`" if (c.get("source") or {}).get("record") else "—"

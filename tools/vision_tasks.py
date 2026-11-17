@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The task lines of the vision task cells (PLAN.md section Z5; each rule is the model's [[line]] in its recipe): the
+"""The task lines of the vision task cells (PLAN.md section 2; each rule is the model's [[line]] in its recipe): the
 apps' post-processing (john-rocky/LiteRT-Models@96e0bc1f, the Kotlin files the rules name) ported to numpy, applied
 to the cell's outputs and to the reference's outputs alike, then the comparison of the line. No model runs here.
 
@@ -19,7 +19,7 @@ POSE = {  # model -> (input W, H, the app's show threshold or None = every point
     "rtmpose_s_fp16": (192, 256, 0.3), "rtmw_fp16": (192, 256, 0.3), "rtm_animal_fp16": (256, 256, 0.3),
     "rtmhand_fp16": (256, 256, 0.2), "rtm_face_fp16": (256, 256, None)}
 DETR = {"dfine_graphB_fp16", "dfine_graphB_fp16_fixed", "rtdetr_graphB_fp16", "rtdetr_graphB_fp16_fixed"}
-CODEC_OFFSET = {"task-codec-aligned": 8}   # line id -> the input sample the decoded output starts at (PLAN.md Z5 change 1)
+CODEC_OFFSET = {"task-codec-aligned": 8}   # line id -> the input sample the decoded output starts at (PLAN.md section 2, change 1)
 
 
 def _sig32(x):
@@ -262,7 +262,7 @@ def ids_of(rec):
 
 def instruments(zc, zr):
     """Per output (o<k>, or head; a stream's frames together): the cosine and max |d| against the reference over the
-    values both have finite, and the cell's non-finite count, over every input. Z1's internal measures, not the line."""
+    values both have finite, and the cell's non-finite count, over every input. The vision zoo's internal measures, not the line."""
     have = set(zc.files)
     groups = {}
     for k in zr.files:

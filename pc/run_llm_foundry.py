@@ -7,17 +7,17 @@ returns the message content as it is, then the reference's rendered prompts thro
     python run_llm_foundry.py --cleanup --id z6-<name>:1 --cuda12 <dll folder>   # pc/chain.ps1 after a killed run
 
 Foundry Local's REST has no raw-prompt route (/v1/completions = 404) and its chat wraps the messages with the folder's
-chat_template.jinja (PLAN.md section Z6, the probes of 11-10 07:54-07:56). So: <work>\\<name> = hard links of the
+chat_template.jinja (PLAN.md section 3, the probes of 11-10 07:54-07:56). So: <work>\\<name> = hard links of the
 package's files except chat_template.jinja (the template {%- for message in messages -%}{{- message['content'] -}}
 {%- endfor -%}), tokenizer_config.json (its chat_template, when it has one, the same), inference_model.json (this id)
 and genai_config.json (copied; search do_sample false and repetition_penalty 1.0 when the package sets otherwise:
 plain greedy); `foundry model register <dir> <id> --task ... --device ... [--execution-provider ...]`, `model load`,
 then POST /catalogs/local/v1/chat/completions {messages: [one user message = the rendered string], max_tokens 48 (the
-gate prompt 16), temperature 0}; then unload, unregister, `server stop`. The daemon (one per Windows user) is this
-cell's: the cell does not start while a note of another lane that shares the daemon (foundry_notes in
+gate 16), temperature 0}; then unload, unregister, `server stop`. The daemon (one per Windows user) is this
+cell's: the cell does not start while a note of another job that shares the daemon (foundry_notes in
 pcup\\zoo_yield.json) is in active\\ or a daemon it did not start runs; CUDA 12's DLL folder goes on the daemon's PATH
 (the shared PC's rule).
-The start token (PLAN.md section Z6, change 1): the untimed warm-up request (the first prompt, 8 tokens) reads the
+The start token (PLAN.md section 3, change 1): the untimed warm-up request (the first prompt, 8 tokens) reads the
 daemon's prompt token count; a rendered string that starts with <bos> and comes back one token over the reference's
 ids goes without that <bos> in every scored request (the tokenizer adds one). A count other than the reference's (or
 one over it for a <bos> string) means the registration wraps the prompt: the cell is an error.
@@ -44,7 +44,7 @@ NOTES = HOME / "pcup" / "active"
 
 
 def foreign_notes():
-    """other lanes' Foundry notes (another lane may share the user's one daemon, PLAN.md section Z6): the notes in
+    """other jobs' Foundry notes (another job may share the user's one daemon, PLAN.md section 3): the notes in
     pcup\\active that match foundry_notes in pcup\\zoo_yield.json"""
     return al.yield_notes("foundry_notes")
 
@@ -149,7 +149,7 @@ def main():
         foundry(log, "model", "unload", args.id, env=env, timeout=120)
         foundry(log, "model", "unregister", args.id, env=env, timeout=120)
         notes = foreign_notes()
-        how = f"daemon left running: other lanes' Foundry notes {notes}" if notes else stop_daemon(log, env)
+        how = f"daemon left running: other jobs' Foundry notes {notes}" if notes else stop_daemon(log, env)
         print(json.dumps({"cleanup": "foundry", "id": args.id, "daemon": how}), flush=True)
         return 0
     rec = al.Record("run_llm_foundry.py", args)
@@ -162,7 +162,7 @@ def main():
         rec["versions"] = al.versions([])
         notes = foreign_notes()
         if notes:
-            raise RuntimeError(f"not run: other lanes' Foundry notes {notes} (the user's one daemon)")
+            raise RuntimeError(f"not run: other jobs' Foundry notes {notes} (the user's one daemon)")
         pids = daemon_pids()
         if pids:
             raise RuntimeError(f"not run: a Foundry daemon this cell did not start runs (pid {pids})")

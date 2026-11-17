@@ -6,10 +6,10 @@ mode, the reference's rendered prompts as they are; one JSON.
         [--max-new 48] [--gate-max-new 16]
 
 Each prompt: one process (`--use_session=true`: a Session takes the text as it is, no Jinja; `--sampler_top_k=1` =
-greedy; `--max_output_tokens` 48, the gate prompt 16; `--async=false`; `--benchmark` for the token counts; the bench's
+greedy; `--max_output_tokens` 48, the gate 16; `--async=false`; `--benchmark` for the token counts; the bench's
 `--max_num_tokens=2048` on the CPU and GPU; the NPU: the bench's `--litert_dispatch_lib_dir` and its OpenVINO DLL folder
 first on PATH, scripts/windows_ssh_executor.py), the prompt in a UTF-8 file with nothing added. The Session puts the
-model's start token in front by itself and stops on a start token in the text (PLAN.md section Z6, the probe of
+model's start token in front by itself and stops on a start token in the text (PLAN.md section 3, the probe of
 11-10 07:54): a leading <bos> of the rendered string is dropped. The answer = the process's stdout after "output: "
 (the session's text and one line end); its prefill and decode token counts = the "Prefill Turn 1" / "Decode Turn 1"
 lines of the benchmark info (stderr). The row's prompt token count is compared with the reference's ids (no ids

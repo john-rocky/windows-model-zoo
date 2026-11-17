@@ -358,7 +358,7 @@ tools/pc.sh lock note ""
   job that waits for the PC, and this repo's timed sittings give their lock back for it. When you go on, run the
   first `lock note` line again before your next launch.
 - `push` ends with `pushed pc/, suites/, zoo.toml -> <pc_root>: <n> .ps1 files parse on the PC with the Mac's sha;
-  zlib loaded, lane <lane>, others waiting <k>`. Push again after every `tools/plan.py` call.
+  zlib loaded, job <job>, others waiting <k>`. Push again after every `tools/plan.py` call.
 - Each `launch` prints `STARTED <pid> (...)`. Each `wait` prints the logs from their start (a list launched again
   appends to its log, so an earlier try's lines come first) and ends with one `DONE OK <time> (<done file>)` per list
   or chain, or `DONE FAIL <steps> <time> (<done file>)`; its last number is the most hours it waits.
@@ -504,12 +504,12 @@ python3 tools/lint.py
    Run the two lines in one shell call. The first `scrub.py` prints `scrubbed <file> (<hits>)` per file and
    `<n> file(s) changed`; the check prints nothing, and the last line is `exit 0`. Never write the name in a file, a
    commit message or a command: to check again later, run the same two lines, which read the name into `u`.
-2. On a shared PC the logs quote the other jobs' lock texts (`another lane holds the lock (<text>)`, `killed for
-   another lane's lock (<text>)`). Cut them before the commit:
+2. On a shared PC the logs quote the other jobs' lock texts (`another job holds the lock (<text>)`, `killed for
+   another job's lock (<text>)`). Cut them before the commit:
 
    ```bash
    python3 -c 'import pathlib, re, sys
-   pat = re.compile(r"(another lane holds the lock|killed for another lane.s lock) \((?:[^()]|\([^()]*\))*\)")
+   pat = re.compile(r"(another job holds the lock|killed for another job.s lock) \((?:[^()]|\([^()]*\))*\)")
    for p in pathlib.Path(sys.argv[1]).rglob("*.log"):
        t = p.read_bytes().decode("utf-8")
        u = pat.sub(r"\1", t)
@@ -565,15 +565,15 @@ python3 tools/lint.py
 
 | what you see | what it means | what to do |
 |---|---|---|
-| `REFUSED (another lane's timing lock): ...` (exit 3) | another job times on the PC; no connection is opened | wait (minutes), then the same command |
+| `REFUSED (another job's timing lock): ...` (exit 3) | another job times on the PC; no connection is opened | wait (minutes), then the same command |
 | `REFUSED (PC_FEED_CMD is not set: ...` (exit 3) | the call's shell has no `PC_FEED_CMD` | `export PC_FEED_CMD='<the feed command>';` at the start of the call (section 0); a Mac without a lock feed: `export ZOO_FEED=none;` |
 | `REFUSED (lock feed stale or missing): ...` (exit 3) | the Mac's lock feed is old or missing | a Mac without the feed: `export ZOO_FEED=none;` at the start of the call (section 0); else wait for the feed |
 | `STOP: <repo>@<sha10> has no file for ['<glob>']` (plan.py manifest) | an `include` glob matches no file of that revision | fix the glob from the repo's tree (section 2) |
 | `KeyError: '<model>'` at the end of a traceback (plan.py steps) | the recipe has a `z6-setup` step and `pc/z6_spec.json` has no entry for that model | add the entry (section 2, "The `z6-setup` step"), then `steps` again |
 | `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, `engines`, the model's folder name) |
 | `DONE FAIL fetch`; in the pulled `raw/<name>/logs/fetch/fetch.txt`, a row with `"ok": false` and the last line `fetch done: <n> files, <k> not matching` | a file's bytes are not the manifest's hash after 6 tries | `python3 tools/plan.py manifest <model>`, `tools/pc.sh push`, then launch the `fetch` list and wait for it again (the files that match are only hashed); a URL `[[fetch]]`: check its `size` and `sha256` |
-| `<step>: killed for another lane's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |
-| `<model>/<cell> run 1 stopped (another lane's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run | nothing (the cell's `run.tries` counts the starts) |
+| `<step>: killed for another job's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |
+| `<model>/<cell> run 1 stopped (another job's lock, a slot or the night); its files removed, run again after it` | the same for a first-pass run | nothing (the cell's `run.tries` counts the starts) |
 | `DONE FAIL <step>` (a list) | a step failed | its output: `tools/pc.sh pull logs raw/<name>`, then `raw/<name>/logs/<list>/<step>.txt` and `.txt.err` |
 | `DONE FAIL pip-<venv>,versions-<venv>,...` for `setup.done` (every `pip-*` and `versions-*` step) and, in the log lines above it, `Failed to query Python interpreter at` a venv's `python.exe` with a cause ending `(os error 4551)` | Smart App Control (or another application control policy of Windows) blocks the `python.exe` that uv puts in each venv, a launcher that is not signed; the `fetch` list, which runs uv's Python without a venv, can still end `DONE OK` | nothing in the zoo gets around it: stop and ask the person who gave you the task, and do not change the policy yourself (section 0, step 5). Once it is not `On`, launch the `setup` list again |
 | results.py: `<model>/<cell>: error, first, ...` | the runner failed | `run.error_line` in the cell JSON and the run's `run1.stderr.txt`; fix it, then run the cell again as in the row "is not before the run" below |
@@ -656,7 +656,7 @@ said that the cell on the Intel GPU with the OpenVINO execution provider gave no
 four of its 21 rows; 9 rows have text (now section 6). That cell was then run once more, outside the agent's run, and
 gave the same rows. Section 5's background `wait` was also run outside the agent's run, to each of its ends: the `DONE`
 lines, `WAIT-TIMEOUT`, and a connection that ended.
-Not walked: `REFUSED (another lane's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
+Not walked: `REFUSED (another job's timing lock)`, a first-pass run stopped by a lock, a step or a runner that fails
 in another way, the `setup` list launched again after Smart App Control is turned off, the PC's night stop, a lock
 step that gives its lock back or is killed at its lock's end, the LiteRT-LM
 build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC, LiteRT-LM cells that pass section 6's prompt check,

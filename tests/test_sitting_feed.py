@@ -1,5 +1,5 @@
 """tools/sitting.sh and the PC's lock feed (Mac, no PC). In a scratch copy with a stand-in tools/pc.sh (it records each
-call and answers like the PC: TAKEN, PASS, STARTED, a DONE line, the lane's lock in status, RELEASED) and a stand-in
+call and answers like the PC: TAKEN, PASS, STARTED, a DONE line, the job's lock in status, RELEASED) and a stand-in
 feed command in PC_FEED_CMD (a script in the scratch folder, the output tools/pc.sh's header describes: exit 0 when the
 last line is under 3 min old, else 2):
   PC_FEED_CMD not set     -> exit 3, "REFUSED (PC_FEED_CMD is not set", no call to tools/pc.sh
@@ -25,11 +25,11 @@ PC_SH = r"""#!/bin/bash
 # stand-in tools/pc.sh: one line per call in calls.log, answers like the PC
 K="$(cd "$(dirname "$0")/.." && pwd)"
 echo "$* | ZOO_FEED=${ZOO_FEED:-} ZOO_FORCE=${ZOO_FORCE:-}" >> "$K/calls.log"
-lane=$(python3 -c "import tomllib; print(tomllib.load(open('$K/zoo.toml','rb'))['zoo']['lane'])")
+job=$(python3 -c "import tomllib; print(tomllib.load(open('$K/zoo.toml','rb'))['zoo']['job'])")
 case "$1 ${2:-}" in
   "lock take") echo "TAKEN 2026-11-10T20:00:00+09:00" ;;
   "lock gate") echo "PASS 2026-11-10T20:00:15+09:00" ;;
-  "lock status") echo "busy: $lane timing: sitting t done (0 min)" ;;
+  "lock status") echo "busy: $job timing: sitting t done (0 min)" ;;
   "lock release") echo "RELEASED 2026-11-10T20:09:00+09:00" ;;
   "launch "*) echo "STARTED 1234 (chain.ps1 running 20 s after the start)" ;;
   "wait "*) echo "DONE OK 2026-11-10T20:08:00+09:00 (chain.done)" ;;

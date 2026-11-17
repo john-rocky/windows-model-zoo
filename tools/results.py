@@ -14,7 +14,7 @@ verdict reads again without raw/.
 Lines by kind (the line's rule is the recipe's; these are its computations):
   vision classification  top-1 vs the reference's, inputs whose reference top-1 / top-2 probabilities differ by < 0.01
                          not counted; instruments: cos and max |d| of the logits, top-5 overlap
-  llm qa20               the normalized first line of each answer vs the reference's, >= 18 / 20, and the gate prompt
+  llm qa20               the normalized first line of each answer vs the reference's, >= 18 / 20, and the gate
                          ended on an end token within its 16 new tokens; instrument: the answers right by the answer
                          key (tools/qa20_key.py), also for the reference. No verdict when the record does not show
                          that the runtime got every prompt with the reference's token ids (or, for a runner without
@@ -24,7 +24,7 @@ Lines by kind (the line's rule is the recipe's; these are its computations):
                          (tools/fleurs_score.py)
   tts T50                the write-back WER (pc/writeback.py's texts) <= the reference's write-back WER on the same
                          sentences + 1.0 pt, 0 silent waves
-  vision task cells      (a cell whose script is pc/run_vision_task.py: the Z5 pass's) the model's own line, by
+  vision task cells      (a cell whose script is pc/run_vision_task.py: PLAN.md section 2) the model's own line, by
                          tools/vision_tasks.py on the runner's and the reference's outputs (<stem>.outputs.npz); the
                          cell's inputs must be the reference's (the same inputs.npz sha256)
 """
@@ -117,14 +117,14 @@ def score_llm(run_json, run, ref_json, ref):
         rows.append({"id": r["id"], "cell": a1, "ref": b1, "same": a1 == b1})
     ok = n == 20 and agree >= 18 and bool(gate and gate["pass"])
     detail = {"answers": {"agree": agree, "n": n, "bar": 18, "pass": n == 20 and agree >= 18},
-              "gate": gate or {"pass": False, "why": "no gate row"}, "pass": bool(ok)}
+              "gate": gate or {"pass": False, "why": "no gate in the record"}, "pass": bool(ok)}
     # the prompt as the runtime saw it (tools/zoo.py prompt_numbers): its ids when the runner has them, else its token
     # count (LiteRT-LM, Foundry Local, OpenVINO GenAI's VLMPipeline) against the number of the reference's ids, and
     # for LiteRT-LM the prefill turns in each prompt's log
     prompt = zoo.prompt_numbers(run_json, run, ref)
     inst = {"agree": agree, "n": n, "full_text_same": full, "eos_within_max": eos, "new_tokens": toks, **prompt,
             "rows": rows, "gate_text": ("EOS in " + str(gate["new_tokens"]) if gate and gate["pass"] else
-                                        f"no EOS in {gate['new_tokens']}" if gate else "no gate row")}
+                                        f"no EOS in {gate['new_tokens']}" if gate else "no gate in the record")}
     inst["key"] = qa20_key.score_rows(run["rows"], qa20_key.load_key(), zoo.rel(run_json))
     why = zoo.prompt_why(prompt, ref)
     if why:   # the record does not show the line's rule held (the reference's rendered string as it is): no verdict
@@ -215,7 +215,7 @@ def outputs_npz(record_path):
 
 
 def score_vision_task(model, task, run_json, run, ref_json, ref, line=None):
-    """A vision task cell (the Z5 pass): tools/vision_tasks.py on the two outputs files."""
+    """A vision task cell (PLAN.md section 2): tools/vision_tasks.py on the two outputs files."""
     import numpy as np
     import vision_tasks as VT
     oa, ob = outputs_npz(run_json), outputs_npz(ref_json)

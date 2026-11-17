@@ -2,10 +2,10 @@
 preprocessing and host steps, the engines of the cells, the MoViNet stream and the downstream head.
 
 The preprocessing, the host steps (DETR graph B's inputs, the SAM2 prompt, the DAC RVQ) and the cells' sessions are
-the vision zoo Z1's (john-rocky/windows-zoo@faa4019 pc/make_inputs.py and pc/zoo_run.py), applied to every input of
-the model's set instead of one sample. The spec (pc/z5_spec.json, written on the Mac by migrate/z5.py spec) names per
-model: its input set and ids, Z1's input entries (geometry, normalization, channel order, upstream graph), the files
-of its forms with their sha256, and the stream or downstream step.
+the vision zoo's (john-rocky/windows-zoo@faa4019 pc/make_inputs.py and pc/zoo_run.py), applied to every input of
+the model's set instead of one sample. The spec (pc/z5_spec.json, written on the Mac by a copy tool that is not in
+this repo) names per model: its input set and ids, the vision zoo's input entries (geometry, normalization, channel
+order, upstream graph), the files of its forms with their sha256, and the stream or downstream step.
 
 Arrays on disk (numpy .npz, uncompressed): inputs.npz keys n<idx>__<feed name>; outputs keys n<idx>__o<k> (one run per
 input), n<idx>__f<t>__o0 (MoViNet: the logits after frame t) and n<idx>__head (the downstream head's logits).
@@ -22,7 +22,7 @@ import wave
 
 import numpy as np
 
-NORM = {  # Z1 pc/make_inputs.py
+NORM = {  # the vision zoo's pc/make_inputs.py
     "imagenet": (1 / 255, [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     "unit": (1 / 255, [0, 0, 0], [1, 1, 1]),
     "minus1to1": (1 / 127.5, [1, 1, 1], [1, 1, 1]),
@@ -41,7 +41,7 @@ def sha256_file(path):
 
 
 def check_file(entry, what):
-    """entry = {path, sha256}: the file Z1 measured (or a host file), checked before use. Returns the record row."""
+    """entry = {path, sha256}: the file the vision zoo measured (or a host file), checked before use. Returns the record row."""
     p = entry["path"]
     if not os.path.isfile(p):
         raise RuntimeError(f"{what}: {p} does not exist")
@@ -87,7 +87,7 @@ def feed_index(name, fallback):
     return int(m.group(1)) if m else fallback
 
 
-# ---- images (Z1 pc/make_inputs.py geometry / normalize / chw) -----------------------------------------------------
+# ---- images (the vision zoo's pc/make_inputs.py geometry / normalize / chw) ---------------------------------------
 
 def geometry(im, kind, W, H):
     from PIL import Image
@@ -142,7 +142,7 @@ def image_rows(suite, ids, images_dir):
 
 
 def image_feed(entry, im, shape):
-    """One Z1 image input entry (kind image / mlsd4) -> the NCHW array of the graph input's shape."""
+    """One image input entry of the vision zoo (kind image / mlsd4) -> the NCHW array of the graph input's shape."""
     _, _, H, W = shape
     x = geometry(im, entry["geometry"], W, H)
     if entry["kind"] == "image":
@@ -211,7 +211,7 @@ class OrtEngine(Engine):
             providers = ["CPUExecutionProvider"]
         elif ep == "cuda":
             if hasattr(ort, "preload_dlls"):
-                ort.preload_dlls()   # the CUDA / cuDNN DLLs of the nvidia pip wheels (Z1 pc/zoo_run.py)
+                ort.preload_dlls()   # the CUDA / cuDNN DLLs of the nvidia pip wheels (the vision zoo's pc/zoo_run.py)
             providers = [("CUDAExecutionProvider", {}), "CPUExecutionProvider"]
         elif ep == "openvino":
             import onnxruntime_ep_openvino as ov_ep
@@ -245,7 +245,7 @@ class OrtEngine(Engine):
 
 
 class OvBlobEngine(Engine):
-    """The precompiled NPU blob (Z1's ovnpu_pre cell): OpenVINO without ONNX Runtime, import_model in this process."""
+    """The precompiled NPU blob (the vision zoo's ovnpu_pre cell): OpenVINO without ONNX Runtime, import_model in this process."""
 
     def __init__(self, path, device="NPU", dev=None):
         import openvino as ov
@@ -317,7 +317,7 @@ def movinet_clip(engine, frame, frames):
     return logits, walls
 
 
-# ---- host steps (Z1 pc/make_inputs.py: detr_b, sam2_dec, dac_zq) ----------------------------------------------------
+# ---- host steps (the vision zoo's pc/make_inputs.py: detr_b, sam2_dec, dac_zq) --------------------------------------
 
 def by_shape(arrays, shape):
     hits = [a for a in arrays if list(a.shape) == list(shape)]

@@ -3,7 +3,7 @@
 
 [zoo]
 name = "windows-model-zoo"
-lane = "Z7"                      # this zoo's name on the shared PC's lock and notes (pcup\busy.txt, pcup\active\<lane>.txt)
+job = "modelzoo"                 # this zoo's name on the shared PC's lock and notes (pcup\busy.txt, pcup\active\<job>.txt)
 pc_ssh = "winpc"                 # ssh host alias of the PC (PowerShell 5.1 as its default shell)
 pc_root = 'C:\src\model-zoo'     # the zoo's folder on the PC (a folder that does not exist yet): venvs, models, runs, logs
 night = "20:45-05:30"            # the shared PC's night, when other jobs' timings run: untimed steps and first passes start

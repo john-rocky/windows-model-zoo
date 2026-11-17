@@ -1,5 +1,5 @@
 {
- "note": "written by the template's migrate/z6.py, then pointed at public sources for this repo (2026-11-10): read by pc/z6_setup.py and pc/engines.py",
+ "note": "written by a copy tool of the private working repo, then pointed at public sources for this repo (2026-11-10): read by pc/z6_setup.py and pc/engines.py",
  "engines": {
   "source": "edge-llm-bench results/raw/2026-11-08-windows-gpu-q06/host-logs/20261108-145737-2de6c7/host.json (binaries)",
   "dirs": {

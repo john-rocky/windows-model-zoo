@@ -7,9 +7,9 @@ process, the reference's rendered prompts as token ids, after one untimed warm-u
 The server: -m <gguf> -c 2048 -np 1 on 127.0.0.1 (a free port), the bench's GPU flags -ngl 99 -fa on -lv 4 with --gpu,
 --env for the server's environment (the bench's Vulkan row: GGML_VK_VISIBLE_DEVICES=0). A GPU cell's server log must
 name a device of --device-prefix (CUDA0 / Vulkan0) on the NVIDIA GPU, else the cell is an error. Each prompt
-(PLAN.md section Z6): POST /tokenize {content: the rendered string, add_special false, parse_special true} -> the ids
+(PLAN.md section 3): POST /tokenize {content: the rendered string, add_special false, parse_special true} -> the ids
 (compared with the reference's), POST /completion {prompt: the ids (an id array gets no BOS), n_predict 48 (the gate
-prompt 16), temperature 0, top_k 1, repeat_penalty 1.0, cache_prompt false, return_tokens true}. The row: the ids,
+16), temperature 0, top_k 1, repeat_penalty 1.0, cache_prompt false, return_tokens true}. The row: the ids,
 the new ids, the text (content), the evaluated prompt tokens, and whether it stopped on an end token (stop_type eos).
 Timing per prompt: the server's own prompt_ms + predicted_ms.
 """

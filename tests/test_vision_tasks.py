@@ -3,7 +3,7 @@
 the reference passes the model's line, a broken copy fails it, a non-finite first input is counted by the instruments
 (and the line still gives a verdict or a reason, never a crash), and the reference values serialize. For the codec,
 the reference's own SI-SDR is high on the aligned line (task-codec-aligned) and far below 0 dB without the offset
-(the first line's flaw, PLAN.md Z5 change 1: a near copy passes either way, so the bar is what tells them apart).
+(the first line's flaw, PLAN.md section 2, change 1: a near copy passes either way, so the bar is what tells them apart).
 Exit 1 on any unexpected result.
 
     python3 tests/test_vision_tasks.py

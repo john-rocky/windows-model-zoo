@@ -115,7 +115,7 @@ def gen(model, ms, rng):
                 put(i, [lg], [lg + rng.normal(0, 1e-3, lg.shape)], [np.roll(lg, 1, 1)])
         elif task == "codec":
             src = rng.normal(0, 0.1, 16000)
-            # the decoder's output starts 8 samples into the clip (15,992 = 16,000 - 8; PLAN.md Z5, change 1)
+            # the decoder's output starts 8 samples into the clip (15,992 = 16,000 - 8; PLAN.md section 2, change 1)
             o = (src[8:] * 0.9 + rng.normal(0, 0.01, 15992))[None, None]
             put(i, [o], [o + rng.normal(0, 1e-4, o.shape)], [np.zeros_like(o)])
             ref[f"n{i:03d}__src"] = src.astype(np.float32)

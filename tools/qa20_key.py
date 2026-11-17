@@ -74,7 +74,7 @@ def is_right(text, entry):
 
 
 def question_rows(rows, key, where):
-    """the question rows of a record (the gate row is not a question), each checked against the key"""
+    """the question rows of a record (the gate is not a question), each checked against the key"""
     out = []
     for r in rows:
         if r.get("role") == "gate":

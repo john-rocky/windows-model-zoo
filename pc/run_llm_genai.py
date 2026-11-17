@@ -5,12 +5,12 @@ after one untimed warm-up prompt; one JSON.
     python run_llm_genai.py --model-dir <package> --ep cuda|webgpu|openvino|cpu|follow_config [--ov-device GPU|CPU|NPU]
         [--ep-option key=value ...] --ref <ref.json> --out run.json [--max-new 48] [--gate-max-new 16]
 
-EP: the Z2 lane's make_model (windows-llm-zoo pc/run_genai.py): cuda / cpu / openvino / webgpu replace the folder's
+EP: the LLM zoo's make_model (windows-llm-zoo pc/run_genai.py): cuda / cpu / openvino / webgpu replace the folder's
 providers for every session; follow_config keeps the folder's genai_config (a WebGPU overlay names its adapterIndex
 there). Each prompt: the package tokenizer's encode of the rendered string; when that put a start token in front of the
-one the string already has (two start tokens at the head), the first is dropped (PLAN.md section Z6), and the ids go to
+one the string already has (two start tokens at the head), the first is dropped (PLAN.md section 3), and the ids go to
 append_tokens (no chat template of this runtime). Decode = the reference's: plain greedy (do_sample False, num_beams 1,
-repetition_penalty 1.0), at most 48 new tokens (the gate prompt 16), stopped by the package's eos ids. A row: the
+repetition_penalty 1.0), at most 48 new tokens (the gate 16), stopped by the package's eos ids. A row: the
 prompt's ids, the new ids, the text (the new ids without the end token), and whether the last new token is an end
 token. Timing per prompt: append_tokens + the generate loop; first token = append_tokens + the first step.
 """
@@ -145,7 +145,7 @@ def main():
         rec.fail()
         code = 1
     rec.write()
-    os._exit(code)   # the WebGPU plugin 0.5.0 on the RTX kept the process alive after main() (Z2, 2026-11-06)
+    os._exit(code)   # the WebGPU plugin 0.5.0 on the RTX kept the process alive after main() (the LLM zoo, 2026-11-06)
 
 
 if __name__ == "__main__":

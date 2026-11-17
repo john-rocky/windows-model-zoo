@@ -1,10 +1,10 @@
 #!/bin/bash
-# One timed sitting on the PC, from the Mac (the audio zoo's tools/sitting.sh; the lane and the PC folder from zoo.toml):
+# One timed sitting on the PC, from the Mac (the audio zoo's tools/sitting.sh; the job's name and the PC folder from zoo.toml):
 #   1. wait on the Mac (the lock feed: the command in PC_FEED_CMD, as in tools/pc.sh's header; every 10 s, no ssh) until
 #      busy.txt has been free for 60 s in a row. PC_FEED_CMD not set, or a feed that is missing or stale at the start,
 #      refuses the sitting (exit 3). A Mac without a lock feed: ZOO_FEED=none skips the feed (as in tools/pc.sh); the
 #      take then waits on the PC, in one ssh connection, until busy.txt has been free for 60 s (pc\lock.ps1 take)
-#   2. the lane's lock ("<lane> timing: sitting <plan> ... until HH:MM") and the lane's quiet gate (3 x 5 s under 15 % CPU,
+#   2. the job's lock ("<job> timing: sitting <plan> ... until HH:MM") and the job's quiet gate (3 x 5 s under 15 % CPU,
 #      RTX empty, build tools quiet; at most 10 min, else the lock goes back and the sitting waits 10 min)
 #   3. pc/chain.ps1 -Mode timed on the plan, detached: control-warm, control-head (stops the sitting when off the known
 #      value by more than 5 %), the cells, control-tail; duty gaps and slots inside. This side waits in one long
@@ -27,7 +27,7 @@ mkdir -p "$K/raw"
 log="$K/raw/$plan.sitting.log"
 pcsh="$K/tools/pc.sh"
 conf() { python3 -c "import tomllib,sys; print(tomllib.load(open(sys.argv[1],'rb'))['zoo'][sys.argv[2]])" "$K/zoo.toml" "$1"; }
-LANE="$(conf lane)"
+JOB="$(conf job)"
 R="${ZOO_PC_ROOT:-$(conf pc_root)}"   # the PC folder (the same as tools/pc.sh)
 say() { echo "[$(date '+%F %T %Z')] $*" | tee -a "$log"; }
 release() { say "release: $(ZOO_FORCE=1 "$pcsh" lock release timing "${1:-0}" 2>&1 | tail -1)"; }
@@ -49,16 +49,16 @@ if len(l) < 4 or l[3] != 'none': print(0)
 else: print(int((d.datetime.now(d.timezone.utc) - d.datetime.strptime(l[0], '%Y-%m-%dT%H:%M:%S%z')).total_seconds()))"
 }
 
-ours_now() {  # the feed's lock is the lane's own (a first-pass block of its slot may run right before the sitting)
-  bash -c "$PC_FEED_CMD" 2>/dev/null | awk '$3=="BUSY"' | tail -n 1 | grep -q " BUSY $LANE "
+ours_now() {  # the feed's lock is the job's own (a first-pass block of its slot may run right before the sitting)
+  bash -c "$PC_FEED_CMD" 2>/dev/null | awk '$3=="BUSY"' | tail -n 1 | grep -q " BUSY $JOB "
 }
 
-drop_dead_yield_note() {  # the lane's yield\<lane>.txt with no wrapper running reads as "this lane waits" to others
+drop_dead_yield_note() {  # the job's yield\<job>.txt with no wrapper running reads as "this job waits" to others
   local r
   r=$(ZOO_FORCE=1 "$pcsh" ps 2>&1 <<EOF
-\$f = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'pcup\\yield\\$LANE.txt'
+\$f = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'pcup\\yield\\$JOB.txt'
 if (Test-Path \$f) {
-  \$w = @(Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" | Where-Object { "\$(\$_.CommandLine)" -match 'yield_run\.ps1' -and "\$(\$_.CommandLine)" -match '-Lane $LANE( |\$)' })
+  \$w = @(Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" | Where-Object { "\$(\$_.CommandLine)" -match 'yield_run\.ps1' -and "\$(\$_.CommandLine)" -match '-Lane $JOB( |\$)' })
   if (\$w.Count) { 'yield note kept: its wrapper runs' } else { Remove-Item \$f -Force; 'yield note removed: no wrapper ran' }
 } else { 'no yield note' }
 EOF
@@ -96,7 +96,7 @@ else
   # stopped while taking: the PC-side PowerShell of `lock take` outlives its ssh and may still take the lock (11-09)
   stop_take() { say "stopped during the lock take: reading the lock"; sleep 5
     local st; st=$(ZOO_FORCE=1 "$pcsh" lock status 2>&1 | head -1); say "lock: $st"
-    [[ "$st" == "busy: $LANE "* ]] && release; exit 1; }
+    [[ "$st" == "busy: $JOB "* ]] && release; exit 1; }
   trap stop_take INT TERM
   take || { trap - INT TERM; say "no lock"; exit 1; }
   trap - INT TERM
@@ -112,7 +112,7 @@ if [[ "$cw" != DONE* ]]; then
   exit 1
 fi
 st=$(ZOO_FORCE=1 "$pcsh" lock status 2>&1 | head -1); say "lock after the chain: $st"
-if [[ "$st" == "busy: $LANE "* ]]; then
+if [[ "$st" == "busy: $JOB "* ]]; then
   ZOO_FORCE=1 "$pcsh" pull "runs/$plan" raw && say "pulled runs\\$plan -> raw/$plan"
 else say "the lock is not ours after the chain: no pull now (pull runs/$plan in the next own lock or free time)"; fi
 release

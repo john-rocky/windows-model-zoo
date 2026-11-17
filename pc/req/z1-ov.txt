@@ -1,6 +1,6 @@
-# The vision zoo Z1's OpenVINO venv, pin for pin (john-rocky/windows-zoo@faa4019 pc/req/ov.txt), for the Z5 task cells ovnpu_pre (import_model of
-# Z1's NPU blob), and onnxruntime 1.31.1 (CPU EP, its dependencies pinned as in z1-ort.txt) for the downstream head of
-# w2v2_frontend_fp16 (pc/run_vision_task.py); Z1's venv had no onnxruntime
+# The vision zoo's OpenVINO venv, pin for pin (john-rocky/windows-zoo@faa4019 pc/req/ov.txt), for the vision task cells ovnpu_pre (import_model of
+# the vision zoo's NPU blob), and onnxruntime 1.31.1 (CPU EP, its dependencies pinned as in z1-ort.txt) for the downstream head of
+# w2v2_frontend_fp16 (pc/run_vision_task.py); the vision zoo's venv had no onnxruntime
 numpy==2.5.4
 openvino==2026.4.1
 openvino-telemetry==2025.2.0

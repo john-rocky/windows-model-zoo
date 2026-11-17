@@ -1,4 +1,4 @@
-"""One engine process of a vision task cell: one form of the model (the file the vision zoo Z1 measured) on one cell,
+"""One engine process of a vision task cell: one form of the model (the file the vision zoo measured) on one cell,
 every input of the model's inputs.npz (the reference step's arrays) one run each after one untimed warm-up; one JSON
 and the outputs.
 
@@ -6,10 +6,10 @@ and the outputs.
         --engine ort --ep cuda|openvino [--ov-device NPU|GPU.0] --out run.json
     python run_vision_task.py ... --form blob --engine ovblob --out run.json
 
-ort: ONNX Runtime with the CUDA EP (cuda32: fp32, cuda16: Z1's fp16 copy) or the OpenVINO EP plugin through
+ort: ONNX Runtime with the CUDA EP (cuda32: fp32, cuda16: the vision zoo's fp16 copy) or the OpenVINO EP plugin through
 SessionOptions.add_provider_for_devices (ovnpu: NPU, ovgpu: GPU.0), the ONNX compiled at load. ovblob: OpenVINO
-without ONNX Runtime, the NPU blob Z1 compiled and exported (ovnpu_pre), import_model in this process. Each file is
-checked against the sha256 the spec pins before use. The MoViNet stream and the downstream head run as pc/vtask.py
+without ONNX Runtime, the NPU blob the vision zoo compiled and exported (ovnpu_pre), import_model in this process. Each
+file is checked against the sha256 the spec pins before use. The MoViNet stream and the downstream head run as pc/vtask.py
 (the head in fp32 on the ONNX Runtime CPU EP, as the reference's). Outputs: <out stem>.outputs.npz.
 """
 import argparse

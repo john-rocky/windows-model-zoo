@@ -9,27 +9,27 @@ A unit = one engine process of one cell (load, one untimed warm-up, one pass ove
   engines_gate, role (control-warm|control-head|control-tail, optional), runs (default 1) }.
 The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
 
--Mode first: one run per unit, no lock, active\<lane>-<sitting>.txt says what runs; a unit that fails still writes its JSON.
-  While another lane holds busy.txt nothing starts; a run in flight is killed when another lane's lock appears (its
+-Mode first: one run per unit, no lock, active\<job>-<sitting>.txt says what runs; a unit that fails still writes its JSON.
+  While another job holds busy.txt nothing starts; a run in flight is killed when another job's lock appears (its
   files removed; not suspended: a suspended process keeps its RAM) and runs again once the lock has been free 60 s.
   In the PC's night (zoo.toml night, zlib Test-Night) no run starts or starts again, a run in flight is killed (its files
-  removed), the chain ends "FAIL the night ..." with the rest not run, and the lane's notes go.
--Mode timed: under the lane's lock that the Mac took and gated before starting this (tools/sitting.sh). Before each run,
-  the bench job's per-run quiet gate (zlib Wait-RunQuiet). The control rows (PLAN section 3):
+  removed), the chain ends "FAIL the night ..." with the rest not run, and the job's notes go.
+-Mode timed: under the job's lock that the Mac took and gated before starting this (tools/sitting.sh). Before each run,
+  the bench job's per-run quiet gate (zlib Wait-RunQuiet). The control rows (docs/shared-pc.md):
   the plan's control-warm unit (not counted), control-head, the cells, control-tail. The known
   value (the runner's summary.value: RTF, ms or tok/s) is the plan's control_known_value, or (first sitting) the median of the head's runs when they agree within 5 %;
   a head off the known value by more than 5 % stops the sitting before any cell; the tail's verdict goes to
-  runs\<sitting>\control.json. Duty: before a run, while another lane waits and the lock has been held 30 min or the
+  runs\<sitting>\control.json. Duty: before a run, while another job waits and the lock has been held 30 min or the
   run would end past 30 min of the hold, the lock is released for 16.5 min (window.txt), taken again once the other
-  lane's lock has been gone 60 s, settled -SettleSeconds (180 s) and gated again. The lock's text says until when the
+  job's lock has been gone 60 s, settled -SettleSeconds (180 s) and gated again. The lock's text says until when the
   run is expected. The sitting also settles 180 s inside the lock before control-warm (the shared PC's rule).
   Slots (no window.txt): the plan's slots [{ who, release_at, give_up_at }] (a fixed slot: a run that would end past
   release_at - 60 s does not start; the lock is held idle to release_at), and runs\slot_now.txt ("<who> <give up min>",
   written from the Mac: a run in flight gets 8 min to end, then is stopped and run again after the
-  slot). At a slot the lock is released, the other lane's lock waited for (until give_up) and for its return (free
+  slot). At a slot the lock is released, the other job's lock waited for (until give_up) and for its return (free
   60 s), then taken back, settled 180 s and gated.
-  end_by (the plan's ISO time): the PC's order gives the lock to another lane then (11-09: another lane at 21:07,
-  other lanes' timings after it). A cell whose runs, a possible duty gap and the control tail would not end before it is not
+  end_by (the plan's ISO time): the PC's order gives the lock to another job then (11-09: another job at 21:07,
+  other jobs' timings after it). A cell whose runs, a possible duty gap and the control tail would not end before it is not
   started, nor any cell after it; they go to control.json as left_cells (a later sitting runs them) and the tail runs.
   A plan with windows false (tools/plan.py timed --no-windows: the PC's order gives the sitting one block to end_by)
   opens no duty window at all; a slot_now.txt request still applies.
@@ -41,9 +41,9 @@ The chain adds "--out <run dir>\run<k>.json" to every unit's arguments.
 Every run writes <runs>\<sitting>\<cell>\run<k>.meta.json (the chain's view: gate, load before and after, peak working
 set, GPU memory per adapter) next to the runner's run<k>.json; a run already on disk is skipped (resume).
 A unit's "cleanup" (a list of the runner's arguments, e.g. --cleanup --id <id>): run with the unit's venv after a run
-that was killed (another lane's lock, the timeout), before anything waits: a killed runner cannot undo what lives
+that was killed (another job's lock, the timeout), before anything waits: a killed runner cannot undo what lives
 outside its process tree (Foundry Local's daemon and its registration, a per-app GPU preference). A unit with
-"foundry": true (the user's one Foundry Local daemon) starts only while no note of another lane that shares the daemon
+"foundry": true (the user's one Foundry Local daemon) starts only while no note of another job that shares the daemon
 (foundry_notes in pcup\zoo_yield.json, Get-YieldNotes in zlib.ps1) is there and no foundrylocald runs (up to 6 h; then
 it starts and its runner records why it did not run).
 #>
@@ -52,7 +52,7 @@ param(
     [Parameter(Mandatory = $true)][ValidateSet("first", "timed")][string]$Mode,
     [int]$BetweenRunsSeconds = 20,
     [int]$HoldAtEndMin = 20,
-    # the shared PC's rule (11-09): a timing right after another lane's heavy lock waits 180 s inside the lock
+    # the shared PC's rule (11-09): a timing right after another job's heavy lock waits 180 s inside the lock
     # before its control (no wait: +54 % / +30 %; 180 s: within +4.7 %). Here: before control-warm and after every take-back.
     [int]$SettleSeconds = 180
 )
@@ -101,10 +101,10 @@ $luids = Get-LuidKinds
 Write-JsonFile (Join-Path $out "luids.json") $luids
 Say $log "adapters: $(($luids.Keys | ForEach-Object { "$_=$($luids[$_].kind)" }) -join ', ')"
 
-# What a first-pass cell gives way to: every other lane's lock on a GPU; on the NPU or the CPU only a timing lock
+# What a first-pass cell gives way to: every other job's lock on a GPU; on the NPU or the CPU only a timing lock
 $script:CellOffGpu = $false
-# first mode: any other lane's lock stops the run (killed, not suspended: a suspended process keeps its RAM, the shared
-# PC's rule; 11-09 13:00 a timing's gate waited on 8.6 GB held by suspended processes of another lane); it runs again from its
+# first mode: any other job's lock stops the run (killed, not suspended: a suspended process keeps its RAM, the shared
+# PC's rule; 11-09 13:00 a timing's gate waited on 8.6 GB held by suspended processes of another job); it runs again from its
 # start. The PC's night stops it too (Run-Unit then ends the chain).
 function Test-CellYield { return ((Test-OtherBusy) -or ($Mode -eq "first" -and (Test-Night))) }
 function Stop-EngineTree([int]$EnginePid) {
@@ -120,7 +120,7 @@ function Read-SlotNow {
 }
 
 # One engine process under a 0.5 s poll: its peak working set, its GPU memory per adapter every 2 s, the NVIDIA line
-# every 5 s; killed with its tree after the unit's timeout. First mode: yields to another lane's lock (stopped, or
+# every 5 s; killed with its tree after the unit's timeout. First mode: yields to another job's lock (stopped, or
 # suspended when $SuspendOnYield). Timed mode: a slot_now.txt request gives the run 8 min, then stops it (yielded).
 function Invoke-Engine([string]$Exe, [string[]]$ArgList, [string]$Base, [int]$TimeoutMin, [bool]$YieldCheck = $false, [bool]$SuspendOnYield = $false) {
     $quoted = @($ArgList | ForEach-Object { if ($_ -match '[\s"]') { '"' + ($_ -replace '"', '\"') + '"' } else { $_ } })
@@ -161,7 +161,7 @@ function Invoke-Engine([string]$Exe, [string[]]$ArgList, [string]$Base, [int]$Ti
         if ($YieldCheck -and (Test-CellYield)) {
             if ($SuspendOnYield) {
                 $hs = Suspend-Tree $proc.Id; $s0 = Get-Date
-                Say $log "$Base suspended ($($hs.Count) processes) while another lane holds busy.txt ($((Read-Busy).Text))"
+                Say $log "$Base suspended ($($hs.Count) processes) while another job holds busy.txt ($((Read-Busy).Text))"
                 do {
                     while (Test-CellYield) { Start-Sleep -Seconds 15 }
                     if ($script:CellRamWant -gt 0) { [void](Wait-FreeRam $script:CellRamWant $log "$Base resume") }
@@ -228,7 +228,7 @@ function Invoke-Cleanup($u, [string]$base) {
     Say $log "$($u.cell) cleanup after the killed run: $r"
     return $r
 }
-# a Foundry unit waits while another lane's Foundry note is there or a foundrylocald runs (the user's one daemon)
+# a Foundry unit waits while another job's Foundry note is there or a foundrylocald runs (the user's one daemon)
 function Wait-FoundryFree([string]$Log, [string]$What, [int]$MaxHours = 6) {
     $until = (Get-Date).AddHours($MaxHours); $said = $false
     while ($true) {
@@ -254,7 +254,7 @@ function Run-Unit($u, [int]$k) {
         if ($Mode -eq "first") {
             do {
                 if ((Wait-OthersGone $log "$($u.cell) run $k" 60) -eq "night") {
-                    Remove-LaneNotes $log
+                    Remove-JobNotes $log
                     throw "the night ($($Night.Text)): $($u.cell) run $k and the units after it not started"
                 }
                 if ($script:CellRamWant -gt 0) { [void](Wait-FreeRam $script:CellRamWant $log "$($u.cell) run $k") }
@@ -265,7 +265,7 @@ function Run-Unit($u, [int]$k) {
         if ($u.foundry) { $meta.foundryGate = $fg }
         if ($u.cleanup -and ($meta.engine.yielded -or $meta.engine.timedOut)) { $meta.cleanup = Invoke-Cleanup $u $base }
         if (-not $meta.engine.yielded) { break }
-        Say $log "$($u.cell) run $k stopped (another lane's lock, a slot or the night); its files removed, run again after it"
+        Say $log "$($u.cell) run $k stopped (another job's lock, a slot or the night); its files removed, run again after it"
         Remove-Item "$base.json", "$base.stdout.txt", "$base.stderr.txt" -ErrorAction SilentlyContinue
         Remove-Item (Join-Path $dir "wav") -Recurse -Force -ErrorAction SilentlyContinue
         if ($Mode -eq "timed") { Invoke-Slot "unit $($u.cell) run $k" }
@@ -299,7 +299,7 @@ function Get-RunEstSec($u) {
     return 0
 }
 # end_by and a take-back (11-09): the free minute, the settle, the gate and the tail row must still end before end_by.
-# Otherwise the sitting ends where it is (no take-back, no tail row): another lane's long block in a window, or a gate
+# Otherwise the sitting ends where it is (no take-back, no tail row): another job's long block in a window, or a gate
 # that does not open, never carries the take-back into a fixed slot after end_by.
 function Test-NoTimeForTail {
     if (-not $EndBy) { return $false }
@@ -324,14 +324,14 @@ function Take-Back([string]$What) {
         if ($t -eq "TIMEOUT") { throw "could not take the lock back" }
         Say $log "settle $SettleSeconds s inside the lock after the take-back"
         Start-Sleep -Seconds $SettleSeconds
-        if ((Pass-LaneGate $log) -eq "PASS") { break }
+        if ((Pass-JobGate $log) -eq "PASS") { break }
         if (Test-NoTimeForTail) { Stop-AtEndBy "a gate that did not open"; return }
         Release-Busy $log; Open-Window 600 $log; Wait-Window 600 $RetakeFreeSec; Close-Window
     }
     $script:held = Get-Date
     $script:runsSinceTake = 0
 }
-# A slot: release without window.txt, the other lane's lock comes (until $GiveUp) and goes (free $RetakeFreeSec s in a
+# A slot: release without window.txt, the other job's lock comes (until $GiveUp) and goes (free $RetakeFreeSec s in a
 # row), then take back, settle, gate
 function Hold-Slot([string]$Who, [datetime]$GiveUp) {
     Close-Window
@@ -395,14 +395,14 @@ function Invoke-Duty([string]$What, $u) {
     }
     if ($why -and $u.role -eq "control-tail") {
         # The tail row closes the sitting (a few minutes, then the lock goes back for good): no window before it. It then
-        # runs right after the last cell, as a control should, and no take-back after another lane's block can push it
-        # past end_by into a fixed slot (11-09: two other lanes' slots from 21:07).
+        # runs right after the last cell, as a control should, and no take-back after another job's block can push it
+        # past end_by into a fixed slot (11-09: two other jobs' slots from 21:07).
         Say $log "duty: $why, others waiting ($($others -join ', ')): no window before the control tail, the lock goes back after it"
         $why = ""
     }
     if ($why -and $p.windows -eq $false) {
         # One block (the plan's windows false, tools/plan.py timed --no-windows): the PC's order gives this sitting the lock
-        # to end_by in one piece (the night of 11-09/10), so another lane's note opens no window.
+        # to end_by in one piece (the night of 11-09/10), so another job's note opens no window.
         Say $log "duty: $why, others waiting ($($others -join ', ')): no window (the plan: one block to end_by)"
         $why = ""
     }
@@ -422,7 +422,7 @@ function Invoke-Duty([string]$What, $u) {
     Touch-Busy "timing: sitting $sit$block $What$until"
 }
 
-# A cell left for a later sitting (end_by): its runs, the control tail, a duty gap when another lane waits (none in a
+# A cell left for a later sitting (end_by): its runs, the control tail, a duty gap when another job waits (none in a
 # one-block plan), and 4 min
 # would not end before end_by. Once one cell is left, every cell after it is too (the plan's order is kept).
 function Test-PastEndBy($u, [int]$Runs) {
@@ -477,7 +477,7 @@ function Check-Control($u) {
 
 $status = "OK"
 try {
-    if ($Mode -eq "timed" -and -not (Test-OursBusy)) { throw "mode timed needs the lane's lock (tools/sitting.sh takes it and gates first)" }
+    if ($Mode -eq "timed" -and -not (Test-OursBusy)) { throw "mode timed needs the job's lock (tools/sitting.sh takes it and gates first)" }
     if ($Mode -eq "timed") {
         Touch-Busy "timing: sitting $sit settles $SettleSeconds s before its control rows"
         Say $log "settle $SettleSeconds s inside the lock before the control rows"

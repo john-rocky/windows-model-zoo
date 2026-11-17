@@ -7,14 +7,14 @@ one JSON.
 
 LLMPipeline (a text IR): the IR's tokenizer encodes the rendered string with add_special_tokens=False, and generate()
 gets the ids (no chat template of this runtime: GenerationConfig.apply_chat_template = False). A multimodal IR
-(openvino_language_model.xml, Gemma 4: LLMPipeline loads it and then refuses it at generate, "5 inputs", the Z2 lane)
+(openvino_language_model.xml, Gemma 4: LLMPipeline loads it and then refuses it at generate, "5 inputs", seen in the LLM zoo)
 runs in VLMPipeline (--pipeline auto picks it by that file), which takes a string only, no image: the warm-up prompt
 decides the string's form by the pipeline's own input token count (perf_metrics) against the reference's ids: the
 same count = the rendered string as it is; one over and a leading <bos> = the pipeline adds a start token, so that
-<bos> text is left out; any other count = an error (PLAN.md section Z6, the Z6 lane r3: the rendered string without
+<bos> text is left out; any other count = an error (PLAN.md section 3, change 7: the rendered string without
 its <bos> gave one token under the reference's on all 21 prompts). The row carries the pipeline's input token count
 instead of ids, and as an instrument whether this IR's tokenizer encodes the string to the reference's ids. Decode = the reference's: plain greedy
-(do_sample False, num_beams 1, repetition_penalty 1.0), max_new_tokens 48 (the gate prompt 16). A row: the prompt's
+(do_sample False, num_beams 1, repetition_penalty 1.0), max_new_tokens 48 (the gate 16). A row: the prompt's
 ids (or token count), the new ids (LLMPipeline), the text, and whether the run ended on an end token (the last new
 token is one of the config's stop / eos ids, or fewer new tokens than the maximum). Timing per prompt: generate()
 wall clock; first token = perf_metrics.get_ttft().

@@ -1,17 +1,17 @@
 <#
-The lane's timing lock from the Mac, one SSH call per action (the wait loops run here, not as polls from the Mac).
+The job's timing lock from the Mac, one SSH call per action (the wait loops run here, not as polls from the Mac).
 
   lock.ps1 -Action take -What "<text>"      waits (5 s reads) until busy.txt is ours: prints TAKEN / OURS / STALE / TIMEOUT
                                             (<text> in the shared PC's form: "timing: <what> until HH:MM")
-  lock.ps1 -Action gate                     the lane's quiet gate (zlib Pass-LaneGate): prints PASS / TIMEOUT
+  lock.ps1 -Action gate                     the job's quiet gate (zlib Pass-JobGate): prints PASS / TIMEOUT
   lock.ps1 -Action release [-OpenSec <s>]   removes busy.txt if it is ours: prints RELEASED / NOT-OURS; with -OpenSec,
-                                            pcup\window.txt says "<lane> open until <now + s>" (a gap the lane comes back from)
+                                            pcup\window.txt says "<job> open until <now + s>" (a gap the job comes back from)
   lock.ps1 -Action status                   prints the marker, the active\ and yield\ notes
   lock.ps1 -Action slot -What "<who> <give up min>"   runs\slot_now.txt for the running timed chain (pc\chain.ps1):
-                                            a slot for another lane, no window.txt
-  lock.ps1 -Action note -What "<text>"      pcup\active\<lane>.txt = "<text>" + "written HH:MM" (the lane waits for a window);
+                                            a slot for another job, no window.txt
+  lock.ps1 -Action note -What "<text>"      pcup\active\<job>.txt = "<text>" + "written HH:MM" (the job waits for a window);
                                             -What "" removes it
-take removes the lane's window.txt once the lock is ours; release without -OpenSec removes it too (the PC is free, no window).
+take removes the job's window.txt once the lock is ours; release without -OpenSec removes it too (the PC is free, no window).
 #>
 param([Parameter(Mandatory = $true)][ValidateSet("take", "gate", "release", "status", "slot", "note")][string]$Action,
       [string]$What = "timing", [int]$MaxHours = 12, [int]$OpenSec = 0)
@@ -19,7 +19,7 @@ param([Parameter(Mandatory = $true)][ValidateSet("take", "gate", "release", "sta
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 $log = Join-Path $Root "logs\lock.log"
 New-Item -ItemType Directory -Force (Split-Path $log) | Out-Null
-# The lane's own untimed work (a first pass, a setup or export step) must not run beside a timed sitting: take refuses
+# The job's own untimed work (a first pass, a setup or export step) must not run beside a timed sitting: take refuses
 # while one runs.
 function Get-OwnUntimed {
     @(Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" | Where-Object {
@@ -29,17 +29,17 @@ function Get-OwnUntimed {
 }
 switch ($Action) {
     "take" {
-        # a timing needs the lane's own untimed work stopped; a block "(not a timing)" (the first passes under its lock) does not
+        # a timing needs the job's own untimed work stopped; a block "(not a timing)" (the first passes under its lock) does not
         if ($What -notmatch "not a timing") {
             $own = Get-OwnUntimed
             if ($own.Count) { "OWN-UNTIMED $($own -join '; ') $(Get-Date -Format o)"; break }
         }
         $r = Take-BusyAfterFree $What $log 60 $MaxHours
-        if ($r -eq "OURS") { Touch-Busy $What }   # the lane held it already (a block of the same slot): the text says what runs now
+        if ($r -eq "OURS") { Touch-Busy $What }   # the job held it already (a block of the same slot): the text says what runs now
         if (Test-OursBusy) { Close-Window }
         "$r $(Get-Date -Format o)"
     }
-    "gate" { $r = Pass-LaneGate $log; "$r $(Get-Date -Format o)" }
+    "gate" { $r = Pass-JobGate $log; "$r $(Get-Date -Format o)" }
     "release" {
         if (Test-OursBusy) {
             Release-Busy $log

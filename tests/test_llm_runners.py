@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Z6 LLM runners against fake engines on the Mac (no model runs): pc/run_llm_litert.py with a fake
+"""The LLM runners of PLAN.md section 3 against fake engines on the Mac (no model runs): pc/run_llm_litert.py with a fake
 litert_lm_advanced_main (session-mode output on stdout, the benchmark info on stderr, the start-token refusal),
 pc/run_llm_llamacpp.py with a fake llama-server (/health, /tokenize, /completion, /props), and the package folder
 pc/run_llm_foundry.py registers (hard links, the identity template, plain greedy in genai_config). Checks what each

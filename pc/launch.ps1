@@ -1,13 +1,13 @@
 <#
 Starts a script detached through WMI (it outlives the SSH session and the Mac), after a parse check on this PC, and
 checks 20 s later that the process it started still runs, or ended with exit 0 (a script that does not parse dies
-without a done file, seen on this PC). The check reads that process by its pid: other lanes run scripts of the same
+without a done file, seen on this PC). The check reads that process by its pid: other jobs run scripts of the same
 name. Prints STARTED <pid> or FAILED <why>.
 
   launch.ps1 -Script <path.ps1> -ArgLine "<arguments as one string>" [-Yield]
 
--Yield wraps it in %USERPROFILE%\pcup\yield_run.ps1 -Lane <lane> (untimed work: suspended while another lane holds
-busy.txt).
+-Yield wraps it in %USERPROFILE%\pcup\yield_run.ps1 -Lane <job> (untimed work: suspended while another job holds
+busy.txt; -Lane is that script's own parameter name).
 #>
 param([Parameter(Mandatory = $true)][string]$Script, [string]$ArgLine = "", [switch]$Yield)
 . "$PSScriptRoot\zlib.ps1"   # $Label
