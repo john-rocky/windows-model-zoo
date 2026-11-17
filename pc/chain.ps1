@@ -502,7 +502,9 @@ try {
     }
 } catch {
     $status = "FAIL $($_.Exception.Message)"
-    Say $log "chain error: $($_ | Out-String)"
+    # one line, the message with its script and line: Out-String formats an error record in the PC's display language
+    $at = [IO.Path]::GetFileName([string]$_.InvocationInfo.ScriptName)
+    Say $log "chain error: $($_.Exception.Message) ($at line $($_.InvocationInfo.ScriptLineNumber))"
 } finally {
     if ($Mode -eq "first" -and (Test-Path $active)) { Remove-Item $active -Force }
     if ($script:leftCells.Count) { $script:control["left_cells"] = @($script:leftCells); $script:control["end_by"] = $p.end_by }
