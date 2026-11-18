@@ -239,6 +239,16 @@ Common to the 23 models:
    the same: the files compared (the ONNX file and the .tflite it was converted from), the inputs and the thresholds
    do not change; no cell runs again and every verdict stays as it is. The earlier words are in the recipes at commit
    [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
+4. 2026-11-18 20:11 JST, words only (after the runs; it changes no rule): the copied lines of the 23 vision recipes are now named
+   `vision-zoo-internal` and `vision-zoo-tflite`, and the forms `vision-zoo-onnx-fp32`, `vision-zoo-onnx-fp16` and
+   `vision-zoo-npu-blob`, in the recipes and in the result files (`line.id`, `row_line`, `form.id` and the line's name
+   in `line.verdict`). The field that names the copied cell is now `vision_zoo_cell`. The cells' venvs
+   are `vision-zoo-ort`, `vision-zoo-ov` and `vision-zoo-cuda` (`pc/req/`), their spec is `pc/vision_task_spec.json`,
+   and the records of this pass are under `raw/vision-task/`. The records, this section's text and its changes 1 and 3
+   use these names. Why: plain names in place of working labels. The lines are the same: the rules, the inputs, the
+   values compared, the thresholds, the references and the `written` times do not change; no cell runs again, and
+   each verdict keeps its pass or fail and its numbers. The earlier names are at commit
+   [`58d64a2`](https://github.com/john-rocky/windows-model-zoo/tree/58d64a23c83d4a759c80561bc76ef30f8bb8eb01).
 
 ## 3. The LLM zoo's 86 cells that pass its text-integrity line, judged on the qa20 line
 
@@ -392,3 +402,11 @@ these are details of how the string goes in, decided when the runners were writt
    33,840,689,152 bytes = 31.5 GiB = 33.8 GB (TotalPhysicalMemory, read 2026-11-10 13:1x), where Windows and the other
    jobs of the shared PC also run (the bf16 reference's peak working set was 16.56 GB, 0.57 GB over its 15.99 GB of
    weights). No fp32 reference was run (the records hold the bf16 one only); the reference stays bf16.
+10. 2026-11-18 20:11 JST, words only (after the runs; it changes no rule): in the LLM recipes the field that names the copied cell
+   is now `llm_zoo_cell`, the setup step is `llm-qa20-setup` (its script `pc/llm_qa20_setup.py`, its spec
+   `pc/llm_qa20_spec.json`), and the Foundry Local ids the cells register are `llm-qa20-…:1` (each Foundry cell's
+   `args` and `cleanup`). The records of this pass are under `raw/llm-qa20/`. The records, this section's text and its
+   change 8 use these names. Why: plain names in place of working labels. The line `qa20` is the same: the 20
+   questions, the gate, the thresholds, the prompts, the decoding, the references and the `written` times do not
+   change; no cell runs again, and each verdict keeps its pass or fail and its numbers. The earlier names are at commit
+   [`58d64a2`](https://github.com/john-rocky/windows-model-zoo/tree/58d64a23c83d4a759c80561bc76ef30f8bb8eb01).

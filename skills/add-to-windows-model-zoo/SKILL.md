@@ -326,7 +326,7 @@ python3 tools/plan.py first --sitting <name>-1 --cells <model>/<cell>,<model>/<c
 - `manifest` reads the Hub API: one line per repo (`<repo> <sha10> <GiB> GiB <n> files`) and
   `pc/hub_manifest.json: <k> sources, <x> GiB`.
 - `steps` prints `pc/steps/setup.json: <n> steps`, `pc/steps/fetch.json: 2 steps` and `pc/steps/<model>.json: <n> steps`,
-  and for a model with a `z6-setup` step also `pc/steps/engines.json: <n> steps` (and
+  and for a model with an `llm-qa20-setup` step also `pc/steps/engines.json: <n> steps` (and
   `pc/steps/engines-litert.json: <n> steps` when the model's entry in `pc/llm_qa20_spec.json` names `litert`).
 - `first` prints `pc/plans/<name>-1.json: <n> units (first pass)`. A later pass takes a new sitting name
   (`<name>-2`, ...): the chain skips every run whose record is already on the PC.
@@ -591,7 +591,7 @@ python3 tools/lint.py
 | `REFUSED (PC_FEED_CMD is not set: ...` (exit 3) | the call's shell has no `PC_FEED_CMD` | `export PC_FEED_CMD='<the feed command>';` at the start of the call (section 0); a Mac without a lock feed: `export ZOO_FEED=none;` |
 | `REFUSED (lock feed stale or missing): ...` (exit 3) | the Mac's lock feed is old or missing | a Mac without the feed: `export ZOO_FEED=none;` at the start of the call (section 0); else wait for the feed |
 | `STOP: <repo>@<sha10> has no file for ['<glob>']` (plan.py manifest) | an `include` glob matches no file of that revision | fix the glob from the repo's tree (section 2) |
-| `KeyError: '<model>'` at the end of a traceback (plan.py steps) | the recipe has a `z6-setup` step and `pc/z6_spec.json` has no entry for that model | add the entry (section 2, "The `z6-setup` step"), then `steps` again |
+| `KeyError: '<model>'` at the end of a traceback (plan.py steps) | the recipe has an `llm-qa20-setup` step and `pc/llm_qa20_spec.json` has no entry for that model | add the entry (section 2, "The `llm-qa20-setup` step"), then `steps` again |
 | `FAILED steps.ps1 ended within 20 s with exit 1 (pid <n>)` (launch) and `logs\<x>.done` = `FAIL no list file pc\steps\<x>.json` | no such list | the list names are the files in `pc/steps/` (`setup`, `fetch`, `engines`, the model's folder name) |
 | `DONE FAIL fetch`; in the pulled `raw/<name>/logs/fetch/fetch.txt`, a row with `"ok": false` and the last line `fetch done: <n> files, <k> not matching` | a file's bytes are not the manifest's hash after 6 tries | `python3 tools/plan.py manifest <model>`, `tools/pc.sh push`, then launch the `fetch` list and wait for it again (the files that match are only hashed); a URL `[[fetch]]`: check its `size` and `sha256` |
 | `<step>: killed for another job's lock (...) after <s> s; runs again when it is gone`, then `<step> start (try 2)` | another job took the lock | nothing: it runs again by itself |

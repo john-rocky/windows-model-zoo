@@ -78,8 +78,9 @@ edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `windows-zoo-te
 one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
 records' paths), or `windows-model-zoo`, this repo, in one of the passes of the table below. A copied cell names its
 zoo's file in `source.migrated_from`. In the ids and paths of the recipes and the records (such as line, form and
-venv ids, the fields `z1_cell` and `z2_cell`, sitting names and folders), `z1` is the vision zoo and `z2` the LLM
-zoo; `z5` and `z6` are this repo's two passes of 2026-11-10 that ran the `task-*` cells (PLAN.md sections 2 and 3).
+venv ids, the fields `vision_zoo_cell` and `llm_zoo_cell`, sitting names and folders), `vision-zoo` is the vision
+zoo and `llm-zoo` the LLM zoo; `vision-task` and `llm-qa20` are the two passes of 2026-11-10 that ran the
+`task-*` cells (PLAN.md sections 2 and 3).
 The audio zoo named in `schema/lines.md` is
 [`john-rocky/windows-audio-zoo`](https://github.com/john-rocky/windows-audio-zoo).
 This repo's later passes, one row each:
