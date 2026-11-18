@@ -23,7 +23,7 @@
    "folder": "cpu-int4",
    "quant": "MatMulNBits b32 sym acc4: int4 x343 [decoder/model.onnx]",
    "quant_source": "the graph (pc/onnx_quant.py)",
-   "via": "Foundry Local local model z2-gemma-4-e4b-it-cpu-int4:1"
+   "via": "Foundry Local local model llm-zoo-gemma-4-e4b-it-cpu-int4:1"
   }
  },
  "run": {
@@ -65,7 +65,7 @@
  },
  "llm": {
   "backend": "cpu",
-  "backend_detail": "local model z2-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
+  "backend_detail": "local model llm-zoo-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
   "package_text": "mlboydaisuke/gemma-4-E4B-it-Foundry-Local `cpu-int4` · MatMulNBits b32 sym acc4: int4 x343 [decoder/model.onnx] (the graph (pc/onnx_quant.py))",
   "workload": {
    "task": "short-chat",
@@ -81,7 +81,7 @@
    "venv": "genai",
    "script": null,
    "args": null,
-   "model_id": "z2-gemma-4-e4b-it-cpu-int4:1",
+   "model_id": "llm-zoo-gemma-4-e4b-it-cpu-int4:1",
    "path": "/catalogs/local/v1",
    "engines_gate": false
   },
@@ -343,8 +343,8 @@
     ],
     "counts": false,
     "unit_args": null,
-    "unit_note": "local model z2-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
-    "unit_model_id": "z2-gemma-4-e4b-it-cpu-int4:1"
+    "unit_note": "local model llm-zoo-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
+    "unit_model_id": "llm-zoo-gemma-4-e4b-it-cpu-int4:1"
    },
    {
     "sitting": "walk-timed-b",
@@ -658,8 +658,8 @@
     ],
     "counts": false,
     "unit_args": [],
-    "unit_note": "local model z2-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
-    "unit_model_id": "z2-gemma-4-e4b-it-cpu-int4:1"
+    "unit_note": "local model llm-zoo-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4",
+    "unit_model_id": "llm-zoo-gemma-4-e4b-it-cpu-int4:1"
    },
    {
     "sitting": "walk-timed-b-rerun",
@@ -975,8 +975,8 @@
     ],
     "counts": false,
     "unit_args": [],
-    "unit_note": "local model z2-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4; rerun: cold spread 9.38 % in walk-timed-b",
-    "unit_model_id": "z2-gemma-4-e4b-it-cpu-int4:1"
+    "unit_note": "local model llm-zoo-gemma-4-e4b-it-cpu-int4:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cpu-int4; rerun: cold spread 9.38 % in walk-timed-b",
+    "unit_model_id": "llm-zoo-gemma-4-e4b-it-cpu-int4:1"
    }
   ]
  },

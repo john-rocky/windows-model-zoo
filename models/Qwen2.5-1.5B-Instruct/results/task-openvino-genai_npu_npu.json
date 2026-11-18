@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 19 of 20 right by the answer key",
-  "reference": "raw/z19/refs/Qwen2.5-1.5B-Instruct/ref.json",
+  "reference": "raw/qwen25-15b/refs/Qwen2.5-1.5B-Instruct/ref.json",
   "detail": {
    "answers": {
     "agree": 19,
@@ -45,19 +45,19 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z19/runs/z19-2/Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu/run1.json",
+  "record": "raw/qwen25-15b/runs/qwen25-15b-2/Qwen2.5-1.5B-Instruct/task-openvino-genai_npu_npu/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-z19\\hub\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov",
+   "C:\\src\\zoo-qwen25-15b\\hub\\OpenVINO__Qwen2.5-1.5B-Instruct-int4-ov",
    "--device",
    "NPU",
    "--cache-dir",
-   "C:\\src\\zoo-z19\\ovcache\\Qwen2.5-1.5B-Instruct_npu",
+   "C:\\src\\zoo-qwen25-15b\\ovcache\\Qwen2.5-1.5B-Instruct_npu",
    "--ref",
-   "C:\\src\\zoo-z19\\refs\\Qwen2.5-1.5B-Instruct\\ref.json",
+   "C:\\src\\zoo-qwen25-15b\\refs\\Qwen2.5-1.5B-Instruct\\ref.json",
    "--out",
-   "C:\\src\\zoo-z19\\runs\\z19-2\\Qwen2.5-1.5B-Instruct\\task-openvino-genai_npu_npu\\run1.json"
+   "C:\\src\\zoo-qwen25-15b\\runs\\qwen25-15b-2\\Qwen2.5-1.5B-Instruct\\task-openvino-genai_npu_npu\\run1.json"
   ]
  },
  "note": [
@@ -73,7 +73,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z19-2",
+  "sitting": "qwen25-15b-2",
   "started": "2026-11-12T18:45:29.121800+09:00",
   "ended": "2026-11-12T18:46:01.291905+09:00",
   "runs": 1,
@@ -265,7 +265,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-z19\\refs\\Qwen2.5-1.5B-Instruct\\ref.json",
+   "ref": "C:\\src\\zoo-qwen25-15b\\refs\\Qwen2.5-1.5B-Instruct\\ref.json",
    "prompts": 21,
    "device": "NPU",
    "pipeline": "llm",

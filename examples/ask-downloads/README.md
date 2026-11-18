@@ -104,10 +104,10 @@ All on the laptop the zoo's results ran on: an Intel Core Ultra 9 386H with 31.5
 
 - 2026-11-12: for the zoo's 21 `qa20` prompts, the 20 questions and one extra prompt, every card of both scenes gave
   the same new token ids as the zoo's records: the original model's
-  ([record](../../raw/z6/refs/Qwen3-1.7B/ref.json); `raw/z14/refs/` holds the same file), the
-  [int4 download's](../../raw/z14/runs/z14-b/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128/run1.json), the
-  [int8 download's](../../raw/z13/runs/z13-n/Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym/run1.json) and the
-  [GGUF download's](../../raw/z6/runs/z6-c-q17/Qwen3-1.7B/task-llama.cpp_cpu_cpu/run1.json).
+  ([record](../../raw/llm-qa20/refs/Qwen3-1.7B/ref.json); `raw/npu-rerun/refs/` holds the same file), the
+  [int4 download's](../../raw/npu-rerun/runs/npu-rerun-b/Qwen3-1.7B/task-openvino-genai_npu_npu-sym-g128/run1.json), the
+  [int8 download's](../../raw/qwen3-int8-sym/runs/qwen3-int8-sym-n/Qwen3-1.7B/task-openvino-genai_npu_npu-int8-sym/run1.json) and the
+  [GGUF download's](../../raw/llm-qa20/runs/llm-qa20-c-q17/Qwen3-1.7B/task-llama.cpp_cpu_cpu/run1.json).
 - 2026-11-14, with Smart App Control on: the GGUF card's message above.
 - 2026-11-16, with Smart App Control off and Intel NPU driver 32.0.100.5540: `setup.ps1` ran as written above in a
   fresh copy of this repo (unpacked from an archive, not cloned), and a second run found everything there. The app,

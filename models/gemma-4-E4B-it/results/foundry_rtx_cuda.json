@@ -23,7 +23,7 @@
    "folder": "cuda-int4-8k",
    "quant": "MatMulNBits b32 sym accNone: int4 x343 [decoder/model.onnx]",
    "quant_source": "the graph (pc/onnx_quant.py)",
-   "via": "Foundry Local local model z2-gemma-4-e4b-it-cuda-int4-8k:1"
+   "via": "Foundry Local local model llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1"
   }
  },
  "run": {
@@ -65,7 +65,7 @@
  },
  "llm": {
   "backend": "cuda",
-  "backend_detail": "local model z2-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
+  "backend_detail": "local model llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
   "package_text": "mlboydaisuke/gemma-4-E4B-it-Foundry-Local `cuda-int4-8k` · MatMulNBits b32 sym accNone: int4 x343 [decoder/model.onnx] (the graph (pc/onnx_quant.py))",
   "workload": {
    "task": "short-chat",
@@ -81,7 +81,7 @@
    "venv": "genai",
    "script": null,
    "args": [],
-   "model_id": "z2-gemma-4-e4b-it-cuda-int4-8k:1",
+   "model_id": "llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1",
    "path": "/catalogs/local/v1",
    "engines_gate": false
   },
@@ -366,8 +366,8 @@
     ],
     "counts": false,
     "unit_args": null,
-    "unit_note": "local model z2-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
-    "unit_model_id": "z2-gemma-4-e4b-it-cuda-int4-8k:1"
+    "unit_note": "local model llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
+    "unit_model_id": "llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1"
    },
    {
     "sitting": "walk-timed-b",
@@ -685,8 +685,8 @@
     ],
     "counts": true,
     "unit_args": [],
-    "unit_note": "local model z2-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
-    "unit_model_id": "z2-gemma-4-e4b-it-cuda-int4-8k:1"
+    "unit_note": "local model llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1 = mlboydaisuke/gemma-4-E4B-it-Foundry-Local cuda-int4-8k",
+    "unit_model_id": "llm-zoo-gemma-4-e4b-it-cuda-int4-8k:1"
    }
   ]
  },

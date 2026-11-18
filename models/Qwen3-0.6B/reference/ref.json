@@ -1093,7 +1093,7 @@
    "max_new": 16
   }
  ],
- "pulled_from": "raw/z6/refs/Qwen3-0.6B/ref.json",
+ "pulled_from": "raw/llm-qa20/refs/Qwen3-0.6B/ref.json",
  "key": {
   "right": 14,
   "n": 20,

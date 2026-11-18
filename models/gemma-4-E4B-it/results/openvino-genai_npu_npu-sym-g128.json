@@ -81,7 +81,7 @@
    "script": "run_ovgenai.py",
    "args": [
     "--model-dir",
-    "{ROOT}\\models\\z2-npu\\gemma-4-E4B-it-int4-sym-g128-ov",
+    "{ROOT}\\models\\llm-zoo-npu\\gemma-4-E4B-it-int4-sym-g128-ov",
     "--device",
     "NPU",
     "--cache-dir",
@@ -180,7 +180,7 @@
     "counts": false,
     "unit_args": [
      "--model-dir",
-     "{ROOT}\\models\\z2-npu\\gemma-4-E4B-it-int4-sym-g128-ov",
+     "{ROOT}\\models\\llm-zoo-npu\\gemma-4-E4B-it-int4-sym-g128-ov",
      "--device",
      "NPU",
      "--cache-dir",

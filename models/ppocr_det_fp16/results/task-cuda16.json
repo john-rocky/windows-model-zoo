@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-detection: 0 boxes paired, of the reference's 39 and the cell's 0 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/ppocr_det_fp16/ref.json",
+  "reference": "raw/vision-task/refs/ppocr_det_fp16/ref.json",
   "detail": {
    "pairs": 0,
    "ref_boxes": 39,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/ppocr_det_fp16/task-cuda16/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/ppocr_det_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -51,7 +51,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -67,7 +67,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:23:49.700571+09:00",
   "ended": "2026-11-10T07:23:54.458878+09:00",
   "runs": 1,
@@ -282,7 +282,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 32772982,
    "sha256": "6ae59dde7acc6f28fbba5ec1fc0d99c42409b556016d5d8510b5f1b462ac07b0",
    "arrays": 20

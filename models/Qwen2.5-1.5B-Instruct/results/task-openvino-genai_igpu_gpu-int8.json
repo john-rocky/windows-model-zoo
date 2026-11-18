@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 20 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 19 of 20 right by the answer key",
-  "reference": "raw/z19/refs/Qwen2.5-1.5B-Instruct/ref.json",
+  "reference": "raw/qwen25-15b/refs/Qwen2.5-1.5B-Instruct/ref.json",
   "detail": {
    "answers": {
     "agree": 20,

@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-top1: 59 of 120 top-1 classes equal the reference's (pass mark 95 %)",
-  "reference": "raw/z5/refs/w2v2_head_fp16/ref.json",
+  "reference": "raw/vision-task/refs/w2v2_head_fp16/ref.json",
   "detail": {
    "agree": 59,
    "counted": 120,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/w2v2_head_fp16/task-cuda16/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/w2v2_head_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -51,7 +51,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\w2v2_head_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\w2v2_head_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -67,7 +67,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:29:21.394243+09:00",
   "ended": "2026-11-10T07:29:24.557479+09:00",
   "runs": 1,
@@ -1000,7 +1000,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\w2v2_head_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\w2v2_head_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 35542,
    "sha256": "037ddf43ff0db0e53c1017dffdce07338c3fee752b111f59cd5002c3422b2fe3",
    "arrays": 120

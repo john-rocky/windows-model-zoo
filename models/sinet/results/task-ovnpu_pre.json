@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-mask: mIoU 0.96519 (pass mark mIoU at least 0.95)",
-  "reference": "raw/z14/refs/sinet/ref.json",
+  "reference": "raw/npu-rerun/refs/sinet/ref.json",
   "detail": {
    "miou": 0.96519,
    "iou_background": 0.98821,
@@ -35,21 +35,21 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/sinet/task-ovnpu_pre/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/sinet/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "sinet",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\sinet",
+   "C:\\src\\mz-npu-rerun\\work\\sinet",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\sinet\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -65,7 +65,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:20:22.524978+09:00",
   "ended": "2026-11-11T15:20:23.148324+09:00",
   "runs": 1,
@@ -133,14 +133,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\sinet\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\sinet\\inputs.npz",
    "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
    "bytes": 29742742,
    "n": 20
   },
   "model_file": {
    "what": "sinet form blob",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__SINet-V2-Camouflage-OpenVINO\\npu\\sinet.blob",
    "bytes": 53231745,
    "sha256": "2690b24fb5baff802c0be7f4f45630c9a4e4e513108a733c2faa5fb33d4a283d"
   },
@@ -419,7 +419,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\sinet\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\sinet\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 9917302,
    "sha256": "8f9e862704fd4192986b20af003856ced52264e6f087ca603fb30464431ecccf",
    "arrays": 20

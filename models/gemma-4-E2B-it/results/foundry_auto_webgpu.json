@@ -485,7 +485,7 @@
       "gpu_adapter_used": null,
       "peak_working_set_mb": 392,
       "peak_working_set_of": "foundrylocald (the daemon)",
-      "error": "HTTP 400 {\"error\":{\"code\":null,\"message\":\"Model not loaded: Model 'z2-gemma-4-e2b-it-webgpu:1' must be loaded before inference\",\"param\":null,\"type\":\"invalid_request_error\"}}"
+      "error": "HTTP 400 {\"error\":{\"code\":null,\"message\":\"Model not loaded: Model 'llm-zoo-gemma-4-e2b-it-webgpu:1' must be loaded before inference\",\"param\":null,\"type\":\"invalid_request_error\"}}"
      }
     ],
     "cold_n": 0,
@@ -523,22 +523,22 @@
     "counts": false,
     "unit_args": null,
     "unit_note": "The files of Foundry Local catalog variant gemma-4-e2b-it-generic-gpu:3; fix 2 of 3 after its load error (WebGPU and CUDA): registered as a local model with --execution-provider WebGpuExecutionProvider",
-    "unit_model_id": "z2-gemma-4-e2b-it-webgpu:1",
+    "unit_model_id": "llm-zoo-gemma-4-e2b-it-webgpu:1",
     "unit_pre_foundry": [
      [
       "model",
       "unregister",
-      "z2-gemma-4-e2b-it-webgpu:1"
+      "llm-zoo-gemma-4-e2b-it-webgpu:1"
      ],
      [
       "model",
       "register",
       "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3",
-      "z2-gemma-4-e2b-it-webgpu:1",
+      "llm-zoo-gemma-4-e2b-it-webgpu:1",
       "--task",
       "vision-language-chat",
       "--display-name",
-      "z2-gemma-4-e2b-it-webgpu",
+      "llm-zoo-gemma-4-e2b-it-webgpu",
       "--device",
       "gpu",
       "--execution-provider",
@@ -665,22 +665,22 @@
     "counts": false,
     "unit_args": null,
     "unit_note": "The files of Foundry Local catalog variant gemma-4-e2b-it-generic-gpu:3; fix 3 of 3 after its load error (WebGPU and CUDA): registered as a local model with no execution provider metadata",
-    "unit_model_id": "z2-gemma-4-e2b-it-webgpu:1",
+    "unit_model_id": "llm-zoo-gemma-4-e2b-it-webgpu:1",
     "unit_pre_foundry": [
      [
       "model",
       "unregister",
-      "z2-gemma-4-e2b-it-webgpu:1"
+      "llm-zoo-gemma-4-e2b-it-webgpu:1"
      ],
      [
       "model",
       "register",
       "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3",
-      "z2-gemma-4-e2b-it-webgpu:1",
+      "llm-zoo-gemma-4-e2b-it-webgpu:1",
       "--task",
       "vision-language-chat",
       "--display-name",
-      "z2-gemma-4-e2b-it-webgpu",
+      "llm-zoo-gemma-4-e2b-it-webgpu",
       "--device",
       "gpu"
      ]

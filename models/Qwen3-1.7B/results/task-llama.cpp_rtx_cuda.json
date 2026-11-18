@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 18 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 18 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-1.7B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-1.7B/ref.json",
   "detail": {
    "answers": {
     "agree": 18,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-q17/Qwen3-1.7B/task-llama.cpp_rtx_cuda/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-g-q17/Qwen3-1.7B/task-llama.cpp_rtx_cuda/run1.json",
   "runner": "run_llm_llamacpp.py",
   "argv": [
    "--server",
@@ -58,7 +58,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-q17\\Qwen3-1.7B\\task-llama.cpp_rtx_cuda\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-llama.cpp_rtx_cuda\\run1.json"
   ]
  },
  "note": [
@@ -74,7 +74,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-q17",
+  "sitting": "llm-qa20-g-q17",
   "started": "2026-11-10T09:39:54.048977+09:00",
   "ended": "2026-11-10T09:39:57.948349+09:00",
   "runs": 1,

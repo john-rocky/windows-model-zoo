@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-warp: 7024 of 2949120 output pixels sample within 1 px of the reference (pass mark 95 %)",
-  "reference": "raw/z5/refs/dewarp/ref.json",
+  "reference": "raw/vision-task/refs/dewarp/ref.json",
   "detail": {
    "within_1px": 7024,
    "pixels": 2949120,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/dewarp/task-ovgpu/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/dewarp/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\dewarp\\task-ovgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -69,7 +69,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:21:14.232114+09:00",
   "ended": "2026-11-10T07:21:17.889205+09:00",
   "runs": 1,
@@ -300,7 +300,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dewarp\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.outputs.npz",
    "bytes": 2626422,
    "sha256": "eae3f823cf02740d74a7ca3b2598d98165d4b4b9b1f2a94cfd573f70d52cb826",
    "arrays": 20

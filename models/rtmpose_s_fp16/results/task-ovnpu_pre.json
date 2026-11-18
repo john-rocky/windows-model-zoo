@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-keypoints: 53 of 60 points shown by either side agree (pass mark 95 %)",
-  "reference": "raw/z14/refs/rtmpose_s_fp16/ref.json",
+  "reference": "raw/npu-rerun/refs/rtmpose_s_fp16/ref.json",
   "detail": {
    "agree": 53,
    "shown_either": 60,
@@ -36,21 +36,21 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/rtmpose_s_fp16/task-ovnpu_pre/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/rtmpose_s_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "rtmpose_s_fp16",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\rtmpose_s_fp16",
+   "C:\\src\\mz-npu-rerun\\work\\rtmpose_s_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -66,7 +66,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:20:13.196073+09:00",
   "ended": "2026-11-11T15:20:13.479179+09:00",
   "runs": 1,
@@ -142,14 +142,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\rtmpose_s_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\rtmpose_s_fp16\\inputs.npz",
    "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
    "bytes": 2950582,
    "n": 5
   },
   "model_file": {
    "what": "rtmpose_s_fp16 form blob",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__RTMPose-s-OpenVINO\\npu\\rtmpose_s_fp16.blob",
    "bytes": 11858056,
    "sha256": "e080cbbab273a719570224f9795a1b88873b0ff8246f051a7b0316d5b78239ed"
   },
@@ -193,7 +193,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\rtmpose_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 307142,
    "sha256": "d8d46f7592fc31e1897c50b5bf8d6d32caffb9215876d0f730800cef36f05f9c",
    "arrays": 10

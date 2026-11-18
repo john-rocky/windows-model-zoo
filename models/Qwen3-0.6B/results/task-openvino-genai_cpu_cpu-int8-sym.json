@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 15 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-0.6B/ref.json",
   "detail": {
    "answers": {
     "agree": 19,
@@ -45,17 +45,17 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z13/runs/z13-n/Qwen3-0.6B/task-openvino-genai_cpu_cpu-int8-sym/run1.json",
+  "record": "raw/qwen3-int8-sym/runs/qwen3-int8-sym-n/Qwen3-0.6B/task-openvino-genai_cpu_cpu-int8-sym/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\mz-z13\\hub\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov",
+   "C:\\src\\mz-qwen3-int8-sym\\hub\\mlboydaisuke__Qwen3-0.6B-int8-sym-ov",
    "--device",
    "CPU",
    "--ref",
-   "C:\\src\\mz-z13\\refs\\Qwen3-0.6B\\ref.json",
+   "C:\\src\\mz-qwen3-int8-sym\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\mz-z13\\runs\\z13-n\\Qwen3-0.6B\\task-openvino-genai_cpu_cpu-int8-sym\\run1.json"
+   "C:\\src\\mz-qwen3-int8-sym\\runs\\qwen3-int8-sym-n\\Qwen3-0.6B\\task-openvino-genai_cpu_cpu-int8-sym\\run1.json"
   ]
  },
  "note": [
@@ -71,7 +71,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z13-n",
+  "sitting": "qwen3-int8-sym-n",
   "started": "2026-11-12T09:27:11.137288+09:00",
   "ended": "2026-11-12T09:27:14.850329+09:00",
   "runs": 1,
@@ -262,7 +262,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\mz-z13\\refs\\Qwen3-0.6B\\ref.json",
+   "ref": "C:\\src\\mz-qwen3-int8-sym\\refs\\Qwen3-0.6B\\ref.json",
    "prompts": 21,
    "device": "CPU",
    "pipeline": "llm",

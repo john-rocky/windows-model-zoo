@@ -81,7 +81,7 @@
    "script": "run_ovgenai.py",
    "args": [
     "--model-dir",
-    "{ROOT}\\models\\z2-npu\\Qwen3-4B-int4-sym-g128-ov",
+    "{ROOT}\\models\\llm-zoo-npu\\Qwen3-4B-int4-sym-g128-ov",
     "--device",
     "NPU",
     "--cache-dir",
@@ -236,7 +236,7 @@
     "counts": false,
     "unit_args": [
      "--model-dir",
-     "{ROOT}\\models\\z2-npu\\Qwen3-4B-int4-sym-g128-ov",
+     "{ROOT}\\models\\llm-zoo-npu\\Qwen3-4B-int4-sym-g128-ov",
      "--device",
      "NPU",
      "--cache-dir",
@@ -573,7 +573,7 @@
     "counts": true,
     "unit_args": [
      "--model-dir",
-     "{ROOT}\\models\\z2-npu\\Qwen3-4B-int4-sym-g128-ov",
+     "{ROOT}\\models\\llm-zoo-npu\\Qwen3-4B-int4-sym-g128-ov",
      "--device",
      "NPU",
      "--cache-dir",

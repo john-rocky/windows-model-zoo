@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-detection: 33 boxes paired, of the reference's 91 and the cell's 38 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/dfine_graphB_fp16_fixed/ref.json",
+  "reference": "raw/vision-task/refs/dfine_graphB_fp16_fixed/ref.json",
   "detail": {
    "pairs": 33,
    "ref_boxes": 91,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/dfine_graphB_fp16_fixed/task-ovgpu/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/dfine_graphB_fp16_fixed/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -69,7 +69,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:22:34.294811+09:00",
   "ended": "2026-11-10T07:22:39.930713+09:00",
   "runs": 1,
@@ -306,7 +306,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16_fixed\\task-ovgpu\\run1.outputs.npz",
    "bytes": 2025942,
    "sha256": "a88b59f841e674cdbeecf02de33657abc42f594d39f5a9350b3a824ff66bd60d",
    "arrays": 40

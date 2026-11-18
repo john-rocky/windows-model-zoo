@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-top1: 119 of 120 top-1 classes equal the reference's (pass mark 95 %)",
-  "reference": "raw/z14/refs/w2v2_frontend_fp16/ref.json",
+  "reference": "raw/npu-rerun/refs/w2v2_frontend_fp16/ref.json",
   "detail": {
    "agree": 119,
    "counted": 120,
@@ -35,21 +35,21 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/w2v2_frontend_fp16/task-ovnpu_pre/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/w2v2_frontend_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "w2v2_frontend_fp16",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\w2v2_frontend_fp16",
+   "C:\\src\\mz-npu-rerun\\work\\w2v2_frontend_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\w2v2_frontend_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\w2v2_frontend_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -65,7 +65,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:20:32.395511+09:00",
   "ended": "2026-11-11T15:20:37.837859+09:00",
   "runs": 1,
@@ -144,14 +144,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\w2v2_frontend_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\w2v2_frontend_fp16\\inputs.npz",
    "sha256": "5edfe962aa154e1283da24578b36a6b49572e95a155dc97fafada3fcb688dbef",
    "bytes": 7714582,
    "n": 120
   },
   "model_file": {
    "what": "w2v2_frontend_fp16 form blob",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\npu\\w2v2_frontend_fp16.blob",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\npu\\w2v2_frontend_fp16.blob",
    "bytes": 11481217,
    "sha256": "394cbec179b17382b55ffc121763824a04c765e5a1235791acdd79d60e7ec5af"
   },
@@ -1010,7 +1010,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\w2v2_frontend_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\w2v2_frontend_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 18129142,
    "sha256": "d7055851d6f9236cdb5422b8c6028a9c49bc3ba0482d04e8106cfdda556b3c70",
    "arrays": 240

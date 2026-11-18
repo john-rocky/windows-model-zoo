@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 20 of 20 right by the answer key",
-  "reference": "raw/z6/refs/gemma-4-E4B-it/ref.json",
+  "reference": "raw/llm-qa20/refs/gemma-4-E4B-it/ref.json",
   "detail": {
    "answers": {
     "agree": 19,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-f/gemma-4-E4B-it/task-foundry_rtx_cuda/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-f/gemma-4-E4B-it/task-foundry_rtx_cuda/run1.json",
   "runner": "run_llm_foundry.py",
   "argv": [
    "--package",
@@ -65,7 +65,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
   ]
  },
  "note": [
@@ -81,7 +81,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-f",
+  "sitting": "llm-qa20-f",
   "started": "2026-11-10T10:03:31.187308+09:00",
   "ended": "2026-11-10T10:04:11.886926+09:00",
   "runs": 1,

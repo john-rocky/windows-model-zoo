@@ -288,5 +288,5 @@
    "margin": 0.31072
   }
  ],
- "pulled_from": "raw/z5/refs/dinov2_s_fp16/ref.json"
+ "pulled_from": "raw/vision-task/refs/dinov2_s_fp16/ref.json"
 }

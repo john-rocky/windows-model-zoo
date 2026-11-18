@@ -54,7 +54,7 @@
   "ttft_ms": null,
   "peak_working_set_mb": 5257.515625,
   "decode_tps_warm": null,
-  "sitting": "z2-walk-timed-bench"
+  "sitting": "llm-zoo-walk-timed-bench"
  },
  "regime": {
   "qos": "not-raised",
@@ -79,7 +79,7 @@
   "bench_arm": "llama.cpp",
   "bench_commit": "e9be97795e96b82e81ec8608ce1f04c2bf16a88a",
   "table": {
-   "sitting": "z2-walk-timed-bench",
+   "sitting": "llm-zoo-walk-timed-bench",
    "decode_tps": 21.1,
    "cold_spread_pct": 1.42,
    "cold_n": 3,
@@ -135,7 +135,7 @@
     ]
    },
    {
-    "campaign": "z2-walk-timed-bench",
+    "campaign": "llm-zoo-walk-timed-bench",
     "first_record_jst": "2026-11-08 07:37 JST",
     "os": [
      "Microsoft Windows 11 Home 10.0.26200.9711"
@@ -153,7 +153,7 @@
     "text_check": "3/3 PASS",
     "quant": "Q4_K_M",
     "records": [
-     "z2-walk-timed-bench/llama.cpp_unsloth_gemma-4-E4B-it-GGUF_short-chat.jsonl"
+     "llm-zoo-walk-timed-bench/llama.cpp_unsloth_gemma-4-E4B-it-GGUF_short-chat.jsonl"
     ]
    }
   ]
@@ -161,7 +161,7 @@
  "source": {
   "by": "edge-llm-bench",
   "record": "results/gemma-4-E4B-it/llama.cpp_cpu_cpu.json",
-  "record_text": "bench `z2-walk-timed-bench/llama.cpp_unsloth_gemma-4-E4B-it-GGUF_short-chat.jsonl`",
+  "record_text": "bench `llm-zoo-walk-timed-bench/llama.cpp_unsloth_gemma-4-E4B-it-GGUF_short-chat.jsonl`",
   "migrated_from": "john-rocky/windows-llm-zoo@a1b4ffa:results/gemma-4-E4B-it/llama.cpp_cpu_cpu.json"
  },
  "note": []

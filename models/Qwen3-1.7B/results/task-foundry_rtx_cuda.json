@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on qa20: 17 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 17 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-1.7B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-1.7B/ref.json",
   "detail": {
    "answers": {
     "agree": 17,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-f/Qwen3-1.7B/task-foundry_rtx_cuda/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-f/Qwen3-1.7B/task-foundry_rtx_cuda/run1.json",
   "runner": "run_llm_foundry.py",
   "argv": [
    "--package",
@@ -65,7 +65,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-f\\Qwen3-1.7B\\task-foundry_rtx_cuda\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-f\\Qwen3-1.7B\\task-foundry_rtx_cuda\\run1.json"
   ]
  },
  "note": [
@@ -81,7 +81,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-f",
+  "sitting": "llm-qa20-f",
   "started": "2026-11-10T09:56:18.458114+09:00",
   "ended": "2026-11-10T09:56:39.548867+09:00",
   "runs": 1,

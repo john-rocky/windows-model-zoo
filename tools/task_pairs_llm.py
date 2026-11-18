@@ -19,7 +19,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
 import zoo  # noqa: E402
 
 MODELS = ["Qwen3-0.6B", "Qwen3-1.7B", "Qwen3-4B", "gemma-4-E2B-it", "gemma-4-E4B-it"]
-EP_LINES = "raw/z6/foundry_ep_lines.txt"   # the Foundry Local daemon's log lines (grepped on the PC on 2026-11-10)
+EP_LINES = "raw/llm-qa20/foundry_ep_lines.txt"   # the Foundry Local daemon's log lines (grepped on the PC on 2026-11-10)
 EP_LINE = re.compile(r"^foundry_local_[0-9-]+\.log:\d+: \[(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)\.\d+\] \[info\] model (\S+) "
                      r"applying explicit main decoder EP override: (\S+)")
 

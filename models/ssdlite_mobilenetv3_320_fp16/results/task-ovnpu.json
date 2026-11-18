@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-detection: 31 boxes paired, of the reference's 31 and the cell's 31 (pass mark 95 % both ways)",
-  "reference": "raw/z14/refs/ssdlite_mobilenetv3_320_fp16/ref.json",
+  "reference": "raw/npu-rerun/refs/ssdlite_mobilenetv3_320_fp16/ref.json",
   "detail": {
    "pairs": 31,
    "ref_boxes": 31,
@@ -35,15 +35,15 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/ssdlite_mobilenetv3_320_fp16/task-ovnpu/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/ssdlite_mobilenetv3_320_fp16/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "ssdlite_mobilenetv3_320_fp16",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\ssdlite_mobilenetv3_320_fp16",
+   "C:\\src\\mz-npu-rerun\\work\\ssdlite_mobilenetv3_320_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -69,7 +69,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:22:42.220655+09:00",
   "ended": "2026-11-11T15:22:44.798709+09:00",
   "runs": 1,
@@ -220,14 +220,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
    "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
    "bytes": 24581782,
    "n": 20
   },
   "model_file": {
    "what": "ssdlite_mobilenetv3_320_fp16 form fp32",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\ssdlite_mobilenetv3_320_fp16.onnx",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__ssdlite320-mobilenetv3-openvino\\ssdlite_mobilenetv3_320_fp16.onnx",
    "bytes": 14257939,
    "sha256": "7c1c91204ef93596989e9eb7050e506af58b8629e049c849325296418c3db889"
   },
@@ -366,7 +366,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\ssdlite_mobilenetv3_320_fp16\\task-ovnpu\\run1.outputs.npz",
    "bytes": 24638022,
    "sha256": "99bc3caa42a074db704d6f068684c75be71bbefadd78c05e9169fbbb3f2fc205",
    "arrays": 240

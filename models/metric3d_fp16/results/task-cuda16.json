@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-depth: AbsRel 0.693247 (pass mark AbsRel at most 0.02)",
-  "reference": "raw/z5/refs/metric3d_fp16/ref.json",
+  "reference": "raw/vision-task/refs/metric3d_fp16/ref.json",
   "detail": {
    "absrel": 0.693247,
    "pixels": 4014080,
@@ -34,7 +34,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/metric3d_fp16/task-cuda16/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/metric3d_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -50,7 +50,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\metric3d_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -66,7 +66,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:23:18.452406+09:00",
   "ended": "2026-11-10T07:23:21.881060+09:00",
   "runs": 1,
@@ -259,7 +259,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\metric3d_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 16061302,
    "sha256": "78f63686b5b19934b7cb88cd40215e091c039864732864db64c83f59346f8804",
    "arrays": 20

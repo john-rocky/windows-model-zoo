@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-line-segments: 9 segments paired, of the reference's 503 and the cell's 546 (pass mark 95 % both ways)",
-  "reference": "raw/z14/refs/mlsd_fp16/ref.json",
+  "reference": "raw/npu-rerun/refs/mlsd_fp16/ref.json",
   "detail": {
    "pairs": 9,
    "ref_segments": 503,
@@ -36,21 +36,21 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/mlsd_fp16/task-ovnpu_pre/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/mlsd_fp16/task-ovnpu_pre/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "mlsd_fp16",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\mlsd_fp16",
+   "C:\\src\\mz-npu-rerun\\work\\mlsd_fp16",
    "--form",
    "blob",
    "--engine",
    "ovblob",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json"
   ]
  },
  "note": [
@@ -66,7 +66,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:19:55.492381+09:00",
   "ended": "2026-11-11T15:19:56.154539+09:00",
   "runs": 1,
@@ -134,14 +134,14 @@
    "NPU"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\mlsd_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\mlsd_fp16\\inputs.npz",
    "sha256": "a98afc3ac1c66c9f1c6b82941b9af09486ada4ec525018e8f69db7e281fcff57",
    "bytes": 83891862,
    "n": 20
   },
   "model_file": {
    "what": "mlsd_fp16 form blob",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__M-LSD-tiny-OpenVINO\\npu\\mlsd_fp16.blob",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__M-LSD-tiny-OpenVINO\\npu\\mlsd_fp16.blob",
    "bytes": 2703489,
    "sha256": "6c5cbc4581ec2981b608c4d1d65570797cb5d2e5d6a324811d72d333e374cf5c"
   },
@@ -280,7 +280,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\mlsd_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\mlsd_fp16\\task-ovnpu_pre\\run1.outputs.npz",
    "bytes": 47190902,
    "sha256": "a66f2e906043cc62aa2f0e4066ed008738e256148b03f908bce799585cbc6e14",
    "arrays": 20

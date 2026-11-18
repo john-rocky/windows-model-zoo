@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-count: 10 of 20 counts agree (pass mark 95 %)",
-  "reference": "raw/z5/refs/dmcount/ref.json",
+  "reference": "raw/vision-task/refs/dmcount/ref.json",
   "detail": {
    "agree": 10,
    "inputs": 20,
@@ -34,7 +34,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/dmcount/task-ovgpu/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/dmcount/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -52,7 +52,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\dmcount\\task-ovgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -68,7 +68,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:23:10.462428+09:00",
   "ended": "2026-11-10T07:23:13.279280+09:00",
   "runs": 1,
@@ -297,7 +297,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\dmcount\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.outputs.npz",
    "bytes": 332662,
    "sha256": "0c449c21fff84f45cd5022c4de2ae27882583678eae5aa1efadb9bc99bb8ab41",
    "arrays": 20

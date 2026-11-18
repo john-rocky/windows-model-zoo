@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-keypoints: 389 of 392 points shown by either side agree (pass mark 95 %)",
-  "reference": "raw/z5/refs/rtm_face_fp16/ref.json",
+  "reference": "raw/vision-task/refs/rtm_face_fp16/ref.json",
   "detail": {
    "agree": 389,
    "shown_either": 392,
@@ -36,7 +36,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/rtm_face_fp16/task-cuda16/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/rtm_face_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -52,7 +52,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\rtm_face_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -68,7 +68,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:26:33.612559+09:00",
   "ended": "2026-11-10T07:26:35.914011+09:00",
   "runs": 1,
@@ -189,7 +189,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\rtm_face_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 1607638,
    "sha256": "46b14d89170d2eb87b1b18e7ea4c5b85197fd14bfc68d0be84798bef65e9593d",
    "arrays": 8

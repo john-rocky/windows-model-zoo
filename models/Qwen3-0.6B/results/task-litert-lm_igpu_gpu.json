@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on qa20: 10 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 15 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-0.6B/ref.json",
   "detail": {
    "answers": {
     "agree": 10,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-q06/Qwen3-0.6B/task-litert-lm_igpu_gpu/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-g-q06/Qwen3-0.6B/task-litert-lm_igpu_gpu/run1.json",
   "runner": "run_llm_litert.py",
   "argv": [
    "--exe",
@@ -59,7 +59,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-q06\\Qwen3-0.6B\\task-litert-lm_igpu_gpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-litert-lm_igpu_gpu\\run1.json"
   ]
  },
  "note": [
@@ -75,7 +75,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-q06",
+  "sitting": "llm-qa20-g-q06",
   "started": "2026-11-10T09:30:02.080771+09:00",
   "ended": "2026-11-10T09:31:28.898584+09:00",
   "runs": 1,

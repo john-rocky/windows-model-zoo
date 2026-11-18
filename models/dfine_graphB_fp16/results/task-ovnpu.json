@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-detection: 3069 boxes paired, of the reference's 3282 and the cell's 3209 (pass mark 95 % both ways)",
-  "reference": "raw/z14/refs/dfine_graphB_fp16/ref.json",
+  "reference": "raw/npu-rerun/refs/dfine_graphB_fp16/ref.json",
   "detail": {
    "pairs": 3069,
    "ref_boxes": 3282,
@@ -35,15 +35,15 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/dfine_graphB_fp16/task-ovnpu/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/dfine_graphB_fp16/task-ovnpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
    "dfine_graphB_fp16",
    "--spec",
-   "C:\\src\\mz-z14\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
    "--work",
-   "C:\\src\\mz-z14\\work\\dfine_graphB_fp16",
+   "C:\\src\\mz-npu-rerun\\work\\dfine_graphB_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "NPU",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\dfine_graphB_fp16\\task-ovnpu\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\dfine_graphB_fp16\\task-ovnpu\\run1.json"
   ]
  },
  "note": [
@@ -69,7 +69,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:20:53.857000+09:00",
   "ended": "2026-11-11T15:21:17.328736+09:00",
   "runs": 1,
@@ -160,14 +160,14 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\mz-z14\\work\\dfine_graphB_fp16\\inputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\work\\dfine_graphB_fp16\\inputs.npz",
    "sha256": "0fe35bcd4b2d1566c2934e6b043476f82771f813ca9ad3ae1bd467f0fb732bda",
    "bytes": 178289302,
    "n": 20
   },
   "model_file": {
    "what": "dfine_graphB_fp16 form fp32",
-   "path": "C:\\src\\mz-z14\\hub\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\dfine_graphB_fp16.onnx",
+   "path": "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__D-FINE-S-OpenVINO\\unfixed\\dfine_graphB_fp16.onnx",
    "bytes": 17727995,
    "sha256": "af07e86b79413782d478dab7b1e8fe6db79e993ae17b7a622554d4ab889d2c39"
   },
@@ -306,7 +306,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\mz-z14\\runs\\z14-b\\dfine_graphB_fp16\\task-ovnpu\\run1.outputs.npz",
+   "path": "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\dfine_graphB_fp16\\task-ovnpu\\run1.outputs.npz",
    "bytes": 2025942,
    "sha256": "8251136225c440e79ca03ea586cd75ed6252ba14ad1c5fea14f9d09c4d992a7e",
    "arrays": 40

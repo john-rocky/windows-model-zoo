@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on qa20: 19 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 19 of 20 right by the answer key",
-  "reference": "raw/z14/refs/Qwen3-4B/ref.json",
+  "reference": "raw/npu-rerun/refs/Qwen3-4B/ref.json",
   "detail": {
    "answers": {
     "agree": 19,
@@ -45,19 +45,19 @@
  },
  "source": {
   "by": "windows-model-zoo",
-  "record": "raw/z14/runs/z14-b/Qwen3-4B/task-openvino-genai_npu_npu-sym-g128/run1.json",
+  "record": "raw/npu-rerun/runs/npu-rerun-b/Qwen3-4B/task-openvino-genai_npu_npu-sym-g128/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\mz-z14\\hub\\mlboydaisuke__Qwen3-4B-int4-sym-g128-ov",
+   "C:\\src\\mz-npu-rerun\\hub\\mlboydaisuke__Qwen3-4B-int4-sym-g128-ov",
    "--device",
    "NPU",
    "--cache-dir",
-   "C:\\src\\mz-z14\\ovcache\\Qwen3-4B_npu_sym_g128",
+   "C:\\src\\mz-npu-rerun\\ovcache\\Qwen3-4B_npu_sym_g128",
    "--ref",
-   "C:\\src\\mz-z14\\refs\\Qwen3-4B\\ref.json",
+   "C:\\src\\mz-npu-rerun\\refs\\Qwen3-4B\\ref.json",
    "--out",
-   "C:\\src\\mz-z14\\runs\\z14-b\\Qwen3-4B\\task-openvino-genai_npu_npu-sym-g128\\run1.json"
+   "C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\Qwen3-4B\\task-openvino-genai_npu_npu-sym-g128\\run1.json"
   ]
  },
  "note": [
@@ -73,7 +73,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z14-b",
+  "sitting": "npu-rerun-b",
   "started": "2026-11-11T15:14:14.003411+09:00",
   "ended": "2026-11-11T15:15:15.557312+09:00",
   "runs": 1,
@@ -265,7 +265,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\mz-z14\\refs\\Qwen3-4B\\ref.json",
+   "ref": "C:\\src\\mz-npu-rerun\\refs\\Qwen3-4B\\ref.json",
    "prompts": 21,
    "device": "NPU",
    "pipeline": "llm",

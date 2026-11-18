@@ -10,11 +10,11 @@ models/index.json
 # what tools/pc.sh pull brings back; the committed records are the folders named below (the task cells' folders,
 # then the walks': raw/walk*/)
 raw/*/
-!raw/z5/
-!raw/z6/
-!raw/z14/
-!raw/z13/
-!raw/z19/
+!raw/vision-task/
+!raw/llm-qa20/
+!raw/npu-rerun/
+!raw/qwen3-int8-sym/
+!raw/qwen25-15b/
 !raw/qwen25-igpu/
 !raw/qwen25-llamacpp/
 !raw/qwen25-05b/
@@ -24,18 +24,18 @@ raw/*/
 !raw/phi4-mini-ep/
 !raw/phi4-mini-ov/
 !raw/walk/
-!raw/walk-z9/
-!raw/walk-z12/
+!raw/walk2/
+!raw/walk-timed-paths/
 # the vision task cells' outputs (npz, MB to tens of MB per cell) are not in this repo
-raw/z5/**/*.npz
-raw/z14/**/*.npz
-raw/z13/**/*.npz
+raw/vision-task/**/*.npz
+raw/npu-rerun/**/*.npz
+raw/qwen3-int8-sym/**/*.npz
 raw/walk/**/*.npz
-raw/walk-z9/**/*.npz
-raw/walk-z12/**/*.npz
+raw/walk2/**/*.npz
+raw/walk-timed-paths/**/*.npz
 # the PC step logs of the passes below name the PC account's folder: they stay on your disk
-raw/z13/logs/
-raw/z19/logs/
+raw/qwen3-int8-sym/logs/
+raw/qwen25-15b/logs/
 raw/qwen25-igpu/logs/
 raw/qwen25-llamacpp/logs/
 raw/qwen25-05b/logs/

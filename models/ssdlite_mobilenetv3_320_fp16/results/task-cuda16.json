@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": true,
   "verdict": "PASS on task-detection: 31 boxes paired, of the reference's 31 and the cell's 31 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/ssdlite_mobilenetv3_320_fp16/ref.json",
+  "reference": "raw/vision-task/refs/ssdlite_mobilenetv3_320_fp16/ref.json",
   "detail": {
    "pairs": 31,
    "ref_boxes": 31,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/ssdlite_mobilenetv3_320_fp16/task-cuda16/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/ssdlite_mobilenetv3_320_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -51,7 +51,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -67,7 +67,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:28:35.583931+09:00",
   "ended": "2026-11-10T07:28:39.026389+09:00",
   "runs": 1,
@@ -348,7 +348,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 24638022,
    "sha256": "a76671a1476804063d74ed87954cacc3ab6bf510d4e07227dc4268edefa521e4",
    "arrays": 240

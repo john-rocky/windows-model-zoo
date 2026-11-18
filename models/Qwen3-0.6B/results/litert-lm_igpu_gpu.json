@@ -135,7 +135,7 @@
     ]
    },
    {
-    "campaign": "z2-walk-timed-bench",
+    "campaign": "llm-zoo-walk-timed-bench",
     "first_record_jst": "2026-11-08 07:34 JST",
     "os": [
      "Microsoft Windows 11 Home 10.0.26200.9711"
@@ -153,7 +153,7 @@
     "text_check": "5/5 PASS",
     "quant": "INT4 (dynamic, block-32 weights, FP32 act; GPU-composite export, external weights; Hub file of 2026-10-31)",
     "records": [
-     "z2-walk-timed-bench/litert-lm-gpu-igpu_litert-community_Qwen3-0.6B_short-chat.jsonl"
+     "llm-zoo-walk-timed-bench/litert-lm-gpu-igpu_litert-community_Qwen3-0.6B_short-chat.jsonl"
     ]
    },
    {

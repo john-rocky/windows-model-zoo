@@ -1383,7 +1383,7 @@
    "max_new": 16
   }
  ],
- "pulled_from": "raw/z19/refs/Qwen2.5-1.5B-Instruct/ref.json",
+ "pulled_from": "raw/qwen25-15b/refs/Qwen2.5-1.5B-Instruct/ref.json",
  "key": {
   "right": 19,
   "n": 20,

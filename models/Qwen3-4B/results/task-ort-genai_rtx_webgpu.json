@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on qa20: 17 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 20 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-4B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-4B/ref.json",
   "detail": {
    "answers": {
     "agree": 17,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-q4b/Qwen3-4B/task-ort-genai_rtx_webgpu/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-g-q4b/Qwen3-4B/task-ort-genai_rtx_webgpu/run1.json",
   "runner": "run_llm_genai.py",
   "argv": [
    "--model-dir",
@@ -57,7 +57,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-q4b\\Qwen3-4B\\task-ort-genai_rtx_webgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q4b\\Qwen3-4B\\task-ort-genai_rtx_webgpu\\run1.json"
   ]
  },
  "note": [
@@ -73,7 +73,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-q4b",
+  "sitting": "llm-qa20-g-q4b",
   "started": "2026-11-10T09:50:27.532232+09:00",
   "ended": "2026-11-10T09:50:35.245751+09:00",
   "runs": 1,

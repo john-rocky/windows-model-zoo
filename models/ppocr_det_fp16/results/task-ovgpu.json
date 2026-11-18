@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-detection: 22 boxes paired, of the reference's 39 and the cell's 28 (pass mark 95 % both ways)",
-  "reference": "raw/z5/refs/ppocr_det_fp16/ref.json",
+  "reference": "raw/vision-task/refs/ppocr_det_fp16/ref.json",
   "detail": {
    "pairs": 22,
    "ref_boxes": 39,
@@ -35,7 +35,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-a/ppocr_det_fp16/task-ovgpu/run1.json",
+  "record": "raw/vision-task/runs/vision-task-a/ppocr_det_fp16/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-ovgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -69,7 +69,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-a",
+  "sitting": "vision-task-a",
   "started": "2026-11-10T07:23:59.210703+09:00",
   "ended": "2026-11-10T07:24:03.314345+09:00",
   "runs": 1,
@@ -300,7 +300,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-a\\ppocr_det_fp16\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.outputs.npz",
    "bytes": 32772982,
    "sha256": "8d3521af55ca80083d1991db083bc811a11a4af1a027a602ef32019ad1011642",
    "arrays": 20

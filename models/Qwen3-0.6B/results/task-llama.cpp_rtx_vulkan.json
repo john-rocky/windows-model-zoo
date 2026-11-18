@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on qa20: 16 of 20 answers' first lines equal the reference's (pass mark 18); gate PASS; outside the line: 11 of 20 right by the answer key",
-  "reference": "raw/z6/refs/Qwen3-0.6B/ref.json",
+  "reference": "raw/llm-qa20/refs/Qwen3-0.6B/ref.json",
   "detail": {
    "answers": {
     "agree": 16,
@@ -45,7 +45,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z6/runs/z6-g-q06/Qwen3-0.6B/task-llama.cpp_rtx_vulkan/run1.json",
+  "record": "raw/llm-qa20/runs/llm-qa20-g-q06/Qwen3-0.6B/task-llama.cpp_rtx_vulkan/run1.json",
   "runner": "run_llm_llamacpp.py",
   "argv": [
    "--server",
@@ -60,7 +60,7 @@
    "--ref",
    "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z6-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_vulkan\\run1.json"
+   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_vulkan\\run1.json"
   ]
  },
  "note": [
@@ -76,7 +76,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z6-g-q06",
+  "sitting": "llm-qa20-g-q06",
   "started": "2026-11-10T09:32:43.641796+09:00",
   "ended": "2026-11-10T09:32:53.006603+09:00",
   "runs": 1,

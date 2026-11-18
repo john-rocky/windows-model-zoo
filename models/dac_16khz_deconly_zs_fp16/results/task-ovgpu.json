@@ -23,7 +23,7 @@
   "kind": "task",
   "pass": false,
   "verdict": "FAIL on task-codec-aligned: mean SI-SDR -3.813 dB against the reference's 7.729 dB (pass mark reference mean - 0.5 dB; 0 bad outputs)",
-  "reference": "raw/z5/refs/dac_16khz_deconly_zs_fp16/ref.json",
+  "reference": "raw/vision-task/refs/dac_16khz_deconly_zs_fp16/ref.json",
   "detail": {
    "si_sdr_cell_mean": -3.813,
    "si_sdr_ref_mean": 7.729,
@@ -36,7 +36,7 @@
  },
  "source": {
   "by": "windows-zoo-template",
-  "record": "raw/z5/runs/z5-b/dac_16khz_deconly_zs_fp16/task-ovgpu/run1.json",
+  "record": "raw/vision-task/runs/vision-task-b/dac_16khz_deconly_zs_fp16/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
    "--model",
@@ -54,7 +54,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\z5-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.json"
+   "C:\\src\\zoo-template\\runs\\vision-task-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -70,7 +70,7 @@
  "run": {
   "state": "ok",
   "mode": "first",
-  "sitting": "z5-b",
+  "sitting": "vision-task-b",
   "started": "2026-11-10T07:29:50.379413+09:00",
   "ended": "2026-11-10T07:29:57.677552+09:00",
   "runs": 1,
@@ -780,7 +780,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\z5-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\zoo-template\\runs\\vision-task-b\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.outputs.npz",
    "bytes": 7705942,
    "sha256": "9b08ec155723de5086042d9d79911ec82186b3a08e5041f54da00131fd4df2a6",
    "arrays": 120
