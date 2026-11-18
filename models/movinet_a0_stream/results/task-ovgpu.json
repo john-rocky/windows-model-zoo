@@ -41,9 +41,9 @@
    "--model",
    "movinet_a0_stream",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\movinet_a0_stream",
+   "C:\\src\\working-folder\\work\\movinet_a0_stream",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\movinet_a0_stream\\task-ovgpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\movinet_a0_stream\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -152,7 +152,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\movinet_a0_stream\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\movinet_a0_stream\\inputs.npz",
    "sha256": "487c078b4fa5e4223104a844d83d190129c71aeced83e5e7116b6d0c24e5018c",
    "bytes": 7105942,
    "n": 20
@@ -1298,7 +1298,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\movinet_a0_stream\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\movinet_a0_stream\\task-ovgpu\\run1.outputs.npz",
    "bytes": 424982,
    "sha256": "193da2dda1897aa4200cd178f21fe19713428afe7141f0cca6dcf0aadbf8fb2a",
    "arrays": 160

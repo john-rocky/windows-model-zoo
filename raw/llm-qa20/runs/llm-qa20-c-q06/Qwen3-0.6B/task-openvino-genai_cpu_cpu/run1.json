@@ -3,13 +3,13 @@
  "started": "2026-11-10T09:31:03.917116+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\OpenVINO__Qwen3-0.6B-int4-ov",
+  "C:\\src\\working-folder\\hub\\OpenVINO__Qwen3-0.6B-int4-ov",
   "--device",
   "CPU",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-openvino-genai_cpu_cpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-openvino-genai_cpu_cpu\\run1.json"
  ],
  "pid": 20048,
  "status": "OK",
@@ -1304,7 +1304,7 @@
  "load_s": 2.016,
  "pipeline": "llm",
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "prompts": 21,
   "device": "CPU",
   "pipeline": "llm",

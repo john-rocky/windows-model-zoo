@@ -5,9 +5,9 @@
   "--model",
   "mlsd_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\mlsd_fp16",
+  "C:\\src\\working-folder\\work\\mlsd_fp16",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "NPU",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.json"
  ],
  "pid": 11500,
  "status": "OK",
@@ -182,7 +182,7 @@
   "sha256": "73d41b40feb169e88bfa6428c5a4b2c735069d9848538f6d47535483a50c3537"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\mlsd_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\mlsd_fp16\\inputs.npz",
   "sha256": "a98afc3ac1c66c9f1c6b82941b9af09486ada4ec525018e8f69db7e281fcff57",
   "bytes": 83891862,
   "n": 20
@@ -216,7 +216,7 @@
  },
  "warmup_s": 0.01,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.outputs.npz",
   "bytes": 47190902,
   "sha256": "a66f2e906043cc62aa2f0e4066ed008738e256148b03f908bce799585cbc6e14",
   "arrays": 20

@@ -49,18 +49,18 @@
   "runner": "run_llm_llamacpp.py",
   "argv": [
    "--server",
-   "C:\\src\\zoo-template\\engines\\llama-gpu\\llama-server.exe",
+   "C:\\src\\working-folder\\engines\\llama-gpu\\llama-server.exe",
    "--model",
-   "C:\\src\\zoo-template\\work\\gguf\\gemma-4-E4B-it-Q4_K_M.gguf",
+   "C:\\src\\working-folder\\work\\gguf\\gemma-4-E4B-it-Q4_K_M.gguf",
    "--gpu",
    "--device-prefix",
    "Vulkan",
    "--env",
    "GGML_VK_VISIBLE_DEVICES=0",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-llama.cpp_rtx_vulkan\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-llama.cpp_rtx_vulkan\\run1.json"
   ]
  },
  "note": [
@@ -257,7 +257,7 @@
    "python": "3.12.16"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
    "prompts": 21,
    "gpu": true,
    "decode": "greedy (temperature 0, top_k 1, repeat_penalty 1.0)",

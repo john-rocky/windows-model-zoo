@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dfine_graphB_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dfine_graphB_fp16\\inputs.npz",
   "n": 20,
   "sha256": "0fe35bcd4b2d1566c2934e6b043476f82771f813ca9ad3ae1bd467f0fb732bda",
   "bytes": 178289302,
@@ -232,7 +232,7 @@
   "load_s": 0.261
  },
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dfine_graphB_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dfine_graphB_fp16\\ref.outputs.npz",
   "bytes": 2025942,
   "sha256": "5f8064580c317a432b97c0594f8faa855c4f407cf979bd11c62299bfc766d165",
   "arrays": 40

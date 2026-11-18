@@ -10,8 +10,8 @@
 0.01.152.435 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
 0.01.152.462 I srv          init: using 15 threads for HTTP server
 0.01.152.528 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
-0.01.160.798 I srv    load_model: loading model 'C:\src\zoo-template\work\gguf\Qwen3-1.7B-Q4_K_M.gguf'
-0.01.160.801 I srv    load_model: local path 'C:\src\zoo-template\work\gguf\Qwen3-1.7B-Q4_K_M.gguf'
+0.01.160.798 I srv    load_model: loading model 'C:\src\working-folder\work\gguf\Qwen3-1.7B-Q4_K_M.gguf'
+0.01.160.801 I srv    load_model: local path 'C:\src\working-folder\work\gguf\Qwen3-1.7B-Q4_K_M.gguf'
 0.01.160.816 I cmn  common_init_: fitting params to device memory ...
 0.01.160.816 I cmn  common_init_: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
 0.01.160.863 I common_params_fit_impl: getting device memory data for initial parameters:
@@ -22,7 +22,7 @@
 0.01.337.031 I common_params_fit_impl: will leave 13716 >= 1024 MiB of free device memory, no changes needed
 0.01.337.033 I common_fit_params: successfully fit params to free device memory
 0.01.337.038 I common_fit_params: fitting params to free memory took 0.18 seconds
-0.01.364.929 I llama_model_loader: loaded meta data with 32 key-value pairs and 310 tensors from C:\src\zoo-template\work\gguf\Qwen3-1.7B-Q4_K_M.gguf (version GGUF V3 (latest))
+0.01.364.929 I llama_model_loader: loaded meta data with 32 key-value pairs and 310 tensors from C:\src\working-folder\work\gguf\Qwen3-1.7B-Q4_K_M.gguf (version GGUF V3 (latest))
 0.01.364.940 I llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
 0.01.364.942 I llama_model_loader: - kv   0:                       general.architecture str              = qwen3
 0.01.364.943 I llama_model_loader: - kv   1:                               general.type str              = model

@@ -5,9 +5,9 @@
   "--model",
   "dmcount",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\dmcount",
+  "C:\\src\\working-folder\\work\\dmcount",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "GPU.0",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.json"
  ],
  "pid": 21328,
  "status": "OK",
@@ -182,7 +182,7 @@
   "sha256": "3e5a6c65a35f68f3115b23483f07cd7f0c1e7ad3c87db39638f1184852d96197"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dmcount\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dmcount\\inputs.npz",
   "sha256": "4ff5bc2e808eba11f263c42556e2601244549b4763a1d960fb8d275c363cc2bf",
   "bytes": 62920342,
   "n": 20
@@ -216,7 +216,7 @@
  },
  "warmup_s": 0.019,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dmcount\\task-ovgpu\\run1.outputs.npz",
   "bytes": 332662,
   "sha256": "0c449c21fff84f45cd5022c4de2ae27882583678eae5aa1efadb9bc99bb8ab41",
   "arrays": 20

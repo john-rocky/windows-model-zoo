@@ -49,15 +49,15 @@
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\OpenVINO__Qwen3-0.6B-int4-ov",
+   "C:\\src\\working-folder\\hub\\OpenVINO__Qwen3-0.6B-int4-ov",
    "--device",
    "GPU.0",
    "--cache-dir",
-   "C:\\src\\zoo-template\\ovcache\\Qwen3-0.6B_gpu0",
+   "C:\\src\\working-folder\\ovcache\\Qwen3-0.6B_gpu0",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-openvino-genai_igpu_gpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-openvino-genai_igpu_gpu\\run1.json"
   ]
  },
  "note": [
@@ -273,7 +273,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "prompts": 21,
    "device": "GPU.0",
    "pipeline": "llm",

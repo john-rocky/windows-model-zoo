@@ -1,4 +1,4 @@
-[2026-11-10T09:04:41.1802260+09:00] chain start: plan C:\src\zoo-template\pc\plans\llm-qa20-g-e4b.json mode first, 11 units, pid 28384
+[2026-11-10T09:04:41.1802260+09:00] chain start: plan C:\src\working-folder\pc\plans\llm-qa20-g-e4b.json mode first, 11 units, pid 28384
 [2026-11-10T09:04:51.9358792+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
 [2026-11-10T09:04:54.0528659+09:00] gemma-4-E4B-it/task-litert-lm_igpu_gpu run 1 start
 [2026-11-10T09:09:52.0354874+09:00] gemma-4-E4B-it/task-litert-lm_igpu_gpu run 1 end: exit 0, OK, 296.007 s

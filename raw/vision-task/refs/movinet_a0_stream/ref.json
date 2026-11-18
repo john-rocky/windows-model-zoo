@@ -5,15 +5,15 @@
   "--model",
   "movinet_a0_stream",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\movinet_a0_stream",
+  "C:\\src\\working-folder\\work\\movinet_a0_stream",
   "--out",
-  "C:\\src\\zoo-template\\refs\\movinet_a0_stream\\ref.json"
+  "C:\\src\\working-folder\\refs\\movinet_a0_stream\\ref.json"
  ],
  "pid": 20832,
  "status": "OK",
@@ -1169,7 +1169,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\movinet_a0_stream\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\movinet_a0_stream\\inputs.npz",
   "n": 20,
   "sha256": "487c078b4fa5e4223104a844d83d190129c71aeced83e5e7116b6d0c24e5018c",
   "bytes": 7105942,
@@ -1195,7 +1195,7 @@
  },
  "warmup_s": 0.007,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\movinet_a0_stream\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\movinet_a0_stream\\ref.outputs.npz",
   "bytes": 424982,
   "sha256": "ae578dc40e341d7894be9452bc5afa5e3f57f682186d4cac96f2e2248e3934f3",
   "arrays": 160

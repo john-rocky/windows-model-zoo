@@ -3,15 +3,15 @@
  "started": "2026-11-10T09:42:15.288230+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\webgpu\\webgpu-int4-kld-block-32",
+  "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\webgpu\\webgpu-int4-kld-block-32",
   "--ep",
   "webgpu",
   "--ep-option",
   "adapterIndex=0",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_webgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_webgpu\\run1.json"
  ],
  "pid": 10612,
  "status": "OK",
@@ -1056,7 +1056,7 @@
   "top_p": 0.95
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "prompts": 21,
   "ep": "webgpu",
   "ov_device": "CPU",

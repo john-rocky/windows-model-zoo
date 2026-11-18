@@ -5,15 +5,15 @@
   "--model",
   "dinov2_s_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\dinov2_s_fp16",
+  "C:\\src\\working-folder\\work\\dinov2_s_fp16",
   "--form",
   "blob",
   "--engine",
   "ovblob",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\dinov2_s_fp16\\task-ovnpu_pre\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\dinov2_s_fp16\\task-ovnpu_pre\\run1.json"
  ],
  "pid": 30180,
  "status": "OK",
@@ -178,7 +178,7 @@
   "sha256": "dc8b1157d21d528bc89041b7ec59287b98cacd17a1f67e878a9b70299ff52106"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dinov2_s_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dinov2_s_fp16\\inputs.npz",
   "sha256": "f9b2413ab8186edcf8b27f30bfafd890250d5215994785f5997de33178bfc5b6",
   "bytes": 48174742,
   "n": 20
@@ -210,7 +210,7 @@
  },
  "warmup_s": 0.051,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dinov2_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dinov2_s_fp16\\task-ovnpu_pre\\run1.outputs.npz",
   "bytes": 31462262,
   "sha256": "fd617e8de175fa680122563b95a3cf75499464b2ea81bf842351e2c4dfbf326b",
   "arrays": 20

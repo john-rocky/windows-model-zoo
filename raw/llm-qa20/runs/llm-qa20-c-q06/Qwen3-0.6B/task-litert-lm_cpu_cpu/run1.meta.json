@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 1057 MHz, 14001 MHz, 18.14 W, 0 %, 0 MiB, 51",
                    "availGB":  23.7
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\cpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm --backend cpu --ref C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-litert-lm_cpu_cpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_litert.py --exe C:\\src\\working-folder\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\working-folder\\work\\litert\\cpu\\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm --backend cpu --ref C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-litert-lm_cpu_cpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

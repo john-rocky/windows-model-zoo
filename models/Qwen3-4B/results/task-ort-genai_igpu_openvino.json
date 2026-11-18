@@ -49,15 +49,15 @@
   "runner": "run_llm_genai.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-4B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
+   "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-4B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
    "--ep",
    "openvino",
    "--ov-device",
    "GPU",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
+   "C:\\src\\working-folder\\refs\\Qwen3-4B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q4b\\Qwen3-4B\\task-ort-genai_igpu_openvino\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-g-q4b\\Qwen3-4B\\task-ort-genai_igpu_openvino\\run1.json"
   ]
  },
  "note": [
@@ -272,7 +272,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\Qwen3-4B\\ref.json",
    "prompts": 21,
    "ep": "openvino",
    "ov_device": "GPU",

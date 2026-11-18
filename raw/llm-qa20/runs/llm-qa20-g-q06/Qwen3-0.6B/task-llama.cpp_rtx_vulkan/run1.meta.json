@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 292 MHz, 14001 MHz, 19.71 W, 0 %, 0 MiB, 59",
                    "availGB":  24.3
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_llamacpp.py --server C:\\src\\zoo-template\\engines\\llama-gpu\\llama-server.exe --model C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf --gpu --device-prefix Vulkan --env GGML_VK_VISIBLE_DEVICES=0 --ref C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_vulkan\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_llamacpp.py --server C:\\src\\working-folder\\engines\\llama-gpu\\llama-server.exe --model C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf --gpu --device-prefix Vulkan --env GGML_VK_VISIBLE_DEVICES=0 --ref C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_vulkan\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

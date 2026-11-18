@@ -41,9 +41,9 @@
    "--model",
    "dewarp",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\dewarp",
+   "C:\\src\\working-folder\\work\\dewarp",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -154,7 +154,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\dewarp\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\dewarp\\inputs.npz",
    "sha256": "0c556cb99b9bac6a8e0f82f80874fd073728f48a157516210ee1c0f0cb7ef16c",
    "bytes": 15734422,
    "n": 20
@@ -300,7 +300,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dewarp\\task-ovgpu\\run1.outputs.npz",
    "bytes": 2626422,
    "sha256": "eae3f823cf02740d74a7ca3b2598d98165d4b4b9b1f2a94cfd573f70d52cb826",
    "arrays": 20

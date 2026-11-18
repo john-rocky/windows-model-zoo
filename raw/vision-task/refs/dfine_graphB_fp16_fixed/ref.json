@@ -5,15 +5,15 @@
   "--model",
   "dfine_graphB_fp16_fixed",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed",
+  "C:\\src\\working-folder\\work\\dfine_graphB_fp16_fixed",
   "--out",
-  "C:\\src\\zoo-template\\refs\\dfine_graphB_fp16_fixed\\ref.json"
+  "C:\\src\\working-folder\\refs\\dfine_graphB_fp16_fixed\\ref.json"
  ],
  "pid": 2272,
  "status": "OK",
@@ -227,7 +227,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dfine_graphB_fp16_fixed\\inputs.npz",
   "n": 20,
   "sha256": "06d2e04aa67822901d1f635584a3956840b99bc9ee225c530110a8368b8015a9",
   "bytes": 178289302,
@@ -269,7 +269,7 @@
  },
  "warmup_s": 0.106,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dfine_graphB_fp16_fixed\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dfine_graphB_fp16_fixed\\ref.outputs.npz",
   "bytes": 2025942,
   "sha256": "d2a317643210ff3749694389995f3ec598c5e23c788745b2dd1b14d8c72584d4",
   "arrays": 40

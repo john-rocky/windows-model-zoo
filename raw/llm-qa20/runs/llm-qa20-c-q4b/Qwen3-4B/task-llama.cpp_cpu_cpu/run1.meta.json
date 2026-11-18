@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 2317 MHz, 14001 MHz, 78.04 W, 72 %, 2584 MiB, 69",
                    "availGB":  20.6
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_llamacpp.py --server C:\\src\\zoo-template\\engines\\llama-cpu\\llama-server.exe --model C:\\src\\zoo-template\\work\\gguf\\Qwen3-4B-Q4_K_M.gguf --ref C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-c-q4b\\Qwen3-4B\\task-llama.cpp_cpu_cpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_llamacpp.py --server C:\\src\\working-folder\\engines\\llama-cpu\\llama-server.exe --model C:\\src\\working-folder\\work\\gguf\\Qwen3-4B-Q4_K_M.gguf --ref C:\\src\\working-folder\\refs\\Qwen3-4B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-c-q4b\\Qwen3-4B\\task-llama.cpp_cpu_cpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

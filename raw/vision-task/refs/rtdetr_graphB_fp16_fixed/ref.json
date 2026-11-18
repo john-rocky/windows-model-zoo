@@ -5,15 +5,15 @@
   "--model",
   "rtdetr_graphB_fp16_fixed",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed",
+  "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16_fixed",
   "--out",
-  "C:\\src\\zoo-template\\refs\\rtdetr_graphB_fp16_fixed\\ref.json"
+  "C:\\src\\working-folder\\refs\\rtdetr_graphB_fp16_fixed\\ref.json"
  ],
  "pid": 29492,
  "status": "OK",
@@ -221,7 +221,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16_fixed\\inputs.npz",
   "n": 20,
   "sha256": "808035c8de3859d314fea0a4efec5d1e70df76ba7bb2e31711c3bc8fbc6b95dc",
   "bytes": 178289302,
@@ -263,7 +263,7 @@
  },
  "warmup_s": 0.127,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\rtdetr_graphB_fp16_fixed\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\rtdetr_graphB_fp16_fixed\\ref.outputs.npz",
   "bytes": 2025942,
   "sha256": "b0ad4ee9f59370406bd05f3ed49667510902fead65625312d8f1a2cd422c2b8e",
   "arrays": 40

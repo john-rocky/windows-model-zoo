@@ -49,13 +49,13 @@
   "runner": "run_llm_llamacpp.py",
   "argv": [
    "--server",
-   "C:\\src\\zoo-template\\engines\\llama-cpu\\llama-server.exe",
+   "C:\\src\\working-folder\\engines\\llama-cpu\\llama-server.exe",
    "--model",
-   "C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+   "C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-llama.cpp_cpu_cpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-llama.cpp_cpu_cpu\\run1.json"
   ]
  },
  "note": [
@@ -262,7 +262,7 @@
    "python": "3.12.16"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "prompts": 21,
    "gpu": false,
    "decode": "greedy (temperature 0, top_k 1, repeat_penalty 1.0)",

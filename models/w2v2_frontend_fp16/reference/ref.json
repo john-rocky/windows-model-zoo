@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\w2v2_frontend_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\w2v2_frontend_fp16\\inputs.npz",
   "n": 120,
   "sha256": "5edfe962aa154e1283da24578b36a6b49572e95a155dc97fafada3fcb688dbef",
   "bytes": 7714582,
@@ -903,7 +903,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\w2v2_frontend_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\w2v2_frontend_fp16\\ref.outputs.npz",
   "bytes": 18129142,
   "sha256": "7c8c1f1aeeccbeee2f55afbbad85ee2b218928839494aa448cc9361ebe8764b0",
   "arrays": 240

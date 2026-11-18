@@ -41,9 +41,9 @@
    "--model",
    "dfine_graphB_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\dfine_graphB_fp16",
+   "C:\\src\\working-folder\\work\\dfine_graphB_fp16",
    "--form",
    "fp16",
    "--engine",
@@ -51,7 +51,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\dfine_graphB_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -137,7 +137,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\dfine_graphB_fp16\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\dfine_graphB_fp16\\inputs.npz",
    "sha256": "0fe35bcd4b2d1566c2934e6b043476f82771f813ca9ad3ae1bd467f0fb732bda",
    "bytes": 178289302,
    "n": 20
@@ -283,7 +283,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dfine_graphB_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 2025942,
    "sha256": "adada3b3705209481092ba96caff58c367f1330522444e200e2fd501a0799a3e",
    "arrays": 40

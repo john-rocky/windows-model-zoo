@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 720 MHz, 14001 MHz, 17.51 W, 0 %, 0 MiB, 48",
                    "availGB":  24.7
                },
-    "command":  "C:\\src\\zoo-template\\.venv-vision-zoo-ov\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model dfine_graphB_fp16 --spec C:\\src\\zoo-template\\pc\\vision_task_spec.json --work C:\\src\\zoo-template\\work\\dfine_graphB_fp16 --form blob --engine ovblob --out C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-vision-zoo-ov\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_vision_task.py --model dfine_graphB_fp16 --spec C:\\src\\working-folder\\pc\\vision_task_spec.json --work C:\\src\\working-folder\\work\\dfine_graphB_fp16 --form blob --engine ovblob --out C:\\src\\working-folder\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

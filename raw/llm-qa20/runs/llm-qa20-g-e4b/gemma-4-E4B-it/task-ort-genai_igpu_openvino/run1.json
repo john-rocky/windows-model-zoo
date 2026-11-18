@@ -3,15 +3,15 @@
  "started": "2026-11-10T09:19:08.834700+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cpu-int4",
+  "C:\\src\\working-folder\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cpu-int4",
   "--ep",
   "openvino",
   "--ov-device",
   "GPU",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-ort-genai_igpu_openvino\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-ort-genai_igpu_openvino\\run1.json"
  ],
  "pid": 11432,
  "status": "OK",
@@ -963,7 +963,7 @@
   "top_p": 1.0
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
   "prompts": 21,
   "ep": "openvino",
   "ov_device": "GPU",

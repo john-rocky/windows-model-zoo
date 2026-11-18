@@ -14,8 +14,8 @@ lora_rank: 0
 pad_token_id: -1
 cache_dir: 
 cache_file: Not set
-litert_dispatch_lib_dir: C:\src\zoo-template\engines\litert
-model_assets: model_path: C:\src\zoo-template\work\litert\npu\gemma-4-E2B-it_intel_PTL.litertlm
+litert_dispatch_lib_dir: C:\src\working-folder\engines\litert
+model_assets: model_path: C:\src\working-folder\work\litert\npu\gemma-4-E2B-it_intel_PTL.litertlm
 fake_weights_mode: FAKE_WEIGHTS_NONE
 
 advanced_settings: prefill_batch_sizes: []
@@ -71,7 +71,7 @@ INFO: [external/litert/litert/runtime/compiled_model.cc:963] Flatbuffer model in
 INFO: [external/litert/litert/runtime/dispatch/dispatch_delegate.cc:99] DispatchDelegate::DispatchDelegate
 INFO: [external/litert/litert/runtime/accelerators/dispatch/dispatch_accelerator.cc:138] Dispatch delegate getting hooks.
 INFO: [external/litert/litert/runtime/dispatch/dispatch_delegate.cc:188] Lazy initializing Dispatch API for GetHooks.
-INFO: [external/litert/litert/runtime/dispatch/litert_dispatch.cc:208] Loading shared library: C:/src/zoo-template/engines/litert/LiteRtDispatch.dll
+INFO: [external/litert/litert/runtime/dispatch/litert_dispatch.cc:208] Loading shared library: C:/src/working-folder/engines/litert/LiteRtDispatch.dll
 INFO: [external/litert/litert/runtime/compiled_model.cc:1226] Accelerator returned null hooks.
 INFO: [external/litert/litert/runtime/dispatch/dispatch_delegate.cc:129] DispatchDelegate::Initialize 
 INFO: [external/litert/litert/vendors/intel_openvino/dispatch/invocation_context.cc:257] Dispatch: no bytecode header found, defaulting to 'NPU'

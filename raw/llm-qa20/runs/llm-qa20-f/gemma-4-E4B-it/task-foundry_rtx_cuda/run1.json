@@ -3,7 +3,7 @@
  "started": "2026-11-10T10:03:31.187308+09:00",
  "argv": [
   "--package",
-  "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
+  "C:\\src\\working-folder\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
   "--id",
   "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
   "--device",
@@ -13,13 +13,13 @@
   "--task",
   "vision-language-chat",
   "--work",
-  "C:\\src\\zoo-template\\work\\foundry",
+  "C:\\src\\working-folder\\work\\foundry",
   "--cuda12",
   "C:\\src\\msf\\cuda12\\dll_all",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
  ],
  "pid": 33628,
  "status": "OK",
@@ -315,12 +315,12 @@
    ]
   },
   {
-   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider",
+   "command": "foundry model register C:\\src\\working-folder\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider",
    "exit": 0,
    "s": 0.31,
    "tail": [
     "■ note: Alias: llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
-    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
+    "■ note: Folder: C:\\src\\working-folder\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
     "■ note: Task: vision-language-chat",
     "■ note: Files were not copied; the original folder is retained and must remain ",
     "available.",
@@ -393,8 +393,8 @@
   "top_p": 1.0
  },
  "package": {
-  "src": "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
-  "dir": "C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
+  "src": "C:\\src\\working-folder\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
+  "dir": "C:\\src\\working-folder\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
   "changed": {
    "chat_template.jinja": "the identity template",
    "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
@@ -414,7 +414,7 @@
   "sent": "as it is (the warm-up's prompt tokens = the reference's ids)"
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
   "prompts": 21,
   "id": "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
   "task": "vision-language-chat",

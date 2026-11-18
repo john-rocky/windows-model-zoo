@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 3990 MHz, 14001 MHz, 17.20 W, 0 %, 0 MiB, 45",
                    "availGB":  23.6
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_litert.py --exe C:\\src\\zoo-template\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\zoo-template\\work\\litert\\cpu\\gemma-4-E2B-it.litertlm --backend cpu --ref C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-c-e2b\\gemma-4-E2B-it\\task-litert-lm_cpu_cpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_litert.py --exe C:\\src\\working-folder\\engines\\litert\\litert_lm_advanced_main_windows.exe --model C:\\src\\working-folder\\work\\litert\\cpu\\gemma-4-E2B-it.litertlm --backend cpu --ref C:\\src\\working-folder\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-c-e2b\\gemma-4-E2B-it\\task-litert-lm_cpu_cpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

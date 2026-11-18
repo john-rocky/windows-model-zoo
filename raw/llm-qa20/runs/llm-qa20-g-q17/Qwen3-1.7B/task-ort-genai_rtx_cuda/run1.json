@@ -3,13 +3,13 @@
  "started": "2026-11-10T09:42:06.829009+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128",
+  "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128",
   "--ep",
   "follow_config",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json"
  ],
  "pid": 20164,
  "status": "OK",
@@ -1015,8 +1015,8 @@
   }
  ],
  "cuda_dll_dirs": [
-  "C:\\src\\zoo-template\\.venv-genai-cuda\\Lib\\site-packages\\nvidia\\cu13\\bin\\x86_64",
-  "C:\\src\\zoo-template\\.venv-genai-cuda\\Lib\\site-packages\\nvidia\\cudnn\\bin"
+  "C:\\src\\working-folder\\.venv-genai-cuda\\Lib\\site-packages\\nvidia\\cu13\\bin\\x86_64",
+  "C:\\src\\working-folder\\.venv-genai-cuda\\Lib\\site-packages\\nvidia\\cudnn\\bin"
  ],
  "versions": {
   "python": "3.12.16",
@@ -1053,7 +1053,7 @@
   "top_p": 0.95
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "prompts": 21,
   "ep": "follow_config",
   "ov_device": "CPU",

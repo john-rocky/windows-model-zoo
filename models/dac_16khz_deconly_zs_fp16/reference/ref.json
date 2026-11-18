@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
   "n": 120,
   "sha256": "e17000ca18a1c2c0108c6c903699bac61320373ed9dd432bd2bef74ed33458cf",
   "bytes": 24610582,
@@ -790,7 +790,7 @@
   "load_s": 0.154
  },
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dac_16khz_deconly_zs_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dac_16khz_deconly_zs_fp16\\ref.outputs.npz",
   "bytes": 15415942,
   "sha256": "b1af0c077e3f696228ed5193e732590c1d59f34094cc4523f28693f0c2cbdcd5",
   "arrays": 240

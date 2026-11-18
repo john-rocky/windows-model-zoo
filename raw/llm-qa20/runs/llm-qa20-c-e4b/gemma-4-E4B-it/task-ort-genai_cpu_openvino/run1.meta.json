@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 2985 MHz, 14001 MHz, 19.07 W, 0 %, 0 MiB, 56",
                    "availGB":  24
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_genai.py --model-dir C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cpu-int4 --ep openvino --ov-device CPU --ref C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-c-e4b\\gemma-4-E4B-it\\task-ort-genai_cpu_openvino\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_genai.py --model-dir C:\\src\\working-folder\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cpu-int4 --ep openvino --ov-device CPU --ref C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-c-e4b\\gemma-4-E4B-it\\task-ort-genai_cpu_openvino\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

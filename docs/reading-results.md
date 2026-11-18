@@ -75,7 +75,7 @@ as values (the count by the answer key, the last part of an LLM `task-*` verdict
 `task-*` cells in `form.from`, the vision `task-*` cells the vision zoo's file in `form.path` and `form.detail`).
 `source.by` says who ran the cell: the vision zoo (`windows-zoo`), the LLM zoo (`windows-llm-zoo`),
 edge-llm-bench, Qualcomm AI Hub (the 60 `other-device` records), `private working repo`, the repo this
-one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\zoo-template`, is in their
+one was cut from, where the `task-*` cells ran on 2026-11-10 (its PC folder, `C:\src\working-folder`, is in their
 records' paths), or `windows-model-zoo`, this repo, in one of the passes of the table below. A copied cell names its
 zoo's file in `source.migrated_from`. In the ids and paths of the recipes and the records (such as line, form and
 venv ids, the fields `vision_zoo_cell` and `llm_zoo_cell`, sitting names and folders), `vision-zoo` is the vision

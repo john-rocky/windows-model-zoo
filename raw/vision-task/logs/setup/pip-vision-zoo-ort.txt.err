@@ -1,4 +1,4 @@
-Using Python 3.12.16 environment at: C:\src\zoo-template\.venv-vision-zoo-ort
+Using Python 3.12.16 environment at: C:\src\working-folder\.venv-vision-zoo-ort
 Resolved 10 packages in 310ms
 Downloading numpy (12.0MiB)
 Downloading pillow (6.9MiB)

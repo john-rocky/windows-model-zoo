@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtm_animal_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtm_animal_fp16\\inputs.npz",
   "n": 3,
   "sha256": "2fc50bf8053c7b61eee015296744435739801786a8b4311d231b48c0b9577f31",
   "bytes": 2360182,
@@ -86,7 +86,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\rtm_animal_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\rtm_animal_fp16\\ref.outputs.npz",
   "bytes": 210406,
   "sha256": "d592324d600e2f29f651cd46902b3dac22eb4e60661c424fff88bd67d3bb2a43",
   "arrays": 6

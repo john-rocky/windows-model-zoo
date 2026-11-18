@@ -5,15 +5,15 @@
   "--model",
   "w2v2_head_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\w2v2_head_fp16",
+  "C:\\src\\working-folder\\work\\w2v2_head_fp16",
   "--out",
-  "C:\\src\\zoo-template\\refs\\w2v2_head_fp16\\ref.json"
+  "C:\\src\\working-folder\\refs\\w2v2_head_fp16\\ref.json"
  ],
  "pid": 7220,
  "status": "OK",
@@ -901,7 +901,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\w2v2_head_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\w2v2_head_fp16\\inputs.npz",
   "n": 120,
   "sha256": "7079f2efb1c671fc3959175dbb2e7c492a9f7b0ffb3075553c39fd19d4a9a0e2",
   "bytes": 18097942,
@@ -933,7 +933,7 @@
  },
  "warmup_s": 0.115,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\w2v2_head_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\w2v2_head_fp16\\ref.outputs.npz",
   "bytes": 35542,
   "sha256": "48333d96958f7656f3c3024685554ea75fc0a81d320f0d1f515293aa89ebbf79",
   "arrays": 120

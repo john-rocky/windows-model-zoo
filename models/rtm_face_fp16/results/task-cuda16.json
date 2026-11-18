@@ -42,9 +42,9 @@
    "--model",
    "rtm_face_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\rtm_face_fp16",
+   "C:\\src\\working-folder\\work\\rtm_face_fp16",
    "--form",
    "fp16",
    "--engine",
@@ -52,7 +52,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -143,7 +143,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\rtm_face_fp16\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\rtm_face_fp16\\inputs.npz",
    "sha256": "acae01f4219eeecaa9cbe2ab0e071deafb27b2e868ad6892261149db2f80aa7d",
    "bytes": 3146902,
    "n": 4
@@ -189,7 +189,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\rtm_face_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 1607638,
    "sha256": "46b14d89170d2eb87b1b18e7ea4c5b85197fd14bfc68d0be84798bef65e9593d",
    "arrays": 8

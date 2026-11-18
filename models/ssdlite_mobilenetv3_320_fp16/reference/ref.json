@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
   "n": 20,
   "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
   "bytes": 24581782,
@@ -405,7 +405,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\ssdlite_mobilenetv3_320_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\ssdlite_mobilenetv3_320_fp16\\ref.outputs.npz",
   "bytes": 24638022,
   "sha256": "c6297629d2ba86fb93f03f682c3ee3751fbb00d90700906a19fbaece62276745",
   "arrays": 240

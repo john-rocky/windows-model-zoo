@@ -1,4 +1,4 @@
-[2026-11-10T09:42:35.5581004+09:00] chain start: plan C:\src\zoo-template\pc\plans\llm-qa20-g-q4b.json mode first, 9 units, pid 32148
+[2026-11-10T09:42:35.5581004+09:00] chain start: plan C:\src\working-folder\pc\plans\llm-qa20-g-q4b.json mode first, 9 units, pid 32148
 [2026-11-10T09:42:45.5734804+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
 [2026-11-10T09:42:47.6127134+09:00] Qwen3-4B/task-litert-lm_rtx_gpu run 1 start
 [2026-11-10T09:46:15.9800896+09:00] Qwen3-4B/task-litert-lm_rtx_gpu run 1 end: exit 0, OK, 206.457 s

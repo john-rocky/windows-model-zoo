@@ -5,9 +5,9 @@
   "--model",
   "ppocr_det_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\ppocr_det_fp16",
+  "C:\\src\\working-folder\\work\\ppocr_det_fp16",
   "--form",
   "fp16",
   "--engine",
@@ -15,7 +15,7 @@
   "--ep",
   "cuda",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
  ],
  "pid": 16196,
  "status": "OK",
@@ -182,7 +182,7 @@
   "sha256": "ad267728a3cfc76bb0598b0b32772e59159786e4dd5dfcb496723893c4e529af"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\ppocr_det_fp16\\inputs.npz",
   "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
   "bytes": 98309782,
   "n": 20
@@ -206,7 +206,7 @@
  },
  "warmup_s": 2.56,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
   "bytes": 32772982,
   "sha256": "6ae59dde7acc6f28fbba5ec1fc0d99c42409b556016d5d8510b5f1b462ac07b0",
   "arrays": 20

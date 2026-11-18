@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 1170 MHz, 14001 MHz, 18.31 W, 0 %, 0 MiB, 52",
                    "availGB":  24.4
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_foundry.py --package C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-gpu-2\\v2 --id llm-qa20-qwen3-1.7b-generic-gpu:1 --device gpu --task chat-completion --work C:\\src\\zoo-template\\work\\foundry --cuda12 C:\\src\\msf\\cuda12\\dll_all --ref C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-f\\Qwen3-1.7B\\task-foundry_auto_webgpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_foundry.py --package C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-1.7b-generic-gpu-2\\v2 --id llm-qa20-qwen3-1.7b-generic-gpu:1 --device gpu --task chat-completion --work C:\\src\\working-folder\\work\\foundry --cuda12 C:\\src\\msf\\cuda12\\dll_all --ref C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-f\\Qwen3-1.7B\\task-foundry_auto_webgpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

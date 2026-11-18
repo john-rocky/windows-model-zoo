@@ -1,6 +1,6 @@
 python 3.12.16
-executable C:\src\zoo-template\.venv-vision-zoo-ort\Scripts\python.exe
-base_executable C:\src\zoo-template\python\cpython-3.12-windows-x86_64-none\python.exe
+executable C:\src\working-folder\.venv-vision-zoo-ort\Scripts\python.exe
+base_executable C:\src\working-folder\python\cpython-3.12-windows-x86_64-none\python.exe
 flatbuffers==25.12.19
 ml_dtypes==0.6.0
 numpy==2.5.4

@@ -5,9 +5,9 @@
   "--model",
   "dac_16khz_deconly_zs_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16",
+  "C:\\src\\working-folder\\work\\dac_16khz_deconly_zs_fp16",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "GPU.0",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.json"
  ],
  "pid": 19608,
  "status": "OK",
@@ -882,7 +882,7 @@
   "sha256": "965d11e2e7a38094249e44926ca18cf5e3a0caff2eb093842cc35ebfae3ee2a4"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dac_16khz_deconly_zs_fp16\\inputs.npz",
   "sha256": "e17000ca18a1c2c0108c6c903699bac61320373ed9dd432bd2bef74ed33458cf",
   "bytes": 24610582,
   "n": 120
@@ -916,7 +916,7 @@
  },
  "warmup_s": 0.035,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dac_16khz_deconly_zs_fp16\\task-ovgpu\\run1.outputs.npz",
   "bytes": 7705942,
   "sha256": "9b08ec155723de5086042d9d79911ec82186b3a08e5041f54da00131fd4df2a6",
   "arrays": 120

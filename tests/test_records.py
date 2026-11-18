@@ -57,7 +57,7 @@ def write_records(top, spec):
         rj = {"runner": "ref_vision_task.py", "started": REF_STARTED, "ended": "2026-11-10T09:01:00.0000000+09:00",
               "status": "OK", "rows": rows_for(ms), "versions": {"onnxruntime": "1.31.1"},
               "model": {"path": ms["forms"]["fp32"]["path"], "sha256": ms["forms"]["fp32"]["sha256"]}, "files": [],
-              "inputs": {"path": f"C:\\src\\zoo-template\\work\\{m}\\inputs.npz", "n": len(ms["ids"]),
+              "inputs": {"path": f"C:\\src\\working-folder\\work\\{m}\\inputs.npz", "n": len(ms["ids"]),
                          "sha256": inputs_sha, "bytes": 1, "feeds": {}, "set": ms["set"]},
               "workload": {"inputs": len(ms["ids"]), "task": ms["task"]},
               "outputs": save(rd / "ref.outputs.npz", ref)}

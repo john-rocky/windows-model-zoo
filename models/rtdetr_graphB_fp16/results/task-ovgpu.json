@@ -41,9 +41,9 @@
    "--model",
    "rtdetr_graphB_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16",
+   "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16",
    "--form",
    "fp32",
    "--engine",
@@ -53,7 +53,7 @@
    "--ov-device",
    "GPU.0",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\rtdetr_graphB_fp16\\task-ovgpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\rtdetr_graphB_fp16\\task-ovgpu\\run1.json"
   ]
  },
  "note": [
@@ -160,7 +160,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16\\inputs.npz",
    "sha256": "14a185fed961e8ce6755887374d177e15193a7896b0ec2cecc9f7ac1cd153bdc",
    "bytes": 178289302,
    "n": 20
@@ -306,7 +306,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtdetr_graphB_fp16\\task-ovgpu\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\rtdetr_graphB_fp16\\task-ovgpu\\run1.outputs.npz",
    "bytes": 2025942,
    "sha256": "09465b4bd9094cb91bbd86a399eccda9aa4dabdcdfc3bace1d0e4daa99813f6c",
    "arrays": 40

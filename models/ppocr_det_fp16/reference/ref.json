@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\ppocr_det_fp16\\inputs.npz",
   "n": 20,
   "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
   "bytes": 98309782,
@@ -179,7 +179,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\ppocr_det_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\ppocr_det_fp16\\ref.outputs.npz",
   "bytes": 32772982,
   "sha256": "6ecdf132bc288958cd7d6d6ec176707d904cf7fb3bc6b906e72337572bce39d9",
   "arrays": 20

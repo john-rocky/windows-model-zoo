@@ -3,11 +3,11 @@
  "started": "2026-11-10T08:56:24.332922+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\google__gemma-4-E4B-it",
+  "C:\\src\\working-folder\\hub\\google__gemma-4-E4B-it",
   "--suite",
-  "C:\\src\\zoo-template\\suites\\llm\\qa20.jsonl",
+  "C:\\src\\working-folder\\suites\\llm\\qa20.jsonl",
   "--out",
-  "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+  "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
   "--dtype",
   "bfloat16"
  ],

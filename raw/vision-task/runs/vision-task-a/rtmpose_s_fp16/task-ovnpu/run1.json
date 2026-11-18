@@ -5,9 +5,9 @@
   "--model",
   "rtmpose_s_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\rtmpose_s_fp16",
+  "C:\\src\\working-folder\\work\\rtmpose_s_fp16",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "NPU",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\rtmpose_s_fp16\\task-ovnpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\rtmpose_s_fp16\\task-ovnpu\\run1.json"
  ],
  "pid": 3768,
  "status": "OK",
@@ -82,7 +82,7 @@
   "sha256": "6c802b86a0f976f700afc336916a6db593df098b11568803e96d749ef6c8b9f3"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtmpose_s_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtmpose_s_fp16\\inputs.npz",
   "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
   "bytes": 2950582,
   "n": 5
@@ -116,7 +116,7 @@
  },
  "warmup_s": 0.004,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtmpose_s_fp16\\task-ovnpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\rtmpose_s_fp16\\task-ovnpu\\run1.outputs.npz",
   "bytes": 307142,
   "sha256": "d8d46f7592fc31e1897c50b5bf8d6d32caffb9215876d0f730800cef36f05f9c",
   "arrays": 10

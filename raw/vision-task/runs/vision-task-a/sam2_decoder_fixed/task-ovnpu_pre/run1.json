@@ -5,15 +5,15 @@
   "--model",
   "sam2_decoder_fixed",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\sam2_decoder_fixed",
+  "C:\\src\\working-folder\\work\\sam2_decoder_fixed",
   "--form",
   "blob",
   "--engine",
   "ovblob",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\sam2_decoder_fixed\\task-ovnpu_pre\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\sam2_decoder_fixed\\task-ovnpu_pre\\run1.json"
  ],
  "pid": 23848,
  "status": "OK",
@@ -178,7 +178,7 @@
   "sha256": "2326a9d867fb98556a44bbb442d2f201477e9ee3453b3e1345f2e5a515675797"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\sam2_decoder_fixed\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\sam2_decoder_fixed\\inputs.npz",
   "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
   "bytes": 335591062,
   "n": 20
@@ -210,7 +210,7 @@
  },
  "warmup_s": 0.024,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\sam2_decoder_fixed\\task-ovnpu_pre\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\sam2_decoder_fixed\\task-ovnpu_pre\\run1.outputs.npz",
   "bytes": 15733622,
   "sha256": "2defff17d83340a1862878e0a649b7fc9a7a1f284d9badc1ca052d57942bba80",
   "arrays": 20

@@ -1,1 +1,1 @@
-16 distributions -> C:\src\zoo-template\logs\versions-vision-zoo-cuda.txt
+16 distributions -> C:\src\working-folder\logs\versions-vision-zoo-cuda.txt

@@ -1,4 +1,4 @@
-Using Python 3.12.16 environment at: C:\src\zoo-template\.venv-vision-zoo-cuda
+Using Python 3.12.16 environment at: C:\src\working-folder\.venv-vision-zoo-cuda
 Resolved 16 packages in 224ms
 Downloading nvidia-cuda-nvrtc (47.0MiB)
 Downloading nvidia-cufft (156.9MiB)

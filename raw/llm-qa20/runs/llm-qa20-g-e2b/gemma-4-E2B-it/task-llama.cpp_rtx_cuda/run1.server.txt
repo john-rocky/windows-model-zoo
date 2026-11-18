@@ -10,8 +10,8 @@
 0.17.057.778 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
 0.17.057.842 I srv          init: using 15 threads for HTTP server
 0.17.057.964 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
-0.17.063.222 I srv    load_model: loading model 'C:\src\zoo-template\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
-0.17.063.226 I srv    load_model: local path 'C:\src\zoo-template\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
+0.17.063.222 I srv    load_model: loading model 'C:\src\working-folder\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
+0.17.063.226 I srv    load_model: local path 'C:\src\working-folder\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
 0.17.063.253 I cmn  common_init_: fitting params to device memory ...
 0.17.063.253 I cmn  common_init_: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
 0.17.063.292 I common_params_fit_impl: getting device memory data for initial parameters:
@@ -22,7 +22,7 @@
 0.18.209.847 I common_params_fit_impl: will leave 13491 >= 1024 MiB of free device memory, no changes needed
 0.18.209.849 I common_fit_params: successfully fit params to free device memory
 0.18.209.864 I common_fit_params: fitting params to free memory took 1.15 seconds
-0.18.307.446 I llama_model_loader: loaded meta data with 56 key-value pairs and 601 tensors from C:\src\zoo-template\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf (version GGUF V3 (latest))
+0.18.307.446 I llama_model_loader: loaded meta data with 56 key-value pairs and 601 tensors from C:\src\working-folder\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf (version GGUF V3 (latest))
 0.18.307.479 I llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
 0.18.307.482 I llama_model_loader: - kv   0:                       general.architecture str              = gemma4
 0.18.307.483 I llama_model_loader: - kv   1:                               general.type str              = model

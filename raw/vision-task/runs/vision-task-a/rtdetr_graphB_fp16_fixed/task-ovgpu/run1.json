@@ -5,9 +5,9 @@
   "--model",
   "rtdetr_graphB_fp16_fixed",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed",
+  "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16_fixed",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "GPU.0",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\rtdetr_graphB_fp16_fixed\\task-ovgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\rtdetr_graphB_fp16_fixed\\task-ovgpu\\run1.json"
  ],
  "pid": 22040,
  "status": "OK",
@@ -202,7 +202,7 @@
   "sha256": "8b640ef467b76eea1f9d2c9081b5eebc2de483f38d10d72412e2870541fc469e"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16_fixed\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16_fixed\\inputs.npz",
   "sha256": "808035c8de3859d314fea0a4efec5d1e70df76ba7bb2e31711c3bc8fbc6b95dc",
   "bytes": 178289302,
   "n": 20
@@ -236,7 +236,7 @@
  },
  "warmup_s": 0.056,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtdetr_graphB_fp16_fixed\\task-ovgpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\rtdetr_graphB_fp16_fixed\\task-ovgpu\\run1.outputs.npz",
   "bytes": 2025942,
   "sha256": "5dde09608eb6a745daa8b1a547384389995654a68ebfd2273a54be5375da6c47",
   "arrays": 40

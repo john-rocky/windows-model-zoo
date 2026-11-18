@@ -5,15 +5,15 @@
   "--model",
   "rtmhand_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\rtmhand_fp16",
+  "C:\\src\\working-folder\\work\\rtmhand_fp16",
   "--form",
   "blob",
   "--engine",
   "ovblob",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.json"
  ],
  "pid": 12924,
  "status": "OK",
@@ -46,7 +46,7 @@
   "sha256": "5e983dca709f92c023d49b4b7d592988c1bd234a768d2071bebb49edd105704c"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtmhand_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtmhand_fp16\\inputs.npz",
   "sha256": "45d08092b7e3750cdb1733b85b65cd74fc247a113a2896f416af0ae39caa6f0b",
   "bytes": 786742,
   "n": 1
@@ -78,7 +78,7 @@
  },
  "warmup_s": 0.005,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\rtmhand_fp16\\task-ovnpu_pre\\run1.outputs.npz",
   "bytes": 86534,
   "sha256": "388122b742c6cac9a82defd5129a97135653275ba0ab2dd2c14ca5cc451d6263",
   "arrays": 2

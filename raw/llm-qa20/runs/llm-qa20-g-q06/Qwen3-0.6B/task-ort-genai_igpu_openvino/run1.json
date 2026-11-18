@@ -3,15 +3,15 @@
  "started": "2026-11-10T09:34:12.316341+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-0.6B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
+  "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-0.6B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
   "--ep",
   "openvino",
   "--ov-device",
   "GPU",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-ort-genai_igpu_openvino\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-ort-genai_igpu_openvino\\run1.json"
  ],
  "pid": 30644,
  "status": "OK",
@@ -1146,7 +1146,7 @@
   "top_p": 0.95
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "prompts": 21,
   "ep": "openvino",
   "ov_device": "GPU",

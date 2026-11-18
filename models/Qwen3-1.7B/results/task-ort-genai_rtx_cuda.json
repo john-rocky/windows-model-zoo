@@ -49,13 +49,13 @@
   "runner": "run_llm_genai.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128",
+   "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128",
    "--ep",
    "follow_config",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+   "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json"
   ]
  },
  "note": [
@@ -264,7 +264,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
    "prompts": 21,
    "ep": "follow_config",
    "ov_device": "CPU",

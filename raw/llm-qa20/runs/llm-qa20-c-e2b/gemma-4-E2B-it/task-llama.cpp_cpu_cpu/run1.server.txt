@@ -3,7 +3,7 @@
 0.04.946.010 I srv  init_listene: The UI is disabled
 0.04.946.013 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
 0.04.946.130 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
-0.04.958.690 I srv    load_model: loading model 'C:\src\zoo-template\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
+0.04.958.690 I srv    load_model: loading model 'C:\src\working-folder\work\gguf\gemma-4-E2B-it-Q4_K_M.gguf'
 0.06.781.483 W load: control-looking token:      1 '<eos>' was not control-type; this is probably a bug in the model. its type will be overridden
 0.06.782.042 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
 0.06.782.949 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden

@@ -30,7 +30,7 @@
                    "nvidia":  "P2, 1470 MHz, 11001 MHz, 20.39 W, 0 %, 14 MiB, 56",
                    "availGB":  22.9
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_genai.py --model-dir C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-0.6B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128 --ep openvino --ov-device CPU --ref C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-ort-genai_cpu_openvino\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_genai.py --model-dir C:\\src\\working-folder\\hub\\onnx-community__Qwen3-0.6B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128 --ep openvino --ov-device CPU --ref C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-c-q06\\Qwen3-0.6B\\task-ort-genai_cpu_openvino\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

@@ -3,7 +3,7 @@
 0.00.016.685 I srv  init_listene: The UI is disabled
 0.00.016.687 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
 0.00.016.767 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
-0.00.026.539 I srv    load_model: loading model 'C:\src\zoo-template\work\gguf\Qwen3-0.6B-Q4_K_M.gguf'
+0.00.026.539 I srv    load_model: loading model 'C:\src\working-folder\work\gguf\Qwen3-0.6B-Q4_K_M.gguf'
 0.00.359.117 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
 0.00.890.636 I cmn          init: llama threadpool init, n_threads = 16
 0.01.053.804 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 2048, kv_unified = 'false'

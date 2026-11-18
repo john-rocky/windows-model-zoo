@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 1335 MHz, 14001 MHz, 17.60 W, 0 %, 0 MiB, 48",
                    "availGB":  24.7
                },
-    "command":  "C:\\src\\zoo-template\\.venv-vision-zoo-ort\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model mlsd_fp16 --spec C:\\src\\zoo-template\\pc\\vision_task_spec.json --work C:\\src\\zoo-template\\work\\mlsd_fp16 --form fp32 --engine ort --ep openvino --ov-device NPU --out C:\\src\\zoo-template\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-vision-zoo-ort\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_vision_task.py --model mlsd_fp16 --spec C:\\src\\working-folder\\pc\\vision_task_spec.json --work C:\\src\\working-folder\\work\\mlsd_fp16 --form fp32 --engine ort --ep openvino --ov-device NPU --out C:\\src\\working-folder\\runs\\vision-task-a\\mlsd_fp16\\task-ovnpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

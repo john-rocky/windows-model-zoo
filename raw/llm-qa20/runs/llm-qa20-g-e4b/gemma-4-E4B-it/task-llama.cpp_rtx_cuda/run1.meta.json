@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 7762 MHz, 14001 MHz, 17.90 W, 0 %, 0 MiB, 50",
                    "availGB":  23.9
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_llamacpp.py --server C:\\src\\zoo-template\\engines\\llama-cuda\\llama-server.exe --model C:\\src\\zoo-template\\work\\gguf\\gemma-4-E4B-it-Q4_K_M.gguf --gpu --device-prefix CUDA --ref C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-llama.cpp_rtx_cuda\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_llamacpp.py --server C:\\src\\working-folder\\engines\\llama-cuda\\llama-server.exe --model C:\\src\\working-folder\\work\\gguf\\gemma-4-E4B-it-Q4_K_M.gguf --gpu --device-prefix CUDA --ref C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-g-e4b\\gemma-4-E4B-it\\task-llama.cpp_rtx_cuda\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

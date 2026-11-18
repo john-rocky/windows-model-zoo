@@ -40,9 +40,9 @@
    "--model",
    "metric3d_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\metric3d_fp16",
+   "C:\\src\\working-folder\\work\\metric3d_fp16",
    "--form",
    "fp16",
    "--engine",
@@ -50,7 +50,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -133,7 +133,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\metric3d_fp16\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\metric3d_fp16\\inputs.npz",
    "sha256": "f1bf8d81f2ab89cf2aacdea8f8e11bf1feba76d07b9952a1d7286d217a3632c3",
    "bytes": 48174742,
    "n": 20
@@ -259,7 +259,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\metric3d_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 16061302,
    "sha256": "78f63686b5b19934b7cb88cd40215e091c039864732864db64c83f59346f8804",
    "arrays": 20

@@ -3,11 +3,11 @@
  "started": "2026-11-10T09:25:54.454611+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\Qwen__Qwen3-0.6B",
+  "C:\\src\\working-folder\\hub\\Qwen__Qwen3-0.6B",
   "--suite",
-  "C:\\src\\zoo-template\\suites\\llm\\qa20.jsonl",
+  "C:\\src\\working-folder\\suites\\llm\\qa20.jsonl",
   "--out",
-  "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json"
+  "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json"
  ],
  "pid": 4552,
  "status": "OK",

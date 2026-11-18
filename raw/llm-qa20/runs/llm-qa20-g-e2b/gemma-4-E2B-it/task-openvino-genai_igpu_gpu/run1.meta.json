@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 2512 MHz, 14001 MHz, 17.90 W, 0 %, 0 MiB, 50",
                    "availGB":  23.9
                },
-    "command":  "C:\\src\\zoo-template\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_ovg.py --model-dir C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov --device GPU.0 --cache-dir C:\\src\\zoo-template\\ovcache\\gemma-4-E2B-it_gpu0 --ref C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-g-e2b\\gemma-4-E2B-it\\task-openvino-genai_igpu_gpu\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-ovg\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_ovg.py --model-dir C:\\src\\working-folder\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov --device GPU.0 --cache-dir C:\\src\\working-folder\\ovcache\\gemma-4-E2B-it_gpu0 --ref C:\\src\\working-folder\\refs\\gemma-4-E2B-it\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-g-e2b\\gemma-4-E2B-it\\task-openvino-genai_igpu_gpu\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

@@ -1,4 +1,4 @@
-[2026-11-10T07:20:47.3672359+09:00] chain start: plan C:\src\zoo-template\pc\plans\vision-task-a.json mode first, 47 units, pid 23608
+[2026-11-10T07:20:47.3672359+09:00] chain start: plan C:\src\working-folder\pc\plans\vision-task-a.json mode first, 47 units, pid 23608
 [2026-11-10T07:20:58.2091416+09:00] adapters: 0x00000000_0x00012C48=nvidia, 0x00000000_0x0001260E=intel-gpu, 0x00000000_0x00012BB8=?, 0x00000000_0x00013E4C=npu?
 [2026-11-10T07:21:00.3537505+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 start
 [2026-11-10T07:21:12.0567762+09:00] dac_16khz_deconly_zs_fp16/task-ovgpu run 1 end: exit 0, OK, 9.74 s

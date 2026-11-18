@@ -5,15 +5,15 @@
   "--model",
   "rtmpose_s_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\rtmpose_s_fp16",
+  "C:\\src\\working-folder\\work\\rtmpose_s_fp16",
   "--out",
-  "C:\\src\\zoo-template\\refs\\rtmpose_s_fp16\\ref.json"
+  "C:\\src\\working-folder\\refs\\rtmpose_s_fp16\\ref.json"
  ],
  "pid": 21784,
  "status": "OK",
@@ -101,7 +101,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtmpose_s_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtmpose_s_fp16\\inputs.npz",
   "n": 5,
   "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
   "bytes": 2950582,
@@ -127,7 +127,7 @@
  },
  "warmup_s": 0.006,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\rtmpose_s_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\rtmpose_s_fp16\\ref.outputs.npz",
   "bytes": 307142,
   "sha256": "70b20db0db8b7762af08750ed5d65f9fd8752615a4d73864486bb133e434f1b3",
   "arrays": 10

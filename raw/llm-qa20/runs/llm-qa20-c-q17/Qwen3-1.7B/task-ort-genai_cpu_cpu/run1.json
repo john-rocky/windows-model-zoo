@@ -3,13 +3,13 @@
  "started": "2026-11-10T09:32:58.551944+09:00",
  "argv": [
   "--model-dir",
-  "C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
+  "C:\\src\\working-folder\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cpu_and_mobile\\cpu-int4-kld-block-128",
   "--ep",
   "follow_config",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-c-q17\\Qwen3-1.7B\\task-ort-genai_cpu_cpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-c-q17\\Qwen3-1.7B\\task-ort-genai_cpu_cpu\\run1.json"
  ],
  "pid": 13160,
  "status": "OK",
@@ -1043,7 +1043,7 @@
   "top_p": 0.95
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json",
   "prompts": 21,
   "ep": "follow_config",
   "ov_device": "CPU",

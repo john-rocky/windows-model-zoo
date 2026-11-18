@@ -3,16 +3,16 @@
  "started": "2026-11-10T09:32:30.409829+09:00",
  "argv": [
   "--server",
-  "C:\\src\\zoo-template\\engines\\llama-cuda\\llama-server.exe",
+  "C:\\src\\working-folder\\engines\\llama-cuda\\llama-server.exe",
   "--model",
-  "C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+  "C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
   "--gpu",
   "--device-prefix",
   "CUDA",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_cuda\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-g-q06\\Qwen3-0.6B\\task-llama.cpp_rtx_cuda\\run1.json"
  ],
  "pid": 24736,
  "status": "OK",
@@ -1104,17 +1104,17 @@
   "python": "3.12.16"
  },
  "server_exe": {
-  "path": "C:\\src\\zoo-template\\engines\\llama-cuda\\llama-server.exe",
+  "path": "C:\\src\\working-folder\\engines\\llama-cuda\\llama-server.exe",
   "sha256": "a3f027944366d2b9d5154df43c31483c2bc8c9f9fa3c878d0b07115acc7e6624"
  },
  "model": {
-  "path": "C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+  "path": "C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
   "bytes": 396705472
  },
  "server_command": [
-  "C:\\src\\zoo-template\\engines\\llama-cuda\\llama-server.exe",
+  "C:\\src\\working-folder\\engines\\llama-cuda\\llama-server.exe",
   "-m",
-  "C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+  "C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
   "-c",
   "2048",
   "-np",
@@ -1139,11 +1139,11 @@
  ],
  "props": {
   "total_slots": 1,
-  "model_path": "C:\\src\\zoo-template\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
+  "model_path": "C:\\src\\working-folder\\work\\gguf\\Qwen3-0.6B-Q4_K_M.gguf",
   "build_info": "b11721-ff5a23376"
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
   "prompts": 21,
   "gpu": true,
   "decode": "greedy (temperature 0, top_k 1, repeat_penalty 1.0)",

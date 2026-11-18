@@ -5,15 +5,15 @@
   "--model",
   "sinet",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\sinet",
+  "C:\\src\\working-folder\\work\\sinet",
   "--out",
-  "C:\\src\\zoo-template\\refs\\sinet\\ref.json"
+  "C:\\src\\working-folder\\refs\\sinet\\ref.json"
  ],
  "pid": 30464,
  "status": "OK",
@@ -195,7 +195,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\sinet\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\sinet\\inputs.npz",
   "n": 20,
   "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
   "bytes": 29742742,
@@ -221,7 +221,7 @@
  },
  "warmup_s": 0.068,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\sinet\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\sinet\\ref.outputs.npz",
   "bytes": 9917302,
   "sha256": "ddb7637a2b2b14f3ac1e4b63b30ab67796e79a8e721ab142fb94c07090bad9b0",
   "arrays": 20

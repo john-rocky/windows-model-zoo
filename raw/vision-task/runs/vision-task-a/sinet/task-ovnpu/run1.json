@@ -5,9 +5,9 @@
   "--model",
   "sinet",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\sinet",
+  "C:\\src\\working-folder\\work\\sinet",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "NPU",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\sinet\\task-ovnpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\sinet\\task-ovnpu\\run1.json"
  ],
  "pid": 6844,
  "status": "OK",
@@ -182,7 +182,7 @@
   "sha256": "f642ca17d68b7bcd359a2087c333665062f49875f1c26eeceb8938b6898c6434"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\sinet\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\sinet\\inputs.npz",
   "sha256": "9b770fca5ee112883a7ce7c3db4bd67aa99fe44a7fc1ccb9ede7075b2da5be02",
   "bytes": 29742742,
   "n": 20
@@ -216,7 +216,7 @@
  },
  "warmup_s": 0.013,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\sinet\\task-ovnpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\sinet\\task-ovnpu\\run1.outputs.npz",
   "bytes": 9917302,
   "sha256": "8f9e862704fd4192986b20af003856ced52264e6f087ca603fb30464431ecccf",
   "arrays": 20

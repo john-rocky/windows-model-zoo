@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dmcount\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dmcount\\inputs.npz",
   "n": 20,
   "sha256": "4ff5bc2e808eba11f263c42556e2601244549b4763a1d960fb8d275c363cc2bf",
   "bytes": 62920342,
@@ -173,7 +173,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dmcount\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dmcount\\ref.outputs.npz",
   "bytes": 332662,
   "sha256": "cc668d421ceaf00409934f911873ca8816ea59f116e2fb5fed623a9b2d7dfa48",
   "arrays": 20

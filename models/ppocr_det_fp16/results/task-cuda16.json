@@ -41,9 +41,9 @@
    "--model",
    "ppocr_det_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+   "C:\\src\\working-folder\\pc\\vision_task_spec.json",
    "--work",
-   "C:\\src\\zoo-template\\work\\ppocr_det_fp16",
+   "C:\\src\\working-folder\\work\\ppocr_det_fp16",
    "--form",
    "fp16",
    "--engine",
@@ -51,7 +51,7 @@
    "--ep",
    "cuda",
    "--out",
-   "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
+   "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.json"
   ]
  },
  "note": [
@@ -136,7 +136,7 @@
    "CPUExecutionProvider"
   ],
   "inputs": {
-   "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+   "path": "C:\\src\\working-folder\\work\\ppocr_det_fp16\\inputs.npz",
    "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
    "bytes": 98309782,
    "n": 20
@@ -282,7 +282,7 @@
    "timing": "one run per input, wall clock, host numpy in and out (first pass: untimed)"
   },
   "outputs_file": {
-   "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
+   "path": "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-cuda16\\run1.outputs.npz",
    "bytes": 32772982,
    "sha256": "6ae59dde7acc6f28fbba5ec1fc0d99c42409b556016d5d8510b5f1b462ac07b0",
    "arrays": 20

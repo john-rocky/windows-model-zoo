@@ -5,9 +5,9 @@
   "--model",
   "ssdlite_mobilenetv3_320_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\ssdlite_mobilenetv3_320_fp16",
+  "C:\\src\\working-folder\\work\\ssdlite_mobilenetv3_320_fp16",
   "--form",
   "fp16",
   "--engine",
@@ -15,7 +15,7 @@
   "--ep",
   "cuda",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.json"
  ],
  "pid": 3220,
  "status": "OK",
@@ -402,7 +402,7 @@
   "sha256": "903bbcc9af114471e8212c3dc00e645a709c08c6fd384910e1ccd80eae5cbec5"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\ssdlite_mobilenetv3_320_fp16\\inputs.npz",
   "sha256": "23cbda901646b0c6f7097a13bd0c2f9035998718464098b34c94fe6c65fce73a",
   "bytes": 24581782,
   "n": 20
@@ -426,7 +426,7 @@
  },
  "warmup_s": 1.793,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\ssdlite_mobilenetv3_320_fp16\\task-cuda16\\run1.outputs.npz",
   "bytes": 24638022,
   "sha256": "a76671a1476804063d74ed87954cacc3ab6bf510d4e07227dc4268edefa521e4",
   "arrays": 240

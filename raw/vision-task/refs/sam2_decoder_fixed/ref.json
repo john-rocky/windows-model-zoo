@@ -5,15 +5,15 @@
   "--model",
   "sam2_decoder_fixed",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\sam2_decoder_fixed",
+  "C:\\src\\working-folder\\work\\sam2_decoder_fixed",
   "--out",
-  "C:\\src\\zoo-template\\refs\\sam2_decoder_fixed\\ref.json"
+  "C:\\src\\working-folder\\refs\\sam2_decoder_fixed\\ref.json"
  ],
  "pid": 10668,
  "status": "OK",
@@ -207,7 +207,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\sam2_decoder_fixed\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\sam2_decoder_fixed\\inputs.npz",
   "n": 20,
   "sha256": "ec526552dcd0d53bffb543d4fea37535dbde62bcf43bb8e5a147ed1edd03cee3",
   "bytes": 335591062,
@@ -238,7 +238,7 @@
  },
  "warmup_s": 0.069,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\sam2_decoder_fixed\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\sam2_decoder_fixed\\ref.outputs.npz",
   "bytes": 15733622,
   "sha256": "55f09d1474695eb37d7b5de277981ba87b63cefdc1667f9f6cfcb67d156ae788",
   "arrays": 20

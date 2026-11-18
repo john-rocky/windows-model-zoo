@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 3270 MHz, 14001 MHz, 17.95 W, 0 %, 0 MiB, 50",
                    "availGB":  24.5
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai-cuda\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_genai.py --model-dir C:\\src\\zoo-template\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128 --ep follow_config --ref C:\\src\\zoo-template\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json",
+    "command":  "C:\\src\\working-folder\\.venv-genai-cuda\\Scripts\\python.exe -u C:\\src\\working-folder\\pc\\run_llm_genai.py --model-dir C:\\src\\working-folder\\hub\\onnx-community__Qwen3-1.7B-ONNX\\onnxruntime\\cuda\\cuda-int4-kld-block-128 --ep follow_config --ref C:\\src\\working-folder\\refs\\Qwen3-1.7B\\ref.json --out C:\\src\\working-folder\\runs\\llm-qa20-g-q17\\Qwen3-1.7B\\task-ort-genai_rtx_cuda\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

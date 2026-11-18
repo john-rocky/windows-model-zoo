@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtdetr_graphB_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtdetr_graphB_fp16\\inputs.npz",
   "n": 20,
   "sha256": "14a185fed961e8ce6755887374d177e15193a7896b0ec2cecc9f7ac1cd153bdc",
   "bytes": 178289302,
@@ -220,7 +220,7 @@
   "load_s": 0.393
  },
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\rtdetr_graphB_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\rtdetr_graphB_fp16\\ref.outputs.npz",
   "bytes": 2025942,
   "sha256": "10adf7d810ea452cb2ce178bde524c2d25c78804bac58f16db035de522e50621",
   "arrays": 40

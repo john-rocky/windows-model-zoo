@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dinov2_s_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dinov2_s_fp16\\inputs.npz",
   "n": 20,
   "sha256": "f9b2413ab8186edcf8b27f30bfafd890250d5215994785f5997de33178bfc5b6",
   "bytes": 48174742,
@@ -179,7 +179,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dinov2_s_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dinov2_s_fp16\\ref.outputs.npz",
   "bytes": 31462262,
   "sha256": "fb20b7298ef89cbdbb486001360e294eff81dd7218d908e2a63774c9fc00bdb5",
   "arrays": 20

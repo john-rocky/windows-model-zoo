@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\metric3d_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\metric3d_fp16\\inputs.npz",
   "n": 20,
   "sha256": "f1bf8d81f2ab89cf2aacdea8f8e11bf1feba76d07b9952a1d7286d217a3632c3",
   "bytes": 48174742,
@@ -179,7 +179,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\metric3d_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\metric3d_fp16\\ref.outputs.npz",
   "bytes": 16061302,
   "sha256": "2167bf44836448c9ceab3198c63b848586a28b92a2aae85b40e456e3093749f3",
   "arrays": 20

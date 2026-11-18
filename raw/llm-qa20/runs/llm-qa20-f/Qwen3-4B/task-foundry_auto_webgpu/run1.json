@@ -11,13 +11,13 @@
   "--task",
   "chat-completion",
   "--work",
-  "C:\\src\\zoo-template\\work\\foundry",
+  "C:\\src\\working-folder\\work\\foundry",
   "--cuda12",
   "C:\\src\\msf\\cuda12\\dll_all",
   "--ref",
-  "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
+  "C:\\src\\working-folder\\refs\\Qwen3-4B\\ref.json",
   "--out",
-  "C:\\src\\zoo-template\\runs\\llm-qa20-f\\Qwen3-4B\\task-foundry_auto_webgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\llm-qa20-f\\Qwen3-4B\\task-foundry_auto_webgpu\\run1.json"
  ],
  "pid": 19756,
  "status": "OK",
@@ -313,12 +313,12 @@
    ]
   },
   {
-   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu llm-qa20-qwen3-4b-generic-gpu:1 --task chat-completion --device gpu --supports-tool-calling false --supports-reasoning false",
+   "command": "foundry model register C:\\src\\working-folder\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu llm-qa20-qwen3-4b-generic-gpu:1 --task chat-completion --device gpu --supports-tool-calling false --supports-reasoning false",
    "exit": 0,
    "s": 0.33,
    "tail": [
     "■ note: Alias: llm-qa20-qwen3-4b",
-    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu",
+    "■ note: Folder: C:\\src\\working-folder\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu",
     "■ note: Task: chat-completion",
     "■ note: Files were not copied; the original folder is retained and must remain ",
     "available.",
@@ -397,7 +397,7 @@
  },
  "package": {
   "src": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-gpu-2\\v2",
-  "dir": "C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu",
+  "dir": "C:\\src\\working-folder\\work\\foundry\\llm-qa20-qwen3-4b-generic-gpu",
   "changed": {
    "chat_template.jinja": "the identity template",
    "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
@@ -417,7 +417,7 @@
   "sent": "as it is (the warm-up's prompt tokens = the reference's ids)"
  },
  "workload": {
-  "ref": "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
+  "ref": "C:\\src\\working-folder\\refs\\Qwen3-4B\\ref.json",
   "prompts": 21,
   "id": "llm-qa20-qwen3-4b-generic-gpu:1",
   "task": "chat-completion",

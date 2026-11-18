@@ -5,9 +5,9 @@
   "--model",
   "w2v2_frontend_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\w2v2_frontend_fp16",
+  "C:\\src\\working-folder\\work\\w2v2_frontend_fp16",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "NPU",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.json"
  ],
  "pid": 2260,
  "status": "OK",
@@ -1008,7 +1008,7 @@
   "sha256": "daadaee04b8b8f5ce8cc0038e05561cec8e5b0df27f81d55254f43823d6633d7"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\w2v2_frontend_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\w2v2_frontend_fp16\\inputs.npz",
   "sha256": "5edfe962aa154e1283da24578b36a6b49572e95a155dc97fafada3fcb688dbef",
   "bytes": 7714582,
   "n": 120
@@ -1042,7 +1042,7 @@
  },
  "warmup_s": 0.022,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\w2v2_frontend_fp16\\task-ovnpu\\run1.outputs.npz",
   "bytes": 18129142,
   "sha256": "ba2e050f82c4298b5086ace66abe2f5e893aa9a6bd56eb56ab9a360d8094937a",
   "arrays": 240

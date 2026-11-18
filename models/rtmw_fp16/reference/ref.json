@@ -22,7 +22,7 @@
  },
  "form": null,
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\rtmw_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\rtmw_fp16\\inputs.npz",
   "n": 5,
   "sha256": "53241f208353fcf2d92cfa9117e9346ec844c4915495e67c4001c525542f4fc6",
   "bytes": 2950582,
@@ -100,7 +100,7 @@
  ],
  "upstream": null,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\rtmw_fp16\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\rtmw_fp16\\ref.outputs.npz",
   "bytes": 2385862,
   "sha256": "27af6fcb4f46e2d7c2652a876ff8ecf03fe025b944e1a7314652cd1adbcebaa7",
   "arrays": 10

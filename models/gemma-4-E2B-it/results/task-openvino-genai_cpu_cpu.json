@@ -49,13 +49,13 @@
   "runner": "run_llm_ovg.py",
   "argv": [
    "--model-dir",
-   "C:\\src\\zoo-template\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov",
+   "C:\\src\\working-folder\\hub\\OpenVINO__gemma-4-E2B-it-int4-ov",
    "--device",
    "CPU",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "C:\\src\\working-folder\\refs\\gemma-4-E2B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-c-e2b\\gemma-4-E2B-it\\task-openvino-genai_cpu_cpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-c-e2b\\gemma-4-E2B-it\\task-openvino-genai_cpu_cpu\\run1.json"
   ]
  },
  "note": [
@@ -256,7 +256,7 @@
    "numpy": "2.5.4"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\gemma-4-E2B-it\\ref.json",
    "prompts": 21,
    "device": "CPU",
    "pipeline": "vlm",

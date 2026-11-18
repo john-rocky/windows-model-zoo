@@ -5,15 +5,15 @@
   "--model",
   "dewarp",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--fixtures",
-  "C:\\src\\zoo-template\\fixtures",
+  "C:\\src\\working-folder\\fixtures",
   "--suites",
-  "C:\\src\\zoo-template\\suites",
+  "C:\\src\\working-folder\\suites",
   "--work",
-  "C:\\src\\zoo-template\\work\\dewarp",
+  "C:\\src\\working-folder\\work\\dewarp",
   "--out",
-  "C:\\src\\zoo-template\\refs\\dewarp\\ref.json"
+  "C:\\src\\working-folder\\refs\\dewarp\\ref.json"
  ],
  "pid": 14164,
  "status": "OK",
@@ -189,7 +189,7 @@
   "CPUExecutionProvider"
  ],
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dewarp\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dewarp\\inputs.npz",
   "n": 20,
   "sha256": "0c556cb99b9bac6a8e0f82f80874fd073728f48a157516210ee1c0f0cb7ef16c",
   "bytes": 15734422,
@@ -215,7 +215,7 @@
  },
  "warmup_s": 0.112,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\refs\\dewarp\\ref.outputs.npz",
+  "path": "C:\\src\\working-folder\\refs\\dewarp\\ref.outputs.npz",
   "bytes": 20332166,
   "sha256": "1cf70604b1d71db54eb869cdc4cea72e8a29d40b46771508307b00482119aad2",
   "arrays": 40

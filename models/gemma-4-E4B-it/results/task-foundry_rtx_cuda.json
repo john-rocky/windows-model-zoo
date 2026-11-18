@@ -49,7 +49,7 @@
   "runner": "run_llm_foundry.py",
   "argv": [
    "--package",
-   "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
+   "C:\\src\\working-folder\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
    "--id",
    "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "--device",
@@ -59,13 +59,13 @@
    "--task",
    "vision-language-chat",
    "--work",
-   "C:\\src\\zoo-template\\work\\foundry",
+   "C:\\src\\working-folder\\work\\foundry",
    "--cuda12",
    "C:\\src\\msf\\cuda12\\dll_all",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json"
   ]
  },
  "note": [
@@ -262,7 +262,7 @@
    "python": "3.12.16"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\gemma-4-E4B-it\\ref.json",
    "prompts": 21,
    "id": "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "task": "vision-language-chat",

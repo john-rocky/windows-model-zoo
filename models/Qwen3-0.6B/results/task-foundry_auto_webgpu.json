@@ -57,13 +57,13 @@
    "--task",
    "chat-completion",
    "--work",
-   "C:\\src\\zoo-template\\work\\foundry",
+   "C:\\src\\working-folder\\work\\foundry",
    "--cuda12",
    "C:\\src\\msf\\cuda12\\dll_all",
    "--ref",
-   "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "--out",
-   "C:\\src\\zoo-template\\runs\\llm-qa20-f\\Qwen3-0.6B\\task-foundry_auto_webgpu\\run1.json"
+   "C:\\src\\working-folder\\runs\\llm-qa20-f\\Qwen3-0.6B\\task-foundry_auto_webgpu\\run1.json"
   ]
  },
  "note": [
@@ -269,7 +269,7 @@
    "python": "3.12.16"
   },
   "workload": {
-   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
+   "ref": "C:\\src\\working-folder\\refs\\Qwen3-0.6B\\ref.json",
    "prompts": 21,
    "id": "llm-qa20-qwen3-0.6b-generic-gpu:1",
    "task": "chat-completion",

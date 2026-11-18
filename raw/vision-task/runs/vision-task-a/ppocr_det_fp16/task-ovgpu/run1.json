@@ -5,9 +5,9 @@
   "--model",
   "ppocr_det_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\ppocr_det_fp16",
+  "C:\\src\\working-folder\\work\\ppocr_det_fp16",
   "--form",
   "fp32",
   "--engine",
@@ -17,7 +17,7 @@
   "--ov-device",
   "GPU.0",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.json"
  ],
  "pid": 33604,
  "status": "OK",
@@ -182,7 +182,7 @@
   "sha256": "6a6a9e4b650cb0cf9cdbce27febbef80da03a03cff04f228fb98daced51b0dc5"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\ppocr_det_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\ppocr_det_fp16\\inputs.npz",
   "sha256": "85177ef62ec914fb4a889578dc3fe10e67889dd7da442fc82f623d4c86634703",
   "bytes": 98309782,
   "n": 20
@@ -216,7 +216,7 @@
  },
  "warmup_s": 0.022,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\ppocr_det_fp16\\task-ovgpu\\run1.outputs.npz",
   "bytes": 32772982,
   "sha256": "8d3521af55ca80083d1991db083bc811a11a4af1a027a602ef32019ad1011642",
   "arrays": 20

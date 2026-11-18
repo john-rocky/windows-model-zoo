@@ -5,15 +5,15 @@
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
+  "C:\\src\\working-folder\\pc\\vision_task_spec.json",
   "--work",
-  "C:\\src\\zoo-template\\work\\dfine_graphB_fp16",
+  "C:\\src\\working-folder\\work\\dfine_graphB_fp16",
   "--form",
   "blob",
   "--engine",
   "ovblob",
   "--out",
-  "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json"
+  "C:\\src\\working-folder\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.json"
  ],
  "pid": 15172,
  "status": "OK",
@@ -198,7 +198,7 @@
   "sha256": "6b7f02de088a709193a9dba8ffb81674fdb0a7374807daa08fe1f167bac50a6e"
  },
  "inputs": {
-  "path": "C:\\src\\zoo-template\\work\\dfine_graphB_fp16\\inputs.npz",
+  "path": "C:\\src\\working-folder\\work\\dfine_graphB_fp16\\inputs.npz",
   "sha256": "0fe35bcd4b2d1566c2934e6b043476f82771f813ca9ad3ae1bd467f0fb732bda",
   "bytes": 178289302,
   "n": 20
@@ -230,7 +230,7 @@
  },
  "warmup_s": 0.175,
  "outputs": {
-  "path": "C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.outputs.npz",
+  "path": "C:\\src\\working-folder\\runs\\vision-task-a\\dfine_graphB_fp16\\task-ovnpu_pre\\run1.outputs.npz",
   "bytes": 2025942,
   "sha256": "8251136225c440e79ca03ea586cd75ed6252ba14ad1c5fea14f9d09c4d992a7e",
   "arrays": 40

@@ -12,7 +12,7 @@ pad_token_id: -1
 cache_dir: 
 cache_file: Not set
 litert_dispatch_lib_dir: Not set
-model_assets: model_path: C:\src\zoo-template\work\litert\rtx\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm
+model_assets: model_path: C:\src\working-folder\work\litert\rtx\Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm
 fake_weights_mode: FAKE_WEIGHTS_NONE
 
 advanced_settings: prefill_batch_sizes: []
