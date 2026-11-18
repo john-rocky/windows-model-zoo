@@ -36,7 +36,7 @@ Where the files come from:
   edge-llm-bench's `windows/build_litert_lm.ps1` (downloaded at a pinned commit, checked by sha256), with the DirectX
   shader compiler DLLs of the PyPI wheel `litert-lm-api` 0.19.0. The tag's prebuilt DLLs and the wheel's two DLLs have
   the record's sha256s; the three files the build compiles (`litert_lm_advanced_main_windows.exe`,
-  `litert_lm_main.exe`, `LiteRtDispatch.dll`) get other bytes on every build, so `pc/z6_setup.py` records them and
+  `litert_lm_main.exe`, `LiteRtDispatch.dll`) get other bytes on every build, so `pc/llm_qa20_setup.py` records them and
   does not compare them. The build is a step over 8 GB: it runs under this zoo's lock (`pc\steps\engines-litert.json`).
 - **Foundry Local 0.13.0 packages**: the Foundry catalog, `foundry model download <variant>` into the user's Foundry
   cache when the package is not there; every file checked against the record (size and sha256).
@@ -49,7 +49,7 @@ Local 0.13.0 (winget), OpenSSH server, the NVIDIA, Intel GPU and
 Intel NPU drivers. For the LiteRT-LM build, what the build script's header lists: Visual Studio 2022 or its
 Build Tools with the C++ workload, Git for Windows with LFS, Python 3.13 for all users, Bazelisk, a JDK with
 `JAVA_HOME`, LongPathsEnabled, and an elevated shell or Developer Mode for symlinks; its source and Bazel output go to
-the short paths `pc/z6_spec.json` names (`C:\src\mz-litert-lm`, `C:\bzl-mz`). When the build dies with "Server
+the short paths `pc/llm_qa20_spec.json` names (`C:\src\mz-litert-lm`, `C:\bzl-mz`). When the build dies with "Server
 terminated abruptly", read edge-llm-bench's `windows/README.md` (Microsoft Defender). Free disk: the walk's Hub
 files (5.2 GiB), the venvs, the engines and the build. On the Mac: `ssh <pc_ssh>` reaches the PC (its default shell is
 PowerShell) and python3.
@@ -142,7 +142,7 @@ with a window that ends with its control tail (the walk's was stopped on purpose
 tail, and is not a timing); a fixed slot in which another job takes the lock (in the walk's none came, and the chain
 took the lock back at the slot's give-up time); the night stop on a `lock = true` step (the night stop ran in a test
 lock folder with stand-in steps, under `ZOO_NIGHT`, and on 2026-11-17 on real steps, with the skill's text from a new
-PC folder: `skills/add-to-windows-model-zoo/SKILL.md`, "Not walked"); `pc/z6_setup.py`'s `foundry model download`
+PC folder: `skills/add-to-windows-model-zoo/SKILL.md`, "Not walked"); `pc/llm_qa20_setup.py`'s `foundry model download`
 (the walk found
 its three packages already in the Foundry Local cache); and the runners of the copied cells (they stay in their zoos).
 `WALK.md` has each case.

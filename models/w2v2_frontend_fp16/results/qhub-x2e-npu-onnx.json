@@ -4,7 +4,7 @@
  "cell": "qhub-x2e-npu-onnx",
  "kind": "vision",
  "role": "other-device",
- "row_line": "z1-internal",
+ "row_line": "vision-zoo-internal",
  "runtime": {
   "id": "qnn",
   "label": "Qualcomm AI Hub, QNN ONNX as-is",

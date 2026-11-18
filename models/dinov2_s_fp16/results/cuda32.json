@@ -28,10 +28,10 @@
   "error_line": null
  },
  "line": {
-  "id": "z1-internal",
+  "id": "vision-zoo-internal",
   "kind": "internal",
   "pass": true,
-  "verdict": "PASS on z1-internal",
+  "verdict": "PASS on vision-zoo-internal",
   "status": "PASS",
   "reference": "cpu",
   "fails": [],

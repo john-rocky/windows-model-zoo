@@ -16,8 +16,8 @@ models/<model>/README.md    the card: Hub front matter (license, base_model, bas
 models/<model>/recipe.toml  how each form is made and how each cell runs; the lines, written before any run
 models/<model>/results/     one JSON per cell (schema/cell.schema.json)
 models/<model>/reference/   the compact record of the line's reference
-raw/z5/, raw/z6/, raw/z14/, the run records and references the task cells name (`source.record`)
-raw/z13/, raw/z19/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/, raw/qwen25-ov-int8/, raw/phi4-mini/,
+raw/vision-task/, raw/llm-qa20/, raw/npu-rerun/, the run records and references the task cells name (`source.record`)
+raw/qwen3-int8-sym/, raw/qwen25-15b/, raw/qwen25-igpu/, raw/qwen25-llamacpp/, raw/qwen25-05b/, raw/qwen25-ov-int8/, raw/phi4-mini/,
 raw/qwen3-ov-npu/, raw/phi4-mini-ep/, raw/phi4-mini-ov/
 suites/                     the input sets: vision images (pinned URLs + sha256), LLM questions and their answer key,
                             audio clip lists

@@ -28,10 +28,10 @@
   "error_line": null
  },
  "line": {
-  "id": "z1-internal",
+  "id": "vision-zoo-internal",
   "kind": "internal",
   "pass": false,
-  "verdict": "FAIL on z1-internal: serving_default_output_0_output: cos 0.9848 < 0.99",
+  "verdict": "FAIL on vision-zoo-internal: serving_default_output_0_output: cos 0.9848 < 0.99",
   "status": "FAIL",
   "reference": "cpu",
   "fails": [

@@ -12,7 +12,7 @@
   "label": "Intel NPU"
  },
  "form": {
-  "id": "z1-npu-blob",
+  "id": "vision-zoo-npu-blob",
   "label": "NPU blob",
   "detail": "the vision zoo's precompiled Intel NPU blob of it (OpenVINO 2026.4.1 compile_model + export_model), checked by sha256",
   "path": "{HUB}\\mlboydaisuke__SAM2-hiera-tiny-OpenVINO\\npu\\sam2_decoder.blob",
@@ -406,7 +406,7 @@
     ]
    }
   ],
-  "z1_cell": "ovnpu_pre",
+  "vision_zoo_cell": "ovnpu_pre",
   "workload": {
    "set": "images",
    "task": "mask",

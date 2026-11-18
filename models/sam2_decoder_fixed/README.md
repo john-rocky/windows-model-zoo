@@ -15,8 +15,8 @@ Upstream licence: apache-2.0; base model: facebook/sam2.1-hiera-tiny.
 <!-- zoo:cells begin -->
 ## Lines
 
-- Line `z1-internal` (internal agreement): every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99. Written 2026-11-06T10:40:00+09:00 (john-rocky/windows-zoo PLAN.md section 3).
-- Line `z1-tflite` (internal agreement): the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the line of the vision zoo's PLAN.md, section 3. Written 2026-11-06T16:30:00+09:00 (john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x).
+- Line `vision-zoo-internal` (internal agreement): every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99. Written 2026-11-06T10:40:00+09:00 (john-rocky/windows-zoo PLAN.md section 3).
+- Line `vision-zoo-tflite` (internal agreement): the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the line of the vision zoo's PLAN.md, section 3. Written 2026-11-06T16:30:00+09:00 (john-rocky/windows-zoo PLAN.md, Changes 2026-11-06 16:3x).
 - Line `task-mask` (the task line): mask, the app's mask 0 of the three (john-rocky/LiteRT-Models@96e0bc1f/sam2/.../Sam2Segmenter.kt segment(): the whole-object mask) as object = logit > 0 (MainActivity.kt: mask > 0f), at 256 x 256: the mIoU of object and background against the reference's mask, from the pixels of all inputs, the mean over the classes the reference has, >= 0.95. Inputs: the 20 images of suites/vision/images.json, each stretched to 1024 x 1024, ImageNet normalization, through sam2_encoder in fp32 on the ONNX Runtime CPU EP and the app's prompt for one positive point at (512, 512) (sam2_prompt.bin) into the decoder's input. Reference: the same fp32 ONNX file (the one the vision zoo measured) on the ONNX Runtime 1.31.1 CPU EP, on the same inputs (the vision zoo's cpu cell). Written 2026-11-10T06:41:00+09:00 (PLAN.md section 2 (written 06:41 JST before any run of its cells)).
 
 ## Cells

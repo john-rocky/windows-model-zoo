@@ -141,7 +141,7 @@ as one word. A cell's count is in `llm.task.key` and at the end of its `line.ver
 
 The cells: 23 models, 47 cells = the copied cells of the vision zoo with `line.kind = internal` and `line.pass = false`
 (`tools/lint.py`'s "internal 47 fail"; the 8 cells of the TFLite comparison are on another line and not among them).
-The copied cells and their line (`z1-internal`) stay. Each new cell has the id `task-<the vision zoo's cell>`, and its
+The copied cells and their line (`vision-zoo-internal`) stay. Each new cell has the id `task-<the vision zoo's cell>`, and its
 line is the `[[line]]` below in each recipe (`written` = this section's time).
 
 Common to the 23 models:
@@ -150,7 +150,7 @@ Common to the 23 models:
   `fp16\<m>.onnx` (`cuda16`), `blobs\<m>.blob` (`ovnpu_pre`), checked against the sha256 in the vision zoo's cell JSON
   (`model_sha256`, `fp16_convert.sha256`, `blob`) before use. The runtimes' versions = the vision zoo's pins (ORT
   1.31.1, onnxruntime-ep-openvino 1.8.1, OpenVINO 2026.4.1, onnxruntime-gpu 1.31.1 with the CUDA 13 wheels:
-  `pc/req/z1-*.txt`).
+  `pc/req/vision-zoo-*.txt`).
 - The reference = the same fp32 ONNX on the ORT 1.31.1 CPU EP with the same inputs (the vision zoo's `cpu` form). The
   upstream graphs (DETR's graph A, SAM2's encoder, the wav2vec2 frontend, DAC's encoder) also run once in fp32 on the
   CPU, and the host steps between them (DETR's top-300 and MLP, SAM2's point embedding, DAC's RVQ) are numpy copies of
@@ -224,7 +224,7 @@ Common to the 23 models:
    shifted by 8 samples). The new line compares with the input's samples 8 to 15,999; the rest is the same (mean ≥ the
    reference's − 0.5 dB, no non-finite or all-zero clip). The numbers looked at were the reference's outputs only; no
    cell's result was read. The 07:21 run of the cell `task-ovgpu` came after the old line and before the new one: it is
-   not used for the verdict and runs again after the new line (sitting z5-b). The old line stays in the recipe
+   not used for the verdict and runs again after the new line (sitting vision-task-b). The old line stays in the recipe
    (`superseded_by`).
 2. 2026-11-17 17:18 JST, words only (after the runs; it changes no rule): the 24 task rules of the 23 vision models (the two of
    `dac_16khz_deconly_zs_fp16` included) name the vision zoo in plain words in the sentence that describes the
@@ -233,7 +233,7 @@ Common to the 23 models:
    values compared, the thresholds and the reference do not change; no cell runs again and every verdict stays as it
    is. The earlier words are in the recipes at commit
    [`f3f702e`](https://github.com/john-rocky/windows-model-zoo/tree/f3f702e973eef7bc3f66180f9f43298e00be07f9).
-3. 2026-11-17 19:09 JST, words only (after the runs; it changes no rule): the rule of the copied line `z1-tflite` (the
+3. 2026-11-17 19:09 JST, words only (after the runs; it changes no rule): the rule of the copied line `vision-zoo-tflite` (the
    TFLite comparison) in the 23 vision recipes names the vision zoo's PLAN.md as the file whose section 3 it cites.
    Why: this file has a section 3 of its own, so a section number with no file name reads as this file's. The line is
    the same: the files compared (the ONNX file and the .tflite it was converted from), the inputs and the thresholds
@@ -305,7 +305,7 @@ counted as an instrument):
   with the folder's `chat_template.jinja`: in the 11-10 07:55 probe an 18-token string became 26 tokens). The same
   package's files are hard-linked into a folder where only `chat_template.jinja` is replaced by a template that returns
   the message content as it is (`{%- for message in messages -%}{{- message['content'] -}}{%- endfor -%}`), registered
-  with `foundry model register` (local, id `z6-…:1`, `--task chat-completion`), and the string goes to
+  with `foundry model register` (local, id `llm-qa20-…:1`, `--task chat-completion`), and the string goes to
   `/catalogs/local/v1/chat/completions` as one user message, `temperature` 0, `max_tokens` 48 / 16. Probe (11-10 07:56,
   the files of Qwen3-0.6B generic-cpu:4): `prompt_tokens` 18 = the reference's 18, the answer `stop`. The usage's
   `prompt_tokens` is compared with the reference's id count (for Gemma 4, one more means the leading `<bos>` is dropped:
@@ -374,7 +374,7 @@ these are details of how the string goes in, decided when the runners were writt
    cells (catalog models) had the same two lines and ran on CUDA (`foundry_local_2026-11-07.log` to `-09.log`,
    including the copied numbers' sitting walk-timed-b) = this pass's three Qwen3 `task-foundry_auto_webgpu` cells have the
    LLM zoo cells' form, and their decoder runs on CUDA, unlike the webgpu in the cell's name (the log lines:
-   `raw/z6/foundry_ep_lines.txt`). In gemma-4-E2B-it's package the decoder's other sessions are on WebGPU, and with
+   `raw/llm-qa20/foundry_ep_lines.txt`). In gemma-4-E2B-it's package the decoder's other sessions are on WebGPU, and with
    the decoder alone on CUDA the load stops with "Running a model with multiple providers is not supported.
    Encountered WebGPU and CUDA" (this pass at 09:58 and the LLM zoo on 11-08 02:42). The copied cell's numbers (sitting
    walk-timed-b, the three runs of 11-09 00:38 to 00:42) were run with the daemon started with
@@ -383,7 +383,7 @@ these are details of how the string goes in, decided when the runners were writt
    the `daemon_env` of the LLM zoo plan's unit of the copied cell's `speed.sitting` when it has one (the copy tool wrote
    it into the recipe as `--daemon-env`; of the 16 Foundry units of walk-timed-b and walk-timed-b-rerun, this one cell
    only). The 09:58 run stays an error and is not used for the verdict; the PC's run is deleted and runs again after
-   this change. If the log of the run again has no "using WebGPU EP for model: z6-gemma-4-e2b-it-generic-gpu:1", that
+   this change. If the log of the run again has no "using WebGPU EP for model: llm-qa20-gemma-4-e2b-it-generic-gpu:1", that
    run is not used either.
 9. (Added 2026-11-10 13:0x to 13:1x JST, when this repo was cut, after the runs; it changes no rule.) The reason given above for
    gemma-4-E4B-it's bf16 reference, "fp32 = 32.0 GB does not fit the PC's 31.5 GB of RAM", compares decimal GB with

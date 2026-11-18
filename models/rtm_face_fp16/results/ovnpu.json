@@ -28,10 +28,10 @@
   "error_line": null
  },
  "line": {
-  "id": "z1-internal",
+  "id": "vision-zoo-internal",
   "kind": "internal",
   "pass": false,
-  "verdict": "FAIL on z1-internal: serving_default_output_0_output: 50176 NaN, 0 Inf; serving_default_output_0_output: cos 0.0000 < 0.99; serving_default_output_0_output: argmax agreement 0/98; serving_default_output_1_output: 50176 NaN, 0 Inf; serving_default_output_1_output: cos 0.0000 < 0.99; serving_default_output_1_output: argmax agreement 0/98",
+  "verdict": "FAIL on vision-zoo-internal: serving_default_output_0_output: 50176 NaN, 0 Inf; serving_default_output_0_output: cos 0.0000 < 0.99; serving_default_output_0_output: argmax agreement 0/98; serving_default_output_1_output: 50176 NaN, 0 Inf; serving_default_output_1_output: cos 0.0000 < 0.99; serving_default_output_1_output: argmax agreement 0/98",
   "status": "FAIL",
   "reference": "cpu",
   "fails": [

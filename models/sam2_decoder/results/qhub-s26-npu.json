@@ -4,7 +4,7 @@
  "cell": "qhub-s26-npu",
  "kind": "vision",
  "role": "other-device",
- "row_line": "z1-internal",
+ "row_line": "vision-zoo-internal",
  "runtime": {
   "id": "qnn",
   "label": "Qualcomm AI Hub, QNN precompiled (pqo)",

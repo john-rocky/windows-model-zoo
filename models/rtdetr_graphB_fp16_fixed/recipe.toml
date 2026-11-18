@@ -32,7 +32,7 @@ sha256 = "a481c1365ef73aa17eb295222bce47cfad34cc5c397a42d9e3fe0bf62d1891be"
 why = "a host file of the app the task line's host step reads"
 
 [[form]]
-id = "z1-onnx-fp32"
+id = "vision-zoo-onnx-fp32"
 short = "fp32"
 label = "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256"
 made_by = "the vision zoo"
@@ -65,7 +65,7 @@ ram_gb = 4
 reference = "refs/rtdetr_graphB_fp16_fixed/ref.json"
 
 [[line]]
-id = "z1-internal"
+id = "vision-zoo-internal"
 kind = "internal"
 rule = "every output: cos >= 0.99 against the ONNX Runtime CPU EP fp32 output (yolact: OpenVINO CPU f32), no NaN / Inf; a class output: argmax agreement >= 0.99"
 written = "2026-11-06T10:40:00+09:00"
@@ -73,7 +73,7 @@ written_note = "10:4x JST, before any run; first run 12:53"
 plan = "john-rocky/windows-zoo PLAN.md section 3"
 
 [[line]]
-id = "z1-tflite"
+id = "vision-zoo-tflite"
 kind = "internal"
 rule = "the ONNX file against the .tflite it was converted from (LiteRT interpreter, CPU, the same inputs): the line of the vision zoo's PLAN.md, section 3"
 written = "2026-11-06T16:30:00+09:00"
@@ -92,7 +92,7 @@ id = "ovnpu"
 runtime = "ort-ov"
 device = "npu"
 form = "onnx-fp32"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -101,7 +101,7 @@ id = "ovnpu_pre"
 runtime = "openvino"
 device = "npu"
 form = "npu-blob"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -110,7 +110,7 @@ id = "ovgpu"
 runtime = "ort-ov"
 device = "igpu"
 form = "onnx-fp32"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -119,7 +119,7 @@ id = "cuda16"
 runtime = "ort-cuda"
 device = "rtx"
 form = "onnx-fp16"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -128,7 +128,7 @@ id = "cuda32"
 runtime = "ort-cuda"
 device = "rtx"
 form = "onnx-fp32"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -137,7 +137,7 @@ id = "cpu"
 runtime = "ort"
 device = "cpu"
 form = "onnx-fp32"
-line = "z1-internal"
+line = "vision-zoo-internal"
 migrated = true
 script = "windows-zoo:pc/zoo_run.py"
 
@@ -146,7 +146,7 @@ id = "tflite"
 runtime = "litert"
 device = "cpu"
 form = "tflite"
-line = "z1-tflite"
+line = "vision-zoo-tflite"
 migrated = true
 script = "windows-zoo:convert/check_tflite.py"
 
@@ -154,7 +154,7 @@ script = "windows-zoo:convert/check_tflite.py"
 id = "task-ovgpu"
 runtime = "onnxruntime-openvino"
 device = "igpu"
-form = "z1-onnx-fp32"
+form = "vision-zoo-onnx-fp32"
 line = "task-detection"
 venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
@@ -176,4 +176,4 @@ args = [
 ]
 timeout_min = 20
 ram_need_gb = 4
-z1_cell = "ovgpu"
+vision_zoo_cell = "ovgpu"

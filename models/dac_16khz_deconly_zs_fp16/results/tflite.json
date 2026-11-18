@@ -4,7 +4,7 @@
  "cell": "tflite",
  "kind": "vision",
  "role": "conversion-check",
- "row_line": "z1-internal",
+ "row_line": "vision-zoo-internal",
  "runtime": {
   "id": "litert",
   "label": "ai-edge-litert 2.2.0",
@@ -27,10 +27,10 @@
   "error": null
  },
  "line": {
-  "id": "z1-tflite",
+  "id": "vision-zoo-tflite",
   "kind": "internal",
   "pass": true,
-  "verdict": "PASS on z1-tflite",
+  "verdict": "PASS on vision-zoo-tflite",
   "status": "PASS",
   "fails": [],
   "reason_candidate": null

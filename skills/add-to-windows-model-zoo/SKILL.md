@@ -15,7 +15,7 @@ You add one model folder, or one cell to a model folder. You are done when:
 3. Before the commit, `git status` shows only your model's files, `LICENSES.md`, the run records under `raw/<name>/`,
    the lines of `.gitignore`, `docs/add-a-model.md`, `README.md` and `docs/reading-results.md` that name them or
    count the results (section 7), for a new LLM the line of `PLAN.md` with its reference's count (section 7), and,
-   for cells that need the model's `z6-setup` step (section 2), the model's entry in `pc/z6_spec.json`.
+   for cells that need the model's `llm-qa20-setup` step (section 2), the model's entry in `pc/llm_qa20_spec.json`.
 4. Those files are one commit on your branch, not pushed (section 7, step 6).
 
 Words (more in [`docs/reading-results.md`](../../docs/reading-results.md#words-used-in-the-files)): a **cell** is one
@@ -84,7 +84,7 @@ Qwen2.5-1.5B-Instruct have been walked too, but they did not pass section 6's pr
 
 - **A model**: a new folder `models/<model>/` with a recipe (section 2) and a card (section 3), then sections 4 to 7.
 - **A result** of a model already here: one more `[[cell]]` in `models/<model>/recipe.toml` (and its `[[form]]`,
-  `[[fetch]]` and `z6-setup` `[[step]]` when they are new, section 2), then sections 4 to 7 with that cell alone in
+  `[[fetch]]` and `llm-qa20-setup` `[[step]]` when they are new, section 2), then sections 4 to 7 with that cell alone in
   `--cells`. When its device or package is not in the card's paragraph yet (section 3), add it there, and leave the
   card's front matter as it is, also when your package's library is not its `library_name`
   (`models/Qwen2.5-1.5B-Instruct/README.md` keeps `openvino` with its llama.cpp cells). It is judged on
@@ -208,7 +208,7 @@ ram_need_gb = 5
   device: stop and report it. On the NVIDIA RTX GPU, the run's `run1.stderr.txt` holds a hundred or more lines such as
   `105 warnings generated.` and one or two such as `86 warnings and 143 errors generated.`; they are not a failure (the
   run's line in `chain.log` says `exit 0, OK`), and the other models' `task-openvino-genai_rtx_gpu` runs have them too
-  (`raw/z6/runs/z6-g-*/`).
+  (`raw/llm-qa20/runs/llm-qa20-g-*/`).
 - **Other runtimes and kinds** (of these, llama.cpp cells were walked, of a model already here and of a new one;
   ONNX Runtime GenAI cells were walked, on the CPU and with CUDA of a new model, and on the OpenVINO and WebGPU
   execution providers of a model already here; LiteRT-LM cells of a model already here were walked too, but they did
@@ -216,34 +216,34 @@ ram_need_gb = 5
   copy a `task-*` `[[cell]]` of the same runtime and device from the closest model, not one with `migrated = true`, and
   the `[[form]]`, `[[fetch]]` and `[[step]]` it names (`grep -n 'runtime = "<id>"' models/*/recipe.toml`; LiteRT-LM's
   id is `litert-lm`; `litert`, without `-lm`, is the id of cells copied from another zoo, all with `migrated = true`).
-  Leave out its `z1_cell` or `z2_cell` key: it marks a cell that judges a copied cell again. The recipe of a new LLM
+  Leave out its `vision_zoo_cell` or `llm_zoo_cell` key: it marks a cell that judges a copied cell again. The recipe of a new LLM
   whose cells all run on runtimes other than OpenVINO GenAI keeps the template's `[model]`, first `[[fetch]]` (the
   original model), `reference` step and `[[line]]`. The copied `[[fetch]]`, `[[form]]` and `[[cell]]` take the place
   of the template's (`models/Qwen2.5-0.5B-Instruct/recipe.toml` has llama.cpp cells only). A vision or audio model
   needs its task's line and reference step: see `PLAN.md` and a model of the same task.
-- **The `z6-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell
-  whose folder comes from `z6-setup` (a WebGPU overlay or a Foundry Local catalog package), also need the model's
-  `z6-setup` step (before its reference step) and its entry under `models` in `pc/z6_spec.json` (engines, links,
-  Foundry packages, overlays; the header of `pc/z6_setup.py` says what each holds). A WebGPU overlay is a copy of a
-  package folder that `z6-setup` makes under `{ROOT}\overlays\`, with a `genai_config.json` that names the WebGPU
+- **The `llm-qa20-setup` step.** The LLM cells of llama.cpp, LiteRT-LM and Foundry Local, and an ONNX Runtime GenAI cell
+  whose folder comes from `llm-qa20-setup` (a WebGPU overlay or a Foundry Local catalog package), also need the model's
+  `llm-qa20-setup` step (before its reference step) and its entry under `models` in `pc/llm_qa20_spec.json` (engines, links,
+  Foundry packages, overlays; the header of `pc/llm_qa20_setup.py` says what each holds). A WebGPU overlay is a copy of a
+  package folder that `llm-qa20-setup` makes under `{ROOT}\overlays\`, with a `genai_config.json` that names the WebGPU
   adapter; its cell runs that folder with `--ep follow_config` (the WebGPU cells of the two gemma models).
-  gemma-4-E2B-it's other ONNX Runtime GenAI cells run Foundry Local catalog packages, which `z6-setup` downloads to
-  `{HOME}\.foundry\cache\`. An ONNX Runtime GenAI cell whose folder is under `{HUB}` needs no `z6-setup` step; a new
+  gemma-4-E2B-it's other ONNX Runtime GenAI cells run Foundry Local catalog packages, which `llm-qa20-setup` downloads to
+  `{HOME}\.foundry\cache\`. An ONNX Runtime GenAI cell whose folder is under `{HUB}` needs no `llm-qa20-setup` step; a new
   cell on the OpenVINO or the WebGPU execution provider is such a cell ("An ONNX Runtime GenAI cell's execution
   provider", below). The shortest example of the step is in `models/Qwen2.5-0.5B-Instruct/recipe.toml`, with its
   entry: `engines` names the
   engine folders of the cells' `--server` paths, and a link goes from `{HUB}\<owner>__<repo>\<file>` to the cells'
-  `--model` path, with `bytes` = the file's size in the Hub tree you printed (`z6-setup` fails on another size).
+  `--model` path, with `bytes` = the file's size in the Hub tree you printed (`llm-qa20-setup` fails on another size).
   For LiteRT-LM cells, `engines` names `litert`, the folder of the cells' `--exe` path, and each cell has a link of its
-  own, to `{ROOT}\work\litert\<device>\<file>`: LiteRT-LM writes its caches beside the model (`pc/z6_setup.py`).
+  own, to `{ROOT}\work\litert\<device>\<file>`: LiteRT-LM writes its caches beside the model (`pc/llm_qa20_setup.py`).
   A LiteRT-LM cell counts only when it passes section 6's prompt check, which is known after the run: the 15
   LiteRT-LM `task-*` cells here pass it, and the file a run of this skill tried did not ("Not walked").
   `models/Qwen3-0.6B/recipe.toml` and its entry have every kind. Write the file back in its own format
   (`json.dumps(d, indent=1, ensure_ascii=False)` and a newline, as `write_json` in `tools/zoo.py` does):
-  `git diff pc/z6_spec.json` then shows only your entry's lines. `z6-setup` checks the model's whole entry, not only
+  `git diff pc/llm_qa20_spec.json` then shows only your entry's lines. `llm-qa20-setup` checks the model's whole entry, not only
   what your cells use. The entries of Qwen2.5-1.5B-Instruct and Qwen2.5-0.5B-Instruct name only the three llama.cpp
   engines. The other five LLMs here (Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it and gemma-4-E4B-it) also have
-  `litert` in their entries, so one more cell of one of them that needs `z6-setup` also needs the `engines-litert`
+  `litert` in their entries, so one more cell of one of them that needs `llm-qa20-setup` also needs the `engines-litert`
   list (section 5) and, for the first four, Foundry Local's packages (section 0, step 5). No run of this skill has
   done that.
 - **A llama.cpp GPU cell's proof of its device** is the server's log (`run1.server.txt`, beside `run1.json`):
@@ -327,7 +327,7 @@ python3 tools/plan.py first --sitting <name>-1 --cells <model>/<cell>,<model>/<c
   `pc/hub_manifest.json: <k> sources, <x> GiB`.
 - `steps` prints `pc/steps/setup.json: <n> steps`, `pc/steps/fetch.json: 2 steps` and `pc/steps/<model>.json: <n> steps`,
   and for a model with a `z6-setup` step also `pc/steps/engines.json: <n> steps` (and
-  `pc/steps/engines-litert.json: <n> steps` when the model's entry in `pc/z6_spec.json` names `litert`).
+  `pc/steps/engines-litert.json: <n> steps` when the model's entry in `pc/llm_qa20_spec.json` names `litert`).
 - `first` prints `pc/plans/<name>-1.json: <n> units (first pass)`. A later pass takes a new sitting name
   (`<name>-2`, ...): the chain skips every run whose record is already on the PC.
 - For a result of a model already here, `manifest <model>` and `steps <model>` take every `[[fetch]]` of the model
@@ -342,8 +342,8 @@ tools/pc.sh lock note "adding <model> to the model zoo (untimed; killed and run 
 tools/pc.sh launch 'pc\steps.ps1' '-List setup'
 tools/pc.sh launch 'pc\steps.ps1' '-List fetch'
 tools/pc.sh wait "$R\logs\setup.done,$R\logs\fetch.done" "$R\logs\setup.log,$R\logs\fetch.log" 3
-tools/pc.sh launch 'pc\steps.ps1' '-List engines'                # only for cells that need z6-setup (section 2)
-tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2  # only for cells that need z6-setup (section 2)
+tools/pc.sh launch 'pc\steps.ps1' '-List engines'                # only for cells that need llm-qa20-setup (section 2)
+tools/pc.sh wait "$R\logs\engines.done" "$R\logs\engines.log" 2  # only for cells that need llm-qa20-setup (section 2)
 tools/pc.sh launch 'pc\steps.ps1' '-List <model>'
 tools/pc.sh wait "$R\logs\<model>.done" "$R\logs\<model>.log" 2
 tools/pc.sh launch 'pc\chain.ps1' "-Plan $R\pc\plans\<name>-1.json -Mode first"
@@ -414,17 +414,17 @@ tools/pc.sh lock note ""
   it instead of waiting (the PC of these results has 31.5 GiB of RAM; in one walk the line read 21.3 and 21.6 GB free
   while no other job had a lock or a note up). Phi-4-mini-instruct's reference step (`ram_gb` 17) held the
   lock for 1.6 min.
-- **The engines** (for cells that need the model's `z6-setup` step, section 2; `steps` prints
+- **The engines** (for cells that need the model's `llm-qa20-setup` step, section 2; `steps` prints
   `pc/steps/engines.json` for every model with that step, also when your cells do not need it: then leave the list
   out): launch the `engines` list after `setup` has ended (its steps run in the `genai` venv that `setup` makes), and
-  wait for it before the model's list, whose `z6-setup` step checks every engine file. For llama.cpp, its step
+  wait for it before the model's list, whose `llm-qa20-setup` step checks every engine file. For llama.cpp, its step
   `engines-llama` downloads the b11721 release zips (the CPU, Vulkan and CUDA builds and the CUDA runtime, about
   630 MB) and unpacks them (0.6 to 1.6 min on a new PC folder).
   `pc/steps/engines-litert.json` (the LiteRT-LM build) is a step with `lock = true` and `ram_gb` 16: ask before you
   launch it, as the item above says. It goes after the `engines` list and before the model's list; its two lines are
   in `docs/reproduce.md`, step 3. A build still running at its lock's end is killed
   (`engines-litert end: exit timeout`) and the list ends `FAIL engines-litert`: stop and report it. The build's
-  source and Bazel output go to `C:\src\mz-litert-lm` and `C:\bzl-mz` (`pc/z6_spec.json`), outside your PC folder;
+  source and Bazel output go to `C:\src\mz-litert-lm` and `C:\bzl-mz` (`pc/llm_qa20_spec.json`), outside your PC folder;
   the `engines` list clones the source. With neither on the PC before
   the `engines` list, the step took 15.5 min in the walk of `docs/reproduce.md` (`WALK.md`, step 3) and 22.8 min in
   a run of this skill on 2026-11-13.
@@ -441,8 +441,8 @@ tools/pc.sh lock note ""
 - **A result** of a model already here is judged against the model's reference record (`pulled_from` in
   `models/<model>/reference/ref.json`: `raw/<folder>/refs/<model>/ref.json`). Instead of the model's list
   (`-List <model>`, its reference step), put that record where the cell reads it (a cell that needs the model's
-  `z6-setup` step: run the model's list first, as the end of this item says). Launch `setup` and `fetch` and wait for
-  them, then `engines` when your cells need the model's `z6-setup` step (an OpenVINO GenAI cell does not, nor does an
+  `llm-qa20-setup` step: run the model's list first, as the end of this item says). Launch `setup` and `fetch` and wait for
+  them, then `engines` when your cells need the model's `llm-qa20-setup` step (an OpenVINO GenAI cell does not, nor does an
   ONNX Runtime GenAI cell whose folder is under `{HUB}`), as above:
   on a PC folder that already has everything they take seconds (`setup` and `fetch` add only what it lacks; `engines`
   unpacks the llama.cpp zips it has again). Leave out `tools/pc.sh pull refs raw/<name>`: the record is already in
@@ -455,7 +455,7 @@ tools/pc.sh lock note ""
   ```
 
   The two sha256 are the same (the PC prints upper case). When your cell needs a step of the model's list other than
-  the reference (the LLM engines' `z6-setup`), run the model's list before the `put`: its reference step writes
+  the reference (the LLM engines' `llm-qa20-setup`), run the model's list before the `put`: its reference step writes
   `refs\<model>\ref.json` again, and the `put` then sets the committed record back. When that reference step has
   `lock = true` (Qwen3-1.7B, Qwen3-4B, gemma-4-E2B-it, gemma-4-E4B-it and Phi-4-mini-instruct), ask before you launch
   the list, as "A step with `lock = true`" says.
@@ -536,8 +536,8 @@ python3 tools/lint.py
    ```
 
 3. What goes in: `models/<model>/` (recipe, card, `results/`, `reference/`), `LICENSES.md`, from `raw/<name>/` the
-   `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `z6-setup`
-   step, `pc/z6_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
+   `runs/` and `fetch_report.json` (and for a new model its `refs/`), and for cells that need the model's `llm-qa20-setup`
+   step, `pc/llm_qa20_spec.json` (the model's entry: without it, `tools/plan.py steps` stops at that model with a
    `KeyError`). `raw/*/` is ignored: add two lines to `.gitignore`, `!raw/<name>/` above the `!raw/walk/` line and
    `raw/<name>/logs/` (the step logs stay on your disk) below the last `raw/.../logs/` line, and add `raw/<name>/` to
    the list in `docs/add-a-model.md` ("Where things are").
@@ -568,7 +568,7 @@ python3 tools/lint.py
    back to the PC, do section 0's step 3 again first. Run section 0's tests and lint once
    more.
 6. Commit them on your branch, naming the paths (not `git add -A`); for a new LLM, add `PLAN.md`, and for cells that
-   need the model's `z6-setup` step, `pc/z6_spec.json`, to the `git add` line:
+   need the model's `llm-qa20-setup` step, `pc/llm_qa20_spec.json`, to the `git add` line:
 
    ```bash
    git add models/<model> LICENSES.md raw/<name> .gitignore docs/add-a-model.md README.md docs/reading-results.md \
@@ -579,8 +579,8 @@ python3 tools/lint.py
    `git add raw/<name>` leaves out its `logs/` (`.gitignore`); without the `!raw/<name>/` line of step 3 it stops with
    `The following paths are ignored by one of your .gitignore files` and nothing is committed. For a result of a model
    already here, `raw/<name>/` has no `refs/` (section 5 leaves out `pull refs`). `git status --short` prints nothing.
-   When it prints ` M pc/z6_spec.json`, the entry stayed out of the commit: put it in with
-   `git add pc/z6_spec.json && git commit --amend --no-edit && git status --short`.
+   When it prints ` M pc/llm_qa20_spec.json`, the entry stayed out of the commit: put it in with
+   `git add pc/llm_qa20_spec.json && git commit --amend --no-edit && git status --short`.
    Push or open a pull request only when the person who gave you the task says so (`AGENTS.md`, rule 8).
 
 ## 8. When something fails
@@ -619,7 +619,7 @@ made a branch on its own and stopped before the commit, which this file did not 
 and section 7, step 6). A second such agent, given two sentences of the same kind, added three llama.cpp results of
 that model (the CPU, and the NVIDIA RTX GPU with CUDA and with Vulkan; its records: `raw/qwen25-llamacpp/`) through
 section 2's paragraph on the other runtimes, from a new PC folder, with no help, and ended with a commit on its branch.
-On its own, it launched the `engines` list, put `pc/z6_spec.json` in the commit, and read the GPU cells' device from the
+On its own, it launched the `engines` list, put `pc/llm_qa20_spec.json` in the commit, and read the GPU cells' device from the
 server's log when `engine.gpuMiBPeak` came back empty, none of which this file said to do then (now sections 2, 5 and
 7). A third such agent, given two sentences of the same kind, added a new model, Qwen2.5-0.5B-Instruct, with its
 reference and three llama.cpp results on the same devices and backends (its records: `raw/qwen25-05b/`), from a new PC
@@ -669,8 +669,8 @@ Its `wait` for `setup` and `fetch`, 12 min, outlasted one call of its shell and 
 that ran the agent ended that `wait`, and the agent's run, before the `wait` printed its result. The agent was started
 again with two sentences: that its `wait` had been stopped before it printed its result and its run paused since, and
 to go on with the task. It had no other help. As section 2 says, it took the four cells' arguments from another model's
-cells (Qwen3-0.6B's). On its own, it read `pc/z6_setup.py` and `pc/z6_spec.json` to see that the cells need no
-`z6-setup` step and, started again, kept a `wait` in the background with its output in a file and looked at the file in
+cells (Qwen3-0.6B's). On its own, it read `pc/llm_qa20_setup.py` and `pc/llm_qa20_spec.json` to see that the cells need no
+`llm-qa20-setup` step and, started again, kept a `wait` in the background with its output in a file and looked at the file in
 a loop. This file did not say then what a WebGPU overlay is, or how to keep a `wait` past one call of a shell (now
 sections 2 and 5). It read each cell's device from `workload.ov_device` and `engine.gpuMiBPeak`; the first only repeats
 the cell's argument (now section 2). One sentence it changed in `docs/reading-results.md` lost the comma between two
@@ -733,5 +733,5 @@ Not walked: a step that fails in another way, the `setup` list launched again af
 the PC's night stop of a `lock = true` step, a lock step that gives its lock back because under 25 min are left or
 that is killed at its lock's end, the LiteRT-LM build with `C:\src\mz-litert-lm` and `C:\bzl-mz` already on the PC,
 LiteRT-LM cells that pass section 6's prompt check, Foundry Local cells, ONNX Runtime GenAI cells that keep `--ep
-follow_config` or whose folder comes from `z6-setup` (a WebGPU overlay or a Foundry Local catalog package), llama.cpp
+follow_config` or whose folder comes from `llm-qa20-setup` (a WebGPU overlay or a Foundry Local catalog package), llama.cpp
 cells of the five LLMs whose entries have `litert`, a vision or audio model, and a timed sitting.

@@ -4,7 +4,7 @@
  "cell": "tflite",
  "kind": "vision",
  "role": "conversion-check",
- "row_line": "z1-internal",
+ "row_line": "vision-zoo-internal",
  "runtime": {
   "id": "litert",
   "label": "ai-edge-litert 2.2.0",
@@ -27,10 +27,10 @@
   "error": null
  },
  "line": {
-  "id": "z1-tflite",
+  "id": "vision-zoo-tflite",
   "kind": "internal",
   "pass": false,
-  "verdict": "FAIL on z1-tflite: serving_default_output_1_output: argmax agreement 156/300",
+  "verdict": "FAIL on vision-zoo-tflite: serving_default_output_1_output: argmax agreement 156/300",
   "status": "FAIL",
   "fails": [
    "serving_default_output_1_output: argmax agreement 156/300"

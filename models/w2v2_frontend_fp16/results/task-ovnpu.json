@@ -12,7 +12,7 @@
   "label": "Intel NPU"
  },
  "form": {
-  "id": "z1-onnx-fp32",
+  "id": "vision-zoo-onnx-fp32",
   "label": "fp32",
   "detail": "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), checked by sha256",
   "path": "{HUB}\\mlboydaisuke__wav2vec2-keyword-spotting-OpenVINO\\w2v2_frontend_fp16.onnx",
@@ -1011,7 +1011,7 @@
     "counted": true
    }
   ],
-  "z1_cell": "ovnpu",
+  "vision_zoo_cell": "ovnpu",
   "workload": {
    "set": "kws120",
    "task": "classification",

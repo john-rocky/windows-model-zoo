@@ -28,10 +28,10 @@
   "error_line": null
  },
  "line": {
-  "id": "z1-internal",
+  "id": "vision-zoo-internal",
   "kind": "reference",
   "pass": null,
-  "verdict": "reference of z1-internal: the other cells of this line are compared with this cell's outputs",
+  "verdict": "reference of vision-zoo-internal: the other cells of this line are compared with this cell's outputs",
   "status": "PASS",
   "reference": null,
   "fails": [],

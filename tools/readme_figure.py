@@ -5,7 +5,7 @@
 
 Reads models/<model>/recipe.toml and models/<model>/results/task-*.json. Writes docs/images/results-light.svg and
 docs/images/results-dark.svg. It counts results by model kind and verdict only, so the figure names no runtime,
-device or package. It counts the task results that judge a copied cell again (a [[cell]] with `z1_cell` or `z2_cell`:
+device or package. It counts the task results that judge a copied cell again (a [[cell]] with `vision_zoo_cell` or `llm_zoo_cell`:
 the two groups of the earlier repos); a task result added later, with no copied cell behind it, is not in the figure.
 """
 import json
@@ -34,7 +34,7 @@ def count():
         with recipe.open("rb") as f:
             r = tomllib.load(f)
         kind = r["model"]["kind"]
-        again = {c["id"] for c in r.get("cell") or [] if c.get("z1_cell") or c.get("z2_cell")}
+        again = {c["id"] for c in r.get("cell") or [] if c.get("vision_zoo_cell") or c.get("llm_zoo_cell")}
         for result in sorted(recipe.parent.glob("results/task-*.json")):
             if result.stem not in again:
                 continue

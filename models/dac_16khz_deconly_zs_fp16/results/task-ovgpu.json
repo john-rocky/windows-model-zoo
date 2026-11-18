@@ -12,7 +12,7 @@
   "label": "Intel GPU"
  },
  "form": {
-  "id": "z1-onnx-fp32",
+  "id": "vision-zoo-onnx-fp32",
   "label": "fp32",
   "detail": "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), in the vision zoo's folder on the PC, checked by sha256",
   "path": "C:\\src\\zoo\\onnx\\dac_16khz_deconly_zs_fp16.onnx",
@@ -767,7 +767,7 @@
     "si_sdr_ref": 4.45
    }
   ],
-  "z1_cell": "ovgpu",
+  "vision_zoo_cell": "ovgpu",
   "workload": {
    "set": "kws120",
    "task": "codec",

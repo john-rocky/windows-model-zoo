@@ -54,10 +54,10 @@ model's lines and a link to its `results/`. No file here puts runtimes side by s
 those tables on your own disk only.
 
 NPU driver: 31 of the 39 `task-*` cells on the Intel NPU ran on 2026-11-11 on driver 32.0.100.5540, with MSI Center set
-to Balanced (`raw/z14/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
-(`raw/z5/`, `raw/z6/`). Their verdicts and the numbers on their lines are the same on both days. The two Qwen3 int8-sym `task-*`
-cells on the Intel NPU ran on 2026-11-12 on driver 32.0.100.5540, with MSI Center set to Balanced (`raw/z13/`), and so
-did the int4 Qwen2.5-1.5B-Instruct cell on the Intel NPU (`raw/z19/`). The int8 Qwen2.5-1.5B-Instruct cell on the Intel NPU ran on 2026-11-13 on the same driver, with MSI Center set to Balanced (`raw/qwen25-ov-int8/`). The four cells of OpenVINO's int8 and fp16 IRs of Qwen3-0.6B and Qwen3-1.7B on the Intel NPU ran on 2026-11-16 on the same driver, with MSI Center set to Balanced (`raw/qwen3-ov-npu/`). The
+to Balanced (`raw/npu-rerun/`). The same cells had run on 2026-11-10 on driver 32.0.100.4841, with MSI Center set to Extreme
+(`raw/vision-task/`, `raw/llm-qa20/`). Their verdicts and the numbers on their lines are the same on both days. The two Qwen3 int8-sym `task-*`
+cells on the Intel NPU ran on 2026-11-12 on driver 32.0.100.5540, with MSI Center set to Balanced (`raw/qwen3-int8-sym/`), and so
+did the int4 Qwen2.5-1.5B-Instruct cell on the Intel NPU (`raw/qwen25-15b/`). The int8 Qwen2.5-1.5B-Instruct cell on the Intel NPU ran on 2026-11-13 on the same driver, with MSI Center set to Balanced (`raw/qwen25-ov-int8/`). The four cells of OpenVINO's int8 and fp16 IRs of Qwen3-0.6B and Qwen3-1.7B on the Intel NPU ran on 2026-11-16 on the same driver, with MSI Center set to Balanced (`raw/qwen3-ov-npu/`). The
 other 76 Intel NPU cells are copied ones and keep their zoos' numbers: 61 name driver 32.0.100.4841 (the 46 vision cells in OpenVINO's
 form, `1004841`, under `vision.device_props`), one names no driver, and 14 are `not_run`.
 
@@ -86,9 +86,9 @@ This repo's later passes, one row each:
 
 | pass | day | what it ran or added | PC folder | records |
 |---|---|---|---|---|
-| npu-rerun | 2026-11-11 | the 31 Intel NPU `task-*` cells again | `C:\src\mz-z14` | `raw/z14/` |
-| qwen3-int8-sym | 2026-11-12 | the four Qwen3 int8-sym `task-*` cells | `C:\src\mz-z13` | `raw/z13/` |
-| qwen25-15b | 2026-11-12 | Qwen2.5-1.5B-Instruct and its two cells | `C:\src\zoo-z19` | `raw/z19/` |
+| npu-rerun | 2026-11-11 | the 31 Intel NPU `task-*` cells again | `C:\src\mz-npu-rerun` | `raw/npu-rerun/` |
+| qwen3-int8-sym | 2026-11-12 | the four Qwen3 int8-sym `task-*` cells | `C:\src\mz-qwen3-int8-sym` | `raw/qwen3-int8-sym/` |
+| qwen25-15b | 2026-11-12 | Qwen2.5-1.5B-Instruct and its two cells | `C:\src\zoo-qwen25-15b` | `raw/qwen25-15b/` |
 | qwen25-igpu | 2026-11-13 | the int4 Intel GPU cell of Qwen2.5-1.5B-Instruct | `C:\src\zoo-qwen25-igpu` | `raw/qwen25-igpu/` |
 | qwen25-llamacpp | 2026-11-13 | the three llama.cpp cells of Qwen2.5-1.5B-Instruct | `C:\src\zoo-qwen25-llamacpp` | `raw/qwen25-llamacpp/` |
 | qwen25-05b | 2026-11-13 | Qwen2.5-0.5B-Instruct and its three llama.cpp cells | `C:\src\zoo-qwen25-05b` | `raw/qwen25-05b/` |
@@ -99,7 +99,7 @@ This repo's later passes, one row each:
 | phi4-mini-ov | 2026-11-18 | one more cell of Phi-4-mini-instruct: OpenVINO's int4 IR through OpenVINO GenAI on the CPU | `C:\src\zoo-phi4-mini-ov` | `raw/phi4-mini-ov/` |
 
 The three Qwen3 `foundry_auto_webgpu` cells (copied from the LLM zoo) and their `task-*` cells ran Foundry Local's
-generic-gpu package with the main decoder on the CUDA EP, not WebGPU (`raw/z6/foundry_ep_lines.txt`; PLAN.md, section 3,
+generic-gpu package with the main decoder on the CUDA EP, not WebGPU (`raw/llm-qa20/foundry_ep_lines.txt`; PLAN.md, section 3,
 change 8): `webgpu` in their names and in the copied cells' `runtime.ep` is the package's, not the EP that ran.
 
 ## Pass/fail rules

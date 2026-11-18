@@ -414,7 +414,7 @@ def build(model, recipe, cell, args, cfg):
                          "device_props": run.get("device"), "providers": run.get("session_providers"),
                          "inputs": run.get("inputs"), "model_file": run.get("model")}
         if task_cell:
-            doc["vision"].update({"per_input": per_input, "z1_cell": cell.get("z1_cell"),
+            doc["vision"].update({"per_input": per_input, "vision_zoo_cell": cell.get("vision_zoo_cell"),
                                   "workload": run.get("workload"), "outputs_file": run.get("outputs")})
         doc["speed"]["load_ms"] = round(run["load_s"] * 1000, 1) if run.get("load_s") is not None else None
     elif kind == "llm":

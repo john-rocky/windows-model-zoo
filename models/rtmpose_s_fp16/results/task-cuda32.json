@@ -12,7 +12,7 @@
   "label": "RTX 5080 Laptop"
  },
  "form": {
-  "id": "z1-onnx-fp32",
+  "id": "vision-zoo-onnx-fp32",
   "label": "fp32",
   "detail": "the fp32 ONNX file the vision zoo measured (tf2onnx 1.17.0 from the source .tflite), in the vision zoo's folder on the PC, checked by sha256",
   "path": "C:\\src\\zoo\\onnx\\rtmpose_s_fp16.onnx",
@@ -181,7 +181,7 @@
     "agree": 11
    }
   ],
-  "z1_cell": "cuda32",
+  "vision_zoo_cell": "cuda32",
   "workload": {
    "set": "images",
    "task": "keypoints",
