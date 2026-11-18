@@ -2,7 +2,7 @@
 every input of the model's inputs.npz (the reference step's arrays) one run each after one untimed warm-up; one JSON
 and the outputs.
 
-    python run_vision_task.py --model <m> --spec <pc\\z5_spec.json> --work <work\\m> --form fp32|fp16|blob
+    python run_vision_task.py --model <m> --spec <pc\\vision_task_spec.json> --work <work\\m> --form fp32|fp16|blob
         --engine ort --ep cuda|openvino [--ov-device NPU|GPU.0] --out run.json
     python run_vision_task.py ... --form blob --engine ovblob --out run.json
 

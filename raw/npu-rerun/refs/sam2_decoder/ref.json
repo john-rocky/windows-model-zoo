@@ -5,7 +5,7 @@
   "--model",
   "sam2_decoder",
   "--spec",
-  "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
+  "C:\\src\\mz-npu-rerun\\pc\\vision_task_spec.json",
   "--fixtures",
   "C:\\src\\mz-npu-rerun\\fixtures",
   "--suites",

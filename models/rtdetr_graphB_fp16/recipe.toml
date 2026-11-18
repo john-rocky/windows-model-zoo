@@ -45,13 +45,13 @@ public = "mlboydaisuke/RT-DETRv2-S-OpenVINO@5d06be1e8c74102f113ab8961ba2b22f9332
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "rtdetr_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -181,13 +181,13 @@ runtime = "onnxruntime-openvino"
 device = "igpu"
 form = "z1-onnx-fp32"
 line = "task-detection"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "rtdetr_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\rtdetr_graphB_fp16",
   "--form",

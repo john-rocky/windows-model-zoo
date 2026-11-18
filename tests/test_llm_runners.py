@@ -153,14 +153,14 @@ def main():
     (pkg / "inference_model.json").write_text(json.dumps({"Name": "catalog:3", "PromptTemplate": None}))
     (pkg / "genai_config.json").write_text(json.dumps({"model": {}, "search": {"do_sample": True, "top_k": 1}}))
     rec = {}
-    ch = rf.link_package(pkg, tmp / "work" / "z6-x", "z6-x:1", rec)
-    d = tmp / "work" / "z6-x"
+    ch = rf.link_package(pkg, tmp / "work" / "llm-qa20-x", "llm-qa20-x:1", rec)
+    d = tmp / "work" / "llm-qa20-x"
     ok = ((d / "chat_template.jinja").read_text() == rf.IDENTITY
           and json.loads((d / "tokenizer_config.json").read_text())["chat_template"] == rf.IDENTITY
           and json.loads((d / "genai_config.json").read_text())["search"]["do_sample"] is False
           and os.path.samefile(d / "decoder" / "model.onnx.data", pkg / "decoder" / "model.onnx.data")
           and not os.path.samefile(d / "genai_config.json", pkg / "genai_config.json")
-          and json.loads((d / "inference_model.json").read_text())["Name"] == "z6-x:1"
+          and json.loads((d / "inference_model.json").read_text())["Name"] == "llm-qa20-x:1"
           and (pkg / "chat_template.jinja").read_text().startswith("{{ bos_token }}"))
     print(f"foundry package: {sorted(ch)}")
     if not ok:

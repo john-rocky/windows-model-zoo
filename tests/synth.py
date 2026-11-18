@@ -1,4 +1,4 @@
-"""Synthetic outputs for the vision task cells of pc/z5_spec.json (no model runs): per model a reference, a near copy
+"""Synthetic outputs for the vision task cells of pc/vision_task_spec.json (no model runs): per model a reference, a near copy
 that should pass the model's task line and a broken copy that should fail it, in the shapes of the models' real
 outputs (the npz keys of pc/ref_vision_task.py and pc/run_vision_task.py). Used by test_vision_tasks.py and
 test_records.py."""
@@ -19,7 +19,7 @@ class Z(dict):
 
 
 def gen(model, ms, rng):
-    """ms = the model's entry in pc/z5_spec.json -> (reference, near copy, broken copy), dicts of float32 arrays."""
+    """ms = the model's entry in pc/vision_task_spec.json -> (reference, near copy, broken copy), dicts of float32 arrays."""
     task, n = ms["task"], len(ms["ids"])
     frames = (ms.get("stream") or {}).get("frames", 8)
     ref, good, bad = {}, {}, {}

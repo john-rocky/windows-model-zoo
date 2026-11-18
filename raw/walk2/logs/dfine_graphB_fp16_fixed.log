@@ -1,4 +1,4 @@
 [2026-11-10T17:45:38.9568177+09:00] steps dfine_graphB_fp16_fixed start: 1 steps, pid 23676
-[2026-11-10T17:45:38.9887191+09:00] task-ref start: C:\src\walk2\.venv-z1-ort\Scripts\python.exe -I C:\src\walk2\pc\ref_vision_task.py --model dfine_graphB_fp16_fixed --spec C:\src\walk2\pc\z5_spec.json --fixtures C:\src\walk2\fixtures --suites C:\src\walk2\suites --work C:\src\walk2\work\dfine_graphB_fp16_fixed --out C:\src\walk2\refs\dfine_graphB_fp16_fixed\ref.json
+[2026-11-10T17:45:38.9887191+09:00] task-ref start: C:\src\walk2\.venv-vision-zoo-ort\Scripts\python.exe -I C:\src\walk2\pc\ref_vision_task.py --model dfine_graphB_fp16_fixed --spec C:\src\walk2\pc\vision_task_spec.json --fixtures C:\src\walk2\fixtures --suites C:\src\walk2\suites --work C:\src\walk2\work\dfine_graphB_fp16_fixed --out C:\src\walk2\refs\dfine_graphB_fp16_fixed\ref.json
 [2026-11-10T17:45:43.3475172+09:00] task-ref end: exit 0, 0.1 min
 [2026-11-10T17:45:43.3579550+09:00] steps dfine_graphB_fp16_fixed done: OK

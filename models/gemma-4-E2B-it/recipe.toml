@@ -345,10 +345,10 @@ label = "MatMulNBits b32 asym accNone: int4 x277 [decoder/model.onnx]; Foundry c
 from = "Foundry Local catalog gemma-4-e2b-it-generic-gpu:3"
 
 [[step]]
-name = "z6-setup"
+name = "llm-qa20-setup"
 venv = "genai"
-script = "pc/z6_setup.py"
-args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "gemma-4-E2B-it", "--root", "{ROOT}"]
+script = "pc/llm_qa20_setup.py"
+args = ["--spec", "{ROOT}\\pc\\llm_qa20_spec.json", "--model", "gemma-4-E2B-it", "--root", "{ROOT}"]
 timeout_min = 60
 
 [[step]]
@@ -372,8 +372,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog gemma-4-e2b-it-generic-gpu:3 (its files in the PC's cache)"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3", "--id", "z6-gemma-4-e2b-it-generic-gpu:1", "--device", "gpu", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json", "--daemon-env", "CUDA_VISIBLE_DEVICES=-1"]
+cleanup = ["--cleanup", "--id", "llm-qa20-gemma-4-e2b-it-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3", "--id", "llm-qa20-gemma-4-e2b-it-generic-gpu:1", "--device", "gpu", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json", "--daemon-env", "CUDA_VISIBLE_DEVICES=-1"]
 ram_need_gb = 10
 
 [[cell]]
@@ -387,8 +387,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog gemma-4-e2b-it-generic-cpu:3 (its files in the PC's cache)"
 timeout_min = 150
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--id", "z6-gemma-4-e2b-it-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-gemma-4-e2b-it-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-cpu-3\\v3", "--id", "llm-qa20-gemma-4-e2b-it-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
 ram_need_gb = 10
 
 [[cell]]
@@ -402,8 +402,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog gemma-4-e2b-it-cuda-gpu:3 (its files in the PC's cache)"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-gemma-4-e2b-it-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-cuda-gpu-3\\v3", "--id", "z6-gemma-4-e2b-it-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-gemma-4-e2b-it-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-cuda-gpu-3\\v3", "--id", "llm-qa20-gemma-4-e2b-it-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E2B-it\\ref.json"]
 ram_need_gb = 10
 
 [[cell]]

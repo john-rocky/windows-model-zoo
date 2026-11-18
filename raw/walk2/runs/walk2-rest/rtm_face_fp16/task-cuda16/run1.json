@@ -5,7 +5,7 @@
   "--model",
   "rtm_face_fp16",
   "--spec",
-  "C:\\src\\walk2\\pc\\z5_spec.json",
+  "C:\\src\\walk2\\pc\\vision_task_spec.json",
   "--work",
   "C:\\src\\walk2\\work\\rtm_face_fp16",
   "--form",

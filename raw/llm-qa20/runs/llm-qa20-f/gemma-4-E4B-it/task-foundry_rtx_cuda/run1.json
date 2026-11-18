@@ -5,7 +5,7 @@
   "--package",
   "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
   "--id",
-  "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+  "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
   "--device",
   "gpu",
   "--ep",
@@ -306,51 +306,51 @@
    ]
   },
   {
-   "command": "foundry model unregister z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "command": "foundry model unregister llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "exit": 3,
    "s": 0.67,
    "tail": [
-    "● error: No local registration matches 'z6-gemma-4-e4b-it-cuda-int4-8k:1'.",
+    "● error: No local registration matches 'llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1'.",
     "Hint: Pass a registered local alias or exact canonical model ID."
    ]
   },
   {
-   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e4b-it-cuda-int4-8k z6-gemma-4-e4b-it-cuda-int4-8k:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider",
+   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1 --task vision-language-chat --device gpu --supports-tool-calling false --supports-reasoning false --execution-provider CUDAExecutionProvider",
    "exit": 0,
    "s": 0.31,
    "tail": [
-    "■ note: Alias: z6-gemma-4-e4b-it-cuda-int4-8k",
-    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e4b-it-cuda-int4-8k",
+    "■ note: Alias: llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
+    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
     "■ note: Task: vision-language-chat",
     "■ note: Files were not copied; the original folder is retained and must remain ",
     "available.",
-    "■ note: Next: foundry run z6-gemma-4-e4b-it-cuda-int4-8k:1"
+    "■ note: Next: foundry run llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1"
    ]
   },
   {
-   "command": "foundry model load z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "command": "foundry model load llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "exit": 0,
    "s": 26.92,
    "tail": [
-    "■ Loading model (z6-gemma-4-e4b-it-cuda-int4-8k:1)",
-    "● success: Loaded 'z6-gemma-4-e4b-it-cuda-int4-8k' (GPU variant ",
-    "'z6-gemma-4-e4b-it-cuda-int4-8k:1') into memory."
+    "■ Loading model (llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1)",
+    "● success: Loaded 'llm-qa20-gemma-4-e4b-it-cuda-int4-8k' (GPU variant ",
+    "'llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1') into memory."
    ]
   },
   {
-   "command": "foundry model unload z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "command": "foundry model unload llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "exit": 0,
    "s": 0.91,
    "tail": [
-    "● success: Unloaded 'z6-gemma-4-e4b-it-cuda-int4-8k:1' from memory."
+    "● success: Unloaded 'llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1' from memory."
    ]
   },
   {
-   "command": "foundry model unregister z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "command": "foundry model unregister llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "exit": 0,
    "s": 0.05,
    "tail": [
-    "● success: Removed registration IDs: z6-gemma-4-e4b-it-cuda-int4-8k:1.",
+    "● success: Removed registration IDs: llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1.",
     "■ note: Model files and original folders were preserved."
    ]
   },
@@ -394,7 +394,7 @@
  },
  "package": {
   "src": "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
-  "dir": "C:\\src\\zoo-template\\work\\foundry\\z6-gemma-4-e4b-it-cuda-int4-8k",
+  "dir": "C:\\src\\zoo-template\\work\\foundry\\llm-qa20-gemma-4-e4b-it-cuda-int4-8k",
   "changed": {
    "chat_template.jinja": "the identity template",
    "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
@@ -416,7 +416,7 @@
  "workload": {
   "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
   "prompts": 21,
-  "id": "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+  "id": "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
   "task": "vision-language-chat",
   "device": "gpu",
   "ep": "CUDAExecutionProvider",

@@ -51,7 +51,7 @@
    "--package",
    "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-cuda-gpu-2\\v2",
    "--id",
-   "z6-qwen3-4b-cuda-gpu:1",
+   "llm-qa20-qwen3-4b-cuda-gpu:1",
    "--device",
    "gpu",
    "--ep",
@@ -264,7 +264,7 @@
   "workload": {
    "ref": "C:\\src\\zoo-template\\refs\\Qwen3-4B\\ref.json",
    "prompts": 21,
-   "id": "z6-qwen3-4b-cuda-gpu:1",
+   "id": "llm-qa20-qwen3-4b-cuda-gpu:1",
    "task": "chat-completion",
    "device": "gpu",
    "ep": "CUDAExecutionProvider",

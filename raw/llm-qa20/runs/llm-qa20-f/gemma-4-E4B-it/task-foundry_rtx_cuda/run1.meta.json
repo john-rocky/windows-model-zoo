@@ -29,7 +29,7 @@
                    "nvidia":  "P0, 65535 MHz, 14001 MHz, 18.64 W, 0 %, 0 MiB, 54",
                    "availGB":  24.4
                },
-    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_foundry.py --package C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k --id z6-gemma-4-e4b-it-cuda-int4-8k:1 --device gpu --ep CUDAExecutionProvider --task vision-language-chat --work C:\\src\\zoo-template\\work\\foundry --cuda12 C:\\src\\msf\\cuda12\\dll_all --ref C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json",
+    "command":  "C:\\src\\zoo-template\\.venv-genai\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_llm_foundry.py --package C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k --id llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1 --device gpu --ep CUDAExecutionProvider --task vision-language-chat --work C:\\src\\zoo-template\\work\\foundry --cuda12 C:\\src\\msf\\cuda12\\dll_all --ref C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json --out C:\\src\\zoo-template\\runs\\llm-qa20-f\\gemma-4-E4B-it\\task-foundry_rtx_cuda\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

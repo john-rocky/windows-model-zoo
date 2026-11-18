@@ -36,13 +36,13 @@ def main():
     cell_order = ["ovnpu", "ovnpu_pre", "ovgpu", "cuda16", "cuda32"]
     for m in sorted(fail, key=lambda m: (order[m], m.lower())):
         for c in sorted(fail[m], key=lambda c: cell_order.index(c) if c in cell_order else 99):
-            z1 = json.loads((zoo.MODELS / m / "results" / f"{c}.json").read_text(encoding="utf-8"))
+            copied = json.loads((zoo.MODELS / m / "results" / f"{c}.json").read_text(encoding="utf-8"))
             tp = zoo.MODELS / m / "results" / f"task-{c}.json"
             t = json.loads(tp.read_text(encoding="utf-8")) if tp.exists() else None
-            z1_words = "; ".join(n["text"] for n in z1.get("note") or [] if n.get("rank") == 3) or \
-                "; ".join((z1.get("line") or {}).get("fails") or []) or "FAIL"
-            what = (f"{(t or z1)['runtime']['label']} · {(t or z1)['device']['label']} · "
-                    f"{((t or z1).get('form') or {}).get('label') or '-'}")
+            copied_words = "; ".join(n["text"] for n in copied.get("note") or [] if n.get("rank") == 3) or \
+                "; ".join((copied.get("line") or {}).get("fails") or []) or "FAIL"
+            what = (f"{(t or copied)['runtime']['label']} · {(t or copied)['device']['label']} · "
+                    f"{((t or copied).get('form') or {}).get('label') or '-'}")
             rec = ((t or {}).get("source") or {}).get("record")
             st = ((t or {}).get("run") or {}).get("state")
             ln = (t or {}).get("line") or {}
@@ -59,7 +59,7 @@ def main():
                 key = "pass" if ln["pass"] else "fail"
                 words, verdict = ln.get("text") or "", "PASS" if ln["pass"] else "FAIL"
             count[verdict] += 1
-            groups[key].append(f"| {m} | `{c}` | {what} | {z1_words.replace('|', '/')} | `{ln.get('id') or '-'}` | "
+            groups[key].append(f"| {m} | `{c}` | {what} | {copied_words.replace('|', '/')} | `{ln.get('id') or '-'}` | "
                                f"{verdict} | {words.replace('|', '/')} | " + (f"`{rec}`" if rec else "-") + " |")
     n = sum(count.values())
     head = ["# The vision cells that fail the internal line, judged on task lines", "",

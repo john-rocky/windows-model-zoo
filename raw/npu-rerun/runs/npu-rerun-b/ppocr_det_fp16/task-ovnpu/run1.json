@@ -5,7 +5,7 @@
   "--model",
   "ppocr_det_fp16",
   "--spec",
-  "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
+  "C:\\src\\mz-npu-rerun\\pc\\vision_task_spec.json",
   "--work",
   "C:\\src\\mz-npu-rerun\\work\\ppocr_det_fp16",
   "--form",

@@ -42,7 +42,7 @@
    "--model",
    "dac_16khz_deconly_zs_fp16",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
    "--work",
    "C:\\src\\zoo-template\\work\\dac_16khz_deconly_zs_fp16",
    "--form",

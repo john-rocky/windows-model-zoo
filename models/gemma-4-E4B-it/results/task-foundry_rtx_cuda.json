@@ -51,7 +51,7 @@
    "--package",
    "C:\\src\\zoo-template\\hub\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k",
    "--id",
-   "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "--device",
    "gpu",
    "--ep",
@@ -264,7 +264,7 @@
   "workload": {
    "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E4B-it\\ref.json",
    "prompts": 21,
-   "id": "z6-gemma-4-e4b-it-cuda-int4-8k:1",
+   "id": "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1",
    "task": "vision-language-chat",
    "device": "gpu",
    "ep": "CUDAExecutionProvider",

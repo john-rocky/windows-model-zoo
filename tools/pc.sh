@@ -17,7 +17,7 @@
 #   pc.sh pull <rel path> <dest>      <PC folder>\<rel path> -> this repo's <dest>/<its last part> (one tar, one connection;
 #                                     without the cache\ and wav\ folders)
 #   pc.sh put <repo path> <PC rel dest>   this repo's <repo path> -> <PC folder>\<PC rel dest>\<its last part> (one tar, one
-#                                     connection; a committed reference for a new cell of a model: put raw/z6/refs/<model> refs)
+#                                     connection; a committed reference for a new cell of a model: put raw/llm-qa20/refs/<model> refs)
 #   pc.sh py <pc\script.py> [args]   that script with the folder's .venv-ovg python (-I), in the foreground;
 #                                     ZOO_VENV=<name> picks .venv-<name>
 #   pc.sh lock take|gate|release|status|slot|note ["what"] [open s]   pc\lock.ps1 (the waits run on the PC)

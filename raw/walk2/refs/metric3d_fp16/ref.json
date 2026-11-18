@@ -5,7 +5,7 @@
   "--model",
   "metric3d_fp16",
   "--spec",
-  "C:\\src\\walk2\\pc\\z5_spec.json",
+  "C:\\src\\walk2\\pc\\vision_task_spec.json",
   "--fixtures",
   "C:\\src\\walk2\\fixtures",
   "--suites",

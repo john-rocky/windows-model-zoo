@@ -45,13 +45,13 @@ public = "mlboydaisuke/wav2vec2-keyword-spotting-OpenVINO@f0983dbb084f2d5fdb6dd2
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "w2v2_frontend_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -181,13 +181,13 @@ runtime = "onnxruntime-openvino"
 device = "npu"
 form = "z1-onnx-fp32"
 line = "task-top1"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "w2v2_frontend_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\w2v2_frontend_fp16",
   "--form",
@@ -209,13 +209,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-top1"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "w2v2_frontend_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\w2v2_frontend_fp16",
   "--form",

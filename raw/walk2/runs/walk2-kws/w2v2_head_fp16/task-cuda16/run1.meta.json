@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 1687 MHz, 14001 MHz, 18.80 W, 0 %, 0 MiB, 55",
                    "availGB":  23.8
                },
-    "command":  "C:\\src\\walk2\\.venv-z1-cuda\\Scripts\\python.exe -u C:\\src\\walk2\\pc\\run_vision_task.py --model w2v2_head_fp16 --spec C:\\src\\walk2\\pc\\z5_spec.json --work C:\\src\\walk2\\work\\w2v2_head_fp16 --form fp16 --engine ort --ep cuda --out C:\\src\\walk2\\runs\\walk2-kws\\w2v2_head_fp16\\task-cuda16\\run1.json",
+    "command":  "C:\\src\\walk2\\.venv-vision-zoo-cuda\\Scripts\\python.exe -u C:\\src\\walk2\\pc\\run_vision_task.py --model w2v2_head_fp16 --spec C:\\src\\walk2\\pc\\vision_task_spec.json --work C:\\src\\walk2\\work\\w2v2_head_fp16 --form fp16 --engine ort --ep cuda --out C:\\src\\walk2\\runs\\walk2-kws\\w2v2_head_fp16\\task-cuda16\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

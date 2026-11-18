@@ -5,7 +5,7 @@
   "--model",
   "rtmpose_s_fp16",
   "--spec",
-  "C:\\src\\mz-timed-paths\\pc\\z5_spec.json",
+  "C:\\src\\mz-timed-paths\\pc\\vision_task_spec.json",
   "--fixtures",
   "C:\\src\\mz-timed-paths\\fixtures",
   "--suites",

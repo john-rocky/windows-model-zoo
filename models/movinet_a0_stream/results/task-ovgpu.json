@@ -41,7 +41,7 @@
    "--model",
    "movinet_a0_stream",
    "--spec",
-   "C:\\src\\zoo-template\\pc\\z5_spec.json",
+   "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
    "--work",
    "C:\\src\\zoo-template\\work\\movinet_a0_stream",
    "--form",

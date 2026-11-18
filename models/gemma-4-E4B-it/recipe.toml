@@ -356,10 +356,10 @@ label = "MatMulNBits b32 sym accNone: int4 x343 [decoder/model.onnx]; mlboydaisu
 from = "mlboydaisuke/gemma-4-E4B-it-Foundry-Local"
 
 [[step]]
-name = "z6-setup"
+name = "llm-qa20-setup"
 venv = "genai"
-script = "pc/z6_setup.py"
-args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "gemma-4-E4B-it", "--root", "{ROOT}"]
+script = "pc/llm_qa20_setup.py"
+args = ["--spec", "{ROOT}\\pc\\llm_qa20_spec.json", "--model", "gemma-4-E4B-it", "--root", "{ROOT}"]
 timeout_min = 60
 
 [[step]]
@@ -383,8 +383,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:mlboydaisuke/gemma-4-E4B-it-Foundry-Local@9d1751f435ea791ba14be320ff14ed6b8cf1aa61 cuda-int4-8k"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-gemma-4-e4b-it-cuda-int4-8k:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HUB}\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k", "--id", "z6-gemma-4-e4b-it-cuda-int4-8k:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E4B-it\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HUB}\\mlboydaisuke__gemma-4-E4B-it-Foundry-Local\\cuda-int4-8k", "--id", "llm-qa20-gemma-4-e4b-it-cuda-int4-8k:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "vision-language-chat", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\gemma-4-E4B-it\\ref.json"]
 ram_need_gb = 10
 
 [[cell]]

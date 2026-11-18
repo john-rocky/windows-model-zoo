@@ -25,22 +25,22 @@
 [2026-11-10T13:17:33.2237123+09:00] pip-genai-cuda end: exit 0, 1.6 min
 [2026-11-10T13:17:33.2396542+09:00] versions-genai-cuda start: C:\src\model-zoo\.venv-genai-cuda\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-genai-cuda.txt
 [2026-11-10T13:17:33.4626027+09:00] versions-genai-cuda end: exit 0, 0 min
-[2026-11-10T13:17:33.4626027+09:00] venv-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-ort --python 3.12 --python-preference only-managed --allow-existing
-[2026-11-10T13:17:33.5263255+09:00] venv-z1-ort end: exit 0, 0 min
-[2026-11-10T13:17:33.5263255+09:00] pip-z1-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-ort.txt
-[2026-11-10T13:17:35.0433181+09:00] pip-z1-ort end: exit 0, 0 min
-[2026-11-10T13:17:35.0433181+09:00] versions-z1-ort start: C:\src\model-zoo\.venv-z1-ort\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-ort.txt
-[2026-11-10T13:17:35.2897754+09:00] versions-z1-ort end: exit 0, 0 min
-[2026-11-10T13:17:35.2897754+09:00] venv-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-cuda --python 3.12 --python-preference only-managed --allow-existing
-[2026-11-10T13:17:35.3438630+09:00] venv-z1-cuda end: exit 0, 0 min
-[2026-11-10T13:17:35.3458701+09:00] pip-z1-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-cuda\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-cuda.txt
-[2026-11-10T13:17:51.2242535+09:00] pip-z1-cuda end: exit 0, 0.3 min
-[2026-11-10T13:17:51.2242535+09:00] versions-z1-cuda start: C:\src\model-zoo\.venv-z1-cuda\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-cuda.txt
-[2026-11-10T13:17:51.4651929+09:00] versions-z1-cuda end: exit 0, 0 min
-[2026-11-10T13:17:51.4651929+09:00] venv-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-z1-ov --python 3.12 --python-preference only-managed --allow-existing
-[2026-11-10T13:17:51.5158122+09:00] venv-z1-ov end: exit 0, 0 min
-[2026-11-10T13:17:51.5193941+09:00] pip-z1-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-z1-ov\Scripts\python.exe -r C:\src\model-zoo\pc\req\z1-ov.txt
-[2026-11-10T13:17:52.8405027+09:00] pip-z1-ov end: exit 0, 0 min
-[2026-11-10T13:17:52.8425090+09:00] versions-z1-ov start: C:\src\model-zoo\.venv-z1-ov\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-z1-ov.txt
-[2026-11-10T13:17:53.0351100+09:00] versions-z1-ov end: exit 0, 0 min
+[2026-11-10T13:17:33.4626027+09:00] venv-vision-zoo-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-vision-zoo-ort --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:33.5263255+09:00] venv-vision-zoo-ort end: exit 0, 0 min
+[2026-11-10T13:17:33.5263255+09:00] pip-vision-zoo-ort start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-vision-zoo-ort\Scripts\python.exe -r C:\src\model-zoo\pc\req\vision-zoo-ort.txt
+[2026-11-10T13:17:35.0433181+09:00] pip-vision-zoo-ort end: exit 0, 0 min
+[2026-11-10T13:17:35.0433181+09:00] versions-vision-zoo-ort start: C:\src\model-zoo\.venv-vision-zoo-ort\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-vision-zoo-ort.txt
+[2026-11-10T13:17:35.2897754+09:00] versions-vision-zoo-ort end: exit 0, 0 min
+[2026-11-10T13:17:35.2897754+09:00] venv-vision-zoo-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-vision-zoo-cuda --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:35.3438630+09:00] venv-vision-zoo-cuda end: exit 0, 0 min
+[2026-11-10T13:17:35.3458701+09:00] pip-vision-zoo-cuda start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-vision-zoo-cuda\Scripts\python.exe -r C:\src\model-zoo\pc\req\vision-zoo-cuda.txt
+[2026-11-10T13:17:51.2242535+09:00] pip-vision-zoo-cuda end: exit 0, 0.3 min
+[2026-11-10T13:17:51.2242535+09:00] versions-vision-zoo-cuda start: C:\src\model-zoo\.venv-vision-zoo-cuda\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-vision-zoo-cuda.txt
+[2026-11-10T13:17:51.4651929+09:00] versions-vision-zoo-cuda end: exit 0, 0 min
+[2026-11-10T13:17:51.4651929+09:00] venv-vision-zoo-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe venv C:\src\model-zoo\.venv-vision-zoo-ov --python 3.12 --python-preference only-managed --allow-existing
+[2026-11-10T13:17:51.5158122+09:00] venv-vision-zoo-ov end: exit 0, 0 min
+[2026-11-10T13:17:51.5193941+09:00] pip-vision-zoo-ov start: C:\Users\USER\AppData\Local\Microsoft\WinGet\Links\uv.exe pip install --python C:\src\model-zoo\.venv-vision-zoo-ov\Scripts\python.exe -r C:\src\model-zoo\pc\req\vision-zoo-ov.txt
+[2026-11-10T13:17:52.8405027+09:00] pip-vision-zoo-ov end: exit 0, 0 min
+[2026-11-10T13:17:52.8425090+09:00] versions-vision-zoo-ov start: C:\src\model-zoo\.venv-vision-zoo-ov\Scripts\python.exe -I C:\src\model-zoo\pc\venv_versions.py --out C:\src\model-zoo\logs\versions-vision-zoo-ov.txt
+[2026-11-10T13:17:53.0351100+09:00] versions-vision-zoo-ov end: exit 0, 0 min
 [2026-11-10T13:17:53.0403846+09:00] steps setup done: OK

@@ -3,7 +3,7 @@ preprocessing and host steps, the engines of the cells, the MoViNet stream and t
 
 The preprocessing, the host steps (DETR graph B's inputs, the SAM2 prompt, the DAC RVQ) and the cells' sessions are
 the vision zoo's (john-rocky/windows-zoo@faa4019 pc/make_inputs.py and pc/zoo_run.py), applied to every input of
-the model's set instead of one sample. The spec (pc/z5_spec.json, written on the Mac by a copy tool that is not in
+the model's set instead of one sample. The spec (pc/vision_task_spec.json, written on the Mac by a copy tool that is not in
 this repo) names per model: its input set and ids, the vision zoo's input entries (geometry, normalization, channel
 order, upstream graph), the files of its forms with their sha256, and the stream or downstream step.
 

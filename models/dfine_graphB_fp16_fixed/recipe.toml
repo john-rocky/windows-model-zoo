@@ -60,13 +60,13 @@ public = "mlboydaisuke/D-FINE-S-OpenVINO@adfe310e4ecc8b7aa3509507f8c78c343ed79f7
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16_fixed",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -172,13 +172,13 @@ runtime = "onnxruntime-cuda"
 device = "rtx"
 form = "z1-onnx-fp16"
 line = "task-detection"
-venv = "z1-cuda"
+venv = "vision-zoo-cuda"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16_fixed",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16_fixed",
   "--form",
@@ -198,13 +198,13 @@ runtime = "onnxruntime-openvino"
 device = "igpu"
 form = "z1-onnx-fp32"
 line = "task-detection"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16_fixed",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16_fixed",
   "--form",

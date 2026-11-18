@@ -353,10 +353,10 @@ label = "MatMulNBits b128 asym acc0: int4 x143, int8 x110; embeddings int8 b128 
 from = "onnx-community/Qwen3-4B-ONNX"
 
 [[step]]
-name = "z6-setup"
+name = "llm-qa20-setup"
 venv = "genai"
-script = "pc/z6_setup.py"
-args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "Qwen3-4B", "--root", "{ROOT}"]
+script = "pc/llm_qa20_setup.py"
+args = ["--spec", "{ROOT}\\pc\\llm_qa20_spec.json", "--model", "Qwen3-4B", "--root", "{ROOT}"]
 timeout_min = 60
 
 [[step]]
@@ -380,8 +380,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog qwen3-4b-generic-gpu:2 (its files in the PC's cache)"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-qwen3-4b-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-gpu-2\\v2", "--id", "z6-qwen3-4b-generic-gpu:1", "--device", "gpu", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-qwen3-4b-generic-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-gpu-2\\v2", "--id", "llm-qa20-qwen3-4b-generic-gpu:1", "--device", "gpu", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
 ram_need_gb = 8
 
 [[cell]]
@@ -395,8 +395,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog qwen3-4b-generic-cpu:3 (its files in the PC's cache)"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-qwen3-4b-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-cpu-3\\v3", "--id", "z6-qwen3-4b-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-qwen3-4b-generic-cpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-generic-cpu-3\\v3", "--id", "llm-qa20-qwen3-4b-generic-cpu:1", "--device", "cpu", "--ep", "CPUExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
 ram_need_gb = 8
 
 [[cell]]
@@ -410,8 +410,8 @@ script = "pc/run_llm_foundry.py"
 form = "foundry:Foundry catalog qwen3-4b-cuda-gpu:2 (its files in the PC's cache)"
 timeout_min = 40
 foundry = true
-cleanup = ["--cleanup", "--id", "z6-qwen3-4b-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
-args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-cuda-gpu-2\\v2", "--id", "z6-qwen3-4b-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
+cleanup = ["--cleanup", "--id", "llm-qa20-qwen3-4b-cuda-gpu:1", "--cuda12", "{ROOT}\\cuda12\\dll"]
+args = ["--package", "{HOME}\\.foundry\\cache\\models\\Microsoft\\qwen3-4b-cuda-gpu-2\\v2", "--id", "llm-qa20-qwen3-4b-cuda-gpu:1", "--device", "gpu", "--ep", "CUDAExecutionProvider", "--task", "chat-completion", "--work", "{ROOT}\\work\\foundry", "--cuda12", "{ROOT}\\cuda12\\dll", "--ref", "{ROOT}\\refs\\Qwen3-4B\\ref.json"]
 ram_need_gb = 8
 
 [[cell]]

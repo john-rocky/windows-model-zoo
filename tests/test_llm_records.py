@@ -152,7 +152,7 @@ def main():
             scripts[(m, c["id"])] = c["script"]
             if how == "not-run":
                 continue
-            d = top / "raw" / "t" / "runs" / "t-z6" / m / c["id"]
+            d = top / "raw" / "t" / "runs" / "t-llm-qa20" / m / c["id"]
             d.mkdir(parents=True, exist_ok=True)
             run = {"runner": c["script"].split("/")[-1], "started": RUN_STARTED,
                    "ended": "2026-11-10T09:31:00.0000000+09:00", "argv": c["args"], "status": "OK",
@@ -212,7 +212,7 @@ def main():
         if k != {"right": 20, "n": 20, "wrong": []}:
             bad.append(f"{m}: reference key {k}")
     # tools/qa20_key.py: the cells' records, then its three stops (one line each, exit 1)
-    src = json.loads((top / "raw/t/runs/t-z6/Qwen3-1.7B/task-litert-lm_igpu_gpu/run1.json").read_text())
+    src = json.loads((top / "raw/t/runs/t-llm-qa20/Qwen3-1.7B/task-litert-lm_igpu_gpu/run1.json").read_text())
     notext = json.loads(json.dumps(src))
     del notext["rows"][4]["text"]
     unknown = json.loads(json.dumps(src))
@@ -241,7 +241,7 @@ def main():
         bad.append(f"RESULTS_LLM.md: {n_none} rows with no verdict, want {len(NO_VERDICT)}")
     # tools/lint.py on three cells whose verdict lost its prompt check after results.py: a second prefill turn in each
     # log of one LiteRT-LM cell, other prompt ids in one row of a record, a JSON without llm.task.prompt_ids_same
-    runs = top / "raw/t/runs/t-z6"
+    runs = top / "raw/t/runs/t-llm-qa20"
     for p in (runs / "Qwen3-0.6B/task-litert-lm_cpu_cpu/run1.prompts").glob("*.stderr.txt"):
         p.write_text(p.read_text(encoding="utf-8").replace("(Total 1 turns)", "(Total 2 turns)", 1), encoding="utf-8")
     rec = runs / "Qwen3-1.7B/task-openvino-genai_cpu_cpu/run1.json"

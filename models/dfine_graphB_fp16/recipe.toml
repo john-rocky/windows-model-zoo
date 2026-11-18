@@ -65,13 +65,13 @@ public = "mlboydaisuke/D-FINE-S-OpenVINO@7ac82722660ae1a512f10f6db9cd09a156eaa28
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -201,13 +201,13 @@ runtime = "onnxruntime-cuda"
 device = "rtx"
 form = "z1-onnx-fp16"
 line = "task-detection"
-venv = "z1-cuda"
+venv = "vision-zoo-cuda"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16",
   "--form",
@@ -227,13 +227,13 @@ runtime = "onnxruntime-openvino"
 device = "igpu"
 form = "z1-onnx-fp32"
 line = "task-detection"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16",
   "--form",
@@ -255,13 +255,13 @@ runtime = "onnxruntime-openvino"
 device = "npu"
 form = "z1-onnx-fp32"
 line = "task-detection"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16",
   "--form",
@@ -283,13 +283,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-detection"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dfine_graphB_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dfine_graphB_fp16",
   "--form",

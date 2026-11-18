@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 1087 MHz, 14001 MHz, 18.33 W, 0 %, 0 MiB, 53",
                    "availGB":  23.9
                },
-    "command":  "C:\\src\\walk2\\.venv-z1-ov\\Scripts\\python.exe -u C:\\src\\walk2\\pc\\run_vision_task.py --model sam2_decoder --spec C:\\src\\walk2\\pc\\z5_spec.json --work C:\\src\\walk2\\work\\sam2_decoder --form blob --engine ovblob --out C:\\src\\walk2\\runs\\walk2-rest\\sam2_decoder\\task-ovnpu_pre\\run1.json",
+    "command":  "C:\\src\\walk2\\.venv-vision-zoo-ov\\Scripts\\python.exe -u C:\\src\\walk2\\pc\\run_vision_task.py --model sam2_decoder --spec C:\\src\\walk2\\pc\\vision_task_spec.json --work C:\\src\\walk2\\work\\sam2_decoder --form blob --engine ovblob --out C:\\src\\walk2\\runs\\walk2-rest\\sam2_decoder\\task-ovnpu_pre\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

@@ -5,7 +5,7 @@
   "--package",
   "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-generic-cpu-4\\v4",
   "--id",
-  "z6-qwen3-0.6b-generic-cpu:1",
+  "llm-qa20-qwen3-0.6b-generic-cpu:1",
   "--device",
   "cpu",
   "--ep",
@@ -306,50 +306,50 @@
    ]
   },
   {
-   "command": "foundry model unregister z6-qwen3-0.6b-generic-cpu:1",
+   "command": "foundry model unregister llm-qa20-qwen3-0.6b-generic-cpu:1",
    "exit": 3,
    "s": 0.69,
    "tail": [
-    "● error: No local registration matches 'z6-qwen3-0.6b-generic-cpu:1'.",
+    "● error: No local registration matches 'llm-qa20-qwen3-0.6b-generic-cpu:1'.",
     "Hint: Pass a registered local alias or exact canonical model ID."
    ]
   },
   {
-   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-generic-cpu z6-qwen3-0.6b-generic-cpu:1 --task chat-completion --device cpu --supports-tool-calling false --supports-reasoning false --execution-provider CPUExecutionProvider",
+   "command": "foundry model register C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-0.6b-generic-cpu llm-qa20-qwen3-0.6b-generic-cpu:1 --task chat-completion --device cpu --supports-tool-calling false --supports-reasoning false --execution-provider CPUExecutionProvider",
    "exit": 0,
    "s": 0.38,
    "tail": [
-    "■ note: Alias: z6-qwen3-0.6b",
-    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-generic-cpu",
+    "■ note: Alias: llm-qa20-qwen3-0.6b",
+    "■ note: Folder: C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-0.6b-generic-cpu",
     "■ note: Task: chat-completion",
     "■ note: Files were not copied; the original folder is retained and must remain ",
     "available.",
-    "■ note: Next: foundry run z6-qwen3-0.6b-generic-cpu:1"
+    "■ note: Next: foundry run llm-qa20-qwen3-0.6b-generic-cpu:1"
    ]
   },
   {
-   "command": "foundry model load z6-qwen3-0.6b-generic-cpu:1",
+   "command": "foundry model load llm-qa20-qwen3-0.6b-generic-cpu:1",
    "exit": 0,
    "s": 4.14,
    "tail": [
-    "■ Loading model (z6-qwen3-0.6b-generic-cpu:1)",
-    "● success: Loaded 'z6-qwen3-0.6b' (CPU variant 'z6-qwen3-0.6b-generic-cpu:1') into memory."
+    "■ Loading model (llm-qa20-qwen3-0.6b-generic-cpu:1)",
+    "● success: Loaded 'llm-qa20-qwen3-0.6b' (CPU variant 'llm-qa20-qwen3-0.6b-generic-cpu:1') into memory."
    ]
   },
   {
-   "command": "foundry model unload z6-qwen3-0.6b-generic-cpu:1",
+   "command": "foundry model unload llm-qa20-qwen3-0.6b-generic-cpu:1",
    "exit": 0,
    "s": 0.54,
    "tail": [
-    "● success: Unloaded 'z6-qwen3-0.6b-generic-cpu:1' from memory."
+    "● success: Unloaded 'llm-qa20-qwen3-0.6b-generic-cpu:1' from memory."
    ]
   },
   {
-   "command": "foundry model unregister z6-qwen3-0.6b-generic-cpu:1",
+   "command": "foundry model unregister llm-qa20-qwen3-0.6b-generic-cpu:1",
    "exit": 0,
    "s": 0.05,
    "tail": [
-    "● success: Removed registration IDs: z6-qwen3-0.6b-generic-cpu:1.",
+    "● success: Removed registration IDs: llm-qa20-qwen3-0.6b-generic-cpu:1.",
     "■ note: Model files and original folders were preserved."
    ]
   },
@@ -399,11 +399,11 @@
  },
  "package": {
   "src": "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\qwen3-0.6b-generic-cpu-4\\v4",
-  "dir": "C:\\src\\zoo-template\\work\\foundry\\z6-qwen3-0.6b-generic-cpu",
+  "dir": "C:\\src\\zoo-template\\work\\foundry\\llm-qa20-qwen3-0.6b-generic-cpu",
   "changed": {
    "chat_template.jinja": "the identity template",
    "genai_config.json": "search do_sample false, repetition_penalty 1.0 (plain greedy)",
-   "inference_model.json": "Name z6-qwen3-0.6b-generic-cpu:1, PromptTemplate {Content} (Foundry reads chat_template.jinja first)"
+   "inference_model.json": "Name llm-qa20-qwen3-0.6b-generic-cpu:1, PromptTemplate {Content} (Foundry reads chat_template.jinja first)"
   }
  },
  "foundry_version": "0.13.0",
@@ -421,7 +421,7 @@
  "workload": {
   "ref": "C:\\src\\zoo-template\\refs\\Qwen3-0.6B\\ref.json",
   "prompts": 21,
-  "id": "z6-qwen3-0.6b-generic-cpu:1",
+  "id": "llm-qa20-qwen3-0.6b-generic-cpu:1",
   "task": "chat-completion",
   "device": "cpu",
   "ep": "CPUExecutionProvider",

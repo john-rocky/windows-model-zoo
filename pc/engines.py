@@ -1,8 +1,8 @@
-"""The engines of the LLM task cells, made on the PC from their public sources (stdlib only), as pc/z6_spec.json's
-engines.sources names them; pc/z6_setup.py then checks every .exe / .dll against the record of the files the cells
+"""The engines of the LLM task cells, made on the PC from their public sources (stdlib only), as pc/llm_qa20_spec.json's
+engines.sources names them; pc/llm_qa20_setup.py then checks every .exe / .dll against the record of the files the cells
 ran (engines.dirs). Writes logs\\engines-<make>.json and exits 1 when a part fails.
 
-    python engines.py --spec <root>\\pc\\z6_spec.json --root <root> --make llama|cuda12|litert-src|litert|openvino
+    python engines.py --spec <root>\\pc\\llm_qa20_spec.json --root <root> --make llama|cuda12|litert-src|litert|openvino
 
   llama       the llama.cpp release zips of b11721 (edge-llm-bench windows/engine-pins.json's pins: URL, size, sha256)
               into <root>\\engines_src, unpacked into <root>\\engines\\llama-cpu, llama-gpu (Vulkan) and llama-cuda

@@ -41,7 +41,7 @@
    "--model",
    "sam2_decoder_fixed",
    "--spec",
-   "C:\\src\\mz-npu-rerun\\pc\\z5_spec.json",
+   "C:\\src\\mz-npu-rerun\\pc\\vision_task_spec.json",
    "--work",
    "C:\\src\\mz-npu-rerun\\work\\sam2_decoder_fixed",
    "--form",

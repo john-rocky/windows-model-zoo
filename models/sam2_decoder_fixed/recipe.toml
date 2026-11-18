@@ -54,13 +54,13 @@ public = "mlboydaisuke/SAM2-hiera-tiny-OpenVINO@99c46885748cffa52b69d8caa11464b3
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "sam2_decoder_fixed",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -166,13 +166,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-mask"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "sam2_decoder_fixed",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\sam2_decoder_fixed",
   "--form",

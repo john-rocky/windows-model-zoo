@@ -60,13 +60,13 @@ public = "mlboydaisuke/ssdlite320-mobilenetv3-openvino@89a246e64d0e795582e422e65
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "ssdlite_mobilenetv3_320_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -196,13 +196,13 @@ runtime = "onnxruntime-cuda"
 device = "rtx"
 form = "z1-onnx-fp16"
 line = "task-detection"
-venv = "z1-cuda"
+venv = "vision-zoo-cuda"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "ssdlite_mobilenetv3_320_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\ssdlite_mobilenetv3_320_fp16",
   "--form",
@@ -222,13 +222,13 @@ runtime = "onnxruntime-openvino"
 device = "npu"
 form = "z1-onnx-fp32"
 line = "task-detection"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "ssdlite_mobilenetv3_320_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\ssdlite_mobilenetv3_320_fp16",
   "--form",
@@ -250,13 +250,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-detection"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "ssdlite_mobilenetv3_320_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\ssdlite_mobilenetv3_320_fp16",
   "--form",

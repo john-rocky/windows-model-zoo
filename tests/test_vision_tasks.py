@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The vision task lines on synthetic outputs (Mac, no model runs). For each model of pc/z5_spec.json: a near copy of
+"""The vision task lines on synthetic outputs (Mac, no model runs). For each model of pc/vision_task_spec.json: a near copy of
 the reference passes the model's line, a broken copy fails it, a non-finite first input is counted by the instruments
 (and the line still gives a verdict or a reason, never a crash), and the reference values serialize. For the codec,
 the reference's own SI-SDR is high on the aligned line (task-codec-aligned) and far below 0 dB without the offset
@@ -26,7 +26,7 @@ def word(p):
 
 
 def main():
-    spec = json.loads((ROOT / "pc" / "z5_spec.json").read_text())["models"]
+    spec = json.loads((ROOT / "pc" / "vision_task_spec.json").read_text())["models"]
     rng = np.random.default_rng(7)
     unexpected = 0
     for m, ms in sorted(spec.items()):

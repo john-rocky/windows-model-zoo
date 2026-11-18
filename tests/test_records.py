@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Fixture records through the repo's own pipeline (Mac, no model runs). Copies the tracked files to a scratch folder,
-writes synthetic PC records there for the references and task cells of pc/z5_spec.json (in the shapes
+writes synthetic PC records there for the references and task cells of pc/vision_task_spec.json (in the shapes
 pc/ref_vision_task.py, pc/run_vision_task.py and pc/chain.ps1 write; four cells broken on purpose: a failing output,
 an error record, no outputs file, other inputs), runs tools/results.py (absolute --runs / --refs inside the copy),
 tools/table.py and tools/lint.py there, and checks each cell's verdict, the compact references and the generated
@@ -96,7 +96,7 @@ def run(top, *args):
 
 def main():
     keep = "--keep" in sys.argv[1:]
-    spec = json.loads((ROOT / "pc" / "z5_spec.json").read_text())["models"]
+    spec = json.loads((ROOT / "pc" / "vision_task_spec.json").read_text())["models"]
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="zoo-test-")).resolve()   # macOS: /var is /private/var
     top = tmp / "repo"
     files = subprocess.run(["git", "-C", str(ROOT), "ls-files", "-z", "-co", "--exclude-standard"], capture_output=True,

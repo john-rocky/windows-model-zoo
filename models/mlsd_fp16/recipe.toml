@@ -45,13 +45,13 @@ public = "mlboydaisuke/M-LSD-tiny-OpenVINO@db488937a8c23fa5f2f6b59f5be70b5044960
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "mlsd_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -181,13 +181,13 @@ runtime = "onnxruntime-openvino"
 device = "npu"
 form = "z1-onnx-fp32"
 line = "task-line-segments"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "mlsd_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\mlsd_fp16",
   "--form",
@@ -209,13 +209,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-line-segments"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "mlsd_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\mlsd_fp16",
   "--form",

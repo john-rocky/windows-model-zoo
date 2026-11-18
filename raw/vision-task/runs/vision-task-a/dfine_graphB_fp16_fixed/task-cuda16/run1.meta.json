@@ -27,7 +27,7 @@
                    "nvidia":  "P0, 9630 MHz, 14001 MHz, 17.42 W, 0 %, 0 MiB, 47",
                    "availGB":  24.7
                },
-    "command":  "C:\\src\\zoo-template\\.venv-z1-cuda\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model dfine_graphB_fp16_fixed --spec C:\\src\\zoo-template\\pc\\z5_spec.json --work C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed --form fp16 --engine ort --ep cuda --out C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16_fixed\\task-cuda16\\run1.json",
+    "command":  "C:\\src\\zoo-template\\.venv-vision-zoo-cuda\\Scripts\\python.exe -u C:\\src\\zoo-template\\pc\\run_vision_task.py --model dfine_graphB_fp16_fixed --spec C:\\src\\zoo-template\\pc\\vision_task_spec.json --work C:\\src\\zoo-template\\work\\dfine_graphB_fp16_fixed --form fp16 --engine ort --ep cuda --out C:\\src\\zoo-template\\runs\\vision-task-a\\dfine_graphB_fp16_fixed\\task-cuda16\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

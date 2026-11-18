@@ -44,13 +44,13 @@ public = "mlboydaisuke/SINet-V2-Camouflage-OpenVINO@30fd63d4c645aa528a22b6791359
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "sinet",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -180,13 +180,13 @@ runtime = "onnxruntime-openvino"
 device = "npu"
 form = "z1-onnx-fp32"
 line = "task-mask"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "sinet",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\sinet",
   "--form",
@@ -208,13 +208,13 @@ runtime = "openvino"
 device = "npu"
 form = "z1-npu-blob"
 line = "task-mask"
-venv = "z1-ov"
+venv = "vision-zoo-ov"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "sinet",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\sinet",
   "--form",

@@ -51,7 +51,7 @@
    "--package",
    "C:\\Users\\USER\\.foundry\\cache\\models\\Microsoft\\gemma-4-e2b-it-generic-gpu-3\\v3",
    "--id",
-   "z6-gemma-4-e2b-it-generic-gpu:1",
+   "llm-qa20-gemma-4-e2b-it-generic-gpu:1",
    "--device",
    "gpu",
    "--task",
@@ -264,7 +264,7 @@
   "workload": {
    "ref": "C:\\src\\zoo-template\\refs\\gemma-4-E2B-it\\ref.json",
    "prompts": 21,
-   "id": "z6-gemma-4-e2b-it-generic-gpu:1",
+   "id": "llm-qa20-gemma-4-e2b-it-generic-gpu:1",
    "task": "vision-language-chat",
    "device": "gpu",
    "ep": null,

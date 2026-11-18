@@ -1,6 +1,6 @@
-"""The inputs and the reference of one vision task model (an untimed step; the venv z1-ort).
+"""The inputs and the reference of one vision task model (an untimed step; the venv vision-zoo-ort).
 
-    python ref_vision_task.py --model <m> --spec <pc\\z5_spec.json> --fixtures <fixtures> --suites <suites>
+    python ref_vision_task.py --model <m> --spec <pc\\vision_task_spec.json> --fixtures <fixtures> --suites <suites>
         --work <work\\m> --out <refs\\m\\ref.json>
 
 1. files: the ones this step reads (the fp32 form, the upstream graph, the downstream head, the host files), each

@@ -34,13 +34,13 @@ public = "mlboydaisuke/DewarpNet-OpenVINO@ace77f6bff29c42d34b690a30b313b76e6d829
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "dewarp",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -170,13 +170,13 @@ runtime = "onnxruntime-openvino"
 device = "igpu"
 form = "z1-onnx-fp32"
 line = "task-warp"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dewarp",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dewarp",
   "--form",

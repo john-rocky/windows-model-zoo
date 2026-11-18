@@ -1,10 +1,10 @@
 """A Foundry Local LLM cell: the package files of a Foundry variant, registered as a local model whose chat template
 returns the message content as it is, then the reference's rendered prompts through the daemon's REST; one JSON.
 
-    python run_llm_foundry.py --package <folder> --id z6-<name>:1 --device cpu|gpu [--ep <provider>]
+    python run_llm_foundry.py --package <folder> --id llm-qa20-<name>:1 --device cpu|gpu [--ep <provider>]
         [--task chat-completion|vision-language-chat] --work <folder> --cuda12 <dll folder> [--daemon-env K=V ...]
         --ref <ref.json> --out run.json [--max-new 48] [--gate-max-new 16]
-    python run_llm_foundry.py --cleanup --id z6-<name>:1 --cuda12 <dll folder>   # pc/chain.ps1 after a killed run
+    python run_llm_foundry.py --cleanup --id llm-qa20-<name>:1 --cuda12 <dll folder>   # pc/chain.ps1 after a killed run
 
 Foundry Local's REST has no raw-prompt route (/v1/completions = 404) and its chat wraps the messages with the folder's
 chat_template.jinja (PLAN.md section 3, the probes of 11-10 07:54-07:56). So: <work>\\<name> = hard links of the

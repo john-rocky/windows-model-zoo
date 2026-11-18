@@ -5,7 +5,7 @@
   "--model",
   "dmcount",
   "--spec",
-  "C:\\src\\zoo-template\\pc\\z5_spec.json",
+  "C:\\src\\zoo-template\\pc\\vision_task_spec.json",
   "--fixtures",
   "C:\\src\\zoo-template\\fixtures",
   "--suites",

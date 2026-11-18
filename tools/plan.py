@@ -153,16 +153,16 @@ def steps(models):
                        step("fetch", "uv", ["run", "--no-project", "--python", "3.12", "--python-preference", "only-managed",
                                             "python", "{ROOT}\\pc\\fetch.py", "--manifest", "{ROOT}\\pc\\hub_manifest.json",
                                             "--dest", "{HUB}", "--root", "{ROOT}"], timeout=240)]}
-    # the LLM task cells' engines (pc/engines.py, from the public sources pc/z6_spec.json names): "engines" without the
+    # the LLM task cells' engines (pc/engines.py, from the public sources pc/llm_qa20_spec.json names): "engines" without the
     # lock, "engines-litert" = the LiteRT-LM build, a step over 8 GB that runs under this zoo's own lock (its slot
     # comes from the shared PC's order: launch it then), and the OpenVINO runtime that build fetched
-    llm = [m for m, r in models if any(x.get("script") == "pc/z6_setup.py" for x in r.get("step") or [])]
+    llm = [m for m, r in models if any(x.get("script") == "pc/llm_qa20_setup.py" for x in r.get("step") or [])]
     if llm:
-        spec = json.loads((PC / "z6_spec.json").read_text(encoding="utf-8"))
+        spec = json.loads((PC / "llm_qa20_spec.json").read_text(encoding="utf-8"))
         need = {d for m in llm for d in spec["models"][m].get("engines") or []}
 
         def eng(what, **k):
-            return step(f"engines-{what}", "py", ["{ROOT}\\pc\\engines.py", "--spec", "{ROOT}\\pc\\z6_spec.json", "--root",
+            return step(f"engines-{what}", "py", ["{ROOT}\\pc\\engines.py", "--spec", "{ROOT}\\pc\\llm_qa20_spec.json", "--root",
                                                   "{ROOT}", "--make", what], venv="genai", **k)
         lst = []
         if any(spec["models"][m].get("foundry_cells") for m in llm):

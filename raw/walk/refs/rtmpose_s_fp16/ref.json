@@ -5,7 +5,7 @@
   "--model",
   "rtmpose_s_fp16",
   "--spec",
-  "C:\\src\\model-zoo\\pc\\z5_spec.json",
+  "C:\\src\\model-zoo\\pc\\vision_task_spec.json",
   "--fixtures",
   "C:\\src\\model-zoo\\fixtures",
   "--suites",

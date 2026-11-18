@@ -5,7 +5,7 @@
   "--model",
   "dfine_graphB_fp16_fixed",
   "--spec",
-  "C:\\src\\walk2\\pc\\z5_spec.json",
+  "C:\\src\\walk2\\pc\\vision_task_spec.json",
   "--work",
   "C:\\src\\walk2\\work\\dfine_graphB_fp16_fixed",
   "--form",

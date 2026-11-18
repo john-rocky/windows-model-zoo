@@ -47,10 +47,10 @@ label = "Q4_K_M; Qwen/Qwen2.5-1.5B-Instruct-GGUF@91cad51170dc346986eccefdc2dd33a
 from = "Qwen/Qwen2.5-1.5B-Instruct-GGUF"
 
 [[step]]
-name = "z6-setup"
+name = "llm-qa20-setup"
 venv = "genai"
-script = "pc/z6_setup.py"
-args = ["--spec", "{ROOT}\\pc\\z6_spec.json", "--model", "Qwen2.5-1.5B-Instruct", "--root", "{ROOT}"]
+script = "pc/llm_qa20_setup.py"
+args = ["--spec", "{ROOT}\\pc\\llm_qa20_spec.json", "--model", "Qwen2.5-1.5B-Instruct", "--root", "{ROOT}"]
 timeout_min = 60
 
 [[step]]

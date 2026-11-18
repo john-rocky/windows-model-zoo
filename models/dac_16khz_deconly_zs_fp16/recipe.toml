@@ -42,13 +42,13 @@ public = "mlboydaisuke/DAC-16kHz-OpenVINO@56365f4d4aed0fa9eaae847b19fc57933332f8
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "dac_16khz_deconly_zs_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -187,13 +187,13 @@ runtime = "onnxruntime-openvino"
 device = "igpu"
 form = "z1-onnx-fp32"
 line = "task-codec-aligned"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "dac_16khz_deconly_zs_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\dac_16khz_deconly_zs_fp16",
   "--form",

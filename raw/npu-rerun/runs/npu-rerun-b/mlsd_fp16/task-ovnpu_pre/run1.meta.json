@@ -30,7 +30,7 @@
                    "nvidia":  "P0, 532 MHz, 14001 MHz, 18.67 W, 0 %, 0 MiB, 52",
                    "availGB":  23.5
                },
-    "command":  "C:\\src\\mz-npu-rerun\\.venv-z1-ov\\Scripts\\python.exe -u C:\\src\\mz-npu-rerun\\pc\\run_vision_task.py --model mlsd_fp16 --spec C:\\src\\mz-npu-rerun\\pc\\z5_spec.json --work C:\\src\\mz-npu-rerun\\work\\mlsd_fp16 --form blob --engine ovblob --out C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json",
+    "command":  "C:\\src\\mz-npu-rerun\\.venv-vision-zoo-ov\\Scripts\\python.exe -u C:\\src\\mz-npu-rerun\\pc\\run_vision_task.py --model mlsd_fp16 --spec C:\\src\\mz-npu-rerun\\pc\\vision_task_spec.json --work C:\\src\\mz-npu-rerun\\work\\mlsd_fp16 --form blob --engine ovblob --out C:\\src\\mz-npu-rerun\\runs\\npu-rerun-b\\mlsd_fp16\\task-ovnpu_pre\\run1.json",
     "engine":  {
                    "exitCode":  0,
                    "timedOut":  false,

@@ -45,13 +45,13 @@ public = "mlboydaisuke/Metric3D-v2-OpenVINO@984de058e2ba8da22517cfe17cb826a65f7b
 [[step]]
 name = "task-ref"
 phase = "before"
-venv = "z1-ort"
+venv = "vision-zoo-ort"
 script = "pc/ref_vision_task.py"
 args = [
   "--model",
   "metric3d_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--fixtures",
   "{FIX}",
   "--suites",
@@ -181,13 +181,13 @@ runtime = "onnxruntime-cuda"
 device = "rtx"
 form = "z1-onnx-fp16"
 line = "task-depth"
-venv = "z1-cuda"
+venv = "vision-zoo-cuda"
 script = "pc/run_vision_task.py"
 args = [
   "--model",
   "metric3d_fp16",
   "--spec",
-  "{ROOT}\\pc\\z5_spec.json",
+  "{ROOT}\\pc\\vision_task_spec.json",
   "--work",
   "{ROOT}\\work\\metric3d_fp16",
   "--form",
