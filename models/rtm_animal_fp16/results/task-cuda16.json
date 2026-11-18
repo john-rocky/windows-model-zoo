@@ -35,7 +35,7 @@
   "text": "points agree 51/51 of those shown"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/rtm_animal_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

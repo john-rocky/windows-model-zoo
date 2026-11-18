@@ -34,7 +34,7 @@
   "text": "boxes paired 16/90 of the reference's, 16/17 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/rtdetr_graphB_fp16_fixed/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

@@ -34,7 +34,7 @@
   "text": "boxes paired 0/39 of the reference's, 0/0 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/ppocr_det_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

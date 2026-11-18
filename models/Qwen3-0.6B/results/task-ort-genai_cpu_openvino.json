@@ -44,7 +44,7 @@
   "text": "answers 11/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/llm-qa20/runs/llm-qa20-c-q06/Qwen3-0.6B/task-ort-genai_cpu_openvino/run1.json",
   "runner": "run_llm_genai.py",
   "argv": [

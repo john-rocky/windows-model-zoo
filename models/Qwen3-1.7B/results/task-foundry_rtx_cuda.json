@@ -44,7 +44,7 @@
   "text": "answers 17/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/llm-qa20/runs/llm-qa20-f/Qwen3-1.7B/task-foundry_rtx_cuda/run1.json",
   "runner": "run_llm_foundry.py",
   "argv": [

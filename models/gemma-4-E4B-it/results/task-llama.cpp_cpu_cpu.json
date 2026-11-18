@@ -44,7 +44,7 @@
   "text": "answers 20/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/llm-qa20/runs/llm-qa20-c-e4b/gemma-4-E4B-it/task-llama.cpp_cpu_cpu/run1.json",
   "runner": "run_llm_llamacpp.py",
   "argv": [

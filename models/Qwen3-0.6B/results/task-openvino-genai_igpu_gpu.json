@@ -44,7 +44,7 @@
   "text": "answers 8/20, gate FAIL"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/llm-qa20/runs/llm-qa20-g-q06/Qwen3-0.6B/task-openvino-genai_igpu_gpu/run1.json",
   "runner": "run_llm_ovg.py",
   "argv": [

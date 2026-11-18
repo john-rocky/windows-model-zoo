@@ -34,7 +34,7 @@
   "text": "boxes paired 90/91 of the reference's, 90/91 of the cell's"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/dfine_graphB_fp16_fixed/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

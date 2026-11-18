@@ -44,7 +44,7 @@
   "text": "answers 19/20, gate PASS"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/llm-qa20/runs/llm-qa20-f/gemma-4-E2B-it/task-foundry_cpu_cpu/run1.json",
   "runner": "run_llm_foundry.py",
   "argv": [

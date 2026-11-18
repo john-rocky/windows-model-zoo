@@ -34,7 +34,7 @@
   "text": "top-1 6/156 (4 not counted)"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/movinet_a0_stream/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

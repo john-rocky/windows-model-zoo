@@ -34,7 +34,7 @@
   "text": "sampling within 1 px 0.00238"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/dewarp/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

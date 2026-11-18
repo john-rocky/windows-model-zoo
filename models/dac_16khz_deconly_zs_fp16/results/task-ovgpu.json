@@ -35,7 +35,7 @@
   "text": "SI-SDR -3.813 dB (reference 7.729 dB)"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-b/dac_16khz_deconly_zs_fp16/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

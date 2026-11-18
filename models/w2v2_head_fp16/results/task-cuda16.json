@@ -34,7 +34,7 @@
   "text": "top-1 59/120"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/w2v2_head_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

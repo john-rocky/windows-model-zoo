@@ -33,7 +33,7 @@
   "text": "AbsRel 0.693247"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/metric3d_fp16/task-cuda16/run1.json",
   "runner": "run_vision_task.py",
   "argv": [

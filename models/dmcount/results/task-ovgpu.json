@@ -33,7 +33,7 @@
   "text": "counts agree 10/20"
  },
  "source": {
-  "by": "windows-zoo-template",
+  "by": "private working repo",
   "record": "raw/vision-task/runs/vision-task-a/dmcount/task-ovgpu/run1.json",
   "runner": "run_vision_task.py",
   "argv": [
